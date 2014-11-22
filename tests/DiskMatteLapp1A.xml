@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Test Name="Lappskrivning 1A">
+  <TestQuestion Category="Grundläggande">
+    <Question>
+      När är två grafer isomorfa med varandra?
+    </Question>
+    <Answer>
+      Två grafer [math]G_1, G_2[/math] är isomorfa om det finns en funktion [math]alpha: V_1 \rightarrow V_2[/math] som är bijektiv så att [math]{x, y} in E_1 iff {alpha(x), alpha(y)} in E_2[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Grundläggande">
+    <Question>
+      Vad är sambandet mellan valenserna för hörnen i en graf och kanterna?
+    </Question>
+    <Answer>
+      [math]sum_(v in V) \delta(v) = 2|E|[/math].
+      En följdsats till detta är: Antalet [b]udda hörn[/b] är [b]jämnt[/b].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Grundläggande">
+    <Question>
+      Vad innebär det att en graf är reguljär?
+    </Question>
+    <Answer>
+      Att alla valenser för alla hörn är lika.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder">
+    <Question>
+      Vad är en vandring i en graf?
+    </Question>
+    <Answer>
+      [math]v_1 v_2 ... v_k[/math] där [math]v_i v_(i+1) in E[/math] för [math]i = 1,...,k-1[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder">
+    <Question>
+      Vad är en väg i en graf?
+    </Question>
+    <Answer>
+      En vandring där alla passerade kanter är olika.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder">
+    <Question>
+      Vad är en krets i en graf?
+    </Question>
+    <Answer>
+      En sluten väg, dvs en väg [math]v_1 v_2 ... v_k[/math] med [math]v_i = v_(k+1)[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder">
+    <Question>
+      Vad är en stig i en graf?
+    </Question>
+    <Answer>
+      En väg med alla [math]v_i[/math] (hörn) olika.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder">
+    <Question>
+      Vad är en cykel i en graf?
+    </Question>
+    <Answer>
+      En krets [math]v_1 v_2 ... v_(k+1)[/math] med [math]v_1 v_2 ... v_k[/math] en stig, [math]k ge 3[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder2">
+    <Question>
+      Vad innebär det att en graf är sammanhängande?
+    </Question>
+    <Answer>
+      Om två godtyckliga hörn i grafen kan förbindas med en väg, vandring eller stig. 
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder2">
+    <Question>
+      Vad är en komponent i en graf?
+    </Question>
+    <Answer>
+      En maximal sammanhängande del.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder2">
+    <Question>
+      Vad är en Hamiltoncykel?
+    </Question>
+    <Answer>
+     En cykel genom alla grafens hörn.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder2">
+    <Question>
+      Vad är en Hamiltonstig?
+    </Question>
+    <Answer>
+      En stig genom alla grafens hörn.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder2">
+    <Question>
+      Vad är en Eulerkrets?
+    </Question>
+    <Answer>
+      En krets som passerar varje kant i grafen exakt en gång.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder2">
+    <Question>
+      Vad är en Eulerväg?
+    </Question>
+    <Answer>
+      En väg som passerar varje kant exakt en gång.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder2">
+    <Question>
+      Vad säger Ores sats?
+    </Question>
+    <Answer>
+      En graf [math]G = (V, E)[/math] med [math]|V| ge 3[/math] som uppfyller villkoret [math](x, y in V, x != y, {x, y} not in E) \implies delta(x)+delta(y) ge |V|[/math] är hamiltonsk.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder2">
+    <Question>
+      Hur kan man avgöra om en graf [math]G[/math] har en eulerkrets?
+    </Question>
+    <Answer>
+      Om och endast om: G är [b]sammanhängande[/b] (+ ev. lösa hörn) och G har [b]inga udda hörn[/b].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder2">
+    <Question>
+      Hur kan man avgöra om en graf [math]G[/math] har en eulerväg?
+    </Question>
+    <Answer>
+      Om och endast om: G är [b]sammanhängande[/b] (+ ev. lösa hörn) och G har [b]precis två udda hörn[/b].
+      Detta innebär även att det inte finns någon Eulerkrets enligt Eulersats.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Träd">
+    <Question>
+      Vad är ett träd (i grafteori)?
+    </Question>
+    <Answer>
+      Det är en graf som är sammanhängande och saknar cykler. Den betecknas: [math]T=(V, E)[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Träd">
+    <Question>
+      Vad för egenskaper har ett träd?
+    </Question>
+    <Answer>
+      Om [math]T=(V, E)[/math] är ett träd då gäller:
+      [math]x, y in V \implies[/math]det finns en [b]unik stig[/b] från [math]x[/math] till [math]y[/math] i [math]T[/math]. Detta kan användas som en alternativ [b]definition[/b] av ett träd.
+      Om en kant i [math]E[/math] tas bort, så återstår det två träd.
+      [math]|E|=|V|-1[/math] (om [math]|V| ge 1[/math]).
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Träd">
+	  <Question>
+	  	Vad är ett spännande träd?
+	  </Question>
+	  <Answer>
+	  	För varje sammanhängande graf [math]G=(V, E)[/math] finns ett [b]spännande träd[/b], dvs ett träd [math]T=(V, E')[/math] med [math]E' \subseteq E[/math].
+	  </Answer>
+	</TestQuestion>
+  <TestQuestion Category="Hörnfärgning">
+    <Question>
+      Vad är en hörnfärgning?
+    </Question>
+    <Answer>
+      Det är en funktion [math]c:V \rightarrow NN[/math] så att [math]{x, y} in E \implies c(x)!=c(y)[/math].
+      Dvs: Två grannar har olika färger.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnfärgning">
+    <Question>
+      Vad är det kromatiska talet?
+    </Question>
+    <Answer>
+      Det kromatiska talet, [math]chi(G)[/math] anger det minsta antalet färger som [math]G[/math] kan hörnfärgas med.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnfärgning">
+	  <Question>
+	 		Ange en girig algorithm för att approximera [math]chi(G)[/math].
+	  </Question>
+	  <Answer>
+	  	1. Ordna hörnen: [math]v_1, v_2,..., v_n[/math] på något sätt.
+	  	2. Välj i ordning [math]c(v_1), c(v_2), ...[/math] minsta möjliga, givet de redan valda färgerna.
+	  </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Hörnfärgning">
+	  <Question>
+	  	Om [math]G[/math] har maxvalens [math]k[/math] vad kan man då säga om [math]chi(G)[/math]?
+	  </Question>
+	  <Answer>
+	  	[math]chi(G) le k + 1[/math].
+	  	Om [math]G[/math] är sammanhängande och inte reguljär så är [math]chi(G) le k[/math].
+	  </Answer>
+	</TestQuestion>
+  <TestQuestion Category="Bipartit">
+    <Question>
+      Vad är en bipartit graf?
+    </Question>
+    <Answer>
+      Det är en graf som kan delas i två "olika" hörnmängder där det inte finns några kanter mellan hörnen i samma mängd.
+      Dvs: [math]G=(X \cup Y, E)[/math]: [math]X \cap Y = \emptyset[/math], alla kanter mellan [math]X[/math] och [math]Y[/math].
+      Att en graf är bipartit är också ekvivalent med att grafen är 2-hörnfärgbar.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Bipartit">
+	  <Question>
+	  	Hur kan man avgöra om en graf [math]G[/math] är bipartit?
+	  </Question>
+	  <Answer>
+	  	[math]G[/math] bipartit [math]iff[/math] [math]G[/math] är 2-hörnfärgbar.
+	  	[math]G[/math] bipartit [math]iff[/math] [math]G[/math] det finns [b]ingen udda cykel[/b] i [math]G[/math].
+	  </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bipartit">
+	  <Question>
+	  	Vad för relation finns mellan [math]X, Y[/math] hörnen och kanterna i en bipartit graf [math]G[/math]?
+	  </Question>
+	  <Answer>
+	  	[math]sum_(x in X) delta(x) = sum_(y in Y) delta(y) = |E|[/math].
+	  </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bipartit">
+	  <Question>
+	  	När har en bipartit graf [math]G=(X \cup Y, E)[/math] en hamiltoncykel?
+	  </Question>
+	  <Answer>
+	  	Om [math]|X|=|Y|[/math].
+	  </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bipartit">
+	  <Question>
+	  	När har en bipartit graf [math]G=(X \cup Y, E)[/math] en hamiltonstig?
+	  </Question>
+	  <Answer>
+	  	Om [math]|X|=|Y|[/math] eller [math]|X|=|Y| +- 1[/math].
+	  </Answer>
+	</TestQuestion>
+  <TestQuestion Category="PlanäraGrafer">
+    <Question>
+      Vad är skillnaden mellan en plan och en planär graf?
+    </Question>
+    <Answer>
+      En [b]plan graf[/b] är en graf som ritas i ett plan utan korsande kanter.
+      En [b]planär graf[/b] är en graf som är isomorf med en plan graf, den [b]kan ritas[/b] i planet utan korsande kanter.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="PlanäraGrafer">
+    <Question>
+      Vad är en den dualla grafen till en plan graf för något?
+    </Question>
+    <Answer>
+    	Om [math]G[/math] är en plan graf då är den dualla grafen:
+      Ett hörn i var och en av [math]G[/math]:s ytor.
+      En kant genom var och en av [math]G[/math]:s kanter.
+      Den brukar betecknas: [math]G^_|_[/math].
+      Om [math]v =[/math]antalet hörn i [math]G[/math], [math]r =[/math]antalet ytor i [math]G[/math] och [math]e =[/math]antalet kanter i [math]G[/math].
+      Då gäller: [math]v^_|_=r, e^_|_=e[/math].
+      Om [math]G[/math] är plan och sammanhängande så är [math](G^_|_)^_|_[/math] isomorf med [math]G[/math] och [math]r^_|_=v[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="PlanäraGrafer2">
+    <Question>
+      Vad säger Eulers polyederformel?
+    </Question>
+    <Answer>
+      Om [math]G[/math] är en plan graf med [math]v[/math] hörn, [math]e[/math] hörn, [math]r[/math] ytor och [math]c[/math] komponenter så gäller: [math]v-e+r=c+1[/math].
+      Om [math]G[/math] är plan och sammanhängande ([math]c=1[/math]) så gäller: [math]v-e+r=2[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="PlanäraGrafer2">
+    <Question>
+      Avgör om en graf [math]G[/math] är planär.
+    </Question>
+    <Answer>
+      För en sammanhängande planär graf med [math]e ge 2[/math] gäller: [math]3v ge e + 6[/math]
+      Allmänt för en planär graf (med [math]c[/math] komponenter): [math]3v ge e + 3(c+1)[/math]).
+      Om grafen också är bipartit så gäller: [math]2v ge e+4[/math].
+
+      En planär graf har hörn med valens [math]le 5[/math].
+
+      Kuratowskis/Wagners sats ger att: Grafen [math]G[/math] är icke-planär om och endast om en graf som är ismorf med [math]K_5[/math] eller [math]K_(3,3)[/math] kan fås från [math]G[/math] med en följd (0 eller fler av operationerna):
+      * Ta bort ett hörn (och dess kanter).
+      * Ta bort en kant.
+      * "Sudda" ut ett hörn med valens 2 (bevara en kant mellan dess grannar).
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Kantfärgning">
+    <Question>
+      Vad är en kantfärgning?
+    </Question>
+    <Answer>
+      Det är en funktion: [math]f: E \rightarrow NN[/math] så att [math]|e_1 \cap e_2|=1 \implies f(e_1) != f(e_2)[/math].
+      Dvs kanter till samma hörn har olika färg.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Kantfärgning">
+	  <Question>
+	  	Vad är det kromatiska indexet för en graf [math]G[/math]?
+	  </Question>
+	  <Answer>
+	  	Det minsta antalet färger som [math]G[/math] kan kantfärgas med.
+	  	Betecknas: [math]chi'(G)[/math].
+	  </Answer>
+	</TestQuestion>
+  <TestQuestion Category="Kantfärgning">
+    <Question>
+      Avgör det kromatiska indexet för en graf.
+    </Question>
+    <Answer>
+     Om [math]G[/math] har maxvalens [math]k[/math] så gäller: [math]k le chi'(G) le k+1[/math].
+     Speciellt om [math]G[/math] är bipartit: [math]chi'(G)=k[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Matchning">
+    <Question>
+      Vad är en matchning?
+    </Question>
+    <Answer>
+      En matching [math]M[/math] för grafen [math]G=(V, E)[/math] är en delmängd till E ([math]M \subseteq E[/math]) där kanterna i [math]M[/math] är parvis disjunkta.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Matchning">
+    <Question>
+      Vad är en fullständig matchning?
+    </Question>
+    <Answer>
+      Att varje hörn i [math]G[/math] ingår i någon kant i [math]M[/math]. Om [math]G[/math] är bipartit kräver vi bara att [math]|M|=|X|[/math], dvs att alla hörn i [math]X[/math] är matchade.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Matchning">
+    <Question>
+      Vad är en maximal matchning?
+    </Question>
+    <Answer>
+      En matching där så många av grafens hörn som möjligt ingår, [math]|M|[/math] är maximal.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Matchning">
+    <Question>
+      Hur kan man bestämma storleken på den maximala matchning?
+    </Question>
+    <Answer>
+      Den ges av [math]|M|=|X|-d(G)[/math] där [math]d(G)=max_(A \subseteq X)(|A|-|J(A)|)[/math] där [math]A, J(A)[/math] är samma som i Halls sats.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Matchning">
+    <Question>
+      Vad säger Halls sats?
+    </Question>
+    <Answer>
+      En bipartit [math]G=(X \cup Y, E)[/math] har en fullständig matchning om och endast om: [math]|J(A)| ge |A|[/math] för alla [math]A \subseteq X[/math].
+      där [math]J(A) = { y in Y | {x, y} in E text{ för något } x in A }[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Matchning">
+    <Question>
+      Vad är en transversal?
+    </Question>
+    <Answer>
+      Om [math]S={S_i}_(i in I)[/math] är en uppsättning mängder kallas en mängd [math]{s_i}_(i in I)[/math] med [math]s_i in S_i[/math] för alla [math]i in I[/math] och [math]s_i != s_j[/math] för en [b]transversal[/b] för [math]S[/math].
+      En transversal existerar om och endast om: [math]|uuu_(i in H) S_i| ge |H|[/math] för alla [math]H \subseteq I[/math].
+
+      Alternativt: Vi kan även se det som en bipartit graf istället med: [math]X=S[/math] (mängderna) och [math]Y=|uuu_(i in I) S_i|[/math] (alla mängders element). Då existerar en en transversal om och endast om det finns en fullständig matchning (Halls sats).
+    </Answer>
+  </TestQuestion>
+</Test>

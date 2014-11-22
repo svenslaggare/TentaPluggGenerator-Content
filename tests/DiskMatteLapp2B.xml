@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Test Name="Lappskrivning 2B">
+	<TestQuestion Category="Gruppverkan">
+		<Question>
+			Vad innebär det att en grupp [math]G[/math] verkar på en mängd [math]X[/math]?
+		</Question>
+		<Answer>
+			Om det finns en funktion: [math]mu: G \times X \rightarrow X[/math] (vi betecknar [math]g(x)[/math] istället för [math]mu(g, x)[/math]) så att [math](g_1g_2)(x)=g_1(g_2(x))[/math] och [math]1(x)=x[/math] för alla [math]x in X[/math]. Varje [math]g[/math] ger då en [b]bijektion[/b] av [math]X[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Gruppverkan">
+		<Question>
+			Låt [math]G[/math] verka på en mängd [math]M[/math] och [math]X[/math] är mängden av färgningar av [math]M[/math] (eller någon annan mängd funktioner på [math]M[/math]) hur defineras då verkan av [math]G[/math] på [math]X[/math]?
+		</Question>
+		<Answer>
+			Den verkar enligt: [math]g(x)(m)=x(g^-1(m))[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Gruppverkan">
+		<Question>
+			Hur defineras en banorna för grupp [math]G[/math] som verkar på en mängd [math]X[/math]?
+		</Question>
+		<Answer>
+			[math]Gx={g(x)|g in G}[/math] för [math]x in X[/math].
+			Banorna ger en [b]partition[/b] av [math]X[/math] där ekvivalensrelationen defineras som: [math]x_1 ~ x_2 iff x_2=g(x_1)[/math] för något [math]g in G[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Gruppverkan">
+		<Question>
+			Hur defineras stabilisatorn för [math]x in X[/math]?
+		</Question>
+		<Answer>
+			[math]G_x = {g in G | g(x) = x}[/math] vilket bildar en delgrupp till [math]G[/math].
+			Allmännare definerar vi [math]G(x \rightarrow y)={g in G|g(x)=y}[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Gruppverkan">
+		<Question>
+			Vad för relation finns det mellan storleken av banorna och stabilisatorn?
+		</Question>
+		<Answer>
+			Låt [math]G[/math] vara en grupp, [math]Gx[/math] banorna för [math]G[/math] på [math]X[/math] och [math]G_x[/math] stabilisatorn för [math]x in X[/math] då gäller: [math]|G|=|Gx|*|G_x|[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Gruppverkan">
+		<Question>
+			Vad är ett elements [math]g in G[/math] fixpunktsmängd i en gruppverkan på mängden [math]X[/math]?
+		</Question>
+		<Answer>
+			Det är elementen som "ligger" stila när ett grupp element [math]g in G[/math] verkar på mängden, dvs: [math]F(g)={x in X | g(x)=x}[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Gruppverkan">
+		<Question>
+			Hur många banor finns det för en gruppverkan [math]G[/math] på mängden [math]X[/math]?
+		</Question>
+		<Answer>
+			Antalet banor = [math]1/|G| sum_(g in G) |F(g)|[/math] där [math]F(g)[/math] är g:s fixpunktsmängd: [math]F(g)={x in X | g(x) = x}[/math]. Satsen brukar kallas för "Burnsides lemma".
+			Det finns alternativa formler för att beräkna antalet banorna, men ovan (enligt Bengt) är lättast att beräkna.
+			[math]sum_(x in X)=1/|Gx|=1/|G| sum_(x in X) |G_x|[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="RingarOchKroppar">
+		<Question>
+			Hur defineras en ring?
+		</Question>
+		<Answer>
+			[math](R, +, \times)[/math] är en ring om:
+			1) [math](R, +)[/math] är en [b]kommuativ grupp[/b] vars identitetselement betecknas [math]0[/math].
+			2) [math](R, \times)[/math] är sluten, assocativ och med identitetselementet [math]1[/math] (dvs alla gruppaxoim utan invers).
+			3) [math]\times[/math] är distributiv med anseende på [math]+[/math]: [math]a(b+c)=ab+ac, (a+b)c=ac+bc[/math] för alla [math]a,b,c in R[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="RingarOchKroppar">
+		<Question>
+			Ge exempel på ringar.
+		</Question>
+		<Answer>
+			[math]ZZ[/math], [math]ZZ_m[/math], [math]M_n(R)[/math] ([math]n \times n[/math]-matriser), [math]R[x][/math] (polynom med koeffcienter i en ring [math]R[/math]).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="RingarOchKroppar">
+		<Question>
+			Hur defineras det att det element [math]x in R[/math] är inverterbart i ringen [math]R[/math]?
+		</Question>
+		<Answer>
+			Om [math]x[/math] har en [b]multiplikativ[/b] invers i [math]R[/math], dvs: Det finns ett element i [math]u in R[/math] så att [math]ux=xu=1[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="RingarOchKroppar">
+		<Question>
+			Vad för egenskap har mängden av inverterbara element ([math]U(R)[/math]) för en ring [math]R[/math]?
+		</Question>
+		<Answer>
+			[math](U(R), \times)[/math] är en grupp.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="RingarOchKroppar">
+		<Question>
+			Ge exempel på mängden av inverterbara element för ringar.
+		</Question>
+		<Answer>
+			[math]U(ZZ)={1, -1}[/math]
+			[math]U(ZZ_m)={r in ZZ_m | sgd(r,m)=1}[/math] vilket ger att antalet blir: [math]|U(ZZ_m)|=phi(m)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="RingarOchKroppar">
+		<Question>
+			Hur defineras en kropp?
+		</Question>
+		<Answer>
+			[math](F, +, \times)[/math] är en kropp om:
+			1) [math](F, +, \times)[/math] är en ring.
+			2) [math](F\\{0}, \times)[/math] är en kommutativ grupp.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="RingarOchKroppar">
+		<Question>
+			Ge exempel på kroppar.
+		</Question>
+		<Answer>
+			[math]RR, CC, QQ, ZZ_p[/math] ([math]p[/math] primtal).
+			Det är värt att nämna att [math]ZZ[/math] [i]inte[/i] är en kropp för att endast [math]{1, -1}[/math] har invers!.
+		</Answer>
+	</TestQuestion>
+</Test>

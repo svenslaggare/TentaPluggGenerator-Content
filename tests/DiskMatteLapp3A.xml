@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Test Name="Lappskrivning 3A">
+  <TestQuestion Category="Grundlägganbde">
+    <Question>
+      Vad innebär additionsprincipen?
+    </Question>
+    <Answer>
+      Om [math]A, B[/math] är ändliga, disjunkta mängder så gäller: [math]|A \cup B| = |A|+|B|[/math].
+      Allmänt så gäller: [math]|A_1 \cup ... \cup A_m| = |A_1|+ ... +|A_m|[/math]
+      om [math]A_i \cap A_j = \emptyset[/math] då [math]i != j[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Grundläggande">
+  <Question>
+    Vad innebär multiplikationsprincipen?
+  </Question>
+  <Answer>
+    Att [math]|X \times Y|=|X||Y|[/math] där [math]X, Y[/math] är ändliga.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ValsFormler">
+  <Question>
+    Hur lyder formeln för antalet ordnat val med upprepning av m st ur en mängd [math]Y[/math]?
+  </Question>
+  <Answer>
+    Om [math]X, Y[/math] ändliga och [math]|X|=m,|Y|=n[/math] är det: [math]n^m[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ValsFormlerExempel">
+  <Question>
+    Ge exempel på "ordnat val med upprepning".
+  </Question>
+  <Answer>
+    Om [math]Y[/math] är en ändlig mängd.
+    Antalet element i [math]Y^m = Y \times Y \times ... \times Y[/math] ([math]m[/math] st).
+    Antalet ord av längd m ur alfabetet Y.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="FunktionRäkning">
+  <Question>
+    Om [math]X, Y[/math] ändliga och [math]|X|=m,|Y|=n[/math], hur många funktioner [math]f:X \rightarrow Y[/math] finns det?
+  </Question>
+  <Answer>
+    Det kan ses som "ordnat val med upprepning", dvs: [math]n^m[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ValsFormler">
+  <Question>
+    Hur lyder formeln för antalet ordnade val utan upprepning av m st ur en mängd [math]Y[/math]?
+  </Question>
+  <Answer>
+    Om [math]X, Y[/math] ändliga och [math]|X|=m,|Y|=n[/math] är det:
+    [math]n(n-1) ... (n-m+1)=(n)_m=(n!)/((n-m)!)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ValsFormlerExempel">
+  <Question>
+    Ge exempel på "ordnat val utan upprepning".
+  </Question>
+  <Answer>
+    Antalet ord av längd m i en mängd Y utan uppreppning.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="FunktionRäkning">
+  <Question>
+     Om [math]X, Y[/math] ändliga och [math]|X|=m,|Y|=n[/math], hur många injektioner [math]f:X \rightarrow Y[/math] finns det?
+  </Question>
+  <Answer>
+    Det kan ses som "ordnat val utan upprepning", dvs: [math]n(n-1) ... (n-m+1)=(n)_m=(n!)/((n-m)!)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ValsFormler">
+  <Question>
+    Hur lyder formeln för antalet oordnande val utan uppreppning av r st från en mängd [math]Y[/math]?
+  </Question>
+  <Answer>
+    Det är binomialtalet, [latex]\(n \choose r\)[/latex].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ValsFormlerExempel">
+  <Question>
+    Ge exempel på "oordnat val utan uppreppning".
+  </Question>
+  <Answer>
+    Antalet r-delmängder som kan tas ifrån en mängd av storlek n.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Binomial">
+  <Question>
+    Hur kan man beräkna binomialtalet, [latex]\(n \choose r\)[/latex]?
+  </Question>
+  <Answer>
+    [latex]\({n \choose r} = \frac{(n)_r}{r!} = \frac{n!}{r!(n-r)!} \)[/latex]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Binomial">
+  <Question>
+    Hur defineras binomialtalet rekursivt?
+  </Question>
+  <Answer>
+    [latex]
+    \(\left\{
+    \begin{array}{l l}
+      {n \choose r} = {n-1 \choose r-1} + {n-1 \choose r} \quad 0 \lt r \lt n\\
+      {n \choose 0} = {n \choose n} = 1 \quad \text{annars}
+    \end{array} \right.\)
+    [/latex]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Binomial">
+  <Question>
+    Hur lyder binomialsatsen?
+  </Question>
+  <Answer>
+    [latex]\( (a+b)^n = \sum_{k=0}^{n} {n \choose r} a^{n-k}b^k \)[/latex]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Multinomial">
+  <Question>
+    Hur kan man beräkna multinomialtalet [latex]\(n \choose {n_1,n_2,...,n_k}\)[/latex]?
+  </Question>
+  <Answer>
+    [latex]\({n \choose {n_1,n_2,...,n_k}} = \frac{n!}{n_1!n_2!...n_k!} \)[/latex] 
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Multinomial">
+  <Question>
+    Vad för krav ställer vi på [latex]\(n \choose {n_1,n_2,...,n_k}\)[/latex] om det ska vara ett multinomialtal?
+  </Question>
+  <Answer>
+    Att [math]n_i ge 0, sum_(i=1)^k n_i = n[/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Multinomial">
+  <Question>
+    Vad beskriver ett multinomialtal?
+  </Question>
+  <Answer>
+    Antalet sätt att fördela [math]n[/math] st (olika) element i [math]k[/math] lådor med [math]n_i[/math] st i låda [math]i[/math].
+    Antalet funktioner [math]f:NN_n \rightarrow NN_k[/math] som antar värdet [math]i[/math] precis [math]n_i[/math] gånger.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Multinomial">
+  <Question>
+    Hur lyder multinomialsatsen?
+  </Question>
+  <Answer>
+    [latex]\( (x_1+x_2+...+x_k)^n = \sum_{\sum {n_i=n}, n_i \ge 0} {n \choose {n_1,n_2,...,n_k}} x_1^{n_1} x_2^{n_2} ... x_k^{n_k} \)[/latex]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ValsFormler">
+  <Question>
+    Hur lyder formeln för antalet oordnade val av r st från en n-mängd med upprepning?
+  </Question>
+  <Answer>
+    Den är: [latex]\( {{r+n-1} \choose {r}} \)[/latex].
+    Det gäller även att: [latex]\( {{r+n-1} \choose {r}} = {{r+n-1} \choose {n-1}} \)[/latex].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ValsFormlerExempel">
+  <Question>
+    Ge exempel på "oordnat val med upprepning"
+  </Question>
+  <Answer>
+    Antalet sätt att fördela [math]r[/math] st identiska element i [math]n[/math] st särskiljbara lådor.
+    Antalet sätt att skriva [math]r=k_1+k_2+...+k_n, k_i ge 0, k_i in NN[/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Grundläggande">
+  <Question>
+    Vad innebär principen om inklusion och exklusion?
+  </Question>
+  <Answer>
+    För två mängder, [math]A, B[/math] så gäller: [math]|A \cup B|=|A|+|B|-|A \cap B|[/math].
+    För tre mängder, [math]A, B, C[/math] så gäller: [math]|A \cup B \cup C|=|A|+|B|+|C|-|A \cap B|-|A \cap C|-|B \cap C|+|A \cap B \cap C|[/math].
+    Allmänt för [math]n[/math] mängder så gäller: [math]|A_1 \cup A_2 \cup ... \cup A_n| = sum_{i=1}^n (-1)^(i+1) \alpha_i[/math] där [math]\alpha_i = sum_(1 le k_1 lt k_2 lt ... lt k_i le n) |A_(k_1) \cup ... \cup A_(k_i)|[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Ekvivalensrelationer">
+  <Question>
+    Vad är en ekivalensrelation [math]R[/math] på en mängd [math]X[/math]?
+  </Question>
+  <Answer>
+    Det är en relation som uppfyller:
+    i) [math]x R x[/math] (reflexiv).
+    ii) [math]x R y \implies y R x[/math] (symmetrisk).
+    iii) [math]x R y text{ och } y R z \implies x R z[/math] (transitiv).
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Ekvivalensrelationer">
+  <Question>
+    Vad är en ekvivalensklass?  
+  </Question>
+  <Answer>
+    Låt [math]R[/math] vara en ekvivalensrelation på mängden [math]X[/math].
+    Då är en ekvivalensklass en icke-tom mängd [math]C \subseteq X[/math] med hänsyn till [math]R[/math] som uppfyller:
+    i) Två godtyckliga element av [math]C[/math] är [math]R[/math]-relaterade.
+    ii) [math]C[/math] innehåller alla element av [math]X[/math] som är [math]R[/math] relaterade till något element i [math]C[/math].
+    Dvs: om [math]x in C[/math] då är [math]y in C iff xRy[/math].
+    Alt: [math]C_x = [x] = { y in X | yRx }, [x] != \emptyset[/math], alla [math]x in X[/math] och [math][x] \cap [y] != \emptyset \implies [x] = [y][/math].
+    Detta ger att ekvivalensklasser är antigen disjunkta eller identiska.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Partition">
+  <Question>
+    Vad är en partition av mängden [math]X[/math]?
+  </Question>
+  <Answer>
+    Det är en familj av mängder, [math]{ X_i | i in I }[/math] så att:
+    i) [math]X_i != \emptyset, X_i \subseteq X[/math].
+    ii) [math]\cup_(i in I) X_i = X[/math].
+    iii) [math]i != j \implies X_i \cap X_j = \emptyset[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Partition">
+  <Question>
+    Vad för relation finns det mellan ekvivalensrelationer på en mängd [math]X[/math] och partitioner av [math]X[/math]?
+  </Question>
+  <Answer>
+    Det motsvarar varandra bijektivt.
+    En ekvivalensrelation på [math]X[/math] ger en partition (i ekvivalensklasser).
+    En partition av [math]X[/math] ger en ekvivalensrelation med [math]X_i[/math]:na som ekvivalensklasser.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Partition">
+  <Question>
+    Hur många partitioner finns det av en [i]n[/i]-mängd i precis [i]k[/i] delar?
+  </Question>
+  <Answer>
+    Det bestäms av Stirlingtalet, [math]S(n, k)[/math].
+    Som defineras rekursivt: 
+    [math]
+      { (S(n,k)=S(n-1,k-1)+kS(n-1,k), 1 lt k lt n), (S(n,1)=S(n,n)=1, 1 le n) :}
+    [/math]
+    Detta ger en triangel, se: [url]http://www.math.kth.se/~bek/diskret/rekap/14/f15.pdf[/url].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Partition">
+  <Question>
+    Hur defineras Stirlingtalet, [math]S(n, k)[/math]?
+  </Question>
+  <Answer>
+    Rekursivt: 
+    [math]
+      { (S(n,k)=S(n-1,k-1)+kS(n-1,k), 1 lt k lt n), (S(n,1)=S(n,n)=1, 1 le n) :}
+    [/math]
+    Detta ger en triangel, se: [url]http://www.math.kth.se/~bek/diskret/rekap/14/f15.pdf[/url].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Partition">
+  <Question>
+    Vad beskriver Stirlingtalet [math]S(n,k)?[/math]
+  </Question>
+  <Answer>
+    Det är antalet partitioner av en [i]n[/i]-mängd i precis [i]k[/i] delar.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="FunktionRäkning">
+  <Question>
+    Om [math]X, Y[/math] ändliga och [math]|X|=n,|Y|=k[/math], hur många surjektioner för funktionen [math]f:X \rightarrow Y[/math] finns det?
+  </Question>
+  <Answer>
+    Det är: [math]k!S(n,k)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Ekvivalensrelationer">
+  <Question>
+    Hur många ekvivalensrelationer finns det för en mängd [math]X[/math]?
+  </Question>
+  <Answer>
+    Det är lika med antalet partitioner av [math]X[/math], som är: [math]sum_(k=1)^n S(n, k)[/math].
+  </Answer>
+</TestQuestion>
+  <TestQuestion Category="FunktionRäkning">
+    <Question>
+      Om [math]X, Y[/math] ändliga och [math]|X|=|Y|=n[/math], hur många bijektioner för funktionen [math]f:X \rightarrow Y[/math] finns det?
+    </Question>
+    <Answer>
+      Det är [math]n![/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="KombinastoriskGrafteori">
+    <Question>
+      Hur många vandringar finns det mellan två hörn, [math]i, j[/math] av längd [math]r[/math] i grafen [math]G[/math]?
+    </Question>
+    <Answer>
+      Låt [math]A[/math] vara en grannmatris för grafen [math]G[/math].
+      Då blir antalet vandringar av längd [math]r[/math] lika med [math]ij[/math]-elementet i matrisen [math]A^r[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="KombinastoriskGrafteori">
+    <Question>
+      Vad anger det kromatiska polynomet [math]P_(G)(lambda)[/math] för grafen [math]G[/math]?
+    </Question>
+    <Answer>
+      Antalet sätt att hörnfärga grafen [math]G[/math] med (högst) [math]lambda[/math] färger.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="KombinastoriskGrafteori">
+    <Question>
+      Hur kan man beräkna det kromatiska polynomet [math]P_(G)(lambda)[/math] för grafen [math]G[/math]?
+    </Question>
+    <Answer>
+      Ges av följande rekursionsformel: [math]P_(G)(lambda)=P_(G-e)(lambda)-P_(G//e)(lambda)[/math]
+      där [math]P_(G-e)(lambda)[/math] är grafen [math]G[/math] med kanten [math]e[/math] borttagen och [math]P_(G//e)(lambda)[/math] är [math]G[/math] med [math]e[/math] kontraherad (dvs hörnen i [math]e[/math]:s ändar sammanslagna).
+      Basfallet blir: [math]P_((V, \emptyset))(lambda)=lambda^|V|[/math].
+    </Answer>
+  </TestQuestion>
+</Test>

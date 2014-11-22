@@ -1,0 +1,1347 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Test Name="Tenta A">
+  <TestQuestion Category="Grundläggande">
+    <Question>
+      När är två grafer isomorfa med varandra?
+    </Question>
+    <Answer>
+      Två grafer [math]G_1, G_2[/math] är isomorfa om det finns en funktion [math]alpha: V_1 \rightarrow V_2[/math] som är bijektiv så att [math]{x, y} in E_1 iff {alpha(x), alpha(y)} in E_2[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Grundläggande">
+    <Question>
+      Vad är sambandet mellan valenserna för hörnen i en graf och kanterna?
+    </Question>
+    <Answer>
+      [math]sum_(v in V) \delta(v) = 2|E|[/math].
+      En följdsats till detta är: Antalet [b]udda hörn[/b] är [b]jämnt[/b].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Grundläggande">
+    <Question>
+      Vad innebär det att en graf är reguljär?
+    </Question>
+    <Answer>
+      Att alla valenser för alla hörn är lika.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder">
+    <Question>
+      Vad är en vandring i en graf?
+    </Question>
+    <Answer>
+      [math]v_1 v_2 ... v_k[/math] där [math]v_i v_(i+1) in E[/math] för [math]i = 1,...,k-1[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder">
+    <Question>
+      Vad är en väg i en graf?
+    </Question>
+    <Answer>
+      En vandring där alla passerade kanter är olika.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder">
+    <Question>
+      Vad är en krets i en graf?
+    </Question>
+    <Answer>
+      En sluten väg, dvs en väg [math]v_1 v_2 ... v_k[/math] med [math]v_i = v_(k+1)[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder">
+    <Question>
+      Vad är en stig i en graf?
+    </Question>
+    <Answer>
+      En väg med alla [math]v_i[/math] (hörn) olika.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder">
+    <Question>
+      Vad är en cykel i en graf?
+    </Question>
+    <Answer>
+      En krets [math]v_1 v_2 ... v_(k+1)[/math] med [math]v_1 v_2 ... v_k[/math] en stig, [math]k ge 3[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder2">
+    <Question>
+      Vad innebär det att en graf är sammanhängande?
+    </Question>
+    <Answer>
+      Om två godtyckliga hörn i grafen kan förbindas med en väg, vandring eller stig. 
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder2">
+    <Question>
+      Vad är en komponent i en graf?
+    </Question>
+    <Answer>
+      En maximal sammanhängande del.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder2">
+    <Question>
+      Vad är en Hamiltoncykel?
+    </Question>
+    <Answer>
+     En cykel genom alla grafens hörn.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder2">
+    <Question>
+      Vad är en Hamiltonstig?
+    </Question>
+    <Answer>
+      En stig genom alla grafens hörn.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder2">
+    <Question>
+      Vad är en Eulerkrets?
+    </Question>
+    <Answer>
+      En krets som passerar varje kant i grafen exakt en gång.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder2">
+    <Question>
+      Vad är en Eulerväg?
+    </Question>
+    <Answer>
+      En väg som passerar varje kant exakt en gång.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder2">
+    <Question>
+      Vad säger Ores sats?
+    </Question>
+    <Answer>
+      En graf [math]G = (V, E)[/math] med [math]|V| ge 3[/math] som uppfyller villkoret [math](x, y in V, x != y, {x, y} not in E) \implies delta(x)+delta(y) ge |V|[/math] är hamiltonsk.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder2">
+    <Question>
+      Hur kan man avgöra om en graf [math]G[/math] har en eulerkrets?
+    </Question>
+    <Answer>
+      Om och endast om: G är [b]sammanhängande[/b] (+ ev. lösa hörn) och G har [b]inga udda hörn[/b].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnföljder2">
+    <Question>
+      Hur kan man avgöra om en graf [math]G[/math] har en eulerväg?
+    </Question>
+    <Answer>
+      Om och endast om: G är [b]sammanhängande[/b] (+ ev. lösa hörn) och G har [b]precis två udda hörn[/b].
+      Detta innebär även att det inte finns någon Eulerkrets enligt Eulersats.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Träd">
+    <Question>
+      Vad är ett träd (i grafteori)?
+    </Question>
+    <Answer>
+      Det är en graf som är sammanhängande och saknar cykler. Den betecknas: [math]T=(V, E)[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Träd">
+    <Question>
+      Vad för egenskaper har ett träd?
+    </Question>
+    <Answer>
+      Om [math]T=(V, E)[/math] är ett träd då gäller:
+      [math]x, y in V \implies[/math]det finns en [b]unik stig[/b] från [math]x[/math] till [math]y[/math] i [math]T[/math]. Detta kan användas som en alternativ [b]definition[/b] av ett träd.
+      Om en kant i [math]E[/math] tas bort, så återstår det två träd.
+      [math]|E|=|V|-1[/math] (om [math]|V| ge 1[/math]).
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Träd">
+    <Question>
+      Vad är ett spännande träd?
+    </Question>
+    <Answer>
+      För varje sammanhängande graf [math]G=(V, E)[/math] finns ett [b]spännande träd[/b], dvs ett träd [math]T=(V, E')[/math] med [math]E' \subseteq E[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnfärgning">
+    <Question>
+      Vad är en hörnfärgning?
+    </Question>
+    <Answer>
+      Det är en funktion [math]c:V \rightarrow NN[/math] så att [math]{x, y} in E \implies c(x)!=c(y)[/math].
+      Dvs: Två grannar har olika färger.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnfärgning">
+    <Question>
+      Vad är det kromatiska talet?
+    </Question>
+    <Answer>
+      Det kromatiska talet, [math]chi(G)[/math] anger det minsta antalet färger som [math]G[/math] kan hörnfärgas med.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnfärgning">
+    <Question>
+      Ange en girig algorithm för att approximera [math]chi(G)[/math].
+    </Question>
+    <Answer>
+      1. Ordna hörnen: [math]v_1, v_2,..., v_n[/math] på något sätt.
+      2. Välj i ordning [math]c(v_1), c(v_2), ...[/math] minsta möjliga, givet de redan valda färgerna.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Hörnfärgning">
+    <Question>
+      Om [math]G[/math] har maxvalens [math]k[/math] vad kan man då säga om [math]chi(G)[/math]?
+    </Question>
+    <Answer>
+      [math]chi(G) le k + 1[/math].
+      Om [math]G[/math] är sammanhängande och inte reguljär så är [math]chi(G) le k[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Bipartit">
+    <Question>
+      Vad är en bipartit graf?
+    </Question>
+    <Answer>
+      Det är en graf som kan delas i två "olika" hörnmängder där det inte finns några kanter mellan hörnen i samma mängd.
+      Dvs: [math]G=(X \cup Y, E)[/math]: [math]X \cap Y = \emptyset[/math], alla kanter mellan [math]X[/math] och [math]Y[/math].
+      Att en graf är bipartit är också ekvivalent med att grafen är 2-hörnfärgbar.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Bipartit">
+    <Question>
+      Hur kan man avgöra om en graf [math]G[/math] är bipartit?
+    </Question>
+    <Answer>
+      [math]G[/math] bipartit [math]iff[/math] [math]G[/math] är 2-hörnfärgbar.
+      [math]G[/math] bipartit [math]iff[/math] [math]G[/math] det finns [b]ingen udda cykel[/b] i [math]G[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Bipartit">
+    <Question>
+      Vad för relation finns mellan [math]X, Y[/math] hörnen och kanterna i en bipartit graf [math]G[/math]?
+    </Question>
+    <Answer>
+      [math]sum_(x in X) delta(x) = sum_(y in Y) delta(y) = |E|[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Bipartit">
+    <Question>
+      När har en bipartit graf [math]G=(X \cup Y, E)[/math] en hamiltoncykel?
+    </Question>
+    <Answer>
+      Om [math]|X|=|Y|[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Bipartit">
+    <Question>
+      När har en bipartit graf [math]G=(X \cup Y, E)[/math] en hamiltonstig?
+    </Question>
+    <Answer>
+      Om [math]|X|=|Y|[/math] eller [math]|X|=|Y| +- 1[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="PlanäraGrafer">
+    <Question>
+      Vad är skillnaden mellan en plan och en planär graf?
+    </Question>
+    <Answer>
+      En [b]plan graf[/b] är en graf som ritas i ett plan utan korsande kanter.
+      En [b]planär graf[/b] är en graf som är isomorf med en plan graf, den [b]kan ritas[/b] i planet utan korsande kanter.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="PlanäraGrafer">
+    <Question>
+      Vad är en den dualla grafen till en plan graf för något?
+    </Question>
+    <Answer>
+      Om [math]G[/math] är en plan graf då är den dualla grafen:
+      Ett hörn i var och en av [math]G[/math]:s ytor.
+      En kant genom var och en av [math]G[/math]:s kanter.
+      Den brukar betecknas: [math]G^_|_[/math].
+      Om [math]v =[/math]antalet hörn i [math]G[/math], [math]r =[/math]antalet ytor i [math]G[/math] och [math]e =[/math]antalet kanter i [math]G[/math].
+      Då gäller: [math]v^_|_=r, e^_|_=e[/math].
+      Om [math]G[/math] är plan och sammanhängande så är [math](G^_|_)^_|_[/math] isomorf med [math]G[/math] och [math]r^_|_=v[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="PlanäraGrafer2">
+    <Question>
+      Vad säger Eulers polyederformel?
+    </Question>
+    <Answer>
+      Om [math]G[/math] är en plan graf med [math]v[/math] hörn, [math]e[/math] hörn, [math]r[/math] ytor och [math]c[/math] komponenter så gäller: [math]v-e+r=c+1[/math].
+      Om [math]G[/math] är plan och sammanhängande ([math]c=1[/math]) så gäller: [math]v-e+r=2[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="PlanäraGrafer2">
+    <Question>
+      Avgör om en graf [math]G[/math] är planär.
+    </Question>
+    <Answer>
+      För en sammanhängande planär graf med [math]e ge 2[/math] gäller: [math]3v ge e + 6[/math]
+      Allmänt för en planär graf (med [math]c[/math] komponenter): [math]3v ge e + 3(c+1)[/math]).
+      Om grafen också är bipartit så gäller: [math]2v ge e+4[/math].
+
+      En planär graf har hörn med valens [math]le 5[/math].
+
+      Kuratowskis/Wagners sats ger att: Grafen [math]G[/math] är icke-planär om och endast om en graf som är ismorf med [math]K_5[/math] eller [math]K_(3,3)[/math] kan fås från [math]G[/math] med en följd (0 eller fler av operationerna):
+      * Ta bort ett hörn (och dess kanter).
+      * Ta bort en kant.
+      * "Sudda" ut ett hörn med valens 2 (bevara en kant mellan dess grannar).
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Kantfärgning">
+    <Question>
+      Vad är en kantfärgning?
+    </Question>
+    <Answer>
+      Det är en funktion: [math]f: E \rightarrow NN[/math] så att [math]|e_1 \cap e_2|=1 \implies f(e_1) != f(e_2)[/math].
+      Dvs kanter till samma hörn har olika färg.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Kantfärgning">
+    <Question>
+      Vad är det kromatiska indexet för en graf [math]G[/math]?
+    </Question>
+    <Answer>
+      Det minsta antalet färger som [math]G[/math] kan kantfärgas med.
+      Betecknas: [math]chi'(G)[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Kantfärgning">
+    <Question>
+      Avgör det kromatiska indexet för en graf.
+    </Question>
+    <Answer>
+     Om [math]G[/math] har maxvalens [math]k[/math] så gäller: [math]k le chi'(G) le k+1[/math].
+     Speciellt om [math]G[/math] är bipartit: [math]chi'(G)=k[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Matchning">
+    <Question>
+      Vad är en matchning?
+    </Question>
+    <Answer>
+      En matching [math]M[/math] för grafen [math]G=(V, E)[/math] är en delmängd till E ([math]M \subseteq E[/math]) där kanterna i [math]M[/math] är parvis disjunkta.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Matchning">
+    <Question>
+      Vad är en fullständig matchning?
+    </Question>
+    <Answer>
+      Att varje hörn i [math]G[/math] ingår i någon kant i [math]M[/math]. Om [math]G[/math] är bipartit kräver vi bara att [math]|M|=|X|[/math], dvs att alla hörn i [math]X[/math] är matchade.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Matchning">
+    <Question>
+      Vad är en maximal matchning?
+    </Question>
+    <Answer>
+      En matching där så många av grafens hörn som möjligt ingår, [math]|M|[/math] är maximal.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Matchning">
+    <Question>
+      Hur kan man bestämma storleken på den maximala matchning?
+    </Question>
+    <Answer>
+      Den ges av [math]|M|=|X|-d(G)[/math] där [math]d(G)=max_(A \subseteq X)(|A|-|J(A)|)[/math] där [math]A, J(A)[/math] är samma som i Halls sats.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Matchning">
+    <Question>
+      Vad säger Halls sats?
+    </Question>
+    <Answer>
+      En bipartit [math]G=(X \cup Y, E)[/math] har en fullständig matchning om och endast om: [math]|J(A)| ge |A|[/math] för alla [math]A \subseteq X[/math].
+      där [math]J(A) = { y in Y | {x, y} in E text{ för något } x in A }[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Matchning">
+    <Question>
+      Vad är en transversal?
+    </Question>
+    <Answer>
+      Om [math]S={S_i}_(i in I)[/math] är en uppsättning mängder kallas en mängd [math]{s_i}_(i in I)[/math] med [math]s_i in S_i[/math] för alla [math]i in I[/math] och [math]s_i != s_j[/math] för en [b]transversal[/b] för [math]S[/math].
+      En transversal existerar om och endast om: [math]|uuu_(i in H) S_i| ge |H|[/math] för alla [math]H \subseteq I[/math].
+
+      Alternativt: Vi kan även se det som en bipartit graf istället med: [math]X=S[/math] (mängderna) och [math]Y=|uuu_(i in I) S_i|[/math] (alla mängders element). Då existerar en en transversal om och endast om det finns en fullständig matchning (Halls sats).
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Heltal">
+  <Question>
+    Vad är heltals division mellan två heltal a, b?
+  </Question>
+  <Answer>
+    Om [math]a, b in ZZ, b != 0[/math] så finns entydliga [math]q, r in ZZ[/math]
+    så att [math]a=bq+r[/math] och [math]0 lt=r lt|b|[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    Hur lyder algoritmen för att skriva ett naturligt tal i bas t, där [math]tgt=2[/math].
+  </Question>
+  <Answer>
+    [math]
+      {
+        (x = q_0t+r_0, text{}),
+        (q_0 = q_1t+r_1, text{}),
+        (\vdots, text{}),
+        (\vdots, 0lt=r_iltt),
+        (q_(n-2) = q_(n-1)t+r_(n-1), text{}),
+        (q_(n-1) = q_nt+r_n, q_n = 0 text{ (gäller för något n)})
+      :}
+    [/math]
+
+    Då blir [math]x[/math] uttryckt i bas [math]t[/math]: [math]x=r_nr_(n-1)...r_2r_1r_0[/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    Vad innebär det att "d delar m" (d|m).
+  </Question>
+  <Answer>
+    Det innebär att det finns ett [math]q in ZZ[/math] så att [math]m=dq[/math], dvs resten är noll vid heltalsdivision.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    Vad är ett primtal?
+  </Question>
+  <Answer>
+    Det är ett heltal [math]p gt 1[/math] som bara har delarna: [math]+-1, +-p[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    Vad innebär det att ett [math]d in ZZ[/math] är en största gemensam delare (sgd)
+    till [math]m, n in ZZ[/math]?
+  </Question>
+  <Answer>
+    Den uppfyller följande vilkor:
+    [math]
+      {:
+        (text{i) } d|m, d|n, text{gemensam delare}),
+        (text{ii) } c|m, c|n \implies c|d, text{"störst"}),
+        (text{iii) } d ge 0, text{entydlighet})
+      :}
+    [/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    Hur lyder Euklides algoritm för att beräkna sgd?
+  </Question>
+  <Answer>
+    Återupprepa: [math]sgd(m,n) = sgd(n, m-nq)[/math].
+    tills man kommer till: [math]sgd(d,0)=d[/math].
+    Då är [math]d[/math] s.g.d till m och n.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    Vad innebär det att m och n är relativt prima?
+  </Question>
+  <Answer>
+    Det innebär att: [math]sgd(m, n)=1[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    Vad för relation finns det mellan [math]d=gcd(m,n)[/math] och [math]m,n in ZZ[/math]?
+  </Question>
+  <Answer>
+    Det finns alltid [math]a,b in ZZ[/math] så att: [math]d=ma+nb[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    När den [b]linjära diofantiska ekvatationen[/b]: 
+    [math]mx+ny=c[/math] lösbar för [math]m,n,c in ZZ[/math]?
+  </Question>
+  <Answer>
+    Om och endast om: [math]sgd(m, n)|c[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    Vad är den allmänna lösningen till den [b]linjära diofantiska ekvatationen[/b]: 
+    [math]mx+ny=c[/math]?
+  </Question>
+  <Answer>
+    Om [math]m!=n!=0[/math] och [math]d=sgd(m,n)=am+bn[/math] så ges [b]alla[/b] lösningar
+    av: [math]{(x=c/da+n/dk), (y=c/db-m/dk):}[/math], [math]k in ZZ[/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    Vad innebär Aritmetikens fundamental sats?
+  </Question>
+  <Answer>
+    Det innebär att varje heltal [math]ge 1[/math] kan på ett entydligt sätt (bortsett från ordningen) uttryckas som en produkt av primtal. 
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik">
+  <Question>
+    Vad innebär det att [math]x \equiv y[/math] (mod m)?
+  </Question>
+  <Answer>
+    Det betyder att: [math]m|(x-y)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik">
+  <Question>
+    Vad är [math]ZZ_m[/math]?
+  </Question>
+  <Answer>
+    Det är mängden av talen: [math]{0, 1, ..., m-1}[/math].
+    Vi definierar [math]+[/math] och [math]*[/math] (ofta betecknat: [math]\oplus[/math], [math]\otimes[/math]) som vanligt mellan två tal i [math]ZZ_m[/math] med med rest mod m.
+    Ett heltal [math]a[/math] som ligger i [math]ZZ_m[/math] betecknas: [math][a]_m[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik">
+  <Question>
+    Vad gäller för produkten och summan mellan två heltal i [math]ZZ_m[/math]?
+  </Question>
+  <Answer>
+    [math][a]_m+[b]_m=[a+b]_m[/math]
+    [math][a]_m*[b]_m=[a*b]_m[/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik">
+  <Question>
+    Vad innebär det att [math]r in ZZ_m[/math] är inverterbart?
+  </Question>
+  <Answer>
+    Det innebär att det finns ett [math]x in ZZ_m[/math] så att [math]rx=1[/math] ligger i [math]ZZ_m[/math].
+    Detta x kallas för r:s invers, [math]r^-1[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik">
+  <Question>
+    När är [math]r in ZZ_m[/math] inverterbart?
+  </Question>
+  <Answer>
+    Om och endast om: [math]sgd(r,m)=1[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik">
+  <Question>
+    Vilka element i [math]ZZ_p[/math] där p är ett primtal, är inverterbara?
+  </Question>
+  <Answer>
+    Alla element i [math]ZZ_p[/math] utom 0.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik">
+  <Question>
+    När är den linjära kongruensen [math]ax \equiv b[/math] (mod m) lösbar?
+  </Question>
+  <Answer>
+    Om och endast om: [math]d=sgd(a,m)|b[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik">
+  <Question>
+    Hur kan man lösa den linjära kongruensen [math]ax \equiv b[/math] (mod m)?
+  </Question>
+  <Answer>
+    [math]ax \equiv b text{ (mod m)} iff ax = b[/math] i [math]ZZ_m[/math] [math] iff ax-km=b[/math] för något [math]k in ZZ[/math].
+    Detta innebär att ekvationen kan ses som en diofantiskt ekvation.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik2">
+  <Question>
+    Vad är Eulers [math]phi[/math]-funktion för något?
+  </Question>
+  <Answer>
+    Det är antalet inverterbara element i [math]ZZ_m[/math].
+    Dvs:
+    Om [math]U_m[/math] är mängden av alla element som är inverterbara i [math]ZZ_m[/math],
+    så är [math]phi(m)=|U_m|=|{x in ZZ |1 le x le m, sgd(x,m)=1}|[/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik2">
+  <Question>
+    Vad säger Eulers sats?
+  </Question>
+  <Answer>
+    Att om: [math]sgd(y,m)=1 \implies y^(phi(m)) \equiv_m 1[/math].
+    Alternativt: Om [math]y in U_m \implies y^(phi(m))=1 in ZZ_m[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik2">
+  <Question>
+    Vad säger Fermats lilla sats?
+  </Question>
+  <Answer>
+    Om p inte delar y (där p är ett primtal), då gäller: [math]y^(p-1) \equiv 1 text{ (mod p)}[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik2">
+  <Question>
+    Vad säger den kinesiska restsatsen?
+  </Question>
+  <Answer>
+    Om [math]m_1,...,m_k in NN[/math], [math]sgd(m_i,m_j)=1[/math] (dvs alla moduler är relativt prima) då [math]i!=j[/math]
+    då har systemet:
+    [math]
+      {
+        (x \equiv_(m1) a_1),
+        (x \equiv_(m2) a_2),
+        (\vdots),
+        (x \equiv_(mk) a_k)
+      :}
+    [/math]
+    en lösning för alla [math]a_1,...,a_k in ZZ[/math] som är unik mod [math]m=m_1...m_k[/math],
+    [math]x \equiv_m y_1a_1+...+y_ka_k[/math] för vissa [math]y_1,...,y_k[/math] oberoende av [math]a_1,...,a_k[/math].
+    (Om ni vill, så kan jag lägga upp algoritmen som man kan använda för att lösa ovanstående system!)
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik2">
+  <Question>
+    Hur beräknas funktionen: [math]f:ZZ_m \rightarrow ZZ_(m_1) \times ... \times ZZ_(m_k)[/math] (där alla moduler är relativt prima)?
+  </Question>
+  <Answer>
+    [math]f([a]_m)=([a]_(m_1),...,[a]_(m_k))[/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik2">
+  <Question>
+   Vad för egenskaper har funktionen [math]f:ZZ_m \rightarrow ZZ_(m_1) \times ... \times ZZ_(m_k)[/math] (där alla moduler är relativt prima)?
+  </Question>
+  <Answer>
+    [math]|ZZ_m|=|ZZ_(m_1) \times ... \times ZZ_(m_k)|[/math]
+    [math]f([a+b]_m)=([a]_(m_1)+[b]_(m_1),...,[a]_(m_k)+[b]_(m_k))=f([a]_m)+f([b]_m)[/math]
+    [math]f([ab]_m)=([a]_(m_1)[b]_(m_1),...,[a]_(m_k)[b]_(m_k))=f([a]_m)f([b]_m)[/math]
+    [math]f^(-1)([a_1]_(m_1),...,[a_k]_(m_k))=[y_1a_1+...+y_ka_k]_m[/math] där [math][y_i]_(m_j)={ (1, i=j), (0, i!=j) :}[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Funktioner">
+  <Question>
+    Vad är en funktion?
+  </Question>
+  <Answer>
+    Det kan ses som en avbildning ifrån två mängder (X till Y): [math]f:X \rightarrow Y[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Funktioner">
+  <Question>
+    Vad innebär att två funktioner: f och g är sammansatta?
+  </Question>
+  <Answer>
+    Om: [math]f:X \rightarrow Y[/math] och [math]g:Y \rightarrow Z[/math] då är den sammansatta
+    funktionen: [math]gf:X \rightarrow Z[/math], dvs: [math](gf)(x)=g(f(x))[/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Funktioner">
+  <Question>
+    Vad innebär det att en funktion [math]f:X \rightarrow Y[/math] är surjektiv?
+  </Question>
+  <Answer>
+    Det innebär att [math]y=f(x)[/math] har [b]minst en[/b] lösning [math]x in X[/math] för alla [math]y in Y[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Funktioner">
+  <Question>
+    Vad innebär det att en funktion [math]f:X \rightarrow Y[/math] är injektiv?
+  </Question>
+  <Answer>
+    Det innebär att [math]y=f(x)[/math] har [b]högst en[/b] lösning [math]x in X[/math] för alla [math]y in Y[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Funktioner">
+  <Question>
+    Vad innebär det att en funktion [math]f:X \rightarrow Y[/math] är bijektiv?
+  </Question>
+  <Answer>
+    Det innebär att [math]y=f(x)[/math] har [b]exakt en[/b] lösning [math]x in X[/math] för alla [math]y in Y[/math], dvs f är både surjektiv och injektiv.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Funktioner">
+  <Question>
+    Om två funktioner f och g är surjektiva/injektiva/bijektiva vad kan man då säga om den sammansatta
+    funktionen gf?
+  </Question>
+  <Answer>
+    Att sammansättningen är också surjektiv/injektiv/bijektiv.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Funktioner">
+  <Question>
+    Hur defineras inversfunktionen till f?
+  </Question>
+  <Answer>
+    En funktion [math]g:Y \rightarrow X[/math] är en inversfunktion till funktionen
+    [math]f:X \rightarrow Y[/math] (betecknad [math]f^(-1)[/math]) om [math]fg=id_Y, gf=id_X[/math]
+    Där [math]id[/math] är identitetsfunktionen som ger tillbacka samma värde som skickades in.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Funktioner">
+  <Question>
+    När är en funktion [math]f:X \rightarrow Y[/math] inverterbar?
+  </Question>
+  <Answer>
+    Om och endast om [math]f[/math] är bijketiv.
+    Detta innebär också att [math]f^(-1)[/math] är en bijektion vilket ger:
+    [math](f^(-1))^(-1)=f[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Kardinalitet">
+  <Question>
+    Vad är en mängd [math]X[/math]:s kardinalitet?
+  </Question>
+  <Answer>
+    Det är antalet element i mängden, betecknat: [math]|X|[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Kardinalitet">
+  <Question>
+    Vad innebär det att mängden [math]X[/math] har n element, dvs [math]|X|=n[/math]?
+  </Question>
+  <Answer>
+    Att det finns en bijektion [math]f:NN_n \rightarrow X[/math]. Vi definerar att den tomma mängden har noll element ([math]|\emptyset| = 0[/math]).
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Kardinalitet">
+  <Question>
+    När har två mängder [math]X,Y[/math] samma kardinalitet?
+  </Question>
+  <Answer>
+    Om och endast om det finns en bijketion [math]f:X \rightarrow Y[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Kardinalitet">
+  <Question>
+    När är en mängd [math]X[/math] ändlig?
+  </Question>
+  <Answer>
+    Om och endast om [math]|X|=n[/math] för något [math]x in NN[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Kardinalitet">
+  <Question>
+    Vad innebär det att en mängd [math]X[/math] är uppräknelig?
+  </Question>
+  <Answer>
+    Att det finns en bijektion [math]f:NN \rightarrow X[/math]. En mängd som inte är upperäknelig
+    säges vara överuppräknelig.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Kardinalitet">
+  <Question>
+    Vad säger Cantors sats?
+  </Question>
+  <Answer>
+    Att för varje mängd [math]X[/math] gäller det att: [math]|P(x)| gt |X|[/math]
+    där [math]P(x)[/math] är potensmängden till [math]X[/math], [math]P(x)={Y|Y \subseteq X}[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Kardinalitet">
+  <Question>
+    Vad innebär postfacksprincipen?
+  </Question>
+  <Answer>
+    Om [math]|X|=n, |Y|=m, n gt m[/math] så finns ingen injektion [math]X \rightarrow Y[/math].
+    "Om [math]n gt m[/math] och [math]n[/math] läggs i [math]m[/math] lådor, så får minst en låda minst två saker."
+  </Answer>
+</TestQuestion>
+  <TestQuestion Category="Grundlägganbde">
+    <Question>
+      Vad innebär additionsprincipen?
+    </Question>
+    <Answer>
+      Om [math]A, B[/math] är ändliga, disjunkta mängder så gäller: [math]|A \cup B| = |A|+|B|[/math].
+      Allmänt så gäller: [math]|A_1 \cup ... \cup A_m| = |A_1|+ ... +|A_m|[/math]
+      om [math]A_i \cap A_j = \emptyset[/math] då [math]i != j[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Grundläggande">
+  <Question>
+    Vad innebär multiplikationsprincipen?
+  </Question>
+  <Answer>
+    Att [math]|X \times Y|=|X||Y|[/math] där [math]X, Y[/math] är ändliga.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ValsFormler">
+  <Question>
+    Hur lyder formeln för antalet ordnat val med upprepning av m st ur en mängd [math]Y[/math]?
+  </Question>
+  <Answer>
+    Om [math]X, Y[/math] ändliga och [math]|X|=m,|Y|=n[/math] är det: [math]n^m[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ValsFormlerExempel">
+  <Question>
+    Ge exempel på "ordnat val med upprepning".
+  </Question>
+  <Answer>
+    Om [math]Y[/math] är en ändlig mängd.
+    Antalet element i [math]Y^m = Y \times Y \times ... \times Y[/math] ([math]m[/math] st).
+    Antalet ord av längd m ur alfabetet Y.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="FunktionRäkning">
+  <Question>
+    Om [math]X, Y[/math] ändliga och [math]|X|=m,|Y|=n[/math], hur många funktioner [math]f:X \rightarrow Y[/math] finns det?
+  </Question>
+  <Answer>
+    Det kan ses som "ordnat val med upprepning", dvs: [math]n^m[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ValsFormler">
+  <Question>
+    Hur lyder formeln för antalet ordnade val utan upprepning av m st ur en mängd [math]Y[/math]?
+  </Question>
+  <Answer>
+    Om [math]X, Y[/math] ändliga och [math]|X|=m,|Y|=n[/math] är det:
+    [math]n(n-1) ... (n-m+1)=(n)_m=(n!)/((n-m)!)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ValsFormlerExempel">
+  <Question>
+    Ge exempel på "ordnat val utan upprepning".
+  </Question>
+  <Answer>
+    Antalet ord av längd m i en mängd Y utan uppreppning.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="FunktionRäkning">
+  <Question>
+     Om [math]X, Y[/math] ändliga och [math]|X|=m,|Y|=n[/math], hur många injektioner [math]f:X \rightarrow Y[/math] finns det?
+  </Question>
+  <Answer>
+    Det kan ses som "ordnat val utan upprepning", dvs: [math]n(n-1) ... (n-m+1)=(n)_m=(n!)/((n-m)!)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ValsFormler">
+  <Question>
+    Hur lyder formeln för antalet oordnande val utan uppreppning av r st från en mängd [math]Y[/math]?
+  </Question>
+  <Answer>
+    Det är binomialtalet, [latex]\(n \choose r\)[/latex].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ValsFormlerExempel">
+  <Question>
+    Ge exempel på "oordnat val utan uppreppning".
+  </Question>
+  <Answer>
+    Antalet r-delmängder som kan tas ifrån en mängd av storlek n.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Binomial">
+  <Question>
+    Hur kan man beräkna binomialtalet, [latex]\(n \choose r\)[/latex]?
+  </Question>
+  <Answer>
+    [latex]\({n \choose r} = \frac{(n)_r}{r!} = \frac{n!}{r!(n-r)!} \)[/latex]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Binomial">
+  <Question>
+    Hur defineras binomialtalet rekursivt?
+  </Question>
+  <Answer>
+    [latex]
+    \(\left\{
+    \begin{array}{l l}
+      {n \choose r} = {n-1 \choose r-1} + {n-1 \choose r} \quad 0 \lt r \lt n\\
+      {n \choose 0} = {n \choose n} = 1 \quad \text{annars}
+    \end{array} \right.\)
+    [/latex]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Binomial">
+  <Question>
+    Hur lyder binomialsatsen?
+  </Question>
+  <Answer>
+    [latex]\( (a+b)^n = \sum_{k=0}^{n} {n \choose r} a^{n-k}b^k \)[/latex]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Multinomial">
+  <Question>
+    Hur kan man beräkna multinomialtalet [latex]\(n \choose {n_1,n_2,...,n_k}\)[/latex]?
+  </Question>
+  <Answer>
+    [latex]\({n \choose {n_1,n_2,...,n_k}} = \frac{n!}{n_1!n_2!...n_k!} \)[/latex] 
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Multinomial">
+  <Question>
+    Vad för krav ställer vi på [latex]\(n \choose {n_1,n_2,...,n_k}\)[/latex] om det ska vara ett multinomialtal?
+  </Question>
+  <Answer>
+    Att [math]n_i ge 0, sum_(i=1)^k n_i = n[/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Multinomial">
+  <Question>
+    Vad beskriver ett multinomialtal?
+  </Question>
+  <Answer>
+    Antalet sätt att fördela [math]n[/math] st (olika) element i [math]k[/math] lådor med [math]n_i[/math] st i låda [math]i[/math].
+    Antalet funktioner [math]f:NN_n \rightarrow NN_k[/math] som antar värdet [math]i[/math] precis [math]n_i[/math] gånger.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Multinomial">
+  <Question>
+    Hur lyder multinomialsatsen?
+  </Question>
+  <Answer>
+    [latex]\( (x_1+x_2+...+x_k)^n = \sum_{\sum {n_i=n}, n_i \ge 0} {n \choose {n_1,n_2,...,n_k}} x_1^{n_1} x_2^{n_2} ... x_k^{n_k} \)[/latex]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ValsFormler">
+  <Question>
+    Hur lyder formeln för antalet oordnade val av r st från en n-mängd med upprepning?
+  </Question>
+  <Answer>
+    Den är: [latex]\( {{r+n-1} \choose {r}} \)[/latex].
+    Det gäller även att: [latex]\( {{r+n-1} \choose {r}} = {{r+n-1} \choose {n-1}} \)[/latex].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ValsFormlerExempel">
+  <Question>
+    Ge exempel på "oordnat val med upprepning"
+  </Question>
+  <Answer>
+    Antalet sätt att fördela [math]r[/math] st identiska element i [math]n[/math] st särskiljbara lådor.
+    Antalet sätt att skriva [math]r=k_1+k_2+...+k_n, k_i ge 0, k_i in NN[/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Grundläggande">
+  <Question>
+    Vad innebär principen om inklusion och exklusion?
+  </Question>
+  <Answer>
+    För två mängder, [math]A, B[/math] så gäller: [math]|A \cup B|=|A|+|B|-|A \cap B|[/math].
+    För tre mängder, [math]A, B, C[/math] så gäller: [math]|A \cup B \cup C|=|A|+|B|+|C|-|A \cap B|-|A \cap C|-|B \cap C|+|A \cap B \cap C|[/math].
+    Allmänt för [math]n[/math] mängder så gäller: [math]|A_1 \cup A_2 \cup ... \cup A_n| = sum_{i=1}^n (-1)^(i+1) \alpha_i[/math] där [math]\alpha_i = sum_(1 le k_1 lt k_2 lt ... lt k_i le n) |A_(k_1) \cup ... \cup A_(k_i)|[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Ekvivalensrelationer">
+  <Question>
+    Vad är en ekivalensrelation [math]R[/math] på en mängd [math]X[/math]?
+  </Question>
+  <Answer>
+    Det är en relation som uppfyller:
+    i) [math]x R x[/math] (reflexiv).
+    ii) [math]x R y \implies y R x[/math] (symmetrisk).
+    iii) [math]x R y text{ och } y R z \implies x R z[/math] (transitiv).
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Ekvivalensrelationer">
+  <Question>
+    Vad är en ekvivalensklass?  
+  </Question>
+  <Answer>
+    Låt [math]R[/math] vara en ekvivalensrelation på mängden [math]X[/math].
+    Då är en ekvivalensklass en icke-tom mängd [math]C \subseteq X[/math] med hänsyn till [math]R[/math] som uppfyller:
+    i) Två godtyckliga element av [math]C[/math] är [math]R[/math]-relaterade.
+    ii) [math]C[/math] innehåller alla element av [math]X[/math] som är [math]R[/math] relaterade till något element i [math]C[/math].
+    Dvs: om [math]x in C[/math] då är [math]y in C iff xRy[/math].
+    Alt: [math]C_x = [x] = { y in X | yRx }, [x] != \emptyset[/math], alla [math]x in X[/math] och [math][x] \cap [y] != \emptyset \implies [x] = [y][/math].
+    Detta ger att ekvivalensklasser är antigen disjunkta eller identiska.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Partition">
+  <Question>
+    Vad är en partition av mängden [math]X[/math]?
+  </Question>
+  <Answer>
+    Det är en familj av mängder, [math]{ X_i | i in I }[/math] så att:
+    i) [math]X_i != \emptyset, X_i \subseteq X[/math].
+    ii) [math]\cup_(i in I) X_i = X[/math].
+    iii) [math]i != j \implies X_i \cap X_j = \emptyset[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Partition">
+  <Question>
+    Vad för relation finns det mellan ekvivalensrelationer på en mängd [math]X[/math] och partitioner av [math]X[/math]?
+  </Question>
+  <Answer>
+    Det motsvarar varandra bijektivt.
+    En ekvivalensrelation på [math]X[/math] ger en partition (i ekvivalensklasser).
+    En partition av [math]X[/math] ger en ekvivalensrelation med [math]X_i[/math]:na som ekvivalensklasser.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Partition">
+  <Question>
+    Hur många partitioner finns det av en [i]n[/i]-mängd i precis [i]k[/i] delar?
+  </Question>
+  <Answer>
+    Det bestäms av Stirlingtalet, [math]S(n, k)[/math].
+    Som defineras rekursivt: 
+    [math]
+      { (S(n,k)=S(n-1,k-1)+kS(n-1,k), 1 lt k lt n), (S(n,1)=S(n,n)=1, 1 le n) :}
+    [/math]
+    Detta ger en triangel, se: [url]http://www.math.kth.se/~bek/diskret/rekap/14/f15.pdf[/url].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Partition">
+  <Question>
+    Hur defineras Stirlingtalet, [math]S(n, k)[/math]?
+  </Question>
+  <Answer>
+    Rekursivt: 
+    [math]
+      { (S(n,k)=S(n-1,k-1)+kS(n-1,k), 1 lt k lt n), (S(n,1)=S(n,n)=1, 1 le n) :}
+    [/math]
+    Detta ger en triangel, se: [url]http://www.math.kth.se/~bek/diskret/rekap/14/f15.pdf[/url].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Partition">
+  <Question>
+    Vad beskriver Stirlingtalet [math]S(n,k)?[/math]
+  </Question>
+  <Answer>
+    Det är antalet partitioner av en [i]n[/i]-mängd i precis [i]k[/i] delar.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="FunktionRäkning">
+  <Question>
+    Om [math]X, Y[/math] ändliga och [math]|X|=n,|Y|=k[/math], hur många surjektioner för funktionen [math]f:X \rightarrow Y[/math] finns det?
+  </Question>
+  <Answer>
+    Det är: [math]k!S(n,k)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Ekvivalensrelationer">
+  <Question>
+    Hur många ekvivalensrelationer finns det för en mängd [math]X[/math]?
+  </Question>
+  <Answer>
+    Det är lika med antalet partitioner av [math]X[/math], som är: [math]sum_(k=1)^n S(n, k)[/math].
+  </Answer>
+</TestQuestion>
+  <TestQuestion Category="FunktionRäkning">
+    <Question>
+      Om [math]X, Y[/math] ändliga och [math]|X|=|Y|=n[/math], hur många bijektioner för funktionen [math]f:X \rightarrow Y[/math] finns det?
+    </Question>
+    <Answer>
+      Det är [math]n![/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="KombinastoriskGrafteori">
+    <Question>
+      Hur många vandringar finns det mellan två hörn, [math]i, j[/math] av längd [math]r[/math] i grafen [math]G[/math]?
+    </Question>
+    <Answer>
+      Låt [math]A[/math] vara en grannmatris för grafen [math]G[/math].
+      Då blir antalet vandringar av längd [math]r[/math] lika med [math]ij[/math]-elementet i matrisen [math]A^r[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="KombinastoriskGrafteori">
+    <Question>
+      Vad anger det kromatiska polynomet [math]P_(G)(lambda)[/math] för grafen [math]G[/math]?
+    </Question>
+    <Answer>
+      Antalet sätt att hörnfärga grafen [math]G[/math] med (högst) [math]lambda[/math] färger.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="KombinastoriskGrafteori">
+    <Question>
+      Hur kan man beräkna det kromatiska polynomet [math]P_(G)(lambda)[/math] för grafen [math]G[/math]?
+    </Question>
+    <Answer>
+      Ges av följande rekursionsformel: [math]P_(G)(lambda)=P_(G-e)(lambda)-P_(G//e)(lambda)[/math]
+      där [math]P_(G-e)(lambda)[/math] är grafen [math]G[/math] med kanten [math]e[/math] borttagen och [math]P_(G//e)(lambda)[/math] är [math]G[/math] med [math]e[/math] kontraherad (dvs hörnen i [math]e[/math]:s ändar sammanslagna).
+      Basfallet blir: [math]P_((V, \emptyset))(lambda)=lambda^|V|[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="EulersPhiFunktion">
+  <Question>
+    Vad är Eulers [math]phi[/math]-funktion för något?
+  </Question>
+  <Answer>
+    [math]phi(n)=|{x in NN_n |sgd(x,n)=1}|[/math]
+    (ekvivalent med definitionen som gavs i modulär aritmetik).
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="EulersPhiFunktion">
+  <Question>
+    Hur kan man beräkna [math]phi[/math]-funktionen?
+  </Question>
+  <Answer>
+    Om [math]n = p_1^(e_1)...p_r^(e_r)[/math] där [math]p_1,...,p_r[/math] är olika primtal, alla [math]e_i \ge 1[/math]
+    så är: [math]phi(n)=n(1-1/p_1)...(1-1/p_r)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="EulersPhiFunktion">
+  <Question>
+    Vad innebär det att [math]phi[/math] är multiplikativ?
+  </Question>
+  <Answer>
+    Att om [math]sgd(m, n)=1 \implies phi(mn)=phi(m)phi(n)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="EulersPhiFunktion">
+  <Question>
+    Vad blir resultatet om vi summerar [math]phi(d)[/math] över alla positiva delare, [math]d[/math] till [math]n[/math]?
+  </Question>
+  <Answer>
+    Det blir [math]n[/math], dvs: [math]sum_(d|n) phi(d)=n[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="MöbiusFunktion">
+  <Question>
+    Hur defineras möbiusfunktionen, [math]mu(n)[/math]?
+  </Question>
+  <Answer>
+    [math]
+      mu(n) =
+      {
+        (1, n=1),
+        (0, text{om } n text{ har en upprepad primfaktor}),
+        ((-1)^r, n=p_1p_2...p_r text{, olika primtal})
+      :}
+    [/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="MöbiusFunktion">
+  <Question>
+    Vad blir resultatet om vi summerar [math]mu(d)[/math] över alla positiva delare, [math]d[/math] till [math]n[/math]?
+  </Question>
+  <Answer>
+    Det blir: [math]{ (1, n=1), (0, n gt 1) :}[/math].
+    Dvs: [math]sum_(d|n) mu(d)=delta(n)={ (1, n=1), (0, n gt 1) :}[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="MöbiusFunktion">
+  <Question>
+    Vad säger Möbius inversionsformel?
+  </Question>
+  <Answer>
+    Att: [math]f(n)=sum_(d|n)g(d) iff g(n)=sum_(d|n) mu(d)f(n/d)=sum_(d|n)mu(n/d)f(d)[/math].
+    Speciellt: [math]phi(n)=sum_(d|n)mu(d)n/d[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Faltning">
+  <Question>
+    Vad innebär faltning [latex]\(f \ast g\)[/latex] av [math]f, g[/math]?
+  </Question>
+  <Answer>
+    [latex]\((f \ast g)(n)=\sum_{d_1d_2=n}f(d_1)g(d_2)=\sum_{d|n}f(d)g(\frac{n}{d}) \)[/latex]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Faltning">
+  <Question>
+    Vad för egenskaper har faltning för alla aritmetiska funktioner [math]f, g, h[/math]?
+  </Question>
+  <Answer>
+    [latex]\( f \ast g = g \ast f \)[/latex]
+    [latex]\( (f \ast g) \ast h = f \ast (g \ast h) \)[/latex]
+    [latex]\( f, g \text{ multiplikativa} \implies f \ast g \text{ multiplikativ}\)[/latex]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Faltning">
+  <Question>
+    Uttryck egenskaperna för [math]phi, mu[/math] m.h.a faltning.
+  </Question>
+  <Answer>
+    [latex]\( 1 \ast \phi = id\)[/latex]
+    [latex]\( 1 \ast \mu = \delta\)[/latex]
+    [latex]\( \delta \ast f = f\)[/latex]
+    där [math]1(n)=1, id(n)=n[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Faltning">
+  <Question>
+    Uttryck Möbius inversionsformel med m.h.a faltning.
+  </Question>
+  <Answer>
+    [latex]\( f = 1 \ast g \iff g = \mu \ast f\)[/latex]
+    Speciellt: [latex]\( \phi = \mu \ast id\)[/latex]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Vad är en permutation, [math]pi[/math] av en mängd [math]X[/math]?
+  </Question>
+  <Answer>
+    Det är en bijektion: [math]pi:X \rightarrow X[/math].
+    Speciellt brukar vi ange [math]S_n = { text{alla permutationer av } NN_n }[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Hur många permutationer finns det av [math]NN_n[/math]? (dvs alla naturliga till [math]n[/math]).
+  </Question>
+  <Answer>
+    [math]|S_n|=n![/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Vad för egenskaper har permutationerna [math]pi, sigma, tau in S_n[/math]?
+  </Question>
+  <Answer>
+    [math]pi sigma in S_n[/math] (dvs sammansättningen av [math]sigma[/math] och [math]pi[/math] ligger i [math]S_n[/math]).
+    [math]pi(sigma tau)=(pi sigma)tau[/math]
+    Det finns [math]id in S_n[/math] så att [math]pi id = id pi = pi[/math], alla [math]pi[/math].
+    Det finns [math]pi^(-1) in S_n[/math] så att [math]pi pi^(-1) = pi^(-1) pi = id[/math], alla [math]pi[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Hur brukar man ange permutation [math]pi[/math] med för notation?
+  </Question>
+  <Answer>
+    Tvåradsnotation: [math]
+    ((1, 2, ..., i, ..., k, ..., j, ..., n), (l, ..., ..., j, ..., i, ..., ..., ..., ...))
+    [/math].
+    Enradsnotation: [math][l, ..., ..., j, ..., i, ..., ..., ..., ...][/math].
+    Cykelnotation: [math](1 l ...)(i j ... k)...[/math] (här kan man hoppa över att ta med 1-elements cykler).
+    Där [math]pi(1)=l, ..., pi(i)=j, ..., pi(k)=i, ...[/math].
+
+    Det går även att uttrycka permutationen som en matris, [math]M_pi[/math].
+    Det bildar en [math]n \times n[/math]-matris med element [math]m_(ij) = { (1, text{om } pi(j)=i), (0, text{annars}) :}[/math].
+    Då gäller att [math]M_(pisigma)=M_piM_sigma[/math], dvs "multiplikationen" i [math]S_n[/math] motsvaras precis av matrismultiplikation.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Vad innebär ordningen av en permutation [math]pi in S_n[/math]?
+  </Question>
+  <Answer>
+    Det är det minsta [math]k ge 1[/math] så att [math]pi^k=id[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Hur kan man bestämma ordningen av en permutation?
+  </Question>
+  <Answer>
+    Det ges av minsta gemensamma multipel av cykellängderna i [math]pi[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="PartitionNaturligaTal">
+  <Question>
+    Vad är en partition av ett naturligt tal, [math]n in NN[/math]?
+  </Question>
+  <Answer>
+    Det är: [math]n=n_1+n_2+...+n_k[/math], [math]n_1 ge n_2 ge ... ge n_k ge 1[/math].
+    Antalet partitioner av [math]n[/math] i precis [math]l[/math] delar betecknas: [math]p_k(n)[/math].
+    Total antalet partitioner av [math]n[/math] betecknas: [math]p(n)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="PartitionNaturligaTal">
+  <Question>
+    Vad för samband gäller för partitioner av naturliga tal av olika slag?
+  </Question>
+  <Answer>
+    Antalet partitioner av [math]n[/math] i [b]udda[/b] delar (dvs med alla [math]n_1, n_2, ..., n_k[/math] udda) är lika med antalet partitioner av [math]n[/math] i [b]olika[/b] delar (dvs med [math]n_1 gt n_2 gt ... gt n_k ge 1[/math]).
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Vad innebär det att två permutationer [math]alpha, beta in S_n[/math] är konjugerade?
+  </Question>
+  <Answer>
+    Att det finns ett [math]sigma in S_n[/math] så att: [math]beta = sigma alpha sigma^(-1)[/math].
+    Detta bildar även en ekvivalensrelation på [math]S_n[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    När är två permutationer [math]alpha, beta in S_n[/math] konjugerade?
+  </Question>
+  <Answer>
+    Om och endast om de har samma cykelstruktur.
+    Om [math]alpha[/math] har en cykel [math](x_1 x_2 ... x_k)[/math] har [math]beta=sigma alpha sigma^(-1)[/math] en cykel [math](sigma(x_1) sigma(x_2) ... sigma(x_k))[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Hur många permutationer av typ [math][1^(alpha_1) 2^(alpha_2) ... k^(alpha_k)][/math] finns det?
+  </Question>
+  <Answer>
+    Det finns: [math](n!)/(1^(alpha_1) 2^(alpha_2) ... k^(alpha_k) alpha_1! ... alpha_k!)[/math] st.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Vad är en transposition?
+  </Question>
+  <Answer>
+    Det är en permutation av typ: [math][1^(n-2)2][/math], dvs [math]tau=(ab) in S_n, a != b[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Vad för samband finns det mellan en permutation [math]pi in S_n[/math] och transpositioner?
+  </Question>
+  <Answer>
+    Att varje permutation [math]pi in S_n[/math] kan uttryckas som en sammansättning av [math]r[/math] stycken transpositioner. 
+    Dvs: [math]pi = tau_r ... tau_2 tau_1[/math] för något [math]r[/math] och några transpositioner [math]tau_1, tau_2, ..., tau_r[/math].
+
+    Det minsta möjliga [math]r[/math]-värdet är: [math]n-c(pi)[/math] där [math]c(pi)[/math] är antalet cykler i [math]pi[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Vad innebär det att en permutation [math]pi[/math] är jämn/udda?
+  </Question>
+  <Answer>
+    Låt [math]pi in S_n = tau_r ... tau_2 tau_1[/math](Dvs en sammansättning av [math]r[/math]-st transpositioner).
+    Då är [math]pi[/math] jämn/udda om och endast om [math]r[/math] är jämn/udda.
+    Vi betecknar även tecknet (signum) för [math]pi[/math] som: [math]
+    sgn(pi) = (-1)^r = { (+1, pi text{ jämn}), (-1, pi text{ udda}) :}
+    [/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Vad för egensakper har [math]sgn(pi)[/math]?
+  </Question>
+  <Answer>
+    [math]sgn(pi sigma)=sgn(pi)sgn(sigma)[/math].
+    [math]sgn(pi^(-1))=sgn(pi)[/math].
+    [math]sgn(sigma alpha sigma^(-1))=sgn(alpha)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Om [math]pi[/math] är av typen [math][1^(alpha_1) 2^(alpha_2) ... k^(alpha_k)][/math], vad är då [math]sgn(pi)[/math]?
+  </Question>
+  <Answer>
+    [math]sgn(pi)=(-1)^(alpha_2+alpha_4+...)=(-1)^(n-c(pi))[/math]
+    där [math]c(pi)=alpha_1+alpha_2+...+alpha_k[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Om [math]r[/math] är antalet transpositioner i en uppdelning av [math]pi[/math] och [math]r'[/math] är en annan uppdelning av [math]pi[/math], vad kan vi då säga om [math]r, r'[/math] paritiet?
+  </Question>
+  <Answer>
+    Den är samma, dvs de är båda jämna eller båda udda.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Hur kan man avgöra om en cykel i [math]pi[/math] är jämn/udda.
+  </Question>
+  <Answer>
+    En [b]cykel[/b] är en [b]jämn[/b] permutation om och endast om den har [b]udda[/b] längd.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Hur kan man avgöra om en permutation är jämn/udda?
+  </Question>
+  <Answer>
+    En permutation är jämn om och endast om det finns ett [b]jämnt antal[/b] cykel av [b]jämn längd[/b].
+    Det gäller även i [math]S_n (n ge 2)[/math] att hälften av permutationerna är jämna, hälften udda.
+
+    Det gäller även att [math]sgn(pi)=det(M_pi)[/math].
+    [math]sgn(pi)=(-1)^(n-c(pi))[/math]
+    där [math]c(pi)={ text{Antalet cykeler i } pi }[/math].
+  </Answer>
+</TestQuestion>
+</Test>

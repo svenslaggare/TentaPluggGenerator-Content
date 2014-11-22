@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Test Name="Lappskrivning 2A">
+<TestQuestion Category="Heltal">
+  <Question>
+    Vad är heltals division mellan två heltal a, b?
+  </Question>
+  <Answer>
+    Om [math]a, b in ZZ, b != 0[/math] så finns entydliga [math]q, r in ZZ[/math]
+    så att [math]a=bq+r[/math] och [math]0 lt=r lt|b|[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    Hur lyder algoritmen för att skriva ett naturligt tal i bas t, där [math]tgt=2[/math].
+  </Question>
+  <Answer>
+    [math]
+      {
+        (x = q_0t+r_0, text{}),
+        (q_0 = q_1t+r_1, text{}),
+        (\vdots, text{}),
+        (\vdots, 0lt=r_iltt),
+        (q_(n-2) = q_(n-1)t+r_(n-1), text{}),
+        (q_(n-1) = q_nt+r_n, q_n = 0 text{ (gäller för något n)})
+      :}
+    [/math]
+
+    Då blir [math]x[/math] uttryckt i bas [math]t[/math]: [math]x=r_nr_(n-1)...r_2r_1r_0[/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    Vad innebär det att "d delar m" (d|m).
+  </Question>
+  <Answer>
+    Det innebär att det finns ett [math]q in ZZ[/math] så att [math]m=dq[/math], dvs resten är noll vid heltalsdivision.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    Vad är ett primtal?
+  </Question>
+  <Answer>
+    Det är ett heltal [math]p gt 1[/math] som bara har delarna: [math]+-1, +-p[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    Vad innebär det att ett [math]d in ZZ[/math] är en största gemensam delare (sgd)
+    till [math]m, n in ZZ[/math]?
+  </Question>
+  <Answer>
+    Den uppfyller följande vilkor:
+    [math]
+      {:
+        (text{i) } d|m, d|n, text{gemensam delare}),
+        (text{ii) } c|m, c|n \implies c|d, text{"störst"}),
+        (text{iii) } d ge 0, text{entydlighet})
+      :}
+    [/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    Hur lyder Euklides algoritm för att beräkna sgd?
+  </Question>
+  <Answer>
+    Återupprepa: [math]sgd(m,n) = sgd(n, m-nq)[/math].
+    tills man kommer till: [math]sgd(d,0)=d[/math].
+    Då är [math]d[/math] s.g.d till m och n.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    Vad innebär det att m och n är relativt prima?
+  </Question>
+  <Answer>
+    Det innebär att: [math]sgd(m, n)=1[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    Vad för relation finns det mellan [math]d=gcd(m,n)[/math] och [math]m,n in ZZ[/math]?
+  </Question>
+  <Answer>
+    Det finns alltid [math]a,b in ZZ[/math] så att: [math]d=ma+nb[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    När den [b]linjära diofantiska ekvatationen[/b]: 
+    [math]mx+ny=c[/math] lösbar för [math]m,n,c in ZZ[/math]?
+  </Question>
+  <Answer>
+    Om och endast om: [math]sgd(m, n)|c[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    Vad är den allmänna lösningen till den [b]linjära diofantiska ekvatationen[/b]: 
+    [math]mx+ny=c[/math]?
+  </Question>
+  <Answer>
+    Om [math]m!=n!=0[/math] och [math]d=sgd(m,n)=am+bn[/math] så ges [b]alla[/b] lösningar
+    av: [math]{(x=c/da+n/dk), (y=c/db-m/dk):}[/math], [math]k in ZZ[/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Heltal">
+  <Question>
+    Vad innebär Aritmetikens fundamental sats?
+  </Question>
+  <Answer>
+    Det innebär att varje heltal [math]ge 1[/math] kan på ett entydligt sätt (bortsett från ordningen) uttryckas som en produkt av primtal. 
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik">
+  <Question>
+    Vad innebär det att [math]x \equiv y[/math] (mod m)?
+  </Question>
+  <Answer>
+    Det betyder att: [math]m|(x-y)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik">
+  <Question>
+    Vad är [math]ZZ_m[/math]?
+  </Question>
+  <Answer>
+    Det är mängden av talen: [math]{0, 1, ..., m-1}[/math].
+    Vi definierar [math]+[/math] och [math]*[/math] (ofta betecknat: [math]\oplus[/math], [math]\otimes[/math]) som vanligt mellan två tal i [math]ZZ_m[/math] med med rest mod m.
+    Ett heltal [math]a[/math] som ligger i [math]ZZ_m[/math] betecknas: [math][a]_m[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik">
+  <Question>
+    Vad gäller för produkten och summan mellan två heltal i [math]ZZ_m[/math]?
+  </Question>
+  <Answer>
+    [math][a]_m+[b]_m=[a+b]_m[/math]
+    [math][a]_m*[b]_m=[a*b]_m[/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik">
+  <Question>
+    Vad innebär det att [math]r in ZZ_m[/math] är inverterbart?
+  </Question>
+  <Answer>
+    Det innebär att det finns ett [math]x in ZZ_m[/math] så att [math]rx=1[/math] ligger i [math]ZZ_m[/math].
+    Detta x kallas för r:s invers, [math]r^-1[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik">
+  <Question>
+    När är [math]r in ZZ_m[/math] inverterbart?
+  </Question>
+  <Answer>
+    Om och endast om: [math]sgd(r,m)=1[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik">
+  <Question>
+    Vilka element i [math]ZZ_p[/math] där p är ett primtal, är inverterbara?
+  </Question>
+  <Answer>
+    Alla element i [math]ZZ_p[/math] utom 0.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik">
+  <Question>
+    När är den linjära kongruensen [math]ax \equiv b[/math] (mod m) lösbar?
+  </Question>
+  <Answer>
+    Om och endast om: [math]d=sgd(a,m)|b[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik">
+  <Question>
+    Hur kan man lösa den linjära kongruensen [math]ax \equiv b[/math] (mod m)?
+  </Question>
+  <Answer>
+    [math]ax \equiv b text{ (mod m)} iff ax = b[/math] i [math]ZZ_m[/math] [math] iff ax-km=b[/math] för något [math]k in ZZ[/math].
+    Detta innebär att ekvationen kan ses som en diofantiskt ekvation.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik2">
+  <Question>
+    Vad är Eulers [math]phi[/math]-funktion för något?
+  </Question>
+  <Answer>
+    Det är antalet inverterbara element i [math]ZZ_m[/math].
+    Dvs:
+    Om [math]U_m[/math] är mängden av alla element som är inverterbara i [math]ZZ_m[/math],
+    så är [math]phi(m)=|U_m|=|{x in ZZ |1 le x le m, sgd(x,m)=1}|[/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik2">
+  <Question>
+    Vad säger Eulers sats?
+  </Question>
+  <Answer>
+    Att om: [math]sgd(y,m)=1 \implies y^(phi(m)) \equiv_m 1[/math].
+    Alternativt: Om [math]y in U_m \implies y^(phi(m))=1 in ZZ_m[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik2">
+  <Question>
+    Vad säger Fermats lilla sats?
+  </Question>
+  <Answer>
+    Om p inte delar y (där p är ett primtal), då gäller: [math]y^(p-1) \equiv 1 text{ (mod p)}[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik2">
+  <Question>
+    Vad säger den kinesiska restsatsen?
+  </Question>
+  <Answer>
+    Om [math]m_1,...,m_k in NN[/math], [math]sgd(m_i,m_j)=1[/math] (dvs alla moduler är relativt prima) då [math]i!=j[/math]
+    då har systemet:
+    [math]
+      {
+        (x \equiv_(m1) a_1),
+        (x \equiv_(m2) a_2),
+        (\vdots),
+        (x \equiv_(mk) a_k)
+      :}
+    [/math]
+    en lösning för alla [math]a_1,...,a_k in ZZ[/math] som är unik mod [math]m=m_1...m_k[/math],
+    [math]x \equiv_m y_1a_1+...+y_ka_k[/math] för vissa [math]y_1,...,y_k[/math] oberoende av [math]a_1,...,a_k[/math].
+    (Om ni vill, så kan jag lägga upp algoritmen som man kan använda för att lösa ovanstående system!)
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik2">
+  <Question>
+    Hur beräknas funktionen: [math]f:ZZ_m \rightarrow ZZ_(m_1) \times ... \times ZZ_(m_k)[/math] (där alla moduler är relativt prima)?
+  </Question>
+  <Answer>
+    [math]f([a]_m)=([a]_(m_1),...,[a]_(m_k))[/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="ModulärAritmetik2">
+  <Question>
+   Vad för egenskaper har funktionen [math]f:ZZ_m \rightarrow ZZ_(m_1) \times ... \times ZZ_(m_k)[/math] (där alla moduler är relativt prima)?
+  </Question>
+  <Answer>
+    [math]|ZZ_m|=|ZZ_(m_1) \times ... \times ZZ_(m_k)|[/math]
+    [math]f([a+b]_m)=([a]_(m_1)+[b]_(m_1),...,[a]_(m_k)+[b]_(m_k))=f([a]_m)+f([b]_m)[/math]
+    [math]f([ab]_m)=([a]_(m_1)[b]_(m_1),...,[a]_(m_k)[b]_(m_k))=f([a]_m)f([b]_m)[/math]
+    [math]f^(-1)([a_1]_(m_1),...,[a_k]_(m_k))=[y_1a_1+...+y_ka_k]_m[/math] där [math][y_i]_(m_j)={ (1, i=j), (0, i!=j) :}[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Funktioner">
+  <Question>
+    Vad är en funktion?
+  </Question>
+  <Answer>
+    Det kan ses som en avbildning ifrån två mängder (X till Y): [math]f:X \rightarrow Y[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Funktioner">
+  <Question>
+    Vad innebär att två funktioner: f och g är sammansatta?
+  </Question>
+  <Answer>
+    Om: [math]f:X \rightarrow Y[/math] och [math]g:Y \rightarrow Z[/math] då är den sammansatta
+    funktionen: [math]gf:X \rightarrow Z[/math], dvs: [math](gf)(x)=g(f(x))[/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Funktioner">
+  <Question>
+    Vad innebär det att en funktion [math]f:X \rightarrow Y[/math] är surjektiv?
+  </Question>
+  <Answer>
+    Det innebär att [math]y=f(x)[/math] har [b]minst en[/b] lösning [math]x in X[/math] för alla [math]y in Y[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Funktioner">
+  <Question>
+    Vad innebär det att en funktion [math]f:X \rightarrow Y[/math] är injektiv?
+  </Question>
+  <Answer>
+    Det innebär att [math]y=f(x)[/math] har [b]högst en[/b] lösning [math]x in X[/math] för alla [math]y in Y[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Funktioner">
+  <Question>
+    Vad innebär det att en funktion [math]f:X \rightarrow Y[/math] är bijektiv?
+  </Question>
+  <Answer>
+    Det innebär att [math]y=f(x)[/math] har [b]exakt en[/b] lösning [math]x in X[/math] för alla [math]y in Y[/math], dvs f är både surjektiv och injektiv.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Funktioner">
+  <Question>
+    Om två funktioner f och g är surjektiva/injektiva/bijektiva vad kan man då säga om den sammansatta
+    funktionen gf?
+  </Question>
+  <Answer>
+    Att sammansättningen är också surjektiv/injektiv/bijektiv.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Funktioner">
+  <Question>
+    Hur defineras inversfunktionen till f?
+  </Question>
+  <Answer>
+    En funktion [math]g:Y \rightarrow X[/math] är en inversfunktion till funktionen
+    [math]f:X \rightarrow Y[/math] (betecknad [math]f^(-1)[/math]) om [math]fg=id_Y, gf=id_X[/math]
+    Där [math]id[/math] är identitetsfunktionen som ger tillbacka samma värde som skickades in.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Funktioner">
+  <Question>
+    När är en funktion [math]f:X \rightarrow Y[/math] inverterbar?
+  </Question>
+  <Answer>
+    Om och endast om [math]f[/math] är bijketiv.
+    Detta innebär också att [math]f^(-1)[/math] är en bijektion vilket ger:
+    [math](f^(-1))^(-1)=f[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Kardinalitet">
+  <Question>
+    Vad är en mängd [math]X[/math]:s kardinalitet?
+  </Question>
+  <Answer>
+    Det är antalet element i mängden, betecknat: [math]|X|[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Kardinalitet">
+  <Question>
+    Vad innebär det att mängden [math]X[/math] har n element, dvs [math]|X|=n[/math]?
+  </Question>
+  <Answer>
+    Att det finns en bijektion [math]f:NN_n \rightarrow X[/math]. Vi definerar att den tomma mängden har noll element ([math]|\emptyset| = 0[/math]).
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Kardinalitet">
+  <Question>
+    När har två mängder [math]X,Y[/math] samma kardinalitet?
+  </Question>
+  <Answer>
+    Om och endast om det finns en bijketion [math]f:X \rightarrow Y[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Kardinalitet">
+  <Question>
+    När är en mängd [math]X[/math] ändlig?
+  </Question>
+  <Answer>
+    Om och endast om [math]|X|=n[/math] för något [math]x in NN[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Kardinalitet">
+  <Question>
+    Vad innebär det att en mängd [math]X[/math] är uppräknelig?
+  </Question>
+  <Answer>
+    Att det finns en bijektion [math]f:NN \rightarrow X[/math]. En mängd som inte är upperäknelig
+    säges vara överuppräknelig.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Kardinalitet">
+  <Question>
+    Vad säger Cantors sats?
+  </Question>
+  <Answer>
+    Att för varje mängd [math]X[/math] gäller det att: [math]|P(x)| gt |X|[/math]
+    där [math]P(x)[/math] är potensmängden till [math]X[/math], [math]P(x)={Y|Y \subseteq X}[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Kardinalitet">
+  <Question>
+    Vad innebär postfacksprincipen?
+  </Question>
+  <Answer>
+    Om [math]|X|=n, |Y|=m, n gt m[/math] så finns ingen injektion [math]X \rightarrow Y[/math].
+    "Om [math]n gt m[/math] och [math]n[/math] läggs i [math]m[/math] lådor, så får minst en låda minst två saker."
+  </Answer>
+</TestQuestion>
+</Test>

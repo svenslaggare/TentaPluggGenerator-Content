@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Test Name="Lappskrivning 1B">
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad är en grupp?
+		</Question>
+		<Answer>
+			Låt [math]G[/math] vara en mängd och [math]*[/math] en binär operation. [math](G, *)[/math] är en grupp om och endast om följande axiom är uppfyllda: 
+			G1. [math]AA x, y in G[/math] så gäller att [math]x * y in G[/math] (slutenhet)
+			G2. [math]AA x, y, z in G[/math] så gäller att: [math](x*y)*z=x*(y*z)[/math] (associativitet)
+			G3. [math]EE e in G, AA x in G[/math] så gäller att: [math]e*x=x*e=x[/math] (identitet).
+			G4. [math]AA x in G, EE x^-1 in G[/math] så gäller att: [math]x*x^-1=x^-1*x=e[/math] (invers).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad innebär det att en grupp är abelsk?
+		</Question>
+		<Answer>
+			Det innebär att den är kommunativ, dvs: [math]ab=ba[/math] för alla [math]a,b in G[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Om [math]a, b[/math] är element i gruppen [math]G[/math] vad kan man då säga om lösningarna till ekvationerna: [math]ax=b[/math] och [math]ya=b[/math].
+		</Question>
+		<Answer>
+			Det finns entydliga lösningar: [math]x=a^-1b, y=ba^-1[/math] i [math]G[/math].	
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Ge exempel på grupper.
+		</Question>
+		<Answer>
+			Symmetrigrupper (kvadratens: [math]G_square[/math] och liksidiga triangelns: [math]G_△[/math]), [math]{ n \times n[/math] matriser med determinant [math]!=0}[/math], [math](ZZ, +), (ZZ_m, +), (QQ\\{0}, \times), S_n, (ZZ_p\\{0},\times)[/math] ([math]p[/math] är ett primtal).
+
+			Det finns endast två grupper av ordning 6: [math]C_6 (~~ (ZZ_6, +))[/math] och [math]S_3 (~~G_△)[/math]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad för egenskap har grupptabellen för en grupp?
+		</Question>
+		<Answer>
+			Den är en latinsk kvadrat. Om det finns [math]n[/math] element i gruppen så uppfyller grupptabellen att för varje element så finns det precis ett element på varje rad och kolumn i tabellen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Låt [math]A[/math] vara en latinsk kvadrat. Bildar då kvadraten alltid en grupp?
+		</Question>
+		<Answer>
+			Nej. Axiom [math]G1, G3, G4[/math] är direkt uppfyllda på grund av att det är en latinsk kvadrat men den andra axiomet ([math]G2[/math]) är inte direkt uppfylld. För att visa att kvadraten bildar en grupp så måste det visas att den är associativ.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Hur defineras att två grupper [math](G_1, *), (G_2,  	\circ)[/math] är isomorfa?
+		</Question>
+		<Answer>
+			Om och endast om det finns en bijektion [math]beta: G_1 \rightarrow G_2[/math] så att [math]beta(g*g')=beta(g) \circ beta(g')[/math] för alla [math]g, g' in G_1[/math]. Grupp isomorfi brukas betecknas [math](G_1, *) ~~ (G_2,  	\circ)[/math] eller endast [math]G_1 ~~ G_2[/math]. Det bildar även en ekvivalensrelation mellan grupper.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Hur defineras ordningen för en grupp och ett element?
+		</Question>
+		<Answer>
+			[math]
+			{ 
+				(text{för en grupp } G text{ : } |G|),
+				(text{för ett element } g in G text{ : } o(g))
+			:}
+			[/math]
+			där [math]o(g)={ (text{om } g^n=1 text{, något n} gt 0 text{ : } text{minsta sådana } n), (text{annars : } \infty) :}[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad för relation finns mellan ordningen för [math]g in G[/math] och potenser av [math]g[/math] som är lika med 1 ([math]g^s=1[/math])?
+		</Question>
+		<Answer>
+			Låt [math]o(g)=m[/math] då är: [math]g^s=1 iff m|s[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad för egenskap har den direkta produkten mellan två grupper [math]A, B[/math]?
+		</Question>
+		<Answer>
+			Det bildar också en grupp. [math](A \times B, *)[/math] med grupp operatorn definerad som: [math](a_1, b_1)*
+			(a_2, b_2)=(a_1a_2, b_1b_2)[/math]
+			Enligt kinesiska restsatsen gäller om [math]sgd(m_i, m_j)=1[/math] då [math]i != j[/math]: [math]C_(m_1*...*m_k)~~C_(m_1) \times ... \times C_(m_k)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Låt [math]C_n[/math] och [math]C_m[/math] vara två cykliska grupper. Vad för egenskap har den direkta produkten mellan [math]C_n[/math] och [math]C_m[/math]?
+		</Question>
+		<Answer>
+			Om [math]n[/math] och [math]m[/math] är relativt prima ([math]sgd(n, m)=1[/math]) så är [math]C_n \times C_m ~~ C_(nm)[/math].
+			Detta kan generaliseras till [math]k[/math]-st cykliska grupper så länge alla grupper är parvist relativt prima.
+			Dvs: Om [math]sgd(m_i, m_j)=1[/math] då [math]i != j[/math] så gäller att [math]C_(m_1*...*m_k)~~C_(m_1) \times ... \times C_(m_k)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Om [math]G[/math] är en grupp med [math]|G|=n[/math] vad kan vi då säga om elementens ordningar?
+		</Question>
+		<Answer>
+			[math]o(g)|n[/math] och [math]g^n=1[/math] alla [math]g in G[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Delgrupper">
+		<Question>
+			Vad är en delgrupp till [math](G, *)[/math]?
+		</Question>
+		<Answer>
+			[math]H[/math] är en delgrupp till [math]G[/math] om [math]H \subseteq G[/math] och [math](H, *)[/math] är en grupp (samma operator).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Delgrupper">
+		<Question>
+			Hur kan man avgöra om [math]H[/math] är en delgrupp till [math]G[/math]?
+		</Question>
+		<Answer>
+			Om och endast om: 
+			[math]
+				{
+					(text{S0 } H != \emptyset),
+					(text{S1 } {:x, y:} in H \implies xy in H),
+					(text{S2 } x in H \implies x^-1 in H)
+				:}
+			[/math]
+
+			Om [math]H[/math] är ändlig så räcker [math]S0[/math] och [math]S1[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Delgrupper">
+		<Question>
+			Vad är en grupp [math]G[/math]:s centrum?
+		</Question>
+		<Answer>
+			Det är mängden av alla element som kommuterar med alla andra element vilket också bildar en delgrupp till [math]G[/math]. [math]Z(G)={ z in G | zg=gz text{ för alla } g in G }[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Delgrupper">
+		<Question>
+			Vad kan man säga om cykliska delgrupper?
+		</Question>
+		<Answer>
+			Varje [math]x in G[/math] ([math]G[/math] är en grupp) genererar en cyklisk delgrupp: [math](:x:)={x^i | i in ZZ}[/math]. Då är [math]o(x)=|(:x:)|[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Delgrupper">
+		<Question>
+			Vad säger Lagranges sats?
+		</Question>
+		<Answer>
+			Om [math]G[/math] är en ändlig grupp och [math]H[/math] är en delgrupp till [math]G[/math] så gäller: [math]|H| | |G|[/math]. Det vill säga: alla möjliga storlekar på delgrupper till en grupp är en delare till gruppens storlek. Det är värt att tillägga att satsen [i]inte[/i] garanterar att det finns delgrupper för varje delare.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Delgrupper">
+		<Question>
+			Vad är delgrupps index?
+		</Question>
+		<Answer>
+			Om [math]H[/math] är en delgrupp till gruppen [math]G[/math] så är [math]H[/math]:s index i [math]G[/math] = antalet sidoklasser till [math]H[/math] i [math]G[/math], dvs: [math]|G:H|=|G|/|H|[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="CykliskaGrupper">
+		<Question>
+			Vad är en cyklisk grupp?
+		</Question>
+		<Answer>
+			En grupp [math]G[/math] är cyklisk om för något [math]x in G[/math] så är varje [math]g in G[/math] lika med någon potens av [math]x[/math], dvs: [math]g=x^n[/math] för något [math]n in ZZ[/math]. Om [math]n lt 0[/math] så betraktar vi inversen ([math]x^-1[/math]) istället så att: [math](x^-1)^-n=1[/math].
+			Vi säger då att [math]x[/math] [b]genererar[/b] [math]G[/math] vilket betecknas: [math]G=(: x :)[/math].
+
+			[math]o(x)=m[/math]: [math]C_m={1, x, x^2,...,x^(m-1)}~~(ZZ_m, +)[/math]
+			[math]o(x)=\infty[/math]: [math]C_\infty={...,x^-2,x^-1,1,x,x^2,...}~~(ZZ, +)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="CykliskaGrupper">
+		<Question>
+			Om grupp har primtalsordning, dvs [math]|G|=p[/math] där [math]p[/math] är ett primtal, vad för egenskap har då [math]G[/math]?
+		</Question>
+		<Answer>
+			Den är cyklisk och genereras av alla element utan identitet, dvs: [math]G=(:x:)[/math] för alla [math]x in G\\{1}[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="CykliskaGrupper">
+		<Question>
+			Hur lyder ekvivalenssatsen för grupper?
+		</Question>
+		<Answer>
+			Om [math]G[/math] är en grupp med [math]|G|=n[/math] är 1, 2, 3 ekvivalenta.
+			1. [math]G[/math] är cyklisk.
+			2. [math]d|n \implies |{x in G | x^d=1}|=d[/math].
+			3. [math]d|n \implies |{x in G | o(x)=d}|=phi(d)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="CykliskaGrupper">
+		<Question>
+			Vad gäller för delgrupper till cykliska grupper?
+		</Question>
+		<Answer>
+			Alla delgrupper till [math]C_n[/math] är också cykliska. Det gäller även att det finns [b]precis en[/b] delgrupp av ordning [math]d[/math] för alla [math]d|n[/math].
+		</Answer>
+	</TestQuestion>
+		<TestQuestion Category="CykliskaGrupper">
+		<Question>
+			Vad gäller för element av primtalsordning i en ändlig grupp [math]G[/math]?
+		</Question>
+		<Answer>
+			Om [math]|G|=n[/math] och [math]p[/math] är en primtalsfaktor i [math]n[/math] så finns ett element [math]g in G[/math] av ordning [math]p[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="CykliskaGrupper">
+		<Question>
+			Vad är den diskreta logaritmen för något?
+		</Question>
+		<Answer>
+			Låt [math]G[/math] vara en grupp och [math]g, x in G[/math] ([math]x[/math] genererar [math]G[/math]) då är den diskreta logaritmen för [math]x[/math] det som [math]x[/math] ska "upphöjas" i så att: [math]g=x^i[/math].
+			Betecknas: [math]i=log_x(g)[/math]. Om [math]o(x)[/math] är ändlig så är [math]i in ZZ_m[/math] och om oändlig: [math]i in ZZ[/math]. Den gäller även samma logaritmlagar som för reella tal.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidoklass">
+		<Question>
+			Hur defineras en sidoklass till en delgrupp [math]H[/math]?
+		</Question>
+		<Answer>
+			Om [math]H[/math] är en delgrupp till gruppen [math]G[/math] och [math]g in G[/math] så är [math]gH={gh|h in H}[/math] en [b]vänstersidoklass[/b] till [math]H[/math] och [math]Hg={hg|h in H}[/math] en [b]högersidoklass[/b].
+			Det gäller även att: [math]|H|=|gH|=|Hg|[/math].
+			Sidoklasserna ger [b]partitioner[/b] av [math]G[/math] i lika stora mängder.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidoklass">
+		<Question>
+			Om [math]G[/math] är en abelsk grupp, vad kan man då säga om dess vänster- och högersidoklasser?
+		</Question>
+		<Answer>
+			Det är samma, dvs [math]gH=Hg[/math] för alla [math]g in G[/math].
+		</Answer>
+	</TestQuestion>
+</Test>

@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Test Name="Efter lappskrivningar A">
+<TestQuestion Category="EulersPhiFunktion">
+  <Question>
+    Vad är Eulers [math]phi[/math]-funktion för något?
+  </Question>
+  <Answer>
+    [math]phi(n)=|{x in NN_n |sgd(x,n)=1}|[/math]
+    (ekvivalent med definitionen som gavs i modulär aritmetik).
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="EulersPhiFunktion">
+  <Question>
+  	Hur kan man beräkna [math]phi[/math]-funktionen?
+  </Question>
+  <Answer>
+  	Om [math]n = p_1^(e_1)...p_r^(e_r)[/math] där [math]p_1,...,p_r[/math] är olika primtal, alla [math]e_i \ge 1[/math]
+  	så är: [math]phi(n)=n(1-1/p_1)...(1-1/p_r)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="EulersPhiFunktion">
+  <Question>
+  	Vad innebär det att [math]phi[/math] är multiplikativ?
+  </Question>
+  <Answer>
+  	Att om [math]sgd(m, n)=1 \implies phi(mn)=phi(m)phi(n)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="EulersPhiFunktion">
+  <Question>
+  	Vad blir resultatet om vi summerar [math]phi(d)[/math] över alla positiva delare, [math]d[/math] till [math]n[/math]?
+  </Question>
+  <Answer>
+  	Det blir [math]n[/math], dvs: [math]sum_(d|n) phi(d)=n[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="MöbiusFunktion">
+  <Question>
+  	Hur defineras möbiusfunktionen, [math]mu(n)[/math]?
+  </Question>
+  <Answer>
+  	[math]
+  		mu(n) =
+  		{
+  			(1, n=1),
+  			(0, text{om } n text{ har en upprepad primfaktor}),
+  			((-1)^r, n=p_1p_2...p_r text{, olika primtal})
+  		:}
+  	[/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="MöbiusFunktion">
+  <Question>
+  	Vad blir resultatet om vi summerar [math]mu(d)[/math] över alla positiva delare, [math]d[/math] till [math]n[/math]?
+  </Question>
+  <Answer>
+  	Det blir: [math]{ (1, n=1), (0, n gt 1) :}[/math].
+  	Dvs: [math]sum_(d|n) mu(d)=delta(n)={ (1, n=1), (0, n gt 1) :}[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="MöbiusFunktion">
+  <Question>
+  	Vad säger Möbius inversionsformel?
+  </Question>
+  <Answer>
+  	Att: [math]f(n)=sum_(d|n)g(d) iff g(n)=sum_(d|n) mu(d)f(n/d)=sum_(d|n)mu(n/d)f(d)[/math].
+  	Speciellt: [math]phi(n)=sum_(d|n)mu(d)n/d[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Faltning">
+  <Question>
+  	Vad innebär faltning [latex]\(f \ast g\)[/latex] av [math]f, g[/math]?
+  </Question>
+  <Answer>
+  	[latex]\((f \ast g)(n)=\sum_{d_1d_2=n}f(d_1)g(d_2)=\sum_{d|n}f(d)g(\frac{n}{d}) \)[/latex]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Faltning">
+  <Question>
+  	Vad för egenskaper har faltning för alla aritmetiska funktioner [math]f, g, h[/math]?
+  </Question>
+  <Answer>
+  	[latex]\( f \ast g = g \ast f \)[/latex]
+  	[latex]\( (f \ast g) \ast h = f \ast (g \ast h) \)[/latex]
+  	[latex]\( f, g \text{ multiplikativa} \implies f \ast g \text{ multiplikativ}\)[/latex]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Faltning">
+  <Question>
+  	Uttryck egenskaperna för [math]phi, mu[/math] m.h.a faltning.
+  </Question>
+  <Answer>
+  	[latex]\( 1 \ast \phi = id\)[/latex]
+  	[latex]\( 1 \ast \mu = \delta\)[/latex]
+  	[latex]\( \delta \ast f = f\)[/latex]
+  	där [math]1(n)=1, id(n)=n[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Faltning">
+  <Question>
+  	Uttryck Möbius inversionsformel med m.h.a faltning.
+  </Question>
+  <Answer>
+  	[latex]\( f = 1 \ast g \iff g = \mu \ast f\)[/latex]
+  	Speciellt: [latex]\( \phi = \mu \ast id\)[/latex]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Vad är en permutation, [math]pi[/math] av en mängd [math]X[/math]?
+  </Question>
+  <Answer>
+    Det är en bijektion: [math]pi:X \rightarrow X[/math].
+    Speciellt brukar vi ange [math]S_n = { text{alla permutationer av } NN_n }[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Hur många permutationer finns det av [math]NN_n[/math]? (dvs alla naturliga till [math]n[/math]).
+  </Question>
+  <Answer>
+    [math]|S_n|=n![/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Vad för egenskaper har permutationerna [math]pi, sigma, tau in S_n[/math]?
+  </Question>
+  <Answer>
+    [math]pi sigma in S_n[/math] (dvs sammansättningen av [math]sigma[/math] och [math]pi[/math] ligger i [math]S_n[/math]).
+    [math]pi(sigma tau)=(pi sigma)tau[/math]
+    Det finns [math]id in S_n[/math] så att [math]pi id = id pi = pi[/math], alla [math]pi[/math].
+    Det finns [math]pi^(-1) in S_n[/math] så att [math]pi pi^(-1) = pi^(-1) pi = id[/math], alla [math]pi[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Hur brukar man ange permutation [math]pi[/math] med för notation?
+  </Question>
+  <Answer>
+    Tvåradsnotation: [math]
+    ((1, 2, ..., i, ..., k, ..., j, ..., n), (l, ..., ..., j, ..., i, ..., ..., ..., ...))
+    [/math].
+    Enradsnotation: [math][l, ..., ..., j, ..., i, ..., ..., ..., ...][/math].
+    Cykelnotation: [math](1 l ...)(i j ... k)...[/math] (här kan man hoppa över att ta med 1-elements cykler).
+    Där [math]pi(1)=l, ..., pi(i)=j, ..., pi(k)=i, ...[/math].
+
+    Det går även att uttrycka permutationen som en matris, [math]M_pi[/math].
+    Det bildar en [math]n \times n[/math]-matris med element [math]m_(ij) = { (1, text{om } pi(j)=i), (0, text{annars}) :}[/math].
+    Då gäller att [math]M_(pisigma)=M_piM_sigma[/math], dvs "multiplikationen" i [math]S_n[/math] motsvaras precis av matrismultiplikation.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Vad innebär ordningen av en permutation [math]pi in S_n[/math]?
+  </Question>
+  <Answer>
+    Det är det minsta [math]k ge 1[/math] så att [math]pi^k=id[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Hur kan man bestämma ordningen av en permutation?
+  </Question>
+  <Answer>
+    Det ges av minsta gemensamma multipel av cykellängderna i [math]pi[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="PartitionNaturligaTal">
+  <Question>
+    Vad är en partition av ett naturligt tal, [math]n in NN[/math]?
+  </Question>
+  <Answer>
+    Det är: [math]n=n_1+n_2+...+n_k[/math], [math]n_1 ge n_2 ge ... ge n_k ge 1[/math].
+    Antalet partitioner av [math]n[/math] i precis [math]l[/math] delar betecknas: [math]p_k(n)[/math].
+    Total antalet partitioner av [math]n[/math] betecknas: [math]p(n)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="PartitionNaturligaTal">
+  <Question>
+    Vad för samband gäller för partitioner av naturliga tal av olika slag?
+  </Question>
+  <Answer>
+    Antalet partitioner av [math]n[/math] i [b]udda[/b] delar (dvs med alla [math]n_1, n_2, ..., n_k[/math] udda) är lika med antalet partitioner av [math]n[/math] i [b]olika[/b] delar (dvs med [math]n_1 gt n_2 gt ... gt n_k ge 1[/math]).
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Vad innebär det att två permutationer [math]alpha, beta in S_n[/math] är konjugerade?
+  </Question>
+  <Answer>
+    Att det finns ett [math]sigma in S_n[/math] så att: [math]beta = sigma alpha sigma^(-1)[/math].
+    Detta bildar även en ekvivalensrelation på [math]S_n[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    När är två permutationer [math]alpha, beta in S_n[/math] konjugerade?
+  </Question>
+  <Answer>
+    Om och endast om de har samma cykelstruktur.
+    Om [math]alpha[/math] har en cykel [math](x_1 x_2 ... x_k)[/math] har [math]beta=sigma alpha sigma^(-1)[/math] en cykel [math](sigma(x_1) sigma(x_2) ... sigma(x_k))[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Hur många permutationer av typ [math][1^(alpha_1) 2^(alpha_2) ... k^(alpha_k)][/math] finns det?
+  </Question>
+  <Answer>
+    Det finns: [math](n!)/(1^(alpha_1) 2^(alpha_2) ... k^(alpha_k) alpha_1! ... alpha_k!)[/math] st.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Vad är en transposition?
+  </Question>
+  <Answer>
+    Det är en permutation av typ: [math][1^(n-2)2][/math], dvs [math]tau=(ab) in S_n, a != b[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Vad för samband finns det mellan en permutation [math]pi in S_n[/math] och transpositioner?
+  </Question>
+  <Answer>
+    Att varje permutation [math]pi in S_n[/math] kan uttryckas som en sammansättning av [math]r[/math] stycken transpositioner. 
+    Dvs: [math]pi = tau_r ... tau_2 tau_1[/math] för något [math]r[/math] och några transpositioner [math]tau_1, tau_2, ..., tau_r[/math].
+
+    Det minsta möjliga [math]r[/math]-värdet är: [math]n-c(pi)[/math] där [math]c(pi)[/math] är antalet cykler i [math]pi[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Vad innebär det att en permutation [math]pi[/math] är jämn/udda?
+  </Question>
+  <Answer>
+    Låt [math]pi in S_n = tau_r ... tau_2 tau_1[/math](Dvs en sammansättning av [math]r[/math]-st transpositioner).
+    Då är [math]pi[/math] jämn/udda om och endast om [math]r[/math] är jämn/udda.
+    Vi betecknar även tecknet (signum) för [math]pi[/math] som: [math]
+    sgn(pi) = (-1)^r = { (+1, pi text{ jämn}), (-1, pi text{ udda}) :}
+    [/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Vad för egensakper har [math]sgn(pi)[/math]?
+  </Question>
+  <Answer>
+    [math]sgn(pi sigma)=sgn(pi)sgn(sigma)[/math].
+    [math]sgn(pi^(-1))=sgn(pi)[/math].
+    [math]sgn(sigma alpha sigma^(-1))=sgn(alpha)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Om [math]pi[/math] är av typen [math][1^(alpha_1) 2^(alpha_2) ... k^(alpha_k)][/math], vad är då [math]sgn(pi)[/math]?
+  </Question>
+  <Answer>
+    [math]sgn(pi)=(-1)^(alpha_2+alpha_4+...)=(-1)^(n-c(pi))[/math]
+    där [math]c(pi)=alpha_1+alpha_2+...+alpha_k[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Om [math]r[/math] är antalet transpositioner i en uppdelning av [math]pi[/math] och [math]r'[/math] är en annan uppdelning av [math]pi[/math], vad kan vi då säga om [math]r, r'[/math] paritiet?
+  </Question>
+  <Answer>
+    Den är samma, dvs de är båda jämna eller båda udda.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Hur kan man avgöra om en cykel i [math]pi[/math] är jämn/udda.
+  </Question>
+  <Answer>
+    En [b]cykel[/b] är en [b]jämn[/b] permutation om och endast om den har [b]udda[/b] längd.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Permutation">
+  <Question>
+    Hur kan man avgöra om en permutation är jämn/udda?
+  </Question>
+  <Answer>
+    En permutation är jämn om och endast om det finns ett [b]jämnt antal[/b] cykel av [b]jämn längd[/b].
+    Det gäller även i [math]S_n (n ge 2)[/math] att hälften av permutationerna är jämna, hälften udda.
+
+    Det gäller även att [math]sgn(pi)=det(M_pi)[/math].
+    [math]sgn(pi)=(-1)^(n-c(pi))[/math]
+    där [math]c(pi)={ text{Antalet cykeler i } pi }[/math].
+  </Answer>
+</TestQuestion>
+</Test>

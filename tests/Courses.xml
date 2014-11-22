@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Courses>
+	<Course Name="Diskret matematik">
+		<Test File="DiskMatteLapp1A" />
+		<Test File="DiskMatteLapp2A" />
+		<Test File="DiskMatteLapp3A" />
+		<Test File="DiskMatteEfterLapparA" />
+		<Test File="DiskMatteTentaA" />
+		<Test File="DiskMatteLapp1B" />
+		<Test File="DiskMatteLapp2B" />
+	</Course>
+</Courses>
