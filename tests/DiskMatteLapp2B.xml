@@ -101,7 +101,7 @@
 		</Question>
 		<Answer>
 			[math]U(ZZ)={1, -1}[/math]
-			[math]U(ZZ_m)={r in ZZ_m | sgd(r,m)=1}[/math] vilket ger att antalet blir: [math]|U(ZZ_m)|=phi(m)[/math].
+			[math]U(ZZ_m)={r in ZZ_m | sgd(r,m)=1}[/math] vilket ger att antalet inverterbara blir: [math]|U(ZZ_m)|=phi(m)[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="RingarOchKroppar">
