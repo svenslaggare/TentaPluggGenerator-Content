@@ -32,7 +32,7 @@
 		</Question>
 		<Answer>
 			Stabilisatorn för ett [math]x in X[/math] är mängden av de [math]g in G[/math] som avbildar [math]x[/math] på [math]x[/math]. Dvs: [math]G_x = {g in G | g(x) = x}[/math] vilket även bildar en delgrupp till [math]G[/math].
-			Allmännare definerar vi [math]G(x \rightarrow y)={g in G|g(x)=y}[/math].
+			Allmännare definerar vi [math]G(x \rightarrow y)={g in G|g(x)=y}[/math] och då blir stabilisatorn: [math]G(x \rightarrow x)[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Gruppverkan">
