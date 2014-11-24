@@ -121,7 +121,7 @@
 		</Question>
 		<Answer>
 			[math]RR, CC, QQ, ZZ_p[/math] ([math]p[/math] primtal).
-			Det är värt att nämna att [math]ZZ[/math] [i]inte[/i] är en kropp för att endast [math]{1, -1}[/math] har invers!.
+			Det är värt att nämna att [math]ZZ[/math] [i]inte[/i] är en kropp för att endast [math]{1, -1}[/math] har invers!
 		</Answer>
 	</TestQuestion>
 </Test>
