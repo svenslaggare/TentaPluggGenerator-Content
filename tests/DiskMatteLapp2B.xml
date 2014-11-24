@@ -68,7 +68,7 @@
 		<Answer>
 			[math](R, +, \times)[/math] är en ring om:
 			1) [math](R, +)[/math] är en [b]kommuativ grupp[/b] vars identitetselement betecknas [math]0[/math].
-			2) [math](R, \times)[/math] är sluten, assocativ och med identitetselementet [math]1[/math] (dvs alla gruppaxoim utan invers).
+			2) [math](R, \times)[/math] är sluten, associativ och med identitetselementet [math]1[/math] (dvs alla gruppaxoim utan invers).
 			3) [math]\times[/math] är distributiv med avseende på [math]+[/math]: [math]a(b+c)=ab+ac, (a+b)c=ac+bc[/math] för alla [math]a,b,c in R[/math].
 		</Answer>
 	</TestQuestion>
