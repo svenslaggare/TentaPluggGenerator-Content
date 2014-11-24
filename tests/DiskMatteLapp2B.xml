@@ -112,7 +112,7 @@
 		<Answer>
 			[math](F, +, \times)[/math] är en kropp om:
 			1) [math](F, +, \times)[/math] är en ring.
-			2) [math](F\\{0}, \times)[/math] är en kommutativ grupp.
+			2) [math](F\\{0}, \times)[/math] är en abelsk grupp.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="RingarOchKroppar">
