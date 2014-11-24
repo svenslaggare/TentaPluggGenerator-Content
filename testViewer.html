@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>TentaPlugg Generator - Visa prov</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <style>
+    body {
+      padding-top: 50px;
+    }
+  </style>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">TentaPlugg Generator - Visa prov</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" style="margin-top: 10px;">
+        <div class="well">
+            <h3 style="margin-top: 0px;">Ladda in prov ifrån tests mappen (utan .xml i slutet)</h3>
+            <form role="form">
+                <label for="testName">Prov namn</label>
+                <input id="testName" style="width: 200px" type="text" class="form-control" />
+                <br>
+                <input type="button" id="loadButton" class="btn btn-default" value="Ladda fil" />
+            </form>
+        </div>
+
+        <div id="questions">
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+
+    <script src="bbCodeParser.min.js"></script>
+    <script src="parserSettings.js"></script>
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+
+    <script>
+        var bbCodeParser = new BBCodeParser(ParserSettings.defaultTags());
+
+        $("#loadButton").click(function() {
+            var fileName = $("#testName").val();
+
+            $.ajax({
+                type: "GET",
+                url: "tests/" + fileName + ".xml",
+                dataType: "xml",
+                success: function(data) {
+                    $("#questions").children().remove();
+                    $(data).find("Test").children().each(function(index, current) {
+                        var question = $(current).find("Question").text();
+                        var answer = $(current).find("Answer").text();
+                        $("#questions").append(jQuery("<h3 class=\"question\"></h3>").html(bbCodeParser.parseString(question.trim())));
+                        $("#questions").append(jQuery("<p class=\"answer\"></p>").html(bbCodeParser.parseString(answer.trim())));
+                    });
+
+                    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                }});
+        });
+    </script>
+  </body>
+</html>

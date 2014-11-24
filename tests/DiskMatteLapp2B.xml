@@ -21,7 +21,8 @@
 			Hur defineras en banorna för grupp [math]G[/math] som verkar på en mängd [math]X[/math]?
 		</Question>
 		<Answer>
-			[math]Gx={g(x)|g in G}[/math] för [math]x in X[/math].
+			En [b]bana[/b] för ett [math]x in X[/math] är mängden av de element i [math]X[/math] som [math]x[/math] avbildas på av något [math]g in G[/math]. Dvs: [math]Gx={g(x)|g in G}[/math].
+			Då blir banorna för en grupp: [math]Gx={g(x)|g in G}[/math] för [math]x in X[/math].
 			Banorna ger en [b]partition[/b] av [math]X[/math] där ekvivalensrelationen defineras som: [math]x_1 ~ x_2 iff x_2=g(x_1)[/math] för något [math]g in G[/math].
 		</Answer>
 	</TestQuestion>
@@ -30,7 +31,7 @@
 			Hur defineras stabilisatorn för [math]x in X[/math]?
 		</Question>
 		<Answer>
-			[math]G_x = {g in G | g(x) = x}[/math] vilket bildar en delgrupp till [math]G[/math].
+			Stabilisatorn för ett [math]x in X[/math] är mängden av de [math]g in G[/math] som avbildar [math]x[/math] på [math]x[/math]. Dvs: [math]G_x = {g in G | g(x) = x}[/math] vilket även bildar en delgrupp till [math]G[/math].
 			Allmännare definerar vi [math]G(x \rightarrow y)={g in G|g(x)=y}[/math].
 		</Answer>
 	</TestQuestion>
