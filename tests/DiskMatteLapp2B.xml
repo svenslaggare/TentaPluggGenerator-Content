@@ -5,12 +5,12 @@
 			Vad innebär det att en grupp [math]G[/math] verkar på en mängd [math]X[/math]?
 		</Question>
 		<Answer>
-			Om det finns en funktion: [math]mu: G \times X \rightarrow X[/math] (vi betecknar [math]g(x)[/math] istället för [math]mu(g, x)[/math]) så att [math](g_1g_2)(x)=g_1(g_2(x))[/math] och [math]1(x)=x[/math] för alla [math]x in X[/math]. Varje [math]g[/math] ger då en [b]bijektion[/b] av [math]X[/math].
+			Om det finns en funktion: [math]mu: G \times X \rightarrow X[/math] (vi betecknar det [math]g(x)[/math] istället för [math]mu(g, x)[/math]) så att [math](g_1g_2)(x)=g_1(g_2(x))[/math] och [math]1(x)=x[/math] för alla [math]x in X[/math]. Varje [math]g[/math] ger då en [b]bijektion[/b] av [math]X[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Gruppverkan">
 		<Question>
-			Låt [math]G[/math] verka på en mängd [math]M[/math] och [math]X[/math] är mängden av färgningar av [math]M[/math] (eller någon annan mängd funktioner på [math]M[/math]) hur defineras då verkan av [math]G[/math] på [math]X[/math]?
+			Låt [math]G[/math] verka på en mängd [math]M[/math] och [math]X[/math] är mängden av färgningar av [math]M[/math] (eller någon annan mängd funktioner på [math]M[/math]). Hur definieras då verkan av [math]G[/math] på [math]X[/math]?
 		</Question>
 		<Answer>
 			Den verkar enligt: [math]g(x)(m)=x(g^-1(m))[/math].
@@ -18,20 +18,20 @@
 	</TestQuestion>
 	<TestQuestion Category="Gruppverkan">
 		<Question>
-			Hur defineras en banorna för grupp [math]G[/math] som verkar på en mängd [math]X[/math]?
+			Hur definieras banorna för en grupp [math]G[/math] som verkar på en mängd [math]X[/math]?
 		</Question>
 		<Answer>
 			En [b]bana[/b] för ett [math]x in X[/math] är mängden av de element i [math]X[/math] som [math]x[/math] avbildas på av något [math]g in G[/math]. Dvs: [math]{g(x)|g in G}[/math].
 			Då blir banorna för en grupp: [math]Gx={g(x)|g in G}[/math] för [math]x in X[/math].
-			Banorna ger en [b]partition[/b] av [math]X[/math] där ekvivalensrelationen defineras som: [math]x_1 ~ x_2 iff x_2=g(x_1)[/math] för något [math]g in G[/math].
+			Banorna ger en [b]partition[/b] av [math]X[/math] där ekvivalensrelationen defineras som: [math]x_1 \sim x_2 iff x_2=g(x_1)[/math] för något [math]g in G[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Gruppverkan">
 		<Question>
-			Hur defineras stabilisatorn för [math]x in X[/math]?
+			Hur definieras stabilisatorn för [math]x in X[/math]?
 		</Question>
 		<Answer>
-			Stabilisatorn för ett [math]x in X[/math] är mängden av de [math]g in G[/math] som avbildar [math]x[/math] på [math]x[/math]. Dvs: [math]G_x = {g in G | g(x) = x}[/math] vilket även bildar en delgrupp till [math]G[/math].
+			Stabilisatorn för [math]x in X[/math] är mängden av de [math]g in G[/math] som avbildar [math]x[/math] på [math]x[/math]. Dvs: [math]G_x = {g in G | g(x) = x}[/math] vilket även bildar en delgrupp till [math]G[/math].
 			Allmännare definerar vi [math]G(x \rightarrow y)={g in G|g(x)=y}[/math] och då blir stabilisatorn: [math]G(x \rightarrow x)[/math].
 		</Answer>
 	</TestQuestion>
@@ -48,7 +48,7 @@
 			Vad är ett elements [math]g in G[/math] fixpunktsmängd i en gruppverkan på mängden [math]X[/math]?
 		</Question>
 		<Answer>
-			Det är elementen som "ligger" stila när ett grupp element [math]g in G[/math] verkar på mängden, dvs: [math]F(g)={x in X | g(x)=x}[/math].
+			Det är elementen som "ligger stilla" när ett gruppelement [math]g in G[/math] verkar på mängden, dvs: [math]F(g)={x in X | g(x)=x}[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Gruppverkan">
@@ -57,13 +57,13 @@
 		</Question>
 		<Answer>
 			Antalet banor = [math]1/|G| sum_(g in G) |F(g)|[/math] där [math]F(g)[/math] är g:s fixpunktsmängd: [math]F(g)={x in X | g(x) = x}[/math]. Satsen brukar kallas för "Burnsides lemma".
-			Det finns alternativa formler för att beräkna antalet banorna, men ovan (enligt Bengt) är lättast att beräkna.
+			Det finns alternativa formler för att beräkna antalet banorna, men ovan är (enligt Bengt) lättast att beräkna.
 			[math]sum_(x in X)=1/|Gx|=1/|G| sum_(x in X) |G_x|[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="RingarOchKroppar">
 		<Question>
-			Hur defineras en ring?
+			Hur definieras en ring?
 		</Question>
 		<Answer>
 			[math](R, +, \times)[/math] är en ring om:
@@ -82,7 +82,7 @@
 	</TestQuestion>
 	<TestQuestion Category="RingarOchKroppar">
 		<Question>
-			Hur defineras det att det element [math]x in R[/math] är inverterbart i ringen [math]R[/math]?
+			Hur definieras det att ett element [math]x in R[/math] är inverterbart i ringen [math]R[/math]?
 		</Question>
 		<Answer>
 			Att [math]x[/math] har en [b]multiplikativ[/b] invers i [math]R[/math], dvs: Det finns ett element i [math]u in R[/math] så att [math]ux=xu=1[/math].
@@ -102,12 +102,12 @@
 		</Question>
 		<Answer>
 			[math]U(ZZ)={1, -1}[/math]
-			[math]U(ZZ_m)={r in ZZ_m | sgd(r,m)=1}[/math] vilket ger att antalet inverterbara blir: [math]|U(ZZ_m)|=phi(m)[/math].
+			[math]U(ZZ_m)={r in ZZ_m | sgd(r,m)=1}[/math] vilket ger att antalet inverterbara element blir: [math]|U(ZZ_m)|=phi(m)[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="RingarOchKroppar">
 		<Question>
-			Hur defineras en kropp?
+			Hur definieras en kropp?
 		</Question>
 		<Answer>
 			[math](F, +, \times)[/math] är en kropp om:
