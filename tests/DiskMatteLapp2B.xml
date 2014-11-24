@@ -85,7 +85,7 @@
 			Hur defineras det att det element [math]x in R[/math] är inverterbart i ringen [math]R[/math]?
 		</Question>
 		<Answer>
-			Om [math]x[/math] har en [b]multiplikativ[/b] invers i [math]R[/math], dvs: Det finns ett element i [math]u in R[/math] så att [math]ux=xu=1[/math].
+			Att [math]x[/math] har en [b]multiplikativ[/b] invers i [math]R[/math], dvs: Det finns ett element i [math]u in R[/math] så att [math]ux=xu=1[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="RingarOchKroppar">
