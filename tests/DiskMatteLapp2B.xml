@@ -40,7 +40,7 @@
 			Vad för relation finns det mellan storleken av banorna och stabilisatorn?
 		</Question>
 		<Answer>
-			Låt [math]G[/math] vara en grupp, [math]Gx[/math] banorna för [math]G[/math] på [math]X[/math] och [math]G_x[/math] stabilisatorn för [math]x in X[/math] då gäller: [math]|G|=|Gx|*|G_x|[/math].
+			Låt [math]G[/math] vara en grupp, [math]Gx[/math] bana och [math]G_x[/math] stabilisatorn för [math]x in X[/math] då gäller att: [math]|G|=|Gx|*|G_x|[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Gruppverkan">
