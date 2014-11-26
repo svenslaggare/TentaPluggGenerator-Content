@@ -41,6 +41,7 @@
 		</Question>
 		<Answer>
 			Låt [math]G[/math] vara en grupp, [math]Gx[/math] bana och [math]G_x[/math] stabilisatorn för [math]x in X[/math] då gäller att: [math]|G|=|Gx|*|G_x|[/math].
+			En följd av detta om gruppen och mängden är ändliga (inte säker att de måste vara ändliga) så delar banans storlek gruppens storlek, dvs. [math]|Gx| \mid |G|[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Gruppverkan">
