@@ -58,7 +58,7 @@
 		<Answer>
 			Antalet banor = [math]1/|G| sum_(g in G) |F(g)|[/math] där [math]F(g)[/math] är g:s fixpunktsmängd: [math]F(g)={x in X | g(x) = x}[/math]. Satsen brukar kallas för "Burnsides lemma".
 			Det finns alternativa formler för att beräkna antalet banorna, men ovan är (enligt Bengt) lättast att beräkna.
-			[math]sum_(x in X)=1/|Gx|=1/|G| sum_(x in X) |G_x|[/math].
+			Antalet banor = [math]sum_(x in X)1/|Gx|=1/|G| sum_(x in X) |G_x|[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Gruppverkan">
