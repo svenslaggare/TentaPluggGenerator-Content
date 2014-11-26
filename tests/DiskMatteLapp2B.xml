@@ -5,7 +5,7 @@
 			Vad innebär det att en grupp [math]G[/math] verkar på en mängd [math]X[/math]?
 		</Question>
 		<Answer>
-			Om det finns en funktion: [math]mu: G \times X \rightarrow X[/math] (vi betecknar det [math]g(x)[/math] istället för [math]mu(g, x)[/math]) så att [math](g_1g_2)(x)=g_1(g_2(x))[/math] och [math]1(x)=x[/math] för alla [math]x in X[/math]. Varje [math]g[/math] ger då en [b]bijektion[/b] av [math]X[/math].
+			Om det finns en funktion: [math]mu: G \times X \rightarrow X[/math] (vi betecknar den [math]g(x)[/math] istället för [math]mu(g, x)[/math]) så att [math](g_1g_2)(x)=g_1(g_2(x))[/math] och [math]1(x)=x[/math] för alla [math]x in X[/math]. Varje [math]g[/math] ger då en [b]bijektion[/b] av [math]X[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Gruppverkan">
