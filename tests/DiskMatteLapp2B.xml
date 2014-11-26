@@ -66,7 +66,7 @@
 			Låt [math]G[/math] vara en symmetrigrupp för någon geometrisk figur, hur kan man då bestämma antalet färgningar av figurens sidor eller liknande egenskap?
 		</Question>
 		<Answer>
-			Den bestämms av "burnsides lemma": [math]1/|G| sum_(g in G) |F(g)|[/math] där [math]F(g)[/math] är mängden av de färningar som inte ändras då [math]g[/math] verkar.
+			Antalet ges av "burnsides lemma": [math]1/|G| sum_(g in G) |F(g)|[/math] där [math]F(g)[/math] är mängden av de färningar som inte ändras då [math]g[/math] verkar.
 			T.ex: Låt figuren vara en polyeder och [math]G[/math] rotationssymmetrigruppen för polyedern, då studerar vi färgningarna av sidytorna och då blir [math]F(g)[/math] mängden av färgningar som är oförändrade då [math]g[/math] roterar den färgade polyedern.
 		</Answer>
 	</TestQuestion>
