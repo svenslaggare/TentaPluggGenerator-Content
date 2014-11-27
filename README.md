@@ -17,4 +17,4 @@ De mest instressanta taggarna är:
 Den notation som används för att tolka matematisk notation är [ASCIIMath](http://www1.chapman.edu/~jipsen/mathml/asciimath.html). Se andra frågor för förslag hur det ska användas.
 
 ###Testa lokalt###
-Alla ändringar bör testas lokalt. Dettas gör enklast med "testViewer.html" där du kan ladda in test filerna. För att använda i Chrome, se: http://stackoverflow.com/questions/2990518/jquery-load-not-working-in-chrome.
+Alla ändringar bör testas lokalt. Dettas gör enklast med "testViewer.html" där du kan ladda in test filerna. För att använda i Chrome, se: http://robspangler.com/blog/jquery-load-doesnt-work-in-chrome/.
