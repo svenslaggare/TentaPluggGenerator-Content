@@ -9,7 +9,7 @@ De mest instressanta taggarna är:
 
 | Namn          | Beskriving                                | Exempel                                   |
 | ------------- | ----------------------------------------- | ------------------------------------------|
-| b             | Gör texten fett markerad.                 | `[b]text[/b]` ger *text*                  |
+| b             | Gör texten fett markerad.                 | `[b]text[/b]` ger **text**                |
 | i             | Gör texten kursiv markerad.               | `[i]text[/i]` ger _text_                  |
 | math          | Tolkar texten som en matematsik formel    | Se nedan.                                 |
 | latex         | Tolkar texten som en matematsik LaTeX     | Se nedan. I de flesta fallen duger `math` |
