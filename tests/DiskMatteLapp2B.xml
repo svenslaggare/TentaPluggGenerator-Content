@@ -87,7 +87,7 @@
 			Ge exempel på ringar.
 		</Question>
 		<Answer>
-			[math]ZZ[/math], [math]ZZ_m[/math], [math]M_n(R)[/math] ([math]n \times n[/math]-matriser), [math]R[x][/math] (polynom med koeffcienter i en ring [math]R[/math]).
+			[math]ZZ[/math], [math]ZZ_m[/math], [math]M_n(R)[/math] ([math]n \times n[/math]-matriser med koeffcienter i en ring [math]R[/math]), [math]R[x][/math] (polynom med koeffcienter i en ring [math]R[/math]).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="RingarOchKroppar">
