@@ -8,5 +8,6 @@
 		<Test File="DiskMatteTentaA" />
 		<Test File="DiskMatteLapp1B" />
 		<Test File="DiskMatteLapp2B" />
+		<Test File="DiskMatteLapp3B" />
 	</Course>
 </Courses>
