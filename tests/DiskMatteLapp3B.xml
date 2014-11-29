@@ -156,6 +156,15 @@
 			Den har högst [math]n[/math]-stycken.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
+			Hur bör man gå tillväga för att faktorisera ett polynom (irreducibla faktorer) i en kropp [math]F[/math]?
+		</Question>
+		<Answer>
+			1) Man bör först söka de linjära faktorerna, dvs nollställen. Om man fann någon kan man utföra polynom division för att faktorisera polynomet i en lägre grad.
+			2) Om det inte fanns några nollställen kan man ställa upp en faktorisering av polynom av hälften så stor grad och försöka lösa det ekvationssystemet som uppstår. T.ex: om graden är math]4[/math] så ställer man upp en faktorisering i t vå stycken 2-grads polynom. Boken sida 312 ger exempel.
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="ÄndligaKroppar">
 		<Question>
 			Vad är en ändlig kropps [math]F[/math] karakteristik?
