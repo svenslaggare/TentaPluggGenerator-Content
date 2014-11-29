@@ -2,10 +2,217 @@
 <Test Name="Lappskrivning 3B">
 	<TestQuestion Category="Polynom">
 		<Question>
-			
+			Hur definieras ett polynom i gruppteori?
 		</Question>
 		<Answer>
-			
+			[math]f(x)=a_0+a_1x+a_2x^2+...+a_nx^n[/math] där koefficienterna [math]a_i[/math] antingen ligger i en ring [math]R[/math] eller kropp [math]F[/math].
+			Vi betecknar mängden av polynom över en ring [math]R[/math] som: [math]R[x][/math] och kropp: [math]F[x][/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
+			Hur fungerar addition och multiplikation av polynom över ringar (och kroppar)?
+		</Question>
+		<Answer>
+			Det fungerar som vanligt. Det är dock viktigt att komma ihåg om ringen/kroppen är över [math]Z_m[/math] så behöver man ta koefficienterna modulus [math]m[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
+			Hur definieras graden av ett polynom?
+		</Question>
+		<Answer>
+			Graden till ett polynom, betecknat [math]deg(f(x))[/math] är det [b]största[/b] [math]n[/math] med [math]a_n != 0[/math]. Graden för nollpolynomet låter vi vara [math]-\infty[/math] eller odefinerat.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
+			Låt vara polynom över en ring [math]R[/math] [math]f(x), g(x) in R[x][/math], vad gäller då för addition och multiplikation av dess grader?
+		</Question>
+		<Answer>
+			[math]deg(f(x)+g(x)) \le max(deg(f(x)), deg(g(x)))[/math].
+			[math]deg(f(x)g(x)) \le deg(f(x))+deg(g(x))[/math]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
+			Låt vara polynom över en kropp [math]F[/math] [math]f(x), g(x) in F[x][/math], vad gäller då för addition och multiplikation av dess grader?
+		</Question>
+		<Answer>
+			[math]deg(f(x)+g(x)) \le max(deg(f(x)), deg(g(x)))[/math].
+			[math]deg(f(x)g(x)) = deg(f(x))+deg(g(x))[/math]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
+			Om [math]a(x), b(x) in F[x], b(x) != 0[/math] där [math]F[/math] är en kropp, vad gäller då?
+		</Question>
+		<Answer>
+			Finns entydliga [math]q(x), r(x) in F[x], deg(r(x)) \lt deg(b(x))[/math] så att [math]a(x)=b(x)q(x)+r(x)[/math]. Notera om polynomen istället är öven en ring så gäller inte entydlighet!
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
+			Hur utförs division av två polynom i en kropp [math]F[/math]?
+		</Question>
+		<Answer>
+			Det utförs som vanlig med polynomdivision. En skillnad är när man ska bryta ut konstanten så delar man med den, men här ska man hitta inversen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
+			Vad innebär det att ett polynom är monadiskt?
+		</Question>
+		<Answer>
+			Det innebär att högstagradskoefficenten är 1.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
+			Hur definieras att polynomet [math]g(x)[/math] delar [math]f(x)[/math] där [math]f(x), g(x) in F[/math], [math]F[/math] kropp.
+		</Question>
+		<Answer>
+			[math]g(x) | f(x) iff f(x)=g(x)h(x)[/math] för något [math]h(x) in F[x][/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
+			Hur definieras den största gemensamma delaren till polynomen [math]a(x), b(x)[/math] där [math]a(x), b(x) in F[x][/math] där [math]F[/math] är en kropp.
+		</Question>
+		<Answer>
+			[math]i)[/math] [math]d(x)|a(x), d(x)|b(x)[/math]
+			[math]ii)[/math] [math]c(x)|a(x), c(x)|b(x) \implies c(x)|d(x)[/math]
+			[math]iii)[/math] [math]d(x)[/math] är [b]monadiskt[/b] (högstagradskoefficenten är 1).
+			Sgd kan beräknas med Euklides algoritm. Polynom som endast uppfyller i) och ii) så är inte [math]d(x)[/math] entydligt bestämd.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
+			Finns det alltid en s.g.d till två polynom [math]a(x), b(x)[/math]?
+		</Question>
+		<Answer>
+			Om [math]a(x), b(x) in F[x][/math] där [math]F[/math] är en kropp så finns det alltid och är entydligt bestämda.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
+			Låt [math]d(x)=sgd(a(x), b(x))[/math] där [math]a(x), b(x), d(x) in F[x][/math] kan då [math]d(x)[/math] uttryckas med hjälp av [math]a(x), b(x)[/math]?
+		</Question>
+		<Answer>
+			Ja. [math]d(x)=lambda(x)a(x)+mu(x)b(x)[/math] för några [math]lambda(x), mu(x) in F[x][/math]. [math]lambda(x), mu(x)[/math] fås med (bakåts) Euklides algoritm så samma sätt som med heltal.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
+			Vad innebär det att ett polynom (i en kropp [math]F[/math]) är irreducibelt?
+		</Question>
+		<Answer>
+			Låt [math]f(x) in F[x][/math] så är [math]f(x)[/math] irreducibelt omm [math]f(x)=g(x)h(x) \implies [/math] precis en av [math]g(x)[/math] och [math]h(x)[/math] tillhör [math]U(F[x])[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
+			Vad för relation finns det mellan polynom i en kropp [math]F[/math] och irreducibla polynom?
+		</Question>
+		<Answer>
+			Att varje polynom [math]f(x) in F[x][/math] är en produkt av irreducibla polynom eller konstanta polynom.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
+			Låt [math]r(x) in F[x][/math] vara ett irreducibelt polynom och [math]r(x)[/math] dela en produkt av sammansatta polynom, vad gäller då?
+		</Question>
+		<Answer>
+			(dålig fråga, uppdaterar senare!)
+			Om [math]r(x) | s_1(x)...s_k(x)[/math] så gäller att [math]r(x) | s_i(x) [/math] något [math]i in [1, k][/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
+			Kan ett polynom [math]f(x)[/math] faktoriseras entydligt i irreducibla?
+		</Question>
+		<Answer>
+			Om [math]f(x) in F[x][/math] där [math]F[/math] är en kropp så gäller det alltid. Om [math]f(x)[/math] istället är ett polynom i en ring så gäller det inte alltid.
+
+			Ex:
+			Ringen [math]Z[x][/math] har entydlig faktorisering.
+			Ringen [math]Z[i sqrt(5)]={m + i*n*sqrt(5) | m, n in ZZ}[/math] har [b]inte[/b] entydlig faktorisering. T.ex: [math]6=2*3=(1+isqrt(5))(1-isqrt(5))[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
+			Vad säger faktorsatsen för polynom i en kropp [math]F[/math]?
+		</Question>
+		<Answer>
+			Om [math]f(x) in F[x][/math] så gäller att: [math](x-alpha)|f(x) iff f(alpha)=0 text{ i } F[/math].
+			Dvs: Om [math]alpha[/math] är ett nollställe i polynomet så är [math](x-alpha)[/math] en faktor.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
+			Hur många nollställen har ett polynom av grad [math]n \ge 0[/math] i en kropp [math]F[x][/math]?
+		</Question>
+		<Answer>
+			Den har högst [math]n[/math]-stycken.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ÄndligaKroppar">
+		<Question>
+			Vad är en ändlig kropps [math]F[/math] karakteristik?
+		</Question>
+		<Answer>
+			Det är ordningen under addition och är ett primtal ([math]p=0_+(1)[/math]). Då gäller för varje [math]a in F, n in ZZ[/math] att [math]na=a+...+a text{ (n-stycken) }=0[/math] omm [math]a=0[/math] eller [math]p | n[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ÄndligaKroppar">
+		<Question>
+			Vad för egenskaper har en ändlig kropps [math]F[/math]?
+		</Question>
+		<Answer>
+			Låt [math]p[/math] vara kroppens karakteristik.
+			[math]|F|=p^r[/math] något [math]r \ge 1[/math].
+			[math](F, +) ~~ C_p \times ... \times C_p[/math] (r-stycken): r-dimensionellt vektorrum över [math]ZZ_p[/math].
+			[math](F\\{0}. \times) ~~ C_(p^r-1)[/math]: multiplikativa gruppen är cyklisk.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ÄndligaKroppar">
+		<Question>
+			Låt [math]r \ge 1[/math] och [math]p[/math] vara ett primtal, hur många kroppar finns det då med [math]|F|=p^r[/math].
+		</Question>
+		<Answer>
+			Det finns precis en.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ÄndligaKroppar">
+		<Question>
+			Vad är ett primitivt element för en ändlig kropp [math]F[/math]?
+		</Question>
+		<Answer>
+			Ett element som genererar den multiplikativa gruppen [math](F\\{0}, \times)[/math] i [math]F[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ÄndligaKroppar">
+		<Question>
+			Vad innebär [math]F[x]//(k(x))[/math] där [math]k(x) in F[/math] och [math]F[/math] är en kropp?
+		</Question>
+		<Answer>
+			Det är mängden av de polynom som ger samma rest vid division med [math]k(x)[/math] och bildar en ring.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ÄndligaKroppar">
+		<Question>
+			När bildar [math]F[x]//(k(x))[/math] där [math]k(x) in F[/math] och [math]F[/math] är en kropp, en kropp?
+		</Question>
+		<Answer>
+			Om och endast om [math]k(x)[/math] är irreducibelt.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ÄndligaKroppar">
+		<Question>
+			Vad innebär det att ett element är ett primitivt irreduciebelt polynom?
+		</Question>
+		<Answer>
+			Om [math]k(x) in F[x][/math] ([math]F[x][/math] kropp) [math]x[/math] är ett primitivt element i [math]F[x]//(k(x))[/math].
 		</Answer>
 	</TestQuestion>
 </Test>
