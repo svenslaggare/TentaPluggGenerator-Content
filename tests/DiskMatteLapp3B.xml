@@ -129,7 +129,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
 		<Question>
-			Kan ett polynom [math]f(x)[/math] faktoriseras entydligt i irreducibla?
+			Kan ett polynom [math]f(x)[/math] alltid faktoriseras entydligt i irreducibla polynom?
 		</Question>
 		<Answer>
 			Om [math]f(x) in F[x][/math] där [math]F[/math] är en kropp så gäller det alltid. Om [math]f(x)[/math] istället är ett polynom i en ring så gäller det inte alltid.
