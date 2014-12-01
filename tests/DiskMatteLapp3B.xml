@@ -5,7 +5,7 @@
 			Hur definieras ett polynom i gruppteori?
 		</Question>
 		<Answer>
-			[math]f(x)=a_0+a_1x+a_2x^2+...+a_nx^n[/math] där koefficienterna [math]a_i[/math] antingen ligger i en ring [math]R[/math] eller kropp [math]F[/math].
+			[math]f(x)=a_0+a_1x+a_2x^2+...+a_nx^n[/math] där koefficienterna [math]a_i[/math] antingen ligger i en ring [math]R[/math] eller en kropp [math]F[/math].
 			Vi betecknar mängden av polynom över en ring [math]R[/math] som: [math]R[x][/math] och kropp: [math]F[x][/math].
 		</Answer>
 	</TestQuestion>
@@ -14,7 +14,7 @@
 			Hur fungerar addition och multiplikation av polynom över ringar (och kroppar)?
 		</Question>
 		<Answer>
-			Det fungerar som vanligt. Det är dock viktigt att komma ihåg om ringen/kroppen är över [math]Z_m[/math] så behöver man ta koefficienterna modulus [math]m[/math].
+			Det fungerar som vanligt. Det är dock viktigt att komma ihåg att om ringen/kroppen är över [math]Z_m[/math] så behöver man ta koefficienterna modulus [math]m[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
@@ -22,12 +22,12 @@
 			Hur definieras graden av ett polynom?
 		</Question>
 		<Answer>
-			Graden till ett polynom, betecknat [math]deg(f(x))[/math] är det [b]största[/b] [math]n[/math] med [math]a_n != 0[/math]. Graden för nollpolynomet låter vi vara [math]-\infty[/math] eller odefinerat.
+			Graden av ett polynom, betecknat [math]deg(f(x))[/math] är det [b]största[/b] [math]n[/math] med [math]a_n != 0[/math]. Graden för nollpolynomet låter vi vara [math]-\infty[/math] eller odefinierat.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
 		<Question>
-			Låt vara [math]f(x), g(x) in R[x][/math] vara polynom över en ring [math]R[/math], vad gäller då för addition och multiplikation av dess grader?
+			Låt [math]f(x), g(x) in R[x][/math] vara polynom över en ring [math]R[/math]. Vad gäller då för addition och multiplikation av dess grader?
 		</Question>
 		<Answer>
 			[math]deg(f(x)+g(x)) \le max(deg(f(x)), deg(g(x)))[/math].
@@ -36,7 +36,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
 		<Question>
-			Låt vara [math]f(x), g(x) in F[x][/math] vara polynom över en kropp [math]F[/math], vad gäller då för addition och multiplikation av dess grader?
+			Låt [math]f(x), g(x) in F[x][/math] vara polynom över en kropp [math]F[/math]. Vad gäller då för addition och multiplikation av dess grader?
 		</Question>
 		<Answer>
 			[math]deg(f(x)+g(x)) \le max(deg(f(x)), deg(g(x)))[/math].
@@ -45,10 +45,10 @@
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
 		<Question>
-			Om [math]a(x), b(x) in F[x], b(x) != 0[/math] där [math]F[/math] är en kropp, vad gäller då?
+			Om [math]a(x), b(x) in F[x], b(x) != 0[/math], där [math]F[/math] är en kropp, vad gäller då?
 		</Question>
 		<Answer>
-			Finns entydliga [math]q(x), r(x) in F[x], deg(r(x)) \lt deg(b(x))[/math] så att [math]a(x)=b(x)q(x)+r(x)[/math]. Notera om polynomen istället är öven en ring så gäller inte entydlighet!
+			Finns entydliga [math]q(x), r(x) in F[x], deg(r(x)) \lt deg(b(x))[/math], så att [math]a(x)=b(x)q(x)+r(x)[/math]. Notera att om polynomen istället är öven en ring så gäller inte entydighet!
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
@@ -56,7 +56,7 @@
 			Hur utförs division av två polynom i en kropp [math]F[/math]?
 		</Question>
 		<Answer>
-			Det utförs som vanlig med polynomdivision. En skillnad är när man ska bryta ut konstanten så delar man med den, men här ska man hitta inversen.
+			Det utförs som vanligt med polynomdivision. En skillnad är när man ska bryta ut konstanten. I vanliga fall så delar man med den, men här ska man hitta inversen.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
@@ -64,12 +64,12 @@
 			Vad innebär det att ett polynom är monadiskt?
 		</Question>
 		<Answer>
-			Det innebär att högstagradskoefficenten är 1.
+			Det innebär att dess högstagradskoefficient är 1.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
 		<Question>
-			Hur definieras att polynomet [math]g(x)[/math] delar [math]f(x)[/math] där [math]f(x), g(x) in F[/math], [math]F[/math] kropp.
+			Hur definieras att polynomet [math]g(x)[/math] delar [math]f(x)[/math] där [math]f(x), g(x) in F[/math] (en kropp).
 		</Question>
 		<Answer>
 			[math]g(x) | f(x) iff f(x)=g(x)h(x)[/math] för något [math]h(x) in F[x][/math].
@@ -77,29 +77,29 @@
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
 		<Question>
-			Hur definieras den största gemensamma delaren till polynomen [math]a(x), b(x)[/math] där [math]a(x), b(x) in F[x][/math] där [math]F[/math] är en kropp.
+			Hur definieras den största gemensamma delaren till polynomen [math]a(x), b(x)[/math] där [math]a(x), b(x) in F[x][/math], där [math]F[/math] är en kropp?
 		</Question>
 		<Answer>
 			[math]i)[/math] [math]d(x)|a(x), d(x)|b(x)[/math]
 			[math]ii)[/math] [math]c(x)|a(x), c(x)|b(x) \implies c(x)|d(x)[/math]
-			[math]iii)[/math] [math]d(x)[/math] är [b]monadiskt[/b] (högstagradskoefficenten är 1).
-			Sgd kan beräknas med Euklides algoritm. Polynom som endast uppfyller i) och ii) så är inte [math]d(x)[/math] entydligt bestämd.
+			[math]iii)[/math] [math]d(x)[/math] är [b]monadiskt[/b] (högstagradskoefficienten är 1).
+			Sgd kan beräknas med Euklides algoritm. För polynom som endast uppfyller i) och ii) är inte [math]d(x)[/math] entydigt bestämd.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
 		<Question>
-			Finns det alltid en s.g.d till två polynom [math]a(x), b(x)[/math]?
+			Finns det alltid en största gemensam delare till två polynom [math]a(x), b(x)[/math]?
 		</Question>
 		<Answer>
-			Om [math]a(x), b(x) in F[x][/math] där [math]F[/math] är en kropp så finns det alltid och är entydligt bestämd.
+			Om [math]a(x), b(x) in F[x][/math], där [math]F[/math] är en kropp, så finns det alltid en entydigt bestämd sådan.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
 		<Question>
-			Låt [math]d(x)=sgd(a(x), b(x))[/math] där [math]a(x), b(x), d(x) in F[x][/math] kan då [math]d(x)[/math] uttryckas med hjälp av [math]a(x), b(x)[/math]?
+			Låt [math]d(x)=sgd(a(x), b(x))[/math], där [math]a(x), b(x), d(x) in F[x][/math]. Kan då [math]d(x)[/math] uttryckas med hjälp av [math]a(x), b(x)[/math]?
 		</Question>
 		<Answer>
-			Ja. [math]d(x)=lambda(x)a(x)+mu(x)b(x)[/math] för några [math]lambda(x), mu(x) in F[x][/math]. [math]lambda(x), mu(x)[/math] fås med (bakåts) Euklides algoritm på samma sätt som med heltal.
+			Ja. [math]d(x)=lambda(x)a(x)+mu(x)b(x)[/math] för några [math]lambda(x), mu(x) in F[x][/math]. [math]lambda(x), mu(x)[/math] fås med Euklides algoritm (baklänges) på samma sätt som med heltal.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
@@ -107,8 +107,8 @@
 			Vad innebär det att ett polynom (i en kropp [math]F[/math]) är irreducibelt?
 		</Question>
 		<Answer>
-			Låt [math]f(x) in F[x][/math] så är [math]f(x)[/math] irreducibelt omm [math]f(x)=g(x)h(x) \implies [/math] precis en av [math]g(x)[/math] och [math]h(x)[/math] tillhör [math]U(F[x])[/math].
-			Dvs: Polynomet kan inte skrivas som faktorer av andra polynom (utom konstanta polynom).
+			Om [math]f(x) in F[x][/math] är [math]f(x)[/math] irreducibelt omm [math]f(x)=g(x)h(x) \implies [/math] precis en av [math]g(x)[/math] och [math]h(x)[/math] tillhör [math]U(F[x])[/math].
+			Dvs: Polynomet kan inte skrivas som faktorer av andra (förutom konstanta) polynom.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
@@ -124,7 +124,8 @@
 			Hur lyder satsen för entydlig faktorisering av polynom i en kropp [math]F[/math]?
 		</Question>
 		<Answer>
-			Om [math]f(x)=g_1(x)...g_r(x)=h_1(x)...h_s(x)[/math] i [math]F[x][/math] med [math]g_i(x), h_j(x)[/math] [b]irreducibla[/b] så är [math]r=s[/math] och [math]g_i(x)=u_i h_pi(i) (x)[/math] där [math]u_i in U(F[x]), pi in S_r[/math]. Dvs: Om vi byter plats på [math]h_i(x)[/math]:na och vi bortser ifrån konstanterna så är båda faktoriseringarna identiska.
+			Om [math]f(x)=g_1(x)...g_r(x)=h_1(x)...h_s(x)[/math] i [math]F[x][/math] med [math]g_i(x), h_j(x)[/math] [b]irreducibla[/b], så är [math]r=s[/math] och [math]g_i(x)=u_i h_pi(i) (x)[/math], där [math]u_i in U(F[x]), pi in S_r[/math].
+			Dvs: Om vi byter plats på [math]h_i(x)[/math]:na och bortser från konstanterna så är båda faktoriseringarna identiska.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
@@ -137,10 +138,10 @@
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
 		<Question>
-			Kan ett polynom [math]f(x)[/math] alltid faktoriseras entydligt i irreducibla polynom?
+			Kan ett polynom [math]f(x)[/math] alltid faktoriseras entydigt i irreducibla polynom?
 		</Question>
 		<Answer>
-			Om [math]f(x) in F[x][/math] där [math]F[/math] är en kropp så gäller det alltid. Om [math]f(x)[/math] istället är ett polynom i en ring så gäller det inte alltid.
+			Om [math]f(x) in F[x][/math], där [math]F[/math] är en kropp, så gäller det alltid. Om [math]f(x)[/math] istället är ett polynom i en ring så gäller det inte alltid.
 
 			Ex:
 			Ringen [math]Z[x][/math] har entydlig faktorisering.
@@ -152,7 +153,7 @@
 			Vad säger faktorsatsen för polynom i en kropp [math]F[/math]?
 		</Question>
 		<Answer>
-			Om [math]f(x) in F[x][/math] så gäller att: [math](x-alpha)|f(x) iff f(alpha)=0 text{ i } F[/math].
+			Om [math]f(x) in F[x][/math] så gäller att [math](x-alpha)|f(x) iff f(alpha)=0 text{ i } F[/math].
 			Dvs: Om [math]alpha[/math] är ett nollställe i polynomet så är [math](x-alpha)[/math] en faktor.
 		</Answer>
 	</TestQuestion>
@@ -161,7 +162,7 @@
 			Hur många nollställen har ett polynom av grad [math]n \ge 0[/math] i en kropp [math]F[x][/math]?
 		</Question>
 		<Answer>
-			Den har högst [math]n[/math]-stycken.
+			Det har högst [math]n[/math] stycken.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
@@ -169,8 +170,8 @@
 			Hur bör man gå tillväga för att faktorisera ett polynom (irreducibla faktorer) i en kropp [math]F[/math]?
 		</Question>
 		<Answer>
-			1) Man bör först söka de linjära faktorerna, dvs nollställen. Om man fann någon kan man utföra polynom division för att faktorisera polynomet i en lägre grad.
-			2) Om det inte fanns några nollställen kan man ställa upp en generell faktorisering av polynomet i polynom av lämplig grad. Om t.ex. graden är 4 så kan man ställa upp en faktorisering i två andra grads polynom och lösa ekvationssystemet som uppstår. Se boken sida 312 för exempel.
+			1) Man bör först söka de linjära faktorerna, dvs nollställena. Om man fann något sådant kan man utföra polynomdivision för att faktorisera polynomet i en lägre grad.
+			2) Om det inte fanns några nollställen kan man ställa upp en generell faktorisering av polynomet i polynom av lämplig grad. Om t.ex. graden är 4 så kan man ställa upp en faktorisering i två andragradspolynom och lösa ekvationssystemet som uppstår. Se boken på sida 312 för exempel.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ÄndligaKroppar">
@@ -178,7 +179,7 @@
 			Vad är en ändlig kropps [math]F[/math] karakteristik?
 		</Question>
 		<Answer>
-			Det är det minsta [math]p in NN\\{0}[/math] som uppfyller: [math]1+1+...+1=0[/math] (VL [math]p[/math] gånger) i [math]F[/math] och är alltid ett primtal. Det kan ses som ordningen under addition ([math]p=0_+(1)[/math]). Då gäller att för varje [math]a in F, n in ZZ[/math] att [math]na=a+...+a text{(n-stycken)}=0[/math] omm [math]a=0[/math] eller [math]p | n[/math].
+			Det är det minsta [math]p in NN\\{0}[/math] som uppfyller [math]1+1+...+1=0[/math] (VL [math]p[/math] gånger) i [math]F[/math] och är alltid ett primtal. Det kan ses som ordningen under addition ([math]p=0_+(1)[/math]). Då gäller att för varje [math]a in F, n in ZZ[/math] att [math]na=a+...+a text{ (n-stycken)}=0[/math] omm [math]a=0[/math] eller [math]p | n[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ÄndligaKroppar">
@@ -194,7 +195,7 @@
 	</TestQuestion>
 	<TestQuestion Category="ÄndligaKroppar">
 		<Question>
-			Låt [math]r \ge 1[/math] och [math]p[/math] vara ett primtal, hur många kroppar finns det då med [math]|F|=p^r[/math].
+			Låt [math]r \ge 1[/math] vara ett positivt heltal och [math]p[/math] vara ett primtal. Hur många kroppar finns det då med [math]|F|=p^r[/math].
 		</Question>
 		<Answer>
 			Det finns precis en.
@@ -210,7 +211,7 @@
 	</TestQuestion>
 	<TestQuestion Category="ÄndligaKroppar">
 		<Question>
-			Vad innebär [math]F[x]//(k(x))[/math] där [math]k(x) in F[/math] och [math]F[/math] är en kropp?
+			Vad innebär [math]F[x]//(k(x))[/math] där [math]k(x) in F[/math] (en kropp)?
 		</Question>
 		<Answer>
 			Det är mängden av de polynom som ger samma rest vid division med [math]k(x)[/math] och bildar en ring.
@@ -218,7 +219,7 @@
 	</TestQuestion>
 	<TestQuestion Category="ÄndligaKroppar">
 		<Question>
-			När bildar [math]F[x]//(k(x))[/math] där [math]k(x) in F[/math] ([math]F[/math] är en kropp), en kropp?
+			När bildar [math]F[x]//(k(x))[/math] där [math]k(x) in F[/math] (där [math]F[/math] är en kropp), en kropp?
 		</Question>
 		<Answer>
 			Om och endast om [math]k(x)[/math] är irreducibelt.
@@ -226,10 +227,12 @@
 	</TestQuestion>
 	<TestQuestion Category="ÄndligaKroppar">
 		<Question>
-			Vad innebär det att ett element är ett primitivt irreduciebelt polynom?
+			Vad innebär det att ett irreduciebelt polynom är primitivt?
 		</Question>
 		<Answer>
-			Om [math]k(x) in F[x][/math] ([math]F[x][/math] kropp) [math]x[/math] är ett primitivt element i [math]F[x]//(k(x))[/math].
+			Ett irreducibelt polynom [math]k(x) in F[x][/math] är primitivt precis om [math]x[/math] genererar den multiplikativa gruppen i [math]F[x]//(k(x))[/math].
+			
+			Alternativt: Om [math]k(x) in F[x][/math] (där [math]F[/math] är en kropp) är ett primitivt irreducibelt polynom om [math]x[/math] (egentligen [math][x][/math]) är ett primitivt element i [math]F[x]//(k(x))[/math] (dvs. ett genererande element i [math](F\\{0}, \times)[/math]).
 		</Answer>
 	</TestQuestion>
 </Test>
