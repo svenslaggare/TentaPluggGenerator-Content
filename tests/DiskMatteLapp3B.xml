@@ -214,7 +214,8 @@
 			Vad innebär [math]F[x]//(k(x))[/math] där [math]k(x) in F[/math] (en kropp)?
 		</Question>
 		<Answer>
-			Det är mängden av de polynom som ger samma rest vid division med [math]k(x)[/math] och bildar en ring.
+			Det är mängden av klasser som uppstår vid division med [math]k(x)[/math] där varje klass är de polynom som har samma rest.
+			[math]F[x]//(k(x))[/math] bildar också en ring.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ÄndligaKroppar">
