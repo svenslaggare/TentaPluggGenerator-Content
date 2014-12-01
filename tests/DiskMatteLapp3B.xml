@@ -170,7 +170,7 @@
 			Vad är en ändlig kropps [math]F[/math] karakteristik?
 		</Question>
 		<Answer>
-			Det är ordningen under addition och är ett primtal ([math]p=0_+(1)[/math]). Då gäller för varje [math]a in F, n in ZZ[/math] att [math]na=a+...+a text{(n-stycken)}=0[/math] omm [math]a=0[/math] eller [math]p | n[/math].
+			Det är det minsta [math]p in NN\\{0}[/math] som uppfyller: [math]1+1+...+1=0[/math] (VL [math]p[/math] gånger) i [math]F[/math] och är alltid ett primtal.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ÄndligaKroppar">
