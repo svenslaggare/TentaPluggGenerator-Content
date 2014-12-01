@@ -121,6 +121,14 @@
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
 		<Question>
+			Hur lyder satsen för entydlig faktorisering av polynom i en kropp [math]F[/math]?
+		</Question>
+		<Answer>
+			Om [math]f(x)=g_1(x)...g_r(x)=h_1(x)...h_s(x)[/math] i [math]F[x][/math] med [math]g_i(x), h_j(x)[/math] [b]irreducibla[/b] så är [math]r=s[/math] och [math]g_i(x)=u_i h_pi(i) (x)[/math] där [math]u_i in U(F[x]), pi in S_r[/math]. Dvs: Om vi byter plats på [math]h_i(x)[/math]:na och vi bortser ifrån konstanterna så är båda faktoriseringarna identiska.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Polynom">
+		<Question>
 			Låt [math]r(x) in F[x][/math] vara ett irreducibelt polynom och [math]r(x)[/math] dela en produkt av sammansatta polynom, vad gäller då?
 		</Question>
 		<Answer>
@@ -170,7 +178,7 @@
 			Vad är en ändlig kropps [math]F[/math] karakteristik?
 		</Question>
 		<Answer>
-			Det är det minsta [math]p in NN\\{0}[/math] som uppfyller: [math]1+1+...+1=0[/math] (VL [math]p[/math] gånger) i [math]F[/math] och är alltid ett primtal.
+			Det är det minsta [math]p in NN\\{0}[/math] som uppfyller: [math]1+1+...+1=0[/math] (VL [math]p[/math] gånger) i [math]F[/math] och är alltid ett primtal. Det kan ses som ordningen under addition ([math]p=0_+(1)[/math]). Då gäller att för varje [math]a in F, n in ZZ[/math] att [math]na=a+...+a text{(n-stycken)}=0[/math] omm [math]a=0[/math] eller [math]p | n[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ÄndligaKroppar">
