@@ -61,7 +61,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
 		<Question>
-			Vad innebär det att ett polynom är monadiskt?
+			Vad innebär det att ett polynom är monisk?
 		</Question>
 		<Answer>
 			Det innebär att dess högstagradskoefficient är 1.
@@ -82,7 +82,7 @@
 		<Answer>
 			[math]i)[/math] [math]d(x)|a(x), d(x)|b(x)[/math]
 			[math]ii)[/math] [math]c(x)|a(x), c(x)|b(x) \implies c(x)|d(x)[/math]
-			[math]iii)[/math] [math]d(x)[/math] är [b]monadiskt[/b] (högstagradskoefficienten är 1).
+			[math]iii)[/math] [math]d(x)[/math] är [b]monisk[/b] (högstagradskoefficienten är 1).
 			Sgd kan beräknas med Euklides algoritm. För polynom som endast uppfyller i) och ii) är inte [math]d(x)[/math] entydigt bestämd.
 		</Answer>
 	</TestQuestion>
