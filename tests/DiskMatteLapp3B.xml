@@ -124,7 +124,7 @@
 			Hur lyder satsen för entydlig faktorisering av polynom i en kropp [math]F[/math]?
 		</Question>
 		<Answer>
-			Om [math]f(x)=g_1(x)...g_r(x)=h_1(x)...h_s(x)[/math] i [math]F[x][/math] med [math]g_i(x), h_j(x)[/math] [b]irreducibla[/b], så är [math]r=s[/math] och [math]g_i(x)=u_i h_pi(i) (x)[/math], där [math]u_i in U(F[x]), pi in S_r[/math].
+			Om [math]f(x)=g_1(x)...g_r(x)=h_1(x)...h_s(x)[/math] i [math]F[x][/math] med [math]g_i(x), h_j(x)[/math] [b]irreducibla[/b], så är [math]r=s[/math] och [math]g_i(x)=u_i h_(pi(i)) (x)[/math], där [math]u_i in U(F[x]), pi in S_r[/math].
 			Dvs: Om vi byter plats på [math]h_i(x)[/math]:na och bortser från konstanterna så är båda faktoriseringarna identiska.
 		</Answer>
 	</TestQuestion>
