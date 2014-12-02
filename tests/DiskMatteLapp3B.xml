@@ -48,7 +48,7 @@
 			Om [math]a(x), b(x) in F[x], b(x) != 0[/math], där [math]F[/math] är en kropp, vad gäller då?
 		</Question>
 		<Answer>
-			Finns entydliga [math]q(x), r(x) in F[x], deg(r(x)) \lt deg(b(x))[/math], så att [math]a(x)=b(x)q(x)+r(x)[/math]. Notera att om polynomen istället är öven en ring så gäller inte entydighet!
+			Finns entydiga [math]q(x), r(x) in F[x], deg(r(x)) \lt deg(b(x))[/math], så att [math]a(x)=b(x)q(x)+r(x)[/math]. Notera att om polynomen istället är öven en ring så gäller inte entydighet!
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
@@ -121,7 +121,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
 		<Question>
-			Hur lyder satsen för entydlig faktorisering av polynom i en kropp [math]F[/math]?
+			Hur lyder satsen för entydig faktorisering av polynom i en kropp [math]F[/math]?
 		</Question>
 		<Answer>
 			Om [math]f(x)=g_1(x)...g_r(x)=h_1(x)...h_s(x)[/math] i [math]F[x][/math] med [math]g_i(x), h_j(x)[/math] [b]irreducibla[/b], så är [math]r=s[/math] och [math]g_i(x)=u_i h_(pi(i)) (x)[/math], där [math]u_i in U(F[x]), pi in S_r[/math].
@@ -144,8 +144,8 @@
 			Om [math]f(x) in F[x][/math], där [math]F[/math] är en kropp, så gäller det alltid. Om [math]f(x)[/math] istället är ett polynom i en ring så gäller det inte alltid.
 
 			Ex:
-			Ringen [math]Z[x][/math] har entydlig faktorisering.
-			Ringen [math]Z[i sqrt(5)]={m + i*n*sqrt(5) | m, n in ZZ}[/math] har [b]inte[/b] entydlig faktorisering. T.ex: [math]6=2*3=(1+isqrt(5))(1-isqrt(5))[/math].
+			Ringen [math]Z[x][/math] har entydig faktorisering.
+			Ringen [math]Z[i sqrt(5)]={m + i*n*sqrt(5) | m, n in ZZ}[/math] har [b]inte[/b] entydig faktorisering. T.ex: [math]6=2*3=(1+isqrt(5))(1-isqrt(5))[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
