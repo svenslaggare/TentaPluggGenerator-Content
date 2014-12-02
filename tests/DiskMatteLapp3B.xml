@@ -130,7 +130,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Polynom">
 		<Question>
-			Låt [math]r(x) in F[x][/math] vara ett irreducibelt polynom och [math]r(x)[/math] dela en produkt av sammansatta polynom, vad gäller då?
+			Låt [math]r(x) in F[x][/math] vara ett irreducibelt polynom som delar en produkt av sammansatta polynom, vad gäller då?
 		</Question>
 		<Answer>
 			Om [math]r(x) | s_1(x)...s_k(x)[/math] så gäller att [math]r(x) | s_i(x) [/math] något [math]i in [1, k][/math].
