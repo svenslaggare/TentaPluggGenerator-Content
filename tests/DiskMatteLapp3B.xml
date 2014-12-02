@@ -233,7 +233,7 @@
 		<Answer>
 			Ett irreducibelt polynom [math]k(x) in F[x][/math] är primitivt precis om [math]x[/math] genererar den multiplikativa gruppen i [math]F[x]//(k(x))[/math].
 			
-			Alternativt: Om [math]k(x) in F[x][/math] (där [math]F[/math] är en kropp) är ett primitivt irreducibelt polynom om [math]x[/math] (egentligen [math][x][/math]) är ett primitivt element i [math]F[x]//(k(x))[/math] (dvs. ett genererande element i [math](F\\{0}, \times)[/math]).
+			Alternativt: [math]k(x) in F[x][/math] (där [math]F[/math] är en kropp) är ett primitivt irreducibelt polynom om [math]x[/math] (egentligen [math][x][/math]) är ett primitivt element i [math]F[x]//(k(x))[/math] (dvs. ett genererande element i [math](F\\{0}, \times)[/math]).
 		</Answer>
 	</TestQuestion>
 </Test>
