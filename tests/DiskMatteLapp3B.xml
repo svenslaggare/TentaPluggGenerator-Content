@@ -195,7 +195,7 @@
 	</TestQuestion>
 	<TestQuestion Category="ÄndligaKroppar">
 		<Question>
-			Låt [math]r \ge 1[/math] vara ett positivt heltal och [math]p[/math] vara ett primtal. Hur många kroppar finns det då med [math]|F|=p^r[/math].
+			Låt [math]r[/math] vara ett positivt heltal och [math]p[/math] vara ett primtal. Hur många kroppar finns det då med [math]|F|=p^r[/math].
 		</Question>
 		<Answer>
 			Det finns precis en.
