@@ -215,7 +215,7 @@
 		</Question>
 		<Answer>
 			Det är mängden av ekvivalensklasser som uppstår vid division med [math]k(x)[/math] där varje klass är de polynom som har samma rest. Vi identifierar ofta klasserna med denna rest.
-			[math]F[x]//(k(x))[/math] bildar också en ring.
+			[math]F[x]//(k(x))[/math] bildar också en ring och vid addition och multiplikation av polynom i [math]F[x]/(k(x))[/math] tar vid resultatet [math]mod k(x)[/math].
 			Vi använder oss av följande ekvivalensrelation: [math]f(x)[/math] ~ [math]g(x) iff k(x)|(f(x)-g(x))[/math]
 		</Answer>
 	</TestQuestion>
