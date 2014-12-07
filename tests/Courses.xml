@@ -10,4 +10,7 @@
 		<Test File="DiskMatteLapp2B" />
 		<Test File="DiskMatteLapp3B" />
 	</Course>
+	<Course Name="ADK">
+		<Test File="ADKTeoriTenta" />
+	</Course>
 </Courses>

@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Test Name="Teori tenta">
+	<TestQuestion Category="Komplexitetsteori">
+		<Question>
+			Definera begreppet "P".
+		</Question>
+		<Answer>
+			Det är mängden av problem där en deterministiskt turingmaskin kan hitta en lösning till problemet i polynomisk tid.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Komplexitetsteori">
+		<Question>
+			Definera begreppet "NP".
+		</Question>
+		<Answer>
+			Det är mängden av problem där en deterministiskt turingmaskin kan verfiera en (ja) lösning till problemet i polynomisk tid.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Komplexitetsteori">
+		<Question>
+			Definera begreppet "NP-svårt".		
+		</Question>
+		<Answer>
+			Ett beslutsproblem [math]H[/math] är NP-svårt om varje problem [math]L[/math] i NP kan reduceras på polynomisk tid till problemet.
+			Informellt betyder det att problemet [math]H[/math] är minst lika svårt som de svåraste problemen i NP.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Komplexitetsteori">
+		<Question>
+			Definera begreppet "NP-fullständighet".		
+		</Question>
+		<Answer>
+			Ett beslutsproblem [math]Q[/math] är NP-fullständigt om:
+			1. [math]Q in NP[/math].
+			2. [math]Q' \le_p Q[/math] för alla [math]Q' in NP[/math] (dvs är NP-svårt). 
+			Där [math]\le_p[/math] är en polynomisk karp-reduktion ifrån [math]Q'[/math] till [math]Q[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Komplexitetsteori">
+		<Question>
+			Definera begreppet "Oavgörbarhet".
+		</Question>
+		<Answer>
+			Ett problem som inte kan lösas i ändlig tid av någon algoritm säges vara [i]oavgörbart[/i].
+			Avgörbarhet/oavgörbarhet handlar i första hand om beslutsproblem, annars brukar man tala om beräkningsbarhet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Komplexitetsteori">
+		<Question>
+			Vad säger Cooks sats?
+		</Question>
+		<Answer>
+			Att SAT (satisfiersbarhetsproblemet) är NP-fullständigt.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Komplexitetsteori">
+		<Question>
+			Hur bevisar man (i praktiken) att ett problem är NP-fullständigt?
+		</Question>
+		<Answer>
+			1. Visar att det tillhör NP. Dvs man konstruerar en algoritm som verfierar en ja-lösning till problemet på polynomisk tid.
+			2. Man reducerar ett känt NP-fullständigt problem på polynomisk tid till problemet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Komplexitetsteori">
+		<Question>
+			Antag att [math]B[/math] är NP-fullständigt, [math]A[/math] är ett beslutsproblem och att det finns en polynomisk reduktion ifrån [math]B[/math] till [math]A[/math], vad kan vi då säga om [math]A[/math]?		
+		</Question>
+		<Answer>
+			Att [math]A[/math] är NP-svårt.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Komplexitetsteori">
+		<Question>
+			Antag att [math]B[/math] är NP-fullständigt, [math]A[/math] är ett beslutsproblem och att det finns en polynomisk reduktion ifrån [math]A[/math] till [math]B[/math], vad kan vi då säga om [math]A[/math]?		
+		</Question>
+		<Answer>
+			Att [math]A[/math] tillhör NP.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Komplexitetsteori">
+		<Question>
+			Antag att du har fått i uppgift att lösa ett NP-fullständigt problem, vad kan du då göra?
+		</Question>
+		<Answer>
+			1. Begränsa problemet - vissa typer av indata kanske är enklare.
+			2. Lös problemet för små indata med en exponentiell algoritm.
+			3. Använd en approxmationsalgoritm som garanterat ger en lösning nära den opitmala.
+			4. Använd en heuristik som ger en lösning som förhoppningsvis är bra. Testa gärna flera olika heuristiker.
+			5. Kombinera 1 med 2, 3 eller 4.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Komplexitetsteori">
+		<Question>
+			Ange ett mått på approximerbarheten hos ett problem.
+		</Question>
+		<Answer>
+			Det ges av approximationskvoten som defineras som:
+			[math]text{approx}/text{opt}[/math] för minimeringsproblem och [math]text{opt}/text{approx}[/math] för maximeringsprobem.
+			Kvoten är alltid [math]\ge 1[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Reduktioner">
+		<Question>
+			Vad är en Turingreduktion?
+		</Question>
+		<Answer>
+			En Turingreduktion av problemet [math]P[/math] till problemet [math]Q[/math] är en algoritm för [math]P[/math] som använder en algoritm för [math]Q[/math] en eller flera gånger.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Reduktioner">
+		<Question>
+			Vad är en Karpreduktion?
+		</Question>
+		<Answer>
+			En Karpreduktion av [math]P[/math] till [math]Q[/math] är ett speciallfall av en Turingreduktion där både [math]P[/math] och [math]Q[/math] är beslutsproblem, där algortimen för [math]Q[/math] bara anropas en gång och där resultatet från den algoritmen returneras direkt.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Algoritmer">
+		<Question>
+			Vad är en Las Vegas-algoritm för något?
+		</Question>
+		<Answer>
+			En probabilistisk algoritm som alltid svarar rätt men kan ta olika lång tid på sig.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Algoritmer">
+		<Question>
+			Vad är en Monte Carlo-algoritm för något?
+		</Question>
+		<Answer>
+			En probabilistisk algoritm som alltid går snabbt men som bara ibland ger bra resultat.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Datastrukturer">
+		<Question>
+			Grannlistor och grannmatriser är två olika sätt att representera grafer, jämför dessa.
+		</Question>
+		<Answer>
+			Med grannlistor så kan vi hitta alla grannar till ett hörn på konstant tid medans med grannmatriser på linjär tid ([math]O(|V|)[/math]). Detta gör att DFS/BFS istället blir kvadratisk ([math]O(|V|^2)[/math]) istället för linjär. Om grafen är gles så kommer vi slösa utrymme om vi representerar grafen som en matris.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Algoritmer">
+		<Question>
+			DFS och BFS är två olika grafsökningsalgoritmer, jämför dessa.	
+		</Question>
+		<Answer>
+			Det enda som skiljer sig mellan algoritmerna är i vilken ordning som hörnen besöks där DFS är det stack-ordning och BFS kö-ordning. Tidskomplexitet för båda algoritmerna är: [math]O(|V|+|E|)[/math] om grafen ([math]G=(V, E)[/math]) representeras som grannlistor.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Algoritmer">
+		<Question>
+			Mergesort och Quicksort är två olika "snabba" sorteringsalgoritmer, jämför dessa.
+		</Question>
+		<Answer>
+			Mergesort har en optimal tidskomplexitet, [math]O(n*log(n)[/math] där Quicksort i värsta fall har tidskomplexiteten [math]O(n^2)[/math]. Mergesort kräver dock en extra minnesplats för varje element. Mergesort tar alltid lika lång tid oberoende ordningen av indata medans Quicksort körtid beror på ordningen av indata.s
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Algoritmer">
+		<Question>
+			Definera ordo-klasserna.
+		</Question>
+		<Answer>
+			[math]lim_(n \rightarrow \infty) g(n)/f(n) = 
+			{
+				(0, text{om } g(n) in o(f(n))), 
+				(c \gt 0, text{om } g(n) in theta(f(n))),
+				(\infty, text{om } g(n) in omega(f(n)))
+			:}
+			[/math]
+			Vi definerar: [math]g(n) in O(f(n))[/math] som att [math]g(n)[/math] tillhör både [math]o(f(n))[/math] och [math]theta(f(n))[/math] och: [math]g(n) in Omega(f(n))[/math] som att [math]g(n)[/math] tillhör både [math]omega(f(n))[/math] och [math]theta(f(n))[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Algoritmer">
+		<Question>
+			Hur lyder "mästarsatsen" för att beräkna tidskomplexiteten för rekursiva algoritmer?
+		</Question>
+		<Answer>
+			Låt [math]{ (T(n)=aT(n/b)+f(n)), (T(1)=d) :}[/math] där [math]a \ge 1, b \gt 1, d \gt 0[/math] vara en rekursionsekvation som beskriver algoritmens tidskomplexitet. Då blir den asympotiska tidskomplexiteten:
+			* [math]T(n)=theta(n^(log_ba))[/math] om [math]f(n)=O(n^(log_ba-e))[/math] för något [math]e \gt 0[/math]
+			* [math]T(n)=theta(n^(log_b a)*log(n))[/math] om [math]f(n)=theta(n^(log_b a))[/math]
+			* [math]T(n)=theta(f(n))[/math] om [math]f(n)=Omega(n^(log_b a + e))[/math] för något [math]e \gt 0[/math] för alla tillräckligt stora [math]n[/math].
+		</Answer>
+	</TestQuestion>
+</Test>
