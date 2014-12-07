@@ -100,6 +100,30 @@
 			Kvoten är alltid [math]\ge 1[/math].
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="Komplexitetsteori">
+		<Question>
+			Ange det engelska termen för "NP-svårt".
+		</Question>
+		<Answer>
+			NP-hard.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Komplexitetsteori">
+		<Question>
+			Ange det engelska termen för "NP-fullständighet".
+		</Question>
+		<Answer>
+			NP-completeness.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Komplexitetsteori">
+		<Question>
+			Ange det engelska termen för "oavgörbarhet".
+		</Question>
+		<Answer>
+			undecidability.
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="Reduktioner">
 		<Question>
 			Vad är en Turingreduktion?
@@ -114,6 +138,32 @@
 		</Question>
 		<Answer>
 			En Karpreduktion av [math]P[/math] till [math]Q[/math] är ett speciallfall av en Turingreduktion där både [math]P[/math] och [math]Q[/math] är beslutsproblem, där algortimen för [math]Q[/math] bara anropas en gång och där resultatet från den algoritmen returneras direkt.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Algoritmer">
+		<Question>
+			Definera ordo-klasserna.
+		</Question>
+		<Answer>
+			[math]lim_(n \rightarrow \infty) g(n)/f(n) = 
+			{
+				(0, text{om } g(n) in o(f(n))), 
+				(c \gt 0, text{om } g(n) in theta(f(n))),
+				(\infty, text{om } g(n) in omega(f(n)))
+			:}
+			[/math]
+			Vi definerar: [math]g(n) in O(f(n))[/math] som att [math]g(n)[/math] tillhör både [math]o(f(n))[/math] och [math]theta(f(n))[/math] och: [math]g(n) in Omega(f(n))[/math] som att [math]g(n)[/math] tillhör både [math]omega(f(n))[/math] och [math]theta(f(n))[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Algoritmer">
+		<Question>
+			Hur lyder "mästarsatsen" för att beräkna tidskomplexiteten för rekursiva algoritmer?
+		</Question>
+		<Answer>
+			Låt [math]{ (T(n)=aT(n/b)+f(n)), (T(1)=d) :}[/math] där [math]a \ge 1, b \gt 1, d \gt 0[/math] vara en rekursionsekvation som beskriver algoritmens tidskomplexitet. Då blir den asympotiska tidskomplexiteten:
+			• [math]T(n)=theta(n^(log_ba))[/math] om [math]f(n)=O(n^(log_ba-e))[/math] för något [math]e \gt 0[/math]
+			• [math]T(n)=theta(n^(log_b a)*log(n))[/math] om [math]f(n)=theta(n^(log_b a))[/math]
+			• [math]T(n)=theta(f(n))[/math] om [math]f(n)=Omega(n^(log_b a + e))[/math] för något [math]e \gt 0[/math] för alla tillräckligt stora [math]n[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Algoritmer">
@@ -153,33 +203,42 @@
 			Mergesort och Quicksort är två olika "snabba" sorteringsalgoritmer, jämför dessa.
 		</Question>
 		<Answer>
-			Mergesort har en optimal tidskomplexitet, [math]O(n*log(n)[/math] där Quicksort i värsta fall har tidskomplexiteten [math]O(n^2)[/math]. Mergesort kräver dock en extra minnesplats för varje element. Mergesort tar alltid lika lång tid oberoende ordningen av indata medans Quicksort körtid beror på ordningen av indata.s
+			Mergesort har en optimal tidskomplexitet, [math]O(n*log(n)[/math] där Quicksort i värsta fall har tidskomplexiteten [math]O(n^2)[/math]. Mergesort kräver dock en extra minnesplats för varje element. Mergesort tar alltid lika lång tid oberoende ordningen av indata medans Quicksort körtid beror på ordningen av indata.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Algoritmer">
 		<Question>
-			Definera ordo-klasserna.
+			Prims- och Kruskal algoritm är två algoritmer för att beräkna ett minimalt spännade träd (MST) för en graf [math]G=(V, E)[/math], jämför dessa.
 		</Question>
 		<Answer>
-			[math]lim_(n \rightarrow \infty) g(n)/f(n) = 
-			{
-				(0, text{om } g(n) in o(f(n))), 
-				(c \gt 0, text{om } g(n) in theta(f(n))),
-				(\infty, text{om } g(n) in omega(f(n)))
-			:}
-			[/math]
-			Vi definerar: [math]g(n) in O(f(n))[/math] som att [math]g(n)[/math] tillhör både [math]o(f(n))[/math] och [math]theta(f(n))[/math] och: [math]g(n) in Omega(f(n))[/math] som att [math]g(n)[/math] tillhör både [math]omega(f(n))[/math] och [math]theta(f(n))[/math].
+			Prims algoritm har tidskomplexieten: [math]O(|E|*log(|V|))[/math] medans Kruskals har: [math]O(|E|*log(|E|))[/math]. I Kruskals algoritm är det sortering av kanter efter vikter som tar längst tid.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Algoritmer">
 		<Question>
-			Hur lyder "mästarsatsen" för att beräkna tidskomplexiteten för rekursiva algoritmer?
+			Med både dynamisk programmering och dekompositon löser vi problem där problemet beskrivs av en rekursiv relation, men ändå överlappar dessa konstruktionsmetoder [i]inte[/i] oftast, varför?
 		</Question>
 		<Answer>
-			Låt [math]{ (T(n)=aT(n/b)+f(n)), (T(1)=d) :}[/math] där [math]a \ge 1, b \gt 1, d \gt 0[/math] vara en rekursionsekvation som beskriver algoritmens tidskomplexitet. Då blir den asympotiska tidskomplexiteten:
-			* [math]T(n)=theta(n^(log_ba))[/math] om [math]f(n)=O(n^(log_ba-e))[/math] för något [math]e \gt 0[/math]
-			* [math]T(n)=theta(n^(log_b a)*log(n))[/math] om [math]f(n)=theta(n^(log_b a))[/math]
-			* [math]T(n)=theta(f(n))[/math] om [math]f(n)=Omega(n^(log_b a + e))[/math] för något [math]e \gt 0[/math] för alla tillräckligt stora [math]n[/math].
+			Det beror på att med dynamisk programmering så löser vi problem där värdena som vi ska beräkna överlappar och med dekomposition så delar vi upp arbetet i nya delar i varje steg.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Algoritmer">
+		<Question>
+			Ange de fyra algoritmskonstruktions metoderna som togs upp i kursen.
+		</Question>
+		<Answer>
+			1. Dekomposition: Dela upp probelemt i delproblem i varje steg.
+			2. Girigt: I varje steg, välj de värde som är "bäst".
+			3. Dynamisk programmering: Beräknar en rekursiv relation genom att spara tidigare värden i varje steg i en vektor/matris.
+			4. Memoisering: Som 3:an men där algoritmen är rekursiv istället för iterativ.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Datastrukturer">
+		<Question>
+			Till vad för datastruktur är en skipplista ett alternativ till?
+		</Question>
+		<Answer>
+			Till ett balanserat sökträd. Det är en probabilistisk datastruktur som är mycket lättare att implementera än ett balanserat sökträd. I allmänhet är den lika snabbt som ett balanserat sökträd men i värsta fall så blir en sökning linjär.
 		</Answer>
 	</TestQuestion>
 </Test>

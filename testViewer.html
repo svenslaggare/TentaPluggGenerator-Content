@@ -39,7 +39,12 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">TentaPlugg Generator - Visa prov</a>
-        </div>
+		  </div>
+		  <div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="javascript:loadFile()">Ladda om</a></li>
+			</ul>
+          </div>
       </div>
     </nav>
 
@@ -68,7 +73,7 @@
     <script>
         var bbCodeParser = new BBCodeParser(ParserSettings.defaultTags());
 
-        $("#loadButton").click(function() {
+		function loadFile() {
             var fileName = $("#testName").val();
 
             $.ajax({
@@ -86,7 +91,9 @@
 
                     MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
                 }});
-        });
+        }
+		
+        $("#loadButton").click(loadFile);
     </script>
   </body>
 </html>
