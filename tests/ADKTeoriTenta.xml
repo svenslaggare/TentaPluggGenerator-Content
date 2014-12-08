@@ -110,18 +110,18 @@
 	</TestQuestion>
 	<TestQuestion Category="Komplexitetsteori">
 		<Question>
-			Ange det engelska termen för "NP-fullständighet".
+			Ange det engelska termen för "NP-fullständig".
 		</Question>
 		<Answer>
-			NP-completeness.
+			NP-complete.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Komplexitetsteori">
 		<Question>
-			Ange det engelska termen för "oavgörbarhet".
+			Ange det engelska termen för "oavgörbart".
 		</Question>
 		<Answer>
-			undecidability.
+			Undecidable.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Reduktioner">
@@ -157,6 +157,17 @@
 	</TestQuestion>
 	<TestQuestion Category="Algoritmer">
 		<Question>
+			Ange viktiga gränsvärden.
+		</Question>
+		<Answer>
+			[math]lim_(n \rightarrow \infty) n^(c_1)/n^(c_2)=0[/math] då [math]c_2 > c_1[/math].
+			[math]lim_(n \rightarrow \infty) log(n)^(c_1)/n^(c_2)=0[/math].
+			[math]lim_(n \rightarrow \infty) (c_1)^n/(c_2)^n=c > 0[/math].
+			[math]lim_(n \rightarrow \infty) (log_(c_1)(n))/(log_(c_2)(n))=c > 0[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Algoritmer">
+		<Question>
 			Hur lyder "mästarsatsen" för att beräkna tidskomplexiteten för rekursiva algoritmer?
 		</Question>
 		<Answer>
@@ -187,7 +198,7 @@
 			Grannlistor och grannmatriser är två olika sätt att representera grafer, jämför dessa.
 		</Question>
 		<Answer>
-			Med grannlistor så kan vi hitta alla grannar till ett hörn på konstant tid medans med grannmatriser på linjär tid ([math]O(|V|)[/math]). Detta gör att DFS/BFS istället blir kvadratisk ([math]O(|V|^2)[/math]) istället för linjär. Om grafen är gles så kommer vi slösa utrymme om vi representerar grafen som en matris.
+			Med grannlistor så kan vi hitta alla grannar till ett hörn på konstant tid medans med grannmatriser på linjär tid ([math]O(|V|)[/math]). Detta gör att DFS/BFS istället blir kvadratisk [math]O(|V|^2)[/math] istället för linjär. Om grafen är gles så kommer vi slösa utrymme om vi representerar grafen som en matris.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Algoritmer">
@@ -203,7 +214,7 @@
 			Mergesort och Quicksort är två olika "snabba" sorteringsalgoritmer, jämför dessa.
 		</Question>
 		<Answer>
-			Mergesort har en optimal tidskomplexitet, [math]O(n*log(n)[/math] där Quicksort i värsta fall har tidskomplexiteten [math]O(n^2)[/math]. Mergesort kräver dock en extra minnesplats för varje element. Mergesort tar alltid lika lång tid oberoende ordningen av indata medans Quicksort körtid beror på ordningen av indata.
+			Mergesort har en optimal tidskomplexitet för jämförelse baserade sorteringsalgoritmer och har alltid tidskomplexieten: [math]O(n*log(n)[/math]. Quicksort har i värsta fall  tidskomplexiteten [math]O(n^2)[/math] och körtiden beror på ordningen av indata. Mergesort kräver en extra minnesplats för varje element. 
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Algoritmer">
