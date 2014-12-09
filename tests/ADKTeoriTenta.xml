@@ -222,7 +222,7 @@
 			Prims- och Kruskal algoritm är två algoritmer för att beräkna ett minimalt spännade träd (MST) för en graf [math]G=(V, E)[/math], jämför dessa.
 		</Question>
 		<Answer>
-			Prims algoritm har tidskomplexieten: [math]O(|E|*log(|V|))[/math] medans Kruskals har: [math]O(|E|*log(|E|))[/math]. I Kruskals algoritm är det sortering av kanter efter vikter som tar längst tid.
+			Prims algoritm har tidskomplexieten: [math]O(|E|*log(|V|))[/math] medans Kruskals har: [math]O(|E|*log(|E|))[/math]. I Kruskals algoritm är det sortering av kanter efter kantvikt som tar längst tid.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Algoritmer">
