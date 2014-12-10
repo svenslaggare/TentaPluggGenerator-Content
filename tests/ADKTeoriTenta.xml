@@ -253,4 +253,34 @@
 			Till ett balanserat sökträd. Det är en probabilistisk datastruktur som är mycket lättare att implementera än ett balanserat sökträd. I allmänhet är den lika snabbt som ett balanserat sökträd men i värsta fall så blir en sökning linjär.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="ApproxHeurstik">
+		<Question>
+			Ange en algoritm för att approximera problemet "minimal hörntäckning".
+		</Question>
+		<Answer>
+			[b]Indata[/b]: Oriktad graf [math]G=(V, E)[/math].
+			Algoritm:
+			1. while [math]E != \emptyset[/math]
+			2. plocka bort kant [math](v_1, v_2) in E[/math]
+			3. [math]S \leftarrow S \cup { v_1, v_2 }[/math]
+			4. Plocka bort alla kanter i [math]E[/math] som har ändpunkter i [math]v_1[/math] eller i [math]v_2[/math].
+			5. return [math]S[/math]
+			Algoritmen approximerar den optimala lösningen inom faktorn 2.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ApproxHeurstik">
+		<Question>
+			Ange en algoritm för att approximera problemet "TSP med triangelolikhet".
+		</Question>
+		<Answer>
+			Denna algoritm kallas för "Christofides algoritm" och approimerar inom faktorn [math]3/2[/math].
+			[b]Indata[/b]: Fullständig graf [math]G=(V, E)[/math] med kantvikter som uppfyller triangelolikheten.
+			Algoritm:
+			1. Beräkna det minimalt spännande trädet för [math]G[/math], [math]E_T[/math]
+			2. Låt [math]V'[/math] vara hörnen med udda gradtal i trädet [math]E_T[/math].
+			3. Finn en minimal matchning i grafen inducerad av [math]V'[/math], [math]E_M[/math].
+			4. Konstrurera en Eulersk tur i [math]E_T \union T_m[/math] (går alltid för att varje hörn har jämnt gradtal). 
+			5. Gör om Euler turen till en TSP-tur genom att snedda förbi hörn som redan besökts tidigare i turen.
+		</Answer>
+	</TestQuestion>
 </Test>
