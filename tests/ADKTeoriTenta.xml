@@ -174,7 +174,8 @@
 			Låt [math]{ (T(n)=aT(n/b)+f(n)), (T(1)=d) :}[/math] där [math]a \ge 1, b \gt 1, d \gt 0[/math] vara en rekursionsekvation som beskriver algoritmens tidskomplexitet. Då blir den asympotiska tidskomplexiteten:
 			• [math]T(n)=theta(n^(log_ba))[/math] om [math]f(n)=O(n^(log_ba-e))[/math] för något [math]e \gt 0[/math]
 			• [math]T(n)=theta(n^(log_b a)*log(n))[/math] om [math]f(n)=theta(n^(log_b a))[/math]
-			• [math]T(n)=theta(f(n))[/math] om [math]f(n)=Omega(n^(log_b a + e))[/math] för något [math]e \gt 0[/math] för alla tillräckligt stora [math]n[/math].
+			• [math]T(n)=theta(f(n))[/math] om [math]f(n)=Omega(n^(log_b a + e))[/math] för något [math]e \gt 0[/math]
+			För alla tillräckligt stora [math]n[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Algoritmer">
@@ -273,13 +274,13 @@
 			Ange en algoritm för att approximera problemet "TSP med triangelolikhet".
 		</Question>
 		<Answer>
-			Denna algoritm kallas för "Christofides algoritm" och approimerar inom faktorn [math]3/2[/math].
+			Denna algoritm kallas för "Christofides algoritm" och approximerar den optimala lösningen inom faktorn [math]3/2[/math].
 			[b]Indata[/b]: Fullständig graf [math]G=(V, E)[/math] med kantvikter som uppfyller triangelolikheten.
 			Algoritm:
 			1. Beräkna det minimalt spännande trädet för [math]G[/math], [math]E_T[/math]
 			2. Låt [math]V'[/math] vara hörnen med udda gradtal i trädet [math]E_T[/math].
 			3. Finn en minimal matchning i grafen inducerad av [math]V'[/math], [math]E_M[/math].
-			4. Konstrurera en Eulersk tur i [math]E_T \union T_m[/math] (går alltid för att varje hörn har jämnt gradtal). 
+			4. Konstrurera en Eulersk tur i [math]E_T \cup T_m[/math] (går alltid för att varje hörn har jämnt gradtal). 
 			5. Gör om Euler turen till en TSP-tur genom att snedda förbi hörn som redan besökts tidigare i turen.
 		</Answer>
 	</TestQuestion>
