@@ -137,7 +137,7 @@
 			Vad är en Karpreduktion?
 		</Question>
 		<Answer>
-			En Karpreduktion av [math]P[/math] till [math]Q[/math] är ett speciallfall av en Turingreduktion där både [math]P[/math] och [math]Q[/math] är beslutsproblem, där algortimen för [math]Q[/math] bara anropas en gång och där resultatet från den algoritmen returneras direkt.
+			En Karpreduktion av [math]P[/math] till [math]Q[/math] är ett speciallfall av en Turingreduktion där både [math]P[/math] och [math]Q[/math] är beslutsproblem, där algoritmen för [math]Q[/math] bara anropas en gång och där resultatet ifrån den algoritmen returneras direkt.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Algoritmer">
