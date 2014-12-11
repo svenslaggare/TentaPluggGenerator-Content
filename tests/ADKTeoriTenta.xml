@@ -240,8 +240,8 @@
 		</Question>
 		<Answer>
 			1. Totalsökning: Gå genom alla tänkbara lösningar och kolla om det är den sökta lösningen. Fungerar nästan alltid men är ineffektivt, i värsta fall exponentiellt.
-			2. Dekomposition: Dela upp probelemt i delproblem i varje steg.
-			3. Girigt: I varje steg, gör det som blir "bäst" i nuvarande steget.
+			2. Dekomposition: Dela upp problemt i delproblem, lös delproblemen rekursivt och kombinera resultaten.
+			3. Girigt: Lös problemet en bit i taget där i varje steg det som ger bäst utdelning/kostar minst.
 			4. Dynamisk programmering: Beräknar en rekursiv relation genom att spara tidigare värden i varje steg i en vektor/matris.
 			(5). Memoisering: En variant av dynamisk programmering men där algoritmen istället är rekursiv.
 		</Answer>
