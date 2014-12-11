@@ -152,7 +152,7 @@
 				(\infty, text{om } g(n) in omega(f(n)))
 			:}
 			[/math]
-			Vi definerar: [math]g(n) in O(f(n))[/math] som att [math]g(n)[/math] tillhör både [math]o(f(n))[/math] och [math]theta(f(n))[/math] och: [math]g(n) in Omega(f(n))[/math] som att [math]g(n)[/math] tillhör både [math]omega(f(n))[/math] och [math]theta(f(n))[/math].
+			Vi definerar: [math]g(n) in O(f(n))[/math] som att [math]g(n)[/math] tillhör [math]o(f(n))[/math] eller [math]theta(f(n))[/math] och: [math]g(n) in Omega(f(n))[/math] som att [math]g(n)[/math] tillhör [math]omega(f(n))[/math] eller [math]theta(f(n))[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Algoritmer">
