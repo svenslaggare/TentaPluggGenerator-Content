@@ -284,4 +284,12 @@
 			5. Gör om Euler turen till en TSP-tur genom att snedda förbi hörn som redan besökts tidigare i turen.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="ApproxHeurstik">
+		<Question>
+			Hur fungerar en lokalsökningsheuristik?
+		</Question>
+		<Answer>
+			Det utgår ifrån en existerade lösning till problemet och gör lokala förändringar av lösningen och studerar om förändringen leder till en bättre lösning. Detta återupprepas tills det inte går att få en bättre lösning.
+		</Answer>
+	</TestQuestion>
 </Test>
