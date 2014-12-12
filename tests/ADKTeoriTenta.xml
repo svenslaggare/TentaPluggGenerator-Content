@@ -289,7 +289,7 @@
 			Hur fungerar en lokalsökningsheuristik?
 		</Question>
 		<Answer>
-			Det utgår ifrån en existerade lösning till problemet och gör lokala förändringar av lösningen och studerar om förändringen leder till en bättre lösning. Detta återupprepas tills det inte går att få en bättre lösning.
+			Det utgår ifrån en existerade lösning till problemet och gör lokala förändringar av lösningen och studerar om förändringen leder till en bättre lösning. Detta återupprepas tills det inte går att få en bättre lösning. Notera dock att detta [i]inte[/i] innebär att vi har hittat den optimala lösningen!
 		</Answer>
 	</TestQuestion>
 </Test>
