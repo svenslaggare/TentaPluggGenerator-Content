@@ -215,7 +215,7 @@
 			Mergesort och Quicksort är två olika "snabba" sorteringsalgoritmer, jämför dessa.
 		</Question>
 		<Answer>
-			Mergesort har en optimal tidskomplexitet för jämförelse baserade sorteringsalgoritmer och har alltid tidskomplexieten: [math]O(n*log(n)[/math]. Quicksort har i värsta fall  tidskomplexiteten [math]O(n^2)[/math] och körtiden beror på ordningen av indata. Mergesort kräver en extra minnesplats för varje element. 
+			Mergesort har en optimal tidskomplexitet för jämförelsebaserade sorteringsalgoritmer och har alltid tidskomplexieten: [math]O(n*log(n))[/math]. Quicksort har i värsta fall  tidskomplexiteten [math]O(n^2)[/math] och körtiden beror på ordningen av indata. Mergesort kräver en extra minnesplats för varje element. 
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Algoritmer">
