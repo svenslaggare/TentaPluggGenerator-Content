@@ -251,7 +251,7 @@
 			Till vad för datastruktur är en skipplista ett alternativ till?
 		</Question>
 		<Answer>
-			Till ett balanserat sökträd. Det är en probabilistisk datastruktur som är mycket lättare att implementera än ett balanserat sökträd. I allmänhet är den lika snabbt som ett balanserat sökträd men i värsta fall så blir en sökning linjär.
+			Till ett balanserat sökträd. Det är en probabilistisk datastruktur som är mycket lättare att implementera än ett balanserat sökträd. I allmänhet är den lika snabbt som ett balanserat sökträd men i värsta fall så blir en operation linjär.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ApproxHeurstik">
