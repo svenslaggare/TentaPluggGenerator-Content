@@ -297,7 +297,7 @@
 			I en totalsöknings algoritm så går vi igenom alla tänkbara lösningar, men hur gör man det i praktiken?
 		</Question>
 		<Answer>
-			För många problem så ges alla lösningar av alla delmängder av indata. Även alla kombinationer av indata är vanliga.
+			Följande tre fall borde täcka (nästan) alla möjliga totalsökningar: Alla delmängder, kombinationer och permutationer av indata.
 
 			[b]Alla delmängder[/b]
 			Det finns två ganska enkla algoritmer för att ta reda på alla delmängder.
@@ -323,7 +323,8 @@
 			Om vi har en lista [math]L[/math] och vill veta alla kombinationer (ord) av längd [math]n[/math] så ges det: [math]L \times L \times ... \times L[/math] ([math]n[/math]-gånger) där [math]\times[/math] är cartesiska produkten.
 			En enkel algoritm för att beräkna den bygger på samma princip som hur man multiplicerar ihop utrycken [math](a+b+c+...+z)(a+b+c+...+z)[/math].
 
-
+			[b]Alla permutationer[/b]
+			För att finna alla permutationer av t.ex. [1,2,3,4] så hittar vi först alla permutationer som börjar med 1, 2, 3, 4. Detta reducerar det till att permutationer av längd 3. Sedan fortsätter vi tills vi kommit till längd 1, då finns det bara en permutation.
 
 			Jag har kodat en del totalsökningsalgoritmer i Java om någon vill ha!
 		</Answer>
