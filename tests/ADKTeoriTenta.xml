@@ -292,4 +292,38 @@
 			Det utgår ifrån en existerade lösning till problemet och gör lokala förändringar av lösningen och studerar om förändringen leder till en bättre lösning. Detta återupprepas tills det inte går att få en bättre lösning. Notera dock att detta [i]inte[/i] innebär att vi har hittat den optimala lösningen!
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="ApproxHeurstik">
+		<Question>
+			I en totalsöknings algoritm så går vi igenom alla lösningar, men hur gör man det praktiskt?
+		</Question>
+		<Answer>
+			För många problem så ges alla lösningar av alla delmängder av indata. Även alla kombinationer av indata är vanliga.
+
+			[b]Alla delmängder[/b]
+			Det finns två ganska enkla algoritmer för att ta reda på alla delmängder.
+			1. Power set ([url]http://en.wikipedia.org/wiki/Power_set#Algorithms[/url]):
+			[math]text{powerSet}(S)[/math] = 
+			[math]sets \leftarrow {}[/math]
+			if [math]S = \emptyset[/math] then
+			[latex]\(\color{white}{-}\)[/latex]return [math]{{}}[/math]
+			end
+
+			[math]e in S[/math] //Något element i S
+			[math]rest \leftarrow S\\{e}[/math]
+			for each [math]text{set}[/math] in [math]text{powerSet}(text{rest})[/math] do
+			[latex]\(\color{white}{-}\)[/latex][math]sets \leftarrow sets \cup {e \cup set} \cup set[/math]
+			end
+
+			return [math]text{sets}[/math]
+
+			2. Binär representation:
+			Om vi låter varje delmängd få ett unikt heltal så blir de elementen som ska vara med i delmängden lika med talets binära representation (om [math]i[/math]:te biten är en 1 så ska elementet vara med). För att gå genom alla delmängder stegar helt enkelt ifrån [math]0[/math] till [math]2^n-1[/math] och tar ut för varje heltal ut dess binära representation och konstruerar delmängden utifrån den.
+
+			[b]Alla kombinationer[/b]
+			Om vi har en lista [math]L[/math] och vill veta alla kombinationer (ord) av längd [math]n[/math] så ges det: [math]L \times L \times ... \times L[/math] ([math]n[/math]-gånger) där [math]\times[/math] är cartesiska produkten.
+			En enkel algoritm för att beräkna den bygger på samma princip som hur man multiplicerar ihop utrycken [math](a+b+c+...+z)(a+b+c+...+z)[/math].
+
+			Jag har kodat en del totalsökningsalgoritmer i Java om någon vill ha!
+		</Answer>
+	</TestQuestion>
 </Test>
