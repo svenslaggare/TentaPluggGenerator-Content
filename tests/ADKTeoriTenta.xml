@@ -294,7 +294,7 @@
 	</TestQuestion>
 	<TestQuestion Category="ApproxHeurstik">
 		<Question>
-			I en totalsöknings algoritm så går vi igenom alla lösningar, men hur gör man det praktiskt?
+			I en totalsöknings algoritm så går vi igenom alla tänkbara lösningar, men hur gör man det i praktiken?
 		</Question>
 		<Answer>
 			För många problem så ges alla lösningar av alla delmängder av indata. Även alla kombinationer av indata är vanliga.
@@ -322,6 +322,8 @@
 			[b]Alla kombinationer[/b]
 			Om vi har en lista [math]L[/math] och vill veta alla kombinationer (ord) av längd [math]n[/math] så ges det: [math]L \times L \times ... \times L[/math] ([math]n[/math]-gånger) där [math]\times[/math] är cartesiska produkten.
 			En enkel algoritm för att beräkna den bygger på samma princip som hur man multiplicerar ihop utrycken [math](a+b+c+...+z)(a+b+c+...+z)[/math].
+
+
 
 			Jag har kodat en del totalsökningsalgoritmer i Java om någon vill ha!
 		</Answer>
