@@ -33,7 +33,7 @@
 			Ett beslutsproblem [math]Q[/math] är NP-fullständigt om och endast om:
 			1. [math]Q in NP[/math].
 			2. [math]Q' \le_p Q[/math] för alla [math]Q' in NP[/math] (dvs är NP-svårt). 
-			Där [math]\le_p[/math] är en polynomisk karp-reduktion ifrån [math]Q'[/math] till [math]Q[/math].
+			Där [math]\le_p[/math] är en polynomisk karpreduktion ifrån [math]Q'[/math] till [math]Q[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Komplexitetsteori">
