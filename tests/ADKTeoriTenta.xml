@@ -294,6 +294,14 @@
 	</TestQuestion>
 	<TestQuestion Category="ApproxHeurstik">
 		<Question>
+			Vad är skillnaden mellan en approximationsalgoritm och en heuristik?
+		</Question>
+		<Answer>
+			En approximationsalgoritm ger garanterat en lösning inom en faktor ifrån den optimala medans en heuristik så kan lösningen bli hur dålig som helst, dvs vi har ingen garanti på hur nära lösningen ligger ifrån den optimala.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ApproxHeurstik">
+		<Question>
 			Hur fungerar en lokalsökningsheuristik?
 		</Question>
 		<Answer>
