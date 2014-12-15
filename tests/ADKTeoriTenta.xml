@@ -47,6 +47,14 @@
 	</TestQuestion>
 	<TestQuestion Category="Komplexitetsteori">
 		<Question>
+			Definera begreppet "Avgörbarhet".
+		</Question>
+		<Answer>
+			Ett problem som har en algoritm som för alla instanser av indata kan hitta en lösning i ändlig tid kallas avgörbart.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Komplexitetsteori">
+		<Question>
 			Vad säger Cooks sats?
 		</Question>
 		<Answer>
