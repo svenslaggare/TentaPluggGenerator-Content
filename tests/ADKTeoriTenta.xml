@@ -50,7 +50,7 @@
 			Definera begreppet "Avgörbarhet".
 		</Question>
 		<Answer>
-			Ett problem som har en algoritm som för alla instanser av indata kan hitta en lösning i ändlig tid kallas avgörbart.
+			Ett problem som har en algoritm som för alla instanser av indata kan hitta en lösning i ändlig tid säges vara avgörbart.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Komplexitetsteori">
