@@ -215,7 +215,7 @@
 			DFS och BFS är två olika grafsökningsalgoritmer, jämför dessa.	
 		</Question>
 		<Answer>
-			Det enda som skiljer sig mellan algoritmerna är i vilken ordning som hörnen besöks där DFS är det stack-ordning och BFS kö-ordning. Tidskomplexitet för båda algoritmerna är: [math]O(|V|+|E|)[/math] om grafen ([math]G=(V, E)[/math]) representeras som grannlistor.
+			Det enda som skiljer sig mellan algoritmerna är i vilken ordning som hörnen besöks där DFS är det stack-ordning och för BFS: kö-ordning. Tidskomplexitet för båda algoritmerna är: [math]O(|V|+|E|)[/math] om grafen ([math]G=(V, E)[/math]) representeras som grannlistor.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Algoritmer">
