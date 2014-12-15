@@ -170,7 +170,7 @@
 		<Answer>
 			[math]lim_(n \rightarrow \infty) n^(c_1)/n^(c_2)=0[/math] då [math]c_2 \gt c_1[/math].
 			[math]lim_(n \rightarrow \infty) log(n)^(c_1)/n^(c_2)=0[/math].
-			[math]lim_(n \rightarrow \infty) (c_1)^n/(c_2)^n=c \gt 0[/math].
+			[math]lim_(n \rightarrow \infty) (c_1)^n/(c_2)^n=c \gt 0[/math] då [math]c_1 \gt 1, c_2 \gt 2[/math].
 			[math]lim_(n \rightarrow \infty) (log_(c_1)(n))/(log_(c_2)(n))=c \gt 0[/math].
 		</Answer>
 	</TestQuestion>
