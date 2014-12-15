@@ -329,10 +329,10 @@
 
 			[b]Alla kombinationer[/b]
 			Om vi har en lista [math]L[/math] och vill veta alla kombinationer (ord) av längd [math]n[/math] så ges det: [math]L \times L \times ... \times L[/math] ([math]n[/math]-gånger) där [math]\times[/math] är cartesiska produkten.
-			En enkel algoritm för att beräkna den bygger på samma princip som hur man multiplicerar ihop utrycken [math](a+b+c+...+z)(a+b+c+...+z)[/math].
+			En enkel algoritm för att beräkna den bygger på samma princip som hur man multiplicerar ihop utrycken: [math](a+b+c)(a+b+c)=aa+ab+ac+ba+bb+bc+ca+cb+cc[/math], om vi bortser ifrån räkneregler så får vi alla kombinationer av längd 2: (aa,ab,ac,ba,bb,bc,ca,cb,cc). Vill vi veta av längd 3 så tar vi det fick tidigare och "multiplicerar" ihop med (a+b+c).
 
 			[b]Alla permutationer[/b]
-			För att finna alla permutationer av t.ex. [1,2,3,4] så hittar vi först alla permutationer som börjar med 1, 2, 3, 4. Detta reducerar det till att permutationer av längd 3. Sedan fortsätter vi tills vi kommit till längd 1, då finns det bara en permutation.
+			För att finna alla permutationer av t.ex. [1,2,3,4] så hittar vi först alla permutationer som börjar med 1, 2, 3, 4. Detta reducerar problemet till att hitta alla permutationer av längd 3. Sedan fortsätter vi tills vi kommit till längd 1, då finns det bara en permutation.
 
 			Jag har kodat en del totalsökningsalgoritmer i Java om någon vill ha!
 		</Answer>
