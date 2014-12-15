@@ -297,7 +297,7 @@
 			Vad är skillnaden mellan en approximationsalgoritm och en heuristik?
 		</Question>
 		<Answer>
-			En approximationsalgoritm ger garanterat en lösning inom en faktor ifrån den optimala medans en heuristik så kan lösningen bli hur dålig som helst, dvs vi har ingen garanti på hur nära lösningen ligger ifrån den optimala.
+			En approximationsalgoritm ger garanterat en lösning inom en konstant faktor ifrån den optimala medans en heuristik så kan lösningen bli hur dålig som helst, dvs vi har ingen garanti på hur nära lösningen ligger ifrån den optimala.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ApproxHeurstik">
@@ -313,7 +313,7 @@
 			I en totalsöknings algoritm så går vi igenom alla tänkbara lösningar, men hur gör man det i praktiken?
 		</Question>
 		<Answer>
-			Följande tre fall borde täcka (nästan) alla möjliga totalsökningar: Alla delmängder, kombinationer och permutationer av indata.
+			Följande tre fall borde täcka alla (?) möjliga totalsökningar: Alla delmängder, kombinationer och permutationer av indata.
 
 			[b]Alla delmängder[/b]
 			Det finns två ganska enkla algoritmer för att ta reda på alla delmängder.
