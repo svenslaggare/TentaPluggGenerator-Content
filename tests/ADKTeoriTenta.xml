@@ -327,7 +327,7 @@
 			[math]e in S[/math] //Något element i S
 			[math]rest \leftarrow S\\{e}[/math]
 			for each [math]text{set}[/math] in [math]text{powerSet}(text{rest})[/math] do
-			[latex]\(\color{white}{-}\)[/latex][math]sets \leftarrow sets \cup {e \cup set} \cup set[/math]
+			[latex]\(\color{white}{-}\)[/latex][math]sets \leftarrow sets \cup {e \cup set} \cup {set}[/math]
 			end
 
 			return [math]text{sets}[/math]
