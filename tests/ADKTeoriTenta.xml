@@ -288,7 +288,7 @@
 			1. Beräkna det minimalt spännande trädet för [math]G[/math], [math]E_T[/math]
 			2. Låt [math]V'[/math] vara hörnen med udda gradtal i trädet [math]E_T[/math].
 			3. Finn en minimal matchning i grafen inducerad av [math]V'[/math], [math]E_M[/math].
-			4. Konstrurera en Eulersk tur i [math]E_T \cup T_m[/math] (går alltid för att varje hörn har jämnt gradtal). 
+			4. Konstrurera en Eulersk tur i [math]E_T \cup E_M[/math] (går alltid för att varje hörn har jämnt gradtal). 
 			5. Gör om Euler turen till en TSP-tur genom att snedda förbi hörn som redan besökts tidigare i turen.
 		</Answer>
 	</TestQuestion>
