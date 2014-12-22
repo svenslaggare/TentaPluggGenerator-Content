@@ -1,0 +1,617 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Test Name="Tenta B">
+<TestQuestion Category="Grundläggande">
+  <Question>
+    Vad är en grupp?
+  </Question>
+  <Answer>
+    Låt [math]G[/math] vara en mängd och [math]*[/math] en binär operation. [math](G, *)[/math] är en grupp om och endast om följande axiom är uppfyllda: 
+    G1. [math]AA x, y in G[/math] så gäller att [math]x * y in G[/math] (slutenhet)
+    G2. [math]AA x, y, z in G[/math] så gäller att: [math](x*y)*z=x*(y*z)[/math] (associativitet)
+    G3. [math]EE e in G, AA x in G[/math] så gäller att: [math]e*x=x*e=x[/math] (identitet).
+    G4. [math]AA x in G, EE x^-1 in G[/math] så gäller att: [math]x*x^-1=x^-1*x=e[/math] (invers).
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Grundläggande">
+  <Question>
+    Vad innebär det att en grupp är abelsk?
+  </Question>
+  <Answer>
+    Det innebär att den är kommunativ, dvs: [math]ab=ba[/math] för alla [math]a,b in G[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Grundläggande">
+  <Question>
+    Om [math]a, b[/math] är element i gruppen [math]G[/math] vad kan man då säga om lösningarna till ekvationerna: [math]ax=b[/math] och [math]ya=b[/math].
+  </Question>
+  <Answer>
+    Det finns entydliga lösningar: [math]x=a^-1b, y=ba^-1[/math] i [math]G[/math].  
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Grundläggande">
+  <Question>
+    Ge exempel på grupper.
+  </Question>
+  <Answer>
+    Symmetrigrupper (kvadratens: [math]G_square[/math] och liksidiga triangelns: [math]G_△[/math]), [math]{ n \times n[/math] matriser med determinant [math]!=0}[/math], [math](ZZ, +), (ZZ_m, +), (QQ\\{0}, \times), S_n, (ZZ_p\\{0},\times)[/math] ([math]p[/math] är ett primtal).
+
+    Det finns endast två grupper av ordning 6: [math]C_6 (~~ (ZZ_6, +))[/math] och [math]S_3 (~~G_△)[/math]
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Grundläggande">
+  <Question>
+    Vad för egenskap har grupptabellen för en grupp?
+  </Question>
+  <Answer>
+    Den är en latinsk kvadrat. Om det finns [math]n[/math] element i gruppen så uppfyller grupptabellen att för varje element så finns det precis ett element på varje rad och kolumn i tabellen.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Grundläggande">
+  <Question>
+    Låt [math]A[/math] vara en latinsk kvadrat. Bildar då kvadraten alltid en grupp?
+  </Question>
+  <Answer>
+    Nej. Axiom [math]G1, G3, G4[/math] är direkt uppfyllda på grund av att det är en latinsk kvadrat men den andra axiomet ([math]G2[/math]) är inte direkt uppfylld. För att visa att kvadraten bildar en grupp så måste det visas att den är associativ.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Grundläggande">
+  <Question>
+    Hur defineras att två grupper [math](G_1, *), (G_2,   \circ)[/math] är isomorfa?
+  </Question>
+  <Answer>
+    Om och endast om det finns en bijektion [math]beta: G_1 \rightarrow G_2[/math] så att [math]beta(g*g')=beta(g) \circ beta(g')[/math] för alla [math]g, g' in G_1[/math]. Grupp isomorfi brukas betecknas [math](G_1, *) ~~ (G_2,    \circ)[/math] eller endast [math]G_1 ~~ G_2[/math]. Det bildar även en ekvivalensrelation mellan grupper.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Grundläggande">
+  <Question>
+    Hur defineras ordningen för en grupp och ett element?
+  </Question>
+  <Answer>
+    [math]
+    { 
+      (text{för en grupp } G text{ : } |G|),
+      (text{för ett element } g in G text{ : } o(g))
+    :}
+    [/math]
+    där [math]o(g)={ (text{om } g^n=1 text{, något n} gt 0 text{ : } text{minsta sådana } n), (text{annars : } \infty) :}[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Grundläggande">
+  <Question>
+    Vad för relation finns mellan ordningen för [math]g in G[/math] och potenser av [math]g[/math] som är lika med 1 ([math]g^s=1[/math])?
+  </Question>
+  <Answer>
+    Låt [math]o(g)=m[/math] då är: [math]g^s=1 iff m|s[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Grundläggande">
+  <Question>
+    Vad för egenskap har den direkta produkten mellan två grupper [math]A, B[/math]?
+  </Question>
+  <Answer>
+    Det bildar också en grupp. [math](A \times B, *)[/math] med grupp operatorn definerad som: [math](a_1, b_1)*
+    (a_2, b_2)=(a_1a_2, b_1b_2)[/math]
+    Enligt kinesiska restsatsen gäller om [math]sgd(m_i, m_j)=1[/math] då [math]i != j[/math]: [math]C_(m_1*...*m_k)~~C_(m_1) \times ... \times C_(m_k)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Grundläggande">
+  <Question>
+    Låt [math]C_n[/math] och [math]C_m[/math] vara två cykliska grupper. Vad för egenskap har den direkta produkten mellan [math]C_n[/math] och [math]C_m[/math]?
+  </Question>
+  <Answer>
+    Om [math]n[/math] och [math]m[/math] är relativt prima ([math]sgd(n, m)=1[/math]) så är [math]C_n \times C_m ~~ C_(nm)[/math].
+    Detta kan generaliseras till [math]k[/math]-st cykliska grupper så länge alla grupper är parvist relativt prima.
+    Dvs: Om [math]sgd(m_i, m_j)=1[/math] då [math]i != j[/math] så gäller att [math]C_(m_1*...*m_k)~~C_(m_1) \times ... \times C_(m_k)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Grundläggande">
+  <Question>
+    Om [math]G[/math] är en grupp med [math]|G|=n[/math] vad kan vi då säga om elementens ordningar?
+  </Question>
+  <Answer>
+    [math]o(g)|n[/math] och [math]g^n=1[/math] alla [math]g in G[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Delgrupper">
+  <Question>
+    Vad är en delgrupp till [math](G, *)[/math]?
+  </Question>
+  <Answer>
+    [math]H[/math] är en delgrupp till [math]G[/math] om [math]H \subseteq G[/math] och [math](H, *)[/math] är en grupp (samma operator).
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Delgrupper">
+  <Question>
+    Hur kan man avgöra om [math]H[/math] är en delgrupp till [math]G[/math]?
+  </Question>
+  <Answer>
+    Om och endast om: 
+    [math]
+      {
+        (text{S0 } H != \emptyset),
+        (text{S1 } {:x, y:} in H \implies xy in H),
+        (text{S2 } x in H \implies x^-1 in H)
+      :}
+    [/math]
+
+    Om [math]H[/math] är ändlig så räcker [math]S0[/math] och [math]S1[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Delgrupper">
+  <Question>
+    Vad är en grupp [math]G[/math]:s centrum?
+  </Question>
+  <Answer>
+    Det är mängden av alla element som kommuterar med alla andra element vilket också bildar en delgrupp till [math]G[/math]. [math]Z(G)={ z in G | zg=gz text{ för alla } g in G }[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Delgrupper">
+  <Question>
+    Vad kan man säga om cykliska delgrupper?
+  </Question>
+  <Answer>
+    Varje [math]x in G[/math] ([math]G[/math] är en grupp) genererar en cyklisk delgrupp: [math](:x:)={x^i | i in ZZ}[/math]. Då är [math]o(x)=|(:x:)|[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Delgrupper">
+  <Question>
+    Vad säger Lagranges sats?
+  </Question>
+  <Answer>
+    Om [math]G[/math] är en ändlig grupp och [math]H[/math] är en delgrupp till [math]G[/math] så gäller: [math]|H| | |G|[/math]. Det vill säga: alla möjliga storlekar på delgrupper till en grupp är en delare till gruppens storlek. Det är värt att tillägga att satsen [i]inte[/i] garanterar att det finns delgrupper för varje delare.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Delgrupper">
+  <Question>
+    Vad är delgrupps index?
+  </Question>
+  <Answer>
+    Om [math]H[/math] är en delgrupp till gruppen [math]G[/math] så är [math]H[/math]:s index i [math]G[/math] = antalet sidoklasser till [math]H[/math] i [math]G[/math], dvs: [math]|G:H|=|G|/|H|[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="CykliskaGrupper">
+  <Question>
+    Vad är en cyklisk grupp?
+  </Question>
+  <Answer>
+    En grupp [math]G[/math] är cyklisk om för något [math]x in G[/math] så är varje [math]g in G[/math] lika med någon potens av [math]x[/math], dvs: [math]g=x^n[/math] för något [math]n in ZZ[/math]. Om [math]n lt 0[/math] så betraktar vi inversen ([math]x^-1[/math]) istället så att: [math](x^-1)^-n=1[/math].
+    Vi säger då att [math]x[/math] [b]genererar[/b] [math]G[/math] vilket betecknas: [math]G=(: x :)[/math].
+
+    [math]o(x)=m[/math]: [math]C_m={1, x, x^2,...,x^(m-1)}~~(ZZ_m, +)[/math]
+    [math]o(x)=\infty[/math]: [math]C_\infty={...,x^-2,x^-1,1,x,x^2,...}~~(ZZ, +)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="CykliskaGrupper">
+  <Question>
+    Om grupp har primtalsordning, dvs [math]|G|=p[/math] där [math]p[/math] är ett primtal, vad för egenskap har då [math]G[/math]?
+  </Question>
+  <Answer>
+    Den är cyklisk och genereras av alla element utan identitet, dvs: [math]G=(:x:)[/math] för alla [math]x in G\\{1}[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="CykliskaGrupper">
+  <Question>
+    Hur lyder ekvivalenssatsen för grupper?
+  </Question>
+  <Answer>
+    Om [math]G[/math] är en grupp med [math]|G|=n[/math] är 1, 2, 3 ekvivalenta.
+    1. [math]G[/math] är cyklisk.
+    2. [math]d|n \implies |{x in G | x^d=1}|=d[/math].
+    3. [math]d|n \implies |{x in G | o(x)=d}|=phi(d)[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="CykliskaGrupper">
+  <Question>
+    Vad gäller för delgrupper till cykliska grupper?
+  </Question>
+  <Answer>
+    Alla delgrupper till [math]C_n[/math] är också cykliska. Det gäller även att det finns [b]precis en[/b] delgrupp av ordning [math]d[/math] för alla [math]d|n[/math].
+  </Answer>
+</TestQuestion>
+  <TestQuestion Category="CykliskaGrupper">
+  <Question>
+    Vad gäller för element av primtalsordning i en ändlig grupp [math]G[/math]?
+  </Question>
+  <Answer>
+    Om [math]|G|=n[/math] och [math]p[/math] är en primtalsfaktor i [math]n[/math] så finns ett element [math]g in G[/math] av ordning [math]p[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="CykliskaGrupper">
+  <Question>
+    Vad är den diskreta logaritmen för något?
+  </Question>
+  <Answer>
+    Låt [math]G[/math] vara en grupp och [math]g, x in G[/math] ([math]x[/math] genererar [math]G[/math]) då är den diskreta logaritmen för [math]x[/math] det som [math]x[/math] ska "upphöjas" i så att: [math]g=x^i[/math].
+    Betecknas: [math]i=log_x(g)[/math]. Om [math]o(x)[/math] är ändlig så är [math]i in ZZ_m[/math] och om oändlig: [math]i in ZZ[/math]. Den gäller även samma logaritmlagar som för reella tal.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Sidoklass">
+  <Question>
+    Hur defineras en sidoklass till en delgrupp [math]H[/math]?
+  </Question>
+  <Answer>
+    Om [math]H[/math] är en delgrupp till gruppen [math]G[/math] och [math]g in G[/math] så är [math]gH={gh|h in H}[/math] en [b]vänstersidoklass[/b] till [math]H[/math] och [math]Hg={hg|h in H}[/math] en [b]högersidoklass[/b].
+    Det gäller även att: [math]|H|=|gH|=|Hg|[/math].
+    Sidoklasserna ger [b]partitioner[/b] av [math]G[/math] i lika stora mängder.
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Sidoklass">
+  <Question>
+    Om [math]G[/math] är en abelsk grupp, vad kan man då säga om dess vänster- och högersidoklasser?
+  </Question>
+  <Answer>
+    Det är samma, dvs [math]gH=Hg[/math] för alla [math]g in G[/math].
+  </Answer>
+</TestQuestion>
+<TestQuestion Category="Gruppverkan">
+    <Question>
+      Vad innebär det att en grupp [math]G[/math] verkar på en mängd [math]X[/math]?
+    </Question>
+    <Answer>
+      Om det finns en funktion: [math]mu: G \times X \rightarrow X[/math] (vi betecknar den [math]g(x)[/math] istället för [math]mu(g, x)[/math]) så att [math](g_1g_2)(x)=g_1(g_2(x))[/math] och [math]1(x)=x[/math] för alla [math]x in X[/math]. Varje [math]g[/math] ger då en [b]bijektion[/b] av [math]X[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Gruppverkan">
+    <Question>
+      Låt [math]G[/math] verka på en mängd [math]M[/math] och [math]X[/math] är mängden av färgningar av [math]M[/math] (eller någon annan mängd funktioner på [math]M[/math]). Hur definieras då verkan av [math]G[/math] på [math]X[/math]?
+    </Question>
+    <Answer>
+      Den verkar enligt: [math]g(x)(m)=x(g^-1(m))[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Gruppverkan">
+    <Question>
+      Hur definieras banorna för en grupp [math]G[/math] som verkar på en mängd [math]X[/math]?
+    </Question>
+    <Answer>
+      En [b]bana[/b] för ett [math]x in X[/math] är mängden av de element i [math]X[/math] som [math]x[/math] avbildas på av något [math]g in G[/math]. Dvs: [math]{g(x)|g in G}[/math].
+      Då blir banorna för en grupp: [math]Gx={g(x)|g in G}[/math] för [math]x in X[/math].
+      Banorna ger en [b]partition[/b] av [math]X[/math] där ekvivalensrelationen defineras som: [math]x_1[/math] ~ [math]x_2 iff x_2=g(x_1)[/math] för något [math]g in G[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Gruppverkan">
+    <Question>
+      Hur definieras stabilisatorn för [math]x in X[/math]?
+    </Question>
+    <Answer>
+      Stabilisatorn för [math]x in X[/math] är mängden av de [math]g in G[/math] som avbildar [math]x[/math] på [math]x[/math]. Dvs: [math]G_x = {g in G | g(x) = x}[/math] vilket även bildar en delgrupp till [math]G[/math].
+      Allmännare definerar vi [math]G(x \rightarrow y)={g in G|g(x)=y}[/math] och då blir stabilisatorn: [math]G(x \rightarrow x)[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Gruppverkan">
+    <Question>
+      Vad för relation finns det mellan storleken av banorna och stabilisatorn?
+    </Question>
+    <Answer>
+      Låt [math]G[/math] vara en grupp, [math]Gx[/math] bana och [math]G_x[/math] stabilisatorn för [math]x in X[/math] då gäller att: [math]|G|=|Gx|*|G_x|[/math].
+      En följd av detta är att banans storlek (och stabilisatorns storlek) delar gruppens storlek, dvs. [math]|Gx| | |G|[/math] och [math]|G_x| | |G|[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Gruppverkan">
+    <Question>
+      Vad är ett elements [math]g in G[/math] fixpunktsmängd i en gruppverkan på mängden [math]X[/math]?
+    </Question>
+    <Answer>
+      Det är elementen som "ligger stilla" när ett gruppelement [math]g in G[/math] verkar på mängden, dvs: [math]F(g)={x in X | g(x)=x}[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Gruppverkan">
+    <Question>
+      Hur många banor finns det för en gruppverkan [math]G[/math] på mängden [math]X[/math]?
+    </Question>
+    <Answer>
+      Antalet banor = [math]1/|G| sum_(g in G) |F(g)|[/math] där [math]F(g)[/math] är g:s fixpunktsmängd: [math]F(g)={x in X | g(x) = x}[/math]. Satsen brukar kallas för "Burnsides lemma".
+      Det finns alternativa formler för att beräkna antalet banorna, men ovan är (enligt Bengt) lättast att beräkna.
+      Antalet banor = [math]sum_(x in X)1/|Gx|=1/|G| sum_(x in X) |G_x|[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Gruppverkan">
+    <Question>
+      Låt [math]G[/math] vara en symmetrigrupp för någon geometrisk figur, hur kan man då bestämma antalet färgningar av figurens sidor eller liknande egenskap?
+    </Question>
+    <Answer>
+      Antalet ges av "burnsides lemma": [math]1/|G| sum_(g in G) |F(g)|[/math] där [math]F(g)[/math] är mängden av de färningar som inte ändras då [math]g[/math] verkar.
+      T.ex: Låt figuren vara en polyeder och [math]G[/math] rotationssymmetrigruppen för polyedern, då studerar vi färgningarna av sidytorna och då blir [math]F(g)[/math] mängden av färgningar som är oförändrade då [math]g[/math] roterar den färgade polyedern.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="RingarOchKroppar">
+    <Question>
+      Hur definieras en ring?
+    </Question>
+    <Answer>
+      [math](R, +, \times)[/math] är en ring om:
+      1) [math](R, +)[/math] är en [b]abelsk grupp[/b] (kommutativ) vars identitetselement betecknas [math]0[/math].
+      2) [math](R, \times)[/math] är sluten, associativ och med identitetselementet [math]1[/math] (dvs alla gruppaxoim utan invers).
+      3) [math]\times[/math] är distributiv med avseende på [math]+[/math]: [math]a(b+c)=ab+ac, (a+b)c=ac+bc[/math] för alla [math]a,b,c in R[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="RingarOchKroppar">
+    <Question>
+      Ge exempel på ringar.
+    </Question>
+    <Answer>
+      [math]ZZ[/math], [math]ZZ_m[/math], [math]M_n(R)[/math] ([math]n \times n[/math]-matriser med koeffcienter i en ring [math]R[/math]), [math]R[x][/math] (polynom med koeffcienter i en ring [math]R[/math]).
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="RingarOchKroppar">
+    <Question>
+      Hur definieras det att ett element [math]x in R[/math] är inverterbart i ringen [math]R[/math]?
+    </Question>
+    <Answer>
+      Att [math]x[/math] har en [b]multiplikativ[/b] invers i [math]R[/math], dvs: Det finns ett element i [math]u in R[/math] så att [math]ux=xu=1[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="RingarOchKroppar">
+    <Question>
+      Vad för egenskap har mängden av inverterbara element ([math]U(R)[/math]) för en ring [math]R[/math]?
+    </Question>
+    <Answer>
+      [math](U(R), \times)[/math] är en grupp.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="RingarOchKroppar">
+    <Question>
+      Ge exempel på mängden av inverterbara element för ringar.
+    </Question>
+    <Answer>
+      [math]U(ZZ)={1, -1}[/math]
+      [math]U(ZZ_m)={r in ZZ_m | sgd(r,m)=1}[/math] vilket ger att antalet inverterbara element blir: [math]|U(ZZ_m)|=phi(m)[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="RingarOchKroppar">
+    <Question>
+      Hur definieras en kropp?
+    </Question>
+    <Answer>
+      [math](F, +, \times)[/math] är en kropp om:
+      1) [math](F, +, \times)[/math] är en ring.
+      2) [math](F\\{0}, \times)[/math] är en abelsk (kommutativ) grupp.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="RingarOchKroppar">
+    <Question>
+      Ge exempel på kroppar.
+    </Question>
+    <Answer>
+      [math]RR, CC, QQ, ZZ_p[/math] ([math]p[/math] primtal).
+      Det är värt att nämna att [math]ZZ[/math] [i]inte[/i] är en kropp för att endast [math]{1, -1}[/math] har invers!
+    </Answer>
+  </TestQuestion>
+    <TestQuestion Category="Polynom">
+    <Question>
+      Hur definieras ett polynom i gruppteori?
+    </Question>
+    <Answer>
+      [math]f(x)=a_0+a_1x+a_2x^2+...+a_nx^n[/math] där koefficienterna [math]a_i[/math] antingen ligger i en ring [math]R[/math] eller en kropp [math]F[/math].
+      Vi betecknar mängden av polynom över en ring [math]R[/math] som: [math]R[x][/math] och kropp: [math]F[x][/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Hur fungerar addition och multiplikation av polynom över ringar (och kroppar)?
+    </Question>
+    <Answer>
+      Det fungerar som vanligt. Det är dock viktigt att komma ihåg att om ringen/kroppen är över [math]Z_m[/math] så behöver man ta koefficienterna modulus [math]m[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Hur definieras graden av ett polynom?
+    </Question>
+    <Answer>
+      Graden av ett polynom, betecknat [math]deg(f(x))[/math] är det [b]största[/b] [math]n[/math] med [math]a_n != 0[/math]. Graden för nollpolynomet låter vi vara [math]-\infty[/math] eller odefinierat.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Låt [math]f(x), g(x) in R[x][/math] vara polynom över en ring [math]R[/math]. Vad gäller då för addition och multiplikation av dess grader?
+    </Question>
+    <Answer>
+      [math]deg(f(x)+g(x)) \le max(deg(f(x)), deg(g(x)))[/math].
+      [math]deg(f(x)g(x)) \le deg(f(x))+deg(g(x))[/math]
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Låt [math]f(x), g(x) in F[x][/math] vara polynom över en kropp [math]F[/math]. Vad gäller då för addition och multiplikation av dess grader?
+    </Question>
+    <Answer>
+      [math]deg(f(x)+g(x)) \le max(deg(f(x)), deg(g(x)))[/math].
+      [math]deg(f(x)g(x)) = deg(f(x))+deg(g(x))[/math]
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Om [math]a(x), b(x) in F[x], b(x) != 0[/math], där [math]F[/math] är en kropp, vad gäller då?
+    </Question>
+    <Answer>
+      Finns entydiga [math]q(x), r(x) in F[x], deg(r(x)) \lt deg(b(x))[/math], så att [math]a(x)=b(x)q(x)+r(x)[/math]. Notera att om polynomen istället är öven en ring så gäller inte entydighet!
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Hur utförs division av två polynom i en kropp [math]F[/math]?
+    </Question>
+    <Answer>
+      Det utförs som vanligt med polynomdivision. En skillnad är när man ska bryta ut konstanten. I vanliga fall så delar man med den, men här ska man hitta inversen.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Vad innebär det att ett polynom är monisk?
+    </Question>
+    <Answer>
+      Det innebär att dess högstagradskoefficient är 1.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Hur definieras att polynomet [math]g(x)[/math] delar [math]f(x)[/math] där [math]f(x), g(x) in F[/math] (en kropp).
+    </Question>
+    <Answer>
+      [math]g(x) | f(x) iff f(x)=g(x)h(x)[/math] för något [math]h(x) in F[x][/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Hur definieras den största gemensamma delaren till polynomen [math]a(x), b(x)[/math] där [math]a(x), b(x) in F[x][/math], där [math]F[/math] är en kropp?
+    </Question>
+    <Answer>
+      [math]i)[/math] [math]d(x)|a(x), d(x)|b(x)[/math]
+      [math]ii)[/math] [math]c(x)|a(x), c(x)|b(x) \implies c(x)|d(x)[/math]
+      [math]iii)[/math] [math]d(x)[/math] är [b]monisk[/b] (högstagradskoefficienten är 1).
+      Sgd kan beräknas med Euklides algoritm. För polynom som endast uppfyller i) och ii) är inte [math]d(x)[/math] entydigt bestämd.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Finns det alltid en största gemensam delare till två polynom [math]a(x), b(x)[/math]?
+    </Question>
+    <Answer>
+      Om [math]a(x), b(x) in F[x][/math], där [math]F[/math] är en kropp, så finns det alltid en entydigt bestämd sådan.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Låt [math]d(x)=sgd(a(x), b(x))[/math], där [math]a(x), b(x), d(x) in F[x][/math]. Kan då [math]d(x)[/math] uttryckas med hjälp av [math]a(x), b(x)[/math]?
+    </Question>
+    <Answer>
+      Ja. [math]d(x)=lambda(x)a(x)+mu(x)b(x)[/math] för några [math]lambda(x), mu(x) in F[x][/math]. [math]lambda(x), mu(x)[/math] fås med Euklides algoritm (baklänges) på samma sätt som med heltal.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Vad innebär det att ett polynom (i en kropp [math]F[/math]) är irreducibelt?
+    </Question>
+    <Answer>
+      Om [math]f(x) in F[x][/math] är [math]f(x)[/math] irreducibelt omm [math]f(x)=g(x)h(x) \implies [/math] precis en av [math]g(x)[/math] och [math]h(x)[/math] tillhör [math]U(F[x])[/math].
+      Dvs: Polynomet kan inte skrivas som faktorer av andra (förutom konstanta) polynom.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Vad för relation finns det mellan polynom i en kropp [math]F[/math] och irreducibla polynom?
+    </Question>
+    <Answer>
+      Att varje polynom [math]f(x) in F[x][/math] är en produkt av irreducibla polynom eller konstanta polynom.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Hur lyder satsen för entydig faktorisering av polynom i en kropp [math]F[/math]?
+    </Question>
+    <Answer>
+      Om [math]f(x)=g_1(x)...g_r(x)=h_1(x)...h_s(x)[/math] i [math]F[x][/math] med [math]g_i(x), h_j(x)[/math] [b]irreducibla[/b], så är [math]r=s[/math] och [math]g_i(x)=u_i h_(pi(i)) (x)[/math], där [math]u_i in U(F[x]), pi in S_r[/math].
+      Dvs: Om vi byter plats på [math]h_i(x)[/math]:na och bortser från konstanterna så är båda faktoriseringarna identiska.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Låt [math]r(x) in F[x][/math] vara ett irreducibelt polynom som delar en produkt av sammansatta polynom, vad gäller då?
+    </Question>
+    <Answer>
+      Om [math]r(x) | s_1(x)...s_k(x)[/math] så gäller att [math]r(x) | s_i(x) [/math] något [math]i in [1, k][/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Kan ett polynom [math]f(x)[/math] alltid faktoriseras entydigt i irreducibla polynom?
+    </Question>
+    <Answer>
+      Om [math]f(x) in F[x][/math], där [math]F[/math] är en kropp, så gäller det alltid. Om [math]f(x)[/math] istället är ett polynom i en ring så gäller det inte alltid.
+
+      Ex:
+      Ringen [math]Z[x][/math] har entydig faktorisering.
+      Ringen [math]Z[i sqrt(5)]={m + i*n*sqrt(5) | m, n in ZZ}[/math] har [b]inte[/b] entydig faktorisering. T.ex: [math]6=2*3=(1+isqrt(5))(1-isqrt(5))[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Vad säger faktorsatsen för polynom i en kropp [math]F[/math]?
+    </Question>
+    <Answer>
+      Om [math]f(x) in F[x][/math] så gäller att [math](x-alpha)|f(x) iff f(alpha)=0 text{ i } F[/math].
+      Dvs: Om [math]alpha[/math] är ett nollställe i polynomet så är [math](x-alpha)[/math] en faktor.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Hur många nollställen har ett polynom av grad [math]n \ge 0[/math] i en kropp [math]F[x][/math]?
+    </Question>
+    <Answer>
+      Det har högst [math]n[/math] stycken.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="Polynom">
+    <Question>
+      Hur bör man gå tillväga för att faktorisera ett polynom (irreducibla faktorer) i en kropp [math]F[/math]?
+    </Question>
+    <Answer>
+      1) Man bör först söka de linjära faktorerna, dvs nollställena. Om man fann något sådant kan man utföra polynomdivision för att faktorisera polynomet i en lägre grad.
+      2) Om det inte fanns några nollställen kan man ställa upp en generell faktorisering av polynomet i polynom av lämplig grad. Om t.ex. graden är 4 så kan man ställa upp en faktorisering i två andragradspolynom och lösa ekvationssystemet som uppstår. Se boken på sida 312 för exempel.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="ÄndligaKroppar">
+    <Question>
+      Vad är en ändlig kropps [math]F[/math] karakteristik?
+    </Question>
+    <Answer>
+      Det är det minsta [math]p in NN\\{0}[/math] som uppfyller [math]1+1+...+1=0[/math] (VL [math]p[/math] gånger) i [math]F[/math] och är alltid ett primtal. Det kan ses som ordningen under addition ([math]p=0_+(1)[/math]). Då gäller att för varje [math]a in F, n in ZZ[/math] att [math]na=a+...+a text{ (n-stycken)}=0[/math] omm [math]a=0[/math] eller [math]p | n[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="ÄndligaKroppar">
+    <Question>
+      Vad för egenskaper har en ändlig kropp [math]F[/math]?
+    </Question>
+    <Answer>
+      Låt [math]p[/math] vara kroppens karakteristik.
+      [math]|F|=p^r[/math] något [math]r \ge 1[/math].
+      [math](F, +) ~~ C_p \times ... \times C_p[/math] (r-stycken): r-dimensionellt vektorrum över [math]ZZ_p[/math].
+      [math](F\\{0}. \times) ~~ C_(p^r-1)[/math]: multiplikativa gruppen är cyklisk.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="ÄndligaKroppar">
+    <Question>
+      Låt [math]r[/math] vara ett positivt heltal och [math]p[/math] vara ett primtal. Hur många kroppar finns det då med [math]|F|=p^r[/math].
+    </Question>
+    <Answer>
+      Det finns precis en.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="ÄndligaKroppar">
+    <Question>
+      Vad är ett primitivt element för en ändlig kropp [math]F[/math]?
+    </Question>
+    <Answer>
+      Ett element som genererar den multiplikativa gruppen [math](F\\{0}, \times)[/math] i [math]F[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="ÄndligaKroppar">
+    <Question>
+      Vad innebär [math]F[x]//(k(x))[/math] där [math]k(x) in F[/math] (en kropp)?
+    </Question>
+    <Answer>
+      Det är mängden av ekvivalensklasser som uppstår vid division med [math]k(x)[/math] där varje klass är de polynom som har samma rest. Vi identifierar ofta klasserna med denna rest.
+      [math]F[x]//(k(x))[/math] bildar också en ring och vid addition och multiplikation av polynom i [math]F[x]//(k(x))[/math] tar vi resultatet [math]mod k(x)[/math].
+      Vi använder oss av följande ekvivalensrelation: [math]f(x)[/math] ~ [math]g(x) iff k(x)|(f(x)-g(x))[/math]
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="ÄndligaKroppar">
+    <Question>
+      När bildar [math]F[x]//(k(x))[/math] där [math]k(x) in F[/math] (där [math]F[/math] är en kropp), en kropp?
+    </Question>
+    <Answer>
+      Om och endast om [math]k(x)[/math] är irreducibelt.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="ÄndligaKroppar">
+    <Question>
+      Vad innebär det att ett irreduciebelt polynom är primitivt?
+    </Question>
+    <Answer>
+      Ett irreducibelt polynom [math]k(x) in F[x][/math] är primitivt precis om [math]x[/math] genererar den multiplikativa gruppen i [math]F[x]//(k(x))[/math].
+      
+      Alternativt: [math]k(x) in F[x][/math] (där [math]F[/math] är en kropp) är ett primitivt irreducibelt polynom om [math]x[/math] (egentligen [math][x][/math]) är ett primitivt element i [math]F[x]//(k(x))[/math] (dvs. ett genererande element i [math](F\\{0}, \times)[/math]).
+    </Answer>
+  </TestQuestion>
+</Test>
