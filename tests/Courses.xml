@@ -15,4 +15,7 @@
 	<Course Name="ADK">
 		<Test File="ADKTeoriTenta" />
 	</Course>
+	<Course Name="Datasäkerhet">
+		<Test File="DasakTenta" />
+	</Course>
 </Courses>

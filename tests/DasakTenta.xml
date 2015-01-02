@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Test Name="Tenta">
+	<TestQuestion Category="SecurityPrinciple">
+		<Question>
+			Definiera CIA modellen.
+		</Question>
+		<Answer>
+			C = Confidentiality. Begränsar tillgången till information.
+			I = Integrity. Säkerställer att informationen är pålitlig och korrekt.
+			A = Availability. Garanterar pålitlig tillgång till informationen för autentiserade personer. 
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SecurityPrinciple">
+		<Question>
+			Vad innebär principen om "Least Privilege"?
+		</Question>
+		<Answer>
+			En person bör endast få de privilegium som behövs för att slutföra uppgiften.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SecurityPrinciple">
+		<Question>
+			Vad innebär principen om "Fail-Safe defaults"?
+		</Question>
+		<Answer>
+			Om en person inte explicit har fått tillgång till ett objekt så bör personen nekas tillgång.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SecurityPrinciple">
+		<Question>
+			Vad innebär principen om "Economy of Mechanism"?
+		</Question>
+		<Answer>
+			Säkerhetsmekanismer bör vara så simpla som möjligt.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SecurityPrinciple">
+		<Question>
+			Vad innebär principen om "Complete Mediation"?
+		</Question>
+		<Answer>
+			Det krävs att alla förfrågningar att komma åt objektet kollas så att förfrågningen är tillåten.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SecurityPrinciple">
+		<Question>
+			Vad innebär principen om "Open Design"?
+		</Question>
+		<Answer>
+			Säkerhetsmekanismer säkerhet bör inte bero på hemligheter om mekanismens design eller implementationen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SecurityPrinciple">
+		<Question>
+			Vad innebär principen om "Seperation of Privilege"?
+		</Question>
+		<Answer>
+			Ett system bör inte ge tillåtelse baserat på endast ett villkor. Uppdelning av ansvar: Den som skriver säkerheten för systemet kan inte vara den som verifierar att säkerheten fungerar.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SecurityPrinciple">
+		<Question>
+			Vad innebär principen om "Least Common Mechanism"?
+		</Question>
+		<Answer>
+			Mekanismer som används för att tillträde för en resurs bör inte delas.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SecurityPrinciple">
+		<Question>
+			Vad innebär principen om "Psychological Acceptability"?
+		</Question>
+		<Answer>
+			Säkerhetsmekanismer bör inte göra det svårare att komma åt en resurs än om inte mekanismerna fanns.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Cryptography">
+		<Question>
+			Vad innebär symmetrisk kryptering?
+		</Question>
+		<Answer>
+			Det innebär att samma nyckel används för att kryptera och dekryptera data. Används oftast för att kryptera t.ex filer. Exempel på algoritmer är AES och DES.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Cryptography">
+		<Question>
+			Vad innebär asymmetrisk kryptering?
+		</Question>
+		<Answer>
+			Det innebär att olika nycklar används för att kryptera och dekryptera data. Den ena nyckel brukas kallas den privata nyckel och den andra den publika nyckeln. Används oftast för att kommunicera säkert över internet. Exempel på algoritmer är RSA.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Cryptography">
+		<Question>
+			Vad är en Kryptografiska hashfunktion för något?
+		</Question>
+		<Answer>
+			En hashfunktion är en funktion som tar ett värde av godtycklig typ till ett heltal. En kryptografisk variant är då en hashfunktion som gör det [i]praktiskt[/i] omöjligt att få tillbacka ursprungsvärdet ifrån hashvärdet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Cryptography">
+		<Question>
+			Vad för egenskaper bör en kryptografisk hashfunktion ha?
+		</Question>
+		<Answer>
+			1. Givet ett hashvärde [math]h[/math] så bör det vara svårt att hitta ett meddelande [math]m[/math] så att [math]h=hash(m)[/math].
+			2. Kollision resistens: Det bör bara svårt att hitta två [i]olika[/i] meddelanden [math]m_1, m_2[/math] sådant att [math]hash(m_1)=hash(m_2)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Cryptography">
+		<Question>
+			Vad innebär "message authentication"?
+		</Question>
+		<Answer>
+			Det innebär att vi vill verifiera att ett meddelande verkligen kommer ifrån den som skickade det och att innehållet har förändrats av någon tredje part.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Cryptography">
+		<Question>
+			Vad är en "stream cipher"?
+		</Question>
+		<Answer>
+			Det är en typ av symmetrisk nyckel cipher som kryptererar en bit (eller byte) i taget. Exempel på stream ciphers är: RC4.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Cryptography">
+		<Question>
+			Vad är en "block cipher"?
+		</Question>
+		<Answer>
+			Det är en typ av symmetrisk nyckel cipher som kryptererar störe bit av data ("block") i taget. Exempel på block ciphers är: DES, AES och Blowfish.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Cryptography">
+		<Question>
+			Vad är skillnaden mellan "stream cipher" och "block cipher"?
+		</Question>
+		<Answer>
+			* Stream ciphers är oftast snabbare än block.
+			* Block ciphers kräver oftast mer minne.
+			* Stream ciphers är oftast svårare att implementera korrekt.
+			* Kan uppstå säkerhetsproblem om samma nyckel används flera gånger för stream ciphers.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Cryptography">
+		<Question>
+			Vad är Diffie-Hellmans algoritm för något?
+		</Question>
+		<Answer>
+			Det är en algoritm för att säkert byta kryptografiska nycklar över en publik kanal.
+			1. Välj ett primtal [math]q[/math] och [math]alpha[/math] som är en primitiv rot av [math]q[/math].
+			2. Alice genererar en nyckel på följande sätt: Välj den privata nyckeln [math]X_a \lt q[/math] och publika: [math]Y_a = alpha^(X_A) mod q[/math].
+			3. Bob: privat: [math]X_B \lt q[/math], publik: [math]Y_B = alpha^(X_B) mod q[/math].
+			4. Byt publika nycklar ([math]Y[/math]).
+			5. Alice beräknar en hemlig kod: [math]K = Y_B^(X_A) mod q[/math].
+			6. Bob: [math]K=Y_A^(X_B) mod q[/math].
+
+			Det problem som en anfallare behöver lösa är det diskreta logaritm problemet vilket saknar effektiv algoritmer.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Cryptography">
+		<Question>
+			Hur fungerar RSA-kryptering?
+		</Question>
+		<Answer>
+			1. Tag [math]p, q[/math] stora, olika, primtal ([math]~~10^150[/math]).
+			2. Beräkna [math]n=pq[/math] och [math]m=(p-1)(q-1)[/math].
+			3. Välj [math]e[/math] så att [math]sgd(e, m)=1[/math] och finn [math]d[/math] med [math]ed-=_m1[/math] (Euklides).
+			4. Offentliggr [math]n, e[/math] och hemlighåll [math]d[/math].
+			För att kryptera ett meddelande [math]x[/math]: [math]E(x)-=_n x^e[/math].
+			För att dekryptera ett meddelande [math]x[/math]: [math]D(x)-=_n x^d[/math].
+
+			Det problem som en anfallare behöver lösa är primtals faktorisering.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="WebAttacks">
+		<Question>
+			Vad innebär "injection"?
+		</Question>
+		<Answer>
+			Det innebär att data som skickas in till systemet via t.ex. url parameterar, formulär, cookies, http headers osv kan används för få systemet att utföra kommandon. Exempel är: SQL injection, XPATH injection och OS command injection.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="WebAttacks">
+		<Question>
+			Vad innebär "broken authentication and session management"?
+		</Question>
+		<Answer>
+			Funktioner i program som relaterar till autentisering och sessions hantering hanteras oftast inte korrekt. Det möjliggör för en anfallare att komma över lösenord, nycklar och sessions tokens eller ta över en annan användare identitet.
+			Vanliga svagheter är:
+			Byta lösenord - Att byta lösenord kräver inte det gammla lösenordet.
+			Glömt lösenord - Skickar lösenord i klartext vilket indikerar att lösenordet också sparas i klartext.
+			Kom ihåg mig - Inloggningsinforation sparas i klartext i kakor.
+			Sessions identifierare - Som skickas över okrypterade kanaler eller som kan kommas åt via JavaScript.
+			Utloggning - Utloggnignen hanteras felaktigt vilket gör det möjligt för an anfallare att ta över sessionen.
+			Session timeout.
+			Kontoskuggning - Gör det möjligt att skapa en användare som tar över en tidigare.
+
+			För att förhindra ovan:
+			Använd två-faktors autentisering.
+			Använd en generisk felmeddelande för inloggning.
+			Se till att utloggning sker korrekt.
+			Se till sessions kakor har korrekta attributer (Secure, HttpOnly).
+			Kräv åter autentisering vid kritiska punkter.
+			Implementera inte ditt eget sessions hanterings system utan använd beprövade lösningar.
+			Undvik att spara sessions id's.
+			Spara inte lösenord i klartext.
+			Undivk "kom ihåg mig" funktionalitet om du inte vet vad du håller på med.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="WebAttacks">
+		<Question>
+			Vad innebär "cross site scripting (XSS)"?
+		</Question>
+		<Answer>
+			Det är en form av injektion som gör det möjligt för en anfallare att kringå webbläsarens säkerhetsmodell genom att injektera innehåll till en sida där koden körs när en besökare besöker sidan.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="WebAttacks">
+		<Question>
+			Vad innebär "insecure direct object references"?
+		</Question>
+		<Answer>
+			Att tillträdes restriktioner inte påtvingas och att referensens mappas [i]direkt[/i] till ett objekt.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="WebAttacks">
+		<Question>
+			Vad innebär "Security misconfiguration"?
+		</Question>
+		<Answer>
+			Det innebär att en applikation är konfiguerade felaktig t.ex. genom att en admin konsol kan kommas åt utifrån, standard inloggningsuppgifter inte är förändrade eller att det blir möjligt att se den underliggande filstrukturen för applikationen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="WebAttacks">
+		<Question>
+			Vad innebär "sensitive data exposure"?
+		</Question>
+		<Answer>
+			Att applikationen inte skyddar viktig information som t.ex. kreditkort, privat information eller inloggningsuppgifter. En annan form är att använda en statisk krypteringsnyckel som sparas i klartext någonstans.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="WebAttacks">
+		<Question>
+			Vad innebär "missing function level access control"?
+		</Question>
+		<Answer>
+			Det gör det möjligt för användare att komma åt information som det bör kunna komma åt. Detta beror oftast på dålig implementerad åtkomstkontroll och för att det inte finns något länk så behöver det inte betyda att användaren inte kan komma på länken själv "security-by-obscurity".
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="WebAttacks">
+		<Question>
+			Vad innebär "cross site request forgery (CSRF/XSRF)"?
+		</Question>
+		<Answer>
+			Det är en typ av attack som tvingar användaren att utföra en oönskad åtgärd i en applikation som användaren är autentiserade till. 
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="WebAttacks">
+		<Question>
+			Vad innebär "invalidated redirects and forwards"?
+		</Question>
+		<Answer>
+			Webb applikationer skickar vidare användare till andra sidor och hemsidor. Utan korrekt validering kan en anfallare skicka användaren till en sida som innehåller virus eller ser ut på samma sätt som den riktiga men är egentligen en falsk sida (phishing).
+		</Answer>
+	</TestQuestion>
+</Test>
