@@ -5,7 +5,7 @@
 			Hur definieras en kod?
 		</Question>
 		<Answer>
-			En kod [math]C[/math] är en mängd [math]n[/math]-tupler av 0:or och 1:or där [math]n[/math] är kodens längd. Dvs: [math]C \subseteq ZZ_2[/math].
+			En kod [math]C[/math] är en mängd [math]n[/math]-tupler av 0:or och 1:or där [math]n[/math] är kodens längd. Vi kallar ett element i mängden för ett [i]kodord[/i]. Dvs: [math]C \subseteq ZZ_2[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="FelrättadeKoder">
@@ -38,7 +38,7 @@
 			Vad innebär det att en kod [math]C[/math] är linjär?
 		</Question>
 		<Answer>
-			Om [math]a, b in C \implies a + b in C[/math] dvs [math]C[/math] är ett delrum till vektorrummet [math](ZZ_2)^n[/math]. Det gäller även att antalet element i koden är en tvåpotens, dvs: [math]|C|=2^k[/math].
+			Om [math]a, b in C \implies a + b in C[/math] dvs [math]C[/math] är ett delrum till vektorrummet [math](ZZ_2)^n[/math]. Det gäller även att antalet element i koden är en tvåpotens, dvs: [math]|C|=2^k, k in NN[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="FelrättadeKoder">
@@ -75,7 +75,7 @@
 	</TestQuestion>
 	<TestQuestion Category="FelrättadeKoder">
 		<Question>
-			Hur går man tillväga för att upptäcka ett kodord för en kod som har en kontrollmatris?
+			Hur går man tillväga för att upptäcka ett fel för ett kodord för en kod som har en kontrollmatris?
 		</Question>
 		<Answer>
 			Om [math]z[/math] är ett kordord så gäller att [math]Hz=0[/math].
@@ -107,7 +107,7 @@
 			Hur kan man enkelt konstruera en Hammingkod?
 		</Question>
 		<Answer>
-			Om man låter varje kolonn i kontrollmatrisen representeras av ett unikt heltals binära representation ifrån så bildar matrisen en Hammingkod.
+			Om man låter varje kolonn i kontrollmatrisen representeras av ett unikt heltals binära representation så bildar matrisen en Hammingkod.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="RSA">
@@ -189,7 +189,7 @@
 			Vad innebär det att ett tal [math]N[/math] är ett carmichaleltal?
 		</Question>
 		<Answer>
-			Om och endast [math]N[/math] är ett pseudoprimtal för [b]alla[/b] baser [math]b[/math] med [math]sgd(b, N)[/math]. Det är också ekvivalent med att [math]N[/math] är sammansatt, kvadratfritt och [math]p | N \implies (p-1) | (N-1)[/math] där [math]p[/math] är ett primnttal.
+			Om och endast [math]N[/math] är ett pseudoprimtal för [b]alla[/b] baser [math]b[/math] med [math]sgd(b, N)=1[/math]. Det är också ekvivalent med att [math]N[/math] är sammansatt, kvadratfritt och [math]p | N \implies (p-1) | (N-1)[/math] där [math]p[/math] är ett primnttal.
 			Ex: [math]561 = 3*11*17, 1105 = 5 * 13, 17, 1729 = 7 * 13 * 19[/math].
 		</Answer>
 	</TestQuestion>

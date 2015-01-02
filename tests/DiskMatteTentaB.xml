@@ -598,6 +598,14 @@
   </TestQuestion>
   <TestQuestion Category="ÄndligaKroppar">
     <Question>
+      Vad är [math]|F[x]//(k(x))|[/math] där [math]k(x) in F[/math] (en kropp)?
+    </Question>
+    <Answer>
+      [math]|F[x]//(k(x))|=|F|^r[/math] där [math]r[/math] är högstagradskoefficienten.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="ÄndligaKroppar">
+    <Question>
       När bildar [math]F[x]//(k(x))[/math] där [math]k(x) in F[/math] (där [math]F[/math] är en kropp), en kropp?
     </Question>
     <Answer>
@@ -612,6 +620,220 @@
       Ett irreducibelt polynom [math]k(x) in F[x][/math] är primitivt precis om [math]x[/math] genererar den multiplikativa gruppen i [math]F[x]//(k(x))[/math].
       
       Alternativt: [math]k(x) in F[x][/math] (där [math]F[/math] är en kropp) är ett primitivt irreducibelt polynom om [math]x[/math] (egentligen [math][x][/math]) är ett primitivt element i [math]F[x]//(k(x))[/math] (dvs. ett genererande element i [math](F\\{0}, \times)[/math]).
+    </Answer>
+  </TestQuestion>
+    <TestQuestion Category="FelrättadeKoder">
+    <Question>
+      Hur definieras en kod?
+    </Question>
+    <Answer>
+      En kod [math]C[/math] är en mängd [math]n[/math]-tupler av 0:or och 1:or där [math]n[/math] är kodens längd. Vi kallar ett element i mängden för ett [i]kodord[/i]. Dvs: [math]C \subseteq ZZ_2[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="FelrättadeKoder">
+    <Question>
+      Hur defineras det minimala avståndet för en kod [math]C[/math]?
+    </Question>
+    <Answer>
+      [math]delta = min({ del(a, b) | a,b in C, a != b })[/math] där [math]del(a, b) = [/math] antalet [math]i[/math] med [math]a_i != b_i[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="FelrättadeKoder">
+    <Question>
+      Låt [math]delta[/math] vara det minimala avståndet för en kod [math]C[/math], hur många fel kan då upptäckas och rättas?
+    </Question>
+    <Answer>
+      [b]Upptäcka[/b] upp till [math]delta-1[/math] fel.
+      [b]Rätta[/b] upp till [math]|__(delta-1)/2__|[/math] fel.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="FelrättadeKoder">
+    <Question>
+      Vad säger sfärpackningssatsen?
+    </Question>
+    <Answer>
+      Om koden [math]C[/math] av längd [math]n[/math] rättar upp till [math]e[/math] fel så gäller: [latex]\(|C|({n \choose {0}}+{n \choose {1}}+...+{n \choose {e}}) \le 2^n \)[/latex] 
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="FelrättadeKoder">
+    <Question>
+      Vad innebär det att en kod [math]C[/math] är linjär?
+    </Question>
+    <Answer>
+      Om [math]a, b in C \implies a + b in C[/math] dvs [math]C[/math] är ett delrum till vektorrummet [math](ZZ_2)^n[/math]. Det gäller även att antalet element i koden är en tvåpotens, dvs: [math]|C|=2^k, k in NN[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="FelrättadeKoder">
+    <Question>
+      Vad innebär är en linjär kod [math]C[/math] dimension?
+    </Question>
+    <Answer>
+      Låt [math]|C|=2^k[/math]. Då är [math]k[/math] kodens dimension.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="FelrättadeKoder">
+    <Question>
+      Antag att [math]C[/math] är en linjär kod, hur kan då [math]delta[/math] (minimala avståndet) beräknas?
+    </Question>
+    <Answer>
+      Den är lika med den minimala (nollskilda) vikten, dvs: [math]delta = w_min = min({w(c) | c in C, c != 0})[/math] där vikten för [math]c[/math], [math]w(c)[/math] är antalet 1:or i [math]c[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="FelrättadeKoder">
+    <Question>
+      Vad är en kontrollmatris?
+    </Question>
+    <Answer>
+      Om [math]H[/math] är en [math]m \times n[/math]-matris så är [math]C={ x in (ZZ_2)^n | Hx = 0 }[/math] en linjär kod av dimension [math]n - rank(H)[/math] och [math]H[/math] kallas för kodens [b]kontrollmatris[/b].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="FelrättadeKoder">
+    <Question>
+      Vad för egenskap har en kontrollmatris [math]H[/math]?
+    </Question>
+    <Answer>
+      Om [math]H[/math]:s alla kolonner är olika och nollskilda så rättar koden [math]C[/math] som [math]H[/math] representerar (minst) ett fel.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="FelrättadeKoder">
+    <Question>
+      Hur går man tillväga för att upptäcka ett fel för ett kodord för en kod som har en kontrollmatris?
+    </Question>
+    <Answer>
+      Om [math]z[/math] är ett kordord så gäller att [math]Hz=0[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="FelrättadeKoder">
+    <Question>
+      Hur går man tillväga för att rätta ett kodord för en kod som har en kontrollmatris?
+    </Question>
+    <Answer>
+      Om [math]z[/math] är ett kordord med endast ett fel i positionen [math]i[/math] så gäller att [math]Hz=H[/math]:s [math]i[/math]:e kolonn.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="FelrättadeKoder">
+    <Question>
+      Vad är en Hammingkod?
+    </Question>
+    <Answer>
+      Det är en kod som beskrivs av en kontrollmatris [math]H[/math] med [math]r[/math] rader och [math]2^r-1[/math] kolonner där alla kolonner är olika och nollskilda.
+      Då gäller att:
+      längd: [math]n=2^r-1[/math].
+      minimala avståndet: [math]delta = 3[/math].
+      dimension: [math]k = 2^r - r - 1[/math].
+      Hammingkoder ger även likhet i sfärpackningssatsen, de är perfekta koder.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="FelrättadeKoder">
+    <Question>
+      Hur kan man enkelt konstruera en Hammingkod?
+    </Question>
+    <Answer>
+      Om man låter varje kolonn i kontrollmatrisen representeras av ett unikt heltals binära representation så bildar matrisen en Hammingkod.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="RSA">
+    <Question>
+      Hur definerar vi en krypteringssystem?
+    </Question>
+    <Answer>
+      Låt [math]M[/math] vara meddelanden (klartext) och [math]C[/math] vara chiffer (krypterad text), [math]E[/math] krypteringsfunktionen och [math]D[/math] dekrypteringsfunktionen. Då gäller att [math]E: M \rightarrow C, D: C \rightarrow M[/math] och att [math]D=E^-1[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="RSA">
+    <Question>
+      Hur lyder satsen som RSA-systemet bygger på?
+    </Question>
+    <Answer>
+      Låt [math]p, q[/math] vara olika primtal, [math]n = pq, m = phi(n) = (p-1)(q-1)[/math]. Då gäller att: [math]s -=_m 1 \implies x^s -=_n x[/math], alla [math]x in ZZ[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="RSA">
+    <Question>
+      Hur fungerar RSA kryptering?
+    </Question>
+    <Answer>
+      1. Tag [math]p, q[/math] stora, olika, primtal ([math]~~10^150[/math]).
+      2. Beräkna [math]n=pq[/math] och [math]m=(p-1)(q-1)[/math].
+      3. Välj [math]e[/math] så att [math]sgd(e, m)=1[/math] och finn [math]d[/math] med [math]ed-=_m1[/math] (Euklides).
+      4. Offentliggr [math]n, e[/math] och hemlighåll [math]d[/math].
+      För att kryptera ett meddelande [math]x[/math]: [math]E(x)-=_n x^e[/math].
+      För att dekryptera ett meddelande [math]x[/math]: [math]D(x)-=_n x^d[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="RSA">
+    <Question>
+      Hur bör man gå tillväga för att beräkna krypteringen av [math]x[/math]?
+    </Question>
+    <Answer>
+      Låt [math](e_k e_(k-1) ... e_1 e_0)_2[/math] vara den binära repsentationen av [math]e[/math] så är: [math]E(x)=f_(e_0)(f_(e_1)(...(f_(e_(k-1))(f_(e_k)(1)))))[/math] där [math]f_0(t) -=_n t^2, f_1(t) -=_n t^2*x[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="RSA">
+    <Question>
+      Hur kan man elektroniskt veriferar en signatur?
+    </Question>
+    <Answer>
+      1. Sänd [math]D(x)[/math]. Alla kan läsa (med [math]E[/math]), ingen utan [math]D[/math] kunde ha skrivit.
+      2. [math]B[/math] sänder [math]E_A(D_B(x))[/math] (eller [math]D_B(E_A(x)))[/math]) till [math]A[/math]. Bara någon med [math]D_A[/math] kan läsa, bara någon med [math]D_B[/math] kunde ha skrivit.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="RSA">
+    <Question>
+      Vad innebär ett primalitetstest?
+    </Question>
+    <Answer>
+      Det innebär att vi vill testa om ett heltal är ett primtal. Helst vill vi att detta ska gå snabbt att göra (går alltid att göra m.h.a definitionen av en primtal, men är ineffektivt).
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="RSA">
+    <Question>
+      Hur fungerar Fermattestet?
+    </Question>
+    <Answer>
+      Låt [math]b[/math] vara en bas så att [math]1 \lt b \lt N[/math] och vi vill testa om [math]N[/math] är ett primtal.
+      Är [math]b^(N-1) -=_N 1[/math]?
+      Nej: [math]N[/math] är sammansatt.
+      Ja: Vet ej (säkert).
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="RSA">
+    <Question>
+      Vad är ett pseudoprimtal?
+    </Question>
+    <Answer>
+      Det är ett sammansatt tal som klarar fermattestet för en bas [math]b[/math].
+      Ex: [math]341 = 11 * 31[/math] klarar för bas 2.
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="RSA">
+    <Question>
+      Vad innebär det att ett tal [math]N[/math] är ett carmichaleltal?
+    </Question>
+    <Answer>
+      Om och endast [math]N[/math] är ett pseudoprimtal för [b]alla[/b] baser [math]b[/math] med [math]sgd(b, N)=1[/math]. Det är också ekvivalent med att [math]N[/math] är sammansatt, kvadratfritt och [math]p | N \implies (p-1) | (N-1)[/math] där [math]p[/math] är ett primnttal.
+      Ex: [math]561 = 3*11*17, 1105 = 5 * 13, 17, 1729 = 7 * 13 * 19[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="RSA">
+    <Question>
+      Hur fungerar Miller-Rabins test?
+    </Question>
+    <Answer>
+      Låt [math]b[/math] vara en bas så att [math]1 \lt b \lt N, N - 1 = u*2^r[/math] där [math]u[/math] är udda och vi vill testa om [math]N[/math] är ett primtal.
+      Är [math]b^u -=_N 1[/math] eller [math]b^(u*2^i) -=_N -1[/math] för något [math]i, 0 \le i \le r[/math]?
+      Nej: [math]N[/math] är sammansatt.
+      Ja: Vet ej.
+      Sammansatta [math]N[/math] klarar testet för färre än [math]N/4[/math] av baserna [math]b[/math] med [math]1 \lt 1 \lt N[/math].
+    </Answer>
+  </TestQuestion>
+  <TestQuestion Category="RSA">
+    <Question>
+      Vad är ett starkt pseudoprimtal?
+    </Question>
+    <Answer>
+      Det är ett sammansatt tal som klarar M-Rs test för en bas [math]b[/math].
+      Ex: [math]2047 = 23 * 89[/math] klarar för bas 2.
     </Answer>
   </TestQuestion>
 </Test>

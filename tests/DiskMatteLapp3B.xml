@@ -221,6 +221,14 @@
 	</TestQuestion>
 	<TestQuestion Category="ÄndligaKroppar">
 		<Question>
+			Vad är [math]|F[x]//(k(x))|[/math] där [math]k(x) in F[/math] (en kropp)?
+		</Question>
+		<Answer>
+			[math]|F[x]//(k(x))|=|F|^r[/math] där [math]r[/math] är högstagradskoefficienten.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ÄndligaKroppar">
+		<Question>
 			När bildar [math]F[x]//(k(x))[/math] där [math]k(x) in F[/math] (där [math]F[/math] är en kropp), en kropp?
 		</Question>
 		<Answer>
