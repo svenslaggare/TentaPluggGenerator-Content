@@ -456,4 +456,139 @@
 			Kontrollerar tillgång baserat på roller som användare har inom systemet där varje roll indikerar vad användaren har tillgång till givet sina roller.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="MLS">
+		<Question>
+			Kortfattat, vad innebär "multi-level secutity (MLS)"?
+		</Question>
+		<Answer>
+			Det innebär att vi delar in systemet i flera olika säkerhetsklasser.
+			Exempel:
+			[ul]
+				[li]Hardware: supervisor/user mode.[/li]
+				[li]Unix: superuser/user access.[/li]
+				[li]Military: top secret > secret > confidential > unclassified[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MLS">
+		<Question>
+			Vad innebär "star property" när det kommer till MLS?
+		</Question>
+		<Answer>
+			Det går inte att läsa ifrån en högre nivå medans man skriver till en lägre nivå. 
+			Sammanfattas i: "no write down".
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MLS">
+		<Question>
+			Vad innebär "simple security" när det kommer till MLS?
+		</Question>
+		<Answer>
+			Ett subjekt får endat läsa ett objekt den har minst lika hög säkerhetsnivå som objektet.
+			Sammanfattas i: "no read upp".
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MLS">
+		<Question>
+			Vad innebär "Bell-La Padula (BLP)" modellen när det kommer till MLS?
+		</Question>
+		<Answer>
+			Varje subjekt och objekt har säkerhetsklasser.
+			[ul]
+				[li]Säkerhetsklasser: top secret > secret > confidential > unclassified.[/li]
+				[li]Varje subjekt har en "secutity clearance" nivå och varje objekt har en "security classification" nivå.[/li]
+				[li]Varje säkerhetsklass kontrollerar om ett subjekt får komma åt ett objekt.[/li]
+			[/ul]BLP har följande egenskaper:
+			[ul]
+				[li]Information kan inte flöda ifrån en högre säkerhetsklass till en lägre.[/li]
+				[li]Det går inte att läsa ifrån en högre nivå och det går inte att skriva till en lägre nivå.[/li]
+			[/ul] BLP har följande svagheter:
+			[ul]
+				[li]Det går inte att "nergradera" information.[/li]
+				[li]Det går endast att ändra på en nivå medans man läser på samma nivå eller en lägre.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MLS">
+		<Question>
+			Vad innebär "Clark-Wilson Integrity" modellen när det kommer till MLS?
+		</Question>
+		<Answer>
+			Den baserat på två koncept:
+			[ul]
+				[li][b]Well-formed transactions:[/b] En användare bör inte manipulera data på ett godtyckligt sätt men begränsas endast så att integriteten hos datan bevaras.[/li]
+				[li][b]Seperation of duty among users:[/b] En användare som har behörighet att skapa eller verifiera en "well-foremd transaction" bör inte få möjlighet att exekvera den.[/li]
+			[/ul] Modellen inför integritetskontroll på data och de transaktioner som modiferar data. 
+
+			Huvudkomponenterna är:
+			[ul]
+				[li][b]Constrainted data items:[/b]Strikta integritetskontroller.[/li]
+				[li][b]Unconstrainted data items: [/b] Data som inte kräver integritetskontroll.[/li]
+				[li][b]Integrity verification procedures:[/b] Ser till att alla CDI följer någon applikations specifik modell av integritet.[/li]
+				[li][b]Transformation procedures:[/b] System transaktioner som förändrar en mängd av CDI från ett giltigt tillstånd till ett annat.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MLS">
+		<Question>
+			Vad innebär "Chiense Wall" modellen när det kommer till MLS?
+		</Question>
+		<Answer>
+			Det är en modell där information inte kan flöda mellan subjekt och objekt på ett sådant sätt så att "conflict of interest" skulle uppstå. Modellen uppfyller både "simple security rule" och stjärn (*) egenskapen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SoftwareSecurity">
+		<Question>
+			Vad är "buffer overflow" för något?
+		</Question>
+		<Answer>
+			Det är när mer data försöks sparas än vad som får plats i en buffer av fixt storlek vilket gör att data som ligger efter i minnet skrivs över. Med hjälp av denna attack kan man få ett program att krasha eller få programmet att utföra instruktioner som anfallaren vill.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SoftwareSecurity">
+		<Question>
+			Vad är "stack buffer overflow" för något?
+		</Question>
+		<Answer>
+			Det är en form av buffer overflow attack där bufferten lagras på stacken. På grund av att retur addressen (dvs den funktion som programmet ska hoppa till när den returnerar) lagras på stacken så kan en anfallare skriva över den med en egen address vilket gör att anfallaren kan få programmet att utföra egen kod.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SoftwareSecurity">
+		<Question>
+			Vad är "heap overflow" för något?
+		</Question>
+		<Answer>
+			Det är när bufferten lagras på heapen. För att det inte finns någon retur address i heapen så går det inte på något enkelt sätt att få programmet att hoppa till valfri address. Men det går här att modifera datastruktruer som hanterar säkerhet eller liknande.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SoftwareSecurity">
+		<Question>
+			Vad är "global data overflow" för något?
+		</Question>
+		<Answer>
+			Det är när bufferten lagras på den globala data arean.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SoftwareSecurity">
+		<Question>
+			Hur kan man skydda sig emot "buffer overflow" attacker?
+		</Question>
+		<Answer>
+			[b]Vid kompilering[/b]
+			[ul]
+				[li]Använd ett modernt högnivåspråk som är stark typat som skyddar emot buffer overflows attacker genom t.ex. kompilatorn ser att alla skrivingar/läsningar av data är giltiga.[/li]
+				[li]Kolla alltid att det finns tillräckligt med utrymme i bufferten.[/li]
+				[li]Använd nya varianter av funktioner i standard bibliotek som skyddar emot buffer overflow.[/li]
+				[li]Lägg till kod i början och slutet av ett funktions anrop som ser till att stacken inte har blivit korrupt.[/li]
+				[li]Använd en en slumpmässig "kanariefågel" så om den har blivit överskriven så avslutas programmet. Googla på "canary in the coal mine".[/li]
+			[/ul][b]Vid körtid (runtime)[/b]
+			[ul]
+				[li]Använd ett virutell minnesrymd som gör att regioner av minne inte blir körbart.[/li]
+				[li]Slumpa vart bufferter på heapen lagras samt för funktioner i standard biblioteket.[/li]
+				[li]Placera "guard pages" mellan kritiska regioner av minne. Kan även placeras mellan stack-frames och heap buffers.[/li]
+			[/ul]Stack buffer overflow: Icke-körbar stack eller guard pages.
+			Heap overflow: Slumpmässig eller icke-körbar heap.
+			Global data overflow: Icke-körbar eller slumpmässig global data region, flytta funktions pekare eller guard pages.
+		</Answer>
+	</TestQuestion>
 </Test>
