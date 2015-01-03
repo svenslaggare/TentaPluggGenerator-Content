@@ -226,10 +226,10 @@
 	</TestQuestion>
 	<TestQuestion Category="WebAttacks">
 		<Question>
-			Vad innebär "Security misconfiguration"?
+			Vad innebär "security misconfiguration"?
 		</Question>
 		<Answer>
-			Det innebär att en applikation är konfiguerade felaktig t.ex. genom att en admin konsol kan kommas åt utifrån, standard inloggningsuppgifter inte är förändrade eller att det blir möjligt att se den underliggande filstrukturen för applikationen.
+			Det innebär att en applikation är konfiguerade felaktig t.ex. genom att en admin konsol kan kommas åt utifrån, standard inloggningsuppgifter inte är förändrade eller att det blir möjligt att se den underliggande filstrukturen för applikationen (directory listing).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="WebAttacks">
@@ -262,6 +262,198 @@
 		</Question>
 		<Answer>
 			Webb applikationer skickar vidare användare till andra sidor och hemsidor. Utan korrekt validering kan en anfallare skicka användaren till en sida som innehåller virus eller ser ut på samma sätt som den riktiga men är egentligen en falsk sida (phishing).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DoS">
+		<Question>
+			Vad är en Denial of Service (DOS) attack för något?
+		</Question>
+		<Answer>
+			Det är en form av attack mot ett datasystem (maskin, nätverks resurs, etc.) där syftet är att hindra normal användning av systemet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DoS">
+		<Question>
+			Förklara attack typen "flooding" för DoS-attacker.
+		</Question>
+		<Answer>
+			Den som utför attacken försöker överbelasta nätverks kapaciteten för någon länk till servern. Alternativet kan anfallaren överbelasta servers förmåga att berarbeta svar till förfrågningar. Hur det fungerar i praktiken beror på vilket protokoll som används.
+
+			[b]ICMP Flood[/b]
+			Även känt som "ping flood". Det går ut på att anfallaren skickar ICMP echo request till målet. Brandvägar blockerar oftast inte denna form av paket för att det används ofta i diagnostiskt syfte.
+
+			[b]UDP Flood[/b]
+			Skickar UDP paktet riktat mot en specifik port hos målet.
+
+			[b]TCP SYN Flood[/b]
+			Anfallaren försöker starta en TCP anslutning (ofta med en förfalskad address). Varje försök av anslutning gör att servern skickar tillbacka ett TCP/SYN-ACK paket och väntar på svar ifrån anfallaren så att anslutningen kan etableras. Men attacken skickar aldrig tillbacka något svar vilket gör att servern sitter och väntar på ett svar. Om detta görs i stort antal så kommer serverns TCP tabell få slut på plats vilket gör att ingen annan kan göra anslutningar till servern via TCP.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DoS">
+		<Question>
+			Förklara attack typen "spoofing" för DoS-attacker.
+		</Question>
+		<Answer>
+			En anfallare skickar förfalskade förfråningar till ett stort antal datorer som datorerna svarar på. Det som förfalskas är källaddressen vilket ändras till målet. Detta gör alla svaren går till målet vilket överbelastar målet.
+
+			När man pratar om denna typ av attack brukar man också använda namnet [i]reflection[/i] på grund av att attacken reflekterar svaren till målet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DoS">
+		<Question>
+			Förklara attack typen "amplification" för DoS-attacker.
+		</Question>
+		<Answer>
+			Det är en form av spoofing-attacken. Den fungerar så att anfallaren skickar broadcast anrop med en förfalskad källaddress till målet till en mängd datorer. För att det är en broadcast anrop så kan alla datorer som är anslutna till nätverket som förfrågan skickas till svara på vilket kan göra att ännu mer datorer skickar svar till målet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DoS">
+		<Question>
+			Förklara attack typen "Distrubuted Denial-of-Service (DDoS)" för DoS-attacker.
+		</Question>
+		<Answer>
+			Det innebär att attacken är distribuerad över ett nätverk av datorer som alla kommer skicka förfrågningar till målet. Ofta är datorerna som ingår i det när nätverket ofriviliga, dvs att anfallaren har installerat någon typ av virus som gör att datorerna deltar i nätverket.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DoS">
+		<Question>
+			Ange förslag på hur man kan skydda sig emot olika typer av DoS-attacker.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Blockera anrop ifrån förfalskade källaddresser.[/li]
+				[li]Begränsa antalet anrop som kan göras av en viss typ (ICMP t.ex.).[/li]
+				[li]Modifiera hur TCP anslutning hanterars. T.ex. genom att en slumpmässigt droppa anslutningar när TCP tabellen är full.[/li]
+				[li]Blockera IP riktade broadcasts.[/li]
+				[li]Replikera och spegla nätverk resurser i ett större nätverk.[/li]
+				[li]Använd filters i brandvägen.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IDS">
+		<Question>
+			Vad är ett "intrusion detection system (IDS)" för något?
+		</Question>
+		<Answer>
+			Ett säkerhetssystem som övervakar och analyserar system event i syfte att hitta och leverera i realtid (eller nästan) varningar för försök att komma åt systemet utan rättigheter.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IDS">
+		<Question>
+			Ange de två typerna av "intrusion detection system".
+		</Question>
+		<Answer>
+			[ul]
+				[li][b]Host-based:[/b] Övervakar för en ensam värds händelser och letar efter misstänksam aktivitet inom värden.[/li]
+				[li][b]Network-based:[/b] Övervakar nätverks trafik för ett specifik nätverk och analyserar transport och applikations protokoll för misstänksam aktivitet.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IDS">
+		<Question>
+			Ange de tre logiska komponenterna som ett IDS består av.
+		</Question>
+		<Answer>
+			[ul]
+				[li][b]Sensorer:[/b] Ansvarar för att samla in data.[/li]
+				[li][b]Analysatorer:[/b] Analyserar data som samlats in. Ansvarar för att avgöra om ett intrång har skett.[/li]
+				[li][b]Sensorer:[/b] Ansvarar för att samla in data.[/li]
+				[li][b]Användargräsnitt (UI):[/b] Gör et möjligt för att användare att kontrollera systemets beteende eller utdata.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IDS">
+		<Question>
+			Vad för egenskaper bör en IDS ha?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Köras kontinuerligt.[/li]
+				[li]Kunna hantera fel som uppstår (fault tolerant).[/li]
+				[li]Påverka systemets prestanda minimalt (minimal overhead).[/li]
+				[li]Kunna anpassa sig till förändringar i systemet och dess användare.[/li]
+				[li]Kunna skalas upp till stort antal system.[/li]
+				[li]Tillåta dynamisk omkonfigurering.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IDS">
+		<Question>
+			Vad för begränsningar har en IDS?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Upptäcka virus är lika svårt som stoppproblemet (oavgörbart).[/li]
+				[li]Två typer av intrång: skadliga och inte.[/li]
+				[li]Respons till attacker kan leda till DoS.[/li]
+				[li]Falska alarm[/li]
+				[li]Lagar: Medborgare har rätt till att veta hur algoritmerna som bearbetar deras personliga data fungerar.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IDS">
+		<Question>
+			Vad innebär "anomaly detection" när det kommer till host-based IDS?
+		</Question>
+		<Answer>
+			Data samlas in relaterat till beteende av behöriga användare över tidsintervall. Sedan används statistiska metoder till observerad data för att avgöra med hög sannolikhet om beteende som observeras tillhör en behörig användare eller inte.
+
+			Det finns två olika typer av statistiska metoder som används:
+			[b]Threshold detection[/b]: Definierar en tröskel oberoende av användaren för frekvensen av olika typer av händelser.
+			[b]Profile based[/b]: En profil över aktiviteten för varje användare utvecklas som används för att upptäcka förändrat beteende hos användaren.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IDS">
+		<Question>
+			Vad innebär "signature detection" när det kommer till host-based IDS?
+		</Question>
+		<Answer>
+			Det innebär att man försöker definera en mängd av regler eller attack mönster som kan användas för att avgöra om beteende tillhör en inkräktare.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IDS">
+		<Question>
+			Vad innebär en "honeypot" när det kommer till IDS?
+		</Question>
+		<Answer>
+			Det är ett lockbete som används för att lura potentiella anfallare ifrån det kritiska system. Syftet med dessa är att:
+			[ul]
+				[li]Avleda anfallaren ifrån det kritiska systemet.[/li]
+				[li]Samla in information om anfallarens aktivitet.[/li]
+				[li]Se till att anfallaren stannar tillräckligt länge i system så att administratörer kan svara på attacken.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="AccessControl">
+		<Question>
+			Vad är "access control" för något?
+		</Question>
+		<Answer>
+			Något som förhindrar obehörig användning (avsiktlig eller olyckshändelse) av en resurs och möjliggör behörig användning av resursen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="AccessControl">
+		<Question>
+			Vad innebär "discretionary access control (DAC)"?
+		</Question>
+		<Answer>
+			Kontrollerar tillgång baserat på identiteten hos den som gör förfrågan och åtkomstreglerna som indikerar vad användaren får och får inte göra. En användare som har tillgång till en resurs har rättigheterna att ge andra användare tillgång till rerusen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="AccessControl">
+		<Question>
+			Vad innebär "mandatory access control (MAC)"?
+		</Question>
+		<Answer>
+			Kontrollerar tillgång baserat på att jämföra hur känsligt eller kritiskt resursen som användaren försöker komma åt med säkerhets godkännande (security clearance). En användare som har tillgång till en resurs får inte ge tillgång till andra användare att komma åt resursen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="AccessControl">
+		<Question>
+			Vad innebär "role-based access control (RBAC)"?
+		</Question>
+		<Answer>
+			Kontrollerar tillgång baserat på roller som användare har inom systemet där varje roll indikerar vad användaren har tillgång till givet sina roller.
 		</Answer>
 	</TestQuestion>
 </Test>
