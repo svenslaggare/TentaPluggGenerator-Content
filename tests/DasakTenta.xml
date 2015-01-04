@@ -591,4 +591,182 @@
 			Global data overflow: Icke-körbar eller slumpmässig global data region, flytta funktions pekare eller guard pages.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="SoftwareSecurity">
+		<Question>
+			Vad är "race conditions" för något och vad kan man göra för att undvika det?
+		</Question>
+		<Answer>
+			Det uppstår när flera trådar försöker skriva/läsa samtidigt till en delad resurs vilket gör att datan som läses av en tråd blir odefinerat. Det går att undvika genom att synkronisera tillgången till resursen med t.ex. en mutex/semafor eller att använda instruktioner som är "atomiska".
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SoftwareSecurity">
+		<Question>
+			Hur bör man använda temporära filer på ett säkert sätt? Med temporära filer menas här filer som ligger i "/tmp" under Linux/Unix och på en liknande plats på Windows.
+		</Question>
+		<Answer>
+			Vanligtvis så användas ID på processen för att skapa temporära filer vilket gör att en anfallare lätt kan lista ut namnet. Man bör därför ge temporära filer en slumpmässigt namn.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SoftwareSecurity">
+		<Question>
+			Vilka säkerhetsprincip(er) bör man följa för att utveckla säkra program?
+		</Question>
+		<Answer>
+			En bra princip är principen om "least privilege" vilket innebär att de program man skriver borde kräva så lite privilegium som möjligt för att kunna köras. Program som körs som root/administratör är ett stort mål för anfallare för med dessa rättigheter kan anfallaren få fullständig tillgång till målets dator.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Malware">
+		<Question>
+			Vad är en trojansk häst?
+		</Question>
+		<Answer>
+			Det är ett program med två mål där det ena målet är uppenbart för användaren och de andra är gömt ifrån användaren. Trojanska hästar kan antingen byggas ifrån existerade program eller byggas från början att vara en trojansk häst. 
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Malware">
+		<Question>
+			Vad är en bakdör (backdoor)?
+		</Question>
+		<Answer>
+			Det är ett program (eller del av program) som ger tillgång till ett system. En bakdör behöver inte vara av skapad för att skada utan kan vara en del av supporten för programmet eller andra legitima anledningar. Bakdörar brukar typiskt vara mycket svåra att hitta.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Malware">
+		<Question>
+			Vad är en logisk bomb för något?
+		</Question>
+		<Answer>
+			Det är en bit kod som en anfallare infogar i ett program som inte körs förens ett specifikt villkor är uppfyllt.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Malware">
+		<Question>
+			Vad är ett virus för något?
+		</Question>
+		<Answer>
+			Ett program som infekterar andra progrm. När programmet körs så försöker viruset replikera sig till andra program. Virus är ofta specifika till operativsystem och hårdvara och tar vara på brister.
+			Ett virus går typisk genom följande faser:
+			[ul]
+				[li]Dormant: Viruset är inaktivt och väntar på bli att aktiverad av händelser som t.ex. datum eller existensens av en fil.[/li]
+				[li]Propagation: Virsuet placerar en kopia av sig själv till andra program eller andra delar av systemet. Viruset förändrar oftast skepnad för att undvika upptäckning.[/li]
+				[li]Triggering: Viruset aktiveras för att utföra den funktion som den var designad för.[/li]
+				[li]Execution: Virusets funktion utförs.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Malware">
+		<Question>
+			Vad för metoder kan användas för att upptäcka virus?
+		</Question>
+		<Answer>
+			1. Sökning efter signaturer.
+			2. Heuristiker.
+			3. Identifiera inverkan.
+			4. Kombinationer av ovan.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Malware">
+		<Question>
+			Vad är en mask (worm) för något?
+		</Question>
+		<Answer>
+			Ett replikerade program som sprider sig själv över ett nätverk som beter sig likt ett virus med liknande faser.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Malware">
+		<Question>
+			Vad för metoder kan användas för att upptäcka maskar?
+		</Question>
+		<Answer>
+			Det överlappar med virus men utöver det så kan maskar orsaka stor nätverks aktivitet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Malware">
+		<Question>
+			Vad är ett bot för något?
+		</Question>
+		<Answer>
+			Ett program som tar över andra datorer i syfte att utföra attacker som är svåra att spåra. Om flera botar kopplas ihop och är koordinerade brukar det kallas ett [i]botnät[/i].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Malware">
+		<Question>
+			Vad är ett rootkit för något?
+		</Question>
+		<Answer>
+			Det är ett skadlig program som som installeras på ett system med root/adminstatör rättigheter. Ett rootkit kan t.ex. byta ut systemanrop mot sina egna vilket kan bli mycket skadligt.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Authentication">
+		<Question>
+			Nämn olika attacker emot lösenords baserade autentisering.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Testa vanliga lösenord.[/li]
+				[li]Om sidan använder sig av "glömt lösenord" så testa med att attackera det.[/li]
+				[li]Övervaka anslutningen till sidan.[/li]
+				[li]Skicka falsk sida till en användare som ser likadan ut som den riktiga.[/li]
+				[li]Kolla i läcka lösenords databaser och om hashade: försök knäcka hashen.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Authentication">
+		<Question>
+			Vad för alternativ finns det till lösenords baserad autentisering?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Biometrisk: T.ex. Fingeravtryck.[/li]
+				[li]Tvåfaktors autentisering: Kombinera lösenordet med kod skickad till fysisk enhet.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Firewall">
+		<Question>
+			Nämn olika typer av brandväggar.
+		</Question>
+		<Answer>
+			[ul]
+				[li][b]Packet Filtering Firewall:[/b] Använder regler för att filtrera varje inkommande och utgående IP paket där paket antigen kan skickas vidare (forward) eller förkastas. Reglerna baseras på inforation som finns i paktet som t.ex: Källaddress, måladdress, protokoll, nätverksgränsnitt och annan protokoll specifik information.[/li]
+				[li][b]Stateful Inspection Firewall:[/b] Inspekterar samma information som en paket filtering firewall men sparar även ner information om TCP anslutningar och håller även reda på sekvens numrering för att undvika att någon annan tar över den.[/li]
+				[li][b]Application-Level Gateway:[/b] Vidarbefordrar trafik på applikations nivån när den som ansluter försök måste autentisera sig emot brandväggen för att kunna använda tjänster. Denna typ av brandvägg tillåter inte direkt TCP kommunkation mellan två ändpunkter.[/li]
+				[li][b]Circuit-Level Gateway:[/b] Fungerar ungefär som en "application-level gateway" där kommunkation som skickas till en dator utanför nätverket ser ut som att ha kommit ifrån brandväggen.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Firewall">
+		<Question>
+			Nämn olika ställen där man kan placera en brandvägg.
+		</Question>
+		<Answer>
+			[b]Bastion host[/b]
+			Är ett starkt fäste i nätverket som är värd för application/circuit-level gatways. Har följande egenskaper:
+			[ul]
+				[li]Kör ett säkert operativsystem med endast det nödvändiga tjänsterna.[/li]
+				[li]Kräver ofta att användaren är autentiserad för att komma åt en värd.[/li]
+				[li]Behöver endast läsa data så datan är read-only vilket gör det svårare att installera virus.[/li]
+			[/ul][b]Host-Based Firewall[/b]
+			Används för att säkra individuella värdar och finns ofta som tillägg till operativssystem och filterar baserat på paket. Används ofta på servrar.
+
+			[b]Personal Firewall[/b]
+			Kontrollerar trafik till/från en personlig dator. Oftast mindre komplext och installeras ibland på modemet/routern. Huvudsyftet är att förneka tillgång till obehöriga användare.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Firewall">
+		<Question>
+			Vad är en DMZ (demilitariserad zon) när det kommer till brandväggar?
+		</Question>
+		<Answer>
+			Det är ett isolerat subnät som placeras utanför det skyddade nätverket. Maskiner som ligger i DMZ exponeras mot omvärlden och maskiner som placeras där måste anses vara utsatta för alla typer av attacker och bör därför inte ha någon funktion som inte absolut behövs. Exempel på maskiner som placeras i DMZ är: webbservrar, DNS-servar och mailservrar.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Firewall">
+		<Question>
+			Vad är ett virutellt privat nätverk (VPN)?
+		</Question>
+		<Answer>
+			Det är ett nätverk av datorer som kopplas samman med relativt osäkra nätverk och använder kryptering och speciella protokoll för att tillföra säkerhet. Det används t.ex. för att komma åt företagsnätverket hemifrån.
+		</Answer>
+	</TestQuestion>
 </Test>
