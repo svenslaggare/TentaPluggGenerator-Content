@@ -621,13 +621,12 @@
       
       Alternativt: [math]k(x) in F[x][/math] (där [math]F[/math] är en kropp) är ett primitivt irreducibelt polynom om [math]x[/math] (egentligen [math][x][/math]) är ett primitivt element i [math]F[x]//(k(x))[/math] (dvs. ett genererande element i [math](F\\{0}, \times)[/math]).
     </Answer>
-  </TestQuestion>
-    <TestQuestion Category="FelrättadeKoder">
+  <TestQuestion Category="FelrättadeKoder">
     <Question>
       Hur definieras en kod?
     </Question>
     <Answer>
-      En kod [math]C[/math] är en mängd [math]n[/math]-tupler av 0:or och 1:or där [math]n[/math] är kodens längd. Vi kallar ett element i mängden för ett [i]kodord[/i]. Dvs: [math]C \subseteq ZZ_2[/math].
+      En kod [math]C[/math] är en mängd [math]n[/math]-tupler av 0:or och 1:or där [math]n[/math] är kodens längd. Vi kallar ett element i mängden för ett [i]kodord[/i]. Dvs: [math]C \subseteq (ZZ_2)^n[/math].
     </Answer>
   </TestQuestion>
   <TestQuestion Category="FelrättadeKoder">
@@ -700,7 +699,7 @@
       Hur går man tillväga för att upptäcka ett fel för ett kodord för en kod som har en kontrollmatris?
     </Question>
     <Answer>
-      Om [math]z[/math] är ett kordord så gäller att [math]Hz=0[/math].
+      Om [math]z[/math] är ett kodord så gäller att [math]Hz=0[/math].
     </Answer>
   </TestQuestion>
   <TestQuestion Category="FelrättadeKoder">
@@ -708,7 +707,7 @@
       Hur går man tillväga för att rätta ett kodord för en kod som har en kontrollmatris?
     </Question>
     <Answer>
-      Om [math]z[/math] är ett kordord med endast ett fel i positionen [math]i[/math] så gäller att [math]Hz=H[/math]:s [math]i[/math]:e kolonn.
+      Om [math]z[/math] är ett kodord med endast ett fel i positionen [math]i[/math] så gäller att [math]Hz=H[/math]:s [math]i[/math]:e kolonn.
     </Answer>
   </TestQuestion>
   <TestQuestion Category="FelrättadeKoder">
@@ -734,7 +733,7 @@
   </TestQuestion>
   <TestQuestion Category="RSA">
     <Question>
-      Hur definerar vi en krypteringssystem?
+      Hur definerar vi ett krypteringssystem?
     </Question>
     <Answer>
       Låt [math]M[/math] vara meddelanden (klartext) och [math]C[/math] vara chiffer (krypterad text), [math]E[/math] krypteringsfunktionen och [math]D[/math] dekrypteringsfunktionen. Då gäller att [math]E: M \rightarrow C, D: C \rightarrow M[/math] och att [math]D=E^-1[/math].

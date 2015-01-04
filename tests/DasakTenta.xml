@@ -769,4 +769,50 @@
 			Det är ett nätverk av datorer som kopplas samman med relativt osäkra nätverk och använder kryptering och speciella protokoll för att tillföra säkerhet. Det används t.ex. för att komma åt företagsnätverket hemifrån.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="SocialEngineering">
+		<Question>
+			Vad för olika faser ingår i "soical engineering"?
+		</Question>
+		<Answer>
+			[ul]
+				[li][b]Pretexting:[/b][/li]
+				[li][b]Get data:[/b][/li]
+				[li][b]Keep connections:[/b][/li]
+				[li][b]Combine data:[/b][/li]
+				[li][b]Use it:[/b][/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SocialEngineering">
+		<Question>
+			Vad för olika tekniker används inom "social engineering"?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Trovärdighet[/li]
+				[li]Tvingar målet till en specifik roll.[/li]
+				[li]Distraherar ifrån att tänka systemastisk.[/li]
+				[li]Använda information ifrån olika källor.[/li]
+				[li]Göm frågorna.[/li]
+				[li]Testa med personlig information.[/li]
+				[li]Skapa ett problem och sedan lös det.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SocialEngineering">
+		<Question>
+			Vad kan man göra för att förhindra "soical engineering"?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Se till att kortfattade protokoll följs.[/li]
+				[li]Öka personalen kännedom.[/li]
+				[li]Enkla regler för att definiera vad som är känslig information.[/li]
+				[li]Enkla regler när det krävs legitmation/ID för behörig åtgärd.[/li]
+				[li]Data klassifikations policyer.[/li]
+				[li]Träna personalen.[/li]
+				[li]Artighets förändring: Att "nej" är OK.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
 </Test>
