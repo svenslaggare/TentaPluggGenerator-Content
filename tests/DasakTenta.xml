@@ -149,7 +149,7 @@
 		<Answer>
 			Det är en algoritm för att säkert byta kryptografiska nycklar över en publik kanal.
 			1. Välj ett primtal [math]q[/math] och [math]alpha[/math] som är en primitiv rot av [math]q[/math].
-			2. Alice genererar en nyckel på följande sätt: Välj den privata nyckeln [math]X_a \lt q[/math] och den publika nyckeln [math]Y_a = alpha^(X_A) mod q[/math].
+			2. Alice genererar en nyckel på följande sätt: Välj den privata nyckeln [math]X_A \lt q[/math] och den publika nyckeln [math]Y_A = alpha^(X_A) mod q[/math].
 			3. Bob privat: [math]X_B \lt q[/math], publik: [math]Y_B = alpha^(X_B) mod q[/math].
 			4. Byt publika nycklar ([math]Y[/math]).
 			5. Alice beräknar en hemlig kod: [math]K = Y_B^(X_A) mod q[/math].
