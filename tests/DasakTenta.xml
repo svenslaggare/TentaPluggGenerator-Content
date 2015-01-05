@@ -186,13 +186,13 @@
 			Vad innebär "broken authentication and session management"?
 		</Question>
 		<Answer>
-			Funktioner i program som relaterar till autentisering och sessionshantering hanteras oftast inte korrekt. Det möjliggör för en anfallare att komma över lösenord, nycklar och sessionstokens eller ta över en annan användares identitet.
+			Funktioner i program som relaterar till autentisering och sessionshantering hanteras oftast inte korrekt. Det möjliggör för en anfallare att komma över lösenord, nycklar och sessionstokens eller att ta över en annan användares identitet.
 			
 			[b]Vanliga svagheter är:[/b]
-			Byta lösenord - Att byta lösenord inte kräver det gammla lösenordet.
-			Glömt lösenord - Skickar lösenord i klartext vilket indikerar att lösenordet också sparas i klartext.
+			Byta lösenord - Att byta lösenord inte kräver det gamla lösenordet.
+			Glömt lösenord - Skickar lösenord i klartext, vilket indikerar att lösenordet också sparas i klartext.
 			Kom ihåg mig - Inloggningsinformation sparas i klartext i kakor.
-			Sessionsidentifierare - Skickas över okrypterade kanaler eller som kan kommas åt via JavaScript.
+			Sessionsidentifierare - Skickas över okrypterade kanaler eller kan kommas åt via JavaScript.
 			Utloggning - Utloggnignen hanteras felaktigt vilket gör det möjligt för an anfallare att ta över sessionen.
 			Session timeout.
 			Kontoskuggning - Gör det möjligt att skapa en användare som tar över en tidigare.
@@ -202,7 +202,7 @@
 			Använd ett generiskt felmeddelande för inloggning.
 			Se till så att utloggning sker korrekt.
 			Se till så att sessionskakor har korrekta attributer (Secure, HttpOnly).
-			Kräv återautentisering vid kritiska punkter.
+			Kräv återautentisering vid kritiska tillfällen.
 			Implementera inte ditt eget sessionshanteringssystem utan använd beprövade lösningar.
 			Undvik att spara sessions-id.
 			Spara inte lösenord i klartext.
