@@ -224,7 +224,7 @@
 			Vad är [math]|F[x]//(k(x))|[/math] där [math]k(x) in F[/math] (en kropp)?
 		</Question>
 		<Answer>
-			[math]|F[x]//(k(x))|=|F|^r[/math] där [math]r[/math] är högstagradskoefficienten.
+			[math]|F[x]//(k(x))|=|F|^r[/math] där [math]r[/math] är polynomets grad..
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ÄndligaKroppar">
