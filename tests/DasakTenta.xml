@@ -5,9 +5,9 @@
 			Definiera CIA-modellen.
 		</Question>
 		<Answer>
-			C = Confidentiality. Begränsar tillgången till information.
-			I = Integrity. Säkerställer att informationen är pålitlig och korrekt.
-			A = Availability. Garanterar pålitlig tillgång till informationen för autentiserade personer. 
+			C = Confidentiality. Begränsar tillgången till information. (Läs)
+			I = Integrity. Säkerställer att informationen är pålitlig och korrekt. (Skriv)
+			A = Availability. Garanterar pålitlig tillgång till informationen för autentiserade personer. (Åtkomst)
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SecurityPrinciple">
