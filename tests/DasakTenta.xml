@@ -498,11 +498,13 @@
 				[li]Säkerhetsklasser: top secret \gt secret \gt confidential \gt unclassified.[/li]
 				[li]Varje subjekt har en "security clearance"-nivå och varje objekt har en "security classification"-nivå.[/li]
 				[li]Varje säkerhetsklass kontrollerar om ett subjekt får komma åt ett objekt.[/li]
-			[/ul]BLP har följande egenskaper:
+			[/ul]
+			BLP har följande egenskaper:
 			[ul]
 				[li]Information kan inte flöda från en högre säkerhetsklass till en lägre.[/li]
 				[li]Det går inte att läsa från en högre nivå och det går inte att skriva till en lägre nivå.[/li]
-			[/ul]BLP har följande svagheter:
+			[/ul]
+			BLP har följande svagheter:
 			[ul]
 				[li]Det går inte att "nedgradera" information.[/li]
 				[li]Det går endast att ändra på en nivå medan man läser på samma nivå eller en lägre.[/li]
@@ -518,7 +520,8 @@
 			[ul]
 				[li][b]Well-formed transactions:[/b] En användare bör inte manipulera data på ett godtyckligt sätt men begränsas endast så att integriteten hos datan bevaras.[/li]
 				[li][b]Seperation of duty among users:[/b] En användare som har behörighet att skapa eller verifiera en "well-foremd transaction" bör inte få möjlighet att exekvera den.[/li]
-			[/ul]Modellen inför integritetskontroll på data och de transaktioner som modiferar data. 
+			[/ul]
+			Modellen inför integritetskontroll på data och de transaktioner som modiferar data. 
 
 			Huvudkomponenterna är:
 			[ul]
@@ -581,12 +584,14 @@
 				[li]Använd nya varianter av funktioner i standardbibliotek som skyddar mot buffer overflows.[/li]
 				[li]Lägg till kod i början och slutet av ett funktionsanrop som ser till att stacken inte har blivit korrupt.[/li]
 				[li]Använd en en slumpmässig "kanariefågel", som när överskriven så avslutas programmet. Googla på "canary in the coal mine".[/li]
-			[/ul][b]Vid körtid (run-time)[/b]
+			[/ul]
+			[b]Vid körtid (run-time)[/b]
 			[ul]
 				[li]Använd en virtuell minnesrymd som gör att regioner av minne inte blir körbart.[/li]
 				[li]Slumpa var bufferten lagras på heapen samt för funktioner i standardbiblioteket.[/li]
 				[li]Placera "guard pages" mellan kritiska regioner av minne. Kan även placeras mellan stack-frames och heap buffers.[/li]
-			[/ul]Stack buffer overflow: Icke-körbar stack eller guard pages.
+			[/ul]
+			Stack buffer overflow: Icke-körbar stack eller guard pages.
 			Heap overflow: Slumpmässig eller icke-körbar heap.
 			Global data overflow: Icke-körbar eller slumpmässig global data-region, flytta funktions pekare eller guard pages.
 		</Answer>
@@ -746,7 +751,8 @@
 				[li]Kör ett säkert operativsystem med endast det nödvändiga tjänsterna.[/li]
 				[li]Kräver ofta att användaren är autentiserad för att komma åt en värd.[/li]
 				[li]Behöver endast läsa data så datan är read-only vilket gör det svårare att installera virus.[/li]
-			[/ul][b]Host-Based Firewall[/b]
+			[/ul]
+			[b]Host-Based Firewall[/b]
 			Används för att säkra individuella värdar och finns ofta som tillägg till operativssystem och filterar baserat på paket. Används ofta på servrar.
 
 			[b]Personal Firewall[/b]
