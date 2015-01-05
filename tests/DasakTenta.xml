@@ -136,10 +136,12 @@
 			Vad är skillnaden mellan "stream cipher" och "block cipher"?
 		</Question>
 		<Answer>
-			* Stream ciphers är oftast snabbare än block.
-			* Block ciphers kräver oftast mer minne.
-			* Stream ciphers är oftast svårare att implementera korrekt.
-			* Kan uppstå säkerhetsproblem om samma nyckel används flera gånger för stream ciphers.
+			[ul]
+				[li]Stream ciphers är oftast snabbare än block.[/li]
+				[li]Block ciphers kräver oftast mer minne.[/li]
+				[li]Stream ciphers är oftast svårare att implementera korrekt.[/li]
+				[li]Kan uppstå säkerhetsproblem om samma nyckel används flera gånger för stream ciphers.[/li]
+			[/ul]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Cryptography">
@@ -287,7 +289,7 @@
 			Skickar UDP-paketet riktat mot en specifik port hos målet.
 
 			[b]TCP SYN Flood[/b]
-			Anfallaren försöker starta en TCP-anslutning (ofta med en förfalskad adress). Varje försök av anslutning gör att servern skickar tillbaka ett TCP/SYN-ACK-paket och väntar på svar från anfallaren så att anslutningen kan etableras. Men attacken skickar aldrig tillbaka något svar vilket gör att servern får sitta och vänta. Om detta görs flera gånger så kommer serverns TCP-tabell att få slut på plats vilket gör att ingen annan kan göra anslutningar till servern via TCP.
+			Anfallaren försöker starta en TCP-anslutning (ofta med en förfalskad adress). Varje försök av anslutning gör att servern skickar tillbaka ett TCP/SYN-ACK-paket och väntar på svar från anfallaren så att anslutningen kan etableras. Men anfallaren skickar aldrig tillbaka något svar vilket gör att servern får sitta och vänta. Om detta görs flera gånger så kommer serverns TCP-tabell att få slut på plats vilket gör att ingen annan kan göra anslutningar till servern via TCP.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DoS">
@@ -466,7 +468,7 @@
 			[ul]
 				[li][b]Hardware:[/b] supervisor/user mode.[/li]
 				[li][b]Unix:[/b] superuser/user access.[/li]
-				[li][b]Military:[/b] top secret \gt secret \gt confidential \gt unclassified[/li]
+				[li][b]Military:[/b] top secret [math]\gt[/math] secret [math]\gt[/math] confidential [math]\gt[/math] unclassified[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -495,16 +497,14 @@
 		<Answer>
 			Varje subjekt och objekt har säkerhetsklasser.
 			[ul]
-				[li]Säkerhetsklasser: top secret \gt secret \gt confidential \gt unclassified.[/li]
+				[li]Säkerhetsklasser: top secret [math]\gt[/math] secret [math]\gt[/math] confidential [math]\gt[/math] unclassified.[/li]
 				[li]Varje subjekt har en "security clearance"-nivå och varje objekt har en "security classification"-nivå.[/li]
 				[li]Varje säkerhetsklass kontrollerar om ett subjekt får komma åt ett objekt.[/li]
-			[/ul]
-			BLP har följande egenskaper:
+			[/ul]BLP har följande egenskaper:
 			[ul]
 				[li]Information kan inte flöda från en högre säkerhetsklass till en lägre.[/li]
 				[li]Det går inte att läsa från en högre nivå och det går inte att skriva till en lägre nivå.[/li]
-			[/ul]
-			BLP har följande svagheter:
+			[/ul]BLP har följande svagheter:
 			[ul]
 				[li]Det går inte att "nedgradera" information.[/li]
 				[li]Det går endast att ändra på en nivå medan man läser på samma nivå eller en lägre.[/li]
@@ -583,14 +583,12 @@
 				[li]Använd nya varianter av funktioner i standardbibliotek som skyddar mot buffer overflows.[/li]
 				[li]Lägg till kod i början och slutet av ett funktionsanrop som ser till att stacken inte har blivit korrupt.[/li]
 				[li]Använd en en slumpmässig "kanariefågel". När en sådan skrivs över så avslutas programmet. Googla på "canary in the coal mine".[/li]
-			[/ul]
-			[b]Vid körtid (run-time)[/b]
+			[/ul][b]Vid körtid (run-time)[/b]
 			[ul]
 				[li]Använd en virtuell minnesrymd som gör att regioner av minne inte blir körbart.[/li]
 				[li]Slumpa var bufferten lagras på heapen samt för funktioner i standardbiblioteket.[/li]
 				[li]Placera "guard pages" mellan kritiska regioner av minne. Kan även placeras mellan stack-frames och heap buffers.[/li]
-			[/ul]
-			Stack buffer overflow: Icke-körbar stack eller guard pages.
+			[/ul]Stack buffer overflow: Icke-körbar stack eller guard pages.
 			Heap overflow: Slumpmässig eller icke-körbar heap.
 			Global data overflow: Icke-körbar eller slumpmässig global data-region, flytta funktions pekare eller guard pages.
 		</Answer>
