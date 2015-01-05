@@ -210,7 +210,7 @@
 	</TestQuestion>
 	<TestQuestion Category="WebAttacks">
 		<Question>
-			Vad innebär "cross site scripting (XSS)"?
+			Vad innebär "cross site scripting" (XSS)?
 		</Question>
 		<Answer>
 			Det är en form av injektion som gör det möjligt för en anfallare att kringå webbläsarens säkerhetsmodell genom att injicera innehåll till en sida där koden körs när en användare besöker sidan.
@@ -250,7 +250,7 @@
 	</TestQuestion>
 	<TestQuestion Category="WebAttacks">
 		<Question>
-			Vad innebär "cross site request forgery (CSRF/XSRF)"?
+			Vad innebär "cross site request forgery" (CSRF/XSRF)?
 		</Question>
 		<Answer>
 			Det är en typ av attack som tvingar användaren att utföra en oönskad åtgärd i en applikation som användaren är autentiserade till. 
@@ -266,7 +266,7 @@
 	</TestQuestion>
 	<TestQuestion Category="DoS">
 		<Question>
-			Vad är en Denial of Service (DOS)-attack för något?
+			Vad är en "Denial of Service" (DOS)-attack för något?
 		</Question>
 		<Answer>
 			Det är en form av attack mot ett datasystem (maskin, nätverksresurs, etc.) där syftet är att hindra normal användning av systemet.
@@ -309,7 +309,7 @@
 	</TestQuestion>
 	<TestQuestion Category="DoS">
 		<Question>
-			Förklara attacktypen "Distrubuted Denial-of-Service (DDoS)" för DoS-attacker.
+			Förklara attacktypen "Distrubuted Denial of Service" (DDoS) för DoS-attacker.
 		</Question>
 		<Answer>
 			Det innebär att attacken är distribuerad över ett nätverk av datorer som alla kommer skicka förfrågningar till målet. Ofta är datorerna som ingår i det nätverket ofrivilliga, d.v.s. att anfallaren har installerat någon typ av virus som gör att datorerna deltar i nätverket.
@@ -332,7 +332,7 @@
 	</TestQuestion>
 	<TestQuestion Category="IDS">
 		<Question>
-			Vad är ett "intrusion detection system (IDS)" för något?
+			Vad är ett "intrusion detection system" (IDS) för något?
 		</Question>
 		<Answer>
 			Ett säkerhetssystem som övervakar och analyserar systemevent i syfte att hitta och leverera varningar i realtid (eller nästan) för försök att komma åt systemet utan rättigheter.
