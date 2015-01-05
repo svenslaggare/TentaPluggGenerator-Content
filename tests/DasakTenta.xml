@@ -287,7 +287,7 @@
 			Skickar UDP-paketet riktat mot en specifik port hos målet.
 
 			[b]TCP SYN Flood[/b]
-			Anfallaren försöker starta en TCP-anslutning (ofta med en förfalskad adress). Varje försök av anslutning gör att servern skickar tillbaka ett TCP/SYN-ACK-paket och väntar på svar från anfallaren så att anslutningen kan etableras. Men attacken skickar aldrig tillbaka något svar vilket gör att servern sitter och väntar på ett svar. Om detta görs flera gånger så kommer serverns TCP-tabell att få slut på plats vilket gör att ingen annan kan göra anslutningar till servern via TCP.
+			Anfallaren försöker starta en TCP-anslutning (ofta med en förfalskad adress). Varje försök av anslutning gör att servern skickar tillbaka ett TCP/SYN-ACK-paket och väntar på svar från anfallaren så att anslutningen kan etableras. Men attacken skickar aldrig tillbaka något svar vilket gör att servern får sitta och vänta. Om detta görs flera gånger så kommer serverns TCP-tabell att få slut på plats vilket gör att ingen annan kan göra anslutningar till servern via TCP.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DoS">
@@ -295,7 +295,7 @@
 			Förklara attacktypen "spoofing" för DoS-attacker.
 		</Question>
 		<Answer>
-			En anfallare skickar förfalskade förfrågningar till ett stort antal datorer som datorerna svarar på. Det som förfalskas är källadressen vilket ändras till målet. Detta gör att alla svaren går till målet vilket överbelastar detta.
+			En anfallare skickar förfalskade förfrågningar till ett stort antal datorer som dessa svarar på. Det som förfalskas är källadressen vilket ändras till målet. Detta gör att alla svaren går till målet vilket överbelastar detta.
 
 			När man pratar om denna typ av attack brukar man också använda namnet [i]reflection[/i] på grund av att attacken reflekterar svaren till målet.
 		</Answer>
@@ -305,7 +305,7 @@
 			Förklara attacktypen "amplification" för DoS-attacker.
 		</Question>
 		<Answer>
-			Det är en form av spoofing-attack. Den fungerar så att anfallaren skickar broadcastanrop med en förfalskad källadress till målet till en mängd datorer. För att det är ett broadcastanrop så kan alla datorer som är anslutna till nätverket som förfrågan skickas till svara, vilket kan göra att ännu fler datorer skickar svar till målet.
+			Det är en form av spoofing-attack. Den fungerar så att anfallaren skickar broadcastanrop med en förfalskad källadress till målet till en mängd datorer. Eftersom det är ett broadcastanrop kan alla datorer som är anslutna till nätverket som förfrågan skickas till svara, vilket kan göra att ännu fler datorer skickar svar till målet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DoS">
@@ -313,7 +313,7 @@
 			Förklara attacktypen "Distrubuted Denial of Service" (DDoS) för DoS-attacker.
 		</Question>
 		<Answer>
-			Det innebär att attacken är distribuerad över ett nätverk av datorer som alla kommer skicka förfrågningar till målet. Ofta är datorerna som ingår i det nätverket ofrivilliga, d.v.s. att anfallaren har installerat någon typ av virus som gör att datorerna deltar i nätverket.
+			Det innebär att attacken är distribuerad över ett nätverk av datorer som alla kommer skicka förfrågningar till målet. Ofta är datorerna som ingår i attacknätverket ofrivilliga, d.v.s. att anfallaren har installerat någon typ av virus som gör att datorerna ingår i nätverket.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DoS">
@@ -345,8 +345,8 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li][b]Host-based:[/b] Övervakar för en ensam värds händelser och letar efter misstänksam aktivitet inom värden.[/li]
-				[li][b]Network-based:[/b] Övervakar nätverks trafik för ett specifikt nätverk och analyserar transport- och applikationsprotokoll för misstänksam aktivitet.[/li]
+				[li][b]Host-based:[/b] Övervakar en ensam värds händelser och letar efter misstänksam aktivitet hos värden.[/li]
+				[li][b]Network-based:[/b] Övervakar ett specifikt nätverks trafik och analyserar transport- och applikationsprotokoll för misstänksam aktivitet.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -358,7 +358,6 @@
 			[ul]
 				[li][b]Sensorer:[/b] Ansvarar för att samla in data.[/li]
 				[li][b]Analysatorer:[/b] Analyserar data som samlats in. Ansvarar för att avgöra om ett intrång har skett.[/li]
-				[li][b]Sensorer:[/b] Ansvarar för att samla in data.[/li]
 				[li][b]Användargränssnitt (UI):[/b] Gör det möjligt för användare att kontrollera systemets beteende eller utdata.[/li]
 			[/ul]
 		</Answer>
