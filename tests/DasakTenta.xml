@@ -187,6 +187,7 @@
 		</Question>
 		<Answer>
 			Funktioner i program som relaterar till autentisering och sessionshantering hanteras oftast inte korrekt. Det möjliggör för en anfallare att komma över lösenord, nycklar och sessionstokens eller ta över en annan användares identitet.
+			
 			[b]Vanliga svagheter är:[/b]
 			Byta lösenord - Att byta lösenord inte kräver det gammla lösenordet.
 			Glömt lösenord - Skickar lösenord i klartext vilket indikerar att lösenordet också sparas i klartext.
