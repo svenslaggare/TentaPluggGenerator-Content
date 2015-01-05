@@ -466,7 +466,7 @@
 			[ul]
 				[li][b]Hardware:[/b] supervisor/user mode.[/li]
 				[li][b]Unix:[/b] superuser/user access.[/li]
-				[li][b]Military:[/b] top secret > secret > confidential > unclassified[/li]
+				[li][b]Military:[/b] top secret \gt secret \gt confidential \gt unclassified[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -495,7 +495,7 @@
 		<Answer>
 			Varje subjekt och objekt har säkerhetsklasser.
 			[ul]
-				[li]Säkerhetsklasser: top secret > secret > confidential > unclassified.[/li]
+				[li]Säkerhetsklasser: top secret \gt secret \gt confidential \gt unclassified.[/li]
 				[li]Varje subjekt har en "secutity clearance"-nivå och varje objekt har en "security classification"-nivå.[/li]
 				[li]Varje säkerhetsklass kontrollerar om ett subjekt får komma åt ett objekt.[/li]
 			[/ul]BLP har följande egenskaper:
