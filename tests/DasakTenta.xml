@@ -458,7 +458,7 @@
 	</TestQuestion>
 	<TestQuestion Category="MLS">
 		<Question>
-			Kortfattat, vad innebär "multi-level secutity" (MLS)?
+			Kortfattat, vad innebär "multi-level security" (MLS)?
 		</Question>
 		<Answer>
 			Det innebär att vi delar in systemet i flera olika säkerhetsklasser.
@@ -496,7 +496,7 @@
 			Varje subjekt och objekt har säkerhetsklasser.
 			[ul]
 				[li]Säkerhetsklasser: top secret \gt secret \gt confidential \gt unclassified.[/li]
-				[li]Varje subjekt har en "secutity clearance"-nivå och varje objekt har en "security classification"-nivå.[/li]
+				[li]Varje subjekt har en "security clearance"-nivå och varje objekt har en "security classification"-nivå.[/li]
 				[li]Varje säkerhetsklass kontrollerar om ett subjekt får komma åt ett objekt.[/li]
 			[/ul]BLP har följande egenskaper:
 			[ul]
