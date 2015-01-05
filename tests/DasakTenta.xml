@@ -2,7 +2,7 @@
 <Test Name="Tenta">
 	<TestQuestion Category="SecurityPrinciple">
 		<Question>
-			Definiera CIA modellen.
+			Definiera CIA-modellen.
 		</Question>
 		<Answer>
 			C = Confidentiality. Begränsar tillgången till information.
@@ -47,7 +47,7 @@
 			Vad innebär principen om "Open Design"?
 		</Question>
 		<Answer>
-			Säkerhetsmekanismer säkerhet bör inte bero på hemligheter om mekanismens design eller implementationen.
+			Säkerhet bör inte bero på hemligheter om mekanismens design eller implementationen.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SecurityPrinciple">
@@ -55,7 +55,7 @@
 			Vad innebär principen om "Seperation of Privilege"?
 		</Question>
 		<Answer>
-			Ett system bör inte ge tillåtelse baserat på endast ett villkor. Uppdelning av ansvar: Den som skriver säkerheten för systemet kan inte vara den som verifierar att säkerheten fungerar.
+			Ett system bör inte ge tillåtelse baserat endast på ett villkor. Uppdelning av ansvar: Den som skriver säkerheten för systemet kan inte vara den som verifierar att säkerheten fungerar.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SecurityPrinciple">
@@ -63,7 +63,7 @@
 			Vad innebär principen om "Least Common Mechanism"?
 		</Question>
 		<Answer>
-			Mekanismer som används för att tillträde för en resurs bör inte delas.
+			Mekanismer som används för tillträde för en resurs bör inte delas.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SecurityPrinciple">
@@ -71,7 +71,7 @@
 			Vad innebär principen om "Psychological Acceptability"?
 		</Question>
 		<Answer>
-			Säkerhetsmekanismer bör inte göra det svårare att komma åt en resurs än om inte mekanismerna fanns.
+			Säkerhetsmekanismer bör inte göra det svårare att komma åt en resurs än om mekanismerna inte fanns.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Cryptography">
@@ -79,7 +79,7 @@
 			Vad innebär symmetrisk kryptering?
 		</Question>
 		<Answer>
-			Det innebär att samma nyckel används för att kryptera och dekryptera data. Används oftast för att kryptera t.ex filer. Exempel på algoritmer är AES och DES.
+			Det innebär att samma nyckel används för att kryptera och dekryptera data. Används oftast för att kryptera t.ex. filer. Exempel på algoritmer är AES och DES.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Cryptography">
@@ -87,15 +87,15 @@
 			Vad innebär asymmetrisk kryptering?
 		</Question>
 		<Answer>
-			Det innebär att olika nycklar används för att kryptera och dekryptera data. Den ena nyckel brukas kallas den privata nyckel och den andra den publika nyckeln. Används oftast för att kommunicera säkert över internet. Exempel på algoritmer är RSA.
+			Det innebär att olika nycklar används för att kryptera och dekryptera data. Den ena nyckel brukas kallas den privata nyckeln och den andra den publika nyckeln. Används oftast för att kommunicera säkert över internet. Exempel på en algoritm är RSA.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Cryptography">
 		<Question>
-			Vad är en Kryptografiska hashfunktion för något?
+			Vad är en kryptografisk hashfunktion för något?
 		</Question>
 		<Answer>
-			En hashfunktion är en funktion som tar ett värde av godtycklig typ till ett heltal. En kryptografisk variant är då en hashfunktion som gör det [i]praktiskt[/i] omöjligt att få tillbacka ursprungsvärdet ifrån hashvärdet.
+			En hashfunktion är en funktion som tar ett värde av godtycklig typ till ett heltal. En kryptografisk variant är då en hashfunktion som gör det [i]praktiskt[/i] omöjligt att få tillbaka ursprungsvärdet från hashvärdet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Cryptography">
@@ -103,8 +103,8 @@
 			Vad för egenskaper bör en kryptografisk hashfunktion ha?
 		</Question>
 		<Answer>
-			1. Givet ett hashvärde [math]h[/math] så bör det vara svårt att hitta ett meddelande [math]m[/math] så att [math]h=hash(m)[/math].
-			2. Kollision resistens: Det bör bara svårt att hitta två [i]olika[/i] meddelanden [math]m_1, m_2[/math] sådant att [math]hash(m_1)=hash(m_2)[/math].
+			1. Givet ett hashvärde [math]h[/math] bör det vara svårt att hitta ett meddelande [math]m[/math] så att [math]h=hash(m)[/math].
+			2. Kollisionsresistens: Det bör bara svårt att hitta två [i]olika[/i] meddelanden [math]m_1, m_2[/math] sådana att [math]hash(m_1)=hash(m_2)[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Cryptography">
@@ -112,7 +112,7 @@
 			Vad innebär "message authentication"?
 		</Question>
 		<Answer>
-			Det innebär att vi vill verifiera att ett meddelande verkligen kommer ifrån den som skickade det och att innehållet har förändrats av någon tredje part.
+			Det innebär att vi vill verifiera att ett meddelande verkligen kommer från den som skickade det och att innehållet inte har förändrats av någon tredje part.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Cryptography">
@@ -120,7 +120,7 @@
 			Vad är en "stream cipher"?
 		</Question>
 		<Answer>
-			Det är en typ av symmetrisk nyckel cipher som kryptererar en bit (eller byte) i taget. Exempel på stream ciphers är: RC4.
+			Det är en typ av symmetriskt nyckel-cipher som kryptererar en bit (eller byte) i taget. Exempel på ett stream cipher är RC4.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Cryptography">
@@ -128,7 +128,7 @@
 			Vad är en "block cipher"?
 		</Question>
 		<Answer>
-			Det är en typ av symmetrisk nyckel cipher som kryptererar störe bit av data ("block") i taget. Exempel på block ciphers är: DES, AES och Blowfish.
+			Det är en typ av symmetriskt nyckel-cipher som kryptererar flera bitar av data ("block") i taget. Exempel på block ciphers är DES, AES och Blowfish.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Cryptography">
@@ -149,13 +149,13 @@
 		<Answer>
 			Det är en algoritm för att säkert byta kryptografiska nycklar över en publik kanal.
 			1. Välj ett primtal [math]q[/math] och [math]alpha[/math] som är en primitiv rot av [math]q[/math].
-			2. Alice genererar en nyckel på följande sätt: Välj den privata nyckeln [math]X_a \lt q[/math] och publika: [math]Y_a = alpha^(X_A) mod q[/math].
-			3. Bob: privat: [math]X_B \lt q[/math], publik: [math]Y_B = alpha^(X_B) mod q[/math].
+			2. Alice genererar en nyckel på följande sätt: Välj den privata nyckeln [math]X_a \lt q[/math] och den publika nyckeln [math]Y_a = alpha^(X_A) mod q[/math].
+			3. Bob privat: [math]X_B \lt q[/math], publik: [math]Y_B = alpha^(X_B) mod q[/math].
 			4. Byt publika nycklar ([math]Y[/math]).
 			5. Alice beräknar en hemlig kod: [math]K = Y_B^(X_A) mod q[/math].
 			6. Bob: [math]K=Y_A^(X_B) mod q[/math].
 
-			Det problem som en anfallare behöver lösa är det diskreta logaritm problemet vilket saknar effektiv algoritmer.
+			Det problem som en anfallare behöver lösa är det diskreta logaritmproblemet, vilket saknar effektiva algoritmer.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Cryptography">
@@ -166,11 +166,11 @@
 			1. Tag [math]p, q[/math] stora, olika, primtal ([math]~~10^150[/math]).
 			2. Beräkna [math]n=pq[/math] och [math]m=(p-1)(q-1)[/math].
 			3. Välj [math]e[/math] så att [math]sgd(e, m)=1[/math] och finn [math]d[/math] med [math]ed-=_m1[/math] (Euklides).
-			4. Offentliggr [math]n, e[/math] och hemlighåll [math]d[/math].
+			4. Offentliggör [math]n, e[/math] och hemlighåll [math]d[/math].
 			För att kryptera ett meddelande [math]x[/math]: [math]E(x)-=_n x^e[/math].
 			För att dekryptera ett meddelande [math]x[/math]: [math]D(x)-=_n x^d[/math].
 
-			Det problem som en anfallare behöver lösa är primtals faktorisering.
+			Det problem som en anfallare behöver lösa är primtalsfaktorisering, vilket (troligen) är svårt för stora tal.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="WebAttacks">
@@ -178,7 +178,7 @@
 			Vad innebär "injection"?
 		</Question>
 		<Answer>
-			Det innebär att data som skickas in till systemet via t.ex. url parameterar, formulär, cookies, http headers osv kan används för få systemet att utföra kommandon. Exempel är: SQL injection, XPATH injection och OS command injection.
+			Det innebär att data som skickas in till systemet via t.ex. url-parameterar, formulär, cookies, http-headers o.s.v. kan används för att få systemet att utföra kommandon. Exempel är SQL injection, XPATH injection och OS command injection.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="WebAttacks">
@@ -186,26 +186,26 @@
 			Vad innebär "broken authentication and session management"?
 		</Question>
 		<Answer>
-			Funktioner i program som relaterar till autentisering och sessions hantering hanteras oftast inte korrekt. Det möjliggör för en anfallare att komma över lösenord, nycklar och sessions tokens eller ta över en annan användare identitet.
-			Vanliga svagheter är:
-			Byta lösenord - Att byta lösenord kräver inte det gammla lösenordet.
+			Funktioner i program som relaterar till autentisering och sessionshantering hanteras oftast inte korrekt. Det möjliggör för en anfallare att komma över lösenord, nycklar och sessionstokens eller ta över en annan användares identitet.
+			[b]Vanliga svagheter är:[/b]
+			Byta lösenord - Att byta lösenord inte kräver det gammla lösenordet.
 			Glömt lösenord - Skickar lösenord i klartext vilket indikerar att lösenordet också sparas i klartext.
-			Kom ihåg mig - Inloggningsinforation sparas i klartext i kakor.
-			Sessions identifierare - Som skickas över okrypterade kanaler eller som kan kommas åt via JavaScript.
+			Kom ihåg mig - Inloggningsinformation sparas i klartext i kakor.
+			Sessionsidentifierare - Skickas över okrypterade kanaler eller som kan kommas åt via JavaScript.
 			Utloggning - Utloggnignen hanteras felaktigt vilket gör det möjligt för an anfallare att ta över sessionen.
 			Session timeout.
 			Kontoskuggning - Gör det möjligt att skapa en användare som tar över en tidigare.
 
-			För att förhindra ovan:
-			Använd två-faktors autentisering.
-			Använd en generisk felmeddelande för inloggning.
-			Se till att utloggning sker korrekt.
-			Se till sessions kakor har korrekta attributer (Secure, HttpOnly).
-			Kräv åter autentisering vid kritiska punkter.
-			Implementera inte ditt eget sessions hanterings system utan använd beprövade lösningar.
-			Undvik att spara sessions id's.
+			[b]För att förhindra ovan:[/b]
+			Använd flerfaktorsautentisering.
+			Använd ett generiskt felmeddelande för inloggning.
+			Se till så att utloggning sker korrekt.
+			Se till så att sessionskakor har korrekta attributer (Secure, HttpOnly).
+			Kräv återautentisering vid kritiska punkter.
+			Implementera inte ditt eget sessionshanteringssystem utan använd beprövade lösningar.
+			Undvik att spara sessions-id.
 			Spara inte lösenord i klartext.
-			Undivk "kom ihåg mig" funktionalitet om du inte vet vad du håller på med.
+			Undivk "kom ihåg mig"-funktionalitet om du inte vet vad du håller på med.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="WebAttacks">
@@ -213,7 +213,7 @@
 			Vad innebär "cross site scripting (XSS)"?
 		</Question>
 		<Answer>
-			Det är en form av injektion som gör det möjligt för en anfallare att kringå webbläsarens säkerhetsmodell genom att injektera innehåll till en sida där koden körs när en besökare besöker sidan.
+			Det är en form av injektion som gör det möjligt för en anfallare att kringå webbläsarens säkerhetsmodell genom att injicera innehåll till en sida där koden körs när en användare besöker sidan.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="WebAttacks">
@@ -221,7 +221,7 @@
 			Vad innebär "insecure direct object references"?
 		</Question>
 		<Answer>
-			Att tillträdes restriktioner inte påtvingas och att referensens mappas [i]direkt[/i] till ett objekt.
+			Att tillträdesrestriktioner inte påtvingas och att referensen mappas [i]direkt[/i] till ett objekt.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="WebAttacks">
@@ -229,7 +229,7 @@
 			Vad innebär "security misconfiguration"?
 		</Question>
 		<Answer>
-			Det innebär att en applikation är konfiguerade felaktig t.ex. genom att en admin konsol kan kommas åt utifrån, standard inloggningsuppgifter inte är förändrade eller att det blir möjligt att se den underliggande filstrukturen för applikationen (directory listing).
+			Det innebär att en applikation är felaktigt konfigurerad t.ex. genom att en adminkonsol kan kommas åt utifrån, standardinloggningsuppgifter inte är förändrade eller att det blir möjligt att se den underliggande filstrukturen för applikationen (directory listing).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="WebAttacks">
@@ -245,7 +245,7 @@
 			Vad innebär "missing function level access control"?
 		</Question>
 		<Answer>
-			Det gör det möjligt för användare att komma åt information som det bör kunna komma åt. Detta beror oftast på dålig implementerad åtkomstkontroll och för att det inte finns något länk så behöver det inte betyda att användaren inte kan komma på länken själv "security-by-obscurity".
+			Det gör det möjligt för användare att komma åt information som de inte bör kunna komma åt. Detta beror oftast på dåligt implementerad åtkomstkontroll eller naivitet. Bara för att det inte finns någon länk på sidan, betyder inte det att användaren inte kan komma på länken själv "security-by-obscurity".
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="WebAttacks">
@@ -261,58 +261,58 @@
 			Vad innebär "invalidated redirects and forwards"?
 		</Question>
 		<Answer>
-			Webb applikationer skickar vidare användare till andra sidor och hemsidor. Utan korrekt validering kan en anfallare skicka användaren till en sida som innehåller virus eller ser ut på samma sätt som den riktiga men är egentligen en falsk sida (phishing).
+			Webbapplikationer skickar vidare användare till andra sidor och hemsidor. Utan korrekt validering kan en anfallare skicka användaren till en sida som innehåller virus eller ser ut på samma sätt som den riktiga men egentligen är en falsk sida (phishing).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DoS">
 		<Question>
-			Vad är en Denial of Service (DOS) attack för något?
+			Vad är en Denial of Service (DOS)-attack för något?
 		</Question>
 		<Answer>
-			Det är en form av attack mot ett datasystem (maskin, nätverks resurs, etc.) där syftet är att hindra normal användning av systemet.
+			Det är en form av attack mot ett datasystem (maskin, nätverksresurs, etc.) där syftet är att hindra normal användning av systemet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DoS">
 		<Question>
-			Förklara attack typen "flooding" för DoS-attacker.
+			Förklara attacktypen "flooding" för DoS-attacker.
 		</Question>
 		<Answer>
-			Den som utför attacken försöker överbelasta nätverks kapaciteten för någon länk till servern. Alternativet kan anfallaren överbelasta servers förmåga att berarbeta svar till förfrågningar. Hur det fungerar i praktiken beror på vilket protokoll som används.
+			Den som utför attacken försöker överbelasta nätverkskapaciteten för någon länk till servern. Alternativt kan anfallaren överbelasta serverns förmåga att berarbeta svar till förfrågningar. Hur det fungerar i praktiken beror på vilket protokoll som används.
 
 			[b]ICMP Flood[/b]
-			Även känt som "ping flood". Det går ut på att anfallaren skickar ICMP echo request till målet. Brandvägar blockerar oftast inte denna form av paket för att det används ofta i diagnostiskt syfte.
+			Även känt som "ping flood". Det går ut på att anfallaren skickar ICMP echo requests till målet. Brandväggar blockerar oftast inte denna form av paket för att det ofta används i diagnostiskt syfte.
 
 			[b]UDP Flood[/b]
-			Skickar UDP paktet riktat mot en specifik port hos målet.
+			Skickar UDP-paketet riktat mot en specifik port hos målet.
 
 			[b]TCP SYN Flood[/b]
-			Anfallaren försöker starta en TCP anslutning (ofta med en förfalskad address). Varje försök av anslutning gör att servern skickar tillbacka ett TCP/SYN-ACK paket och väntar på svar ifrån anfallaren så att anslutningen kan etableras. Men attacken skickar aldrig tillbacka något svar vilket gör att servern sitter och väntar på ett svar. Om detta görs i stort antal så kommer serverns TCP tabell få slut på plats vilket gör att ingen annan kan göra anslutningar till servern via TCP.
+			Anfallaren försöker starta en TCP-anslutning (ofta med en förfalskad adress). Varje försök av anslutning gör att servern skickar tillbaka ett TCP/SYN-ACK-paket och väntar på svar från anfallaren så att anslutningen kan etableras. Men attacken skickar aldrig tillbaka något svar vilket gör att servern sitter och väntar på ett svar. Om detta görs flera gånger så kommer serverns TCP-tabell att få slut på plats vilket gör att ingen annan kan göra anslutningar till servern via TCP.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DoS">
 		<Question>
-			Förklara attack typen "spoofing" för DoS-attacker.
+			Förklara attacktypen "spoofing" för DoS-attacker.
 		</Question>
 		<Answer>
-			En anfallare skickar förfalskade förfråningar till ett stort antal datorer som datorerna svarar på. Det som förfalskas är källaddressen vilket ändras till målet. Detta gör alla svaren går till målet vilket överbelastar målet.
+			En anfallare skickar förfalskade förfrågningar till ett stort antal datorer som datorerna svarar på. Det som förfalskas är källadressen vilket ändras till målet. Detta gör att alla svaren går till målet vilket överbelastar detta.
 
 			När man pratar om denna typ av attack brukar man också använda namnet [i]reflection[/i] på grund av att attacken reflekterar svaren till målet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DoS">
 		<Question>
-			Förklara attack typen "amplification" för DoS-attacker.
+			Förklara attacktypen "amplification" för DoS-attacker.
 		</Question>
 		<Answer>
-			Det är en form av spoofing-attacken. Den fungerar så att anfallaren skickar broadcast anrop med en förfalskad källaddress till målet till en mängd datorer. För att det är en broadcast anrop så kan alla datorer som är anslutna till nätverket som förfrågan skickas till svara på vilket kan göra att ännu mer datorer skickar svar till målet.
+			Det är en form av spoofing-attack. Den fungerar så att anfallaren skickar broadcastanrop med en förfalskad källadress till målet till en mängd datorer. För att det är ett broadcastanrop så kan alla datorer som är anslutna till nätverket som förfrågan skickas till svara, vilket kan göra att ännu fler datorer skickar svar till målet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DoS">
 		<Question>
-			Förklara attack typen "Distrubuted Denial-of-Service (DDoS)" för DoS-attacker.
+			Förklara attacktypen "Distrubuted Denial-of-Service (DDoS)" för DoS-attacker.
 		</Question>
 		<Answer>
-			Det innebär att attacken är distribuerad över ett nätverk av datorer som alla kommer skicka förfrågningar till målet. Ofta är datorerna som ingår i det när nätverket ofriviliga, dvs att anfallaren har installerat någon typ av virus som gör att datorerna deltar i nätverket.
+			Det innebär att attacken är distribuerad över ett nätverk av datorer som alla kommer skicka förfrågningar till målet. Ofta är datorerna som ingår i det nätverket ofrivilliga, d.v.s. att anfallaren har installerat någon typ av virus som gör att datorerna deltar i nätverket.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DoS">
@@ -321,12 +321,12 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li]Blockera anrop ifrån förfalskade källaddresser.[/li]
+				[li]Blockera anrop från förfalskade källadresser.[/li]
 				[li]Begränsa antalet anrop som kan göras av en viss typ (ICMP t.ex.).[/li]
-				[li]Modifiera hur TCP anslutning hanterars. T.ex. genom att en slumpmässigt droppa anslutningar när TCP tabellen är full.[/li]
-				[li]Blockera IP riktade broadcasts.[/li]
-				[li]Replikera och spegla nätverk resurser i ett större nätverk.[/li]
-				[li]Använd filters i brandvägen.[/li]
+				[li]Modifiera hur TCP-anslutning hanterars. T.ex. genom att slumpmässigt droppa anslutningar när TCP-tabellen är full.[/li]
+				[li]Blockera IP-riktade broadcasts.[/li]
+				[li]Replikera och spegla nätverksresurser i ett större nätverk.[/li]
+				[li]Använd filters i brandväggen.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -335,7 +335,7 @@
 			Vad är ett "intrusion detection system (IDS)" för något?
 		</Question>
 		<Answer>
-			Ett säkerhetssystem som övervakar och analyserar system event i syfte att hitta och leverera i realtid (eller nästan) varningar för försök att komma åt systemet utan rättigheter.
+			Ett säkerhetssystem som övervakar och analyserar systemevent i syfte att hitta och leverera varningar i realtid (eller nästan) för försök att komma åt systemet utan rättigheter.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IDS">
@@ -345,7 +345,7 @@
 		<Answer>
 			[ul]
 				[li][b]Host-based:[/b] Övervakar för en ensam värds händelser och letar efter misstänksam aktivitet inom värden.[/li]
-				[li][b]Network-based:[/b] Övervakar nätverks trafik för ett specifik nätverk och analyserar transport och applikations protokoll för misstänksam aktivitet.[/li]
+				[li][b]Network-based:[/b] Övervakar nätverks trafik för ett specifikt nätverk och analyserar transport- och applikationsprotokoll för misstänksam aktivitet.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -358,7 +358,7 @@
 				[li][b]Sensorer:[/b] Ansvarar för att samla in data.[/li]
 				[li][b]Analysatorer:[/b] Analyserar data som samlats in. Ansvarar för att avgöra om ett intrång har skett.[/li]
 				[li][b]Sensorer:[/b] Ansvarar för att samla in data.[/li]
-				[li][b]Användargräsnitt (UI):[/b] Gör et möjligt för att användare att kontrollera systemets beteende eller utdata.[/li]
+				[li][b]Användargränssnitt (UI):[/b] Gör det möjligt för användare att kontrollera systemets beteende eller utdata.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -372,8 +372,8 @@
 				[li]Kunna hantera fel som uppstår (fault tolerant).[/li]
 				[li]Påverka systemets prestanda minimalt (minimal overhead).[/li]
 				[li]Kunna anpassa sig till förändringar i systemet och dess användare.[/li]
-				[li]Kunna skalas upp till stort antal system.[/li]
-				[li]Tillåta dynamisk omkonfigurering.[/li]
+				[li]Kunna skalas upp till ett stort antal system.[/li]
+				[li]Tillåta dynamisk omkonfiguration.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -383,11 +383,11 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li]Upptäcka virus är lika svårt som stoppproblemet (oavgörbart).[/li]
+				[li]Upptäcka virus är lika svårt som stopproblemet (oavgörbart).[/li]
 				[li]Två typer av intrång: skadliga och inte.[/li]
 				[li]Respons till attacker kan leda till DoS.[/li]
-				[li]Falska alarm[/li]
-				[li]Lagar: Medborgare har rätt till att veta hur algoritmerna som bearbetar deras personliga data fungerar.[/li]
+				[li]Falska alarm.[/li]
+				[li]Lagar: Medborgare har rätt att veta hur algoritmerna som bearbetar deras personliga data fungerar.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -396,7 +396,7 @@
 			Vad innebär "anomaly detection" när det kommer till host-based IDS?
 		</Question>
 		<Answer>
-			Data samlas in relaterat till beteende av behöriga användare över tidsintervall. Sedan används statistiska metoder till observerad data för att avgöra med hög sannolikhet om beteende som observeras tillhör en behörig användare eller inte.
+			Data samlas in relaterat till beteende av behöriga användare över tidsintervall. Sedan används statistiska metoder till observerad data för att avgöra med hög sannolikhet om beteendet som observeras tillhör en behörig användare eller inte.
 
 			Det finns två olika typer av statistiska metoder som används:
 			[b]Threshold detection[/b]: Definierar en tröskel oberoende av användaren för frekvensen av olika typer av händelser.
@@ -408,7 +408,7 @@
 			Vad innebär "signature detection" när det kommer till host-based IDS?
 		</Question>
 		<Answer>
-			Det innebär att man försöker definera en mängd av regler eller attack mönster som kan användas för att avgöra om beteende tillhör en inkräktare.
+			Det innebär att man försöker definera en mängd av regler eller attackmönster som kan användas för att avgöra om beteende tillhör en inkräktare.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IDS">
@@ -416,9 +416,9 @@
 			Vad innebär en "honeypot" när det kommer till IDS?
 		</Question>
 		<Answer>
-			Det är ett lockbete som används för att lura potentiella anfallare ifrån det kritiska system. Syftet med dessa är att:
+			Det är ett lockbete som används för att lura potentiella anfallare från det kritiska system. Syftet med dessa är att:
 			[ul]
-				[li]Avleda anfallaren ifrån det kritiska systemet.[/li]
+				[li]Avleda anfallaren från det kritiska systemet.[/li]
 				[li]Samla in information om anfallarens aktivitet.[/li]
 				[li]Se till att anfallaren stannar tillräckligt länge i system så att administratörer kan svara på attacken.[/li]
 			[/ul]
@@ -434,23 +434,23 @@
 	</TestQuestion>
 	<TestQuestion Category="AccessControl">
 		<Question>
-			Vad innebär "discretionary access control (DAC)"?
+			Vad innebär "discretionary access control" (DAC)?
 		</Question>
 		<Answer>
-			Kontrollerar tillgång baserat på identiteten hos den som gör förfrågan och åtkomstreglerna som indikerar vad användaren får och får inte göra. En användare som har tillgång till en resurs har rättigheterna att ge andra användare tillgång till rerusen.
+			Kontrollerar tillgång baserat på identiteten hos den som gör förfrågan och åtkomstreglerna som indikerar vad användaren får och inte får göra. En användare som har tillgång till en resurs har rättigheterna att ge andra användare tillgång till rerusen.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="AccessControl">
 		<Question>
-			Vad innebär "mandatory access control (MAC)"?
+			Vad innebär "mandatory access control" (MAC)?
 		</Question>
 		<Answer>
-			Kontrollerar tillgång baserat på att jämföra hur känsligt eller kritiskt resursen som användaren försöker komma åt med säkerhets godkännande (security clearance). En användare som har tillgång till en resurs får inte ge tillgång till andra användare att komma åt resursen.
+			Kontrollerar tillgång baserat på att jämföra hur känslig eller kritisk resursen som användaren försöker komma åt är med säkerhetsgodkännande (security clearance). En användare som har tillgång till en resurs får inte ge tillgång till andra användare att komma åt resursen.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="AccessControl">
 		<Question>
-			Vad innebär "role-based access control (RBAC)"?
+			Vad innebär "role-based access control" (RBAC)?
 		</Question>
 		<Answer>
 			Kontrollerar tillgång baserat på roller som användare har inom systemet där varje roll indikerar vad användaren har tillgång till givet sina roller.
@@ -458,7 +458,7 @@
 	</TestQuestion>
 	<TestQuestion Category="MLS">
 		<Question>
-			Kortfattat, vad innebär "multi-level secutity (MLS)"?
+			Kortfattat, vad innebär "multi-level secutity" (MLS)?
 		</Question>
 		<Answer>
 			Det innebär att vi delar in systemet i flera olika säkerhetsklasser.
@@ -475,7 +475,7 @@
 			Vad innebär "star property" när det kommer till MLS?
 		</Question>
 		<Answer>
-			Det går inte att läsa ifrån en högre nivå medans man skriver till en lägre nivå. 
+			Det går inte att läsa från en högre nivå medan man skriver till en lägre nivå. 
 			Sammanfattas i: "no write down".
 		</Answer>
 	</TestQuestion>
@@ -490,51 +490,51 @@
 	</TestQuestion>
 	<TestQuestion Category="MLS">
 		<Question>
-			Vad innebär "Bell-La Padula (BLP)" modellen när det kommer till MLS?
+			Vad innebär "Bell-La Padula" (BLP)-modellen när det kommer till MLS?
 		</Question>
 		<Answer>
 			Varje subjekt och objekt har säkerhetsklasser.
 			[ul]
 				[li]Säkerhetsklasser: top secret > secret > confidential > unclassified.[/li]
-				[li]Varje subjekt har en "secutity clearance" nivå och varje objekt har en "security classification" nivå.[/li]
+				[li]Varje subjekt har en "secutity clearance"-nivå och varje objekt har en "security classification"-nivå.[/li]
 				[li]Varje säkerhetsklass kontrollerar om ett subjekt får komma åt ett objekt.[/li]
 			[/ul]BLP har följande egenskaper:
 			[ul]
-				[li]Information kan inte flöda ifrån en högre säkerhetsklass till en lägre.[/li]
-				[li]Det går inte att läsa ifrån en högre nivå och det går inte att skriva till en lägre nivå.[/li]
-			[/ul] BLP har följande svagheter:
+				[li]Information kan inte flöda från en högre säkerhetsklass till en lägre.[/li]
+				[li]Det går inte att läsa från en högre nivå och det går inte att skriva till en lägre nivå.[/li]
+			[/ul]BLP har följande svagheter:
 			[ul]
 				[li]Det går inte att "nergradera" information.[/li]
-				[li]Det går endast att ändra på en nivå medans man läser på samma nivå eller en lägre.[/li]
+				[li]Det går endast att ändra på en nivå medan man läser på samma nivå eller en lägre.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="MLS">
 		<Question>
-			Vad innebär "Clark-Wilson Integrity" modellen när det kommer till MLS?
+			Vad innebär "Clark-Wilson Integrity"-modellen när det kommer till MLS?
 		</Question>
 		<Answer>
-			Den baserat på två koncept:
+			Den baseras på två koncept:
 			[ul]
 				[li][b]Well-formed transactions:[/b] En användare bör inte manipulera data på ett godtyckligt sätt men begränsas endast så att integriteten hos datan bevaras.[/li]
 				[li][b]Seperation of duty among users:[/b] En användare som har behörighet att skapa eller verifiera en "well-foremd transaction" bör inte få möjlighet att exekvera den.[/li]
-			[/ul] Modellen inför integritetskontroll på data och de transaktioner som modiferar data. 
+			[/ul]Modellen inför integritetskontroll på data och de transaktioner som modiferar data. 
 
 			Huvudkomponenterna är:
 			[ul]
 				[li][b]Constrainted data items:[/b]Strikta integritetskontroller.[/li]
 				[li][b]Unconstrainted data items: [/b] Data som inte kräver integritetskontroll.[/li]
-				[li][b]Integrity verification procedures:[/b] Ser till att alla CDI följer någon applikations specifik modell av integritet.[/li]
-				[li][b]Transformation procedures:[/b] System transaktioner som förändrar en mängd av CDI från ett giltigt tillstånd till ett annat.[/li]
+				[li][b]Integrity verification procedures:[/b] Ser till att alla CDI följer någon applikationsspecifik modell av integritet.[/li]
+				[li][b]Transformation procedures:[/b] Systemtransaktioner som förändrar en mängd av CDI från ett giltigt tillstånd till ett annat.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="MLS">
 		<Question>
-			Vad innebär "Chiense Wall" modellen när det kommer till MLS?
+			Vad innebär "Chiense Wall"-modellen när det kommer till MLS?
 		</Question>
 		<Answer>
-			Det är en modell där information inte kan flöda mellan subjekt och objekt på ett sådant sätt så att "conflict of interest" skulle uppstå. Modellen uppfyller både "simple security rule" och stjärn (*) egenskapen.
+			Det är en modell där information inte kan flöda mellan subjekt och objekt på ett sådant sätt så att "conflict of interest" skulle uppstå. Modellen uppfyller både "simple security rule" och stjärnegenskapen *().
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SoftwareSecurity">
@@ -542,7 +542,7 @@
 			Vad är "buffer overflow" för något?
 		</Question>
 		<Answer>
-			Det är när mer data försöks sparas än vad som får plats i en buffer av fixt storlek vilket gör att data som ligger efter i minnet skrivs över. Med hjälp av denna attack kan man få ett program att krasha eller få programmet att utföra instruktioner som anfallaren vill.
+			Det är när mer data försöker sparas än vad som får plats i en buffert av fixt storlek, vilket gör att data som ligger efter i minnet skrivs över. Med hjälp av denna attack kan man få ett program att krasha eller få programmet att utföra instruktioner som anfallaren vill.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SoftwareSecurity">
@@ -550,7 +550,7 @@
 			Vad är "stack buffer overflow" för något?
 		</Question>
 		<Answer>
-			Det är en form av buffer overflow attack där bufferten lagras på stacken. På grund av att retur addressen (dvs den funktion som programmet ska hoppa till när den returnerar) lagras på stacken så kan en anfallare skriva över den med en egen address vilket gör att anfallaren kan få programmet att utföra egen kod.
+			Det är en form av buffer overflow-attack där bufferten lagras på stacken. På grund av att returadressen (d.v.s. den funktion som programmet ska hoppa till när den returnerar) lagras på stacken så kan en anfallare skriva över den med en egen adress vilket gör att anfallaren kan få programmet att utföra egen kod.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SoftwareSecurity">
@@ -558,7 +558,7 @@
 			Vad är "heap overflow" för något?
 		</Question>
 		<Answer>
-			Det är när bufferten lagras på heapen. För att det inte finns någon retur address i heapen så går det inte på något enkelt sätt att få programmet att hoppa till valfri address. Men det går här att modifera datastruktruer som hanterar säkerhet eller liknande.
+			Det är när bufferten lagras på heapen. För att det inte finns någon returadress i heapen så går det inte på något enkelt sätt att få programmet att hoppa till valfri adress. Men det går här att modifera datastruktruer som hanterar säkerhet eller liknande.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SoftwareSecurity">
@@ -566,29 +566,29 @@
 			Vad är "global data overflow" för något?
 		</Question>
 		<Answer>
-			Det är när bufferten lagras på den globala data arean.
+			Det är när bufferten lagras på den globala dataarean.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SoftwareSecurity">
 		<Question>
-			Hur kan man skydda sig emot "buffer overflow" attacker?
+			Hur kan man skydda sig emot "buffer overflow"-attacker?
 		</Question>
 		<Answer>
 			[b]Vid kompilering[/b]
 			[ul]
-				[li]Använd ett modernt högnivåspråk som är stark typat som skyddar emot buffer overflows attacker genom t.ex. kompilatorn ser att alla skrivingar/läsningar av data är giltiga.[/li]
+				[li]Använd ett modernt högnivåspråk som är stark typat som skyddar mot buffer overflow-attacker genom att t.ex. kompilatorn ser till att alla skrivingar/läsningar av data är giltiga.[/li]
 				[li]Kolla alltid att det finns tillräckligt med utrymme i bufferten.[/li]
-				[li]Använd nya varianter av funktioner i standard bibliotek som skyddar emot buffer overflow.[/li]
-				[li]Lägg till kod i början och slutet av ett funktions anrop som ser till att stacken inte har blivit korrupt.[/li]
-				[li]Använd en en slumpmässig "kanariefågel" så om den har blivit överskriven så avslutas programmet. Googla på "canary in the coal mine".[/li]
-			[/ul][b]Vid körtid (runtime)[/b]
+				[li]Använd nya varianter av funktioner i standardbibliotek som skyddar mot buffer overflows.[/li]
+				[li]Lägg till kod i början och slutet av ett funktionsanrop som ser till att stacken inte har blivit korrupt.[/li]
+				[li]Använd en en slumpmässig "kanariefågel", som när överskriven så avslutas programmet. Googla på "canary in the coal mine".[/li]
+			[/ul][b]Vid körtid (run-time)[/b]
 			[ul]
-				[li]Använd ett virutell minnesrymd som gör att regioner av minne inte blir körbart.[/li]
-				[li]Slumpa vart bufferter på heapen lagras samt för funktioner i standard biblioteket.[/li]
+				[li]Använd en virtuell minnesrymd som gör att regioner av minne inte blir körbart.[/li]
+				[li]Slumpa var bufferten lagras på heapen samt för funktioner i standardbiblioteket.[/li]
 				[li]Placera "guard pages" mellan kritiska regioner av minne. Kan även placeras mellan stack-frames och heap buffers.[/li]
 			[/ul]Stack buffer overflow: Icke-körbar stack eller guard pages.
 			Heap overflow: Slumpmässig eller icke-körbar heap.
-			Global data overflow: Icke-körbar eller slumpmässig global data region, flytta funktions pekare eller guard pages.
+			Global data overflow: Icke-körbar eller slumpmässig global data-region, flytta funktions pekare eller guard pages.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SoftwareSecurity">
@@ -596,7 +596,7 @@
 			Vad är "race conditions" för något och vad kan man göra för att undvika det?
 		</Question>
 		<Answer>
-			Det uppstår när flera trådar försöker skriva/läsa samtidigt till en delad resurs vilket gör att datan som läses av en tråd blir odefinerat. Det går att undvika genom att synkronisera tillgången till resursen med t.ex. en mutex/semafor eller att använda instruktioner som är "atomiska".
+			Det uppstår när flera trådar försöker skriva/läsa samtidigt till en delad resurs, vilket gör att datan som läses av en tråd blir odefinierad. Det går att undvika genom att synkronisera tillgången till resursen med t.ex. en mutex/semafor eller att använda instruktioner som är "atomiska".
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SoftwareSecurity">
@@ -604,15 +604,15 @@
 			Hur bör man använda temporära filer på ett säkert sätt? Med temporära filer menas här filer som ligger i "/tmp" under Linux/Unix och på en liknande plats på Windows.
 		</Question>
 		<Answer>
-			Vanligtvis så användas ID på processen för att skapa temporära filer vilket gör att en anfallare lätt kan lista ut namnet. Man bör därför ge temporära filer en slumpmässigt namn.
+			Vanligtvis så används ID på processen för att skapa temporära filer, vilket gör att en anfallare lätt kan lista ut namnet. Man bör därför ge temporära filer ett slumpmässigt namn.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SoftwareSecurity">
 		<Question>
-			Vilka säkerhetsprincip(er) bör man följa för att utveckla säkra program?
+			Vilka säkerhetsprinciper bör man följa för att utveckla säkra program?
 		</Question>
 		<Answer>
-			En bra princip är principen om "least privilege" vilket innebär att de program man skriver borde kräva så lite privilegium som möjligt för att kunna köras. Program som körs som root/administratör är ett stort mål för anfallare för med dessa rättigheter kan anfallaren få fullständig tillgång till målets dator.
+			En bra princip är principen om "least privilege" vilken innebär att de program man skriver borde kräva så lite privilegium som möjligt för att kunna köras. Program som körs som root/administratör är ett stort mål för anfallare för med dessa rättigheter kan anfallaren få fullständig tillgång till målets dator.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Malware">
@@ -620,7 +620,7 @@
 			Vad är en trojansk häst?
 		</Question>
 		<Answer>
-			Det är ett program med två mål där det ena målet är uppenbart för användaren och de andra är gömt ifrån användaren. Trojanska hästar kan antingen byggas ifrån existerade program eller byggas från början att vara en trojansk häst. 
+			Det är ett program med två mål där det ena målet är uppenbart för användaren och det andra är gömt för användaren. Trojanska hästar kan antingen byggas från existerade program eller byggas från början att vara en trojansk häst. 
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Malware">
@@ -636,7 +636,7 @@
 			Vad är en logisk bomb för något?
 		</Question>
 		<Answer>
-			Det är en bit kod som en anfallare infogar i ett program som inte körs förens ett specifikt villkor är uppfyllt.
+			Det är en bit kod som en anfallare infogar i ett program som inte körs förrän ett specifikt villkor är uppfyllt.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Malware">
@@ -644,11 +644,11 @@
 			Vad är ett virus för något?
 		</Question>
 		<Answer>
-			Ett program som infekterar andra progrm. När programmet körs så försöker viruset replikera sig till andra program. Virus är ofta specifika till operativsystem och hårdvara och tar vara på brister.
+			Ett virus är ett program som infekterar andra progrm. När programmet körs så försöker viruset replikera sig till andra program. Virus är ofta specifika till operativsystem och hårdvara och tar vara på brister.
 			Ett virus går typisk genom följande faser:
 			[ul]
-				[li]Dormant: Viruset är inaktivt och väntar på bli att aktiverad av händelser som t.ex. datum eller existensens av en fil.[/li]
-				[li]Propagation: Virsuet placerar en kopia av sig själv till andra program eller andra delar av systemet. Viruset förändrar oftast skepnad för att undvika upptäckning.[/li]
+				[li]Dormant: Viruset är inaktivt och väntar på bli att aktiverat av händelser som t.ex. datum eller existensens av en fil.[/li]
+				[li]Propagation: Virsuet placerar en kopia av sig själv hos andra program eller andra delar av systemet. Viruset förändrar oftast skepnad för att undvika upptäckning.[/li]
 				[li]Triggering: Viruset aktiveras för att utföra den funktion som den var designad för.[/li]
 				[li]Execution: Virusets funktion utförs.[/li]
 			[/ul]
@@ -678,7 +678,7 @@
 			Vad för metoder kan användas för att upptäcka maskar?
 		</Question>
 		<Answer>
-			Det överlappar med virus men utöver det så kan maskar orsaka stor nätverks aktivitet.
+			Det överlappar med virus men utöver det så kan maskar orsaka stor nätverksaktivitet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Malware">
@@ -694,31 +694,31 @@
 			Vad är ett rootkit för något?
 		</Question>
 		<Answer>
-			Det är ett skadlig program som som installeras på ett system med root/adminstatör rättigheter. Ett rootkit kan t.ex. byta ut systemanrop mot sina egna vilket kan bli mycket skadligt.
+			Det är ett skadlig program som som installeras på ett system med root/adminstatör-rättigheter. Ett rootkit kan t.ex. byta ut systemanrop mot sina egna vilket kan bli mycket skadligt.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Authentication">
 		<Question>
-			Nämn olika attacker emot lösenords baserade autentisering.
+			Nämn olika attacker mot lösenordsbaserade autentisering.
 		</Question>
 		<Answer>
 			[ul]
 				[li]Testa vanliga lösenord.[/li]
-				[li]Om sidan använder sig av "glömt lösenord" så testa med att attackera det.[/li]
+				[li]Om sidan använder sig av "glömt lösenord" så testa att attackera det.[/li]
 				[li]Övervaka anslutningen till sidan.[/li]
-				[li]Skicka falsk sida till en användare som ser likadan ut som den riktiga.[/li]
-				[li]Kolla i läcka lösenords databaser och om hashade: försök knäcka hashen.[/li]
+				[li]Skicka en falsk sida till en användare som ser likadan ut som den riktiga.[/li]
+				[li]Kolla i läckta lösenordsdatabaser och försök knäcka hashen om de är hashade.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Authentication">
 		<Question>
-			Vad för alternativ finns det till lösenords baserad autentisering?
+			Vad för alternativ finns det till lösenordsbaserad autentisering?
 		</Question>
 		<Answer>
 			[ul]
-				[li]Biometrisk: T.ex. Fingeravtryck.[/li]
-				[li]Tvåfaktors autentisering: Kombinera lösenordet med kod skickad till fysisk enhet.[/li]
+				[li]Biometrisk: T.ex. fingeravtryck.[/li]
+				[li]Flerfaktorsautentisering: Kombinera lösenordet med kod skickad till en fysisk enhet.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -728,10 +728,10 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li][b]Packet Filtering Firewall:[/b] Använder regler för att filtrera varje inkommande och utgående IP paket där paket antigen kan skickas vidare (forward) eller förkastas. Reglerna baseras på inforation som finns i paktet som t.ex: Källaddress, måladdress, protokoll, nätverksgränsnitt och annan protokoll specifik information.[/li]
-				[li][b]Stateful Inspection Firewall:[/b] Inspekterar samma information som en paket filtering firewall men sparar även ner information om TCP anslutningar och håller även reda på sekvens numrering för att undvika att någon annan tar över den.[/li]
-				[li][b]Application-Level Gateway:[/b] Vidarbefordrar trafik på applikations nivån när den som ansluter försök måste autentisera sig emot brandväggen för att kunna använda tjänster. Denna typ av brandvägg tillåter inte direkt TCP kommunkation mellan två ändpunkter.[/li]
-				[li][b]Circuit-Level Gateway:[/b] Fungerar ungefär som en "application-level gateway" där kommunkation som skickas till en dator utanför nätverket ser ut som att ha kommit ifrån brandväggen.[/li]
+				[li][b]Packet Filtering Firewall:[/b] Använder regler för att filtrera varje inkommande och utgående IP-paket där paket antigen kan skickas vidare (forward) eller förkastas. Reglerna baseras på inforation som finns i paketet som t.ex. källadress, måladress, protokoll, nätverksgränsnitt och annan protokollspecifik information.[/li]
+				[li][b]Stateful Inspection Firewall:[/b] Inspekterar samma information som en paket filtering firewall men sparar även ner information om TCP-anslutningar och håller reda på sekvensnumrering för att undvika att någon annan tar över den.[/li]
+				[li][b]Application-Level Gateway:[/b] Vidarbefordrar trafik på applikationsnivån när den som ansluter måste autentisera sig mot brandväggen för att kunna använda tjänster. Denna typ av brandvägg tillåter inte direkt TCP-kommunkation mellan två ändpunkter.[/li]
+				[li][b]Circuit-Level Gateway:[/b] Fungerar ungefär som en "application-level gateway" där kommunkation som skickas till en dator utanför nätverket ser ut som att ha kommit från brandväggen.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -741,7 +741,7 @@
 		</Question>
 		<Answer>
 			[b]Bastion host[/b]
-			Är ett starkt fäste i nätverket som är värd för application/circuit-level gatways. Har följande egenskaper:
+			Är ett starkt fäste i nätverket som är värd för application/circuit-level gateways. Har följande egenskaper:
 			[ul]
 				[li]Kör ett säkert operativsystem med endast det nödvändiga tjänsterna.[/li]
 				[li]Kräver ofta att användaren är autentiserad för att komma åt en värd.[/li]
@@ -758,7 +758,7 @@
 			Vad är en DMZ (demilitariserad zon) när det kommer till brandväggar?
 		</Question>
 		<Answer>
-			Det är ett isolerat subnät som placeras utanför det skyddade nätverket. Maskiner som ligger i DMZ exponeras mot omvärlden och maskiner som placeras där måste anses vara utsatta för alla typer av attacker och bör därför inte ha någon funktion som inte absolut behövs. Exempel på maskiner som placeras i DMZ är: webbservrar, DNS-servar och mailservrar.
+			Det är ett isolerat subnät som placeras utanför det skyddade nätverket. Maskiner som ligger i DMZ exponeras mot omvärlden och maskiner som placeras där måste anses vara utsatta för alla typer av attacker och bör därför inte ha någon funktion som inte absolut behövs. Exempel på maskiner som placeras i DMZ är webbservrar, DNS-servar och mailservrar.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Firewall">
@@ -789,10 +789,10 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li]Trovärdighet[/li]
+				[li]Trovärdighet.[/li]
 				[li]Tvingar målet till en specifik roll.[/li]
-				[li]Distraherar ifrån att tänka systemastisk.[/li]
-				[li]Använda information ifrån olika källor.[/li]
+				[li]Distraherar från att tänka systemastisk.[/li]
+				[li]Använda information från olika källor.[/li]
 				[li]Göm frågorna.[/li]
 				[li]Testa med personlig information.[/li]
 				[li]Skapa ett problem och sedan lös det.[/li]
@@ -806,12 +806,12 @@
 		<Answer>
 			[ul]
 				[li]Se till att kortfattade protokoll följs.[/li]
-				[li]Öka personalen kännedom.[/li]
+				[li]Öka personalens kännedom.[/li]
 				[li]Enkla regler för att definiera vad som är känslig information.[/li]
 				[li]Enkla regler när det krävs legitmation/ID för behörig åtgärd.[/li]
-				[li]Data klassifikations policyer.[/li]
+				[li]Dataklassificeringspolicies.[/li]
 				[li]Träna personalen.[/li]
-				[li]Artighets förändring: Att "nej" är OK.[/li]
+				[li]Artighetsförändring: Att "nej" är OK.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
