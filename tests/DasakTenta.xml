@@ -484,7 +484,7 @@
 			Vad innebär "simple security" när det kommer till MLS?
 		</Question>
 		<Answer>
-			Ett subjekt får endat läsa ett objekt den har minst lika hög säkerhetsnivå som objektet.
+			Ett subjekt får endat läsa ett objekt om den har minst lika hög säkerhetsnivå som objektet.
 			Sammanfattas i: "no read upp".
 		</Answer>
 	</TestQuestion>
