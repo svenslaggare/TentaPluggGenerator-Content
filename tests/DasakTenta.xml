@@ -519,13 +519,13 @@
 			Den baseras på två koncept:
 			[ul]
 				[li][b]Well-formed transactions:[/b] En användare bör inte manipulera data på ett godtyckligt sätt men begränsas endast så att integriteten hos datan bevaras.[/li]
-				[li][b]Seperation of duty among users:[/b] En användare som har behörighet att skapa eller verifiera en "well-foremd transaction" bör inte få möjlighet att exekvera den.[/li]
+				[li][b]Seperation of duty among users:[/b] En användare som har behörighet att skapa eller verifiera en "well-formed transaction" bör inte få möjlighet att exekvera den.[/li]
 			[/ul]
 			Modellen inför integritetskontroll på data och de transaktioner som modiferar data. 
 
 			Huvudkomponenterna är:
 			[ul]
-				[li][b]Constrainted data items:[/b]Strikta integritetskontroller.[/li]
+				[li][b]Constrainted data items:[/b] Strikta integritetskontroller.[/li]
 				[li][b]Unconstrainted data items: [/b] Data som inte kräver integritetskontroll.[/li]
 				[li][b]Integrity verification procedures:[/b] Ser till att alla CDI följer någon applikationsspecifik modell av integritet.[/li]
 				[li][b]Transformation procedures:[/b] Systemtransaktioner som förändrar en mängd av CDI från ett giltigt tillstånd till ett annat.[/li]
@@ -537,7 +537,7 @@
 			Vad innebär "Chiense Wall"-modellen när det kommer till MLS?
 		</Question>
 		<Answer>
-			Det är en modell där information inte kan flöda mellan subjekt och objekt på ett sådant sätt så att "conflict of interest" skulle uppstå. Modellen uppfyller både "simple security rule" och stjärnegenskapen *().
+			Det är en modell där information inte kan flöda mellan subjekt och objekt på ett sådant sätt så att "conflict of interest" uppstår. Modellen uppfyller både "simple security rule" och stjärnegenskapen (*).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SoftwareSecurity">
@@ -553,7 +553,7 @@
 			Vad är "stack buffer overflow" för något?
 		</Question>
 		<Answer>
-			Det är en form av buffer overflow-attack där bufferten lagras på stacken. På grund av att returadressen (d.v.s. den funktion som programmet ska hoppa till när den returnerar) lagras på stacken så kan en anfallare skriva över den med en egen adress vilket gör att anfallaren kan få programmet att utföra egen kod.
+			Det är en form av buffer overflow-attack där bufferten lagras på stacken. På grund av att returadressen (d.v.s. den funktion som programmet ska hoppa till när den returnerar) lagras på stacken så kan en anfallare skriva över den med en egen adress, vilket gör att anfallaren kan få programmet att utföra egen kod.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SoftwareSecurity">
@@ -561,7 +561,7 @@
 			Vad är "heap overflow" för något?
 		</Question>
 		<Answer>
-			Det är när bufferten lagras på heapen. För att det inte finns någon returadress i heapen så går det inte på något enkelt sätt att få programmet att hoppa till valfri adress. Men det går här att modifera datastruktruer som hanterar säkerhet eller liknande.
+			Det är när bufferten lagras på heapen. Eftersom det inte finns någon returadress i heapen så går det inte på något enkelt sätt att få programmet att hoppa till valfri adress. Men det går här att modifera datastruktruer som hanterar säkerhet eller liknande.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SoftwareSecurity">
@@ -579,11 +579,11 @@
 		<Answer>
 			[b]Vid kompilering[/b]
 			[ul]
-				[li]Använd ett modernt högnivåspråk som är stark typat som skyddar mot buffer overflow-attacker genom att t.ex. kompilatorn ser till att alla skrivingar/läsningar av data är giltiga.[/li]
+				[li]Använd ett modernt högnivåspråk som är stark typat, som skyddar mot buffer overflow-attacker genom att t.ex. kompilatorn ser till att alla skrivingar/läsningar av data är giltiga.[/li]
 				[li]Kolla alltid att det finns tillräckligt med utrymme i bufferten.[/li]
 				[li]Använd nya varianter av funktioner i standardbibliotek som skyddar mot buffer overflows.[/li]
 				[li]Lägg till kod i början och slutet av ett funktionsanrop som ser till att stacken inte har blivit korrupt.[/li]
-				[li]Använd en en slumpmässig "kanariefågel", som när överskriven så avslutas programmet. Googla på "canary in the coal mine".[/li]
+				[li]Använd en en slumpmässig "kanariefågel". När en sådan skrivs över så avslutas programmet. Googla på "canary in the coal mine".[/li]
 			[/ul]
 			[b]Vid körtid (run-time)[/b]
 			[ul]
@@ -617,7 +617,7 @@
 			Vilka säkerhetsprinciper bör man följa för att utveckla säkra program?
 		</Question>
 		<Answer>
-			En bra princip är principen om "least privilege" vilken innebär att de program man skriver borde kräva så lite privilegium som möjligt för att kunna köras. Program som körs som root/administratör är ett stort mål för anfallare för med dessa rättigheter kan anfallaren få fullständig tillgång till målets dator.
+			En bra princip är principen om "least privilege", vilken innebär att de program man skriver ska kräva så få privilegium som möjligt för att kunna köras. Program som körs som root/administratör är ett stort mål för anfallare för med dessa rättigheter kan anfallaren få fullständig tillgång till målets dator.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Malware">
@@ -625,7 +625,7 @@
 			Vad är en trojansk häst?
 		</Question>
 		<Answer>
-			Det är ett program med två mål där det ena målet är uppenbart för användaren och det andra är gömt för användaren. Trojanska hästar kan antingen byggas från existerade program eller byggas från början att vara en trojansk häst. 
+			Det är ett program med två mål, där det ena är uppenbart för användaren och det andra är gömt för användaren. Trojanska hästar kan antingen byggas från existerade program eller byggas från början för att vara en trojansk häst. 
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Malware">
@@ -650,12 +650,13 @@
 		</Question>
 		<Answer>
 			Ett virus är ett program som infekterar andra progrm. När programmet körs så försöker viruset replikera sig till andra program. Virus är ofta specifika till operativsystem och hårdvara och tar vara på brister.
+			
 			Ett virus går typisk genom följande faser:
 			[ul]
-				[li]Dormant: Viruset är inaktivt och väntar på bli att aktiverat av händelser som t.ex. datum eller existensens av en fil.[/li]
-				[li]Propagation: Virsuet placerar en kopia av sig själv hos andra program eller andra delar av systemet. Viruset förändrar oftast skepnad för att undvika upptäckning.[/li]
-				[li]Triggering: Viruset aktiveras för att utföra den funktion som den var designad för.[/li]
-				[li]Execution: Virusets funktion utförs.[/li]
+				[li][b]Dormant:[/b] Viruset är inaktivt och väntar på bli att aktiverat av händelser som t.ex. datum eller existens av en fil.[/li]
+				[li][b]Propagation:[/b] Viruset placerar en kopia av sig själv i andra program eller i andra delar av systemet. Viruset förändrar oftast skepnad för att undvika upptäckning.[/li]
+				[li][b]Triggering:[/b] Viruset aktiveras för att utföra den funktion som den var designad för.[/li]
+				[li][b]Execution:[/b] Virusets funktion utförs.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -704,7 +705,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Authentication">
 		<Question>
-			Nämn olika attacker mot lösenordsbaserade autentisering.
+			Nämn olika attacker mot lösenordsbaserad autentisering.
 		</Question>
 		<Answer>
 			[ul]
@@ -733,7 +734,7 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li][b]Packet Filtering Firewall:[/b] Använder regler för att filtrera varje inkommande och utgående IP-paket där paket antigen kan skickas vidare (forward) eller förkastas. Reglerna baseras på inforation som finns i paketet som t.ex. källadress, måladress, protokoll, nätverksgränsnitt och annan protokollspecifik information.[/li]
+				[li][b]Packet Filtering Firewall:[/b] Använder regler för att filtrera varje inkommande och utgående IP-paket där paket antigen kan skickas vidare (forward) eller förkastas. Reglerna baseras på information som finns i paketet som t.ex. källadress, måladress, protokoll, nätverksgränssnitt och annan protokollspecifik information.[/li]
 				[li][b]Stateful Inspection Firewall:[/b] Inspekterar samma information som en paket filtering firewall men sparar även ner information om TCP-anslutningar och håller reda på sekvensnumrering för att undvika att någon annan tar över den.[/li]
 				[li][b]Application-Level Gateway:[/b] Vidarbefordrar trafik på applikationsnivån när den som ansluter måste autentisera sig mot brandväggen för att kunna använda tjänster. Denna typ av brandvägg tillåter inte direkt TCP-kommunkation mellan två ändpunkter.[/li]
 				[li][b]Circuit-Level Gateway:[/b] Fungerar ungefär som en "application-level gateway" där kommunkation som skickas till en dator utanför nätverket ser ut som att ha kommit från brandväggen.[/li]
@@ -748,15 +749,15 @@
 			[b]Bastion host[/b]
 			Är ett starkt fäste i nätverket som är värd för application/circuit-level gateways. Har följande egenskaper:
 			[ul]
-				[li]Kör ett säkert operativsystem med endast det nödvändiga tjänsterna.[/li]
+				[li]Kör ett säkert operativsystem med endast de nödvändiga tjänsterna.[/li]
 				[li]Kräver ofta att användaren är autentiserad för att komma åt en värd.[/li]
 				[li]Behöver endast läsa data så datan är read-only vilket gör det svårare att installera virus.[/li]
 			[/ul]
 			[b]Host-Based Firewall[/b]
-			Används för att säkra individuella värdar och finns ofta som tillägg till operativssystem och filterar baserat på paket. Används ofta på servrar.
+			Används för att säkra individuella värdar och finns ofta som tillägg till operativssystem och filtrerar baserat på paket. Används ofta på servrar.
 
 			[b]Personal Firewall[/b]
-			Kontrollerar trafik till/från en personlig dator. Oftast mindre komplext och installeras ibland på modemet/routern. Huvudsyftet är att förneka tillgång till obehöriga användare.
+			Kontrollerar trafik till/från en personlig dator. Oftast mindre komplex och installeras ibland på modemet/routern. Huvudsyftet är att neka tillgång till obehöriga användare.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Firewall">
