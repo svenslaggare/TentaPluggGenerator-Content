@@ -39,7 +39,7 @@
 			Vad innebär principen om "Complete Mediation"?
 		</Question>
 		<Answer>
-			Det krävs att alla förfrågningar att komma åt objektet kollas så att förfrågningen är tillåten.
+			Det krävs att alla förfrågningar för att komma åt objektet kollas så att förfrågningen är tillåten.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SecurityPrinciple">
