@@ -464,9 +464,9 @@
 			Det innebär att vi delar in systemet i flera olika säkerhetsklasser.
 			Exempel:
 			[ul]
-				[li]Hardware: supervisor/user mode.[/li]
-				[li]Unix: superuser/user access.[/li]
-				[li]Military: top secret > secret > confidential > unclassified[/li]
+				[li][b]Hardware:[/b] supervisor/user mode.[/li]
+				[li][b]Unix:[/b] superuser/user access.[/li]
+				[li][b]Military:[/b] top secret > secret > confidential > unclassified[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
