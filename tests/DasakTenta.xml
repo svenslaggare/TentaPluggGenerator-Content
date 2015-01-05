@@ -416,11 +416,11 @@
 			Vad innebär en "honeypot" när det kommer till IDS?
 		</Question>
 		<Answer>
-			Det är ett lockbete som används för att lura potentiella anfallare från det kritiska system. Syftet med dessa är att:
+			Det är ett lockbete som används för att lura potentiella anfallare från det kritiska systemet. Syftet med dessa är att:
 			[ul]
 				[li]Avleda anfallaren från det kritiska systemet.[/li]
 				[li]Samla in information om anfallarens aktivitet.[/li]
-				[li]Se till att anfallaren stannar tillräckligt länge i system så att administratörer kan svara på attacken.[/li]
+				[li]Se till att anfallaren stannar tillräckligt länge i systemet så att administratörer kan svara på attacken.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -429,7 +429,7 @@
 			Vad är "access control" för något?
 		</Question>
 		<Answer>
-			Något som förhindrar obehörig användning (avsiktlig eller olyckshändelse) av en resurs och möjliggör behörig användning av resursen.
+			Något som förhindrar obehörig användning (avsiktlig eller oavsiktlig) av en resurs och möjliggör behörig användning av resursen.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="AccessControl">
