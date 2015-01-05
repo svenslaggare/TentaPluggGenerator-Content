@@ -520,8 +520,7 @@
 			[ul]
 				[li][b]Well-formed transactions:[/b] En användare bör inte manipulera data på ett godtyckligt sätt men begränsas endast så att integriteten hos datan bevaras.[/li]
 				[li][b]Seperation of duty among users:[/b] En användare som har behörighet att skapa eller verifiera en "well-formed transaction" bör inte få möjlighet att exekvera den.[/li]
-			[/ul]
-			Modellen inför integritetskontroll på data och de transaktioner som modiferar data. 
+			[/ul]Modellen inför integritetskontroll på data och de transaktioner som modiferar data. 
 
 			Huvudkomponenterna är:
 			[ul]
