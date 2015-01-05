@@ -408,7 +408,7 @@
 			Vad innebär "signature detection" när det kommer till host-based IDS?
 		</Question>
 		<Answer>
-			Det innebär att man försöker definera en mängd av regler eller attackmönster som kan användas för att avgöra om beteende tillhör en inkräktare.
+			Det innebär att man försöker definiera en mängd av regler eller attackmönster som kan användas för att avgöra om beteende tillhör en inkräktare.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IDS">
