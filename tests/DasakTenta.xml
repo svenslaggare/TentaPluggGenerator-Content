@@ -87,7 +87,7 @@
 			Vad innebär asymmetrisk kryptering?
 		</Question>
 		<Answer>
-			Det innebär att olika nycklar används för att kryptera och dekryptera data. Den ena nyckel brukas kallas den privata nyckeln och den andra den publika nyckeln. Används oftast för att kommunicera säkert över internet. Exempel på en algoritm är RSA.
+			Det innebär att olika nycklar används för att kryptera och dekryptera data. Den ena nyckel brukas kallas den privata nyckeln och den andra den publika nyckeln. Används oftast för att kommunicera säkert över internet. Exempel på algoritm är RSA.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Cryptography">
@@ -103,8 +103,9 @@
 			Vad för egenskaper bör en kryptografisk hashfunktion ha?
 		</Question>
 		<Answer>
-			1. Givet ett hashvärde [math]h[/math] bör det vara svårt att hitta ett meddelande [math]m[/math] så att [math]h=hash(m)[/math].
-			2. Kollisionsresistens: Det bör bara svårt att hitta två [i]olika[/i] meddelanden [math]m_1, m_2[/math] sådana att [math]hash(m_1)=hash(m_2)[/math].
+			1. Envägsfunktion: Givet ett hashvärde [math]h[/math] bör det vara svårt att hitta ett meddelande [math]m[/math] så att [math]h=hash(m)[/math] (pre-image resistance).
+			2. Givet ett meddelande [math]m_1[/math] så bör det vara svårt att hitta ett ytterligare meddelande [math]m_2[/math] så att [math]hash(m_1)=hash(m_2)[/math] (second pre-image resistance).
+			3. Kollisionsresistens: Det bör bara svårt att hitta två [i]olika[/i] meddelanden [math]m_1, m_2[/math] sådana att [math]hash(m_1)=hash(m_2)[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Cryptography">
@@ -113,6 +114,16 @@
 		</Question>
 		<Answer>
 			Det innebär att vi vill verifiera att ett meddelande verkligen kommer från den som skickade det och att innehållet inte har förändrats av någon tredje part.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Cryptography">
+		<Question>
+			Hur fungerar "message authentication" genom tekniken "message authetication code (MAC)"?
+		</Question>
+		<Answer>
+			Två parter [math]A, B[/math] kommer överens om en gemensam [i]hemlig[/i] nyckel, [math]K_(AB)[/math]. Om [math]A[/math] vill skicka ett meddelande [math]M[/math] till [math]B[/math] så beräknar [math]A[/math]: [math]mac=F(K_(AB), M)[/math] (där [math]F[/math] är en funktion som gör det [i]praktiskt[/i] omöjligt att hitta [math]K_(AB), M[/math] givet ett [math]mac[/math] värde) och bifogar koden till meddelandet och skickar meddelandet till [math]B[/math]. [math]B[/math] utvinner sedan meddelandet [math]M[/math] och koden [math]mac[/math] och verfierar (med hjälp av hemliga nyckeln [math]K_(AB)[/math]) genom att beräkna [math]mac'[/math] och kollar att [math]mac=mac'[/math]. Om så är fallet så vet [math]B[/math] att meddelandet skickades ifrån [math]A[/math].
+
+			Om det är en (kryptografisk) hashfunktion som används som [math]F[/math] så brukar det kallas för "hash-based message authentication code (HMAC)".
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Cryptography">
@@ -487,7 +498,7 @@
 		</Question>
 		<Answer>
 			Ett subjekt får endat läsa ett objekt om den har minst lika hög säkerhetsnivå som objektet.
-			Sammanfattas i: "no read upp".
+			Sammanfattas i: "no read up".
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="MLS">
@@ -502,8 +513,8 @@
 				[li]Varje säkerhetsklass kontrollerar om ett subjekt får komma åt ett objekt.[/li]
 			[/ul]BLP har följande egenskaper:
 			[ul]
-				[li]Information kan inte flöda från en högre säkerhetsklass till en lägre.[/li]
-				[li]Det går inte att läsa från en högre nivå och det går inte att skriva till en lägre nivå.[/li]
+				[li]Information kan inte flöda från en högre säkerhetsklass till en lägre. (star property)[/li]
+				[li]Det går inte att läsa från en högre nivå och det går inte att skriva till en lägre nivå. (simple security)[/li]
 			[/ul]BLP har följande svagheter:
 			[ul]
 				[li]Det går inte att "nedgradera" information.[/li]
@@ -775,15 +786,23 @@
 	</TestQuestion>
 	<TestQuestion Category="SocialEngineering">
 		<Question>
+			Vad innebär "soical enginnering"?
+		</Question>
+		<Answer>
+			Det innebär att en anfallare försöker använda sig psykologisk manipulation för att få personer utförda önsktad åtgärder eller avslölja känslig information. Det skiljer sig ifrån tradionell lurendrejeri genom att många stegs i ett mer komplext bedrägeri.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SocialEngineering">
+		<Question>
 			Vad för olika faser ingår i "soical engineering"?
 		</Question>
 		<Answer>
 			[ul]
 				[li][b]Pretexting:[/b][/li]
-				[li][b]Get data:[/b][/li]
-				[li][b]Keep connections:[/b][/li]
-				[li][b]Combine data:[/b][/li]
-				[li][b]Use it:[/b][/li]
+				[li][b]Get data[/b][/li]
+				[li][b]Keep connections[/b][/li]
+				[li][b]Combine data[/b][/li]
+				[li][b]Use it[/b][/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>

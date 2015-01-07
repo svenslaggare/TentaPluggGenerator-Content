@@ -51,7 +51,7 @@
     <div class="container" style="margin-top: 10px;">
         <div class="well">
             <h3 style="margin-top: 0px;">Ladda in prov ifrån tests mappen (utan .xml i slutet)</h3>
-            <form role="form">
+            <form id="loadForm" role="form">
                 <label for="testName">Prov namn</label>
                 <input id="testName" style="width: 200px" type="text" class="form-control" />
                 <br>
@@ -94,6 +94,10 @@
         }
 		
         $("#loadButton").click(loadFile);
+		$("#loadForm").submit(function() {
+			loadFile();
+			return false;
+		});
     </script>
   </body>
 </html>
