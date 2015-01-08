@@ -544,7 +544,7 @@
 	</TestQuestion>
 	<TestQuestion Category="MLS">
 		<Question>
-			Vad innebär "Chiense Wall"-modellen när det kommer till MLS?
+			Vad innebär "Chinese Wall"-modellen när det kommer till MLS?
 		</Question>
 		<Answer>
 			Det är en modell där information inte kan flöda mellan subjekt och objekt på ett sådant sätt så att "conflict of interest" uppstår. Modellen uppfyller både "simple security rule" och stjärnegenskapen (*).
