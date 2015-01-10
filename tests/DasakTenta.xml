@@ -272,7 +272,7 @@
 	</TestQuestion>
 	<TestQuestion Category="WebAttacks">
 		<Question>
-			Vad innebär "invalidated redirects and forwards"?
+			Vad innebär "unvalidated redirects and forwards"?
 		</Question>
 		<Answer>
 			Webbapplikationer skickar vidare användare till andra sidor och hemsidor. Utan korrekt validering kan en anfallare skicka användaren till en sida som innehåller virus eller ser ut på samma sätt som den riktiga men egentligen är en falsk sida (phishing).
