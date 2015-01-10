@@ -798,7 +798,7 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li][b]Pretexting:[/b][/li]
+				[li][b]Pretexting[/b][/li]
 				[li][b]Get data[/b][/li]
 				[li][b]Keep connections[/b][/li]
 				[li][b]Combine data[/b][/li]
@@ -835,6 +835,40 @@
 				[li]Dataklassificeringspolicies.[/li]
 				[li]Träna personalen.[/li]
 				[li]Artighetsförändring: Att "nej" är OK.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Audit">
+		<Question>
+			Beskriv de olika stegen som ingår i en "audit".
+		</Question>
+		<Answer>
+			[b]Define goals[/b]
+			[ul]
+				[li]Har företaget tydliga säkerhets mål?[/li]
+				[li]Är målen rimliga?[/li]
+				[li]Arbetar företaget emot målen?[/li]
+			[/ul][b]Identification of Risks[/b]
+			[ul]
+				[li]Identifiera hög risk områden och finansiella system möjligen tilsammans med klienten eller ekonomisk revisor.[/li]
+				[li]Uppskatta möjliga risker.[/li]
+				[li]Sätt revisionens (audit) omfattning.[/li]
+			[/ul][b]Identification of Controls[/b]
+			[ul]
+				[li]Vilka processer är kritiska?[/li]
+				[li]Vilka system och applikationer är kristiska?[/li]
+			[/ul][b]Design Evaluation of Controls[/b]
+			[ul]
+				[li]Identifiera och kontakta ansvarig personal.[/li]
+				[li]Intervjua personal som arbetar med systemet.[/li]
+				[li]Intervjua personal som arbetar med underhåll och utveckling av systemet.[/li]
+				[li]Intervjua systemadministratörer.[/li]
+				[li]Om konsulter har används, kontakta dem.[/li]
+			[/ul][b]Operational Evaluation of Controls[/b]
+			Möjliga slutsatser:
+			[ul]
+				[li]Byt ledarskap.[/li]
+				[li]Ändra tillgången till systemet (logical access)[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
