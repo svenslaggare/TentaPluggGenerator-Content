@@ -690,10 +690,10 @@
 			[b]Metamorphism[b]
 			Fungerar som ett polymorfisk virus men vid varje infektion så skriver virsuet om sig komplett vilket gör det ännu svårare att upptäcka.
 
-			[b]Kompremering[b]
+			[b]Kompremering[/b]
 			Den komprimerar filen som infekteras och lägger till sig själv till filen. Detta gör att den infekterade filen får samma storlek som orginal filen.
 
-			[b]Kryptering[b]
+			[b]Kryptering[/b]
 			En del av viruset skapar en slumpmässig krypterings nyckel och krypterar resterade del av viruset. Nycklen lagras sedan i viruset. När ett infekterat program körs så använder viruset nycklen för att dekryptera resterande del av viruset. För att den största delen av viruset är krypterade med en slumpmässig nyckel finns det ingen signatur att upptäcka.
 		</Answer>
 	</TestQuestion>
