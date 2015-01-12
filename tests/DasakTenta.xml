@@ -766,7 +766,7 @@
 		<Answer>
 			[ul]
 				[li][b]Packet Filtering Firewall:[/b] Använder regler för att filtrera varje inkommande och utgående IP-paket där paket antigen kan skickas vidare (forward) eller förkastas. Reglerna baseras på information som finns i paketet som t.ex. källadress, måladress, protokoll, nätverksgränssnitt och annan protokollspecifik information.[/li]
-				[li][b]Stateful Inspection Firewall:[/b] Inspekterar samma information som en paket filtering firewall men sparar även ner information om TCP-anslutningar och håller reda på sekvensnumrering för att undvika att någon annan tar över den.[/li]
+				[li][b]Stateful Inspection Firewall:[/b] Inspekterar samma information som en packet filtering firewall men sparar även ner information om TCP-anslutningar och håller reda på sekvensnumrering för att undvika att någon annan tar över den.[/li]
 				[li][b]Application-Level Gateway:[/b] Vidarbefordrar trafik på applikationsnivån när den som ansluter måste autentisera sig mot brandväggen för att kunna använda tjänster. Denna typ av brandvägg tillåter inte direkt TCP-kommunkation mellan två ändpunkter.[/li]
 				[li][b]Circuit-Level Gateway:[/b] Fungerar ungefär som en "application-level gateway" där kommunkation som skickas till en dator utanför nätverket ser ut som att ha kommit från brandväggen.[/li]
 			[/ul]
