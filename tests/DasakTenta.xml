@@ -511,11 +511,13 @@
 				[li]Säkerhetsklasser: top secret [math]\gt[/math] secret [math]\gt[/math] confidential [math]\gt[/math] unclassified.[/li]
 				[li]Varje subjekt har en "security clearance"-nivå och varje objekt har en "security classification"-nivå.[/li]
 				[li]Varje säkerhetsklass kontrollerar om ett subjekt får komma åt ett objekt.[/li]
-			[/ul]BLP har följande egenskaper:
+			[/ul]
+			BLP har följande egenskaper:
 			[ul]
 				[li]Information kan inte flöda från en högre säkerhetsklass till en lägre. (star property)[/li]
 				[li]Det går inte att läsa från en högre nivå och det går inte att skriva till en lägre nivå. (simple security)[/li]
-			[/ul]BLP har följande svagheter:
+			[/ul]
+			BLP har följande svagheter:
 			[ul]
 				[li]Det går inte att "nedgradera" information.[/li]
 				[li]Det går endast att ändra på en nivå medan man läser på samma nivå eller en lägre.[/li]
@@ -531,7 +533,8 @@
 			[ul]
 				[li][b]Well-formed transactions:[/b] En användare bör inte manipulera data på ett godtyckligt sätt men begränsas endast så att integriteten hos datan bevaras.[/li]
 				[li][b]Seperation of duty among users:[/b] En användare som har behörighet att skapa eller verifiera en "well-formed transaction" bör inte få möjlighet att exekvera den.[/li]
-			[/ul]Modellen inför integritetskontroll på data och de transaktioner som modiferar data. 
+			[/ul]
+			Modellen inför integritetskontroll på data och de transaktioner som modiferar data. 
 
 			Huvudkomponenterna är:
 			[ul]
@@ -594,12 +597,14 @@
 				[li]Använd nya varianter av funktioner i standardbibliotek som skyddar mot buffer overflows.[/li]
 				[li]Lägg till kod i början och slutet av ett funktionsanrop som ser till att stacken inte har blivit korrupt.[/li]
 				[li]Använd en en slumpmässig "kanariefågel" vilket är en flagga som placeras efter en buffer. Sedan undersöker programmet om denna "fågeln" har blivit överskriven och om så är fallet så avslutas programmet. Googla på "canary in the coal mine".[/li]
-			[/ul][b]Vid körtid (run-time)[/b]
+			[/ul]
+			[b]Vid körtid (run-time)[/b]
 			[ul]
 				[li]Använd en virtuell minnesrymd som gör att regioner av minnet inte blir körbart.[/li]
 				[li]Slumpa var bufferten lagras på heapen samt för funktioner i standardbiblioteket.[/li]
 				[li]Placera "guard pages" mellan kritiska regioner av minne. Kan även placeras mellan stack-frames och heap buffers.[/li]
-			[/ul]Stack buffer overflow: Icke-körbar stack eller guard pages.
+			[/ul]
+			Stack buffer overflow: Icke-körbar stack eller guard pages.
 			Heap overflow: Slumpmässig eller icke-körbar heap.
 			Global data overflow: Icke-körbar eller slumpmässig global data-region, flytta funktionspekare eller guard pages.
 		</Answer>
@@ -726,7 +731,7 @@
 			Vad är ett rootkit för något?
 		</Question>
 		<Answer>
-			Det är ett skadlig program som som installeras på ett system med root/adminstatör-rättigheter. Ett rootkit kan t.ex. byta ut systemanrop mot sina egna vilket kan bli mycket skadligt.
+			Det är ett skadlig program som som installeras på ett system med root/administratör-rättigheter. Ett rootkit kan t.ex. byta ut systemanrop mot sina egna vilket kan bli mycket skadligt.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Authentication">
@@ -866,23 +871,27 @@
 				[li]Har företaget tydliga säkerhets mål?[/li]
 				[li]Är målen rimliga?[/li]
 				[li]Arbetar företaget emot målen?[/li]
-			[/ul][b]Identification of Risks[/b]
+			[/ul]
+			[b]Identification of Risks[/b]
 			[ul]
 				[li]Identifiera hög risk områden och finansiella system möjligen tilsammans med klienten eller ekonomisk revisor.[/li]
 				[li]Uppskatta möjliga risker.[/li]
 				[li]Sätt revisionens (audit) omfattning.[/li]
-			[/ul][b]Identification of Controls[/b]
+			[/ul]
+			[b]Identification of Controls[/b]
 			[ul]
 				[li]Vilka processer är kritiska?[/li]
 				[li]Vilka system och applikationer är kristiska?[/li]
-			[/ul][b]Design Evaluation of Controls[/b]
+			[/ul]
+			[b]Design Evaluation of Controls[/b]
 			[ul]
 				[li]Identifiera och kontakta ansvarig personal.[/li]
 				[li]Intervjua personal som arbetar med systemet.[/li]
 				[li]Intervjua personal som arbetar med underhåll och utveckling av systemet.[/li]
 				[li]Intervjua systemadministratörer.[/li]
 				[li]Om konsulter har används, kontakta dem.[/li]
-			[/ul][b]Operational Evaluation of Controls[/b]
+			[/ul]
+			[b]Operational Evaluation of Controls[/b]
 			Möjliga slutsatser:
 			[ul]
 				[li]Byt ledarskap.[/li]
