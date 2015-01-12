@@ -688,13 +688,13 @@
 			Ett virus som muterar sig efter varje infektion vilket gör det inte finns någon signatur.
 
 			[b]Metamorphism[/b]
-			Fungerar som ett polymorfisk virus men vid varje infektion så skriver virsuet om sig komplett vilket gör det ännu svårare att upptäcka.
+			Fungerar som ett polymorfisk virus men vid varje infektion så skriver viruset om sig helt vilket gör det ännu svårare att upptäcka.
 
-			[b]Kompremering[/b]
-			Den komprimerar filen som infekteras och lägger till sig själv till filen. Detta gör att den infekterade filen får samma storlek som orginal filen.
+			[b]Komprimering[/b]
+			Den komprimerar filen som infekteras och lägger till sig själv till filen. Detta gör att den infekterade filen får samma storlek som originalfilen.
 
 			[b]Kryptering[/b]
-			En del av viruset skapar en slumpmässig krypterings nyckel och krypterar resterade del av viruset. Nycklen lagras sedan i viruset. När ett infekterat program körs så använder viruset nycklen för att dekryptera resterande del av viruset. För att den största delen av viruset är krypterade med en slumpmässig nyckel finns det ingen signatur att upptäcka.
+			En del av viruset skapar en slumpmässig krypteringsnyckel och krypterar resterande del av viruset. Nyckeln lagras sedan i viruset. När ett infekterat program körs så använder viruset nyckeln för att dekryptera resterande del av viruset. Eftersom den största delen av viruset är krypterad med en slumpmässig nyckel finns det ingen signatur att upptäcka.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Malware">
