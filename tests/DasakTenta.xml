@@ -812,7 +812,7 @@
 			Vad innebär "soical enginnering"?
 		</Question>
 		<Answer>
-			Det innebär att en anfallare försöker använda sig psykologisk manipulation för att få personer utförda önsktad åtgärder eller avslölja känslig information. Det skiljer sig ifrån tradionell lurendrejeri genom att många stegs i ett mer komplext bedrägeri.
+			Det innebär att en anfallare försöker använda sig av psykologisk manipulation för att få personer att utföra önskade åtgärder eller avslöja känslig information. Det skiljer sig från traditionellt lurendrejeri genom att vara ett av många steg i ett mer komplext bedrägeri.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SocialEngineering">
@@ -821,11 +821,11 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li][b]Pretexting[/b][/li]
-				[li][b]Get data[/b][/li]
-				[li][b]Keep connections[/b][/li]
-				[li][b]Combine data[/b][/li]
-				[li][b]Use it[/b][/li]
+				[li]Pretexting[/li]
+				[li]Get data[/li]
+				[li]Keep connections[/li]
+				[li]Combine data[/li]
+				[li]Use it[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -837,7 +837,7 @@
 			[ul]
 				[li]Trovärdighet.[/li]
 				[li]Tvingar målet till en specifik roll.[/li]
-				[li]Distraherar från att tänka systemastisk.[/li]
+				[li]Distraherar från att tänka systematisk.[/li]
 				[li]Använda information från olika källor.[/li]
 				[li]Göm frågorna.[/li]
 				[li]Testa med personlig information.[/li]
