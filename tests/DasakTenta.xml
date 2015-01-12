@@ -596,7 +596,7 @@
 				[li]Använd en en slumpmässig "kanariefågel" vilket är en flagga som placeras efter en buffer. Sedan undersöker programmet om denna "fågeln" har blivit överskriven och om så är fallet så avslutas programmet. Googla på "canary in the coal mine".[/li]
 			[/ul][b]Vid körtid (run-time)[/b]
 			[ul]
-				[li]Använd en virtuell minnesrymd som gör att regioner av minne inte blir körbart.[/li]
+				[li]Använd en virtuell minnesrymd som gör att regioner av minnet inte blir körbart.[/li]
 				[li]Slumpa var bufferten lagras på heapen samt för funktioner i standardbiblioteket.[/li]
 				[li]Placera "guard pages" mellan kritiska regioner av minne. Kan även placeras mellan stack-frames och heap buffers.[/li]
 			[/ul]Stack buffer overflow: Icke-körbar stack eller guard pages.
