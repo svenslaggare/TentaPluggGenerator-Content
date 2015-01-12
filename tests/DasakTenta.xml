@@ -601,7 +601,7 @@
 				[li]Placera "guard pages" mellan kritiska regioner av minne. Kan även placeras mellan stack-frames och heap buffers.[/li]
 			[/ul]Stack buffer overflow: Icke-körbar stack eller guard pages.
 			Heap overflow: Slumpmässig eller icke-körbar heap.
-			Global data overflow: Icke-körbar eller slumpmässig global data-region, flytta funktions pekare eller guard pages.
+			Global data overflow: Icke-körbar eller slumpmässig global data-region, flytta funktionspekare eller guard pages.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SoftwareSecurity">
