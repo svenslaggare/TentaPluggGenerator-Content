@@ -782,10 +782,10 @@
 			[ul]
 				[li]Kör ett säkert operativsystem med endast de nödvändiga tjänsterna.[/li]
 				[li]Kräver ofta att användaren är autentiserad för att komma åt en värd.[/li]
-				[li]Behöver endast läsa data så datan är read-only vilket gör det svårare att installera virus.[/li]
+				[li]Behöver endast läsa data, så datan är read-only vilket gör det svårare att installera virus.[/li]
 			[/ul]
 			[b]Host-Based Firewall[/b]
-			Används för att säkra individuella värdar och finns ofta som tillägg till operativssystem och filtrerar baserat på paket. Används ofta på servrar.
+			Används för att säkra individuella värdar och finns ofta som tillägg till operativsystem och filtrerar baserat på paket. Används ofta på servrar.
 
 			[b]Personal Firewall[/b]
 			Kontrollerar trafik till/från en personlig dator. Oftast mindre komplex och installeras ibland på modemet/routern. Huvudsyftet är att neka tillgång till obehöriga användare.
