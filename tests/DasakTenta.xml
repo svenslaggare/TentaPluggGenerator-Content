@@ -297,7 +297,7 @@
 			Även känt som "ping flood". Det går ut på att anfallaren skickar ICMP echo requests till målet. Brandväggar blockerar oftast inte denna form av paket för att det ofta används i diagnostiskt syfte.
 
 			[b]UDP Flood[/b]
-			Skickar UDP-paketet riktat mot en specifik port hos målet.
+			Skickar UDP-paket riktat mot en specifik port hos målet.
 
 			[b]TCP SYN Flood[/b]
 			Anfallaren försöker starta en TCP-anslutning (ofta med en förfalskad adress). Varje försök av anslutning gör att servern skickar tillbaka ett TCP/SYN-ACK-paket och väntar på svar från anfallaren så att anslutningen kan etableras. Men anfallaren skickar aldrig tillbaka något svar vilket gör att servern får sitta och vänta. Om detta görs flera gånger så kommer serverns TCP-tabell att få slut på plats vilket gör att ingen annan kan göra anslutningar till servern via TCP.
