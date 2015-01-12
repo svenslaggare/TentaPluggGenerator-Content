@@ -641,7 +641,7 @@
 			Vad är en bakdör (backdoor)?
 		</Question>
 		<Answer>
-			Det är ett program (eller del av program) som ger tillgång till ett system. En bakdör behöver inte vara av skapad för att skada utan kan vara en del av supporten för programmet eller andra legitima anledningar. Bakdörar brukar typiskt vara mycket svåra att hitta.
+			Det är ett program (eller del av program) som ger tillgång till ett system. En bakdör behöver inte vara av skapad för att skada utan kan vara en del av supporten för programmet eller andra legitima anledningar. Bakdörrar brukar typiskt vara mycket svåra att hitta.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Malware">
