@@ -118,7 +118,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Cryptography">
 		<Question>
-			Hur fungerar "message authentication" genom tekniken "message authetication code (MAC)"?
+			Hur fungerar "message authentication" genom tekniken "message authetication code" (MAC)?
 		</Question>
 		<Answer>
 			Två parter [math]A, B[/math] kommer överens om en gemensam [i]hemlig[/i] nyckel, [math]K_(AB)[/math]. Om [math]A[/math] vill skicka ett meddelande [math]M[/math] till [math]B[/math] så beräknar [math]A[/math]: [math]mac=F(K_(AB), M)[/math] (där [math]F[/math] är en funktion som gör det [i]praktiskt[/i] omöjligt att hitta [math]K_(AB), M[/math] givet ett [math]mac[/math] värde) och bifogar koden till meddelandet och skickar meddelandet till [math]B[/math]. [math]B[/math] utvinner sedan meddelandet [math]M[/math] och koden [math]mac[/math] och verfierar (med hjälp av hemliga nyckeln [math]K_(AB)[/math]) genom att beräkna [math]mac'[/math] och kollar att [math]mac=mac'[/math]. Om så är fallet så vet [math]B[/math] att meddelandet skickades ifrån [math]A[/math].
