@@ -104,7 +104,7 @@
 		</Question>
 		<Answer>
 			1. Envägsfunktion: Givet ett hashvärde [math]h[/math] bör det vara svårt att hitta ett meddelande [math]m[/math] så att [math]h=hash(m)[/math] (pre-image resistance).
-			2. Givet ett meddelande [math]m_1[/math] så bör det vara svårt att hitta ett ytterligare meddelande [math]m_2[/math] så att [math]hash(m_1)=hash(m_2)[/math] (second pre-image resistance).
+			2. Givet ett meddelande [math]m_1[/math] så bör det vara svårt att hitta ett ytterligare meddelande [math]m_2[/math] där [math]m_1 != m_2[/math] så att [math]hash(m_1)=hash(m_2)[/math] (second pre-image resistance).
 			3. Kollisionsresistens: Det bör bara svårt att hitta två [i]olika[/i] meddelanden [math]m_1, m_2[/math] sådana att [math]hash(m_1)=hash(m_2)[/math].
 		</Answer>
 	</TestQuestion>
