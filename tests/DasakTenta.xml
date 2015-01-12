@@ -100,7 +100,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Cryptography">
 		<Question>
-			Vad för egenskaper bör en kryptografisk hashfunktion ha?
+			Vilka egenskaper bör en kryptografisk hashfunktion ha?
 		</Question>
 		<Answer>
 			1. Envägsfunktion: Givet ett hashvärde [math]h[/math] bör det vara svårt att hitta ett meddelande [math]m[/math] så att [math]h=hash(m)[/math] (pre-image resistance).
@@ -377,7 +377,7 @@
 	</TestQuestion>
 	<TestQuestion Category="IDS">
 		<Question>
-			Vad för egenskaper bör en IDS ha?
+			Vilka egenskaper bör en IDS ha?
 		</Question>
 		<Answer>
 			[ul]
@@ -392,7 +392,7 @@
 	</TestQuestion>
 	<TestQuestion Category="IDS">
 		<Question>
-			Vad för begränsningar har en IDS?
+			Vilka begränsningar har en IDS?
 		</Question>
 		<Answer>
 			[ul]
@@ -670,7 +670,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Malware">
 		<Question>
-			Vad för metoder kan användas för att upptäcka virus?
+			Vilka metoder kan användas för att upptäcka virus?
 		</Question>
 		<Answer>
 			1. Sökning efter signaturer.
@@ -707,7 +707,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Malware">
 		<Question>
-			Vad för metoder kan användas för att upptäcka maskar?
+			Vilka metoder kan användas för att upptäcka maskar?
 		</Question>
 		<Answer>
 			Det överlappar med virus men utöver det så kan maskar orsaka stor nätverksaktivitet.
@@ -745,7 +745,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Authentication">
 		<Question>
-			Vad för alternativ finns det till lösenordsbaserad autentisering?
+			Vilka alternativ finns det till lösenordsbaserad autentisering?
 		</Question>
 		<Answer>
 			[ul]
@@ -812,7 +812,7 @@
 	</TestQuestion>
 	<TestQuestion Category="SocialEngineering">
 		<Question>
-			Vad för olika faser ingår i "soical engineering"?
+			Vilka olika faser ingår i "soical engineering"?
 		</Question>
 		<Answer>
 			[ul]
@@ -826,7 +826,7 @@
 	</TestQuestion>
 	<TestQuestion Category="SocialEngineering">
 		<Question>
-			Vad för olika tekniker används inom "social engineering"?
+			Vilka olika tekniker används inom "social engineering"?
 		</Question>
 		<Answer>
 			[ul]
