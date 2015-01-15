@@ -214,7 +214,7 @@
 			Använd flerfaktorsautentisering.
 			Använd ett generiskt felmeddelande för inloggning.
 			Se till så att utloggning sker korrekt.
-			Se till så att sessionskakor har korrekta attributer (Secure, HttpOnly).
+			Se till så att sessionskakor har korrekta attribut (Secure, HttpOnly).
 			Kräv återautentisering vid kritiska tillfällen.
 			Implementera inte ditt eget sessionshanteringssystem utan använd beprövade lösningar.
 			Undvik att spara sessions-id.
