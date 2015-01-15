@@ -323,7 +323,7 @@
 	</TestQuestion>
 	<TestQuestion Category="DoS">
 		<Question>
-			Förklara attacktypen "Distrubuted Denial of Service" (DDoS) för DoS-attacker.
+			Förklara attacktypen "Distributed Denial of Service" (DDoS) för DoS-attacker.
 		</Question>
 		<Answer>
 			Det innebär att attacken är distribuerad över ett nätverk av datorer som alla kommer skicka förfrågningar till målet. Ofta är datorerna som ingår i attacknätverket ofrivilliga, d.v.s. att anfallaren har installerat någon typ av virus som gör att datorerna ingår i nätverket.
