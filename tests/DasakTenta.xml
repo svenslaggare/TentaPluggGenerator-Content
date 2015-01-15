@@ -596,7 +596,7 @@
 				[li]Kolla alltid att det finns tillräckligt med utrymme i bufferten.[/li]
 				[li]Använd nya varianter av funktioner i standardbibliotek som skyddar mot buffer overflows.[/li]
 				[li]Lägg till kod i början och slutet av ett funktionsanrop som ser till att stacken inte har blivit korrupt.[/li]
-				[li]Använd en en slumpmässig "kanariefågel" vilket är en flagga som placeras efter en buffer. Sedan undersöker programmet om denna "fågeln" har blivit överskriven och om så är fallet så avslutas programmet. Googla på "canary in the coal mine".[/li]
+				[li]Använd en en slumpmässig "kanariefågel" vilket är en flagga som placeras efter en buffer. Sedan undersöker programmet om denna "fågel" har blivit överskriven och om så är fallet så avslutas programmet. Googla på "canary in the coal mine" för att läsa mer.[/li]
 			[/ul]
 			[b]Vid körtid (run-time)[/b]
 			[ul]
