@@ -538,8 +538,8 @@
 
 			Huvudkomponenterna är:
 			[ul]
-				[li][b]Constrainted data items:[/b] Strikta integritetskontroller.[/li]
-				[li][b]Unconstrainted data items: [/b] Data som inte kräver integritetskontroll.[/li]
+				[li][b]Constrained data items:[/b] Strikta integritetskontroller.[/li]
+				[li][b]Unconstrained data items: [/b] Data som inte kräver integritetskontroll.[/li]
 				[li][b]Integrity verification procedures:[/b] Ser till att alla CDI följer någon applikationsspecifik modell av integritet.[/li]
 				[li][b]Transformation procedures:[/b] Systemtransaktioner som förändrar en mängd av CDI från ett giltigt tillstånd till ett annat.[/li]
 			[/ul]
