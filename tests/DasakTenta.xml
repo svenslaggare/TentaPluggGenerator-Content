@@ -206,7 +206,7 @@
 			Glömt lösenord - Skickar lösenord i klartext, vilket indikerar att lösenordet också sparas i klartext.
 			Kom ihåg mig - Inloggningsinformation sparas i klartext i kakor.
 			Sessionsidentifierare - Skickas över okrypterade kanaler eller kan kommas åt via JavaScript.
-			Utloggning - Utloggnignen hanteras felaktigt vilket gör det möjligt för an anfallare att ta över sessionen.
+			Utloggning - Utloggnignen hanteras felaktigt vilket gör det möjligt för en anfallare att ta över sessionen.
 			Session timeout.
 			Kontoskuggning - Gör det möjligt att skapa en användare som tar över en tidigare.
 
