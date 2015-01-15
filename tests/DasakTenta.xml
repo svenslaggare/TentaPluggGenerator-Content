@@ -707,7 +707,7 @@
 			Vad är en mask (worm) för något?
 		</Question>
 		<Answer>
-			Ett replikerade program som sprider sig själv över ett nätverk som beter sig likt ett virus med liknande faser.
+			Ett replikerande program som sprider sig själv över ett nätverk som beter sig likt ett virus med liknande faser.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Malware">
@@ -731,7 +731,7 @@
 			Vad är ett rootkit för något?
 		</Question>
 		<Answer>
-			Det är ett skadlig program som som installeras på ett system med root/administratör-rättigheter. Ett rootkit kan t.ex. byta ut systemanrop mot sina egna vilket kan bli mycket skadligt.
+			Det är ett skadligt program som som installeras på ett system med root/administratör-rättigheter. Ett rootkit kan t.ex. byta ut systemanrop mot sina egna vilket kan bli mycket skadligt.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Authentication">
@@ -780,12 +780,12 @@
 			[b]Bastion host[/b]
 			Är ett starkt fäste i nätverket som är värd för application/circuit-level gateways. Har följande egenskaper:
 			[ul]
-				[li]Kör ett säkert operativsystem med endast de nödvändiga tjänsterna.[/li]
+				[li]Kör ett säkert operativsystem med endast de nödvändiga tjänsterna installerade.[/li]
 				[li]Kräver ofta att användaren är autentiserad för att komma åt en värd.[/li]
 				[li]Behöver endast läsa data, så datan är read-only vilket gör det svårare att installera virus.[/li]
 			[/ul]
 			[b]Host-Based Firewall[/b]
-			Används för att säkra individuella värdar och finns ofta som tillägg till operativsystem och filtrerar baserat på paket. Används ofta på servrar.
+			Används för att säkra individuella värdar och finns ofta som tillägg till operativsystem och filtrerar baserat på paketinformation. Används ofta på servrar.
 
 			[b]Personal Firewall[/b]
 			Kontrollerar trafik till/från en personlig dator. Oftast mindre komplex och installeras ibland på modemet/routern. Huvudsyftet är att neka tillgång till obehöriga användare.
@@ -821,11 +821,11 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li]Pretexting[/li]
-				[li]Get data[/li]
-				[li]Keep connections[/li]
-				[li]Combine data[/li]
-				[li]Use it[/li]
+				[li]Pretexting.[/li]
+				[li]Get data.[/li]
+				[li]Keep connections.[/li]
+				[li]Combine data.[/li]
+				[li]Use it.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -857,7 +857,7 @@
 				[li]Enkla regler när det krävs legitmation/ID för behörig åtgärd.[/li]
 				[li]Dataklassificeringspolicies.[/li]
 				[li]Träna personalen.[/li]
-				[li]Artighetsförändring: Att "nej" är OK.[/li]
+				[li]Artighetsförändring: Att "nej" är okej.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
