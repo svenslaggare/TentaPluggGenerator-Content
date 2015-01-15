@@ -259,7 +259,7 @@
 			Vad innebär "missing function level access control"?
 		</Question>
 		<Answer>
-			Det gör det möjligt för användare att komma åt information som de inte bör kunna komma åt. Detta beror oftast på dåligt implementerad åtkomstkontroll eller naivitet. Bara för att det inte finns någon länk på sidan, betyder inte det att användaren inte kan komma på länken själv "security-by-obscurity".
+			Det gör det möjligt för användare att komma åt information som de inte bör kunna komma åt. Detta beror oftast på dåligt implementerad åtkomstkontroll eller naivitet. Bara för att det inte finns någon länk på sidan, betyder det inte att en användare inte kan komma på länken själv ("security-by-obscurity").
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="WebAttacks">
