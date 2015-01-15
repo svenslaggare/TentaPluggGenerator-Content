@@ -720,10 +720,10 @@
 	</TestQuestion>
 	<TestQuestion Category="Malware">
 		<Question>
-			Vad är ett bot för något?
+			Vad är en bot för något?
 		</Question>
 		<Answer>
-			Ett program som tar över andra datorer i syfte att utföra attacker som är svåra att spåra. Om flera botar kopplas ihop och är koordinerade brukar det kallas ett [i]botnät[/i].
+			Ett program som tar över andra datorer i syfte att utföra attacker som är svåra att spåra. Om flera botar kopplas ihop och är koordinerade brukar det kallas ett [i]botnet[/i].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Malware">
