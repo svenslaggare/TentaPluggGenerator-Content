@@ -690,10 +690,10 @@
 		</Question>
 		<Answer>
 			[b]Polymorphism[/b]
-			Ett virus som muterar sig efter varje infektion vilket gör det inte finns någon signatur.
+			Ett virus som muterar sig efter varje infektion, vilket gör att det inte finns någon signatur.
 
 			[b]Metamorphism[/b]
-			Fungerar som ett polymorfisk virus men vid varje infektion så skriver viruset om sig helt vilket gör det ännu svårare att upptäcka.
+			Fungerar som ett polymorfiskt virus, men vid varje infektion så skriver viruset om sig helt vilket gör det ännu svårare att upptäcka.
 
 			[b]Komprimering[/b]
 			Den komprimerar filen som infekteras och lägger till sig själv till filen. Detta gör att den infekterade filen får samma storlek som originalfilen.
