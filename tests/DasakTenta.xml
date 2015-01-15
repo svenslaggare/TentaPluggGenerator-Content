@@ -52,7 +52,7 @@
 	</TestQuestion>
 	<TestQuestion Category="SecurityPrinciple">
 		<Question>
-			Vad innebär principen om "Seperation of Privilege"?
+			Vad innebär principen om "Separation of Privilege"?
 		</Question>
 		<Answer>
 			Ett system bör inte ge tillåtelse baserat endast på ett villkor. Uppdelning av ansvar: Den som skriver säkerheten för systemet kan inte vara den som verifierar att säkerheten fungerar.
@@ -532,7 +532,7 @@
 			Den baseras på två koncept:
 			[ul]
 				[li][b]Well-formed transactions:[/b] En användare bör inte manipulera data på ett godtyckligt sätt men begränsas endast så att integriteten hos datan bevaras.[/li]
-				[li][b]Seperation of duty among users:[/b] En användare som har behörighet att skapa eller verifiera en "well-formed transaction" bör inte få möjlighet att exekvera den.[/li]
+				[li][b]Separation of duty among users:[/b] En användare som har behörighet att skapa eller verifiera en "well-formed transaction" bör inte få möjlighet att exekvera den.[/li]
 			[/ul]
 			Modellen inför integritetskontroll på data och de transaktioner som modiferar data. 
 
