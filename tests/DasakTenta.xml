@@ -335,12 +335,12 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li]Blockera anrop från förfalskade källadresser.[/li]
 				[li]Begränsa antalet anrop som kan göras av en viss typ (ICMP t.ex.).[/li]
 				[li]Modifiera hur TCP-anslutning hanterars. T.ex. genom att slumpmässigt droppa anslutningar när TCP-tabellen är full.[/li]
 				[li]Blockera IP-riktade broadcasts.[/li]
 				[li]Replikera och spegla nätverksresurser i ett större nätverk.[/li]
 				[li]Använd filters i brandväggen.[/li]
+				[li]Blockera anrop från förfalskade källadresser. (Detta går dock inte att göra på egen hand, utan måste göras i en gateway närmare anfallaren.)[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
