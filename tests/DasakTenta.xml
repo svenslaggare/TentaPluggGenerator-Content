@@ -638,7 +638,7 @@
 			Vad är en trojansk häst?
 		</Question>
 		<Answer>
-			Det är ett program med två mål, där det ena är uppenbart för användaren och det andra är gömt för användaren. Trojanska hästar kan antingen byggas från existerade program eller byggas från början för att vara en trojansk häst. 
+			Det är ett program med två mål, där det ena är uppenbart för användaren och det andra är gömt för användaren. Trojanska hästar kan antingen byggas från existerande program eller byggas från början för att vara en trojansk häst. 
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Malware">
