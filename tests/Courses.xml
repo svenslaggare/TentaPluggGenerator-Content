@@ -18,4 +18,6 @@
 	<Course Name="Datasäkerhet">
 		<Test File="DasakTenta" />
 	</Course>
+	<Course Name="Operativsystem">
+	</Course>
 </Courses>
