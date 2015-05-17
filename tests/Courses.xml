@@ -19,5 +19,6 @@
 		<Test File="DasakTenta" />
 	</Course>
 	<Course Name="Operativsystem">
+		<Test File="OSTenta" />
 	</Course>
 </Courses>

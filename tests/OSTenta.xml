@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Test Name="Tenta">
+	<TestQuestion Category="Processer">
+		<Question>
+			Vad är en process?
+		</Question>
+		<Answer>
+			En process är ett program under exekvering.
+			En process brukar innehålla följande information:
+			[ul]
+				[li]Kod (även känt som "text")[/li]
+				[li]Data (globala variabler, BSS, stack, heap)[/li]
+				[li]Registerinnehåll (som t.ex. programräknaren)[/li]
+				[li]Fildeskriptorer (dvs öppna filer)[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Processer">
+		<Question>
+			Varför används processmodellen?
+		</Question>
+		<Answer>
+			På grund av att ett program underkörning har inkapslas av en process så blir det lättare att tillåta multiprogrammering, dvs att flera program kör "samtidigt". Det ger även bättre feltolerans vilket innebär om en process kraschar så behöver ej hela operativsystemet krascha.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Processer">
+		<Question>
+			Hur skapas nya processer i UNIX system?
+		</Question>
+		<Answer>
+			Nya processer skapas med hjälp av systemanropet [i]fork()[/i] vilket skapar en kopia av den körande processen. Vanligtvist vill man att en den nya processen kör ett annat program, vilket görs med systemanrop ur familjen [i]exec[/i] vilket byter ut den nuvarande programmet emot ett annat.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Processer">
+		<Question>
+			På vilka sätt kan en process terminera?
+		</Question>
+		<Answer>
+			En process kan termineras på fyra sätt:
+			[ul]
+				[li]Normalt programslut (frivilligt)[/li]
+				[li]Med fel som programmet upptäckt (frivilligt)[/li]
+				[li]Fatalt fel (ofrivilligt)[/li]
+				[li]Dödas av en annan process[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Processer">
+		<Question>
+			Vad är skillnaden mellan en förgrundsprocess och bakgrundsprocess (i UNIX)?
+		</Question>
+		<Answer>
+			En process som körs i förgrunden är den process som man arbetar interaktivt med medans en process som körs i bakgrunden arbetar man ej interaktivt med. Det går även se det som att när en process körs i förgrunden finns det en annan process (föräldern) som väntar på att den ska avslutas medans när den körs i bakgrunden så väntar ingen process.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Processer">
+		<Question>
+			Vad är en "daemon" i UNIX?
+		</Question>
+		<Answer>
+			Det är en bakgrundsprocess. Dessa processer utför oftast system åtgärder,
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Processer">
+		<Question>
+			Ange de tillstånd som en process kan vara i.
+		</Question>
+		<Answer>
+			Det finns tre tillstånd: Running, Blocked och Ready.
+			[img width="75%" height="75%"]tests/images/ProcessStates.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Processer">
+		<Question>
+			Vad för abstraktion används för att hålla reda på processer i systemet?
+		</Question>
+		<Answer>
+			En så kallad [i]processtabell[/i] där varje process blir en post i tabellen som kallas för Process Controll Block (PCB). Information som lagras i denna post är process ID, prioritet, tillstånd, register, text, data, osv.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Processer">
+		<Question>
+			Vad är en "zombie" process?
+		</Question>
+		<Answer>
+			Det är en process som har körts klart, men som fortfarande har en post i processtabellen. Varför det kan uppstå är på grund av att göra det möjligt för föräldrarprocesser att veta varför en barnprocess terminerade. Posten frigörs genom att anropa [i]wait[/i] på processen som terminerade.
+		</Answer>
+	</TestQuestion>
+</Test>

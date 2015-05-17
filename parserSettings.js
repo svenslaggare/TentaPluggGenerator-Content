@@ -10,7 +10,6 @@ var ParserSettings = (function () {
         bbTags["b"] = new BBTag("b", true, false, false);
         bbTags["i"] = new BBTag("i", true, false, false);
         bbTags["u"] = new BBTag("u", true, false, false);
-
         bbTags["ul"] = new BBTag("ul", true, false, false);
         bbTags["li"] = new BBTag("li", true, false, false);
 
@@ -31,7 +30,26 @@ var ParserSettings = (function () {
         });
 
         bbTags["img"] = new BBTag("img", true, false, false, function (tag, content, attr) {
-            return "<img src=\"" + content + "\" />";
+            var width = attr["width"];
+            var height = attr["height"];
+
+            if (width != undefined) {
+                width = escapeHTML(width);
+            }
+
+            if (height != undefined) {
+                height = escapeHTML(height);
+            }
+
+            if (width != undefined && height != undefined) {
+                return "<img width=\"" + width + "\" height=\"" + height + "\" src=\"" + content + "\" />";
+            } else if (width != undefined) {
+                return "<img width=\"" + width + "\" src=\"" + content + "\" />";
+            } else if (height != undefined) {
+                return "<img height=\"" + height + "\" src=\"" + content + "\" />";
+            } else {
+                return "<img src=\"" + content + "\" />";
+            }
         });
 
         bbTags["url"] = new BBTag("url", true, false, false, function (tag, content, attr) {
