@@ -86,4 +86,94 @@
 			Det är en process som har körts klart, men som fortfarande har en post i processtabellen. Varför det kan uppstå är på grund av att göra det möjligt för föräldrarprocesser att veta varför en barnprocess terminerade. Posten frigörs genom att anropa [i]wait[/i] på processen som terminerade.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Vad innebär dynamisk laddning och dynamisk länkning?
+		</Question>
+		<Answer>
+			Dynamisk laddning innebär att ett program (eller bibliotek) laddas in i den nuvarande processens minne [b]efter den har startat[/b].
+			Dynamisk länkning innebär att mapping av namn till adress för symboler sker [b]efter kompilering[/b].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Vad innebär en fysik och en logisk adressrymd?
+		</Question>
+		<Answer>
+			En fysisk adressrymd är de faktiska minnespositioner i datorns fysiska primärminne.
+			En logisk adressrymd är en abstrakt addressrymd som programmet använder, vilket mappas till den fysiska adressrymden. Ett annat namn är en [i]virutell addressrymd[/i].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Vad innebär relokerbar kod?
+		</Question>
+		<Answer>
+			Det innebär adresser anges relativt något, vanligtvist början av programmet. De relativa adresserna binds till en absolut adress när vi vet var programmet ska laddas in. Dessa tillfällen är:
+			[ul]
+				[li]Compile-time[/li]
+				[li]Load-time[/li]
+				[li]Run-time[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Vad innebär fragmentering?
+		</Question>
+		<Answer>
+			Det finns två typer av fragmentering:
+			[b]Extern fragmentering[/b]
+			Det finns ledigt utrymme, men är uppdelat i för små block (som ej är närliggande). Extern fragmentering löses med kompaktering (vilket är kostsamt) eller att endast ha en enda blockstorlek, vilket leder till intern fragmentering.
+
+			[b]Intern fragmentering[/b]
+			Dålig utnyttjande av minne inom allokerade block. Detta löses med variabel blockstorlek, vilket leder till extern fragmentering.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Ange två sätt att hålla reda på ledigt minne.
+		</Question>
+		<Answer>
+			[b]Länkande listor[/b]
+			Elementen i listan består av hål (ledigt utrymme) där varje hål innehåller: Startadress, storlek och pekare till nästa element.	Hur listan skall sorteras beror på vilken allokeringsmetod som används.
+
+			[b]Bitmap[/b]
+			Minnet delas upp i lika stora "allokeringsenheter" där en bitvektor används där 0 betyder att enheten är ledig och 1 upptagen för enhet [i]i[/i]. Val av storleken på allokeringsenheten blir då viktig där för liten innebär att bitmappen blir för stor medans en för står leder till intern fragmentering.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Vad innebär swappning?
+		</Question>
+		<Answer>
+			Det innebär att en process flyttas mellan primärminne och disk för att ge rum till andra processer. Swap-in innebär att en process flyttas från disk till minne och swap-out innebär att en process flyttas från minne till disk.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Vad innebär ett minnet är sidindelat?
+		</Question>
+		<Answer>
+			Det innebär att minnet delas i lika stora sidor. En sida är något som finns i den virtuella minnesrymden medans en ram är en sida som finns i det fysiska minnet. Översättningen till fysisk address sker vid körning.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Hur sker en adressöversättning i en sidindelat system?
+		</Question>
+		<Answer>
+			Antag att vi har en logisk adressrymd med storleken [math]2^m[/math] och storleken på en sida är [math]2^n[/math]. Då används de [math]n[/math] första bitarna för att offseten inom sidan, [math]d[/math] och de resterande [math]m-n[/math] bitarna, [math]p[/math] anger vilken sida det är.
+
+			Då kan vi hämta (i sidtabellen) vilket ram som adressen tillhör. När vi har ramnumret och offseten, kan vi hämta den fysiska adressen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Hur fungerar rättigheter (läsa/skriva/exekvera) för minnesadresser i ett sidindelat minne?
+		</Question>
+		<Answer>
+			Rättigheterna fungerar på sidnivå. Detta innebär att t.ex. text och data arean [i]inte[/i] kan dela sidor. Detta är för att text arean vill vi endast kunna läsa och exekvera medans data arean vill vi [i]ej[/i] kunna exekvera!
+		</Answer>
+	</TestQuestion>
 </Test>
