@@ -67,7 +67,7 @@
 		</Question>
 		<Answer>
 			Det finns tre tillstånd: Running, Blocked och Ready.
-			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/ProcessStates.png[/img]
+			[img width="50%" height="50%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/ProcessStates.png[/img]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Processer">
