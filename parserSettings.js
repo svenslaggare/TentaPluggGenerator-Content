@@ -11,6 +11,7 @@ var ParserSettings = (function () {
         bbTags["i"] = new BBTag("i", true, false, false);
         bbTags["u"] = new BBTag("u", true, false, false);
         bbTags["ul"] = new BBTag("ul", true, false, false);
+        bbTags["ol"] = new BBTag("ol", true, false, false);
         bbTags["li"] = new BBTag("li", true, false, false);
 
         bbTags["math"] = new BBTag("math", false, false, true, function (tag, content, attr) {

@@ -160,20 +160,469 @@
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
 		<Question>
-			Hur sker en adressöversättning i en sidindelat system?
-		</Question>
-		<Answer>
-			Antag att vi har en logisk adressrymd med storleken [math]2^m[/math] och storleken på en sida är [math]2^n[/math]. Då används de [math]n[/math] första bitarna för att offseten inom sidan, [math]d[/math] och de resterande [math]m-n[/math] bitarna, [math]p[/math] anger vilken sida det är.
-
-			Då kan vi hämta (i sidtabellen) vilket ram som adressen tillhör. När vi har ramnumret och offseten, kan vi hämta den fysiska adressen.
-		</Answer>
-	</TestQuestion>
-	<TestQuestion Category="Minneshantering">
-		<Question>
 			Hur fungerar rättigheter (läsa/skriva/exekvera) för minnesadresser i ett sidindelat minne?
 		</Question>
 		<Answer>
 			Rättigheterna fungerar på sidnivå. Detta innebär att t.ex. text och data arean [i]inte[/i] kan dela sidor. Detta är för att text arean vill vi endast kunna läsa och exekvera medans data arean vill vi [i]ej[/i] kunna exekvera!
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Hur kan man undvidka att en process adressar en ram som ej ligger i dess adressrymd?
+		</Question>
+		<Answer>
+			[ol]
+				[li]Valid/invalid bit för varje post i sidtabellen.[/li]
+				[li]Register som anger längden av sidtabellen.[/li]
+			[/ol]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Vad är en TLB för något?
+		</Question>
+		<Answer>
+			TLB står för "Translation Lookaside Buffer" och fungerar som ett cacheminne för sidtabellen som implementeras i hårdvaran (närmare bestämt MMU). En TLB mappar ifrån ett sidnummer till ett ramnummer. Den implementeras med assocativt minne vilket innebär att det går att söka i hela minent parallellt.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Vad innebär en miss i TLBn?
+		</Question>
+		<Answer>
+			Det innebär att den sida som efterfrågas ej finns i TLB. Detta innebär att sidtabellen som finns i primärtminnet måste accessas. Efter det så uppdateras TLB (om sidan var giltig) genom att slänga ut en ogiltig eller gammal post. För de flesta arkitekturer sker hantering i MMU men i vissa arkitekturer som t.ex. SPARC sker det i mjukvara. Detta är för att det mycket komplext vilket tar upp mycket utrymme i hårdvåran.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Ange olika sätt att implementera sidtabellen.
+		</Question>
+		<Answer>
+			[b]En-nivås sidtabell[/b]
+			Antag att vi har en logisk adressrymd med storleken [math]2^m[/math] och storleken på en sida är [math]2^n[/math]. Då används de [math]n[/math] första bitarna för att offseten inom sidan, [math]d[/math] och de resterande [math]m-n[/math] bitarna, [math]p[/math] anger vilken sida det är.
+
+			Då kan vi hämta (i sidtabellen) vilket ram som adressen tillhör. När vi har ramnumret och offseten, kan vi hämta den fysiska adressen.
+
+			[b]Fler-nivåers sidtabell[/b]
+			Då består sidtabellen av flera nivåer. Syftet med en fler-nivåers sidtabell är att undvika att allokera alla möjliga sidpr för sidtabellen, vilket kan ta upp mycket utrymme och är opraktiskt för 64-bits system. För att få en rimlig storlek på den yttersta sidtabellen krävs minst 5-7 nivåer, men detta blir istället för ineffektivt.
+
+			Exempel:
+			Antag att vi har en tvånivåers sidtabell. Om vi antar att vi har en logisk adressrymd med storleken [math]2^m[/math], sidstorleken [math]2^n[/math] och storleken på en post i sidtabellen: [math]2^e[/math]. Den inre sidtabellen kommer då att ha [math]2^(n-e)[/math] poster per sida och den yttre sidtabellen kommer då att ha [math]2^(m-2n-e)[/math] positioner.
+
+			[b]Hashad sidtabell[/b]
+			Fungerar som en hashtabell, där vi mappar ifrån sidnummer till en post i sidtabellen. Här kan krockar i tabellen hanteras som länkade listor, dvs alla poster med samma hash bildar en länkad list.
+
+			[b]Inverterad sidtabell[/b]
+			Om varje process har en egen sidtabell kan det gå åt mycket minne. Idén med en inverterad sidtabell är ha endast en sidtabell för alla processer där det finns en post för varje fysisk ram. I varje post har man då sidnummret + ID för processen som allokerat ramen.
+
+			Nackdelen med denna implementation är att man måste söka i hela sidtabellen för att hitta ramen för en sida. Detta kan återgärdas genom att t.ex. hasha den inverterade sidtabellen eller använda som av assocativt minne (som dock är dyrt). En annan nackdel är att det blir svårare att dela sidor mellan processer.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Vad innebär demand paging?
+		</Question>
+		<Answer>
+			Det innebär att man lägger till information till sidtabellen som indikerar om sidan finns i primärminnet eller inte. När en sida som inte finns i primärminnet refereras så genereras ett [b]sidfel (page fault)[/b]. Vid sidfel så hämtas sidan ifrån sekundärminnet (t.ex. disk) till primärminnet och sidtabellen uppdateras.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Vad är skillnanden mellan swapping och paging?
+		</Question>
+		<Answer>
+			Swapping innebär att byta ut hela processer medans paging handlar om att byta ut sidor.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Vad innebär pre-paging?
+		</Question>
+		<Answer>
+			Det innebär att vi försöker räkna ut vilka sidor som kommer att behövas och laddar in dessa i förvag.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidutbytesalgoritmer">
+		<Question>
+			Generellt sätt, vilka två mål finns när det kommer till att byta ut sidor?
+		</Question>
+		<Answer>
+			[ol]
+				[li]Minimera antalet sidfel.[/li]
+				[li]Minimera I/O.[/li]
+			[/ol]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidutbytesalgoritmer">
+		<Question>
+			Vad är I/O kostnaden för att byta ut sidor?
+		</Question>
+		<Answer>
+			Det kostar mindre att byta ut en sida som inte är modifierad än en som är modifierad. Dvs: Om en sida i en ram är [b]ren[/b] (ej modiferad) så finns en kopia på disk, vilket innebär att man ej behöver skriva innehållet i ramen till disk, dvs endast 1 I/O operation krävs. Men om en ram är modifierad ([b]dirty[/b]) så måste den skrivas ut till disk innan en ny sida kan läsas in till ramen, dvs 2 I/O operationer krävs.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidutbytesalgoritmer">
+		<Question>
+			Vad innebär en referenssträng?
+		</Question>
+		<Answer>
+			Det är en sträng av sidnummer i den ordning de refereras. Om samma sida har refereras flera gånger i följd, så tas endast en med. En referenssträng kan användas för att utvärdera sidutbytesalgoritmer.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidutbytesalgoritmer">
+		<Question>
+			Vad är ett working set?
+		</Question>
+		<Answer>
+			Den uppsättning sidor som en process refererar, dvs behöver för att kunna exekevera under en (liten) tidsrymd [math]T[/math]. Det mest intressanta med working set är dess storlek. Om en process inte har tillgång till så många ramar som storleken på dess working set så kommer det att genereras många sidfel. 
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidutbytesalgoritmer">
+		<Question>
+			Hur fungerar den optimala sidutbytesalgoritmen?
+		</Question>
+		<Answer>
+			Den sida som kommer att dröja längst innan den refereras igen kommer att bytas ut. Den är optimal med avseende på antalet sidfel och är omöjlig att implementera i praktiska system.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidutbytesalgoritmer">
+		<Question>
+			Hur fungerar FIFO (som sidutbytesalgoritm)?
+		</Question>
+		<Answer>
+			Om inga lediga rammar finns så kommer den sida som har legat längst i primärminnet att bytas ut. Nackdelen med denna algoritm är att en sida som kan användas kan slängas ut. Den kan också ge fler sidfel om man [b]ökar[/b] antalet tillgängliga ramar (Belady's anomali). Den har använts i t.ex. VAX/VMS och Windows NT.
+
+			FIFO = First In First Out.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidutbytesalgoritmer">
+		<Question>
+			Vad är en stackalgoritm (när det kommer till sidutbytesalgoritmer)?
+		</Question>
+		<Answer>
+			Det är en algoritm med egenskapen att den ger färre sidfel när antalet ramar ökas. Det som är karaktäristisk för en stackalgoritm är att för varje referens i en referenssträng är den mängd av sidor som finns i primärmännet givet [math]m[/math] ramar en delmängd av den mängd sidor som finns i minnet givet [math]m+1[/math] ramar.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidutbytesalgoritmer">
+		<Question>
+			Hur fungerar LRU (som sidutbytesalgoritm)?
+		</Question>
+		<Answer>
+			Den sida som det gått längst sedan den refererades kommer att bytas ut. Det är den närmaste approximation av den optimala som kan vi (enkelt) kan göra. Den är dock dyrbar att implementera för det krävs en räknare för varje instruktion som exekveras och kräver en sökning för att hitta sidan som ska slängas ut.
+
+			LRU = Least Recently Used.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidutbytesalgoritmer">
+		<Question>
+			Hur fungerar Clock (som sidutbytesalgoritm)?
+		</Question>
+		<Answer>
+			Det är en enkel approxmation av LRU genom en utvidgning av FIFO. Här införs en referens-bit i sidtabellen. Denna bit nollställs då en sida laddas in och ett ett-ställs när någon byte i sidan adresseras.
+
+			Den fungerar så att en cirkulär lista med alla sidor i primärminnet är ordnad i FIFO ordning. När en sida behövs bytas ut så gör man en sökning i listan och:
+			[ul]
+				[li]Om sidans referensbit är satt, nollställ den och sök vidare.[/li]
+				[li]Första sidan med en nollställd referensbit är den sida som ska bytas ut.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidutbytesalgoritmer">
+		<Question>
+			Hur fungerar Clock med NRU (som sidutbytesalgoritm)?
+		</Question>
+		<Answer>
+			Det är en förbättring av Clock algoritmen genom att en modifierad-bit införs i sidtabellen. Den är från början nollställd då sidan laddas in. Den ett-ställs då man skriver till någon byte i sidan.
+
+			Den fungerar som Clock men man väljer att byta ut en sida baserat på paret (referensbit, modifierad-bit):
+			[ol]
+				[li][math](0, 0)[/math] varken refererad eller modifierad.[/li]
+				[li][math](0, 1)[/math] inte nyligen använd - men modifierad.[/li]
+				[li][math](1, 0)[/math] nyligen använd - men inte modifierad.[/li]
+				[li][math](1, 1)[/math] både nyligen använd och modifierad.[/li]
+			[/ol]
+			Används i Mac.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidutbytesalgoritmer">
+		<Question>
+			Hur fungerar Aging (som sidutbytesalgoritm)?
+		</Question>
+		<Answer>
+			Det är en approximation av LRU. Det fungerar genom att man försöker uppskatta när en sidan senaste referades. Detta görs genom att:
+			[ul]
+				[li]Till varje post i sidtabellen lägg till en [i]n[/i]-bitars räknare.[/li]
+				[li]Regelbundet, t.ex. vid varje klockavbrott, för alla sidor i minnet:
+					[ul]
+						[li]Skifta räknaren ett steg åt höger.[/li]
+						[li]Addera referensbiten för sidan i den vänstra biten i räknaren.[/li]
+					[/ul]
+				[/li]
+				[li]Vid sidfel så väljs sidan med lägst värde på räknaren att bytas ut.[/li]
+				[li]Kräver sökning.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidutbytesalgoritmer">
+		<Question>
+			Hur fungerar WSClock (som sidutbytesalgoritm)?
+		</Question>
+		<Answer>
+			Här försöker man göra en uppskattning av working set. Här bestämer vi en tidsrymd [math]T[/math] för vilket working set ska uppskattas. Datan om sidor i primärminnet är organiserad på samma sätt som för Clock-algoritmen.
+
+			Det funngerar genom att man lägger till en tidsstämpel för varje post i sidtabellen och vid:
+			[b]Uppdatering av referensbit[/b]
+			Sker regelbundet som t.ex. vid varje klockavbrott vilket nollställer alla referensbitar.
+
+			[b]Sidfel[/b]
+			[ul]
+				[li]Gå genom alla poster i sidtabellen.[/li]
+				[li]Om referensbiten är satt: nollställ och uppdatera tidsstämpeln.[/li]
+				[li]Om en sida med nollställd referensbit hittas och den referares längre tillbacka i tiden än [math]T[/math] tidsenheter, dvs den är inte längre i working set:
+					[ul]
+						[li]Om modifierad-biten är satt - schemalägg att sidan ska skrivas till disk och leta vidare.[/li]
+						[li]Om sidan är ren - läs in den nya sidan till denna ram.[/li]
+					[/ul]					
+				[/li]
+				[li]Om man inte hittar en ren sida som inte ligger i working set på ett varv så finns två möjligheter: 
+					[ul]
+						[li]En skrivning har schemalagts - fortsätta leta - till slut blir en sida ren.[/li]
+						[li]Annars ersätt en godtycklig ren sida - om ingen sådan finns ta en godtycklog sida och släng ut.[/li]
+					[/ul]
+				[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidutbytesalgoritmer">
+		<Question>
+			Vad är en paging daemon?
+		</Question>
+		<Answer>
+			Det är en process som går i bakgrunden om utför två uppgifter:
+			[ul]
+				[li]När I/O enheten för att skriva sidor till sekundärminnet är ledig skriver modiferade sidor.[/li]
+				[li]Om det finns för få ledia ramar så släng ut en del sidor. Information om vilken sida som låg i ramen bör även sparas så om sidan refereras och ramen ej har laddat in en annan sida så kan den återanvändas.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidutbytesalgoritmer">
+		<Question>
+			Varför vill man kunna "låsa" vissa sidor i minnet?
+		</Question>
+		<Answer>
+			Det beror huvudsakligen av två skäl: effektivitet och att om koden som hanterar pagning byts ut, så kan inga nya sidor laddas in.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidutbytesalgoritmer">
+		<Question>
+			Vad är en lokal och global sidutbytesalgoritm?
+		</Question>
+		<Answer>
+			[b]Lokal[/b]
+			Letar endast efter sidor att slänga ut hos processen som fick sidfel.
+
+			[b]Global[/b]
+			Algoritmen kan välja vilken sida som helst att slänga ut.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidutbytesalgoritmer">
+		<Question>
+			Vad inenbär thrashing?
+		</Question>
+		<Answer>
+			Om processen spenderar mer tid på att byta sida än att exekverera.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sidutbytesalgoritmer">
+		<Question>
+			Vad kan vi göra för att motverka thrashing?
+		</Question>
+		<Answer>
+			Om en process får låg sidfelsfrekvens så ta ifrån den ramar.
+
+			[b]Lokal sidutbytesalgoritm[/b]
+			Om en process får en hög sidfelfrekvens:
+			[ul]
+				[li]Om det finns lediga ramar: låt den allokera flera.[/li]
+				[li]Om det inte finns ledia ramar: swappa ut den.[/li]
+			[/ul][b]Global sidutbytesalgoritm[/b]
+			Om systemet får en hög sidfelfrekvens:
+			[ul]
+				[li]Försök frigöra ramar.[/li]
+				[li]Går det inte: swappa ut processer.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Hur kan man öka effektiveten för anropen fork och exec i system med sidindelat minne?
+		</Question>
+		<Answer>
+			Istället för att kopiera föräldrarprocessens sidor så kopieras endast sidtabellen. Sidorna markeras då "copy-on-write" vilker innebär om en sida ändras av någon process så kopieras den.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			När fungerar virtuellt sidindelat minne dåligt?
+		</Question>
+		<Answer>
+			Om vi har för dålig lokalitet så kan det ge följande problem:
+			[ul]
+				[li]Många TLB-missar - ger sämre prestanda för att varje minnesaccess som ger upphov till en TLB-miss tar ungefär dubbelt så lång tid som om vi hade fått en träff istället.[/li]
+				[li]Kan också ge stort working-set vilket kan leda till många sidfel som tar lång tid att hantera (längre än en TLB-miss)[/li]
+			[/ul]Om man överlastar systemet så att working-set inte ryms i minnet vilket leder till thrasing.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Filsystem">
+		<Question>
+			Ange olika accessmetoder.
+		</Question>
+		<Answer>
+			[b]Sekvensiell access[/b]
+			Man läser/skriver en följd av bytes utan möjlighet att kunna positionera sig i filen. Ett exempel är I/O mot tangentbord.
+
+			[b]Random access[/b]
+			Man kan positionera sig i filen för skriving/läsning. T.ex. som en hårddisk.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Filsystem">
+		<Question>
+			Vad för accesskontroll finns det på ett UNIX system?
+		</Question>
+		<Answer>
+			För varje fil/katalog så kan rättigheter anges för tre olika domäner: User, Group, Other (alla användare). Det finns tre rättigheter: [b]r[/b]ead, [b]w[/b]rite och e[b]x[/b]ecute.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Filsystem">
+		<Question>
+			Varför tillåter man oftast inte cykler i katalogstrukturer?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Det blir svårare att göra vanliga operationer som t.ex. att lista innehåller i en katalog och dess underkataloger.[/li]
+				[li]Det kan behövas att man har en skrämpsamlare som tar hand om filer som inte kan ej komma åt. Om cykel får existera blir detta svårare.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Filsystem">
+		<Question>
+			Vad krävs innan ett filsystem kan användas?
+		</Question>
+		<Answer>
+			Det måste monteras.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Filsystem">
+		<Question>
+			Vad innebär minnesmappad I/O?
+		</Question>
+		<Answer>
+			Det innebär att istället för att läsa/skriva mot filsystemet så kan en process mapppa in en fil i sin adressrymd. Det inenbär att läsning/skrivning går mot minnet och det är MMU/bussen som hanterar faktiska I/O operationerna.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Filsystem">
+		<Question>
+			Ange metoder för att hantera allokering av utrymme för filer.
+		</Question>
+		<Answer>
+			[b]Kontinuerlig allokering[/b]
+			Det innebär att hela filen är allokerad i en linjär sekvens av bytes. Detta kan leda till fragmentering och problematisk att hantera filer som växer i storlek. Det används dock för filsystem som endast skrivs en gång, som t.ex. CD-ROM, DVD.
+
+			[b]Blockindelad allokering[/b]
+			Skivminnet delas in i lika stora block där blocken antigen hålls reda av en:
+			[ul]
+				[li]Länkad lista med pekare till nästa block.[/li]
+				[li]En separat tabell med pekare till blocken som hålls i minnet. Även känt som File Allocation Table (FAT).[/li]
+			[/ul]
+
+			[b]Indexerad allokering[/b]
+			Här sparar vi information i en nod, även kallad i-nod om vilka block som tillhör en specifik fil/katalog. I i-noden sparas även metadata som t.ex. ägaren, senast skapad, storlek, osv. Används i UNIX system.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Filsystem">
+		<Question>
+			Vad för datastrukturer finns normalt sätt i ett filsystem?
+		</Question>
+		<Answer>
+			[b]På disk[/b]
+			[ul]
+				[li]Master Boot Record (en per disk) - Anger vilket som är den aktiva partitionen. Programmet som finns på MBR laddar in boot blocket.[/li]
+				[li]Boot block - Det första blocket vilket är ett program som laddar in OS som finns på partitionen.[/li]
+				[li]Superblock - Anger hur partitonen är indelad i block, vilka ledia block det finns osv.[/li]
+				[li]File Control Blocks - i-noder.[/li]
+				[li]Eventuella katalogstukturer[/li]
+			[/ul][b]I minne[/b]
+			[ul]
+				[li]Partitionstabell: Information on monterade partitioner.[/li]
+				[li]Tabell med nyligen accesade kataloger[/li]
+				[li]Tabell över alla öppna filer med kopior av filernas FCB:er.[/li]
+				[li]Per process öppenn filtabel.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Filsystem">
+		<Question>
+			Varför måste filer öppnas/stängas?
+		</Question>
+		<Answer>
+			Öppna filen: För att kontrollera accessrätigheter.
+			Stänga filen: Om filen buffrats i minne så behövs bufferten skrivas till disk.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Filsystem">
+		<Question>
+			Hur håller man ordning på ledia block på disken?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Bitvektor (växer med diskstorleken och minskar med blockstorleken).[/li]
+				[li]Länkade listor. Dessa kan byggas in i de lediga blocken, vilket inte kräver något extra utrymme (utom pekaren givetvist).[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Filsystem">
+		<Question>
+			Vad är en mjuk och hård länk?
+		</Question>
+		<Answer>
+			En [i]länk[/i] är en fil som innehåller sökvägen till en annan fil eller katalog.
+
+			[b]Hård länk[/b]
+			Hård länkar som skapas av användare får endast peka ut filer för att undvika cykler. När en hård länk skapas så uppdateras räknaren i den utpekade filens [b]i-nod[/b] som anger hur många som refererar till filen. En fil kan inte tas bort så länge denna räknare är större än 0. Det finns alltid minst en hård länk till varje fil/katalog.
+			[b]Mjuk länk[/b]
+			En mjuk länk får peka ut både filer och kataloger. En mjuk länk påverkare [i]ej[/j] räknaren i i-noden.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Filsystem">
+		<Question>
+			Ange olika typer av backups som kan göras på ett filsystem.
+		</Question>
+		<Answer>
+			[b]Fysisk[/b]
+			Skriver alla block i följd till mediumet som backup görs på.
+
+			[b]Logisk (inkrementell)[/b]
+			Skriver endast alla filer/kataloger som har ändras till mediumet. I t.ex. UNIX så följs ej mjuka länkar när backup görs.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Filsystem">
+		<Question>
+			Ange olika typer av konsistenskontroller som kan göras på ett filsystem.
+		</Question>
+		<Answer>
+			[b]Block konsistens[/b]
+			Kontrollerar att alla diskblock finns [b]en[/b] gång i antigen listan över fria block, i en fil eller i listan med dåliga block.
+
+			[b]Filsystemskonsistens[/b]
+			Kontrollerar att räknaren för hur många som refererar till en fil stämmer överens med hur många referenser som finns från katalogstrukturen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Filsystem">
+		<Question>
+			Vad för datastruktur har kärnan för öppna filer i ett UNIX system?
+		</Question>
+		<Answer>
+			För varje process så finns en tabell över fildeskriptorer. En fildeskriptor är ett heltal, som pekar ut en post i tabellen över öppna filer som delas av alla processer. Tabellen innehåller t.ex. position i filen och pekare till i-noden.
 		</Answer>
 	</TestQuestion>
 </Test>
