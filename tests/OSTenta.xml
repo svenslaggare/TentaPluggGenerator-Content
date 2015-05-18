@@ -529,7 +529,7 @@
 			Det innebär att hela filen är allokerad i en linjär sekvens av bytes. Detta kan leda till fragmentering och problematisk att hantera filer som växer i storlek. Det används dock för filsystem som endast skrivs en gång, som t.ex. CD-ROM, DVD.
 
 			[b]Blockindelad allokering[/b]
-			Skivminnet delas in i lika stora block där blocken antigen hålls reda av en:
+			Skivminnet delas in i lika stora block där blocken antingen hålls reda av en:
 			[ul]
 				[li]Länkad lista med pekare till nästa block.[/li]
 				[li]En separat tabell med pekare till blocken som hålls i minnet. Även känt som File Allocation Table (FAT).[/li]
@@ -611,7 +611,7 @@
 		</Question>
 		<Answer>
 			[b]Block konsistens[/b]
-			Kontrollerar att alla diskblock finns [b]en[/b] gång i antigen listan över fria block, i en fil eller i listan med dåliga block.
+			Kontrollerar att alla diskblock finns [b]en[/b] gång i antingen listan över fria block, i en fil eller i listan med dåliga block.
 
 			[b]Filsystemskonsistens[/b]
 			Kontrollerar att räknaren för hur många som refererar till en fil stämmer överens med hur många referenser som finns från katalogstrukturen.
