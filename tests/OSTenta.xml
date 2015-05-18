@@ -589,8 +589,9 @@
 
 			[b]Hård länk[/b]
 			Hård länkar som skapas av användare får endast peka ut filer för att undvika cykler. När en hård länk skapas så uppdateras räknaren i den utpekade filens [b]i-nod[/b] som anger hur många som refererar till filen. En fil kan inte tas bort så länge denna räknare är större än 0. Det finns alltid minst en hård länk till varje fil/katalog.
+			
 			[b]Mjuk länk[/b]
-			En mjuk länk får peka ut både filer och kataloger. En mjuk länk påverkare [i]ej[/j] räknaren i i-noden.
+			En mjuk länk får peka ut både filer och kataloger. En mjuk länk påverkare [i]ej[/i] räknaren i i-noden.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Filsystem">
