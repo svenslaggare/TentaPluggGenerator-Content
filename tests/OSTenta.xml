@@ -514,14 +514,6 @@
 	</TestQuestion>
 	<TestQuestion Category="Filsystem">
 		<Question>
-			Vad innebär minnesmappad I/O?
-		</Question>
-		<Answer>
-			Det innebär att istället för att läsa/skriva mot filsystemet så kan en process mapppa in en fil i sin adressrymd. Det inenbär att läsning/skrivning går mot minnet och det är MMU/bussen som hanterar faktiska I/O operationerna.
-		</Answer>
-	</TestQuestion>
-	<TestQuestion Category="Filsystem">
-		<Question>
 			Ange metoder för att hantera allokering av utrymme för filer.
 		</Question>
 		<Answer>
@@ -533,9 +525,7 @@
 			[ul]
 				[li]Länkad lista med pekare till nästa block.[/li]
 				[li]En separat tabell med pekare till blocken som hålls i minnet. Även känt som File Allocation Table (FAT).[/li]
-			[/ul]
-
-			[b]Indexerad allokering[/b]
+			[/ul][b]Indexerad allokering[/b]
 			Här sparar vi information i en nod, även kallad i-nod om vilka block som tillhör en specifik fil/katalog. I i-noden sparas även metadata som t.ex. ägaren, senast skapad, storlek, osv. Används i UNIX system.
 		</Answer>
 	</TestQuestion>
@@ -589,7 +579,7 @@
 
 			[b]Hård länk[/b]
 			Hård länkar som skapas av användare får endast peka ut filer för att undvika cykler. När en hård länk skapas så uppdateras räknaren i den utpekade filens [b]i-nod[/b] som anger hur många som refererar till filen. En fil kan inte tas bort så länge denna räknare är större än 0. Det finns alltid minst en hård länk till varje fil/katalog.
-			
+
 			[b]Mjuk länk[/b]
 			En mjuk länk får peka ut både filer och kataloger. En mjuk länk påverkare [i]ej[/i] räknaren i i-noden.
 		</Answer>
@@ -624,6 +614,105 @@
 		</Question>
 		<Answer>
 			För varje process så finns en tabell över fildeskriptorer. En fildeskriptor är ett heltal, som pekar ut en post i tabellen över öppna filer som delas av alla processer. Tabellen innehåller t.ex. position i filen och pekare till i-noden.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IO">
+		<Question>
+			Ange de två huvudklasserna av I/O enheter.
+		</Question>
+		<Answer>
+			[b]Block-devices[/b]
+			Läser och skriver block data. Typiska operationer är: read, write och seek. Exempel på enheter är diskar och CD-romar.
+
+			[b]Character-devices[/b]
+			Skriver/läser en ström av tecken. Typiska operationer är: put och get. Exempel på enehter är tangentbord och nätverksenheter.
+
+			Det finns andra enheter som t.ex. klockor som ej passar in i dessa klasser. Av effektivitetsskäl så brukar nätverksenheter implementeras med andra operationer.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IO">
+		<Question>
+			Ange de två typer av I/O som kan utföras.
+		</Question>
+		<Answer>
+			[b]Blockerade (synkron)[/b]
+			Procseesen som begärt I/O väntar till dess att I/O operationen är klar. Oftast är läsning blockerade.
+
+			[b]Icke-blockerader (asynkron)[/b]
+			Processen som begärt I/O väntar inte på att I/O operationen ska bli klar. Oftast är skrivning icke-blockerade.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IO">
+		<Question>
+			Ange olika sätt att styra I/O enheter.
+		</Question>
+		<Answer>
+			[b]Minnesmappad I/O[/b]
+			Det innebär så mappas kontroll- och dataregisters adresser ifrån enheten in i den vanliga adressrymden. Det innebär att skrivning/läsning fungerar genom att en adress skrivs/läses.
+
+			[b]Ports[/b]
+			Varje I/O enhet får ett portnummer. Kontrollregistret för enheten läses/skrivs med speciella I/O instruktioner.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IO">
+		<Question>
+			Ange olika sätt för att vänta på I/O ska bli klart.
+		</Question>
+		<Answer>
+			[b]Programstyrd I/O (polling)[/b]
+			I/O enheten signalerar att den är klar genom att sätta en bit i ett av dess kontrollregister. Programmet som utfört I/O ligger sedan i en loop och läser av kontrollregistret för att upptäcka när I/O enheten är klar. 
+
+			Det är bra att använda när det behövs väntas kort tid på att enheten ska bli klar eller att det kostar för mycket för att ha avbrott eller DMA. Nackdelen med denna metod är att det belastar CPU. Om minnesmappad I/O används så får ej sidan som innehåller adressen där kontrollregistret mappats in cachas. Får då upptäcker man inte när enheten blir klar.
+
+			[b]Avbrottstyrd I/O[/b]
+			I/O enheten signalerar att den är klar genom att generera ett avbrott. En avbrottsrutin fångar sedan upp avbrottet och kontrollerar eventuella fel och ser till att en eventuellt blockerad process som cäntar på I/O hamnar i ready-kön. Nackdelen med avbrott är att det kostar hantera på grund av processbyte till avbrottshanteraren i kärnan krävs.
+
+			[b]Direct Memory Access (DMA)[/b]
+			Det innebär att en hårdvaruenhet kan överföra en mängd data till/från primärminnet och någon I/O enhet. Vid läsning går datan som läses in först till kernel-space som sedan kopieras till processens adressrymd. Vid skrivning så kopieras data ifrån processen till kernel-space. Onödig kopiering vid överföring kan undvikas genom att mappa om sidorna i sidtabellen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Avbrott">
+		<Question>
+			Vad för regel finns det för vad en avbrottsrutin får göra?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Får ej påverka processen som avbröts.[/li]
+				[li]Måste bli klar snabbt.[/li]
+				[li]Får ej vänta på något.[/li]
+				[li]Kan inte bli blockerad.[/li]
+				[li]Får inte generera sidfel.[/li]
+				[li]Får inte utföra systemanrop.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Avbrott">
+		<Question>
+			Vad innebär precisa och icke-precisa avbrott?
+		</Question>
+		<Answer>
+			[b]Precisa avbrott[/b]
+			Hårdvaran sparar undan ett väldefinerat tillstånd då avbrottet inträffade.
+
+			[b]Icke-precist avbrott[/b]
+			Avbrottsrutinen får reda ut tillståndet som t.ex. eventuella halvt utförda instruktioner etc.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IO">
+		<Question>
+			Vad är en drivrutin?
+		</Question>
+		<Answer>
+			Det är något som ger ett enklare gränsnitt mot hårdvaran och det OS:set som tillhandahåller ett väldefinerat gränsitt mot drivrutinerna. En drivrutin anropas indirekt av systemanrop.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IO">
+		<Question>
+			Vad innebär major och minor device number när det kommer till I/O enheter i UNIX?
+		</Question>
+		<Answer>
+			Major device number: identifierar drivrutinen som används.
+			Minor device number: identifierar enheten om drivrutinen hanterar flera enheter.
 		</Answer>
 	</TestQuestion>
 </Test>
