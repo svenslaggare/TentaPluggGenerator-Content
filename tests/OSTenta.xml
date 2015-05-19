@@ -715,4 +715,272 @@
 			Minor device number: identifierar enheten om drivrutinen hanterar flera enheter.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="TrådarOchMultiprocessorer">
+		<Question>
+			Vad är en tråd?
+		</Question>
+		<Answer>
+			En tråd kan ses som en lättviktsprocess som delar adressrymd med de andra trådarna i samma process. En tråd innehåller bland annat:
+			[ul]
+				[li]Programräknare.[/li]
+				[li]Register.[/li]
+				[li]Stack.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TrådarOchMultiprocessorer">
+		<Question>
+			Vad innebär en context switch?
+		</Question>
+		<Answer>
+			Det innebär att spara ner och återstålla tillståndet för en process eller tråd så att exekveringen kan fortsätt vid ett senare tillfälle.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TrådarOchMultiprocessorer">
+		<Question>
+			Vad innebär preemptive (avbrytade) schemaläggning?
+		</Question>
+		<Answer>
+			Det innebär att schemaläggaren kan avbryta en tråd som körs och återuppta den vid ett senare tillfälle.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TrådarOchMultiprocessorer">
+		<Question>
+			Hur fungerar trådar som är implementerade i user-space?
+		</Question>
+		<Answer>
+			Då är trådoperationerna biblioteksrutiner där trådarna schemaläggs av run-time systemet. All hantering av trådar (skapa/dödade/terminade) sköts av biblioteksrutiner och run-time systemet.
+
+			Fördelarna med trådar i user-space är det krävs mindre context switches och ett trådbyte kan ske utan systemanrop. Nackdelarna är om ett tråd blockeras så blockeras hela processen (inklusive alla andra trådar i processen). Det går även inte att uppnå sann parallellitet på multiprocesser och schemaläggningen är oftast icke avbrytade (none-preemptive).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TrådarOchMultiprocessorer">
+		<Question>
+			Hur fungerar trådar som är implementerade i kernel-space?
+		</Question>
+		<Answer>
+			Då är trådoperationerna systemanrop där trådarna schemaläggs av kärnan. All trådhantering hanteras via systemanrop och av kärnan.
+
+			Fördelarna med trådar i kernel-space är att de kan schemaläggs preemptiv. Om en tråd blockeras kan en annan tråd i samma process schemaläggas. Det går även att schemalägga olika trådar på olika processer för att uppnå sann parallellitet på multiprocesser. Nackdelarna är att trådoperationer är systemanrop som tar länge att utföra på grund av att context switchar behövs göras.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TrådarOchMultiprocessorer">
+		<Question>
+			Ange hur man kan kombinera trådar i user-space och i kernel-space.
+		</Question>
+		<Answer>
+			Man kan t.ex. mappa flera trådar i user-space till en tråd i kernel-space.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TrådarOchMultiprocessorer">
+		<Question>
+			Vad är en trådpool och varför vill man använda sig av det?
+		</Question>
+		<Answer>
+			En [i]trådpool[/i] är en grupp av trådar som när en tråd i poolen ej exekvererar ligger och sover. Istället för att skapa en ny tråd så låter man en tråd ifrån poolen att "vakna upp" för att utföra arbetet. Syftet med detta är att man vill minimera kostnanderna för att skapa trådar, vilet kan ta upp en stor del om arbetet som ska utföras är kort.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TrådarOchMultiprocessorer">
+		<Question>
+			Varför är det problematisk att utföra [i]fork[/i] och [i]exec[/i]] i flertrådadesystem?
+		</Question>
+		<Answer>
+			Det är för när en tråd utför [i]fork[/i] så finns det två val:
+			[ol]
+				[li]Den nya processen får en tråd.[/li]
+				[li]Den nya processen blir en exakt kopia av den gamla med lika många trådar.[/li]
+			[/ol]När det kommer till [i]exec[/i] så är det vanligast att hela processen (dvs alla trådar) börjar exekvera det nya programmet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TrådarOchMultiprocessorer">
+		<Question>
+			Vad innebär gängschemaläggning?
+		</Question>
+		<Answer>
+			Det innebär att alla trådar i en process kör samtidigt på olika CPU:er. Alla CPU:er byter också process samtidigt. Om en tråd blir blockerad så blir dess CPU idle så att inga andra trådar kan köras.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TrådarOchMultiprocessorer">
+		<Question>
+			Hur kan man implementera lås på multiprocessorer?
+		</Question>
+		<Answer>
+			Antag att [i]lock_ptr[/i] är adressen som vill låsa.
+			Lås:
+			[block]
+lock: test_and_set tmp, (lock_ptr)
+      branch_not_zero tmp, lock[/block]Lås upp:
+      		[block]
+unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är en maskininstruktion som:
+      		[ul]
+      			[li]Skriver värdet 1 till minnet på adress [i]lock_ptr[/i].[/li]
+      			[li]Läser in gamla värdet till registret [i]tmp[/i].[/li]
+      			[li]Låser bussen så att ingen annan processor kommer emellan.[/li]
+      		[/ul]Denna typ av lås, där man hoppar tillbaka och försöker igen kallas [i]spin-locks[/i]. Dessa lås är ej lämpliga för en-processormaskiner för att endast en annan process kan låsa upp låset (som ej kan köra samtidigt).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TrådarOchMultiprocessorer">
+		<Question>
+			Vad innebär falsk delning?
+		</Question>
+		<Answer>
+			Det innebär när två olika CPU:er vill skriva till två olika variabler som ligger på samma sida/samam cache linje. Detta innebär att båda cacherna måste tömas. Det händer vanligare vid större sidor/cache linjer och händer till en viss grad i alla cachar i multiprocessorer.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DistribueradeSystem">
+		<Question>
+			Vad är distribuerat system?
+		</Question>
+		<Answer>
+			Det är ett system som består av ett antal datorer som är sammankopplade med nätverk som inte delar fysisk minne och samverkar för att lösa ett problem, dvs fungerar som en enhet.
+
+			Termnologi som används när man diskuterar distribuerade system är:
+			[ul]
+				[li][b]Site:[/b] fysisk plats med en eller flera datorer.[/li]
+				[li][b]Host:[/b] dator på en site.[/li]
+				[li][b]Server:[/b] Dator som har en resurs/tillhandahåller en tjänst som en annan dator vill använda.[/li]
+				[li][b]Klient:[/b] Datorn som utnyttjar en tjänst hos en server.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DistribueradeSystem">
+		<Question>
+			Ange olika anledningar varför man vill ha ett distribuerat system.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Resursdelning.[/li]
+				[li]Uppsnabbning.[/li]
+				[li]Tillförlitlighet.[/li]
+				[li]Kommunikation.[/li]
+				[li]Pris-prestanda.[/li]
+				[li]Inkrementell uppdatering.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DistribueradeSystem">
+		<Question>
+			Ange designmål när det kommer till distribuerade system.
+		</Question>
+		<Answer>
+			[b]Transparens[/b]
+			Att systemet är distribuerat inte syns för användaren. Det finns olika typer av Transparens:
+			[ul]
+				[li]Namntransparens – namnet beror inte på var objektet finns.[/li]
+				[li]Platstransparens (location transparency) – man behöver inte veta var resurser finns[/li]
+				[li]Flyttransparens – användaren märker inte om resurser flyttar[/li]
+				[li]Replikationstransparens - användaren behöver inte fundera på om man arbetar men en lokal kopia[/li]
+				[li]Samtidighetstransparens - man behöver inte veta om att någon annan använder resurser samtidigt[/li]
+				[li]Parallelitetstransparens - man behöver inte veta om att ens program körs parallelt[/li]
+			[/ul][b]Feltolerans[/b]
+			[b]Skalbarhet[/b]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DistribueradeSystem">
+		<Question>
+			Att använda sig av caching i distribuerade filsystem är problematisk, varför?
+		</Question>
+		<Answer>
+			Det är för att filen som cachas kan ha ändrats av andra. Om flera cachar, med olika innehåller uppstår problem när man ska skriva till servern, vilken version ska användas? Det finns olika sätt hantera det som:
+
+			[b]Sekvensiell semantik (UNIX-semantik)[/b]
+			Det innebär att det logiskt sätt bara finns en kopia av varje fil. Denna semantik är svårt att implementera effektivit.
+
+			[b]Sessionssemantik[/b]
+			Det innebär att varje klient som har filen öppen logiskt sett har en lokal kopia. Ändringar görs till den lokala kopian och när filen stängs så skrivs kopian tillbaka till servern. AFS implementerar på ett ungefär denna semantik.
+
+			[b]Immutable (oförändlig)[/b]
+			Det innebär att filer inte ändras, utan varje nu version ersätter den gamla. Varje version har ett nummer.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DistribueradeSystem">
+		<Question>
+			Ange olika Cachekonsistensmekanismer för distribuerade system.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Write-through: Varje skriving skrivs direkt till servern.[/li]
+				[li]Delayed write: Ändringar skrivs periodvist t.ex. efter 30 sek.[/li]
+				[li]Write-on-close: Filen skrivs tillbaka när den stängs.[/li]
+				[li]Centralierad kontrol.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DistribueradeSystem">
+		<Question>
+			Hur kan man implementera UNIX-semantik?
+		</Question>
+		<Answer>
+			Varje klient får [i]tokens[/i] som ger rätt att använda en lokal kopia.
+			[ul]
+				[li]Flera klienter kan ha [i]lästokens[/i] till samma fil.[/li]
+				[li]Om en klient har [i]skrivtoken[/i] till en fil får inga andra klienter ha några tokens till den filen.[/li]
+				[li]Om man ej har token får man ej göra lokala operationer även om man har filen i cachen.[/li]
+				[li]Det är servern som håller reda på alla tokens som delats ut.[/li]
+			[/ul]Om en klient vill läsa en fil måste servern återkalla eventuellt utdelad skrivtoken:
+			[ul]
+				[li]Klient med skrivtoken ger ifrån sig detta tilsammans med alla nya data som den har skrivit.[/li]
+				[li]Servern uppdaterar filen med dessa nya datan och skickar ändringarna/hela filen till klienten som ville läsa.[/li]
+			[/ul]Om en klient vill skriva till en fil måste servern återkalla alla andra tokens.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DistribueradeSystem">
+		<Question>
+			Vad för för- och nackdelar finns det för filservar med och utan tillstånd?
+		</Question>
+		<Answer>
+			[b]Med tillstånd[/b]
+			Fördelar:
+			[ul]
+				[li]Kortare meddelanden från klienten.[/li]
+				[li]Kan ge bättre prestanda.[/li]
+				[li]Readahead möjligt.[/li]
+				[li]Lättare att koordinera idempotenta operationer (ger samma resultat oberoende av antalet upprepgningar).[/li]
+				[li]Enklare att låsa filer.[/li]
+			[/ul]Nackdelar:
+			[ul]
+				[li]Om klienten kraschar
+					[ul]
+						[li]Så kan filer bli öppna för evigt.[/li]
+						[li]Tillståndsinformation ligger kvar på servern och kan ej tas bort (minnesläckor).[/li]
+					[/ul]
+				[/li]
+				[li]
+					Om servern kraschar
+					[ul]
+						[li]Information om t.ex. filoffset försviner för klienter med öppna filer.[/li]
+						[li]Konsistensinformation (vilka klienter som har lokala kopior av filer) försvinner.[/li]
+					[/ul]
+				[/li]
+			[/ul][b]Utan tillstånd[/b]
+			Fördelar:
+			[ul]
+				[li]Feltolerans.[/li]
+				[li]Att öppna/stänga filer behövs ej.[/li]
+				[li]Kräver mindre minne för servern.[/li]
+				[li]Inge begränsningar på antalet öppnma filer.[/li]
+				[li]Inga problem om klienten kraschar.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Synkronisering">
+		<Question>
+			Hur kan en pipe användas för synkronisering?
+		</Question>
+		<Answer>
+			En pipe implementeras som en buffer i kärnan och har en fast storlek. Om en process vill skriva till en pipe vars buffer är full måste den vänta. Om en process vill läsa från en pipe vars buffer är tom måste den vänta. Detta är ett exempel på [i]synkronisering[/i].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Synkronisering">
+		<Question>
+			Vad är en semafor?
+		</Question>
+		<Answer>
+			En [i]semafor[/i] är en räknare som har operationerna:
+			[ul]
+				[li]Upp: öka värdet med ett.[/li]
+				[li]ner: Minska värdet med ett om det ej är noll, om så fall, vänta.[/li]
+			[/ul] En semaforoperation är atomisk, dvs att ingen annan tråd eller process kan komma emmelan.
+		</Answer>
+	</TestQuestion>
 </Test>

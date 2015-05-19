@@ -27,7 +27,7 @@ var ParserSettings = (function () {
         });
 
         bbTags["block"] = new BBTag("block", true, false, true, function (tag, content, attr) {
-            return "<blockTag>" + content + "</blockTag>";
+            return "<pre>" + content + "</pre>";
         });
 
         bbTags["img"] = new BBTag("img", true, false, false, function (tag, content, attr) {
