@@ -1071,4 +1071,59 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Någon av de låste processerna slås hjäl. Detta garanterar ej att baklåset låses upp direkt, men om fortsätter att slå hjäl processer så kommer det tillslut att låsas upp.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="Synkronisering">
+		<Question>
+			Hur fungerar Bankiralgoritmen?
+		</Question>
+		<Answer>
+			Det bygger på att systemet kan kontrollera schemaläggningen av processerna. Varje process måste anmäla sitt maximala resursbehov i förvag. Systemet ska alltid befinna sig i ett säker tillstånd vilket defineras som: Det finns en ordning i vilken procsserna kan köras som inte leder till låsning även om alla processer utnyttjar hela sitt maximala resursbehov. Om en process kommer med en begäran som skulle leda till att systemet hamnar i ett osäker tillstånd, så körs en annan process istället. Den uppskjutna begäran uppfylls senare.
+
+			Algoritmen går oftast inte att använda för i många fall så känner inte en process till hela sitt resursbehov innan programmet börjar exekverar.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Synkronisering">
+		<Question>
+			Vad kan man göra för att förhinda baklås?
+		</Question>
+		<Answer>
+			Se till att någon av Coffmans fyra villkor inte gäller.
+			[ul]
+				[li]Ej tillåta att en processer äger en resurs exklusivt utan alla resurser ska kunna delas. I de flesta faller går det inte att göra, men i vissa fall t.ex. med skrivare går det där man låter en process fungera som resurshanterare.[/li]
+				[li]Behåll och vänta: Kräv att en process släpper alla resurser när den begär en ny eller att den begär alla resurser på samma gång.[/li]
+				[li]Ingen konfiskering: Vissa resurser kan konfiskeras som t.ex. fysisk minne och processorn (om avbrytade schemaläggning används).[/li]
+				[li]Cirkulär väntan: Ge alla resurser ett nummer. Det är bara tillåtet att allokera resurser i en ökande ordning. En av de mest populära villkoren som man försöker ge sig på.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Synkronisering">
+		<Question>
+			Antag att man har lås för flera kritiska sektioner och flera processer använder flera av de kritiska sektionerna. Vad bör man då göra?
+		</Question>
+		<Answer>
+			Att man låser sektionerna i samma ordning, detta undvilker att baklås uppstår.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Synkronisering">
+		<Question>
+			Vad innebär livelock?
+		</Question>
+		<Answer>
+			Det innebär att en grupp av processer som exkeverar inte kommer vidare eftersom de hela tiden synkroniserar med varandra. Detta är svårt att upptäcka eftersom procsserna fortfarnade exekverar.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Synkronisering">
+		<Question>
+			Hur fungerar logiska klockor?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Varje process [math]i[/math] har en egen logisk klocka [math]T_i[/math].[/li]
+				[li]Vid varje lokal händelse i processen så sätts [math]T_i = T_i + 1[/math].[/li]
+				[li]När ett meddelande skickas till en anna process så uppdateras [math]T_i[/math] och skickas med meddelandet.[/li]
+				[li]När ett meddelande tas emot så uppdateras den lokala tiden till [math]max(text{lokaltid}+1, text{meddelandetid}+1)[/math][/li]	
+			[/ul]Detta ger en kausal ordning, dvs omen händelse [math]A[/math] orskat en händelse [math]B[/math] (direkt eller indirekt) så är tidsstämpeln för [math]A[/math] mindre än tidsstämpeln för [math]B[/math].
+
+			En total ordning av händelser kan uppnås om man t.ex. använder (unikt) ID för processer för att ordna händelser med samma tidsstämpel.
+		</Answer>
+	</TestQuestion>
 </Test>
