@@ -980,7 +980,95 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			[ul]
 				[li]Upp: öka värdet med ett.[/li]
 				[li]ner: Minska värdet med ett om det ej är noll, om så fall, vänta.[/li]
-			[/ul] En semaforoperation är atomisk, dvs att ingen annan tråd eller process kan komma emmelan.
+			[/ul] En semaforoperation är atomisk, dvs att ingen annan tråd eller process kan komma emellan.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Synkronisering">
+		<Question>
+			Vad innebär ett race-condition?
+		</Question>
+		<Answer>
+			Det innebär att två processer (eller trådar) tävlar om samma resurs.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Synkronisering">
+		<Question>
+			Vad är en kritisk sektion?
+		</Question>
+		<Answer>
+			Det är en sektion av kod där flera processer accessar samma resurs.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Synkronisering">
+		<Question>
+			Vad är ett baklås (deadlock)?
+		</Question>
+		<Answer>
+			Det innebär att en mängd processer [math]P[/math] så att varje [math]p in P[/math] väntar (är blockerad) på att någon händelse som endast kan orsakas av någon [math]p' in P[/math] körs. Orsaker till att någon process väntar är t.ex.:
+			[ul]
+				[li]I/O enheter: [math]p[/math] vill ha skrivaren som [math]p'[/math] har reserverat.[/li]
+				[li]Ömsesidig uteslutning: [math]p[/math] vill öppna en fil som [math]p'[/math] låst.[/li]
+				[li]Andra resurser: [math]p[/math] vill starta en process men processtabellen är full.[/li]
+				[li]Kommunikation: [math]p[/math] väntar på att [math]p'[/math] ska skicka ett meddelande.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Synkronisering">
+		<Question>
+			Vad är Coffmans villkor (för baklås)?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Ömsesidig uteslutning: Endast en process åt gången kan använda en resurs.[/li]
+				[li]Behåll och vänta: En process kan behålla (reserverade) resurser medan den vänta på att få andra.[/li]
+				[li]Ingen pre-emption (konfiskering): Resurser kan inte tas ifrån en process.[/li]
+				[li]Cirkulär väntan: Det måste finnas en cykel av processer där varje process väntar på att få en resurs av nästa.[/li]
+			[/ul]Resurser är saker som t.ex.: minne, diskenheter, lås, semaforer och meddelanden.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Synkronisering">
+		<Question>
+			Vad kan man göra för att hantera baklås?
+		</Question>
+		<Answer>
+			[b]Gör ingenting (strutsalgoritmen)[/b]
+			Anledingen för detta är att det är dyrt och krångligt att undvika/upptäcka baklås. Används i bland annat Unix.
+
+			[b]Detektering och återhämtning[/b]
+			Systemet håller reda på resursallokering och letar efter cykler. Används i VMS.
+
+			[b]Undvikande grnom försiktighet[/b]
+			Kräver begräsningar för användarprocesser.
+
+			[b]Förhindrade genom elimination av nödvändigt villkor[/b]
+			Kan inte alltid genomföras fullt ut, men kan användas för att eliminera vissa källor till baklås.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Synkronisering">
+		<Question>
+			Hur kan man upptäcka baklås?
+		</Question>
+		<Answer>
+			[b]Om det bara finns en enhet av varje resurs[/b]
+			Då är det ganska enkelt att implementera. Systemet håller reda på för varje process vilka resurser den har och vilka den väntar på. Om det finns cykler, så kan baklås existera. Det finns algoritmer som kan hitta cykler i linjär tid.
+
+			[b]Om det finns fler av varje resurs[/b]
+			Då blir det mycket mer komplicerat. En process som väntar på att få en resurs väntar på någon av de processer som ahr resursen ska släppa den. Den cirkulära väntan kan komma att brytas av att processer som är klara med användingen av en resurs släpper sina resurser. En lösning är att konstruera Bankiralgoritm tabeller.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Synkronisering">
+		<Question>
+			Hur kan man återhämta sig ifrån baklås?
+		</Question>
+		<Answer>
+			[b]Inför pre-emption (konfiskation)[/b]
+			Det innebär att man tar ifrån en process en resurs. T.ex. för fysisk minne kan man göra en page-out. 
+
+			[b]Roll-back (tillbakarullning)[/b]
+			Det innebär att man går tillbaka till en tidigare punkt i exekveringen och väljer en annan schemaläggning. Vissa operationer som har sidoeffekter t.ex. I/O är problematiskt att rulla tillbaka.
+
+			[b]Döda processer[/b]
+			Någon av de låste processerna slås hjäl. Detta garanterar ej att baklåset låses upp direkt, men om fortsätter att slå hjäl processer så kommer det tillslut att låsas upp.
 		</Answer>
 	</TestQuestion>
 </Test>
