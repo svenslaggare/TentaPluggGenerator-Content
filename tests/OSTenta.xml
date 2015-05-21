@@ -1184,4 +1184,140 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			En total ordning av händelser kan uppnås om man t.ex. använder (unikt) ID för processer för att ordna händelser med samma tidsstämpel.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="Säkerhet">
+		<Question>
+			Hur fungerar inloggning av användare med lösenord i UNIX?
+		</Question>
+		<Answer>
+			Lösenordet används som nyckel för att kryptera ett fixt datablock där datablocket är samma för alla användare. Lösenordsfilen består av par av (användarnamn, krypterat datablock). Vid inloggning så letar an fram användarnamnet och kontrollerar att de krypterade datablocket i lösenordsfilen är identisk med det som genererades vid inloggningen genom krypteringen med det lösenord som användaren gav.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Säkerhet">
+		<Question>
+			Se datasäkerhets tentan för mer information om säkert.
+		</Question>
+		<Answer>
+
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Fallstudie">
+		<Question>
+			Hur fungerar schemaläggning i UNIX?
+		</Question>
+		<Answer>
+			Det finns två nivåer av schemaläggning:
+			[ul]
+				[li]Lågnivå: Välj nästa process som ska exekevera av de som finns i minnet.[/li]
+				[li]Högnivå: Flytta processer till/från minnet (swapping).[/li]
+			[/ul][b]Lågnivå schemaläggning[/b]
+			[ul]
+				[li]Prioriteter: -20 – 20[/li]
+				[li]Procsser som körs i användarläge har positiva prioriteter, kernel negativa.[/li]
+				[li]Det finns en kö för varje prioritet där round-rbin används inom varje kö.[/li]
+				[li]En process kör sin tidskvanta (ca 100ms) eller till dess att den blockerar.[/li]
+				[li]En gång på per sekund så beräknas alla procssers prioriteter om enligt formeln: [math]text{prioritet}=text{CPU använding}+text{nice}+{basprioritet}[/math].[/li]
+			[/ul]Schemaläggningen är optimerad för interaktiva processer, dvs processer med mycket I/O.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Fallstudie">
+		<Question>
+			Hur fungerar schemaläggning i Linux?
+		</Question>
+		<Answer>
+			I Linux så schemaläggs trådar, inte processer. Det finns tre klasser av schemaläggningen: "Real-Time" FIFO, "Real-Time" round-robin (kan avbrytas av klockan) och timesharing. Prioriteten går ifrån 0-40 där prioriteten beräknas som: Grundprioritet + nice.
+
+			Alla processer har individuella tidskvaanta. Schemaläggningen baseras på "goodness" som beräknas för varje process vid varje schemaläggningstillfälle. Den beräknas enligt:
+			[i]Om den nuvarande klassen är realtid:[/i] [math]text{goodness} = 1000 + text{priority}[/math].
+			[i]Om tidskvatan inte är slut:[/i] [math]text{goodness} = text{quantum} + text{priority}[/math].
+			[i]Annars (dvs tidskvatan är slut)[/i]: [math]text{goodness} = 0[/math].
+
+			[b]Schemaläggningsalgoritmen fungerar på följande sätt:[/b]
+			CPUn tas från en tråd då:[ul]
+				[li]Den har förbrukat sitt tidskvanta.[/li]
+				[li]Den blockeras av t.ex. I/O eller synkronisering.[/li]
+				[li]En tråd med högre goodness blir körklar.[/li]
+			[/ul]När det inte längre finns några körbara processer (alla är blockerade eller har tidskvanta = 0) så beräknas tidskvanta enligt: [math]text{quantum}=text{quantum}/2+text{priority}[/math].
+
+			Schemaläggningen har följande egenskaper: Ger företrädde åt I/O bundna processer och CPU-budna processer får CPU-tid i förhållande till sina prioriteter. När flera processkorkärnor används så sker lastbalansering var 200ms mellan kärnorna och det finns möjlighet att ange vilken kärna som procesen får exekvera på.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Fallstudie">
+		<Question>
+			Hur fungerar schemaläggning i Windows?
+		</Question>
+		<Answer>
+			I Windows så schemaläggs trådar, inte processer. Ett högt numeriskt värde på prioriteten ger hög prioritet. Det finns 7 grundklasser för trådar (grundprioriteter) och 6 nivåer inom varje klass. Detta ger att prioriteten blir: [math]text{basprioritet}_1 - 42[/math]
+
+			Schemaläggningskoden körs:
+			Av en tråd om:
+			[ul]
+				[li]Tråden blockeras för I/O eller synkronisering.[/li]
+				[li]Tråden signalerar till ett objekt (t.ex. upp på en semafor).[/li]
+				[li]Trådens tidskvanta tar slut.[/li]
+			[/ul]Av andra delar om:
+			[ul]
+				[li]En I/O operation blir klar.[/li]
+				[li]En tidsbegränsad [i]wait[/i] blir klar.[/li]
+			[/ul]Den tråd som ska schemaläggas baseras på nuvarande prioritet som kan vara höfre än basprioriteten, upp till 15 där den normala basprioriteten är ca 8.
+			Prioriteten kan höjas hunder en period tills dess att tidkvanta tar slut, vid följande tillfällen:
+			[ul]
+				[li]I/O blir klar: disk ger +1, serieport +2, tangentbord +6 och ljudkort +8.[/li]
+				[li]När en händelse sker (väntan på semafor, lås, etc) vilket för förgrundsprocesser ger +2 och för andra processer +1.[/li]
+			[/ul]Schemaläggningen är självjusterade men administratören kan finjustera många parametrar. Den är optimerad interaktivitet i Professional utgåvorna och för throughput i server utgåvorna. När flera processorkärnor används så försöks tråden schemalägga på samma CPU för att återanvända cacheinnehåll.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Fallstudie">
+		<Question>
+			Hur hanteras det virtuella minnet i Windows?
+		</Question>
+		<Answer>
+			Det är indelat i sidor, som normalt är 4KB stora. Windows använder sig av ren demand paging (ingen pre-pagning.) En sida kan vara i tre tillstånd:
+			[ul]
+				[li]Free: Används inte (alla sidor är free från början).[/li]
+				[li]Committed: Sidan är mappad att innehålla data eller kod.[/li]
+				[li]Reserved: Sidan är reserverad och får inte användas om inte reservationen hävs. Kan t.ex. användas för att reservera utrymme på stacken.[/li]
+			[/ul] Det virtuella minnet kan delas in i icke-konsekutiva regioner.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Fallstudie">
+		<Question>
+			Hur fungerar delat minne i Windows?
+		</Question>
+		<Answer>
+			Processer kan mappa filer/minnesareor så att de kan delas. Vid skrivning till en minnesmappad fil/delad minnesarea så kan följande hända:
+			[ul]
+				[li]Om alla processer som delar arean tillåter skrivning så skrivningen till den delade arean.[/li]
+				[li]Om någon process bara t illåter läsning skapas en kopia då skrivningen sker (copy-on-write).[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Fallstudie">
+		<Question>
+			När kan det uppstå sidfel i Windows?
+		</Question>
+		<Answer>
+			[ol]
+				[li]Sidan är inte "commited" [math]\rightarrow[/math] fatalt fel.[/li]
+				[li]"protection violation" [math]\rightarrow[/math] fatalt fel.[/li]
+				[li]En delad sida skrivs, kan resultera i "copy-on-write".[/li]
+				[li]Stacken behöver utökas, en ny [i]nollställd[/i] ram allokeras.[/li]
+				[li]En "committed" ram behöver mappas in [math]~~[/math] vanligt sidfel.[/li]
+			[/ol]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Fallstudie">
+		<Question>
+			Hur fungerar sidutbytesalgoritmen i Windows?
+		</Question>
+		<Answer>
+			Det är en lokal sidutbytesalgoritm som används, som baseras på working set. Per process så finns minimalt 20-50 ramar och maximalt 45-345 ramar. Gränserna kan temporärt under/överskridas. Minst 512 lediga ramar skall finnas för nya processer.
+
+			Det finns även global algoritm som består av:
+			[ul]
+				[li]En kärntråd "balance set manager" som kontrollerar att det finns tillräckligt många ledia ramar globalt sett, annars startas "working set manager".[/li]
+				[li]Working set manager: Tar (baserat på en heuristik) ramar från först: icke-aktiva processer, stora processer, processer med fler ramar än minimalt antal och föregrundsprocesser.[/li]
+				[li]Den kan även justera antalet ramar till under det minimala antalet ramar för processen.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
 </Test>
