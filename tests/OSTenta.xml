@@ -86,6 +86,64 @@
 			Det är en process som har körts klart, men som fortfarande har en post i processtabellen. Varför det kan uppstå är på grund av att göra det möjligt för föräldrarprocesser att veta varför en barnprocess terminerade. Posten frigörs genom att anropa [i]wait[/i] på processen som terminerade.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="Schemaläggning">
+		<Question>
+			Ange olika mål för olika typer av system när det kommer till schemaläggning.
+		</Question>
+		<Answer>
+			[b]Allmänt[/b]
+			[ul]
+				[li]Rättvis.[/li]
+				[li]Implementera policy.[/li]
+				[li]Balans - alla delar av systemet ska utnyttjas.[/li]
+			[/ul][b]Batchsystem[/b]
+			[ul]
+				[li]Maximera throughput.[/li]
+				[li]Minimera turnaroundtid.[/li]
+				[li]Maximera utnyttade av CPUn.[/li]
+			[/ul][b]Interaktiva system[/b]
+			[ul]
+				[li]Minimera responstiden.[/li]
+				[li]Proportionalitet – möt användarens förväntningar.[/li]
+			[/ul][b]Realtidssystem[/b]
+			[ul]
+				[li]Klara deadlines[/li]
+				[li]Förutsägbarhet[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Schemaläggning">
+		<Question>
+			Hur fungerar Shortest Job First (SJF) som schemaläggningsalgoritm?
+		</Question>
+		<Answer>
+			Om vi i[b]förväg[/b] vet hur lång varje process exekeveringstid kommer bli kan SJF användas. Då ordnar man processerna i ordning från processer med kortaste exekveringstid till processer med längst. Denna algoritm är optimal med avseende på kortast medelsluttid.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Schemaläggning">
+		<Question>
+			Vad är avbrytade schemaläggning (preemptive scheduling)?
+		</Question>
+		<Answer>
+			Det är när en exekverande provess kan avbrytas (dvs gå ifrån tillståndet running till ready) utan processen själv har bett om det. En process kan avbrytas t.ex. om: den kört för länge/förbrukat sitt tidskvanta eller om en process med högre prioritet blir körbar.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Schemaläggning">
+		<Question>
+			Hur fungerar schemaläggning med tidsdelning (time-slicing)?
+		</Question>
+		<Answer>
+			Det innebär att alla processer får en viss tid som de får köra, t.ex. 100ms. Alla processer som är i tillståndet READY ligger i den så kallade [i]ready-kön[/i]. Efter en process har körts så läggs den sist i ready-kön och den som ligger först får köra. Den tid som en process får köra kallas för [i]time slice[/i]. För att uppnå bra prestanda krävs en rimlig relation mellan time-slice och tiden för en context-switch.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Schemaläggning">
+		<Question>
+			Vad innebär svältning när det kommer till schemaläggning?
+		</Question>
+		<Answer>
+			Det innebär att en process(er) [i]aldrig[/i] får köra för att andra processer har högre prioritet. Detta kan t.ex. lösas genom att ge processer som fått vänta längre högre prioritet temporärt.
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
 		<Question>
 			Vad innebär dynamisk laddning och dynamisk länkning?
