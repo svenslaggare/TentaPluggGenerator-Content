@@ -117,7 +117,7 @@
 			Hur fungerar Shortest Job First (SJF) som schemaläggningsalgoritm?
 		</Question>
 		<Answer>
-			Om vi i[b]förväg[/b] vet hur lång varje process exekeveringstid kommer bli kan SJF användas. Då ordnar man processerna i ordning från processer med kortaste exekveringstid till processer med längst. Denna algoritm är optimal med avseende på kortast medelsluttid.
+			Om vi i [b]förväg[/b] vet hur lång varje process exekeveringstid kommer bli så kan SJF användas. Då ordnar man processerna i ordning från processer med kortaste exekveringstid till processer med längst. Denna algoritm är optimal med avseende på kortast medelsluttid.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Schemaläggning">
@@ -197,7 +197,7 @@
 			Elementen i listan består av hål (ledigt utrymme) där varje hål innehåller: Startadress, storlek och pekare till nästa element.	Hur listan skall sorteras beror på vilken allokeringsmetod som används.
 
 			[b]Bitmap[/b]
-			Minnet delas upp i lika stora "allokeringsenheter" där en bitvektor används där 0 betyder att enheten är ledig och 1 upptagen för enhet [i]i[/i]. Val av storleken på allokeringsenheten blir då viktig där för liten innebär att bitmappen blir för stor medans en för står leder till intern fragmentering.
+			Minnet delas upp i lika stora "allokeringsenheter" där en bitvektor används där 0 betyder att enheten är ledig och 1 upptagen för enhet [i]i[/i]. Val av storleken på allokeringsenheten blir då viktig där för liten innebär att bitmappen blir för stor medans en för stor leder till intern fragmentering.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -248,7 +248,7 @@
 			Vad innebär en miss i TLBn?
 		</Question>
 		<Answer>
-			Det innebär att den sida som efterfrågas ej finns i TLB. Detta innebär att sidtabellen som finns i primärtminnet måste accessas. Efter det så uppdateras TLB (om sidan var giltig) genom att slänga ut en ogiltig eller gammal post. För de flesta arkitekturer sker hantering i MMU men i vissa arkitekturer som t.ex. SPARC sker det i mjukvara. Detta är för att det mycket komplext vilket tar upp mycket utrymme i hårdvåran.
+			Det innebär att den sida som efterfrågas ej finns i TLB. Detta innebär att sidtabellen som finns i primärtminnet måste accessas. Efter det så uppdateras TLB (om sidan var giltig) genom att slänga ut en ogiltig eller gammal post. För de flesta arkitekturer sker hantering i MMU men i vissa arkitekturer som t.ex. SPARC sker det i mjukvara. Detta är för att TLB är mycket komplext vilket tar upp mycket utrymme i hårdvåran.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -262,7 +262,7 @@
 			Då kan vi hämta (i sidtabellen) vilket ram som adressen tillhör. När vi har ramnumret och offseten, kan vi hämta den fysiska adressen.
 
 			[b]Fler-nivåers sidtabell[/b]
-			Då består sidtabellen av flera nivåer. Syftet med en fler-nivåers sidtabell är att undvika att allokera alla möjliga sidpr för sidtabellen, vilket kan ta upp mycket utrymme och är opraktiskt för 64-bits system. För att få en rimlig storlek på den yttersta sidtabellen krävs minst 5-7 nivåer, men detta blir istället för ineffektivt.
+			Då består sidtabellen av flera nivåer. Syftet med en fler-nivåers sidtabell är att undvika att allokera alla möjliga sidor för sidtabellen, vilket kan ta upp mycket utrymme och är opraktiskt för 64-bits system. För att få en rimlig storlek på den yttersta sidtabellen krävs minst 5-7 nivåer, men detta blir istället för ineffektivt.
 
 			Exempel:
 			Antag att vi har en tvånivåers sidtabell. Om vi antar att vi har en logisk adressrymd med storleken [math]2^m[/math], sidstorleken [math]2^n[/math] och storleken på en post i sidtabellen: [math]2^e[/math]. Den inre sidtabellen kommer då att ha [math]2^(n-e)[/math] poster per sida och den yttre sidtabellen kommer då att ha [math]2^(m-2n-e)[/math] positioner.
@@ -329,10 +329,10 @@
 	</TestQuestion>
 	<TestQuestion Category="Sidutbytesalgoritmer">
 		<Question>
-			Vad är ett working set?
+			Vad är working set?
 		</Question>
 		<Answer>
-			Den uppsättning sidor som en process refererar, dvs behöver för att kunna exekevera under en (liten) tidsrymd [math]T[/math]. Det mest intressanta med working set är dess storlek. Om en process inte har tillgång till så många ramar som storleken på dess working set så kommer det att genereras många sidfel. 
+			Det är uppsättning sidor som en process refererar, dvs behöver för att kunna exekevera under en (liten) tidsrymd [math]T[/math]. Det mest intressanta med working set är dess storlek. Om en process inte har tillgång till så många ramar som storleken på dess working set så kommer det att genereras många sidfel. 
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sidutbytesalgoritmer">
@@ -594,17 +594,17 @@
 		<Answer>
 			[b]På disk[/b]
 			[ul]
-				[li]Master Boot Record (en per disk) - Anger vilket som är den aktiva partitionen. Programmet som finns på MBR laddar in boot blocket.[/li]
+				[li]Master Boot Record (en per disk) - Anger vilken som är den aktiva partitionen. Programmet som finns på MBR laddar in boot blocket.[/li]
 				[li]Boot block - Det första blocket vilket är ett program som laddar in OS som finns på partitionen.[/li]
 				[li]Superblock - Anger hur partitonen är indelad i block, vilka ledia block det finns osv.[/li]
 				[li]File Control Blocks - i-noder.[/li]
-				[li]Eventuella katalogstukturer[/li]
+				[li]Eventuella katalogstukturer.[/li]
 			[/ul][b]I minne[/b]
 			[ul]
 				[li]Partitionstabell: Information on monterade partitioner.[/li]
-				[li]Tabell med nyligen accesade kataloger[/li]
+				[li]Tabell med nyligen accesade kataloger-[/li]
 				[li]Tabell över alla öppna filer med kopior av filernas FCB:er.[/li]
-				[li]Per process öppenn filtabel.[/li]
+				[li]Per process tabell för öppna filer.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -706,7 +706,7 @@
 		</Question>
 		<Answer>
 			[b]Minnesmappad I/O[/b]
-			Det innebär så mappas kontroll- och dataregisters adresser ifrån enheten in i den vanliga adressrymden. Det innebär att skrivning/läsning fungerar genom att en adress skrivs/läses.
+			Det innebär att kontroll- och dataregisters adresser ifrån enheten mappas in i den vanliga adressrymden. Det innebär att skrivning/läsning fungerar genom att en adress skrivs/läses.
 
 			[b]Ports[/b]
 			Varje I/O enhet får ett portnummer. Kontrollregistret för enheten läses/skrivs med speciella I/O instruktioner.
@@ -720,10 +720,10 @@
 			[b]Programstyrd I/O (polling)[/b]
 			I/O enheten signalerar att den är klar genom att sätta en bit i ett av dess kontrollregister. Programmet som utfört I/O ligger sedan i en loop och läser av kontrollregistret för att upptäcka när I/O enheten är klar. 
 
-			Det är bra att använda när det behövs väntas kort tid på att enheten ska bli klar eller att det kostar för mycket för att ha avbrott eller DMA. Nackdelen med denna metod är att det belastar CPU. Om minnesmappad I/O används så får ej sidan som innehåller adressen där kontrollregistret mappats in cachas. Får då upptäcker man inte när enheten blir klar.
+			Det är bra att använda när det behövs väntas kort tid på att enheten ska bli klar eller att det kostar för mycket för att ha avbrott eller DMA. Nackdelen med denna metod är att det belastar CPU. Om minnesmappad I/O används så får ej sidan som innehåller adressen där kontrollregistret mappats in cachas, för då upptäcks inte att enheten blivit klar.
 
 			[b]Avbrottstyrd I/O[/b]
-			I/O enheten signalerar att den är klar genom att generera ett avbrott. En avbrottsrutin fångar sedan upp avbrottet och kontrollerar eventuella fel och ser till att en eventuellt blockerad process som cäntar på I/O hamnar i ready-kön. Nackdelen med avbrott är att det kostar hantera på grund av processbyte till avbrottshanteraren i kärnan krävs.
+			I/O enheten signalerar att den är klar genom att generera ett avbrott. En avbrottsrutin fångar sedan upp avbrottet och kontrollerar eventuella fel och ser till att en eventuellt blockerad process som väntar på I/O hamnar i ready-kön. Nackdelen med avbrott är att det kostar hantera på grund av processbyte till avbrottshanteraren i kärnan krävs.
 
 			[b]Direct Memory Access (DMA)[/b]
 			Det innebär att en hårdvaruenhet kan överföra en mängd data till/från primärminnet och någon I/O enhet. Vid läsning går datan som läses in först till kernel-space som sedan kopieras till processens adressrymd. Vid skrivning så kopieras data ifrån processen till kernel-space. Onödig kopiering vid överföring kan undvikas genom att mappa om sidorna i sidtabellen.
@@ -731,7 +731,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Avbrott">
 		<Question>
-			Vad för regel finns det för vad en avbrottsrutin får göra?
+			Vad för regeler finns det för vad en avbrottsrutin får göra?
 		</Question>
 		<Answer>
 			[ul]
@@ -791,7 +791,7 @@
 			Vad innebär en context switch?
 		</Question>
 		<Answer>
-			Det innebär att spara ner och återstålla tillståndet för en process eller tråd så att exekveringen kan fortsätt vid ett senare tillfälle.
+			Det innebär att vi sparar ner och återställer tillståndet för en process eller tråd så att exekveringen kan fortsätt vid ett senare tillfälle.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TrådarOchMultiprocessorer">
@@ -807,9 +807,9 @@
 			Hur fungerar trådar som är implementerade i user-space?
 		</Question>
 		<Answer>
-			Då är trådoperationerna biblioteksrutiner där trådarna schemaläggs av run-time systemet. All hantering av trådar (skapa/dödade/terminade) sköts av biblioteksrutiner och run-time systemet.
+			Då är trådoperationerna biblioteksrutiner där trådarna schemaläggs av run-time systemet. All hantering av trådar (skapa/dödade/terminade) sköts av biblioteksrutiner och av run-time systemet.
 
-			Fördelarna med trådar i user-space är det krävs mindre context switches och ett trådbyte kan ske utan systemanrop. Nackdelarna är om ett tråd blockeras så blockeras hela processen (inklusive alla andra trådar i processen). Det går även inte att uppnå sann parallellitet på multiprocesser och schemaläggningen är oftast icke avbrytade (none-preemptive).
+			Fördelarna med trådar i user-space är det krävs mindre context switches och ett trådbyte kan ske utan systemanrop. Nackdelarna är om ett tråd blockeras så blockeras även hela processen (inklusive alla andra trådar i processen). Det går även inte att uppnå sann parallellitet på multiprocesser och schemaläggningen är oftast icke avbrytade (none-preemptive).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TrådarOchMultiprocessorer">
@@ -835,12 +835,12 @@
 			Vad är en trådpool och varför vill man använda sig av det?
 		</Question>
 		<Answer>
-			En [i]trådpool[/i] är en grupp av trådar som när en tråd i poolen ej exekvererar ligger och sover. Istället för att skapa en ny tråd så låter man en tråd ifrån poolen att "vakna upp" för att utföra arbetet. Syftet med detta är att man vill minimera kostnanderna för att skapa trådar, vilet kan ta upp en stor del om arbetet som ska utföras är kort.
+			En [i]trådpool[/i] är en grupp av trådar som när en tråd i poolen ej exekvererar ligger och sover. Istället för att skapa en ny tråd så låter man en tråd ifrån poolen att "vakna upp" för att utföra arbetet. Syftet med detta är att man vill minimera kostnanderna för att skapa trådar, vilket kan ta upp en stor del om arbetet som ska utföras är kort.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TrådarOchMultiprocessorer">
 		<Question>
-			Varför är det problematisk att utföra [i]fork[/i] och [i]exec[/i]] i flertrådadesystem?
+			Varför är det problematisk att utföra [i]fork[/i] och [i]exec[/i] i flertrådadesystem?
 		</Question>
 		<Answer>
 			Det är för när en tråd utför [i]fork[/i] så finns det två val:
@@ -882,7 +882,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Vad innebär falsk delning?
 		</Question>
 		<Answer>
-			Det innebär när två olika CPU:er vill skriva till två olika variabler som ligger på samma sida/samam cache linje. Detta innebär att båda cacherna måste tömas. Det händer vanligare vid större sidor/cache linjer och händer till en viss grad i alla cachar i multiprocessorer.
+			Det innebär när två olika CPU:er vill skriva till två olika variabler som ligger på samma sida/samma cache linje, vilket innebär att båda cacherna måste tömas. Det händer vanligare vid större sidor/cache linjer och händer till en viss grad i alla cachar i multiprocessorer.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DistribueradeSystem">
@@ -960,7 +960,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]Write-through: Varje skriving skrivs direkt till servern.[/li]
 				[li]Delayed write: Ändringar skrivs periodvist t.ex. efter 30 sek.[/li]
 				[li]Write-on-close: Filen skrivs tillbaka när den stängs.[/li]
-				[li]Centralierad kontrol.[/li]
+				[li]Centraliserad kontrol.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -1036,8 +1036,8 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 		<Answer>
 			En [i]semafor[/i] är en räknare som har operationerna:
 			[ul]
-				[li]Upp: öka värdet med ett.[/li]
-				[li]ner: Minska värdet med ett om det ej är noll, om så fall, vänta.[/li]
+				[li]Upp: Öka värdet med ett.[/li]
+				[li]Ner: Minska värdet med ett om det ej är noll, om så fall, vänta.[/li]
 			[/ul] En semaforoperation är atomisk, dvs att ingen annan tråd eller process kan komma emellan.
 		</Answer>
 	</TestQuestion>
@@ -1166,7 +1166,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Vad innebär livelock?
 		</Question>
 		<Answer>
-			Det innebär att en grupp av processer som exkeverar inte kommer vidare eftersom de hela tiden synkroniserar med varandra. Detta är svårt att upptäcka eftersom procsserna fortfarnade exekverar.
+			Det innebär att en grupp av processer som exekverar inte kommer vidare eftersom de hela tiden synkroniserar med varandra. Detta är svårt att upptäcka eftersom procsserna fortfarnade exekverar.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Synkronisering">
@@ -1177,9 +1177,9 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			[ul]
 				[li]Varje process [math]i[/math] har en egen logisk klocka [math]T_i[/math].[/li]
 				[li]Vid varje lokal händelse i processen så sätts [math]T_i = T_i + 1[/math].[/li]
-				[li]När ett meddelande skickas till en anna process så uppdateras [math]T_i[/math] och skickas med meddelandet.[/li]
+				[li]När ett meddelande skickas till en annan process så uppdateras [math]T_i[/math] och skickas med meddelandet.[/li]
 				[li]När ett meddelande tas emot så uppdateras den lokala tiden till [math]max(text{lokaltid}+1, text{meddelandetid}+1)[/math][/li]	
-			[/ul]Detta ger en kausal ordning, dvs omen händelse [math]A[/math] orskat en händelse [math]B[/math] (direkt eller indirekt) så är tidsstämpeln för [math]A[/math] mindre än tidsstämpeln för [math]B[/math].
+			[/ul]Detta ger en kausal ordning, dvs om en händelse [math]A[/math] orskat en händelse [math]B[/math] (direkt eller indirekt) så är tidsstämpeln för [math]A[/math] mindre än tidsstämpeln för [math]B[/math].
 
 			En total ordning av händelser kan uppnås om man t.ex. använder (unikt) ID för processer för att ordna händelser med samma tidsstämpel.
 		</Answer>
@@ -1213,9 +1213,9 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			[ul]
 				[li]Prioriteter: -20 – 20[/li]
 				[li]Procsser som körs i användarläge har positiva prioriteter, kernel negativa.[/li]
-				[li]Det finns en kö för varje prioritet där round-rbin används inom varje kö.[/li]
+				[li]Det finns en kö för varje prioritet där round-robin används inom varje kö.[/li]
 				[li]En process kör sin tidskvanta (ca 100ms) eller till dess att den blockerar.[/li]
-				[li]En gång på per sekund så beräknas alla procssers prioriteter om enligt formeln: [math]text{prioritet}=text{CPU använding}+text{nice}+{basprioritet}[/math].[/li]
+				[li]En gång per sekund så beräknas alla procssers prioriteter om enligt formeln: [math]text{prioritet}=text{CPU använding}+text{nice}+text{basprioritet}[/math].[/li]
 			[/ul]Schemaläggningen är optimerad för interaktiva processer, dvs processer med mycket I/O.
 		</Answer>
 	</TestQuestion>
@@ -1258,8 +1258,8 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			[ul]
 				[li]En I/O operation blir klar.[/li]
 				[li]En tidsbegränsad [i]wait[/i] blir klar.[/li]
-			[/ul]Den tråd som ska schemaläggas baseras på nuvarande prioritet som kan vara höfre än basprioriteten, upp till 15 där den normala basprioriteten är ca 8.
-			Prioriteten kan höjas hunder en period tills dess att tidkvanta tar slut, vid följande tillfällen:
+			[/ul]Den tråd som ska schemaläggas baseras på nuvarande prioritet som kan vara högre än basprioriteten, upp till 15 där den normala basprioriteten är ca 8.
+			Prioriteten kan höjas under en period tills dess att tidkvanta tar slut, vid följande tillfällen:
 			[ul]
 				[li]I/O blir klar: disk ger +1, serieport +2, tangentbord +6 och ljudkort +8.[/li]
 				[li]När en händelse sker (väntan på semafor, lås, etc) vilket för förgrundsprocesser ger +2 och för andra processer +1.[/li]
@@ -1287,7 +1287,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Processer kan mappa filer/minnesareor så att de kan delas. Vid skrivning till en minnesmappad fil/delad minnesarea så kan följande hända:
 			[ul]
 				[li]Om alla processer som delar arean tillåter skrivning så skrivningen till den delade arean.[/li]
-				[li]Om någon process bara t illåter läsning skapas en kopia då skrivningen sker (copy-on-write).[/li]
+				[li]Om någon process bara tillåter läsning skapas en kopia då skrivningen sker (copy-on-write).[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
