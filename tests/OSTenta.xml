@@ -837,9 +837,7 @@
 			Vad är en trådpool och varför vill man använda sig av det?
 		</Question>
 		<Answer>
-			En [i]trådpool[/i] är en grupp av trådar som när en tråd i poolen ej exekvererar ligger och sover. Istället för att skapa en ny tråd så låter man en tråd ifrån poolen att "vakna upp" för att utföra arbetet. Syftet med detta är att man vill minimera kostnaderna för att skapa trådar, vilket kan ta upp en stor del om arbetet som ska utföras är kort.
-			
-			Tottes förslag: En [i]trådpool[/i] är en grupp av trådar som samverkar med varandra, där trådarna i väntan på förfrågningar ligger och sover. När en förfrågan kommer så väcks en tråd i poolen som behandlar förfrågan, innan den lägger sig och sover igen. Syftet med detta är att man vill undvika att skapa nya trådar för alla nya förfrågningar, eftersom det tar tid att skapa trådar och dessutom kan minnet ta slut.
+			En [i]trådpool[/i] är en grupp av trådar som samverkar med varandra, där trådarna i väntan på förfrågningar ligger och sover. När en förfrågan kommer så väcks en tråd i poolen som behandlar förfrågan, innan den lägger sig och sover igen. Syftet med detta är att man vill undvika att skapa nya trådar för alla nya förfrågningar, eftersom det tar tid att skapa trådar.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TrådarOchMultiprocessorer">
