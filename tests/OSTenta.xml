@@ -20,15 +20,15 @@
 			Varför används processmodellen?
 		</Question>
 		<Answer>
-			På grund av att ett program under körning har inkapslats av en process så blir det lättare att tillåta multiprogrammering, dvs att flera program kör "samtidigt". Det ger även bättre feltolerans vilket innebär om en process kraschar så behöver ej hela operativsystemet krascha.
+			På grund av att ett program under körning har inkapslats av en process så blir det lättare att tillåta multiprogrammering, dvs att flera program kör "samtidigt". Det ger även bättre feltolerans vilket innebär att om en process kraschar så behöver ej hela operativsystemet krascha.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Processer">
 		<Question>
-			Hur skapas nya processer i UNIX system?
+			Hur skapas nya processer i UNIX-system?
 		</Question>
 		<Answer>
-			Nya processer skapas med hjälp av systemanropet [i]fork()[/i] vilket skapar en kopia av den körande processen. Vanligtvist vill man att en den nya processen kör ett annat program, vilket görs med systemanrop ur familjen [i]exec[/i] vilket byter ut den nuvarande programmet emot ett annat.
+			Nya processer skapas med hjälp av systemanropet [i]fork()[/i] vilket skapar en kopia av den körande processen. Vanligtvist vill man att en den nya processen kör ett annat program, vilket görs med systemanrop ur familjen [i]exec[/i] vilket byter ut det nuvarande programmet emot ett annat.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Processer">
@@ -50,7 +50,7 @@
 			Vad är skillnaden mellan en förgrundsprocess och bakgrundsprocess (i UNIX)?
 		</Question>
 		<Answer>
-			En process som körs i förgrunden är den process som man arbetar interaktivt med medans en process som körs i bakgrunden arbetar man ej interaktivt med. Det går även se det som att när en process körs i förgrunden finns det en annan process (föräldern) som väntar på att den ska avslutas medans när den körs i bakgrunden så väntar ingen process.
+			En process som körs i förgrunden är den process som man arbetar interaktivt med, något man inte gör med en bakgrundsprocess. Det går även att se det som att när en process körs i förgrunden finns det en annan process (föräldern) som väntar på att den ska avslutas. Det finns det inte när den körs i bakgrunden.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Processer">
@@ -58,7 +58,7 @@
 			Vad är en "daemon" i UNIX?
 		</Question>
 		<Answer>
-			Det är en bakgrundsprocess. Dessa processer utför oftast system åtgärder,
+			Det är en bakgrundsprocess. Dessa processer utför oftast systemåtgärder.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Processer">
@@ -66,7 +66,7 @@
 			Ange de tillstånd som en process kan vara i.
 		</Question>
 		<Answer>
-			Det finns tre tillstånd: Running, Blocked och Ready.
+			Det finns tre tillstånd: running, blocked och ready.
 			[img width="50%" height="50%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/ProcessStates.png[/img]
 		</Answer>
 	</TestQuestion>
@@ -75,15 +75,15 @@
 			Vad för abstraktion används för att hålla reda på processer i systemet?
 		</Question>
 		<Answer>
-			En så kallad [i]processtabell[/i] där varje process blir en post i tabellen som kallas för Process Controll Block (PCB). Information som lagras i denna post är process ID, prioritet, tillstånd, register, text, data, osv.
+			En så kallad [i]processtabell[/i] där varje process blir en post i tabellen som kallas för Process Controll Block (PCB). Information som lagras i denna post är process-ID (pid), prioritet, tillstånd, register, text, data, m.m.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Processer">
 		<Question>
-			Vad är en "zombie" process?
+			Vad är en "zombie-process"?
 		</Question>
 		<Answer>
-			Det är en process som har körts klart, men som fortfarande har en post i processtabellen. Varför det kan uppstå är på grund av att göra det möjligt för föräldrarprocesser att veta varför en barnprocess terminerade. Posten frigörs genom att anropa [i]wait[/i] på processen som terminerade.
+			Det är en process som har körts klart, men som fortfarande har en post i processtabellen. Det kan uppstå eftersom det är möjligt för föräldrarprocesser att veta varför en barnprocess terminerade. Posten frigörs genom att anropa [i]wait[/i] på processen som terminerade.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Schemaläggning">
@@ -95,11 +95,11 @@
 			[ul]
 				[li]Rättvis.[/li]
 				[li]Implementera policy.[/li]
-				[li]Balans - alla delar av systemet ska utnyttjas.[/li]
+				[li]Balans – alla delar av systemet ska utnyttjas.[/li]
 			[/ul][b]Batchsystem[/b]
 			[ul]
 				[li]Maximera throughput.[/li]
-				[li]Minimera turnaroundtid.[/li]
+				[li]Minimera turnaround-tid.[/li]
 				[li]Maximera utnyttade av CPUn.[/li]
 			[/ul][b]Interaktiva system[/b]
 			[ul]
@@ -117,7 +117,7 @@
 			Hur fungerar Shortest Job First (SJF) som schemaläggningsalgoritm?
 		</Question>
 		<Answer>
-			Om vi i [b]förväg[/b] vet hur lång varje process exekeveringstid kommer bli så kan SJF användas. Då ordnar man processerna i ordning från processer med kortaste exekveringstid till processer med längst. Denna algoritm är optimal med avseende på kortast medelsluttid.
+			Om vi i [b]förväg[/b] vet hur lång varje process exekeveringstid kommer bli så kan SJF användas. Då ordnar man processerna i ordning från processer med kortaste exekveringstid till processer med längst. Denna algoritm är optimal med avseende på kortast medelsluttid. Det är även bra om man i förväg känner till alla jobb som ska utföras, så det inte dyker upp nya med tiden. Om så är fallet kan [i]svältning[/i] uppstå om korta jobb hela tiden kommer in och lägger sig innan de längre jobben.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Schemaläggning">
