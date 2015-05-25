@@ -844,10 +844,10 @@
 	</TestQuestion>
 	<TestQuestion Category="TrådarOchMultiprocessorer">
 		<Question>
-			Varför är det problematisk att utföra [i]fork[/i] och [i]exec[/i] i flertrådadesystem?
+			Varför är det problematisk att utföra [i]fork[/i] och [i]exec[/i] i flertrådade system?
 		</Question>
 		<Answer>
-			Det är för när en tråd utför [i]fork[/i] så finns det två val:
+			Det beror på att det finns två val när en tråd utför [i]fork[/i]:
 			[ol]
 				[li]Den nya processen får en tråd.[/li]
 				[li]Den nya processen blir en exakt kopia av den gamla med lika många trådar.[/li]
@@ -859,7 +859,7 @@
 			Vad innebär gängschemaläggning?
 		</Question>
 		<Answer>
-			Det innebär att alla (eller så många som går) trådar i en process kör samtidigt på olika CPU:er. Alla CPU:er byter också process samtidigt. Om en tråd blir blockerad så blir dess CPU idle så att inga andra trådar kan köras. Syfter är att minimera tiden som trådarna behöver vänta på varandra om de kommunicerar/synkroniserar med varandra.
+			Det innebär att alla (eller så många som möjligt) trådar i en process kör samtidigt på olika CPU:er. Alla CPU:er byter också process samtidigt. Om en tråd blir blockerad så blir dess CPU idle så att inga andra trådar kan köras. Syfter är att minimera tiden som trådarna behöver vänta på varandra om de kommunicerar/synkroniserar med varandra.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TrådarOchMultiprocessorer">
@@ -868,17 +868,18 @@
 		</Question>
 		<Answer>
 			Antag att [i]lock_ptr[/i] är adressen som vill låsa.
+			
 			Lås:
 			[block]
-lock: test_and_set tmp, (lock_ptr)
-      branch_not_zero tmp, lock[/block]Lås upp:
+lock: test_and_set	tmp, (lock_ptr)
+      branch_not_zer	tmp, lock[/block]Lås upp:
       		[block]
 unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är en maskininstruktion som:
       		[ul]
       			[li]Skriver värdet 1 till minnet på adress [i]lock_ptr[/i].[/li]
       			[li]Läser in gamla värdet till registret [i]tmp[/i].[/li]
       			[li]Låser bussen så att ingen annan processor kommer emellan.[/li]
-      		[/ul]Denna typ av lås, där man hoppar tillbaka och försöker igen kallas [i]spin-locks[/i]. Dessa lås är ej lämpliga för en-processormaskiner för att endast en annan process kan låsa upp låset (som ej kan köra samtidigt).
+      		[/ul]Denna typ av lås, där man hoppar tillbaka och försöker igen, kallas [i]spin-locks[/i]. Dessa lås är ej lämpliga för en-processormaskiner eftersom endast en annan process kan låsa upp låset (som ej kan köra samtidigt).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TrådarOchMultiprocessorer">
@@ -886,20 +887,20 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Vad innebär falsk delning?
 		</Question>
 		<Answer>
-			Det innebär när två olika CPU:er vill skriva till två olika variabler som ligger på samma sida/samma cache linje, vilket innebär att båda cacherna måste tömas. Det händer vanligare vid större sidor/cache linjer och händer till en viss grad i alla cachar i multiprocessorer.
+			Det är när två olika CPU:er vill skriva till två olika variabler som ligger på samma sida/cache-linje, vilket innebär att båda cacherna måste tömas. Det händer oftare vid större sidor/cache-linjer och händer till en viss grad i alla cachar i multiprocessorer.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DistribueradeSystem">
 		<Question>
-			Vad är distribuerat system?
+			Vad är ett distribuerat system?
 		</Question>
 		<Answer>
-			Det är ett system som består av ett antal datorer som är sammankopplade med nätverk som inte delar fysisk minne och samverkar för att lösa ett problem, dvs fungerar som en enhet.
+			Det är ett system som består av ett antal datorer som är sammankopplade med nätverk som inte delar fysiskt minne och samverkar för att lösa ett problem, dvs fungerar som en enhet.
 
-			Termnologi som används när man diskuterar distribuerade system är:
+			Terminologi som används när man diskuterar distribuerade system är:
 			[ul]
-				[li][b]Site:[/b] fysisk plats med en eller flera datorer.[/li]
-				[li][b]Host:[/b] dator på en site.[/li]
+				[li][b]Site:[/b] Fysisk plats med en eller flera datorer.[/li]
+				[li][b]Host:[/b] Dator på en site.[/li]
 				[li][b]Server:[/b] Dator som har en resurs/tillhandahåller en tjänst som en annan dator vill använda.[/li]
 				[li][b]Klient:[/b] Datorn som utnyttjar en tjänst hos en server.[/li]
 			[/ul]
@@ -926,14 +927,14 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 		</Question>
 		<Answer>
 			[b]Transparens[/b]
-			Att systemet är distribuerat inte syns för användaren. Det finns olika typer av Transparens:
+			Att systemet är distribuerat inte syns för användaren. Det finns olika typer av transparens:
 			[ul]
 				[li]Namntransparens – namnet beror inte på var objektet finns.[/li]
-				[li]Platstransparens (location transparency) – man behöver inte veta var resurser finns[/li]
-				[li]Flyttransparens – användaren märker inte om resurser flyttar[/li]
-				[li]Replikationstransparens - användaren behöver inte fundera på om man arbetar men en lokal kopia[/li]
-				[li]Samtidighetstransparens - man behöver inte veta om att någon annan använder resurser samtidigt[/li]
-				[li]Parallelitetstransparens - man behöver inte veta om att ens program körs parallelt[/li]
+				[li]Platstransparens (location transparency) – man behöver inte veta var resurser finns.[/li]
+				[li]Flyttransparens – användaren märker inte om resurser flyttar.[/li]
+				[li]Replikationstransparens – användaren behöver inte fundera på om man arbetar men en lokal kopia.[/li]
+				[li]Samtidighetstransparens – man behöver inte veta om att någon annan använder resurser samtidigt.[/li]
+				[li]Parallelitetstransparens – man behöver inte veta om att ens program körs parallellt.[/li]
 			[/ul][b]Feltolerans[/b]
 			[b]Skalbarhet[/b]
 		</Answer>
@@ -943,28 +944,28 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Att använda sig av caching i distribuerade filsystem är problematisk, varför?
 		</Question>
 		<Answer>
-			Det är för att filen som cachas kan ha ändrats av andra. Om flera cachar, med olika innehåller uppstår problem när man ska skriva till servern, vilken version ska användas? Det finns olika sätt hantera det som:
+			Det är för att filen som cachas kan ha ändrats av andra. Om flera cachar finns, med olika innehåll, uppstår problem när man ska skriva till servern. Vilken version ska användas? Det finns olika sätt hantera det som:
 
 			[b]Sekvensiell semantik (UNIX-semantik)[/b]
-			Det innebär att det logiskt sätt bara finns en kopia av varje fil. Denna semantik är svårt att implementera effektivit.
+			Det innebär att det logiskt sett bara finns en kopia av varje fil. Denna semantik är svår att implementera effektivt.
 
 			[b]Sessionssemantik[/b]
 			Det innebär att varje klient som har filen öppen logiskt sett har en lokal kopia. Ändringar görs till den lokala kopian och när filen stängs så skrivs kopian tillbaka till servern. AFS implementerar på ett ungefär denna semantik.
 
 			[b]Immutable (oförändlig)[/b]
-			Det innebär att filer inte ändras, utan varje nu version ersätter den gamla. Varje version har ett nummer.
+			Det innebär att filer inte ändras, utan varje ny version ersätter den gamla. Varje version har ett nummer.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DistribueradeSystem">
 		<Question>
-			Ange olika Cachekonsistensmekanismer för distribuerade system.
+			Ange olika cachekonsistensmekanismer för distribuerade system.
 		</Question>
 		<Answer>
 			[ul]
-				[li]Write-through: Varje skriving skrivs direkt till servern.[/li]
-				[li]Delayed write: Ändringar skrivs periodvist t.ex. efter 30 sek.[/li]
-				[li]Write-on-close: Filen skrivs tillbaka när den stängs.[/li]
-				[li]Centraliserad kontrol.[/li]
+				[li][b]Write-through:[/b] Varje skriving skrivs direkt till servern.[/li]
+				[li][b]Delayed write:[/b] Ändringar skrivs periodvis. T.ex. efter 30 sekunder.[/li]
+				[li][b]Write-on-close:[/b] Filen skrivs tillbaka när den stängs.[/li]
+				[li][b]Centraliserad kontroll.[/b][/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -997,7 +998,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]Kortare meddelanden från klienten.[/li]
 				[li]Kan ge bättre prestanda.[/li]
 				[li]Readahead möjligt.[/li]
-				[li]Lättare att koordinera idempotenta operationer (ger samma resultat oberoende av antalet upprepgningar).[/li]
+				[li]Lättare att koordinera idempotenta operationer (ger samma resultat oberoende av antalet upprepningar).[/li]
 				[li]Enklare att låsa filer.[/li]
 			[/ul]Nackdelar:
 			[ul]
@@ -1020,7 +1021,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]Feltolerans.[/li]
 				[li]Att öppna/stänga filer behövs ej.[/li]
 				[li]Kräver mindre minne för servern.[/li]
-				[li]Inge begränsningar på antalet öppnma filer.[/li]
+				[li]Inge begränsningar på antalet öppna filer.[/li]
 				[li]Inga problem om klienten kraschar.[/li]
 			[/ul]
 		</Answer>
@@ -1038,7 +1039,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Hur kan en pipe användas för synkronisering?
 		</Question>
 		<Answer>
-			En pipe implementeras som en buffer i kärnan och har en fast storlek. Om en process vill skriva till en pipe vars buffer är full måste den vänta. Om en process vill läsa från en pipe vars buffer är tom måste den vänta. Detta är ett exempel på [i]synkronisering[/i].
+			En pipe implementeras som en buffert i kärnan och har en fast storlek. Om en process vill skriva till en pipe vars buffert är full måste den vänta. Om en process vill läsa från en pipe vars buffert är tom måste den vänta. Detta är ett exempel på [i]synkronisering[/i].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Synkronisering">
@@ -1049,7 +1050,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			En [i]semafor[/i] är en räknare som har operationerna:
 			[ul]
 				[li]Upp: Öka värdet med ett.[/li]
-				[li]Ner: Minska värdet med ett om det ej är noll, om så fall, vänta.[/li]
+				[li]Ner: Minska värdet med ett om det ej är noll. Om så är fallet, vänta.[/li]
 			[/ul] En semaforoperation är atomisk, dvs att ingen annan tråd eller process kan komma emellan.
 		</Answer>
 	</TestQuestion>
@@ -1076,7 +1077,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 		<Answer>
 			Det innebär att en mängd processer [math]P[/math] så att varje [math]p in P[/math] väntar (är blockerad) på att någon händelse som endast kan orsakas av någon [math]p' in P[/math] körs. Orsaker till att någon process väntar är t.ex.:
 			[ul]
-				[li]I/O enheter: [math]p[/math] vill ha skrivaren som [math]p'[/math] har reserverat.[/li]
+				[li]I/O-enheter: [math]p[/math] vill ha skrivaren som [math]p'[/math] har reserverat.[/li]
 				[li]Ömsesidig uteslutning: [math]p[/math] vill öppna en fil som [math]p'[/math] låst.[/li]
 				[li]Andra resurser: [math]p[/math] vill starta en process men processtabellen är full.[/li]
 				[li]Kommunikation: [math]p[/math] väntar på att [math]p'[/math] ska skicka ett meddelande.[/li]
@@ -1090,7 +1091,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 		<Answer>
 			[ul]
 				[li]Ömsesidig uteslutning: Endast en process åt gången kan använda en resurs.[/li]
-				[li]Behåll och vänta: En process kan behålla (reserverade) resurser medan den vänta på att få andra.[/li]
+				[li]Behåll och vänta: En process kan behålla (reserverade) resurser medan den väntar på att få andra.[/li]
 				[li]Ingen pre-emption (konfiskering): Resurser kan inte tas ifrån en process.[/li]
 				[li]Cirkulär väntan: Det måste finnas en cykel av processer där varje process väntar på att få en resurs av nästa.[/li]
 			[/ul]Resurser är saker som t.ex.: minne, diskenheter, lås, semaforer och meddelanden.
@@ -1107,7 +1108,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			[b]Detektering och återhämtning[/b]
 			Systemet håller reda på resursallokering och letar efter cykler. Används i VMS.
 
-			[b]Undvikande grnom försiktighet[/b]
+			[b]Undvikande genom försiktighet[/b]
 			Kräver begräsningar för användarprocesser.
 
 			[b]Förhindrade genom elimination av nödvändigt villkor[/b]
@@ -1123,7 +1124,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Då är det ganska enkelt att implementera. Systemet håller reda på för varje process vilka resurser den har och vilka den väntar på. Om det finns cykler, så kan baklås existera. Det finns algoritmer som kan hitta cykler i linjär tid.
 
 			[b]Om det finns fler av varje resurs[/b]
-			Då blir det mycket mer komplicerat. En process som väntar på att få en resurs väntar på någon av de processer som har resursen ska släppa den. Den cirkulära väntan kan komma att brytas av att processer som är klara med användingen av en resurs släpper sina resurser. En lösning är att konstruera Bankiralgoritm tabeller.
+			Då blir det mycket mer komplicerat. En process som väntar på att få en resurs väntar på någon av de processer som har resursen ska släppa den. Den cirkulära väntan kan komma att brytas av att processer som är klara med användingen av en resurs släpper sina resurser. En lösning är att konstruera Bankiralgoritm-tabeller.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Synkronisering">
@@ -1135,10 +1136,10 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Det innebär att man tar ifrån en process en resurs. T.ex. för fysisk minne kan man göra en page-out. 
 
 			[b]Roll-back (tillbakarullning)[/b]
-			Det innebär att man går tillbaka till en tidigare punkt i exekveringen och väljer en annan schemaläggning. Vissa operationer som har sidoeffekter t.ex. I/O är problematiskt att rulla tillbaka.
+			Det innebär att man går tillbaka till en tidigare punkt i exekveringen och väljer en annan schemaläggning. Vissa operationer som har sidoeffekter, t.ex. I/O, är problematiskt att rulla tillbaka.
 
 			[b]Döda processer[/b]
-			Någon av de låste processerna slås hjäl. Detta garanterar ej att baklåset låses upp direkt, men om fortsätter att slå hjäl processer så kommer det tillslut att låsas upp.
+			Någon av de låsta processerna slås hjäl. Detta garanterar ej att baklåset låses upp direkt, men om man fortsätter att slå ihjäl processer så kommer det till slut att låsas upp.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Synkronisering">
@@ -1146,9 +1147,9 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Hur fungerar Bankiralgoritmen?
 		</Question>
 		<Answer>
-			Det bygger på att systemet kan kontrollera schemaläggningen av processerna. Varje process måste anmäla sitt maximala resursbehov i förvag. Systemet ska alltid befinna sig i ett säker tillstånd vilket definieras som: Det finns en ordning i vilken procsserna kan köras som inte leder till låsning även om alla processer utnyttjar hela sitt maximala resursbehov. Om en process kommer med en begäran som skulle leda till att systemet hamnar i ett osäker tillstånd, så körs en annan process istället. Den uppskjutna begäran uppfylls senare.
+			Det bygger på att systemet kan kontrollera schemaläggningen av processerna. Varje process måste anmäla sitt maximala resursbehov i förväg. Systemet ska alltid befinna sig i ett säkert tillstånd, vilket definieras som: Det finns en ordning i vilken procsserna kan köras som inte leder till låsning även om alla processer utnyttjar hela sitt maximala resursbehov. Om en process kommer med en begäran som skulle leda till att systemet hamnar i ett osäkert tillstånd så körs en annan process istället. Den uppskjutna begäran uppfylls senare.
 
-			Algoritmen går oftast inte att använda för i många fall så känner inte en process till hela sitt resursbehov innan programmet börjar exekverar.
+			Algoritmen går oftast inte att använda eftersom en process sällan känner till hela sitt resursbehov innan programmet börjar exekvera.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Synkronisering">
@@ -1156,11 +1157,11 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Vad kan man göra för att förhinda baklås?
 		</Question>
 		<Answer>
-			Se till att någon av Coffmans fyra villkor inte gäller.
+			Se till att något av Coffmans fyra villkor inte gäller.
 			[ul]
-				[li]Ej tillåta att en processer äger en resurs exklusivt utan alla resurser ska kunna delas. I de flesta faller går det inte att göra, men i vissa fall t.ex. med skrivare går det där man låter en process fungera som resurshanterare.[/li]
+				[li]Ej tillåta att en processer äger en resurs exklusivt utan alla resurser ska kunna delas. I de flesta faller går det inte att göra men i vissa fall, t.ex. med skrivare, går det där man låter en process fungera som resurshanterare.[/li]
 				[li]Behåll och vänta: Kräv att en process släpper alla resurser när den begär en ny eller att den begär alla resurser på samma gång.[/li]
-				[li]Ingen konfiskering: Vissa resurser kan konfiskeras som t.ex. fysisk minne och processorn (om avbrytade schemaläggning används).[/li]
+				[li]Ingen konfiskering: Vissa resurser kan konfiskeras som t.ex. fysiskt minne och processorn (om avbrytande schemaläggning används).[/li]
 				[li]Cirkulär väntan: Ge alla resurser ett nummer. Det är bara tillåtet att allokera resurser i en ökande ordning. En av de mest populära villkoren som man försöker ge sig på.[/li]
 			[/ul]
 		</Answer>
@@ -1193,7 +1194,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]När ett meddelande tas emot så uppdateras den lokala tiden till [math]max(text{lokaltid}+1, text{meddelandetid}+1)[/math][/li]	
 			[/ul]Detta ger en kausal ordning, dvs om en händelse [math]A[/math] orskat en händelse [math]B[/math] (direkt eller indirekt) så är tidsstämpeln för [math]A[/math] mindre än tidsstämpeln för [math]B[/math].
 
-			En total ordning av händelser kan uppnås om man t.ex. använder (unikt) ID för processer för att ordna händelser med samma tidsstämpel.
+			En total ordning av händelser kan uppnås om man t.ex. använder ett (unikt) ID för processer för att ordna händelser med samma tidsstämpel.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Säkerhet">
@@ -1201,12 +1202,12 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Hur fungerar inloggning av användare med lösenord i UNIX?
 		</Question>
 		<Answer>
-			Lösenordet används som nyckel för att kryptera ett fixt datablock där datablocket är samma för alla användare. Lösenordsfilen består av par av (användarnamn, krypterat datablock). Vid inloggning så letar an fram användarnamnet och kontrollerar att de krypterade datablocket i lösenordsfilen är identisk med det som genererades vid inloggningen genom krypteringen med det lösenord som användaren gav.
+			Lösenordet används som nyckel för att kryptera ett fixt datablock där datablocket är samma för alla användare. Lösenordsfilen består av par av (användarnamn, krypterat datablock). Vid inloggning så letar man fram användarnamnet och kontrollerar att det krypterade datablocket i lösenordsfilen är identiskt med det som genererades vid inloggningen genom krypteringen med det lösenord som användaren gav.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Säkerhet">
 		<Question>
-			Se datasäkerhets tentan för mer information om säkert.
+			Se Datasäkerhetstentan för mer information om säkert.
 		</Question>
 		<Answer>
 
@@ -1226,8 +1227,8 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]Prioriteter: -20 – 20[/li]
 				[li]Procsser som körs i användarläge har positiva prioriteter, kernel negativa.[/li]
 				[li]Det finns en kö för varje prioritet där round-robin används inom varje kö.[/li]
-				[li]En process kör sin tidskvanta (ca 100ms) eller till dess att den blockerar.[/li]
-				[li]En gång per sekund så beräknas alla procssers prioriteter om enligt formeln: [math]text{prioritet}=text{CPU använding}+text{nice}+text{basprioritet}[/math].[/li]
+				[li]En process kör sin tidskvanta (ca 100 ms) eller till dess att den blockerar.[/li]
+				[li]En gång per sekund så beräknas alla procssers prioriteter om enligt formeln: [math]text{prioritet}=text{CPU-använding}+text{nice}+text{basprioritet}[/math].[/li]
 			[/ul]Schemaläggningen är optimerad för interaktiva processer, dvs processer med mycket I/O.
 		</Answer>
 	</TestQuestion>
@@ -1238,7 +1239,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 		<Answer>
 			I Linux så schemaläggs trådar, inte processer. Det finns tre klasser av schemaläggningen: "Real-Time" FIFO, "Real-Time" round-robin (kan avbrytas av klockan) och timesharing. Prioriteten går ifrån 0-40 där prioriteten beräknas som: Grundprioritet + nice.
 
-			Alla processer har individuella tidskvaanta. Schemaläggningen baseras på "goodness" som beräknas för varje process vid varje schemaläggningstillfälle. Den beräknas enligt:
+			Alla processer har individuella tidskvanta. Schemaläggningen baseras på "goodness" som beräknas för varje process vid varje schemaläggningstillfälle. Den beräknas enligt:
 			[i]Om den nuvarande klassen är realtid:[/i] [math]text{goodness} = 1000 + text{priority}[/math].
 			[i]Om tidskvatan inte är slut:[/i] [math]text{goodness} = text{quantum} + text{priority}[/math].
 			[i]Annars (dvs tidskvatan är slut)[/i]: [math]text{goodness} = 0[/math].
@@ -1250,7 +1251,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]En tråd med högre goodness blir körklar.[/li]
 			[/ul]När det inte längre finns några körbara processer (alla är blockerade eller har tidskvanta = 0) så beräknas tidskvanta enligt: [math]text{quantum}=text{quantum}/2+text{priority}[/math].
 
-			Schemaläggningen har följande egenskaper: Ger företrädde åt I/O bundna processer och CPU-budna processer får CPU-tid i förhållande till sina prioriteter. När flera processkorkärnor används så sker lastbalansering var 200ms mellan kärnorna och det finns möjlighet att ange vilken kärna som procesen får exekvera på.
+			Schemaläggningen har följande egenskaper: Ger företräde åt I/O-bundna processer och CPU-bundna processer får CPU-tid i förhållande till sina prioriteter. När flera processorkärnor används så sker lastbalansering var 200 ms mellan kärnorna och det finns möjlighet att ange vilken kärna som procesen får exekvera på.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Fallstudie">
@@ -1268,14 +1269,13 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]Trådens tidskvanta tar slut.[/li]
 			[/ul]Av andra delar om:
 			[ul]
-				[li]En I/O operation blir klar.[/li]
+				[li]En I/O-operation blir klar.[/li]
 				[li]En tidsbegränsad [i]wait[/i] blir klar.[/li]
-			[/ul]Den tråd som ska schemaläggas baseras på nuvarande prioritet som kan vara högre än basprioriteten, upp till 15 där den normala basprioriteten är ca 8.
-			Prioriteten kan höjas under en period tills dess att tidkvanta tar slut, vid följande tillfällen:
+			[/ul]Den tråd som ska schemaläggas baseras på nuvarande prioritet som kan vara högre än basprioriteten, upp till 15 där den normala basprioriteten är ca 8. Prioriteten kan höjas under en period tills dess att tidkvanta tar slut, vid följande tillfällen:
 			[ul]
 				[li]I/O blir klar: disk ger +1, serieport +2, tangentbord +6 och ljudkort +8.[/li]
 				[li]När en händelse sker (väntan på semafor, lås, etc) vilket för förgrundsprocesser ger +2 och för andra processer +1.[/li]
-			[/ul]Schemaläggningen är självjusterade men administratören kan finjustera många parametrar. Den är optimerad interaktivitet i Professional utgåvorna och för throughput i server utgåvorna. När flera processorkärnor används så försöks tråden schemalägga på samma CPU för att återanvända cacheinnehåll.
+			[/ul]Schemaläggningen är självjusterade men administratören kan finjustera många parametrar. Den är optimerad för interaktivitet i Professional-utgåvorna och för throughput i serverutgåvorna. När flera processorkärnor används så försöker tråden schemalägga på samma CPU för att återanvända cacheinnehåll.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Fallstudie">
@@ -1283,7 +1283,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Hur hanteras det virtuella minnet i Windows?
 		</Question>
 		<Answer>
-			Det är indelat i sidor, som normalt är 4KB stora. Windows använder sig av ren demand paging (ingen pre-pagning.) En sida kan vara i tre tillstånd:
+			Det är indelat i sidor, som normalt är 4 KB stora. Windows använder sig av ren demand paging (ingen pre-pagning.) En sida kan vara i tre tillstånd:
 			[ul]
 				[li]Free: Används inte (alla sidor är free från början).[/li]
 				[li]Committed: Sidan är mappad att innehålla data eller kod.[/li]
@@ -1298,7 +1298,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 		<Answer>
 			Processer kan mappa filer/minnesareor så att de kan delas. Vid skrivning till en minnesmappad fil/delad minnesarea så kan följande hända:
 			[ul]
-				[li]Om alla processer som delar arean tillåter skrivning så skrivningen till den delade arean.[/li]
+				[li]Om alla processer som delar arean tillåter skrivning så sker skrivningen till den delade arean.[/li]
 				[li]Om någon process bara tillåter läsning skapas en kopia då skrivningen sker (copy-on-write).[/li]
 			[/ul]
 		</Answer>
@@ -1310,7 +1310,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 		<Answer>
 			[ol]
 				[li]Sidan är inte "commited" [math]\rightarrow[/math] fatalt fel.[/li]
-				[li]"protection violation" [math]\rightarrow[/math] fatalt fel.[/li]
+				[li]"Protection violation" [math]\rightarrow[/math] fatalt fel.[/li]
 				[li]En delad sida skrivs, kan resultera i "copy-on-write".[/li]
 				[li]Stacken behöver utökas, en ny [i]nollställd[/i] ram allokeras.[/li]
 				[li]En "committed" ram behöver mappas in [math]~~[/math] vanligt sidfel.[/li]
@@ -1322,11 +1322,11 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Hur fungerar sidutbytesalgoritmen i Windows?
 		</Question>
 		<Answer>
-			Det är en lokal sidutbytesalgoritm som används, som baseras på working set. Per process så finns minimalt 20-50 ramar och maximalt 45-345 ramar. Gränserna kan temporärt under/överskridas. Minst 512 lediga ramar skall finnas för nya processer.
+			Det är en lokal sidutbytesalgoritm som används, som baseras på working set. Per process så finns minimalt 20-50 ramar och maximalt 45-345 ramar. Gränserna kan temporärt under- eller överskridas. Minst 512 lediga ramar skall finnas för nya processer.
 
-			Det finns även global algoritm som består av:
+			Det finns även en global algoritm som består av:
 			[ul]
-				[li]En kärntråd "balance set manager" som kontrollerar att det finns tillräckligt många ledia ramar globalt sett, annars startas "working set manager".[/li]
+				[li]En kärntråd ("balance set manager") som kontrollerar att det finns tillräckligt många lediga ramar globalt sett, annars startas "working set manager".[/li]
 				[li]Working set manager: Tar (baserat på en heuristik) ramar från först: icke-aktiva processer, stora processer, processer med fler ramar än minimalt antal och föregrundsprocesser.[/li]
 				[li]Den kan även justera antalet ramar till under det minimala antalet ramar för processen.[/li]
 			[/ul]
