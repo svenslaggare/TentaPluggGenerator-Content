@@ -20,7 +20,7 @@
 			Varför används processmodellen?
 		</Question>
 		<Answer>
-			På grund av att ett program underkörning har inkapslas av en process så blir det lättare att tillåta multiprogrammering, dvs att flera program kör "samtidigt". Det ger även bättre feltolerans vilket innebär om en process kraschar så behöver ej hela operativsystemet krascha.
+			På grund av att ett program under körning har inkapslats av en process så blir det lättare att tillåta multiprogrammering, dvs att flera program kör "samtidigt". Det ger även bättre feltolerans vilket innebär om en process kraschar så behöver ej hela operativsystemet krascha.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Processer">
