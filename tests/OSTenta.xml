@@ -671,7 +671,7 @@
 			Vad för datastruktur har kärnan för öppna filer i ett UNIX system?
 		</Question>
 		<Answer>
-			För varje process så finns en tabell över fildeskriptorer. En fildeskriptor är ett heltal, som pekar ut en post i tabellen över öppna filer som delas av alla processer. Tabellen innehåller t.ex. position i filen och pekare till i-noden.
+			För varje process så finns en tabell över fildeskriptorer. En fildeskriptor är ett heltal, som pekar ut en post i tabellen över öppna filer som delas av alla processer. För varje öppen fil, så kan det finnas flera poster av samma fil, men poster som har ärvts av en barn processer av en föräldrar process, delas. En post i tabellen innerhåller position i filen, rättigheterna som filen är öppnad med och pekare till i-noden.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IO">
@@ -855,7 +855,7 @@
 			Vad innebär gängschemaläggning?
 		</Question>
 		<Answer>
-			Det innebär att alla trådar i en process kör samtidigt på olika CPU:er. Alla CPU:er byter också process samtidigt. Om en tråd blir blockerad så blir dess CPU idle så att inga andra trådar kan köras.
+			Det innebär att alla (eller så många som går) trådar i en process kör samtidigt på olika CPU:er. Alla CPU:er byter också process samtidigt. Om en tråd blir blockerad så blir dess CPU idle så att inga andra trådar kan köras. Syfter är att minimera tiden som trådarna behöver vänta på varandra om de kommunicerar/synkroniserar med varandra.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TrådarOchMultiprocessorer">
