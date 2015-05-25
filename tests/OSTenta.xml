@@ -125,7 +125,7 @@
 			Vad är avbrytade schemaläggning (preemptive scheduling)?
 		</Question>
 		<Answer>
-			Det är när en exekverande provess kan avbrytas (dvs gå ifrån tillståndet running till ready) utan processen själv har bett om det. En process kan avbrytas t.ex. om: den kört för länge/förbrukat sitt tidskvanta eller om en process med högre prioritet blir körbar.
+			Det är när en exekverande provess kan avbrytas (dvs gå från tillståndet running till ready) utan att processen själv har bett om det. En process kan avbrytas t.ex. om den kört för länge/förbrukat sitt tidskvanta eller om en process med högre prioritet blir körbar.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Schemaläggning">
@@ -133,7 +133,7 @@
 			Hur fungerar schemaläggning med tidsdelning (time-slicing)?
 		</Question>
 		<Answer>
-			Det innebär att alla processer får en viss tid som de får köra, t.ex. 100ms. Alla processer som är i tillståndet READY ligger i den så kallade [i]ready-kön[/i]. Efter en process har körts så läggs den sist i ready-kön och den som ligger först får köra. Den tid som en process får köra kallas för [i]time slice[/i]. För att uppnå bra prestanda krävs en rimlig relation mellan time-slice och tiden för en context-switch.
+			Det innebär att alla processer får en viss tid som de får köra, t.ex. 100 ms. Alla processer som är i tillståndet READY ligger i den så kallade [i]ready-kön[/i]. Efter en process har körts så läggs den sist i ready-kön och den som ligger först får köra. Den tid som en process får köra kallas för [i]time slice[/i]. För att uppnå bra prestanda krävs en rimlig relation mellan en time slice och tiden för en context-switch.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Schemaläggning">
@@ -158,8 +158,8 @@
 			Vad innebär en fysik och en logisk adressrymd?
 		</Question>
 		<Answer>
-			En fysisk adressrymd är de faktiska minnespositioner i datorns fysiska primärminne.
-			En logisk adressrymd är en abstrakt addressrymd som programmet använder, vilket mappas till den fysiska adressrymden. Ett annat namn är en [i]virutell addressrymd[/i].
+			En fysisk adressrymd är de faktiska minnespositionerna i datorns fysiska primärminne.
+			En logisk adressrymd är en abstrakt adressrymd som programmet använder, vilket mappas till den fysiska adressrymden. Ett annat namn är en [i]virtuell adressrymd[/i].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -167,7 +167,7 @@
 			Vad innebär relokerbar kod?
 		</Question>
 		<Answer>
-			Det innebär adresser anges relativt något, vanligtvist början av programmet. De relativa adresserna binds till en absolut adress när vi vet var programmet ska laddas in. Dessa tillfällen är:
+			Det innebär att adresser anges relativt något, vanligtvist början av programmet. De relativa adresserna binds till en absolut adress när vi vet var programmet ska laddas in. Dessa tillfällen är:
 			[ul]
 				[li]Compile-time[/li]
 				[li]Load-time[/li]
@@ -181,11 +181,12 @@
 		</Question>
 		<Answer>
 			Det finns två typer av fragmentering:
+			
 			[b]Extern fragmentering[/b]
 			Det finns ledigt utrymme, men är uppdelat i för små block (som ej är närliggande). Extern fragmentering löses med kompaktering (vilket är kostsamt) eller att endast ha en enda blockstorlek, vilket leder till intern fragmentering.
 
 			[b]Intern fragmentering[/b]
-			Dålig utnyttjande av minne inom allokerade block. Detta löses med variabel blockstorlek, vilket leder till extern fragmentering.
+			Dåligt utnyttjande av minne inom allokerade block. Detta löses med variabel blockstorlek, vilket leder till extern fragmentering.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -194,10 +195,10 @@
 		</Question>
 		<Answer>
 			[b]Länkande listor[/b]
-			Elementen i listan består av hål (ledigt utrymme) där varje hål innehåller: Startadress, storlek och pekare till nästa element.	Hur listan skall sorteras beror på vilken allokeringsmetod som används.
+			Elementen i listan består av hål (ledigt utrymme) som innehåller: Startadress, storlek och pekare till nästa element.	Hur listan skall sorteras beror på vilken allokeringsmetod som används.
 
 			[b]Bitmap[/b]
-			Minnet delas upp i lika stora "allokeringsenheter" där en bitvektor används där 0 betyder att enheten är ledig och 1 upptagen för enhet [i]i[/i]. Val av storleken på allokeringsenheten blir då viktig där för liten innebär att bitmappen blir för stor medans en för stor leder till intern fragmentering.
+			Minnet delas upp i lika stora "allokeringsenheter" där en bitvektor används och där 0 betyder att enheten är ledig och 1 upptagen för enhet [i]i[/i]. Val av storleken på allokeringsenheten blir då viktig. För liten innebär att bitmappen blir för stor medan en för stor leder till intern fragmentering.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -213,7 +214,7 @@
 			Vad innebär ett minnet är sidindelat?
 		</Question>
 		<Answer>
-			Det innebär att minnet delas i lika stora sidor. En sida är något som finns i den virtuella minnesrymden medans en ram är en sida som finns i det fysiska minnet. Översättningen till fysisk address sker vid körning.
+			Det innebär att minnet delas i lika stora sidor. En sida är något som finns i den virtuella minnesrymden medan en ram är en sida som finns i det fysiska minnet. Översättningen till fysisk adress sker vid körning.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -221,7 +222,7 @@
 			Hur fungerar rättigheter (läsa/skriva/exekvera) för minnesadresser i ett sidindelat minne?
 		</Question>
 		<Answer>
-			Rättigheterna fungerar på sidnivå. Detta innebär att t.ex. text och data arean [i]inte[/i] kan dela sidor. Detta är för att text arean vill vi endast kunna läsa och exekvera medans data arean vill vi [i]ej[/i] kunna exekvera!
+			Rättigheterna fungerar på sidnivå. Detta innebär att t.ex. text- och data-arean [i]inte[/i] kan dela sidor. Detta beror på att vi endast vill kunna läsa och exekvera text-arean medan vi [i]inte[/i] vill kunna exekvera data-arean!
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -240,7 +241,7 @@
 			Vad är en TLB för något?
 		</Question>
 		<Answer>
-			TLB står för "Translation Lookaside Buffer" och fungerar som ett cacheminne för sidtabellen som implementeras i hårdvaran (närmare bestämt MMU). En TLB mappar ifrån ett sidnummer till ett ramnummer. Den implementeras med assocativt minne vilket innebär att det går att söka i hela minent parallellt.
+			TLB står för "Translation Lookaside Buffer" och fungerar som ett cacheminne för sidtabellen som implementeras i hårdvaran (närmare bestämt MMU). En TLB mappar från ett sidnummer till ett ramnummer. Den implementeras med assocativt minne vilket innebär att det går att söka i hela minnet parallellt.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -257,23 +258,23 @@
 		</Question>
 		<Answer>
 			[b]En-nivås sidtabell[/b]
-			Antag att vi har en logisk adressrymd med storleken [math]2^m[/math] och storleken på en sida är [math]2^n[/math]. Då används de [math]n[/math] första bitarna för att offseten inom sidan, [math]d[/math] och de resterande [math]m-n[/math] bitarna, [math]p[/math] anger vilken sida det är.
+			Antag att vi har en logisk adressrymd med storleken [math]2^m[/math] och storleken på en sida är [math]2^n[/math]. Då används de [math]n[/math] första bitarna för offseten inom sidan ([math]d[/math]) och de resterande [math]m-n[/math] bitarna ([math]p[/math]) anger vilken sida det är.
 
 			Då kan vi hämta (i sidtabellen) vilket ram som adressen tillhör. När vi har ramnumret och offseten, kan vi hämta den fysiska adressen.
 
 			[b]Fler-nivåers sidtabell[/b]
-			Då består sidtabellen av flera nivåer. Syftet med en fler-nivåers sidtabell är att undvika att allokera alla möjliga sidor för sidtabellen, vilket kan ta upp mycket utrymme och är opraktiskt för 64-bits system. För att få en rimlig storlek på den yttersta sidtabellen krävs minst 5-7 nivåer, men detta blir istället för ineffektivt.
+			Då består sidtabellen av flera nivåer. Syftet med en fler-nivåers sidtabell är att undvika att allokera alla möjliga sidor för sidtabellen, vilket kan ta upp mycket utrymme och är opraktiskt för 64-bitars system. För att få en rimlig storlek på den yttersta sidtabellen krävs minst 5-7 nivåer, men detta blir istället för ineffektivt.
 
 			Exempel:
 			Antag att vi har en tvånivåers sidtabell. Om vi antar att vi har en logisk adressrymd med storleken [math]2^m[/math], sidstorleken [math]2^n[/math] och storleken på en post i sidtabellen: [math]2^e[/math]. Den inre sidtabellen kommer då att ha [math]2^(n-e)[/math] poster per sida och den yttre sidtabellen kommer då att ha [math]2^(m-2n-e)[/math] positioner.
 
 			[b]Hashad sidtabell[/b]
-			Fungerar som en hashtabell, där vi mappar ifrån sidnummer till en post i sidtabellen. Här kan krockar i tabellen hanteras som länkade listor, dvs alla poster med samma hash bildar en länkad list.
+			Fungerar som en hashtabell, där vi mappar från sidnummer till en post i sidtabellen. Här kan krockar i tabellen hanteras som länkade listor, dvs alla poster med samma hash bildar en länkad list.
 
 			[b]Inverterad sidtabell[/b]
-			Om varje process har en egen sidtabell kan det gå åt mycket minne. Idén med en inverterad sidtabell är ha endast en sidtabell för alla processer där det finns en post för varje fysisk ram. I varje post har man då sidnummret + ID för processen som allokerat ramen.
+			Om varje process har en egen sidtabell kan det gå åt mycket minne. Idén med en inverterad sidtabell är att endast ha en sidtabell för alla processer där det finns en post för varje fysisk ram. I varje post har man då [i]sidnummret + ID[/i] för processen som allokerat ramen.
 
-			Nackdelen med denna implementation är att man måste söka i hela sidtabellen för att hitta ramen för en sida. Detta kan återgärdas genom att t.ex. hasha den inverterade sidtabellen eller använda som av assocativt minne (som dock är dyrt). En annan nackdel är att det blir svårare att dela sidor mellan processer.
+			Nackdelen med denna implementation är att man måste söka i hela sidtabellen för att hitta ramen för en sida. Detta kan återgärdas genom att t.ex. hasha den inverterade sidtabellen eller att man använder sig av assocativt minne (som dock är dyrt). En annan nackdel är att det blir svårare att dela sidor mellan processer.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -281,7 +282,7 @@
 			Vad innebär demand paging?
 		</Question>
 		<Answer>
-			Det innebär att man lägger till information till sidtabellen som indikerar om sidan finns i primärminnet eller inte. När en sida som inte finns i primärminnet refereras så genereras ett [b]sidfel (page fault)[/b]. Vid sidfel så hämtas sidan ifrån sekundärminnet (t.ex. disk) till primärminnet och sidtabellen uppdateras.
+			Det innebär att man lägger till information till sidtabellen som indikerar om sidan finns i primärminnet eller inte. När en sida som inte finns i primärminnet refereras så genereras ett [b]sidfel (page fault)[/b]. Vid sidfel så hämtas sidan från sekundärminnet (t.ex. disk) till primärminnet och sidtabellen uppdateras.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -289,7 +290,7 @@
 			Vad är skillnanden mellan swapping och paging?
 		</Question>
 		<Answer>
-			Swapping innebär att byta ut hela processer medans paging handlar om att byta ut sidor.
+			Swapping innebär att byta ut hela processer medan paging handlar om att byta ut sidor.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -302,7 +303,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Sidutbytesalgoritmer">
 		<Question>
-			Generellt sätt, vilka två mål finns när det kommer till att byta ut sidor?
+			Generellt sett, vilka två mål finns när det kommer till att byta ut sidor?
 		</Question>
 		<Answer>
 			[ol]
@@ -313,10 +314,10 @@
 	</TestQuestion>
 	<TestQuestion Category="Sidutbytesalgoritmer">
 		<Question>
-			Vad är I/O kostnaden för att byta ut sidor?
+			Vad är I/O-kostnaden för att byta ut sidor?
 		</Question>
 		<Answer>
-			Det kostar mindre att byta ut en sida som inte är modifierad än en som är modifierad. Dvs: Om en sida i en ram är [b]ren[/b] (ej modiferad) så finns en kopia på disk, vilket innebär att man ej behöver skriva innehållet i ramen till disk, dvs endast 1 I/O operation krävs. Men om en ram är modifierad ([b]dirty[/b]) så måste den skrivas ut till disk innan en ny sida kan läsas in till ramen, dvs 2 I/O operationer krävs.
+			Det kostar mindre att byta ut en sida som inte är modifierad än en som är modifierad. Dvs: Om en sida i en ram är [b]ren[/b] (ej modiferad) så finns en kopia på disk, vilket innebär att man ej behöver skriva innehållet i ramen till disk. Dvs endast 1 I/O-operation krävs. Men om en ram är modifierad ([b]dirty[/b]) så måste den skrivas ut till disk innan en ny sida kan läsas in till ramen, dvs 2 I/O-operationer krävs.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sidutbytesalgoritmer">
@@ -332,7 +333,7 @@
 			Vad är working set?
 		</Question>
 		<Answer>
-			Det är uppsättning sidor som en process refererar, dvs behöver för att kunna exekevera under en (liten) tidsrymd [math]T[/math]. Det mest intressanta med working set är dess storlek. Om en process inte har tillgång till så många ramar som storleken på dess working set så kommer det att genereras många sidfel. 
+			Det är uppsättning sidor som en process refererar, dvs behöver för att kunna exekvera under en (liten) tidsrymd [math]T[/math]. Det mest intressanta med working set är dess storlek. Om en process inte har tillgång till så många ramar som storleken på dess working set så kommer det att genereras många sidfel. 
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sidutbytesalgoritmer">
@@ -348,7 +349,7 @@
 			Hur fungerar FIFO (som sidutbytesalgoritm)?
 		</Question>
 		<Answer>
-			Om inga lediga rammar finns så kommer den sida som har legat längst i primärminnet att bytas ut. Nackdelen med denna algoritm är att en sida som kan användas kan slängas ut. Den kan också ge fler sidfel om man [b]ökar[/b] antalet tillgängliga ramar (Belady's anomali). Den har använts i t.ex. VAX/VMS och Windows NT.
+			Om inga lediga ramar finns så kommer den sida som har legat längst i primärminnet att bytas ut. Nackdelen med denna algoritm är att en sida som kan användas kan slängas ut. Den kan också ge fler sidfel om man [b]ökar[/b] antalet tillgängliga ramar (Belady's anomali). Den har använts i t.ex. VAX/VMS och Windows NT.
 
 			FIFO = First In First Out.
 		</Answer>
@@ -378,7 +379,7 @@
 		<Answer>
 			Det är en enkel approxmation av LRU genom en utvidgning av FIFO. Här införs en referens-bit i sidtabellen. Denna bit nollställs då en sida laddas in och ett ett-ställs när någon byte i sidan adresseras.
 
-			Den fungerar så att en cirkulär lista med alla sidor i primärminnet är ordnad i FIFO ordning. När en sida behövs bytas ut så gör man en sökning i listan och:
+			Den fungerar så att en cirkulär lista med alla sidor i primärminnet är ordnad i FIFO-ordning. När en sida behövs bytas ut så gör man en sökning i listan och:
 			[ul]
 				[li]Om sidans referensbit är satt, nollställ den och sök vidare.[/li]
 				[li]Första sidan med en nollställd referensbit är den sida som ska bytas ut.[/li]
@@ -390,7 +391,7 @@
 			Hur fungerar Clock med NRU (som sidutbytesalgoritm)?
 		</Question>
 		<Answer>
-			Det är en förbättring av Clock algoritmen genom att en modifierad-bit införs i sidtabellen. Den är från början nollställd då sidan laddas in. Den ett-ställs då man skriver till någon byte i sidan.
+			Det är en förbättring av Clock-algoritmen där en modifierad-bit införs i sidtabellen. Den är från början nollställd då sidan laddas in. Den ett-ställs då man skriver till någon byte i sidan.
 
 			Den fungerar som Clock men man väljer att byta ut en sida baserat på paret (referensbit, modifierad-bit):
 			[ol]
@@ -399,7 +400,7 @@
 				[li][math](1, 0)[/math] nyligen använd - men inte modifierad.[/li]
 				[li][math](1, 1)[/math] både nyligen använd och modifierad.[/li]
 			[/ol]
-			Används i Mac.
+			Används i Mac OS.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sidutbytesalgoritmer">
@@ -429,6 +430,7 @@
 			Här försöker man göra en uppskattning av working set. Här bestämer vi en tidsrymd [math]T[/math] för vilket working set ska uppskattas. Datan om sidor i primärminnet är organiserad på samma sätt som för Clock-algoritmen.
 
 			Det funngerar genom att man lägger till en tidsstämpel för varje post i sidtabellen och vid:
+			
 			[b]Uppdatering av referensbit[/b]
 			Sker regelbundet som t.ex. vid varje klockavbrott vilket nollställer alla referensbitar.
 
@@ -456,9 +458,9 @@
 			Vad är en paging daemon?
 		</Question>
 		<Answer>
-			Det är en process som går i bakgrunden om utför två uppgifter:
+			Det är en process som går i bakgrunden och utför två uppgifter:
 			[ul]
-				[li]När I/O enheten för att skriva sidor till sekundärminnet är ledig skriver modiferade sidor.[/li]
+				[li]När I/O-enheten för att skriva sidor till sekundärminnet är ledig skriver modiferade sidor.[/li]
 				[li]Om det finns för få ledia ramar så släng ut en del sidor. Information om vilken sida som låg i ramen bör även sparas så om sidan refereras och ramen ej har laddat in en annan sida så kan den återanvändas.[/li]
 			[/ul]
 		</Answer>
@@ -468,7 +470,7 @@
 			Varför vill man kunna "låsa" vissa sidor i minnet?
 		</Question>
 		<Answer>
-			Det beror huvudsakligen av två skäl: effektivitet och att om koden som hanterar pagning byts ut, så kan inga nya sidor laddas in.
+			Det finns huvudsakligen två skäl: effektivitet och att om koden som hanterar pagning byts ut, så kan inga nya sidor laddas in.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sidutbytesalgoritmer">
@@ -488,7 +490,7 @@
 			Vad inenbär thrashing?
 		</Question>
 		<Answer>
-			Om processen spenderar mer tid på att byta sida än att exekverera.
+			Att processen spenderar mer tid på att byta sida än att exekvera.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sidutbytesalgoritmer">
@@ -516,7 +518,7 @@
 			Hur kan man öka effektiveten för anropen fork och exec i system med sidindelat minne?
 		</Question>
 		<Answer>
-			Istället för att kopiera föräldrarprocessens sidor så kopieras endast sidtabellen. Sidorna markeras då "copy-on-write" vilker innebär om en sida ändras av någon process så kopieras den.
+			Istället för att kopiera föräldrarprocessens sidor så kopieras endast sidtabellen. Sidorna markeras då "copy-on-write", vilket innebär att om en sida ändras av någon process så kopieras den.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -527,7 +529,7 @@
 			Om vi har för dålig lokalitet så kan det ge följande problem:
 			[ul]
 				[li]Många TLB-missar - ger sämre prestanda för att varje minnesaccess som ger upphov till en TLB-miss tar ungefär dubbelt så lång tid som om vi hade fått en träff istället.[/li]
-				[li]Kan också ge stort working-set vilket kan leda till många sidfel som tar lång tid att hantera (längre än en TLB-miss)[/li]
+				[li]Kan också ge stort working-set vilket kan leda till många sidfel som tar lång tid att hantera (längre än en TLB-miss)[/li].
 			[/ul]Om man överlastar systemet så att working-set inte ryms i minnet vilket leder till thrasing.
 		</Answer>
 	</TestQuestion>
@@ -545,7 +547,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Filsystem">
 		<Question>
-			Vad för accesskontroll finns det på ett UNIX system?
+			Vad för accesskontroll finns det på ett UNIX-system?
 		</Question>
 		<Answer>
 			För varje fil/katalog så kan rättigheter anges för tre olika domäner: User, Group, Other (alla användare). Det finns tre rättigheter: [b]r[/b]ead, [b]w[/b]rite och e[b]x[/b]ecute.
@@ -558,7 +560,7 @@
 		<Answer>
 			[ul]
 				[li]Det blir svårare att göra vanliga operationer som t.ex. att lista innehåller i en katalog och dess underkataloger.[/li]
-				[li]Det kan behövas att man har en skrämpsamlare som tar hand om filer som inte kan ej komma åt. Om cykel får existera blir detta svårare.[/li]
+				[li]Det kan behövas att man har en skrämpsamlare som tar hand om filer som inte kan ej komma åt. Om cykler får existera blir detta svårare.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -576,35 +578,35 @@
 		</Question>
 		<Answer>
 			[b]Kontinuerlig allokering[/b]
-			Det innebär att hela filen är allokerad i en linjär sekvens av bytes. Detta kan leda till fragmentering och problematisk att hantera filer som växer i storlek. Det används dock för filsystem som endast skrivs en gång, som t.ex. CD-ROM, DVD.
+			Det innebär att hela filen är allokerad i en linjär sekvens av bytes. Detta kan leda till fragmentering och att det blir problematisk att hantera filer som växer i storlek. Det används dock för filsystem som endast skrivs en gång, som t.ex. CD-ROM, DVD.
 
 			[b]Blockindelad allokering[/b]
-			Skivminnet delas in i lika stora block där blocken antingen hålls reda av en:
+			Skivminnet delas in i lika stora block där det som håller koll på blocken kan vara en:
 			[ul]
 				[li]Länkad lista med pekare till nästa block.[/li]
-				[li]En separat tabell med pekare till blocken som hålls i minnet. Även känt som File Allocation Table (FAT).[/li]
+				[li]Separat tabell med pekare till blocken som hålls i minnet. Även känt som File Allocation Table (FAT).[/li]
 			[/ul][b]Indexerad allokering[/b]
-			Här sparar vi information i en nod, även kallad i-nod om vilka block som tillhör en specifik fil/katalog. I i-noden sparas även metadata som t.ex. ägaren, senast skapad, storlek, osv. Används i UNIX system.
+			Här sparar vi information i en nod, även kallad i-nod, om vilka block som tillhör en specifik fil/katalog. I i-noden sparas även metadata som t.ex. ägaren, senast skapad, storlek, osv. Används i UNIX-system.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Filsystem">
 		<Question>
-			Vad för datastrukturer finns normalt sätt i ett filsystem?
+			Vad för datastrukturer finns normalt sett i ett filsystem?
 		</Question>
 		<Answer>
 			[b]På disk[/b]
 			[ul]
-				[li]Master Boot Record (en per disk) - Anger vilken som är den aktiva partitionen. Programmet som finns på MBR laddar in boot blocket.[/li]
-				[li]Boot block - Det första blocket vilket är ett program som laddar in OS som finns på partitionen.[/li]
-				[li]Superblock - Anger hur partitonen är indelad i block, vilka ledia block det finns osv.[/li]
+				[li]Master Boot Record (en per disk) - Anger vilken som är den aktiva partitionen. Programmet som finns på MBR laddar in boot-blocket.[/li]
+				[li]Boot block - Det första blocket, vilket är ett program som laddar in OS som finns på partitionen.[/li]
+				[li]Superblock - Anger hur partitonen är indelad i block, vilka lediga block det finns osv.[/li]
 				[li]File Control Blocks - i-noder.[/li]
 				[li]Eventuella katalogstukturer.[/li]
 			[/ul][b]I minne[/b]
 			[ul]
 				[li]Partitionstabell: Information on monterade partitioner.[/li]
-				[li]Tabell med nyligen accesade kataloger-[/li]
+				[li]Tabell med nyligen accesade kataloger.[/li]
 				[li]Tabell över alla öppna filer med kopior av filernas FCB:er.[/li]
-				[li]Per process tabell för öppna filer.[/li]
+				[li]Per process-tabell för öppna filer.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -619,12 +621,12 @@
 	</TestQuestion>
 	<TestQuestion Category="Filsystem">
 		<Question>
-			Hur håller man ordning på ledia block på disken?
+			Hur håller man ordning på lediga block på disken?
 		</Question>
 		<Answer>
 			[ul]
 				[li]Bitvektor (växer med diskstorleken och minskar med blockstorleken).[/li]
-				[li]Länkade listor. Dessa kan byggas in i de lediga blocken, vilket inte kräver något extra utrymme (utom pekaren givetvist).[/li]
+				[li]Länkade listor. Dessa kan byggas in i de lediga blocken, vilket inte kräver något extra utrymme (utom pekaren såklart).[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -636,10 +638,10 @@
 			En [i]länk[/i] är en fil som innehåller sökvägen till en annan fil eller katalog.
 
 			[b]Hård länk[/b]
-			Hård länkar som skapas av användare får endast peka ut filer för att undvika cykler. När en hård länk skapas så uppdateras räknaren i den utpekade filens [b]i-nod[/b] som anger hur många som refererar till filen. En fil kan inte tas bort så länge denna räknare är större än 0. Det finns alltid minst en hård länk till varje fil/katalog.
+			Hårda länkar som skapas av användare får endast peka ut filer (för att undvika cykler). När en hård länk skapas så uppdateras räknaren i den utpekade filens [b]i-nod[/b] som anger hur många som refererar till filen. En fil kan inte tas bort så länge denna räknare är större än 0. Det finns alltid minst en hård länk till varje fil/katalog.
 
 			[b]Mjuk länk[/b]
-			En mjuk länk får peka ut både filer och kataloger. En mjuk länk påverkare [i]ej[/i] räknaren i i-noden.
+			En mjuk länk får peka ut både filer och kataloger. En mjuk länk påverkar [i]ej[/i] räknaren i i-noden.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Filsystem">
@@ -651,7 +653,7 @@
 			Skriver alla block i följd till mediumet som backup görs på.
 
 			[b]Logisk (inkrementell)[/b]
-			Skriver endast alla filer/kataloger som har ändras till mediumet. I t.ex. UNIX så följs ej mjuka länkar när backup görs.
+			Skriver endast alla filer/kataloger som har ändrats till mediumet. I t.ex. UNIX så följs ej mjuka länkar när backup görs.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Filsystem">
