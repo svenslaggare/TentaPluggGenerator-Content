@@ -661,7 +661,7 @@
 			Ange olika typer av konsistenskontroller som kan göras på ett filsystem.
 		</Question>
 		<Answer>
-			[b]Block konsistens[/b]
+			[b]Block-konsistens[/b]
 			Kontrollerar att alla diskblock finns [b]en[/b] gång i antingen listan över fria block, i en fil eller i listan med dåliga block.
 
 			[b]Filsystemskonsistens[/b]
@@ -670,19 +670,19 @@
 	</TestQuestion>
 	<TestQuestion Category="Filsystem">
 		<Question>
-			Vad för datastruktur har kärnan för öppna filer i ett UNIX system?
+			Vad för datastruktur har kärnan för öppna filer i ett UNIX-system?
 		</Question>
 		<Answer>
-			För varje process så finns en tabell över fildeskriptorer. En fildeskriptor är ett heltal, som pekar ut en post i tabellen över öppna filer som delas av alla processer. För varje öppen fil, så kan det finnas flera poster av samma fil, men poster som har ärvts av en barn processer av en föräldrar process, delas. En post i tabellen innerhåller position i filen, rättigheterna som filen är öppnad med och pekare till i-noden.
+			För varje process så finns en tabell över fildeskriptorer. En fildeskriptor är ett heltal, som pekar ut en post i tabellen över öppna filer som delas av alla processer. För varje öppen fil kan det finnas flera poster av samma fil, men poster som har ärvts av en barnprocess av en föräldrarprocess delas. En post i tabellen innehåller position i filen, rättigheterna som filen är öppnad med och pekare till i-noden.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IO">
 		<Question>
-			Ange de två huvudklasserna av I/O enheter.
+			Ange de två huvudklasserna av I/O-enheter.
 		</Question>
 		<Answer>
 			[b]Block-devices[/b]
-			Läser och skriver block data. Typiska operationer är: read, write och seek. Exempel på enheter är diskar och CD-romar.
+			Läser och skriver block-data. Typiska operationer är: read, write och seek. Exempel på enheter är hårddiskar och CD-ROM:ar.
 
 			[b]Character-devices[/b]
 			Skriver/läser en ström av tecken. Typiska operationer är: put och get. Exempel på enehter är tangentbord och nätverksenheter.
@@ -695,23 +695,23 @@
 			Ange de två typer av I/O som kan utföras.
 		</Question>
 		<Answer>
-			[b]Blockerade (synkron)[/b]
-			Procseesen som begärt I/O väntar till dess att I/O operationen är klar. Oftast är läsning blockerade.
+			[b]Blockerande (synkron)[/b]
+			Procseesen som begärt I/O väntar till dess att I/O-operationen är klar. Oftast är läsning blockerade.
 
-			[b]Icke-blockerader (asynkron)[/b]
-			Processen som begärt I/O väntar inte på att I/O operationen ska bli klar. Oftast är skrivning icke-blockerade.
+			[b]Icke-blockerande (asynkron)[/b]
+			Processen som begärt I/O väntar inte på att I/O-operationen ska bli klar. Oftast är skrivning icke-blockerande.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IO">
 		<Question>
-			Ange olika sätt att styra I/O enheter.
+			Ange olika sätt att styra I/O-enheter.
 		</Question>
 		<Answer>
 			[b]Minnesmappad I/O[/b]
 			Det innebär att kontroll- och dataregisters adresser ifrån enheten mappas in i den vanliga adressrymden. Det innebär att skrivning/läsning fungerar genom att en adress skrivs/läses.
 
 			[b]Ports[/b]
-			Varje I/O enhet får ett portnummer. Kontrollregistret för enheten läses/skrivs med speciella I/O instruktioner.
+			Varje I/O-enhet får ett portnummer. Kontrollregistret för enheten läses/skrivs med speciella I/O-instruktioner.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IO">
@@ -720,20 +720,20 @@
 		</Question>
 		<Answer>
 			[b]Programstyrd I/O (polling)[/b]
-			I/O enheten signalerar att den är klar genom att sätta en bit i ett av dess kontrollregister. Programmet som utfört I/O ligger sedan i en loop och läser av kontrollregistret för att upptäcka när I/O enheten är klar. 
+			I/O-enheten signalerar att den är klar genom att sätta en bit i ett av dess kontrollregister. Programmet som utfört I/O ligger sedan i en loop och läser av kontrollregistret för att upptäcka när I/O-enheten är klar. 
 
-			Det är bra att använda när det behövs väntas kort tid på att enheten ska bli klar eller att det kostar för mycket för att ha avbrott eller DMA. Nackdelen med denna metod är att det belastar CPU. Om minnesmappad I/O används så får ej sidan som innehåller adressen där kontrollregistret mappats in cachas, för då upptäcks inte att enheten blivit klar.
+			Det är bra att använda när det behövs väntas kort tid på att enheten ska bli klar eller att det kostar för mycket att ha avbrott eller DMA. Nackdelen med denna metod är att det belastar CPU. Om minnesmappad I/O används så får ej sidan som innehåller adressen där kontrollregistret mappats in cachas, för då upptäcks inte att enheten blivit klar.
 
 			[b]Avbrottstyrd I/O[/b]
-			I/O enheten signalerar att den är klar genom att generera ett avbrott. En avbrottsrutin fångar sedan upp avbrottet och kontrollerar eventuella fel och ser till att en eventuellt blockerad process som väntar på I/O hamnar i ready-kön. Nackdelen med avbrott är att det kostar hantera på grund av processbyte till avbrottshanteraren i kärnan krävs.
+			I/O-enheten signalerar att den är klar genom att generera ett avbrott. En avbrottsrutin fångar sedan upp avbrottet och kontrollerar eventuella fel och ser till att en eventuellt blockerad process som väntar på I/O hamnar i ready-kön. Nackdelen med avbrott är att det kostar att hantera på grund av att ett processbyte till avbrottshanteraren i kärnan krävs.
 
 			[b]Direct Memory Access (DMA)[/b]
-			Det innebär att en hårdvaruenhet kan överföra en mängd data till/från primärminnet och någon I/O enhet. Vid läsning går datan som läses in först till kernel-space som sedan kopieras till processens adressrymd. Vid skrivning så kopieras data ifrån processen till kernel-space. Onödig kopiering vid överföring kan undvikas genom att mappa om sidorna i sidtabellen.
+			Det innebär att en hårdvaruenhet kan överföra en mängd data till/från primärminnet och någon I/O-enhet. Vid läsning går datan som läses in först till kernel-space som sedan kopieras till processens adressrymd. Vid skrivning så kopieras data från processen till kernel-space. Onödig kopiering vid överföring kan undvikas genom att mappa om sidorna i sidtabellen.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Avbrott">
 		<Question>
-			Vad för regeler finns det för vad en avbrottsrutin får göra?
+			Vad för regler finns det för vad en avbrottsrutin får göra?
 		</Question>
 		<Answer>
 			[ul]
@@ -752,7 +752,7 @@
 		</Question>
 		<Answer>
 			[b]Precisa avbrott[/b]
-			Hårdvaran sparar undan ett väldefinerat tillstånd då avbrottet inträffade.
+			Hårdvaran sparar undan ett väldefinierat tillstånd då avbrottet inträffade.
 
 			[b]Icke-precist avbrott[/b]
 			Avbrottsrutinen får reda ut tillståndet som t.ex. eventuella halvt utförda instruktioner etc.
@@ -763,12 +763,12 @@
 			Vad är en drivrutin?
 		</Question>
 		<Answer>
-			Det är något som ger ett enklare gränsnitt mot hårdvaran och det OS:set som tillhandahåller ett väldefinerat gränsitt mot drivrutinerna. En drivrutin anropas indirekt av systemanrop.
+			Det är något som ger ett enklare gränsnitt mot hårdvaran. OS:et måste även tillhandahålla ett väldefinierat gränsitt mot drivrutinerna. En drivrutin anropas indirekt av systemanrop.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IO">
 		<Question>
-			Vad innebär major och minor device number när det kommer till I/O enheter i UNIX?
+			Vad innebär major och minor device number när det kommer till I/O-enheter i UNIX?
 		</Question>
 		<Answer>
 			Major device number: identifierar drivrutinen som används.
@@ -793,12 +793,12 @@
 			Vad innebär en context switch?
 		</Question>
 		<Answer>
-			Det innebär att vi sparar ner och återställer tillståndet för en process eller tråd så att exekveringen kan fortsätt vid ett senare tillfälle.
+			Det innebär att vi sparar ner och återställer tillståndet för en process eller tråd så att exekveringen kan fortsätta vid ett senare tillfälle.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TrådarOchMultiprocessorer">
 		<Question>
-			Vad innebär preemptive (avbrytade) schemaläggning?
+			Vad innebär preemptive (avbrytande) schemaläggning?
 		</Question>
 		<Answer>
 			Det innebär att schemaläggaren kan avbryta en tråd som körs och återuppta den vid ett senare tillfälle.
@@ -809,9 +809,9 @@
 			Hur fungerar trådar som är implementerade i user-space?
 		</Question>
 		<Answer>
-			Då är trådoperationerna biblioteksrutiner där trådarna schemaläggs av run-time systemet. All hantering av trådar (skapa/dödade/terminade) sköts av biblioteksrutiner och av run-time systemet.
+			Då är trådoperationerna biblioteksrutiner där trådarna schemaläggs av run-time-systemet. All hantering av trådar (skapande/dödande/terminande) sköts av biblioteksrutiner och av run-time-systemet.
 
-			Fördelarna med trådar i user-space är det krävs mindre context switches och ett trådbyte kan ske utan systemanrop. Nackdelarna är om ett tråd blockeras så blockeras även hela processen (inklusive alla andra trådar i processen). Det går även inte att uppnå sann parallellitet på multiprocesser och schemaläggningen är oftast icke avbrytade (none-preemptive).
+			Fördelarna med trådar i user-space är att det krävs mindre context switches och att ett trådbyte kan ske utan systemanrop. Nackdelarna är att om en tråd blockeras så blockeras även hela processen (inklusive alla andra trådar i processen). Det går heller inte att uppnå sann parallellitet på multiprocesser och schemaläggningen är oftast icke-avbrytande (none-preemptive).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TrådarOchMultiprocessorer">
@@ -821,7 +821,7 @@
 		<Answer>
 			Då är trådoperationerna systemanrop där trådarna schemaläggs av kärnan. All trådhantering hanteras via systemanrop och av kärnan.
 
-			Fördelarna med trådar i kernel-space är att de kan schemaläggs preemptiv. Om en tråd blockeras kan en annan tråd i samma process schemaläggas. Det går även att schemalägga olika trådar på olika processer för att uppnå sann parallellitet på multiprocesser. Nackdelarna är att trådoperationer är systemanrop som tar länge att utföra på grund av att context switchar behövs göras.
+			Fördelarna med trådar i kernel-space är att de kan schemaläggas preemptivt. Om en tråd blockeras kan en annan tråd i samma process schemaläggas. Det går även att schemalägga olika trådar på olika processer för att uppnå sann parallellitet på multiprocesser. Nackdelarna är att trådoperationer är systemanrop som tar länge att utföra på grund av att context-switchar behövs göras.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TrådarOchMultiprocessorer">
@@ -837,7 +837,7 @@
 			Vad är en trådpool och varför vill man använda sig av det?
 		</Question>
 		<Answer>
-			En [i]trådpool[/i] är en grupp av trådar som när en tråd i poolen ej exekvererar ligger och sover. Istället för att skapa en ny tråd så låter man en tråd ifrån poolen att "vakna upp" för att utföra arbetet. Syftet med detta är att man vill minimera kostnanderna för att skapa trådar, vilket kan ta upp en stor del om arbetet som ska utföras är kort.
+			En [i]trådpool[/i] är en grupp av trådar som när en tråd i poolen ej exekvererar ligger och sover. Istället för att skapa en ny tråd så låter man en tråd ifrån poolen att "vakna upp" för att utföra arbetet. Syftet med detta är att man vill minimera kostnaderna för att skapa trådar, vilket kan ta upp en stor del om arbetet som ska utföras är kort.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TrådarOchMultiprocessorer">
@@ -1136,7 +1136,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Hur fungerar Bankiralgoritmen?
 		</Question>
 		<Answer>
-			Det bygger på att systemet kan kontrollera schemaläggningen av processerna. Varje process måste anmäla sitt maximala resursbehov i förvag. Systemet ska alltid befinna sig i ett säker tillstånd vilket defineras som: Det finns en ordning i vilken procsserna kan köras som inte leder till låsning även om alla processer utnyttjar hela sitt maximala resursbehov. Om en process kommer med en begäran som skulle leda till att systemet hamnar i ett osäker tillstånd, så körs en annan process istället. Den uppskjutna begäran uppfylls senare.
+			Det bygger på att systemet kan kontrollera schemaläggningen av processerna. Varje process måste anmäla sitt maximala resursbehov i förvag. Systemet ska alltid befinna sig i ett säker tillstånd vilket definieras som: Det finns en ordning i vilken procsserna kan köras som inte leder till låsning även om alla processer utnyttjar hela sitt maximala resursbehov. Om en process kommer med en begäran som skulle leda till att systemet hamnar i ett osäker tillstånd, så körs en annan process istället. Den uppskjutna begäran uppfylls senare.
 
 			Algoritmen går oftast inte att använda för i många fall så känner inte en process till hela sitt resursbehov innan programmet börjar exekverar.
 		</Answer>
