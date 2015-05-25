@@ -249,7 +249,7 @@
 			Vad innebär en miss i TLBn?
 		</Question>
 		<Answer>
-			Det innebär att den sida som efterfrågas ej finns i TLB. Detta innebär att sidtabellen som finns i primärtminnet måste accessas. Efter det så uppdateras TLB (om sidan var giltig) genom att slänga ut en ogiltig eller gammal post. För de flesta arkitekturer sker hantering i MMU men i vissa arkitekturer som t.ex. SPARC sker det i mjukvara. Detta är för att TLB är mycket komplext vilket tar upp mycket utrymme i hårdvåran.
+			Det innebär att den sida som efterfrågas ej finns i TLB. Detta innebär att sidtabellen som finns i primärminnet måste accessas. Efter det så uppdateras TLB (om sidan var giltig) genom att slänga ut en ogiltig eller gammal post. För de flesta arkitekturer sker hantering i MMU men i vissa arkitekturer som t.ex. SPARC sker det i mjukvara. Detta är för att TLB är mycket komplext vilket tar upp mycket utrymme i hårdvåran.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -1023,6 +1023,14 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			[/ul]
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="DistribueradeSystem">
+		<Question>
+			Vad är konsistenssemantik när det kommer till distribuerade system?
+		</Question>
+		<Answer>
+			Det beskriver hur man hanterar läsningar och skrivningar till en delad resurs. Om vi t.ex. har har ett distruberat filsysten så beskriver konsistenssemantiken beskriver i vilken  grad man kan förvänta sig att filsystemet är konsistent, t.ex. hur länge tid det kan dröja innan en uppdatering av en fil blir synliga för alla andra eller hur konflikter av uppdateringar av olika kopior hanteras.
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="Synkronisering">
 		<Question>
 			Hur kan en pipe användas för synkronisering?
@@ -1113,7 +1121,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Då är det ganska enkelt att implementera. Systemet håller reda på för varje process vilka resurser den har och vilka den väntar på. Om det finns cykler, så kan baklås existera. Det finns algoritmer som kan hitta cykler i linjär tid.
 
 			[b]Om det finns fler av varje resurs[/b]
-			Då blir det mycket mer komplicerat. En process som väntar på att få en resurs väntar på någon av de processer som ahr resursen ska släppa den. Den cirkulära väntan kan komma att brytas av att processer som är klara med användingen av en resurs släpper sina resurser. En lösning är att konstruera Bankiralgoritm tabeller.
+			Då blir det mycket mer komplicerat. En process som väntar på att få en resurs väntar på någon av de processer som har resursen ska släppa den. Den cirkulära väntan kan komma att brytas av att processer som är klara med användingen av en resurs släpper sina resurser. En lösning är att konstruera Bankiralgoritm tabeller.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Synkronisering">
