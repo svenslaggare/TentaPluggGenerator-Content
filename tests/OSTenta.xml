@@ -8,10 +8,10 @@
 			En process är ett program under exekvering.
 			En process brukar innehålla följande information:
 			[ul]
-				[li]Kod (även känt som "text")[/li]
-				[li]Data (globala variabler, BSS, stack, heap)[/li]
-				[li]Registerinnehåll (som t.ex. programräknaren)[/li]
-				[li]Fildeskriptorer (dvs öppna filer)[/li]
+				[li]Kod (även känt som "text").[/li]
+				[li]Data (globala variabler, BSS, stack, heap).[/li]
+				[li]Registerinnehåll (som t.ex. programräknaren).[/li]
+				[li]Fildeskriptorer (dvs öppna filer).[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -83,7 +83,7 @@
 			Vad är en "zombie-process"?
 		</Question>
 		<Answer>
-			Det är en process som har körts klart, men som fortfarande har en post i processtabellen. Det kan uppstå eftersom det är möjligt för föräldrarprocesser att veta varför en barnprocess terminerade. Posten frigörs genom att anropa [i]wait[/i] på processen som terminerade.
+			Det är en process som har körts klart, men som fortfarande har en post i processtabellen. Varför en process som har terminerat inte tas bort direkt ifrån processtabellen är att man vill göra det möjligt för föräldrarprocesser att veta varför en barnprocess terminerade. Posten frigörs genom att anropa [i]wait[/i] på processen som terminerade.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Schemaläggning">
@@ -117,7 +117,7 @@
 			Hur fungerar Shortest Job First (SJF) som schemaläggningsalgoritm?
 		</Question>
 		<Answer>
-			Om vi i [b]förväg[/b] vet hur lång varje process exekeveringstid kommer bli så kan SJF användas. Då ordnar man processerna i ordning från processer med kortaste exekveringstid till processer med längst. Denna algoritm är optimal med avseende på kortast medelsluttid. Det är även bra om man i förväg känner till alla jobb som ska utföras, så det inte dyker upp nya med tiden. Om så är fallet kan [i]svältning[/i] uppstå om korta jobb hela tiden kommer in och lägger sig innan de längre jobben.
+			Om vi i [b]förväg[/b] vet hur lång tid varje process kommer att exekvera så kan SJF användas. Då ordnar man processerna i ordning från processer med kortaste exekveringstid till processer med längst. Denna algoritm är optimal med avseende på kortast medelsluttid. Det är även bra om man i förväg känner till alla jobb som ska utföras, så det inte dyker upp nya med tiden. Om så är fallet kan [i]svältning[/i] uppstå om korta jobb hela tiden kommer in och lägger sig innan de längre jobben.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Schemaläggning">
@@ -126,6 +126,14 @@
 		</Question>
 		<Answer>
 			Det är när en exekverande provess kan avbrytas (dvs gå från tillståndet running till ready) utan att processen själv har bett om det. En process kan avbrytas t.ex. om den kört för länge/förbrukat sitt tidskvanta eller om en process med högre prioritet blir körbar.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Schemaläggning">
+		<Question>
+			Vad innebär en context switch?
+		</Question>
+		<Answer>
+			Det innebär att vi sparar ner och återställer tillståndet för en process eller tråd så att exekveringen kan fortsätta vid ett senare tillfälle.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Schemaläggning">
@@ -249,7 +257,7 @@
 			Vad innebär en miss i TLBn?
 		</Question>
 		<Answer>
-			Det innebär att den sida som efterfrågas ej finns i TLB. Detta innebär att sidtabellen som finns i primärminnet måste accessas. Efter det så uppdateras TLB (om sidan var giltig) genom att slänga ut en ogiltig eller gammal post. För de flesta arkitekturer sker hantering i MMU men i vissa arkitekturer som t.ex. SPARC sker det i mjukvara. Detta är för att TLB är mycket komplext vilket tar upp mycket utrymme i hårdvåran.
+			Det innebär att den sida som efterfrågas ej finns i TLB. Detta innebär att sidtabellen som finns i primärminnet måste accessas. Efter det så uppdateras TLB (om sidan var giltig) genom att slänga ut en ogiltig eller gammal post. För de flesta arkitekturer sker hantering i MMU men i vissa arkitekturer som t.ex. SPARC sker det i mjukvara. Detta är för att TLB är mycke komplex del av MMU vilket tar upp mycket utrymme i hårdvåran (som man vill undvika).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -258,9 +266,7 @@
 		</Question>
 		<Answer>
 			[b]En-nivås sidtabell[/b]
-			Antag att vi har en logisk adressrymd med storleken [math]2^m[/math] och storleken på en sida är [math]2^n[/math]. Då används de [math]n[/math] första bitarna för offseten inom sidan ([math]d[/math]) och de resterande [math]m-n[/math] bitarna ([math]p[/math]) anger vilken sida det är.
-
-			Då kan vi hämta (i sidtabellen) vilket ram som adressen tillhör. När vi har ramnumret och offseten, kan vi hämta den fysiska adressen.
+			Antag att vi har en logisk adressrymd med storleken [math]2^m[/math] och storleken på en sida är [math]2^n[/math]. Då används de [math]n[/math] första bitarna för offseten inom sidan ([math]d[/math]) och de resterande [math]m-n[/math] bitarna ([math]p[/math]) anger vilken sida det är. Då kan vi hämta (i sidtabellen) vilket ram som adressen tillhör. När vi har ramnumret och offseten, så kan den fysiska adressen pekas ut.
 
 			[b]Fler-nivåers sidtabell[/b]
 			Då består sidtabellen av flera nivåer. Syftet med en fler-nivåers sidtabell är att undvika att allokera alla möjliga sidor för sidtabellen, vilket kan ta upp mycket utrymme och är opraktiskt för 64-bitars system. För att få en rimlig storlek på den yttersta sidtabellen krävs minst 5-7 nivåer, men detta blir istället för ineffektivt.
@@ -337,7 +343,7 @@
 			Vad är I/O-kostnaden för att byta ut sidor?
 		</Question>
 		<Answer>
-			Det kostar mindre att byta ut en sida som inte är modifierad än en som är modifierad. Dvs: Om en sida i en ram är [b]ren[/b] (ej modiferad) så finns en kopia på disk, vilket innebär att man ej behöver skriva innehållet i ramen till disk. Dvs endast 1 I/O-operation krävs. Men om en ram är modifierad ([b]dirty[/b]) så måste den skrivas ut till disk innan en ny sida kan läsas in till ramen, dvs 2 I/O-operationer krävs.
+			Det kostar mindre att byta ut en sida som inte är modifierad än en som är modifierad. Om en sida i en ram är [b]ren[/b] (ej modiferad) så finns en kopia på disk, vilket innebär att man ej behöver skriva innehållet i ramen till disk. Dvs endast 1 I/O-operation krävs. Men om en ram är modifierad ([b]dirty[/b]) så måste den skrivas ut till disk innan en ny sida kan läsas in till ramen, dvs 2 I/O-operationer krävs.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sidutbytesalgoritmer">
@@ -755,7 +761,7 @@
 			I/O-enheten signalerar att den är klar genom att generera ett avbrott. En avbrottsrutin fångar sedan upp avbrottet och kontrollerar eventuella fel och ser till att en eventuellt blockerad process som väntar på I/O hamnar i ready-kön. Nackdelen med avbrott är att det kostar att hantera på grund av att ett processbyte till avbrottshanteraren i kärnan krävs.
 
 			[b]Direct Memory Access (DMA)[/b]
-			Det innebär att en hårdvaruenhet kan överföra en mängd data till/från primärminnet och någon I/O-enhet. Vid läsning går datan som läses in först till kernel-space som sedan kopieras till processens adressrymd. Vid skrivning så kopieras data från processen till kernel-space. Onödig kopiering vid överföring kan undvikas genom att mappa om sidorna i sidtabellen.
+			Det innebär att en hårdvaruenhet kan överföra en mängd data till/från primärminnet och någon I/O-enhet (utan att behöva gå via CPUn). Vid läsning går datan som läses in först till kernel-space som sedan kopieras till processens adressrymd. Vid skrivning så kopieras data från processen till kernel-space. Onödig kopiering vid överföring kan undvikas genom att mappa om sidorna i sidtabellen.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Avbrott">
@@ -804,11 +810,11 @@
 	</TestQuestion>
 	<TestQuestion Category="IO">
 		<Question>
-			Ange olika metoder för att schemaläggas diskarmen.
+			Ange olika metoder för att schemalägga diskarmen.
 		</Question>
 		<Answer>
 			[b]First Come First Serve (FCFS)[/b]
-			Det innebär att diskarmen schemaläggs i samma ordning som de kommer in. Denna metod fungerar oftast inte så bra.
+			Det innebär att diskarmen schemaläggs i samma ordning som de förfrågningar kommer in. Denna metod fungerar oftast inte så bra.
 
 			[b]Shortest Seek First (SSF)[/b]
 			Diskarmen schemaläggs så att den alltid tar den närmaste förfrågingen först, för att minimera söktiden (seek time). Ett problem med denna metod är att [i]svältning[/i] kan uppstå.
@@ -822,7 +828,7 @@
 	</TestQuestion>
 	<TestQuestion Category="IO">
 		<Question>
-			Hur kan man åstadkomma "stable storage", dvs undviker att data förloras vid diskkrasch.
+			Hur kan man åstadkomma "stable storage", dvs undviker att data förloras vid diskkrasch?
 		</Question>
 		<Answer>
 			Det krävs att man har minst har två fysiska diskar, helst flera.
@@ -844,22 +850,6 @@
 				[li]Register.[/li]
 				[li]Stack.[/li]
 			[/ul]
-		</Answer>
-	</TestQuestion>
-	<TestQuestion Category="TrådarOchMultiprocessorer">
-		<Question>
-			Vad innebär en context switch?
-		</Question>
-		<Answer>
-			Det innebär att vi sparar ner och återställer tillståndet för en process eller tråd så att exekveringen kan fortsätta vid ett senare tillfälle.
-		</Answer>
-	</TestQuestion>
-	<TestQuestion Category="TrådarOchMultiprocessorer">
-		<Question>
-			Vad innebär preemptive (avbrytande) schemaläggning?
-		</Question>
-		<Answer>
-			Det innebär att schemaläggaren kan avbryta en tråd som körs och återuppta den vid ett senare tillfälle.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TrådarOchMultiprocessorer">
@@ -915,7 +905,7 @@
 			Vad innebär gängschemaläggning?
 		</Question>
 		<Answer>
-			Det innebär att alla (eller så många som möjligt) trådar i en process kör samtidigt på olika CPU:er. Alla CPU:er byter också process samtidigt. Om en tråd blir blockerad så blir dess CPU idle så att inga andra trådar kan köras. Syfter är att minimera tiden som trådarna behöver vänta på varandra om de kommunicerar/synkroniserar med varandra.
+			Det innebär att alla (eller så många som möjligt) trådar i en process kör samtidigt på olika CPU:er. Alla CPU:er byter också process samtidigt. Om en tråd blir blockerad så blir dess CPU idle så att inga andra trådar kan köras. Syftet med gängschemaläggning är att minimera tiden som trådarna behöver vänta på varandra om de kommunicerar/synkroniserar med varandra.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TrådarOchMultiprocessorer">
@@ -928,7 +918,7 @@
 			Lås:
 			[block]
 lock: test_and_set	tmp, (lock_ptr)
-      branch_not_zer	tmp, lock[/block]Lås upp:
+      branch_not_zero	tmp, lock[/block]Lås upp:
       		[block]
 unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är en maskininstruktion som:
       		[ul]
@@ -997,7 +987,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 	</TestQuestion>
 	<TestQuestion Category="DistribueradeSystem">
 		<Question>
-			Att använda sig av caching i distribuerade filsystem är problematisk, varför?
+			Att använda sig av caching i distribuerat filsystem är problematisk, varför?
 		</Question>
 		<Answer>
 			Det är för att filen som cachas kan ha ändrats av andra. Om flera cachar finns, med olika innehåll, uppstår problem när man ska skriva till servern. Vilken version ska användas? Det finns olika sätt hantera det som:
@@ -1087,7 +1077,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Vad är konsistenssemantik när det kommer till distribuerade system?
 		</Question>
 		<Answer>
-			Det beskriver hur man hanterar läsningar och skrivningar till en delad resurs. Om vi t.ex. har har ett distruberat filsysten så beskriver konsistenssemantiken beskriver i vilken  grad man kan förvänta sig att filsystemet är konsistent, t.ex. hur länge tid det kan dröja innan en uppdatering av en fil blir synliga för alla andra eller hur konflikter av uppdateringar av olika kopior hanteras.
+			Det beskriver hur man hanterar läsningar och skrivningar till en delad resurs. Om vi t.ex. har har ett distruberat filsystem så beskriver konsistenssemantiken beskriver i vilken  grad man kan förvänta sig att filsystemet är konsistent, t.ex. hur länge tid det kan dröja innan en uppdatering av en fil blir synliga för alla andra eller hur konflikter av uppdateringar av olika kopior hanteras.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Synkronisering">
@@ -1270,7 +1260,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Då är både krypterings- och dekrypteringsnycklarna samma. Används ofta för t.ex. diskkryptering och exempel på algoritmer är: AES.
 
 			[b]Assymetrisk (publik-nyckel)[/b]
-			Då är krypterings- och dekrypteringsnycklarna olika. Ofta brukar systemet fungera så att den nyckel publiceras, den publika och en nyckel hålls hemliga, den privata. Systemet bör även ha egenskapen att det ska vara mycket svårt att givet den publika nyckeln få fram den privata nyckeln. Exempel är RSA systemet.
+			Då är krypterings- och dekrypteringsnycklarna olika. Systemet brukar fungera så att en nyckel publiceras, den publika och en nyckel hålls hemliga, den privata. Systemet bör även ha egenskapen att det ska vara mycket svårt att givet den publika nyckeln få fram den privata nyckeln. Exempel är RSA systemet.
 
 			[b]Envägsfunktioner[/b]
 			Givet ett [math]y[/math] värde och en funktion [math]f[/math] så att: [math]y=f(x)[/math] så är det mycket svårt att beräkna [math]x[/math] givet ett [math]y[/math]. Ett alternativt namn är en [i]hash funktion[/i].
@@ -1281,16 +1271,16 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Hur fungerar en digital signatur?
 		</Question>
 		<Answer>
-			Det används för att signera och dörmed kunna autenticiera dokument. Det fungerar på följande sätt: Antag att vi har att publik-nyckel krypteringssystem där [math]E(D(x))=x[/math].
+			Det används för att signera och därmed kunna autentisera dokument. Det fungerar på följande sätt: Antag att vi har att publik-nyckel krypteringssystem där [math]D(E(x))=x[/math].
 
 			[b]Signering[/b]
 			[ol]
-				[li]Beräkna ett hash-värde [math]H[/math] för dokumenetet med en hash algoritm som t.ex. SHA2.[/li]
-				[li]Skaparen av dokumentet signerar dokumenetet genom att kryptera [math]H[/math] med sin privata nyckel, [math]S=D(H)[/math].[/li]
+				[li]Beräkna ett hash-värde [math]H[/math] för dokumentet med en hash algoritm som t.ex. SHA2.[/li]
+				[li]Skaparen av dokumentet signerar dokumentet genom att kryptera [math]H[/math] med sin privata nyckel, [math]S=E(H)[/math].[/li]
 			[/ol][b]Autenticering[/b]
 			[ol]
 				[li]Beräkna hash-värdet för [math]H'[/math] för dokumentet utan signaturen.[/li]
-				[li]Dekryptera signaturen med den publika nyckeln, [math]H=E(S)[/math].[/li]
+				[li]Dekryptera signaturen med den publika nyckeln, [math]H=D(S)[/math].[/li]
 				[li]Om [math]H = H'[/math] så vet vi att signaturen är autentisk.[/li]
 			[/ol]
 		</Answer>
@@ -1411,11 +1401,11 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Varför bör man ej ha med "." i sin PATH miljövariabler i UNIX?
 		</Question>
 		<Answer>
-			Vanligtvist om man vill starta program som ligger i samma katalog så anropar man "./&lt;namn på programmet&gt;". Om man lägger till "." i sin PATH miljövariabel så behövs ej "./" utan då kan man starta ett program genom dess namn.
+			Vanligtvist om man vill starta program som ligger i samma katalog så anropar man "./namn_på_programmet". Om man lägger till "." i sin PATH miljövariabel så behövs ej "./" utan då kan man starta ett program direkt genom att endast ange dess namn.
 
-			Detta ger dock sämre säkerhet. Antag att vi har ett program "ls" (som är t.ex. en trojansk häst) i den nuvarande katalogen. Om vi har "." i vår miljövariabel (och den ligger före /usr/bin eller där ls ligger) så kommer programmet i den nuvarande programmet att köras, inte det riktiga ls.Detta gör att man lätt kan skapa trojanska hästar så körs.
+			Detta ger dock sämre säkerhet. Antag att vi har ett program "ls" (som är t.ex. en trojansk häst) i den nuvarande katalogen. Om vi har "." i vår miljövariabel (och den ligger före /usr/bin eller där ls ligger) så kommer programmet i den nuvarande programmet att köras, inte det riktiga ls.
 
-			Om vi inte har "." i PATH, så går det ej att starta programmet utan "./". Detta innebär om vi aldrig skriver in "./" så kan vara säkra på att vi alltid kommer köra ett pålitligt program.
+			Om vi inte har "." i PATH, så går det ej att starta programmet utan "./" i början. Detta innebär om vi aldrig skriver in "./" så kan vara säkra på att vi alltid kommer köra ett pålitligt program.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Fallstudie">
@@ -1556,7 +1546,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			[b]Tråd[/b]
 			En enhet som schemaläggs av CPUn.
 
-			[b]Job[/b]
+			[b]Jobb[/b]
 			Det är uppsättning processer som hanteras som en enhet med gemensam gräns för resursutnjyttjande.
 
 			[b]Fiber[/b]
@@ -1568,7 +1558,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Hur fungerar filer i Windows?
 		</Question>
 		<Answer>
-			En fil i Windows består av attributer och flera strömmar av bytes. Varje ström kan hantera olika typer av data, som t.ex. video och ljud. En fil kan automatisk komprimeras/dekomproimeras då de skrivs/läses till/från disk. Komprimeringen fungerar så om den komprimerade datan kan skrivs på 15 eller mindre block så sker komprimeringen, om komprimeringen fortfarande tar 16 blocks så undviker man att komprimera datan.
+			En fil i Windows består av attributer och flera strömmar av bytes. Varje ström kan hantera olika typer av data, som t.ex. video och ljud. En fil kan automatisk komprimeras/dekomprimeras då de skrivs/läses till/från disk. Komprimeringen fungerar så om den komprimerade datan kan skrivs på 15 eller mindre block så sker komprimeringen, om komprimeringen fortfarande tar 16 blocks så undviker man att komprimera datan.
 		</Answer>
 	</TestQuestion>
 </Test>
