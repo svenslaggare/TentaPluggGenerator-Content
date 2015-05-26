@@ -695,6 +695,14 @@
 			För varje process så finns en tabell över fildeskriptorer. En fildeskriptor är ett heltal, som pekar ut en post i tabellen över öppna filer som delas av alla processer. För varje öppen fil kan det finnas flera poster av samma fil, men poster som har ärvts av en barnprocess av en föräldrarprocess delas. En post i tabellen innehåller position i filen, rättigheterna som filen är öppnad med och pekare till i-noden.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="Filsystem">
+		<Question>
+			Vad innebär det att ett filsystem är journalförande?
+		</Question>
+		<Answer>
+			Det innebär att filsystemet loggar ändringar i en journal före en skrivning till huvudfilsystemet. När skrivningen blivit klar så tas händelsen bort ifrån loggen. Detta gör om systemet kraschar när en skrivning sker så kan man undvika att filsystemet blir korrupt genom att t.ex. köra om skrivningarna.
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="IO">
 		<Question>
 			Ange de två huvudklasserna av I/O-enheter.
@@ -1387,7 +1395,6 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]Installera ett bra antivirusprogram.[/li]
 				[li]Öppna inte bifogade filer i emails.[/li]
 				[li]Gör regelbudna incrementella backuper och spara backuper över lång tid.[/li]
-				[li][/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -1397,6 +1404,18 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 		</Question>
 		<Answer>
 			[url="http://tenta.antjans.se/TestGenerator/ViewTest?course=Datas%C3%A4kerhet&amp;test=DasakTenta&amp;numQuestions=82&amp;noneRandom=True"]Länk[/url].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Säkerhet">
+		<Question>
+			Varför bör man ej ha med "." i sin PATH miljövariabler i UNIX?
+		</Question>
+		<Answer>
+			Vanligtvist om man vill starta program som ligger i samma katalog så anropar man "./&lt;namn på programmet&gt;". Om man lägger till "." i sin PATH miljövariabel så behövs ej "./" utan då kan man starta ett program genom dess namn.
+
+			Detta ger dock sämre säkerhet. Antag att vi har ett program "ls" (som är t.ex. en trojansk häst) i den nuvarande katalogen. Om vi har "." i vår miljövariabel (och den ligger före /usr/bin eller där ls ligger) så kommer programmet i den nuvarande programmet att köras, inte det riktiga ls.Detta gör att man lätt kan skapa trojanska hästar så körs.
+
+			Om vi inte har "." i PATH, så går det ej att starta programmet utan "./". Detta innebär om vi aldrig skriver in "./" så kan vara säkra på att vi alltid kommer köra ett pålitligt program.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Fallstudie">
@@ -1516,6 +1535,40 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]Working set manager: Tar (baserat på en heuristik) ramar från först: icke-aktiva processer, stora processer, processer med fler ramar än minimalt antal och föregrundsprocesser.[/li]
 				[li]Den kan även justera antalet ramar till under det minimala antalet ramar för processen.[/li]
 			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Fallstudie">
+		<Question>
+			Hur sker fördelningen av adressrymden i 32-bitars Windows?
+		</Question>
+		<Answer>
+			En process adressrymd är 4 GB, där 2 GB mappas in till operativsystemet och resten får processen. Syftet med att mappa in OS är att det blir snabbare att gå från användarläge till kärnläge.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Fallstudie">
+		<Question>
+			Ange olika termer som används när man diskuterar processer i Windows.
+		</Question>
+		<Answer>
+			[b]Process[/b]
+			En behållare som har resurser knutna till sig som t.ex. minne och en eller flera trådar.
+
+			[b]Tråd[/b]
+			En enhet som schemaläggs av CPUn.
+
+			[b]Job[/b]
+			Det är uppsättning processer som hanteras som en enhet med gemensam gräns för resursutnjyttjande.
+
+			[b]Fiber[/b]
+			En lättviktsprocess som implementeras i användarläge.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Fallstudie">
+		<Question>
+			Hur fungerar filer i Windows?
+		</Question>
+		<Answer>
+			En fil i Windows består av attributer och flera strömmar av bytes. Varje ström kan hantera olika typer av data, som t.ex. video och ljud. En fil kan automatisk komprimeras/dekomproimeras då de skrivs/läses till/från disk. Komprimeringen fungerar så om den komprimerade datan kan skrivs på 15 eller mindre block så sker komprimeringen, om komprimeringen fortfarande tar 16 blocks så undviker man att komprimera datan.
 		</Answer>
 	</TestQuestion>
 </Test>
