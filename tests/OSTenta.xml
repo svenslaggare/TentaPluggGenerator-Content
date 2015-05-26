@@ -266,7 +266,7 @@
 			Då består sidtabellen av flera nivåer. Syftet med en fler-nivåers sidtabell är att undvika att allokera alla möjliga sidor för sidtabellen, vilket kan ta upp mycket utrymme och är opraktiskt för 64-bitars system. För att få en rimlig storlek på den yttersta sidtabellen krävs minst 5-7 nivåer, men detta blir istället för ineffektivt.
 
 			Exempel:
-			Antag att vi har en tvånivåers sidtabell. Om vi antar att vi har en logisk adressrymd med storleken [math]2^m[/math], sidstorleken [math]2^n[/math] och storleken på en post i sidtabellen: [math]2^e[/math]. Den inre sidtabellen kommer då att ha [math]2^(n-e)[/math] poster per sida och den yttre sidtabellen kommer då att ha [math]2^(m-2n-e)[/math] positioner.
+			Antag att vi har en tvånivåers sidtabell. Om vi antar att vi har en logisk adressrymd med storleken [math]2^m[/math], sidstorleken [math]2^n[/math] och storleken på en post i sidtabellen: [math]2^e[/math]. Den inre sidtabellen kommer då att ha [math]2^(n-e)[/math] poster per sida och den yttre sidtabellen kommer då att ha [math]2^(m-2n-e)[/math] positioner. En inre sidtabell allokeras endast om det finns någon sida som används.
 
 			[b]Hashad sidtabell[/b]
 			Fungerar som en hashtabell, där vi mappar från sidnummer till en post i sidtabellen. Här kan krockar i tabellen hanteras som länkade listor, dvs alla poster med samma hash bildar en länkad list.
@@ -275,6 +275,9 @@
 			Om varje process har en egen sidtabell kan det gå åt mycket minne. Idén med en inverterad sidtabell är att endast ha en sidtabell för alla processer där det finns en post för varje fysisk ram. I varje post har man då [i]sidnummret + ID[/i] för processen som allokerat ramen.
 
 			Nackdelen med denna implementation är att man måste söka i hela sidtabellen för att hitta ramen för en sida. Detta kan återgärdas genom att t.ex. hasha den inverterade sidtabellen eller att man använder sig av assocativt minne (som dock är dyrt). En annan nackdel är att det blir svårare att dela sidor mellan processer.
+
+			[b]Hashad inverterad sidtabell[/b]
+			Det är en variant av en inverterade sidtabellen, där en hash funktion används för att mappa en virtuell adress till en post i sidtabellen.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -283,6 +286,23 @@
 		</Question>
 		<Answer>
 			Det innebär att man lägger till information till sidtabellen som indikerar om sidan finns i primärminnet eller inte. När en sida som inte finns i primärminnet refereras så genereras ett [b]sidfel (page fault)[/b]. Vid sidfel så hämtas sidan från sekundärminnet (t.ex. disk) till primärminnet och sidtabellen uppdateras.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Ange de tre olika typerna av sidfel som finns. 
+		</Question>
+		<Answer>
+			[b]Minor[/b]
+			Det innebär att sidan är inladdad i primärminnet när sidfelet genererades, men har inte markeras i hårdvaran (MMU) att den är inladdad. Det enda som krävs är att markera i MMU att sidan är inladdad, ingen disk access behövs.
+
+			[b]Major[/b]
+			Det innebär att sidan inte finns i primärminnet och måste laddas in från disk.
+
+			[b]Invalid[/b]
+			Det innebär att den adressen som refererades inte är del av den virtuella adressrymden. Typisk så genereras ett segmenterings fel (segmentation fault) där detta sker.
+
+			När det kommer till TLB används terminologin: en [b]soft miss[/b] för att indikera att sidan som refererades finns i primärminnet men inte i TLBn och [b]hard miss[/b] att sidan varken finns i TLB:n eller primärminnet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -399,8 +419,7 @@
 				[li][math](0, 1)[/math] inte nyligen använd - men modifierad.[/li]
 				[li][math](1, 0)[/math] nyligen använd - men inte modifierad.[/li]
 				[li][math](1, 1)[/math] både nyligen använd och modifierad.[/li]
-			[/ol]
-			Används i Mac OS.
+			[/ol]Används i Mac OS.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sidutbytesalgoritmer">
@@ -490,7 +509,7 @@
 			Vad inenbär thrashing?
 		</Question>
 		<Answer>
-			Att processen spenderar mer tid på att byta sida än att exekvera.
+			Det innebär att en process spenderar mer tid på att byta sidor än att exekevera.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sidutbytesalgoritmer">
@@ -529,7 +548,7 @@
 			Om vi har för dålig lokalitet så kan det ge följande problem:
 			[ul]
 				[li]Många TLB-missar - ger sämre prestanda för att varje minnesaccess som ger upphov till en TLB-miss tar ungefär dubbelt så lång tid som om vi hade fått en träff istället.[/li]
-				[li]Kan också ge stort working-set vilket kan leda till många sidfel som tar lång tid att hantera (längre än en TLB-miss)[/li].
+				[li]Kan också ge stort working-set vilket kan leda till många sidfel som tar lång tid att hantera (längre än en TLB-miss).[/li]
 			[/ul]Om man överlastar systemet så att working-set inte ryms i minnet vilket leder till thrasing.
 		</Answer>
 	</TestQuestion>
@@ -773,6 +792,37 @@
 		<Answer>
 			Major device number: identifierar drivrutinen som används.
 			Minor device number: identifierar enheten om drivrutinen hanterar flera enheter.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IO">
+		<Question>
+			Ange olika metoder för att schemaläggas diskarmen.
+		</Question>
+		<Answer>
+			[b]First Come First Serve (FCFS)[/b]
+			Det innebär att diskarmen schemaläggs i samma ordning som de kommer in. Denna metod fungerar oftast inte så bra.
+
+			[b]Shortest Seek First (SSF)[/b]
+			Diskarmen schemaläggs så att den alltid tar den närmaste förfrågingen först, för att minimera söktiden (seek time). Ett problem med denna metod är att [i]svältning[/i] kan uppstå.
+
+			[b]Elevator algorithm (SCAN)[/b]
+			Diskarmen håller reda på vilken riktning som armen rör sig. Diskarmen läser sedan endast spår som ligger i samma riktning som armen rör sig, och tar dem i ordning, där den som är "närmast" i riktningen först. När armen har kommit till kanten/centrum så byter armen riktning.
+
+			[b]LOOK[/b]
+			Fungerar som SCAN algoritmen, men att den också kollar framåt i samma riktning för att se om det faktiskt finns några förfrågningar. Om så inte är fallet, så byter armen riktning.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IO">
+		<Question>
+			Hur kan man åstadkomma "stable storage", dvs undviker att data förloras vid diskkrasch.
+		</Question>
+		<Answer>
+			Det krävs att man har minst har två fysiska diskar, helst flera.
+			[ul]
+				[li]Alla skrivningar/läsningar går till alla diskarna.[/li]
+				[li]Vid skrivning: Kontrollera att skrivingen lyckades för alla diskar.[/li]
+				[li]Vid läsning: Kontrollera att alla läsningar lyckades och gav samma resultat.[/li]
+			[/ul]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TrådarOchMultiprocessorer">
@@ -1205,10 +1255,148 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 	</TestQuestion>
 	<TestQuestion Category="Säkerhet">
 		<Question>
+			Ange olika kryptosystem.
+		</Question>
+		<Answer>
+			[b]Symmetrisk[/b]
+			Då är både krypterings- och dekrypteringsnycklarna samma. Används ofta för t.ex. diskkryptering och exempel på algoritmer är: AES.
+
+			[b]Assymetrisk (publik-nyckel)[/b]
+			Då är krypterings- och dekrypteringsnycklarna olika. Ofta brukar systemet fungera så att den nyckel publiceras, den publika och en nyckel hålls hemliga, den privata. Systemet bör även ha egenskapen att det ska vara mycket svårt att givet den publika nyckeln få fram den privata nyckeln. Exempel är RSA systemet.
+
+			[b]Envägsfunktioner[/b]
+			Givet ett [math]y[/math] värde och en funktion [math]f[/math] så att: [math]y=f(x)[/math] så är det mycket svårt att beräkna [math]x[/math] givet ett [math]y[/math]. Ett alternativt namn är en [i]hash funktion[/i].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Säkerhet">
+		<Question>
+			Hur fungerar en digital signatur?
+		</Question>
+		<Answer>
+			Det används för att signera och dörmed kunna autenticiera dokument. Det fungerar på följande sätt: Antag att vi har att publik-nyckel krypteringssystem där [math]E(D(x))=x[/math].
+
+			[b]Signering[/b]
+			[ol]
+				[li]Beräkna ett hash-värde [math]H[/math] för dokumenetet med en hash algoritm som t.ex. SHA2.[/li]
+				[li]Skaparen av dokumentet signerar dokumenetet genom att kryptera [math]H[/math] med sin privata nyckel, [math]S=D(H)[/math].[/li]
+			[/ol][b]Autenticering[/b]
+			[ol]
+				[li]Beräkna hash-värdet för [math]H'[/math] för dokumentet utan signaturen.[/li]
+				[li]Dekryptera signaturen med den publika nyckeln, [math]H=E(S)[/math].[/li]
+				[li]Om [math]H = H'[/math] så vet vi att signaturen är autentisk.[/li]
+			[/ol]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Säkerhet">
+		<Question>
+			Vad kan man göra för att göra det svårare för inkräktare att testa användarnamn/lösenord?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Inte visa hur många tecken som matas in för lösenordet vid inloggning.[/li]
+				[li]Skicka [i]aldrig[/i] användarnamn/lösenord i klartext över ett nät som kan avlyssnas av andra.[/li]
+				[li]Att inloggningen inte avbryts även om det användarnamnet som matades in inte existerade.[/li]
+				[li]Begränsa antalet inloggningsförsök som kan göras eller efter varje inloggningsförsök som görs så måste användaren vänta tills nästa försök kan göras. Här används ofta "exponentiell back-off" som innebär att vi multiplicerar väntetiden med någon bas. t.ex. 2 efter varje försök.[/li]
+				[li]Logga alla inloggningsförsök som kan göras, lyckade och misslyckades för att kunna identifiera attacker.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Säkerhet">
+		<Question>
+			Vad är en trojansk häst?
+		</Question>
+		<Answer>
+			Det är ett program med två mål, där det ena är uppenbart för användaren och det andra är gömt för användaren. Trojanska hästar kan antingen byggas från existerande program eller byggas från början för att vara en trojansk häst. 
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Säkerhet">
+		<Question>
+			Vad är en bakdörr (backdoor)?
+		</Question>
+		<Answer>
+			Det är ett program (eller del av program) som ger tillgång till ett system. En bakdörr behöver inte vara skapad för att skada utan kan vara en del av supporten för programmet eller finnas där av andra legitima anledningar. Bakdörrar brukar typiskt vara mycket svåra att hitta.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Säkerhet">
+		<Question>
+			Vad är en logisk bomb för något?
+		</Question>
+		<Answer>
+			Det är en bit kod som en anfallare infogar i ett program som inte körs förrän ett specifikt villkor är uppfyllt.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Säkerhet">
+		<Question>
+			Vad är ett virus för något?
+		</Question>
+		<Answer>
+			Ett virus är ett program som infekterar andra progrm. När programmet körs så försöker viruset replikera sig till andra program. Virus är ofta specifika till operativsystem och hårdvara och tar vara på brister.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Malware">
+		<Question>
+			Vad är en mask (worm) för något?
+		</Question>
+		<Answer>
+			Ett replikerande program som sprider sig själv över ett nätverk som beter sig likt ett virus med liknande faser.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Malware">
+		<Question>
+			Vad är ett rootkit för något?
+		</Question>
+		<Answer>
+			Det är ett skadligt program som som installeras på ett system med root/administratör-rättigheter. Ett rootkit kan t.ex. byta ut systemanrop mot sina egna vilket kan bli mycket skadligt.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Säkerhet">
+		<Question>
+			Vad är "buffer overflow" för något?
+		</Question>
+		<Answer>
+			Det är när mer data försöker sparas än vad som får plats i en buffert av fixt storlek, vilket gör att data som ligger efter i minnet skrivs över. Med hjälp av denna attack kan man få ett program att krasha eller få programmet att utföra instruktioner som anfallaren vill.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Säkerhet">
+		<Question>
+			Vad kan ett virus göra för att undvika att bli upptäckt?
+		</Question>
+		<Answer>
+			[b]Polymorphism[/b]
+			Ett virus som muterar sig efter varje infektion, vilket gör att det inte finns någon signatur.
+
+			[b]Metamorphism[/b]
+			Fungerar som ett polymorfiskt virus, men vid varje infektion så skriver viruset om sig helt vilket gör det ännu svårare att upptäcka.
+
+			[b]Komprimering[/b]
+			Den komprimerar filen som infekteras och lägger till sig själv till filen. Detta gör att den infekterade filen får samma storlek som originalfilen.
+
+			[b]Kryptering[/b]
+			En del av viruset skapar en slumpmässig krypteringsnyckel och krypterar resterande del av viruset. Nyckeln lagras sedan i viruset. När ett infekterat program körs så använder viruset nyckeln för att dekryptera resterande del av viruset. Eftersom den största delen av viruset är krypterad med en slumpmässig nyckel finns det ingen signatur att upptäcka.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Säkerhet">
+		<Question>
+			Vad kan man göra för att undvika virus?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Välj ett OS med hög inbyggd säkerhet.[/li]
+				[li]Uppdatera koninuerligt OS med patchar som täpper till säkerhetshållen.[/li]
+				[li]Installera endast programvara från pålitliga källor.[/li]
+				[li]Installera ett bra antivirusprogram.[/li]
+				[li]Öppna inte bifogade filer i emails.[/li]
+				[li]Gör regelbudna incrementella backuper och spara backuper över lång tid.[/li]
+				[li][/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Säkerhet">
+		<Question>
 			Se Datasäkerhetstentan för mer information om säkert.
 		</Question>
 		<Answer>
-
+			[url="http://tenta.antjans.se/TestGenerator/ViewTest?course=Datas%C3%A4kerhet&amp;test=DasakTenta&amp;numQuestions=82&amp;noneRandom=True"]Länk[/url].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Fallstudie">

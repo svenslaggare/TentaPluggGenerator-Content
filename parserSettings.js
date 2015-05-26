@@ -54,10 +54,12 @@ var ParserSettings = (function () {
         });
 
         bbTags["url"] = new BBTag("url", true, false, false, function (tag, content, attr) {
+            console.log(attr);
+            console.log(content);
             var link = content;
 
             if (attr["url"] != undefined) {
-                link = escapeHTML(link);
+                link = escapeHTML(attr["url"]);
             }
 
             if (!startsWith(link, "http://") && !startsWith(link, "https://")) {
