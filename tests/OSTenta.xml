@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Test Name="Tenta">
+	<TestQuestion Category="Allmänt">
+		<Question>
+			Hur fungerar ett systemanrop?
+		</Question>
+		<Answer>
+			Det fungerar så att man lägger argumenten i register/på stacken och även ett nummer, så pekar ut systemetanropet. Sedan utförs en TRAP-instruktion, som genererar ett mjukvaru avbrott. Detta avbrott fångas sedan upp av avbrottsrutinen.
+
+			När operativsystemet har kontrollerat att det faktiskt var ett systemanrop så byter (normalt sätt) den anropande processen till en kärn-stack och forsätter att exekvera systemanropet i kärnan (även känt som supervisor mode).
+
+			När systemanropet är klart, så byter man tillbacka till användarstacken och exekeverar som vanligt i användarläge.
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="Processer">
 		<Question>
 			Vad är en process?
@@ -152,6 +164,14 @@
 			Det innebär att en process(er) [i]aldrig[/i] får köra för att andra processer har högre prioritet. Detta kan t.ex. lösas genom att ge processer som fått vänta längre högre prioritet temporärt.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="Schemaläggning">
+		<Question>
+			Vad innebär policy och mekanism när det kommer till schemaläggning?
+		</Question>
+		<Answer>
+			Mekanismen är hur schemaläggningen utförs medans policy bestämmer vilka processer som ska schemaläggas.
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
 		<Question>
 			Vad innebär dynamisk laddning och dynamisk länkning?
@@ -284,6 +304,29 @@
 
 			[b]Hashad inverterad sidtabell[/b]
 			Det är en variant av en inverterade sidtabellen, där en hash funktion används för att mappa en virtuell adress till en post i sidtabellen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Minneshantering">
+		<Question>
+			Vad för information brukar finnas i en post i sidtabellen och TLBn?
+		</Question>
+		<Answer>
+			[b]Ramnummer[/b]
+			Vilken fysisk ram som sidan mappar till. Huvudsyftet med en sidtabell är att ta reda på detta värde för en sida.
+
+			[b]Rättigheter[/b]
+			Anger vad för åtgärder som kan utföras. De tre vanligaste rättigheterna som stöjds är: läsa, skriva och exekevera.
+
+			[b]Modifierad[/b]
+			Indikerar om sidan har blivit modifierad sedan den laddades in. En sida som har blivit modiferad brukar kallas för [b]dirty[/b] medan som inte har modifieras [b]clean[/b].
+
+			[b]Refererad[/b]
+			Indikerar som sidan har blivit refererad (skrivits/lästs) sedan sidan laddades in.
+
+			[b]Inladdad[/b]
+			Indikerar att sidan är inladdad i primärminnet. Även känt som [b]present/absent[/b].
+
+			I TLB brukar det också finnas information som vilken process sidan tillhör och en bit som anger om sidan är giltig (valid).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -486,7 +529,7 @@
 			Det är en process som går i bakgrunden och utför två uppgifter:
 			[ul]
 				[li]När I/O-enheten för att skriva sidor till sekundärminnet är ledig skriver modiferade sidor.[/li]
-				[li]Om det finns för få ledia ramar så släng ut en del sidor. Information om vilken sida som låg i ramen bör även sparas så om sidan refereras och ramen ej har laddat in en annan sida så kan den återanvändas.[/li]
+				[li]Om det finns för få lediga ramar så släng ut en del sidor. Information om vilken sida som låg i ramen bör även sparas så om sidan refereras och ramen ej har laddat in en annan sida så kan den återanvändas.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -761,7 +804,7 @@
 			I/O-enheten signalerar att den är klar genom att generera ett avbrott. En avbrottsrutin fångar sedan upp avbrottet och kontrollerar eventuella fel och ser till att en eventuellt blockerad process som väntar på I/O hamnar i ready-kön. Nackdelen med avbrott är att det kostar att hantera på grund av att ett processbyte till avbrottshanteraren i kärnan krävs.
 
 			[b]Direct Memory Access (DMA)[/b]
-			Det innebär att en hårdvaruenhet kan överföra en mängd data till/från primärminnet och någon I/O-enhet (utan att behöva gå via CPUn). Vid läsning går datan som läses in först till kernel-space som sedan kopieras till processens adressrymd. Vid skrivning så kopieras data från processen till kernel-space. Onödig kopiering vid överföring kan undvikas genom att mappa om sidorna i sidtabellen.
+			Det innebär att en hårdvaruenhet kan överföra en mängd data till/från primärminnet och någon I/O-enhet (utan att behöva gå via CPUn). Oftast så genereras ett avbrott när överföringen är klar. Skillnaden emot avbrottstyrd är där genereras avbrott för varje block som överförs.	Vid läsning går datan som läses in först till kernel-space som sedan kopieras till processens adressrymd. Vid skrivning så kopieras data från processen till kernel-space. Onödig kopiering vid överföring kan undvikas genom att mappa om sidorna i sidtabellen.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Avbrott">
@@ -965,6 +1008,14 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]Pris-prestanda.[/li]
 				[li]Inkrementell uppdatering.[/li]
 			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DistribueradeSystem">
+		<Question>
+			Vad innebär ett overlay network?
+		</Question>
+		<Answer>
+			Det innebär att ett virtuellt nätverk/topologi implementeras i mjukvara ovanpå ett fysiskt nätverk.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DistribueradeSystem">
@@ -1424,6 +1475,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]Det finns en kö för varje prioritet där round-robin används inom varje kö.[/li]
 				[li]En process kör sin tidskvanta (ca 100 ms) eller till dess att den blockerar.[/li]
 				[li]En gång per sekund så beräknas alla procssers prioriteter om enligt formeln: [math]text{prioritet}=text{CPU-använding}+text{nice}+text{basprioritet}[/math].[/li]
+				[li]De processer som använt en stor del av sin tidskvanta får sin prioritet [i]temporärt[/i] sänkt.[/li]
 			[/ul]Schemaläggningen är optimerad för interaktiva processer, dvs processer med mycket I/O.
 		</Answer>
 	</TestQuestion>
