@@ -169,7 +169,7 @@
 			Vad innebär policy och mekanism när det kommer till schemaläggning?
 		</Question>
 		<Answer>
-			Mekanismen är hur schemaläggningen utförs medans policy bestämmer vilka processer som ska schemaläggas.
+			Mekanismen är hur schemaläggningen utförs medans policy bestämmer vilka processer som ska schemaläggas. T.ex. om vi har en pre-emptiv schemaläggning som baseras på prioriteter så är mekanismen att schemaläggaren alltid ser till att den process som har högst prioritet får exekevera. Policyn är då hur prioriteterna anges för processerna.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -654,7 +654,7 @@
 				[li]Länkad lista med pekare till nästa block.[/li]
 				[li]Separat tabell med pekare till blocken som hålls i minnet. Även känt som File Allocation Table (FAT).[/li]
 			[/ul][b]Indexerad allokering[/b]
-			Här sparar vi information i en nod, även kallad i-nod, om vilka block som tillhör en specifik fil/katalog. I i-noden sparas även metadata som t.ex. ägaren, senast skapad, storlek, osv. Används i UNIX-system.
+			Här sparar vi information i en nod, även kallad en [i]i-nod[/i]. I en i-nod så sparar vi information om ägare, skapare, när filen skapades, rättigheter och vart datablocken finns på disk inklusive en räknare för antalet hårdalänkar, från början 1. Används i UNIX-system.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Filsystem">
@@ -887,7 +887,7 @@
 			Vad är en tråd?
 		</Question>
 		<Answer>
-			En tråd kan ses som en lättviktsprocess som delar adressrymd med de andra trådarna i samma process. En tråd innehåller bland annat:
+			En tråd är en exekveringsväg genom en process och kan ses som en lättviktsprocess som delar adressrymd med de andra trådarna. En tråd innehåller bland annat:
 			[ul]
 				[li]Programräknare.[/li]
 				[li]Register.[/li]
@@ -1192,6 +1192,26 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]Ingen pre-emption (konfiskering): Resurser kan inte tas ifrån en process.[/li]
 				[li]Cirkulär väntan: Det måste finnas en cykel av processer där varje process väntar på att få en resurs av nästa.[/li]
 			[/ul]Resurser är saker som t.ex.: minne, diskenheter, lås, semaforer och meddelanden.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Synkronisering">
+		<Question>
+			Vad innebär nödvändigt respektive tillräckligt villkor?
+		</Question>
+		<Answer>
+			Ett [b]nödvändigt villkor[/b] [math]X[/math] för [math]A[/math] måste vara uppfyllt för att [math]A[/math] ska gälla, men att [math]X[/math] är uppfyllt betyder inte att [math]A[/math] gäller, dvs: [math]A \rightarrow X[/math].
+
+			Ett [b]tillräckligt villkor[/b] [math]Y[/math] för [math]A[/math] är uppfyllt så gäller [math]A[/math]. Det omvända måste inte gälla, dvs att om inte [math]Y[/math] inte gäller så gäller inte [math]A[/math], dvs: [math]Y \rightarrow A[/math].
+
+			En villkor kan antigen vara nödvändigt, tillräckligt eller båda och.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Synkronisering">
+		<Question>
+			Är Coffmans villkor för baklås nödvändiga eller tillräckliga?
+		</Question>
+		<Answer>
+			I det allmänna fallet är Coffmans villkor nödvändiga för att baklås ska uppstå. Detta innebär om vi bryter ett av villkoren så kan inte baklås uppstå. För speciallfallet då det endast finns en enhet av varje resurstyp så är Coffmans villkor både nödvändiga och tillräckliga. Detta innebär om Coffmans villkor är uppfyllda har vi också ett baklås.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Synkronisering">
