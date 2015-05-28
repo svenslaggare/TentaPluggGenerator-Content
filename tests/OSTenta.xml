@@ -239,7 +239,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
 		<Question>
-			Vad innebär ett minnet är sidindelat?
+			Vad innebär det att minnet är sidindelat?
 		</Question>
 		<Answer>
 			Det innebär att minnet delas i lika stora sidor. En sida är något som finns i den virtuella minnesrymden medan en ram är en sida som finns i det fysiska minnet. Översättningen till fysisk adress sker vid körning.
