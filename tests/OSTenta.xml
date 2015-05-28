@@ -1164,7 +1164,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Vad är en kritisk sektion?
 		</Question>
 		<Answer>
-			Det är en sektion av kod där flera processer accessar samma resurs.
+			Det är en sektion av kod där flera processer/trådar kan accessa och modifiera delad data eller delade resurser.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Synkronisering">
