@@ -1402,7 +1402,31 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Ett virus är ett program som infekterar andra progrm. När programmet körs så försöker viruset replikera sig till andra program. Virus är ofta specifika till operativsystem och hårdvara och tar vara på brister.
 		</Answer>
 	</TestQuestion>
-	<TestQuestion Category="Malware">
+	<TestQuestion Category="Säkerhet">
+		<Question>
+			Ange olika typer av virus.
+		</Question>
+		<Answer>
+			[b]Kompanjonvirus[/b]
+			Ett annat program körs istället för det program som användare ville köra, ingen kod infekteras.
+
+			[b]Minnesresidenta virus[/b]
+			Ett virus som lägger sig resident i minnet och nästlar ofast in i kärnan och brukar t.ex. ta kontroll över TRAP eller avbrottsvektorn. Genom att viruset är i kärnan, kan den övervaka varje systemanrop som utförs.
+
+			[b]Bootsektor virus[/b]
+			Viruset kopierar bootsektorn till en ledig sektor och skriver in sig själv på bootsektorn. Viruset kommer då att startas varje gång datorn bootas för att BIOS exekeverar det som ligger på bootsektorn.
+
+			[b]Drivurtinsvirus[/b]
+			Sprids genom infekterade drivrutiner, som installeras av användaren. Detta gör att viruset kan köra i kärnan.
+
+			[b]Markovirus[/b]
+			Viruset ligger som makron i t.ex. Word eller Excel-dokument.
+
+			[b]Källkodsvirus[/b]
+			Infekterar källkodsfiler.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Säkerhet">
 		<Question>
 			Vad är en mask (worm) för något?
 		</Question>
@@ -1410,7 +1434,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Ett replikerande program som sprider sig själv över ett nätverk som beter sig likt ett virus med liknande faser.
 		</Answer>
 	</TestQuestion>
-	<TestQuestion Category="Malware">
+	<TestQuestion Category="Säkerhet">
 		<Question>
 			Vad är ett rootkit för något?
 		</Question>
@@ -1457,6 +1481,38 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]Öppna inte bifogade filer i emails.[/li]
 				[li]Gör regelbudna incrementella backuper och spara backuper över lång tid.[/li]
 			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Säkerhet">
+		<Question>
+			Hur fungerar virus scanners?
+		</Question>
+		<Answer>
+			De fungerar genom att leta efter kända virus och kod som liknar virus genom att använda sig av databaser med virussignaturer. 
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Säkerhet">
+		<Question>
+			Hur fungerar Integritetskontroll (för att upptäcka virus)?
+		</Question>
+		<Answer>
+			Det beräknar först en checksumma för varje virusfri fil som sedan krypteras och sparas fil. När en programmet sedan exekveras så beräknas checksumman igen och jämförs emot den sparade. Om checksumman är samma är det hög sannolikhet att programmet är virusfri.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Säkerhet">
+		<Question>
+			Hur fungerar beteendekontroll (för att upptäcka virus)?
+		</Question>
+		<Answer>
+			Den fångar upp alla systemanrop och försöker upptäcka om något misstänksamt pågår.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Säkerhet">
+		<Question>
+			Vad är "sandboxing" och fungerar det?
+		</Question>
+		<Answer>
+			Det är sätt för att undvika att program utför dåliga saker på datorn. Det fungerar så att programmet körs i en "sandlåda" där alla potentiellt farliga operationer (typ systemanrop) kontrolleras och är isolerade från systemet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Säkerhet">
