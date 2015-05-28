@@ -623,12 +623,12 @@
 	</TestQuestion>
 	<TestQuestion Category="Filsystem">
 		<Question>
-			Varför tillåter man oftast inte cykler i katalogstrukturer?
+			Varför tillåter vi oftast inte cykler i katalogstrukturer?
 		</Question>
 		<Answer>
 			[ul]
 				[li]Det blir svårare att göra vanliga operationer som t.ex. att lista innehåller i en katalog och dess underkataloger.[/li]
-				[li]Det kan behövas att man har en skrämpsamlare som tar hand om filer som inte kan ej komma åt. Om cykler får existera blir detta svårare.[/li]
+				[li]Det kan behövas att man har en skräpsamlare som tar hand om filer som vi ej kan komma åt. Om cykler får existera blir detta svårare, för då bildas "delträd" i filträdet.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
