@@ -882,6 +882,22 @@
 			[/ul]
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="IO">
+		<Question>
+			Definera vad spår, sektorer och cylindrar är för något för en hårddisk.
+		</Question>
+		<Answer>
+			Ett [b]spår[/b] är en del av skivan i hårddisken som roterar under ett läs/skrivhuvud. Om man har flera skivor så utgör alla spår för en given position för läs/skrivhvudet en [b]cylinder[/b]. Varje spår delas in i [i]block[/i] av samma storlek, vilket kallas för [b]sektorer[/b].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IO">
+		<Question>
+			Vad är skillnaden mellan en fysisk och virtuell geometri för en hårddisk?
+		</Question>
+		<Answer>
+			När man programmerar emot en hårddisk vill man för enkelhetens skull att varje spår har lika många sektorer. Men för en fysisk hårddisk är detta opraktiskt, för att spår som är närmare centrum vill man packa tätare, för att få bättre prestanda. En [b]virtuell geometri[/b] skapar då en abstraktion att alla spår har lika många sektorer, men på den [b]fysiska hårddisken[/b] så skiljer sig antalet.
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="TrådarOchMultiprocessorer">
 		<Question>
 			Vad är en tråd?
