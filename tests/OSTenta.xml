@@ -654,7 +654,7 @@
 				[li]Länkad lista med pekare till nästa block.[/li]
 				[li]Separat tabell med pekare till blocken som hålls i minnet. Även känt som File Allocation Table (FAT).[/li]
 			[/ul][b]Indexerad allokering[/b]
-			Här sparar vi information i en nod, även kallad en [i]i-nod[/i]. I en i-nod så sparar vi information om ägare, skapare, när filen skapades, rättigheter och vart datablocken finns på disk inklusive en räknare för antalet hårdalänkar, från början 1. Används i UNIX-system.
+			Här sparar vi information i en nod, även kallad en [i]i-nod[/i]. I en i-nod så sparar vi information om ägare, skapare, när filen skapades, rättigheter och vart datablocken finns på disk inklusive en räknare för antalet hårdalänkar, från början 1. Filnamnet sparas [i]ej[/i] i i-noden för en fil kan vara känd under flera namn och lagras därför i katalogen. Används i UNIX-system.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Filsystem">
@@ -673,7 +673,7 @@
 			[ul]
 				[li]Partitionstabell: Information on monterade partitioner.[/li]
 				[li]Tabell med nyligen accesade kataloger.[/li]
-				[li]Tabell över alla öppna filer med kopior av filernas FCB:er.[/li]
+				[li]Tabell över alla öppna filer med kopior av filernas File Control Block (FCB).[/li]
 				[li]Per process-tabell för öppna filer.[/li]
 			[/ul]
 		</Answer>
@@ -703,7 +703,7 @@
 			Vad är en mjuk och hård länk?
 		</Question>
 		<Answer>
-			En [i]länk[/i] är en fil som innehåller sökvägen till en annan fil eller katalog.
+			En [i]länk[/i] är en fil som innehåller sökvägen till en annan fil eller katalog. I UNIX så pekar en länk ut en i-nod.
 
 			[b]Hård länk[/b]
 			Hårda länkar som skapas av användare får endast peka ut filer (för att undvika cykler). När en hård länk skapas så uppdateras räknaren i den utpekade filens [b]i-nod[/b] som anger hur många som refererar till filen. En fil kan inte tas bort så länge denna räknare är större än 0. Det finns alltid minst en hård länk till varje fil/katalog.
