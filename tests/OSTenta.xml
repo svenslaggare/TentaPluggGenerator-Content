@@ -752,6 +752,14 @@
 			Det innebär att filsystemet loggar ändringar i en journal före en skrivning till huvudfilsystemet. När skrivningen blivit klar så tas händelsen bort ifrån loggen. Detta gör om systemet kraschar när en skrivning sker så kan man undvika att filsystemet blir korrupt genom att t.ex. köra om skrivningarna.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="Filsystem">
+		<Question>
+			Vad är det virtuella filsystemet (VFS) för något i UNIX?
+		</Question>
+		<Answer>
+			Det virtuella filsystemeet är en abstraktion som gör det möjligt att ha flera olika typer av filsystem (lokala och distribuerade) och partitioner. Det implementeras så att när en fil accessas identifieras den V-nod som pekar ut vilket filsystem filen ligger i.
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="IO">
 		<Question>
 			Ange de två huvudklasserna av I/O-enheter.
