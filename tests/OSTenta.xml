@@ -5,9 +5,9 @@
 			Hur fungerar ett systemanrop?
 		</Question>
 		<Answer>
-			Det fungerar så att man lägger argumenten i register/på stacken och även ett nummer, så pekar ut systemetanropet. Sedan utförs en TRAP-instruktion, som genererar ett mjukvaru avbrott. Detta avbrott fångas sedan upp av avbrottsrutinen.
+			Det fungerar så att man lägger argumenten i register/på stacken och även ett nummer, som pekar ut systemetanropet. Sedan utförs en TRAP-instruktion, som genererar ett mjukvaru avbrott. Detta avbrott fångas sedan upp av avbrottsrutinen.
 
-			När operativsystemet har kontrollerat att det faktiskt var ett systemanrop så byter (normalt sätt) den anropande processen till en kärn-stack och forsätter att exekvera systemanropet i kärnan (även känt som supervisor mode).
+			När operativsystemet har kontrollerat att det faktiskt var ett systemanrop (avbrott kan genereras inte endast vid systemanrop) så byter (normalt sätt) den anropande processen till en kärn-stack och forsätter att exekvera systemanropet i kärnan (även känt som supervisor mode).
 
 			När systemanropet är klart, så byter man tillbacka till användarstacken och exekeverar som vanligt i användarläge.
 		</Answer>
