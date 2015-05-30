@@ -1426,6 +1426,14 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 		</Question>
 		<Answer>
 			Ett virus är ett program som infekterar andra progrm. När programmet körs så försöker viruset replikera sig till andra program. Virus är ofta specifika till operativsystem och hårdvara och tar vara på brister.
+			
+			Ett virus går typisk genom följande faser:
+			[ul]
+				[li][b]Dormant:[/b] Viruset är inaktivt och väntar på bli att aktiverat av händelser som t.ex. datum eller existens av en fil.[/li]
+				[li][b]Propagation:[/b] Viruset placerar en kopia av sig själv i andra program eller i andra delar av systemet. Viruset förändrar oftast skepnad för att undvika att bli upptäckt.[/li]
+				[li][b]Triggering:[/b] Viruset aktiveras för att utföra den funktion som den var designad för.[/li]
+				[li][b]Execution:[/b] Virusets funktion utförs.[/li]
+			[/ul]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Säkerhet">
