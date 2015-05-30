@@ -1322,7 +1322,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Vad innebär livelock?
 		</Question>
 		<Answer>
-			Det innebär att en grupp av processer som exekverar inte kommer vidare eftersom de hela tiden synkroniserar med varandra. Detta är svårt att upptäcka eftersom procsserna fortfarnade exekverar.
+			Det innebär att en grupp av processer som exekverar inte kommer vidare eftersom de hela tiden synkroniserar med varandra. Detta är svårt att upptäcka eftersom processerna fortfarnade exekverar.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Synkronisering">
