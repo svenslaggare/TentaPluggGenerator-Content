@@ -388,7 +388,7 @@
 			Vad är I/O-kostnaden för att byta ut sidor?
 		</Question>
 		<Answer>
-			Det kostar mindre att byta ut en sida som inte är modifierad än en som är modifierad. Om en sida i en ram är [b]ren[/b] (ej modiferad) så finns en kopia på disk, vilket innebär att man ej behöver skriva innehållet i ramen till disk. Dvs endast 1 I/O-operation krävs. Men om en ram är modifierad ([b]dirty[/b]) så måste den skrivas ut till disk innan en ny sida kan läsas in till ramen, dvs 2 I/O-operationer krävs.
+			Det kostar mindre att byta ut en sida som inte är modifierad än en som är modifierad. Om en sida i en ram är [b]ren[/b] (ej modiferad) så finns en kopia på disk, vilket innebär att man ej behöver skriva innehållet i ramen till disk, dvs endast 1 I/O-operation krävs. Men om en ram är modifierad ([b]dirty[/b]) så måste den skrivas ut till disk innan en ny sida kan läsas in till ramen, dvs 2 I/O-operationer krävs.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sidutbytesalgoritmer">
