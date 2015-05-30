@@ -345,7 +345,7 @@
 		</Question>
 		<Answer>
 			[b]Minor[/b]
-			Det innebär att sidan är inladdad i primärminnet när sidfelet genererades, men har inte markeras i hårdvaran (MMU) att den är inladdad. Det enda som krävs är att markera i MMU att sidan är inladdad, ingen disk access behövs.
+			Det innebär att sidan är inladdad i primärminnet när sidfelet genererades, men har inte markeras i sidtabellen att den är inladdad. Det enda som krävs är att markera i sidtabellen att sidan är inladdad, ingen disk access behövs.
 
 			[b]Major[/b]
 			Det innebär att sidan inte finns i primärminnet och måste laddas in från disk.
