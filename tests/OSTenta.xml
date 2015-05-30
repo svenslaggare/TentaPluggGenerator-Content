@@ -279,7 +279,7 @@
 			Vad innebär en miss i TLBn?
 		</Question>
 		<Answer>
-			Det innebär att den sida som efterfrågas ej finns i TLB. Detta innebär att sidtabellen som finns i primärminnet måste accessas. Efter det så uppdateras TLB (om sidan var giltig) genom att slänga ut en ogiltig eller gammal post. För de flesta arkitekturer sker hantering i MMU men i vissa arkitekturer som t.ex. SPARC sker det i mjukvara. Detta är för att TLB är mycke komplex del av MMU vilket tar upp mycket utrymme i hårdvåran (som man vill undvika).
+			Det innebär att den sida som efterfrågas ej finns i TLB. Detta innebär att sidtabellen som finns i primärminnet måste accessas. Efter det så uppdateras TLB (om sidan var giltig) genom att slänga ut en ogiltig eller gammal post. För de flesta arkitekturer sker hantering i MMU men i vissa arkitekturer som t.ex. SPARC sker det i mjukvara. Detta är för att TLB är en komplex del av MMU, vilket tar upp mycket utrymme i hårdvåran (som man vill undvika).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
