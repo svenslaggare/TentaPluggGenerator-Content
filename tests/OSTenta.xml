@@ -849,7 +849,7 @@
 			Vad är en drivrutin?
 		</Question>
 		<Answer>
-			Det är något som ger ett enklare gränsnitt mot hårdvaran. OS:et måste även tillhandahålla ett väldefinierat gränsitt mot drivrutinerna. En drivrutin anropas indirekt av systemanrop.
+			Det är något som ger ett enklare gränsnitt mot hårdvaran. OS:et måste även tillhandahålla ett väldefinierat gränssnitt mot drivrutinerna. En drivrutin anropas indirekt av systemanrop.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IO">
