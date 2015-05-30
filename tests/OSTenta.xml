@@ -782,7 +782,7 @@
 		</Question>
 		<Answer>
 			[b]Blockerande (synkron)[/b]
-			Procseesen som begärt I/O väntar till dess att I/O-operationen är klar. Oftast är läsning blockerade.
+			Processen som begärt I/O väntar till dess att I/O-operationen är klar. Oftast är läsning blockerade.
 
 			[b]Icke-blockerande (asynkron)[/b]
 			Processen som begärt I/O väntar inte på att I/O-operationen ska bli klar. Oftast är skrivning icke-blockerande.
