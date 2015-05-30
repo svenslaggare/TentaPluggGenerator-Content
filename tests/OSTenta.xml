@@ -1581,7 +1581,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			[/ul][b]Lågnivå schemaläggning[/b]
 			[ul]
 				[li]Prioriteter: -20 – 20[/li]
-				[li]Procsser som körs i användarläge har positiva prioriteter, kernel negativa.[/li]
+				[li]Processer som körs i användarläge har positiva prioriteter, kernel negativa.[/li]
 				[li]Det finns en kö för varje prioritet där round-robin används inom varje kö.[/li]
 				[li]En process kör sin tidskvanta (ca 100 ms) eller till dess att den blockerar.[/li]
 				[li]En gång per sekund så beräknas alla procssers prioriteter om enligt formeln: [math]text{prioritet}=text{CPU-använding}+text{nice}+text{basprioritet}[/math].[/li]
