@@ -814,7 +814,7 @@
 			I/O-enheten signalerar att den är klar genom att generera ett avbrott. En avbrottsrutin fångar sedan upp avbrottet och kontrollerar eventuella fel och ser till att en eventuellt blockerad process som väntar på I/O hamnar i ready-kön. Nackdelen med avbrott är att det kostar att hantera på grund av att ett processbyte till avbrottshanteraren i kärnan krävs.
 
 			[b]Direct Memory Access (DMA)[/b]
-			Det innebär att en hårdvaruenhet kan överföra en mängd data till/från primärminnet och någon I/O-enhet (utan att behöva gå via CPUn). Oftast så genereras ett avbrott när överföringen är klar. Skillnaden emot avbrottstyrd är där genereras avbrott för varje block som överförs.	Vid läsning går datan som läses in först till kernel-space som sedan kopieras till processens adressrymd. Vid skrivning så kopieras data från processen till kernel-space. Onödig kopiering vid överföring kan undvikas genom att mappa om sidorna i sidtabellen.
+			Det innebär att en hårdvaruenhet kan överföra en mängd data till/från primärminnet och någon I/O-enhet (utan att behöva gå via CPUn). Ett avbrott generereras när överföringen är klar. Skillnaden emot avbrottstyrd är där genereras avbrott för varje block som överförs.	Vid läsning går datan som läses in först till kernel-space som sedan kopieras till processens adressrymd. Vid skrivning så kopieras data från processen till kernel-space. Onödig kopiering vid överföring kan undvikas genom att mappa om sidorna i sidtabellen.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Avbrott">
