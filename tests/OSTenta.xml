@@ -1105,7 +1105,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]Det är servern som håller reda på alla tokens som delats ut.[/li]
 			[/ul]Om en klient vill läsa en fil måste servern återkalla eventuellt utdelad skrivtoken:
 			[ul]
-				[li]Klient med skrivtoken ger ifrån sig detta tilsammans med alla nya data som den har skrivit.[/li]
+				[li]Klient med skrivtoken ger ifrån sig detta tillsammans med alla nya data som den har skrivit.[/li]
 				[li]Servern uppdaterar filen med dessa nya datan och skickar ändringarna/hela filen till klienten som ville läsa.[/li]
 			[/ul]Om en klient vill skriva till en fil måste servern återkalla alla andra tokens.
 		</Answer>
