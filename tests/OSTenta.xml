@@ -155,7 +155,7 @@
 			Hur fungerar schemaläggning med tidsdelning (time-slicing)?
 		</Question>
 		<Answer>
-			Det innebär att alla processer får en viss tid som de får köra, t.ex. 100 ms. Alla processer som är i tillståndet READY ligger i den så kallade [i]ready-kön[/i]. Efter en process har körts så läggs den sist i ready-kön och den som ligger först får köra. Den tid som en process får köra kallas för [i]time slice[/i]. För att uppnå bra prestanda krävs en rimlig relation mellan en time slice och tiden för en context-switch.
+			Det innebär att alla processer får en viss tid som de får köra, t.ex. 100 ms. Alla processer som är i tillståndet READY ligger i den så kallade [i]ready-kön[/i]. Efter en process har körts så läggs den sist i ready-kön och den som ligger först får köra. Den tid som en process får köra kallas för [i]time slice[/i] eller [i]tidskvanta[/i]. För att uppnå bra prestanda krävs en rimlig relation mellan en time slice och tiden för en context-switch.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Schemaläggning">
