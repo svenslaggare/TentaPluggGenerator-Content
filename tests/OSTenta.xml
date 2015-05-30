@@ -759,7 +759,7 @@
 			Vad är det virtuella filsystemet (VFS) för något i UNIX?
 		</Question>
 		<Answer>
-			Det virtuella filsystemeet är en abstraktion som gör det möjligt att ha flera olika typer av filsystem (lokala och distribuerade) och partitioner. Det implementeras så att när en fil accessas identifieras den V-nod som pekar ut vilket filsystem filen ligger i.
+			Det virtuella filsystemet är en abstraktion som gör det möjligt att ha flera olika typer av filsystem (lokala och distribuerade) och partitioner. Det implementeras så att när en fil accessas identifieras den V-nod som pekar ut vilket filsystem filen ligger i.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IO">
