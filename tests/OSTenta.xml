@@ -867,7 +867,7 @@
 		</Question>
 		<Answer>
 			[b]First Come First Serve (FCFS)[/b]
-			Det innebär att diskarmen schemaläggs i samma ordning som de förfrågningar kommer in. Denna metod fungerar oftast inte så bra.
+			Det innebär att diskarmen schemaläggs i samma ordning som förfrågningarna kommer in. Denna metod fungerar oftast inte så bra.
 
 			[b]Shortest Seek First (SSF)[/b]
 			Diskarmen schemaläggs så att den alltid tar den närmaste förfrågingen först, för att minimera söktiden (seek time). Ett problem med denna metod är att [i]svältning[/i] kan uppstå.
