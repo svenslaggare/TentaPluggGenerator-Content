@@ -147,7 +147,7 @@
 			Vad innebär en context switch?
 		</Question>
 		<Answer>
-			Det innebär att vi sparar ner och återställer tillståndet för en process eller tråd så att exekveringen kan fortsätta vid ett senare tillfälle.
+			Det innebär att vi sparar tillståndet för en process eller tråd så att exekveringen kan fortsätta vid ett senare tillfälle. Sedan byter vi till en annan process genom att återställa tillståndet för processen.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Schemaläggning">
