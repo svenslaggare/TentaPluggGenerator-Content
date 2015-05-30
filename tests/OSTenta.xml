@@ -1290,7 +1290,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Hur fungerar Bankiralgoritmen?
 		</Question>
 		<Answer>
-			Det bygger på att systemet kan kontrollera schemaläggningen av processerna. Varje process måste anmäla sitt maximala resursbehov i förväg. Systemet ska alltid befinna sig i ett säkert tillstånd, vilket definieras som: Det finns en ordning i vilken procsserna kan köras som inte leder till låsning även om alla processer utnyttjar hela sitt maximala resursbehov. Om en process kommer med en begäran som skulle leda till att systemet hamnar i ett osäkert tillstånd så körs en annan process istället. Den uppskjutna begäran uppfylls senare.
+			Det bygger på att systemet kan kontrollera schemaläggningen av processerna. Varje process måste anmäla sitt maximala resursbehov i förväg. Systemet ska alltid befinna sig i ett säkert tillstånd, vilket definieras som: Det finns en ordning i vilken processerna kan köras som inte leder till låsning även om alla processer utnyttjar hela sitt maximala resursbehov. Om en process kommer med en begäran som skulle leda till att systemet hamnar i ett osäkert tillstånd så körs en annan process istället. Den uppskjutna begäran uppfylls senare.
 
 			Algoritmen går oftast inte att använda eftersom en process sällan känner till hela sitt resursbehov innan programmet börjar exekvera.
 		</Answer>
