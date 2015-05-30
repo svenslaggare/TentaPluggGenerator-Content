@@ -40,7 +40,9 @@
 			Hur skapas nya processer i UNIX-system?
 		</Question>
 		<Answer>
-			Nya processer skapas med hjälp av systemanropet [i]fork()[/i] vilket skapar en kopia av den körande processen. Den nya barnprocessen, ärver alla öppna fildeskriptorer ifrån föräldern, syftet med detta är att möjliggöra kommunkation mellan dem via filer och pipes. Vanligtvist vill man att en den nya processen kör ett annat program, vilket görs med systemanrop ur familjen [i]exec[/i] vilket byter ut det nuvarande programmet emot ett annat.
+			Nya processer skapas med hjälp av systemanropet [i]fork()[/i] vilket skapar en kopia av den körande processen. Den nya barnprocessen, ärver alla öppna fildeskriptorer ifrån föräldern, syftet med detta är att möjliggöra kommunkation mellan dem via filer och pipes.
+			
+			Vanligtvist vill man att en den nya processen kör ett annat program, vilket görs med systemanrop ur familjen [i]exec[/i] vilket byter ut det nuvarande programmet emot ett annat.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Processer">
