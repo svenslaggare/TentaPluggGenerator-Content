@@ -721,8 +721,7 @@
 			En [i]länk[/i] är en fil som innehåller sökvägen till en annan fil eller katalog. I UNIX så pekar en länk ut en i-nod.
 
 			[b]Hård länk[/b]
-			Hårda länkar som skapas av användare får endast peka ut filer (för att undvika cykler). När en hård länk skapas så uppdateras räknaren i den utpekade filens [b]i-nod[/b] som anger hur många som refererar till filen. En fil kan inte tas bort så länge denna räknare är större än 0. Det finns alltid minst en hård länk till varje fil/katalog.
-
+			Hårda länkar som skapas av användare får endast peka ut filer (för att undvika cykler). När en hård länk skapas så uppdateras räknaren i den utpekade filens [b]i-nod[/b] som anger hur många som refererar till filen. En fil kan inte tas bort så länge denna räknare är större än 0. När en fil/katalog skapas så skapas en hård länk (från katalogen som de ligger i).
 			[b]Mjuk länk[/b]
 			En mjuk länk får peka ut både filer och kataloger. En mjuk länk påverkar [i]ej[/i] räknaren i i-noden.
 		</Answer>
