@@ -655,8 +655,21 @@
 			[ul]
 				[li]Länkad lista med pekare till nästa block.[/li]
 				[li]Separat tabell med pekare till blocken som hålls i minnet. Även känt som File Allocation Table (FAT).[/li]
-			[/ul][b]Indexerad allokering[/b]
-			Här sparar vi information i en nod, även kallad en [i]i-nod[/i]. I en i-nod så sparar vi information om ägare, skapare, när filen skapades, rättigheter och vart datablocken finns på disk inklusive en räknare för antalet hårdalänkar, från början 1. Filnamnet sparas [i]ej[/i] i i-noden för en fil kan vara känd under flera namn och lagras därför i katalogen. Används i UNIX-system.
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Filsystem">
+		<Question>
+			Ange olika sätt att implementera filer i filsystem.
+		</Question>
+		<Answer>
+			[b]Indexerad allokering[/b]
+			Här sparar vi information i en nod, även kallad en [i]i-nod[/i]. I en i-nod så sparar vi information om ägare, skapare, när filen skapades, rättigheter och vart datablocken finns på disk inklusive en räknare för antalet hårdalänkar, från början 1. Filnamnet sparas [i]ej[/i] i i-noden för en fil kan vara känd under flera namn och lagras därför i katalogen. Strukturen som anger vart datablocken är bildar en slags trädstruktur (se bild) som gör att slumpmässig positionering i filen gör att göra på [math]O(log(n))[/math] där [math]n[/math] är antalet block i filen. Används i UNIX-system.
+
+			[img]http://upload.wikimedia.org/wikipedia/commons/a/a2/Ext2-inode.gif[/img]
+
+			[b]File Allocation Table[/b]
+			Vi har en tabell med pekare till blocken som finns i filsystemet. Denna tabell lagras i primärminnet. En fil implementeras som en länkad lista, där varje länk pekar ut en block i tidigare tabell. Den sista blocket i filen pekar på ett speciellt block för att markera att filen är slut (end of file). Fördelen med denna metod är att den är enkelt att implementera. Nackdelen är att för att göra en slumpmässig positionering i filen är linjär i antalet block i filen och att tabellens storlek är proportionell emot storleken på filsystemet. En annan nackdel är metadata för filen lagras på ett annan ställe än där filblocken lagras, vilket gör det möjligt att ha olika rättigheter för samma fil.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Filsystem">
