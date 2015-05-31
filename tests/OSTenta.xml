@@ -670,6 +670,9 @@
 
 			[b]File Allocation Table[/b]
 			Vi har en tabell med pekare till blocken som finns i filsystemet. Denna tabell lagras i primärminnet. En fil implementeras som en länkad lista, där varje länk pekar ut en block i tidigare tabell. Den sista blocket i filen pekar på ett speciellt block för att markera att filen är slut (end of file). Fördelen med denna metod är att den är enkelt att implementera. Nackdelen är att för att göra en slumpmässig positionering i filen är linjär i antalet block i filen och att tabellens storlek är proportionell emot storleken på filsystemet. En annan nackdel är metadata för filen lagras på ett annan ställe än där filblocken lagras, vilket gör det möjligt att ha olika rättigheter för samma fil.
+
+			[i]Bild över hur det fungerar[/i]
+			[img width="50%" height="50%"]http://pages.cs.wisc.edu/~bart/537/lecturenotes/figures/s24.fat.gif[/img]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Filsystem">
