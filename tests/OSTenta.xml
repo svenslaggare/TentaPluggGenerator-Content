@@ -1053,7 +1053,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 		</Question>
 		<Answer>
 			[b]Transparens[/b]
-			Att systemet är distribuerat inte syns för användaren. Det finns olika typer av transparens:
+			Att systemet är distribuerat syns inte för användaren. Det finns olika typer av transparens:
 			[ul]
 				[li]Namntransparens – namnet beror inte på var objektet finns.[/li]
 				[li]Platstransparens (location transparency) – man behöver inte veta var resurser finns.[/li]
@@ -1062,6 +1062,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]Samtidighetstransparens – man behöver inte veta om att någon annan använder resurser samtidigt.[/li]
 				[li]Parallelitetstransparens – man behöver inte veta om att ens program körs parallellt.[/li]
 			[/ul][b]Feltolerans[/b]
+			
 			[b]Skalbarhet[/b]
 		</Answer>
 	</TestQuestion>
@@ -1078,7 +1079,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			[b]Sessionssemantik[/b]
 			Det innebär att varje klient som har filen öppen logiskt sett har en lokal kopia. Ändringar görs till den lokala kopian och när filen stängs så skrivs kopian tillbaka till servern. AFS implementerar på ett ungefär denna semantik.
 
-			[b]Immutable (oförändlig)[/b]
+			[b]Immutable (oföränderlig)[/b]
 			Det innebär att filer inte ändras, utan varje ny version ersätter den gamla. Varje version har ett nummer.
 		</Answer>
 	</TestQuestion>
@@ -1108,8 +1109,8 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]Det är servern som håller reda på alla tokens som delats ut.[/li]
 			[/ul]Om en klient vill läsa en fil måste servern återkalla eventuellt utdelad skrivtoken:
 			[ul]
-				[li]Klient med skrivtoken ger ifrån sig detta tillsammans med alla nya data som den har skrivit.[/li]
-				[li]Servern uppdaterar filen med dessa nya datan och skickar ändringarna/hela filen till klienten som ville läsa.[/li]
+				[li]Klient med skrivtoken ger ifrån sig denna tillsammans med alla nya data som den har skrivit.[/li]
+				[li]Servern uppdaterar filen med dessa nya data och skickar ändringarna/hela filen till klienten som ville läsa.[/li]
 			[/ul]Om en klient vill skriva till en fil måste servern återkalla alla andra tokens.
 		</Answer>
 	</TestQuestion>
@@ -1123,7 +1124,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			[ul]
 				[li]Kortare meddelanden från klienten.[/li]
 				[li]Kan ge bättre prestanda.[/li]
-				[li]Readahead möjligt.[/li]
+				[li]Read-ahead möjligt.[/li]
 				[li]Lättare att koordinera idempotenta operationer (ger samma resultat oberoende av antalet upprepningar).[/li]
 				[li]Enklare att låsa filer.[/li]
 			[/ul]Nackdelar:
@@ -1137,7 +1138,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]
 					Om servern kraschar
 					[ul]
-						[li]Information om t.ex. filoffset försviner för klienter med öppna filer.[/li]
+						[li]Information om t.ex. filoffset försvinner för klienter med öppna filer.[/li]
 						[li]Konsistensinformation (vilka klienter som har lokala kopior av filer) försvinner.[/li]
 					[/ul]
 				[/li]
@@ -1157,7 +1158,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Vad är konsistenssemantik när det kommer till distribuerade system?
 		</Question>
 		<Answer>
-			Det beskriver hur man hanterar läsningar och skrivningar till en delad resurs. Om vi t.ex. har har ett distruberat filsystem så beskriver konsistenssemantiken beskriver i vilken  grad man kan förvänta sig att filsystemet är konsistent, t.ex. hur länge tid det kan dröja innan en uppdatering av en fil blir synliga för alla andra eller hur konflikter av uppdateringar av olika kopior hanteras.
+			Det beskriver hur man hanterar läsningar och skrivningar till en delad resurs. Om vi t.ex. har ett distruberat filsystem så beskriver konsistenssemantiken i vilken  grad man kan förvänta sig att filsystemet är konsistent. T.ex. hur lång tid det kan dröja innan en uppdatering av en fil blir synlig för alla andra eller hur konflikter av uppdateringar av olika kopior hanteras.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Synkronisering">
@@ -1201,10 +1202,10 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Vad är ett baklås (deadlock)?
 		</Question>
 		<Answer>
-			Det innebär att en mängd processer [math]P[/math] så att varje [math]p in P[/math] väntar (är blockerad) på att någon händelse som endast kan orsakas av någon [math]p' in P[/math] körs. Orsaker till att någon process väntar är t.ex.:
+			Det innebär att varje [math]p in P[/math] (där [math]P[/math] är en mängd processer) väntar (är blockerad) på att någon händelse som endast kan orsakas av någon [math]p' in P[/math] körs. Orsaker till att någon process väntar är t.ex.:
 			[ul]
 				[li]I/O-enheter: [math]p[/math] vill ha skrivaren som [math]p'[/math] har reserverat.[/li]
-				[li]Ömsesidig uteslutning: [math]p[/math] vill öppna en fil som [math]p'[/math] låst.[/li]
+				[li]Ömsesidig uteslutning: [math]p[/math] vill öppna en fil som [math]p'[/math] har låst.[/li]
 				[li]Andra resurser: [math]p[/math] vill starta en process men processtabellen är full.[/li]
 				[li]Kommunikation: [math]p[/math] väntar på att [math]p'[/math] ska skicka ett meddelande.[/li]
 			[/ul]
@@ -1220,19 +1221,19 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]Behåll och vänta: En process kan behålla (reserverade) resurser medan den väntar på att få andra.[/li]
 				[li]Ingen pre-emption (konfiskering): Resurser kan inte tas ifrån en process.[/li]
 				[li]Cirkulär väntan: Det måste finnas en cykel av processer där varje process väntar på att få en resurs av nästa.[/li]
-			[/ul]Resurser är saker som t.ex.: minne, diskenheter, lås, semaforer och meddelanden.
+			[/ul]Resurser är saker som t.ex. minne, diskenheter, lås, semaforer och meddelanden.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Synkronisering">
 		<Question>
-			Vad innebär nödvändigt respektive tillräckligt villkor?
+			Vad innebär ett nödvändigt respektive ett tillräckligt villkor?
 		</Question>
 		<Answer>
-			Ett [b]nödvändigt villkor[/b] [math]X[/math] för [math]A[/math] måste vara uppfyllt för att [math]A[/math] ska gälla, men att [math]X[/math] är uppfyllt betyder inte att [math]A[/math] gäller, dvs: [math]A \rightarrow X[/math].
+			Ett villkor [math]X[/math] är [b]nödvändigt[/b] för [math]A[/math] om [math]X[/math] måste vara uppfyllt för att [math]A[/math] ska kunna gälla. Att [math]X[/math] är uppfyllt innebär dock inte att [math]A[/math] gäller. Dvs: [math]A \rightarrow X[/math].
 
-			Ett [b]tillräckligt villkor[/b] [math]Y[/math] för [math]A[/math] är uppfyllt så gäller [math]A[/math]. Det omvända måste inte gälla, dvs att om inte [math]Y[/math] inte gäller så gäller inte [math]A[/math], dvs: [math]Y \rightarrow A[/math].
+			Ett villkor [math]Y[/math] är [b]tillräckligt[/b] för [math]A[/math] om [math]A[/math] alltid gäller om [math]Y[/math] gäller. Det omvända måste inte gälla, dvs att om [math]Y[/math] inte gäller så gäller inte [math]A[/math]. Dvs: [math]Y \rightarrow A[/math].
 
-			En villkor kan antigen vara nödvändigt, tillräckligt eller båda och.
+			Ett villkor kan antingen vara nödvändigt, tillräckligt eller både och.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Synkronisering">
@@ -1240,7 +1241,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Är Coffmans villkor för baklås nödvändiga eller tillräckliga?
 		</Question>
 		<Answer>
-			I det allmänna fallet är Coffmans villkor nödvändiga för att baklås ska uppstå. Detta innebär om vi bryter ett av villkoren så kan inte baklås uppstå. För speciallfallet då det endast finns en enhet av varje resurstyp så är Coffmans villkor både nödvändiga och tillräckliga. Detta innebär om Coffmans villkor är uppfyllda har vi också ett baklås.
+			I det allmänna fallet är Coffmans villkor nödvändiga för att baklås ska uppstå. Detta innebär om vi bryter ett av villkoren så kan inte baklås uppstå. För speciallfallet då det endast finns en enhet av varje resurstyp så är Coffmans villkor både nödvändiga och tillräckliga. Detta innebär att om Coffmans villkor är uppfyllda så har vi också ett baklås.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Synkronisering">
@@ -1249,7 +1250,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 		</Question>
 		<Answer>
 			[b]Gör ingenting (strutsalgoritmen)[/b]
-			Anledingen för detta är att det är dyrt och krångligt att undvika/upptäcka baklås. Används i bland annat Unix.
+			Anledingen för detta är att det är dyrt och krångligt att undvika/upptäcka baklås. Används i bland annat UNIX.
 
 			[b]Detektering och återhämtning[/b]
 			Systemet håller reda på resursallokering och letar efter cykler. Används i VMS.
@@ -1269,13 +1270,13 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			[b]Om det bara finns en enhet av varje resurs[/b]
 			Då är det ganska enkelt att implementera. Systemet håller reda på för varje process vilka resurser den har och vilka den väntar på. Om det finns cykler, så kan baklås existera. Det finns algoritmer som kan hitta cykler i linjär tid.
 
-			[b]Om det finns fler av varje resurs[/b]
-			Då blir det mycket mer komplicerat. En process som väntar på att få en resurs väntar på någon av de processer som har resursen ska släppa den. Den cirkulära väntan kan komma att brytas av att processer som är klara med användingen av en resurs släpper sina resurser. En lösning är att konstruera Bankiralgoritm-tabeller.
+			[b]Om det finns fler enheter av varje resurs[/b]
+			Då blir det mycket mer komplicerat. En process som väntar på att få en resurs väntar på att någon av de processer som har resursen ska släppa den. Den cirkulära väntan kan komma att brytas av att processer som är klara med användningen av en resurs släpper sina resurser. En lösning är att konstruera Bankiralgoritm-tabeller.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Synkronisering">
 		<Question>
-			Hur kan man återhämta sig ifrån baklås?
+			Hur kan man återhämta sig från ett baklås?
 		</Question>
 		<Answer>
 			[b]Inför pre-emption (konfiskation)[/b]
