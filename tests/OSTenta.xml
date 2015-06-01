@@ -1071,7 +1071,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Att använda sig av caching i distribuerat filsystem är problematisk, varför?
 		</Question>
 		<Answer>
-			Det är för att filen som cachas kan ha ändrats av andra. Om flera cachar finns, med olika innehåll, uppstår problem när man ska skriva till servern. Vilken version ska användas? Det finns olika sätt hantera det som:
+			Det är för att filen som cachas kan ha ändrats av andra. Om flera cachar finns, med olika innehåll, uppstår problem när man ska skriva till servern. Vilken version ska användas? Det finns olika sätt att hantera det:
 
 			[b]Sekvensiell semantik (UNIX-semantik)[/b]
 			Det innebär att det logiskt sett bara finns en kopia av varje fil. Denna semantik är svår att implementera effektivt.
