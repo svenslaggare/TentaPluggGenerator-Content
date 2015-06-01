@@ -1301,7 +1301,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 	</TestQuestion>
 	<TestQuestion Category="Synkronisering">
 		<Question>
-			Vad kan man göra för att förhinda baklås?
+			Vad kan man göra för att förhindra baklås?
 		</Question>
 		<Answer>
 			Se till att något av Coffmans fyra villkor inte gäller.
