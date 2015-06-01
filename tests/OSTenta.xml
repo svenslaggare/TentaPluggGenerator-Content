@@ -557,7 +557,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Sidutbytesalgoritmer">
 		<Question>
-			Vad inenbär thrashing?
+			Vad innebär thrashing?
 		</Question>
 		<Answer>
 			Det innebär att en process spenderar mer tid på att byta sidor än att exekvera.
