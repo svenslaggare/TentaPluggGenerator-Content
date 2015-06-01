@@ -1358,13 +1358,13 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 		</Question>
 		<Answer>
 			[b]Symmetrisk[/b]
-			Då är både krypterings- och dekrypteringsnycklarna samma. Används ofta för t.ex. diskkryptering och exempel på algoritmer är: AES.
+			Då är både krypterings- och dekrypteringsnycklarna samma. Används ofta för t.ex. diskkryptering och ett exempel på en algoritm är AES.
 
 			[b]Assymetrisk (publik-nyckel)[/b]
-			Då är krypterings- och dekrypteringsnycklarna olika. Systemet brukar fungera så att en nyckel publiceras, den publika och en nyckel hålls hemliga, den privata. Systemet bör även ha egenskapen att det ska vara mycket svårt att givet den publika nyckeln få fram den privata nyckeln. Exempel är RSA systemet.
+			Då är krypterings- och dekrypteringsnycklarna olika. Systemet brukar fungera så att en nyckel publiceras, den publika och en nyckel hålls hemliga, den privata. Systemet bör även ha egenskapen att det ska vara mycket svårt att givet den publika nyckeln få fram den privata nyckeln. Exempel är RSA-systemet.
 
 			[b]Envägsfunktioner[/b]
-			Givet ett [math]y[/math] värde och en funktion [math]f[/math] så att: [math]y=f(x)[/math] så är det mycket svårt att beräkna [math]x[/math] givet ett [math]y[/math]. Ett alternativt namn är en [i]hash funktion[/i].
+			Givet ett [math]y[/math]-värde och en funktion [math]f[/math] så att [math]y=f(x)[/math], är det mycket svårt att beräkna [math]x[/math] givet ett [math]y[/math]. Ett alternativt namn är en [i]hash-funktion[/i].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Säkerhet">
@@ -1372,15 +1372,15 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Hur fungerar en digital signatur?
 		</Question>
 		<Answer>
-			Det används för att signera och därmed kunna autentisera dokument. Det fungerar på följande sätt: Antag att vi har att publik-nyckel krypteringssystem där [math]D(E(x))=x[/math].
+			Det används för att signera och därmed kunna autentisera dokument. Det fungerar på följande sätt: Antag att vi har ett publik-nyckel-krypteringssystem där [math]D(E(x))=x[/math].
 
 			[b]Signering[/b]
 			[ol]
-				[li]Beräkna ett hash-värde [math]H[/math] för dokumentet med en hash algoritm som t.ex. SHA2.[/li]
+				[li]Beräkna ett hash-värde [math]H[/math] för dokumentet med en hash-algoritm som t.ex. SHA2.[/li]
 				[li]Skaparen av dokumentet signerar dokumentet genom att kryptera [math]H[/math] med sin privata nyckel, [math]S=E(H)[/math].[/li]
-			[/ol][b]Autenticering[/b]
+			[/ol][b]Autentisering[/b]
 			[ol]
-				[li]Beräkna hash-värdet för [math]H'[/math] för dokumentet utan signaturen.[/li]
+				[li]Beräkna hash-värdet [math]H'[/math] för dokumentet utan signaturen.[/li]
 				[li]Dekryptera signaturen med den publika nyckeln, [math]H=D(S)[/math].[/li]
 				[li]Om [math]H = H'[/math] så vet vi att signaturen är autentisk.[/li]
 			[/ol]
@@ -1396,7 +1396,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 				[li]Skicka [i]aldrig[/i] användarnamn/lösenord i klartext över ett nät som kan avlyssnas av andra.[/li]
 				[li]Att inloggningen inte avbryts även om det användarnamnet som matades in inte existerade.[/li]
 				[li]Begränsa antalet inloggningsförsök som kan göras eller efter varje inloggningsförsök som görs så måste användaren vänta tills nästa försök kan göras. Här används ofta "exponentiell back-off" som innebär att vi multiplicerar väntetiden med någon bas. t.ex. 2 efter varje försök.[/li]
-				[li]Logga alla inloggningsförsök som kan göras, lyckade och misslyckades för att kunna identifiera attacker.[/li]
+				[li]Logga alla inloggningsförsök som kan göras, lyckade och misslyckade, för att kunna identifiera attacker.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -1413,7 +1413,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Vad är en bakdörr (backdoor)?
 		</Question>
 		<Answer>
-			Det är ett program (eller del av program) som ger tillgång till ett system. En bakdörr behöver inte vara skapad för att skada utan kan vara en del av supporten för programmet eller finnas där av andra legitima anledningar. Bakdörrar brukar typiskt vara mycket svåra att hitta.
+			Det är ett program (eller en del av program) som ger tillgång till ett system. En bakdörr behöver inte vara skapad för att skada utan kan vara en del av supporten för programmet eller finnas där av andra legitima anledningar. Bakdörrar brukar typiskt vara mycket svåra att hitta.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Säkerhet">
@@ -1446,19 +1446,19 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 		</Question>
 		<Answer>
 			[b]Kompanjonvirus[/b]
-			Ett annat program körs istället för det program som användare ville köra, ingen kod infekteras.
+			Ett annat program körs istället för det program som användaren ville köra. Ingen kod infekteras.
 
 			[b]Minnesresidenta virus[/b]
-			Ett virus som lägger sig resident i minnet och nästlar oftast in i kärnan och brukar t.ex. ta kontroll över TRAP eller avbrottsvektorn. Genom att viruset är i kärnan, kan den övervaka varje systemanrop som utförs.
+			Ett virus som lägger sig resident i minnet. Nästlar oftast in sig i kärnan och brukar t.ex. ta kontroll över TRAP-handlern eller avbrottsvektorn. Genom att viruset är i kärnan, kan det övervaka varje systemanrop som utförs.
 
-			[b]Bootsektor virus[/b]
+			[b]Bootsektorvirus[/b]
 			Viruset kopierar bootsektorn till en ledig sektor och skriver in sig själv på bootsektorn. Viruset kommer då att startas varje gång datorn bootas för att BIOS exekverar det som ligger på bootsektorn.
 
-			[b]Drivurtinsvirus[/b]
+			[b]Drivrutinsvirus[/b]
 			Sprids genom infekterade drivrutiner, som installeras av användaren. Detta gör att viruset kan köra i kärnan.
 
 			[b]Markovirus[/b]
-			Viruset ligger som makron i t.ex. Word eller Excel-dokument.
+			Viruset ligger som makron i t.ex. Word- eller Excel-dokument.
 
 			[b]Källkodsvirus[/b]
 			Infekterar källkodsfiler.
@@ -1477,7 +1477,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Vad är ett rootkit för något?
 		</Question>
 		<Answer>
-			Det är ett skadligt program som som installeras på ett system med root/administratör-rättigheter. Ett rootkit kan t.ex. byta ut systemanrop mot sina egna vilket kan bli mycket skadligt.
+			Det är ett skadligt program som installeras på ett system med root/administratör-rättigheter. Ett rootkit kan t.ex. byta ut systemanrop mot sina egna vilket kan bli mycket skadligt.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Säkerhet">
@@ -1485,7 +1485,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Vad är "buffer overflow" för något?
 		</Question>
 		<Answer>
-			Det är när mer data försöker sparas än vad som får plats i en buffert av fixt storlek, vilket gör att data som ligger efter i minnet skrivs över. Med hjälp av denna attack kan man få ett program att krasha eller få programmet att utföra instruktioner som anfallaren vill.
+			Det är när mer data försöker sparas än vad som får plats i en buffert av fix storlek, vilket gör att data som ligger efter i minnet skrivs över. Med hjälp av denna attack kan man få ett program att krasha eller få programmet att utföra instruktioner som anfallaren vill.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Säkerhet">
@@ -1513,17 +1513,17 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 		<Answer>
 			[ul]
 				[li]Välj ett OS med hög inbyggd säkerhet.[/li]
-				[li]Uppdatera koninuerligt OS med patchar som täpper till säkerhetshållen.[/li]
+				[li]Uppdatera OS:et koninuerligt med patchar som täpper till säkerhetshålen.[/li]
 				[li]Installera endast programvara från pålitliga källor.[/li]
 				[li]Installera ett bra antivirusprogram.[/li]
-				[li]Öppna inte bifogade filer i emails.[/li]
-				[li]Gör regelbudna incrementella backuper och spara backuper över lång tid.[/li]
+				[li]Öppna inte bifogade filer i mail.[/li]
+				[li]Gör regelbundna inkrementella backuper och spara backuper över lång tid.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Säkerhet">
 		<Question>
-			Hur fungerar virus scanners?
+			Hur fungerar virusskanners?
 		</Question>
 		<Answer>
 			De fungerar genom att leta efter kända virus och kod som liknar virus genom att använda sig av databaser med virussignaturer. 
@@ -1534,7 +1534,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Hur fungerar Integritetskontroll (för att upptäcka virus)?
 		</Question>
 		<Answer>
-			Det beräknar först en checksumma för varje virusfri fil som sedan krypteras och sparas fil. När en programmet sedan exekveras så beräknas checksumman igen och jämförs emot den sparade. Om checksumman är samma är det hög sannolikhet att programmet är virusfri.
+			Det beräknar först en checksumma för varje virusfri fil som sedan krypteras och sparas på fil. När programmet sedan exekveras så beräknas checksumman igen och jämförs mot den sparade. Om checksumman är samma är det hög sannolikhet att programmet är virusfritt.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Säkerhet">
@@ -1547,10 +1547,10 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 	</TestQuestion>
 	<TestQuestion Category="Säkerhet">
 		<Question>
-			Vad är "sandboxing" och fungerar det?
+			Vad är "sandboxing" och hur fungerar det?
 		</Question>
 		<Answer>
-			Det är sätt för att undvika att program utför dåliga saker på datorn. Det fungerar så att programmet körs i en "sandlåda" där alla potentiellt farliga operationer (typ systemanrop) kontrolleras och är isolerade från systemet.
+			Det är en metod för att undvika att program utför dåliga saker på datorn. Det fungerar så att programmet körs i en "sandlåda" där alla potentiellt farliga operationer (typ systemanrop) kontrolleras och är isolerade från systemet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Säkerhet">
@@ -1563,12 +1563,12 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 	</TestQuestion>
 	<TestQuestion Category="Säkerhet">
 		<Question>
-			Varför bör man ej ha med "." i sin PATH miljövariabler i UNIX?
+			Varför bör man ej ha med "." i sin PATH-miljövariabel i UNIX?
 		</Question>
 		<Answer>
 			Vanligtvist om man vill starta program som ligger i samma katalog så anropar man "./namn_på_programmet". Om man lägger till "." i sin PATH miljövariabel så behövs ej "./" utan då kan man starta ett program direkt genom att endast ange dess namn.
 
-			Detta ger dock sämre säkerhet. Antag att vi har ett program "ls" (som är t.ex. en trojansk häst) i den nuvarande katalogen. Om vi har "." i vår miljövariabel (och den ligger före /usr/bin eller där ls ligger) så kommer programmet i den nuvarande programmet att köras, inte det riktiga ls.
+			Detta ger dock sämre säkerhet. Antag att vi har ett program "ls" (som är t.ex. en trojansk häst) i den nuvarande katalogen. Om vi har "." i vår miljövariabel (och den ligger före /usr/bin eller där ls ligger) så kommer programmet i den nuvarande katalogen att köras, inte det riktiga ls.
 
 			Om vi inte har "." i PATH, så går det ej att starta programmet utan "./" i början. Detta innebär om vi aldrig skriver in "./" så kan vara säkra på att vi alltid kommer köra ett pålitligt program.
 		</Answer>
@@ -1580,15 +1580,15 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 		<Answer>
 			Det finns två nivåer av schemaläggning:
 			[ul]
-				[li]Lågnivå: Välj nästa process som ska exekvera av de som finns i minnet.[/li]
 				[li]Högnivå: Flytta processer till/från minnet (swapping).[/li]
-			[/ul][b]Lågnivå schemaläggning[/b]
+				[li]Lågnivå: Välj nästa process som ska exekvera av de som finns i minnet.[/li]
+			[/ul][b]Lågnivå-schemaläggning[/b]
 			[ul]
-				[li]Prioriteter: -20 – 20[/li]
-				[li]Processer som körs i användarläge har positiva prioriteter, kernel negativa.[/li]
+				[li]Prioriteter: -20–20[/li]
+				[li]Processer som körs i användarläge har positiva prioriteter, de i kernel negativa.[/li]
 				[li]Det finns en kö för varje prioritet där round-robin används inom varje kö.[/li]
 				[li]En process kör sin tidskvanta (ca 100 ms) eller till dess att den blockerar.[/li]
-				[li]En gång per sekund så beräknas alla procssers prioriteter om enligt formeln: [math]text{prioritet}=text{CPU-använding}+text{nice}+text{basprioritet}[/math].[/li]
+				[li]En gång per sekund så beräknas alla procssers prioriteter om enligt formeln: [math]text{prioritet}=text{CPU-användning}+text{nice}+text{basprioritet}[/math].[/li]
 				[li]De processer som använt en stor del av sin tidskvanta får sin prioritet [i]temporärt[/i] sänkt.[/li]
 			[/ul]Schemaläggningen är optimerad för interaktiva processer, dvs processer med mycket I/O.
 		</Answer>
@@ -1598,7 +1598,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Hur fungerar schemaläggning i Linux?
 		</Question>
 		<Answer>
-			I Linux så schemaläggs trådar, inte processer. Det finns tre klasser av schemaläggningen: "Real-Time" FIFO, "Real-Time" round-robin (kan avbrytas av klockan) och timesharing. Prioriteten går ifrån 0-40 där prioriteten beräknas som: Grundprioritet + nice.
+			I Linux så schemaläggs trådar, inte processer. Det finns tre klasser av schemaläggningen: "Real-Time" FIFO, "Real-Time" round-robin (kan avbrytas av klockan) och timesharing. Prioriteten kan vara 0-40 där prioriteten beräknas som: Grundprioritet + nice.
 
 			Alla processer har individuella tidskvanta. Schemaläggningen baseras på "goodness" som beräknas för varje process vid varje schemaläggningstillfälle. Den beräknas enligt:
 			[i]Om den nuvarande klassen är realtid:[/i] [math]text{goodness} = 1000 + text{priority}[/math].
@@ -1635,7 +1635,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			[/ul]Den tråd som ska schemaläggas baseras på nuvarande prioritet som kan vara högre än basprioriteten, upp till 15 där den normala basprioriteten är ca 8. Prioriteten kan höjas under en period tills dess att tidkvanta tar slut, vid följande tillfällen:
 			[ul]
 				[li]I/O blir klar: disk ger +1, serieport +2, tangentbord +6 och ljudkort +8.[/li]
-				[li]När en händelse sker (väntan på semafor, lås, etc) vilket för förgrundsprocesser ger +2 och för andra processer +1.[/li]
+				[li]När en händelse sker (väntan på semafor, lås, etc.) vilket för förgrundsprocesser ger +2 och för andra processer +1.[/li]
 			[/ul]Schemaläggningen är självjusterade men administratören kan finjustera många parametrar. Den är optimerad för interaktivitet i Professional-utgåvorna och för throughput i serverutgåvorna. När flera processorkärnor används så försöker tråden schemalägga på samma CPU för att återanvända cacheinnehåll.
 		</Answer>
 	</TestQuestion>
@@ -1644,7 +1644,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Hur hanteras det virtuella minnet i Windows?
 		</Question>
 		<Answer>
-			Det är indelat i sidor, som normalt är 4 KB stora. Windows använder sig av ren demand paging (ingen pre-paging.) En sida kan vara i tre tillstånd:
+			Det är indelat i sidor, som normalt är 4 KB stora. Windows använder sig av ren demand paging (ingen pre-paging). En sida kan vara i tre tillstånd:
 			[ul]
 				[li]Free: Används inte (alla sidor är free från början).[/li]
 				[li]Committed: Sidan är mappad att innehålla data eller kod.[/li]
@@ -1713,7 +1713,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			En enhet som schemaläggs av CPUn.
 
 			[b]Jobb[/b]
-			Det är uppsättning processer som hanteras som en enhet med gemensam gräns för resursutnjyttjande.
+			En uppsättning processer som hanteras som en enhet med gemensam gräns för resursutnyttjande.
 
 			[b]Fiber[/b]
 			En lättviktsprocess som implementeras i användarläge.
@@ -1724,7 +1724,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Hur fungerar filer i Windows?
 		</Question>
 		<Answer>
-			En fil i Windows består av attributer och flera strömmar av bytes. Varje ström kan hantera olika typer av data, som t.ex. video och ljud. En fil kan automatisk komprimeras/dekomprimeras då de skrivs/läses till/från disk. Komprimeringen fungerar så om den komprimerade datan kan skrivs på 15 eller mindre block så sker komprimeringen, om komprimeringen fortfarande tar 16 blocks så undviker man att komprimera datan.
+			En fil i Windows består av attribut och flera strömmar av bytes. Varje ström kan hantera olika typer av data, som t.ex. video och ljud. En fil kan automatisk komprimeras/dekomprimeras då de skrivs/läses till/från disk. Komprimeringen fungerar så att om den komprimerade datan kan skrivas på 15 blocks eller färre så sker komprimeringen Om komprimeringen fortfarande tar 16 blocks, så undviker man att komprimera datan.
 		</Answer>
 	</TestQuestion>
 </Test>
