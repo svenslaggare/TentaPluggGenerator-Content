@@ -171,7 +171,7 @@
 			Vad innebär policy och mekanism när det kommer till schemaläggning?
 		</Question>
 		<Answer>
-			Mekanismen är hur schemaläggningen utförs medans policy bestämmer vilka processer som ska schemaläggas. T.ex. om vi har en pre-emptiv schemaläggning som baseras på prioriteter så är mekanismen att schemaläggaren alltid ser till att den process som har högst prioritet får exekevera. Policyn är då hur prioriteterna anges för processerna.
+			Mekanismen är hur schemaläggningen utförs medans policy bestämmer vilka processer som ska schemaläggas. T.ex. om vi har en pre-emptiv schemaläggning som baseras på prioriteter så är mekanismen att schemaläggaren alltid ser till att den process som har högst prioritet får exekvera. Policyn är då hur prioriteterna anges för processerna.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -317,7 +317,7 @@
 			Vilken fysisk ram som sidan mappar till. Huvudsyftet med en sidtabell är att ta reda på detta värde för en sida.
 
 			[b]Rättigheter[/b]
-			Anger vad för åtgärder som kan utföras. De tre vanligaste rättigheterna som stöjds är: läsa, skriva och exekevera.
+			Anger vad för åtgärder som kan utföras. De tre vanligaste rättigheterna som stöjds är: läsa, skriva och exekvera.
 
 			[b]Modifierad[/b]
 			Indikerar om sidan har blivit modifierad sedan den laddades in. En sida som har blivit modiferad brukar kallas för [b]dirty[/b] medan som inte har modifieras [b]clean[/b].
@@ -560,7 +560,7 @@
 			Vad inenbär thrashing?
 		</Question>
 		<Answer>
-			Det innebär att en process spenderar mer tid på att byta sidor än att exekevera.
+			Det innebär att en process spenderar mer tid på att byta sidor än att exekvera.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sidutbytesalgoritmer">
@@ -1463,7 +1463,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Ett virus som lägger sig resident i minnet och nästlar oftast in i kärnan och brukar t.ex. ta kontroll över TRAP eller avbrottsvektorn. Genom att viruset är i kärnan, kan den övervaka varje systemanrop som utförs.
 
 			[b]Bootsektor virus[/b]
-			Viruset kopierar bootsektorn till en ledig sektor och skriver in sig själv på bootsektorn. Viruset kommer då att startas varje gång datorn bootas för att BIOS exekeverar det som ligger på bootsektorn.
+			Viruset kopierar bootsektorn till en ledig sektor och skriver in sig själv på bootsektorn. Viruset kommer då att startas varje gång datorn bootas för att BIOS exekverar det som ligger på bootsektorn.
 
 			[b]Drivurtinsvirus[/b]
 			Sprids genom infekterade drivrutiner, som installeras av användaren. Detta gör att viruset kan köra i kärnan.
@@ -1591,7 +1591,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 		<Answer>
 			Det finns två nivåer av schemaläggning:
 			[ul]
-				[li]Lågnivå: Välj nästa process som ska exekevera av de som finns i minnet.[/li]
+				[li]Lågnivå: Välj nästa process som ska exekvera av de som finns i minnet.[/li]
 				[li]Högnivå: Flytta processer till/från minnet (swapping).[/li]
 			[/ul][b]Lågnivå schemaläggning[/b]
 			[ul]
