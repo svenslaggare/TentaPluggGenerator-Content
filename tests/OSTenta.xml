@@ -5,11 +5,11 @@
 			Hur fungerar ett systemanrop?
 		</Question>
 		<Answer>
-			Det fungerar så att man lägger argumenten i register/på stacken och även ett nummer, som pekar ut systemetanropet. Sedan utförs en TRAP-instruktion, som genererar ett mjukvaru avbrott. Detta avbrott fångas sedan upp av avbrottsrutinen.
+			Det fungerar så att man lägger argumenten i register/på stacken och även ett nummer, som pekar ut systemanropet. Sedan utförs en TRAP-instruktion, som genererar ett mjukvaruavbrott. Detta avbrott fångas sedan upp av avbrottsrutinen.
 
-			När operativsystemet har kontrollerat att det faktiskt var ett systemanrop (avbrott kan genereras inte endast vid systemanrop) så byter (normalt sätt) den anropande processen till en kärn-stack och forsätter att exekvera systemanropet i kärnan (även känt som supervisor mode).
+			När operativsystemet har kontrollerat att det faktiskt var ett systemanrop (avbrott kan inte endast genereras vid systemanrop) så byter (normalt sett) den anropande processen till en kärn-stack och forsätter att exekvera systemanropet i kärnan (även känt som supervisor mode).
 
-			När systemanropet är klart, så byter man tillbacka till användarstacken och exekeverar som vanligt i användarläge.
+			När systemanropet är klart, så byter man tillbacka till användarstacken och exekverar som vanligt i användarläge.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Processer">
@@ -32,7 +32,7 @@
 			Varför används processmodellen?
 		</Question>
 		<Answer>
-			På grund av att ett program under körning har inkapslats av en process så blir det lättare att tillåta multiprogrammering, dvs att flera program kör "samtidigt". Det ger även bättre feltolerans vilket innebär att om en process kraschar så behöver ej hela operativsystemet krascha.
+			Om ett program under körning inkapslas av en process blir det lättare att tillåta multiprogrammering, dvs att flera program kör "samtidigt". Det ger även bättre feltolerans vilket innebär att om en process kraschar så behöver ej hela operativsystemet krascha.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Processer">
@@ -40,9 +40,9 @@
 			Hur skapas nya processer i UNIX-system?
 		</Question>
 		<Answer>
-			Nya processer skapas med hjälp av systemanropet [i]fork()[/i] vilket skapar en kopia av den körande processen. Den nya barnprocessen, ärver alla öppna fildeskriptorer ifrån föräldern, syftet med detta är att möjliggöra kommunkation mellan dem via filer och pipes.
+			Nya processer skapas med hjälp av systemanropet [i]fork()[/i], vilket skapar en kopia av den körande processen. Den nya barnprocessen ärver alla öppna fildeskriptorer från föräldern för att möjliggöra kommunkation mellan dem via filer och pipes.
 			
-			Vanligtvist vill man att en den nya processen kör ett annat program, vilket görs med systemanrop ur familjen [i]exec[/i] vilket byter ut det nuvarande programmet emot ett annat.
+			Vanligtvis vill man att en den nya processen kör ett annat program, vilket görs med systemanrop ur familjen [i]exec[/i] som byter ut det nuvarande programmet mot ett annat.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Processer">
@@ -50,7 +50,7 @@
 			På vilka sätt kan en process terminera?
 		</Question>
 		<Answer>
-			En process kan termineras på fyra sätt:
+			En process kan terminera på fyra sätt:
 			[ul]
 				[li]Normalt programslut (frivilligt)[/li]
 				[li]Med fel som programmet upptäckt (frivilligt)[/li]
@@ -97,7 +97,7 @@
 			Vad är en "zombie-process"?
 		</Question>
 		<Answer>
-			Det är en process som har körts klart, men som fortfarande har en post i processtabellen. Varför en process som har terminerat inte tas bort direkt ifrån processtabellen är att man vill göra det möjligt för föräldrarprocesser att veta varför en barnprocess terminerade. Posten frigörs genom att anropa [i]wait[/i] på processen som terminerade.
+			Det är en process som har körts klart, men som fortfarande har en post i processtabellen. Varför en process som har terminerat inte tas bort direkt från processtabellen beror på att man vill göra det möjligt för föräldrarprocesser att veta varför en barnprocess terminerade. Posten frigörs genom att anropa [i]wait[/i] på processen som terminerade.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Schemaläggning">
@@ -139,7 +139,7 @@
 			Vad är avbrytade schemaläggning (preemptive scheduling)?
 		</Question>
 		<Answer>
-			Det är när en exekverande provess kan avbrytas (dvs gå från tillståndet running till ready) utan att processen själv har bett om det. En process kan avbrytas t.ex. om den kört för länge/förbrukat sitt tidskvanta eller om en process med högre prioritet blir körbar.
+			Det är när en exekverande provess kan avbrytas (dvs gå från tillståndet running till ready) utan att processen själv har bett om det. En process kan avbrytas t.ex. om den kört för länge (förbrukat sitt tidskvanta) eller om en process med högre prioritet blir körbar.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Schemaläggning">
