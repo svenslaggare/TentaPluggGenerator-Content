@@ -257,7 +257,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
 		<Question>
-			Hur kan man undvidka att en process adressar en ram som ej ligger i dess adressrymd?
+			Hur kan man undvika att en process adressar en ram som ej ligger i dess adressrymd?
 		</Question>
 		<Answer>
 			[ol]
