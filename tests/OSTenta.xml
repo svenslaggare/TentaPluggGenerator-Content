@@ -620,7 +620,7 @@
 			Vad för accesskontroll finns det på ett UNIX-system?
 		</Question>
 		<Answer>
-			För varje fil/katalog så kan rättigheter anges för tre olika domäner: User, Group, Other (alla användare). Det finns tre rättigheter: [b]r[/b]ead, [b]w[/b]rite och e[b]x[/b]ecute.
+			För varje fil/katalog så kan rättigheter anges för tre olika domäner: User, Group och Other (alla användare). Det finns tre rättigheter: [b]r[/b]ead, [b]w[/b]rite och e[b]x[/b]ecute.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Filsystem">
@@ -629,7 +629,7 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li]Det blir svårare att göra vanliga operationer som t.ex. att lista innehåller i en katalog och dess underkataloger.[/li]
+				[li]Det blir svårare att göra vanliga operationer som t.ex. att lista innehållet i en katalog och dess underkataloger.[/li]
 				[li]Det kan behövas att man har en skräpsamlare som tar hand om filer som vi ej kan komma åt. Om cykler får existera blir detta svårare, för då bildas "delträd" i filträdet.[/li]
 			[/ul]
 		</Answer>
@@ -664,14 +664,13 @@
 		</Question>
 		<Answer>
 			[b]Indexerad allokering[/b]
-			Här sparar vi information i en nod, även kallad en [i]i-nod[/i]. I en i-nod så sparar vi information om ägare, skapare, när filen skapades, rättigheter och vart datablocken finns på disk inklusive en räknare för antalet hårdalänkar, från början 1. Filnamnet sparas [i]ej[/i] i i-noden för en fil kan vara känd under flera namn och lagras därför i katalogen. Strukturen som anger vart datablocken är bildar en slags trädstruktur (se bild) som gör att slumpmässig positionering i filen gör att göra på [math]O(log(n))[/math] där [math]n[/math] är antalet block i filen. Används i UNIX-system.
+			Här sparar vi information i en nod, även kallad en [i]i-nod[/i]. I en i-nod så sparar vi information om ägare, skapare, när filen skapades, rättigheter och vart datablocken finns på disk inklusive en räknare för antalet hårda länkar, från början 1. Filnamnet sparas [i]ej[/i] i i-noden, då en fil kan vara känd under flera namn och  det lagras därför i katalogen. Strukturen som anger vart datablocken är bildar en slags trädstruktur (se bild) som gör att slumpmässig positionering i filen går att göra på [math]O(log(n))[/math] tid, där [math]n[/math] är antalet block i filen. Används i UNIX-system.
 
 			[img]http://upload.wikimedia.org/wikipedia/commons/a/a2/Ext2-inode.gif[/img]
 
 			[b]File Allocation Table[/b]
-			Vi har en tabell med pekare till blocken som finns i filsystemet. Denna tabell lagras i primärminnet. En fil implementeras som en länkad lista, där varje länk pekar ut en block i tidigare tabell. Den sista blocket i filen pekar på ett speciellt block för att markera att filen är slut (end of file). Fördelen med denna metod är att den är enkelt att implementera. Nackdelen är att för att göra en slumpmässig positionering i filen är linjär i antalet block i filen och att tabellens storlek är proportionell emot storleken på filsystemet. En annan nackdel är metadata för filen lagras på ett annan ställe än där filblocken lagras, vilket gör det möjligt att ha olika rättigheter för samma fil.
+			Vi har en tabell med pekare till blocken som finns i filsystemet. Denna tabell lagras i primärminnet. En fil implementeras som en länkad lista, där varje länk pekar ut ett block i tidigare tabell. Det sista blocket i filen pekar på ett speciellt block för att markera att filen är slut (end of file). Fördelen med denna metod är att den är enkel att implementera. Nackdelen är att en slumpmässig positionering i filen är linjär i antalet block i filen och att tabellens storlek är proportionell mot storleken på filsystemet. En annan nackdel är att metadata för filen lagras på ett annan ställe än där filblocken lagras, vilket gör det möjligt att ha olika rättigheter för samma fil.
 
-			[i]Bild över hur det fungerar[/i]
 			[img width="50%" height="50%"]http://pages.cs.wisc.edu/~bart/537/lecturenotes/figures/s24.fat.gif[/img]
 		</Answer>
 	</TestQuestion>
@@ -702,18 +701,7 @@
 		</Question>
 		<Answer>
 			Öppna filen: För att kontrollera accessrätigheter.
-			Stänga filen: Om filen buffrats i minne så behövs bufferten skrivas till disk.
-		</Answer>
-	</TestQuestion>
-	<TestQuestion Category="Filsystem">
-		<Question>
-			Hur håller man ordning på lediga block på disken?
-		</Question>
-		<Answer>
-			[ul]
-				[li]Bitvektor (växer med diskstorleken och minskar med blockstorleken).[/li]
-				[li]Länkade listor. Dessa kan byggas in i de lediga blocken, vilket inte kräver något extra utrymme (utom pekaren såklart).[/li]
-			[/ul]
+			Stänga filen: Om filen buffrats i minne så behöver bufferten skrivas till disk.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Filsystem">
@@ -721,7 +709,7 @@
 			Vad är en mjuk och hård länk?
 		</Question>
 		<Answer>
-			En [i]länk[/i] är en fil som innehåller sökvägen till en annan fil eller katalog. I UNIX så pekar en länk ut en i-nod.
+			En [i]länk[/i] är en fil som innehåller sökvägen till en annan fil eller katalog. I UNIX pekar en länk ut en i-nod.
 
 			[b]Hård länk[/b]
 			Hårda länkar som skapas av användare får endast peka ut filer (för att undvika cykler). När en hård länk skapas så uppdateras räknaren i den utpekade filens [b]i-nod[/b] som anger hur många som refererar till filen. En fil kan inte tas bort så länge denna räknare är större än 0. När en fil/katalog skapas så skapas en hård länk (från katalogen som de ligger i).
@@ -766,7 +754,7 @@
 			Vad innebär det att ett filsystem är journalförande?
 		</Question>
 		<Answer>
-			Det innebär att filsystemet loggar ändringar i en journal före en skrivning till huvudfilsystemet. När skrivningen blivit klar så tas händelsen bort ifrån loggen. Detta gör om systemet kraschar när en skrivning sker så kan man undvika att filsystemet blir korrupt genom att t.ex. köra om skrivningarna.
+			Det innebär att filsystemet loggar ändringar i en journal före en skrivning till huvudfilsystemet. När skrivningen blivit klar så tas händelsen bort från loggen. Detta gör att om systemet kraschar när en skrivning sker så kan man undvika att filsystemet blir korrupt genom att t.ex. köra om skrivningarna.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Filsystem">
@@ -774,7 +762,7 @@
 			Vad är det virtuella filsystemet (VFS) för något i UNIX?
 		</Question>
 		<Answer>
-			Det virtuella filsystemet är en abstraktion som gör det möjligt att ha flera olika typer av filsystem (lokala och distribuerade) och partitioner. Det implementeras så att när en fil accessas identifieras den V-nod som pekar ut vilket filsystem filen ligger i.
+			Det virtuella filsystemet är en abstraktion som gör det möjligt att ha flera olika typer av filsystem (lokala och distribuerade) och partitioner. Det implementeras så att när en fil accessas identifieras den v-nod som pekar ut vilket filsystem filen ligger i.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IO">
@@ -809,7 +797,7 @@
 		</Question>
 		<Answer>
 			[b]Minnesmappad I/O[/b]
-			Det innebär att kontroll- och dataregisters adresser ifrån enheten mappas in i den vanliga adressrymden. Det innebär att skrivning/läsning fungerar genom att en adress skrivs/läses.
+			Det innebär att kontroll- och dataregisters adresser från enheten mappas in i den vanliga adressrymden. Det innebär att skrivning/läsning fungerar genom att en adress skrivs/läses.
 
 			[b]Ports[/b]
 			Varje I/O-enhet får ett portnummer. Kontrollregistret för enheten läses/skrivs med speciella I/O-instruktioner.
