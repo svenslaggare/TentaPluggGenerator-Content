@@ -233,7 +233,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
 		<Question>
-			Vad innebär swappning?
+			Vad innebär swapping?
 		</Question>
 		<Answer>
 			Det innebär att en process flyttas mellan primärminne och disk för att ge rum till andra processer. Swap-in innebär att en process flyttas från disk till minne och swap-out innebär att en process flyttas från minne till disk.
@@ -271,7 +271,7 @@
 			Vad är en TLB för något?
 		</Question>
 		<Answer>
-			TLB står för "Translation Lookaside Buffer" och fungerar som ett cacheminne för sidtabellen som implementeras i hårdvaran (närmare bestämt MMU). En TLB mappar från ett sidnummer till ett ramnummer. Den implementeras med assocativt minne vilket innebär att det går att söka i hela minnet parallellt.
+			TLB står för "Translation Lookaside Buffer" och fungerar som ett cacheminne för sidtabellen som implementeras i hårdvaran (närmare bestämt MMU). En TLB mappar från ett sidnummer till ett ramnummer. Den implementeras med associativt minne vilket innebär att det går att söka i hela minnet parallellt.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -305,7 +305,7 @@
 			Nackdelen med denna implementation är att man måste söka i hela sidtabellen för att hitta ramen för en sida. Detta kan återgärdas genom att t.ex. hasha den inverterade sidtabellen eller att man använder sig av assocativt minne (som dock är dyrt). En annan nackdel är att det blir svårare att dela sidor mellan processer.
 
 			[b]Hashad inverterad sidtabell[/b]
-			Det är en variant av en inverterade sidtabellen, där en hash funktion används för att mappa en virtuell adress till en post i sidtabellen.
+			Det är en variant av en inverterade sidtabellen, där en hashfunktion används för att mappa en virtuell adress till en post i sidtabellen.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Minneshantering">
@@ -345,13 +345,13 @@
 		</Question>
 		<Answer>
 			[b]Minor[/b]
-			Det innebär att sidan är inladdad i primärminnet när sidfelet genererades, men har inte markeras i sidtabellen att den är inladdad. Det enda som krävs är att markera i sidtabellen att sidan är inladdad, ingen disk access behövs.
+			Det innebär att sidan är inladdad i primärminnet när sidfelet genererades, men har inte markerats i sidtabellen att den är inladdad. Det enda som krävs är att markera i sidtabellen att sidan är inladdad och ingen disk access behövs.
 
 			[b]Major[/b]
 			Det innebär att sidan inte finns i primärminnet och måste laddas in från disk.
 
 			[b]Invalid[/b]
-			Det innebär att den adressen som refererades inte är del av den virtuella adressrymden. Typisk så genereras ett segmenterings fel (segmentation fault) där detta sker.
+			Det innebär att den adress som refererades inte är en del av den virtuella adressrymden. Typisk så genereras ett segmenteringsfel (segmentation fault) där detta sker.
 
 			När det kommer till TLB används terminologin: en [b]soft miss[/b] för att indikera att sidan som refererades finns i primärminnet men inte i TLBn och [b]hard miss[/b] att sidan varken finns i TLB:n eller primärminnet.
 		</Answer>
@@ -540,7 +540,7 @@
 			Varför vill man kunna "låsa" vissa sidor i minnet?
 		</Question>
 		<Answer>
-			Det finns huvudsakligen två skäl: effektivitet och att om koden som hanterar pagning byts ut, så kan inga nya sidor laddas in.
+			Det finns huvudsakligen två skäl: effektivitet och att om koden som hanterar paging byts ut, så kan inga nya sidor laddas in.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sidutbytesalgoritmer">
@@ -600,7 +600,7 @@
 			[ul]
 				[li]Många TLB-missar - ger sämre prestanda för att varje minnesaccess som ger upphov till en TLB-miss tar ungefär dubbelt så lång tid som om vi hade fått en träff istället.[/li]
 				[li]Kan också ge stort working-set vilket kan leda till många sidfel som tar lång tid att hantera (längre än en TLB-miss).[/li]
-			[/ul]Om man överlastar systemet så att working-set inte ryms i minnet vilket leder till thrasing.
+			[/ul]Om man överlastar systemet så att working-set inte ryms i minnet vilket leder till thrashing.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Filsystem">
@@ -1655,7 +1655,7 @@ unlock: store (lock_ptr), 0[/block]Där [i]test_and_set tmp (lock_ptr)[/i] är e
 			Hur hanteras det virtuella minnet i Windows?
 		</Question>
 		<Answer>
-			Det är indelat i sidor, som normalt är 4 KB stora. Windows använder sig av ren demand paging (ingen pre-pagning.) En sida kan vara i tre tillstånd:
+			Det är indelat i sidor, som normalt är 4 KB stora. Windows använder sig av ren demand paging (ingen pre-paging.) En sida kan vara i tre tillstånd:
 			[ul]
 				[li]Free: Används inte (alla sidor är free från början).[/li]
 				[li]Committed: Sidan är mappad att innehålla data eller kod.[/li]
