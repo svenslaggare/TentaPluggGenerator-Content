@@ -93,7 +93,6 @@
 				[li]Kryptering.[/li]
 				[li]Komprimering.[/li]
 			[/ul]
-
 			[b]L7: Application[/b]
 			Gör det möjligt för användaren (människa eller mjukvara) att komma åt nätverket. Exempel på olika tjänster om lagret tillhandahåller är t.ex.:
 			[ul]
@@ -101,6 +100,29 @@
 				[li]E-mail[/li]
 				[li]Filöverföring, Filåtkomst och liknande.[/li]
 			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Ange och förklara de olika lagren enligt TCP/IP.
+		</Question>
+		<Answer>
+			Jämförelse med OSI-modellen så är Application, presentation och session lagren lagts upp till ett enda lagret, applikations lagret. TCP/IP har även flera protokoll för transport lagret. Konceptuellt så är de fyra första lagren i både OSI och TCP/IP mycket liknande varandra.
+
+			[b]Physical[/b]
+			Det fysiska lagret hanterar överförring av en ström av bitar (mellan olika noder) över ett fysiskt medium.
+
+			[b]Data Link[/b]
+			TCP/IP definerar inget specifikt protokoll för data-länk lagret utan stödjer alla standardiserade och proprietära protokoll. Enheten som används vid kommunikation kallas för en [i]frame[/i].
+
+			[b]Network[/b]
+			Det protokoll som används är IP protokollet. Enheten som används vid kommunikation kallas för [i]datagrams[/i] vilket varje överförs separat. Datagram kan skickas via olika vägar och kan komma i oordning eller duplikerade. IP håller inte koll på vägen för paketen och har ingen möjlighet för att ordna paketen i ordning när de har kommit fram.
+
+			[b]Transport[/b]
+			Huvudsakligen så används två okika protokoll i transport lagret, User Datagram Protocol (UDP) pch Transmission Control Protocol (TCP). Enheten som används vid kommunikation som används är antigen ett segment, user datagram eller ett paket, vilket beror på vilket protokoll som används
+
+			[b]Application[/b]
+			Många protokoll är definerad i detta lager som t.ex. email, HTTP, osv.
 		</Answer>
 	</TestQuestion>
 </Test>
