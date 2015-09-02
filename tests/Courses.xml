@@ -21,4 +21,7 @@
 	<Course Name="Operativsystem">
 		<Test File="OSTenta" />
 	</Course>
+	<Course Name="Internets protokoll och principer">
+		<Test File="IPopTenta" />
+	</Course>
 </Courses>

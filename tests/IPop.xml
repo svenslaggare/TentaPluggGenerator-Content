@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Test Name="Tenta">
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Ange olika nätverkstopologier.
+		</Question>
+		<Answer>
+			[b]Mesh[/b]
+			Varje enhet är kopplad till alla andra enheter.
+
+			[b]Star[/b]
+			Enheterna är kopplade till en central enhet.
+
+			[b]Ring[/b]
+			Varje enhet är kopplad till nästa enhet.
+
+			[b]Bus[/b]
+			Varje enhet delar en gemensam länk
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Ange de olika överförningslägen.
+		</Question>
+		<Answer>
+			[b]Simplex[/b]
+			En enhet kan bara sända, de övriga kan endast ta emot.
+
+			[b]Half-duplex[/b]
+			Två enheter kan sända och ta emot, men inte samtidigt.
+
+			[b]Full-duplex[/b]
+			Två enheter kan både sända och ta emot samtidigt.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad är en länk?
+		</Question>
+		<Answer>
+			En länk är ett nätverk som gör det möjligt för datorer att kommunicerar med varandra.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Ange och förklara de olika lagren enligt OSI-modellen.
+		</Question>
+		<Answer>
+			[b]L1: Physical[/b]
+			Det fysiska lagret hanterar överförring av en ström av bitar (mellan olika noder) över ett fysiskt medium. Det fysiska lagret hanterar även: 
+			[ul]
+				[li]Hur bitaran representeras (t.ex. som signaler antigen elektriska eller optiska).[/li]
+				[li]Överföringshastigheten - hur många bitar som överförs varje sekund.[/li]
+				[li]Synkronisering av klockorna mellan sändaren och mottagaren.[/li]
+				[li]Den fysiska topologin.[/li]
+				[li]Överföringsläget.[/li]
+			[/ul]
+			[b]L2: Data Link[/b]
+			Data-länk lagret transformerar det fysiska lagret till en pålitlig länk som gör att lagren ovanför uppfattar det fysiska lagret som felfri. Lagret hanterar även:
+			[ul]
+				[li]Uppdelning av strömmen av bitar som tagits emot till dataenheter som betecknas [i]frames[/i].[/li]
+				[li]Fysisk adressering: Om olika frames ska distribueras mellan olika system på nätverket så lägger lagret till en [i]header[/i] till framen som definerar sändaren och/eller mottagaren av framen. Om ramen ska utanför nätverket, så är mottagaradressen, adressen till enheten som kopplar i samman nätverken.[/li]
+				[li]Flödeskontroll: Om överföringshastigheten skiljer sig mellan mottagaren och sändaren, så begränsas hastigheten.[/li]
+				[li]Felkontroll (detta uppnås vanligen genom att lägga till data s.k. trailer till slutet av framen).[/li]
+				[li]Åtkomstkontroll: Om två eller flera enheter är kopplade till samma länk, så bestämmer lagret vem som har kontroll över länken på en given tidpunkt.[/li]
+			[/ul]
+			[b]L3: Network[/b]
+			Nätverkslagret hanterar överföring ifrån källa till mottagare för ett paket, vilket kan gå över flera nätverk (länkar). Där data-länk lagret hanterar överförning av paket mellan två system inom samma nätverk, så ser nätverks lagret till att paket kommer från källan till mottagaren.
+
+			Om två system har kopplade till samma länk, finns det oftast inget behov av nätverks lagret. Lagret hanterar även:
+			[ul]
+				[li]Logisk adressering: Den fysiska adressering hanterar adressering lokallt. Om ett paket går utanför nätverket, så behövs ett adresseringssystem för att avgöra olika system utanför nätverket. Detta fungerar så att nätverks lagret lägger till en header till paketet som kommer från ett lager högre upp, där headern innehåller den logisk adressen för sändaren och mottagaren.[/li]
+				[li]Routing, som ser till att paket kommer till den slutgiltiga mottagaren.[/li]
+			[/ul]
+			[b]L4: Transport[/b]
+			Transportlagret hanterar överföring av [i]meddelanden[/i] mellan processer. Ett meddelande består av en eller fler paket, som de lägre lagren [i]inte[/i] ser som något enhetligt. Lagret ser till att hela meddelandet kommer fram och i ordning. Lagret hanterar även:
+			[ul]
+				[li]Service-point adressering: Datorer kör ofast flera program samtidigt, detta innebär att för att rätt meddelanden ska komma till rätt process, behövs en ytterligare typ av adressering, som kallas för [i]port[/i].[/li]
+				[li]Segmentering och återskapade: Ett meddelande som överförs består av olika segment, där varje segement har ett sekvensnummer. Detta nummer gör det möjligt för transport lagret att återskapa meddelandet i korrekt ordning när det kommer fram och ersätta paket som tappades på vägen.[/li]
+				[li]Anslutingskontroll: Transport lagret kan antigen vara anslutingslös eller ansluten. Ett anslutingslös transport lagret behandlar varje segment som ett oberoende paket.Ett anslutet transport lagrer skapar en ansluting med transport lagret på målsidan, innan paketet börjas överföras. Efter att all data har överförts, så stängs anslutningen.[/li]
+				[li]Flödeskontroll: Skillnanden mellan data-länk lagret är att flödeskontrollen sker från ändpunkt till ändpunkt istället för över en länk.[/li]
+				[li]Felkontroll: Skillnanden mellan data-länk lagret är att felkontrollen sker från process till process istället för över en länk. Lagret ser till att meddelanden som kommer fram är utan fel (skadade, saknar data, data är duplicerad).[/li]
+			[/ul]
+			[b]L5: Session[/b]
+			Sessionlagret etablerar, underhåller ocn synkroniserar interaktionen mellan system som kommunicerar med varandra. Lagret hanterar:
+			[ul]
+				[li]Dialogkontroll: Gör det möjligt för två processer som kommunicerar att antingen ske i half-duplex eller full-duplex läge.[/li]
+			[/ul]
+			[b]L6: Presentation[/b]
+			Presentationslagret hanterar syntaxen och semantiken av informationen som överförs mellan de två systemet. Lagret hanterar:
+			[ul]
+				[li]Översättning av olika former av tecken, nummer som används av de olika systemet.[/li]
+				[li]Kryptering.[/li]
+				[li]Komprimering.[/li]
+			[/ul]
+
+			[b]L7: Application[/b]
+			Gör det möjligt för användaren (människa eller mjukvara) att komma åt nätverket. Exempel på olika tjänster om lagret tillhandahåller är t.ex.:
+			[ul]
+				[li]Nätverks terminal[/li]
+				[li]E-mail[/li]
+				[li]Filöverföring, Filåtkomst och liknande.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+</Test>
