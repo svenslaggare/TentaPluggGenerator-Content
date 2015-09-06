@@ -116,13 +116,113 @@
 			TCP/IP definerar inget specifikt protokoll för data-länk lagret utan stödjer alla standardiserade och proprietära protokoll. Enheten som används vid kommunikation kallas för en [i]frame[/i].
 
 			[b]Network[/b]
-			Det protokoll som används är IP protokollet. Enheten som används vid kommunikation kallas för [i]datagrams[/i] vilket varje överförs separat. Datagram kan skickas via olika vägar och kan komma i oordning eller duplikerade. IP håller inte koll på vägen för paketen och har ingen möjlighet för att ordna paketen i ordning när de har kommit fram.
+			Det protokoll som används är IP. Enheten som används vid kommunikation kallas för [i]datagrams[/i] vilket varje överförs separat. Datagram kan skickas via olika vägar och kan komma i oordning eller duplikerade. IP håller inte koll på vägen för paketen och har ingen möjlighet för att ordna paketen i ordning när de har kommit fram.
 
 			[b]Transport[/b]
 			Huvudsakligen så används två okika protokoll i transport lagret, User Datagram Protocol (UDP) pch Transmission Control Protocol (TCP). Enheten som används vid kommunikation som används är antigen ett segment, user datagram eller ett paket, vilket beror på vilket protokoll som används
 
 			[b]Application[/b]
 			Många protokoll är definerad i detta lager som t.ex. email, HTTP, osv.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="NetworkLayer">
+		<Question>
+			Vad innebär det att en tjänst är anslutningsorienterad?
+		</Question>
+		<Answer>
+			Det innebär att en anslutning etableras mellan sändare och mottagare (t.ex. telefonlinje). Detta innebär att vägen som ett paket måste ta genom nätverket bestäms en gång. Det innebär att routrarna behöver tillstånd som håller reda på detta. Det gör det också möjligt att allokera en viss mängd bandbred till en anslutning. Ett annat namn är Virtual circuit switched.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="NetworkLayer">
+		<Question>
+			Vad innebär det att en tjänst är anslutningslös?
+		</Question>
+		<Answer>
+			Det innebär att ingen anslutning behövs och paketen vägen bestäms varje gång de skickas, även om de ska till samma mottagare. Detta gör att paketen kan ta olika vägar till målet. Detta gör att inget tillstånd krävs i routrarna. Detta gör det även svårt att allokera en viss mängd bandbred till en anslutning. Ett annat namn är Datagram baserat system.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="NetworkLayer">
+		<Question>
+			Ange olika leveransmetoder ifrån ändpunkt-till-ändpunkt.
+		</Question>
+		<Answer>
+			[b]Direktleverans[/b]
+			Mottagaren och sändaren är kopplade till [i]samma[/i] fysiska nätverk vilket innebär att mottagaradressen och lokala adressen är den samma. Den [i]sista[/i] leveransen är alltid direkt.
+
+			[b]Indirekt leverans[/b]
+			Leveransen går mellan routrar påvägen till målet, där vilka routrar som ska tas på vägen till målet bestäms av [i]forwarding-tabellen[/i].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="NetworkLayer">
+		<Question>
+			Ange olika sätt för forwarding.
+		</Question>
+		<Answer>
+			[b]Källroutning (source routing)[/b]
+			Källan bestämmer vilken väg som ska tas. Nackdelen är att information om nätverkets topologi behövs och kräver utrymme i paketet.
+
+			[b]Nästa-hopp routing (next-hop routing)[/b]
+			Det innebär att en router endast håller koll på nästa nod i vägen är, för ett paket. För IP så baseras det på adressen för mottagaren. Varje router sparar då en mappning ifrån host/nätverksadress till adressen för nästa hopp.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IPAdressering">
+		<Question>
+			Vad är syftet med nätverksmasken i IP?
+		</Question>
+		<Answer>
+			Syftet är att ange vilken del av adressen som tillhör nätverket och hosten.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IPAdressering">
+		<Question>
+			Vad är directed broadcast address (DBA) (i IPv4)?
+		</Question>
+		<Answer>
+			Det gör det möjligt för att skicka paket till alla hostar i ett nätverk. De flesta routrar blockeras dock detta på grund av säkerhet. Notera i IPv6 så finns inte DBA.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IPAdressering">
+		<Question>
+			Hur anges nätverksmasken?
+		</Question>
+		<Answer>
+			Det finns flera olika notationer, t.ex:
+
+			[b]Prefix[/b]: /tal. Talet anger hur många bitar som är ettställda (sätt från vänster).
+			[b]Dotted decimal[/b]: På samma sätt som en IP address.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IPAdressering">
+		<Question>
+			Givet ett adress [math]A[/math] och ett nätverksmask [math]M[/math], hur beräknas då nätverksadressen (NetID)?
+		</Question>
+		<Answer>
+			[math]NetID = A text{ &amp; } N[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IPAdressering">
+		<Question>
+			Givet ett adress [math]A[/math] och ett nätverksmask [math]M[/math], hur beräknas då host adressen (HostID)?
+		</Question>
+		<Answer>
+			[math]NetID = A text{ &amp; } !N[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IPAdressering">
+		<Question>
+			Givet ett adress [math]A[/math] och ett nätverksmask [math]M[/math], hur beräknas då host directed broadcast address (DBA)?
+		</Question>
+		<Answer>
+			[math]DBA = A text{ &amp; } N | !N[/math].
+			DBA kan beräknas som nätverksadressen med HostID som bara 1:or.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="NetworkLayer">
+		<Question>
+			Antag att [math]n[/math] är prefix längden, hur många adresser ingår då i blocket?
+		</Question>
+		<Answer>
+			Antalet adresser i blocket blir: [math]2^(32-n)[/math]. Vissa adresser går dock inte att tilldela till hostar (DBA och NetID), så antalet tilldelbara till hostar blir då: [math]2^(32-n)-2[/math].
 		</Answer>
 	</TestQuestion>
 </Test>
