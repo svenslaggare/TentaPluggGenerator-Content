@@ -225,4 +225,146 @@
 			Antalet adresser i blocket blir: [math]2^(32-n)[/math]. Vissa adresser går dock inte att tilldela till hostar (DBA och NetID), så antalet tilldelbara till hostar blir då: [math]2^(32-n)-2[/math].
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="NetworkLayer">
+		<Question>
+			Vad innebär adress aggregering och varför behövs det?
+		</Question>
+		<Answer>
+			Det innebär att mindre block av adresser allokeras på ett sätt (närliggande) så att kan slås ihop till ett större block. Syfter är att minska antalet inlägg som behövs i en forwarding table.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
+			Vad innebär fragmentering av IP paket?
+		</Question>
+		<Answer>
+			Fragmentering innebär att paket delas upp i flera delar "fragment". Syftet är att ett paket kan inte alltid skickas över en länk, om paketet är större än länkens MTU (maximala överförings storlek).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
+			Hur fungerar fragmentering av IP paket?
+		</Question>
+		<Answer>
+			Varje paket får ett ID, som används för att identifiera om olika fragment tillhör samma paket. Sedan får varje fragment ett offset, relativt starten av hela paketet. Syftet med offseten är för att kunna återskapa paketet. Offseten är endast 13 bitar, men storleken av paketet behöver 16 bitar. Detta innebär att offesten anger antalet 8-bytes.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
+			Varför används offsets och inte sekvensnummer för att identifiera fragment av IP paket?
+		</Question>
+		<Answer>
+			Detta beror på att ett fragment kan vara större än länkens MTU, vilket innebär att fragmenet kan behövas delas upp i mindre fragment. Om sekvensnummer hade används, hade detta inte varit möjligt.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
+			Vem har uppgift att fragmentera IP paket?
+		</Question>
+		<Answer>
+			[b]IPv4[/b]
+			Hosts och routers (om inte DF biten är satt).
+
+			[b]IPv6[/b]
+			Hosts. Om paketet inte kan skickas, så droppas det och sändaren meddelas.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
+			Vad händer om ett fragment i ett paket tappas bort?
+		</Question>
+		<Answer>
+			Hela paketet kastas bort.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
+			Vem har i uppgift att återskapa paketet (av fragment), och varför?
+		</Question>
+		<Answer>
+			Det är sändaren som har i uppgift att återskapa. Detta på grund av att olika fragment (kan) ta olika vägar till målet. Detta innebär att det är endast säkert att målet kan ha alla fragemeten, som behövs för att återskapa paketet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
+			Hur kan man undvika att paket ingår i en oändlighets loop?
+		</Question>
+		<Answer>
+			Genom att ha en räknare (i paketet), som räknas ner vid varje hopp. Om räknaren når 1, så droppas hela paktet. Kallas för Time To Live (TTL) i IPv4 och Hop Limit i IPv6.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
+			Vad innebär Quality of Service (QOS)?
+		</Question>
+		<Answer>
+			Det innebär att vi ger prioritet till vissa typer av paket (video).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
+			Hur kan vi få reda på en hosts fysiska (MAC) adress, om vi vet hosten IP adress?
+		</Question>
+		<Answer>
+			Genom att skicka en förfrågan till alla hosts på nätverket. Detta är syftet bakom Address Resolution Protocol (ARP). Detta fungerar så att vi skickar en broadcast på nätverket, att vi söker efter hosten med en viss IP adress. Den host som då har IP adressen, svarar förfrågan med sin egna MAC adress.
+
+			I IPv6 som används inte ARP, utan ICMPv6.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
+			Hur kan vi göra för att få Address Resolution Protocol (ARP) att bli mer effektivare?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Spara hämtade adresser.[/li]
+				[li]Om vi har tagit emot ett paket ifrån en host, spara den MAC adress (som finns med i paketet).[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
+			Vad är Proxy ARP?
+		</Question>
+		<Answer>
+			Det innebär att en host svarar för en annan host (dvs att host B är C till host A), vilket gör det möjligt för sub-nätverk att vara gömda.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
+			Vad innebär Strict Source routing (SSRR) (i IPv4)?
+		</Question>
+		<Answer>
+			Det innebär att ett paket [i]måste[/i] ta en specifik väg till målet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
+			Vad innebär Loose Source routing (LSRR) (i IPv4)?
+		</Question>
+		<Answer>
+			Det innebär vägen som paketet tar till målet innehåller de specificerade adresserna, men inte vägen mellan adresserna.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
+			Vad är Internet Control Message Protocol (ICMP) för något?
+		</Question>
+		<Answer>
+			Det är ett protokoll som används för att rapportera IP relaterade fel tillbaka till sändaren. Protokollet använder IP som transport.
+
+			[b]Exempel på fel[/b]
+			[ul]
+				[li]När paketet har "dött", dvs TTL har nått noll.[/li]
+				[li]Om ett paket är större en MTU (i IPv6)[/li]
+				[li]Det går inte att nå målet.[/li]
+			[/ul][b]Fel som inte rapporteras[/b]
+			[ul]
+				[li]Fel som uppstår vid leverans av felmeddelande.[/li]
+				[li]Paket som ska skickas via broadcast or multicast[/li]
+				[li]Fel vid fragment utöver det första.[/li]
+			[/ul]
+			Syftet är att undvika att loopar uppstår och en explosion av paket skickas.
+		</Answer>
+	</TestQuestion>
 </Test>
