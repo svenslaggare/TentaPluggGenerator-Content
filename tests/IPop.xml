@@ -43,6 +43,22 @@
 	</TestQuestion>
 	<TestQuestion Category="Grundläggande">
 		<Question>
+			Vad är en host för något?
+		</Question>
+		<Answer>
+			En host är en maskin med [i]en[/i] eller flera nätverksgränssnitt och kan [i]inte[/i] vidarebefordra paket mellan gränssnitten.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad är en router för något?
+		</Question>
+		<Answer>
+			En router är en maskin med [i]två[/i] eller flera nätverksgränssnitt och kan vidarebefordra paket mellan gränssnitten.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
 			Ange och förklara de olika lagren enligt OSI-modellen.
 		</Question>
 		<Answer>
@@ -365,6 +381,53 @@
 				[li]Fel vid fragment utöver det första.[/li]
 			[/ul]
 			Syftet är att undvika att loopar uppstår och en explosion av paket skickas.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Routing">
+		<Question>
+			Hur fungerar den distribuerade versionen av Bellman-Ford algoritm?
+		</Question>
+		<Answer>
+			Varje router [math]r[/math] skickar en lista av distans vektorer [math]d(r, v)[/math] (kostnaden för vägen) till sina grannar (dvs andra routrar som är kopplade routen). Detta görs periodvist, för att nätverk kan gå ner och upp. När ett paket sedan ska skickas, så väljs den vägen med lägst kostnad.
+
+			Hos varje routen [math]r[/math] så finns en post för varje [math]d[/math] i nätverket, som innehåller kostanden ([math]M(r, d)[/math]) och nästa hopp ([math]n in N(r)[/math]).
+
+			För varje uppdatering som kommer ifrån en granne [math]n' in N(r)[/math], så uppdateras kostnaden enligt:
+			[math]m=M(r,n') + M(n',d)[/math] där [math]M(n',d)[/math] är kostnaden ifrån grannen till målet [math]d[/math].
+
+			Om [math]m \lt M(r, d)[/math]: [math]n=n', M(r,d)=m[/math] (dvs uppdatera nästa hopp för målet).
+
+			Eller om [math]n=n'[/math]: [math]M(r,d)=m[/math] (uppdatera alltid kostnaden om vi redan har en post med den som nästa hopp).
+
+			Kostnaden [math]M[/math] har en övre gräns, typiskt 16.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Routing">
+		<Question>
+			Vad för problem kan uppstå när distans vektorer används, och hur kan man lösa det?
+		</Question>
+		<Answer>
+			[b]Räkna till oändlighet[/b]
+			Antag att vi har två routers, [math]R1[/math] och [math]R2[/math] som är kopplade till varandra. Antag att nätverket [math]N[/math] är kopplad till [math]R1[/math] men inte [math]R2[/math].
+
+			Om länken mellan [math]N[/math] och [math]R1[/math] går ner, så tar [math]R1[/math] bort sin länk till [math]N[/math] genom att sätta kostnaden till [math]\infty[/math](16). Två saker kan nu hända:
+
+			1) [math]R1[/math] skickar sin väg till [math]N[/math] till [math]R2[/math], inget problem.
+			2) [math]R2[/math] som fortfarande har en väg till [math]N[/math], skickar sin väg till [math]R1[/math]. För att avståndet är kortare, så uppdateras [math]R1[/math] väg.
+
+			Det som händer är när ett paket som ska till [math]N[/math] skickas, så uppstår en loop som brtys när TTL når 0. För eller senare kommer dock kostnaden för både [math]R1[/math] och [math]R2[/math] nå 16, så att loopen bryts.
+
+			Lösningen till problemet kallas för [i]split horizon[/i], som innebär att man inte skickar vägar tillbaka över samma gränssnitt som vägen kom ifrån och [i]poison reverse[/i], som innebär när man upptäcker att en väg är felaktig, så informeras alla routers i nätverket att vägen har en [math]\infty[/math]-kostnad.
+
+			[b]Mutual deception[/b]
+			Antag att vi har tre routers [math]R1, R2, R3[/math], där alla routers är kopplade till varandra. Om en länk går ner, så kan inte split horizon och poison reverse inte lösa problemet.Router [math]R1[/math] kan tro att den har en väg via [math]R2[/math], t.ex. [math]R2[/math] via [math]R3[/math] och [math]R3[/math] via [math]R1[/math].
+			Det finns två lösningar:
+
+			[i]Triggered update[/i]
+			Skicka ut uppdatering direkt när en kostnad ändras (endast vägen som ändrades.) Detta kan leda till propagering av uppdatering. Detta innebär att man begränsar att detta inte kan ske oftare än varje 1-5 sekund. Triggered update [i]måste[/i] användas när en väg tas bort.
+
+			[i]Hold down[/i]
+			När en väg tas bort, så tillåts det inte att vägen uppdateras för en given tid. Detta ger alla routrar tid att ta bort vägen.
 		</Answer>
 	</TestQuestion>
 </Test>
