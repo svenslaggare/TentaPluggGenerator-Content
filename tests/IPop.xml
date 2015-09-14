@@ -20,7 +20,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Grundläggande">
 		<Question>
-			Ange de olika överförningslägen.
+			Ange de olika överförningslägen som finns.
 		</Question>
 		<Answer>
 			[b]Simplex[/b]
@@ -428,6 +428,91 @@
 
 			[i]Hold down[/i]
 			När en väg tas bort, så tillåts det inte att vägen uppdateras för en given tid. Detta ger alla routrar tid att ta bort vägen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Routing">
+		<Question>
+			Vad är link-state routing?
+		</Question>
+		<Answer>
+			Link-state routing innebär att varje router har information om nätverkets topologi. Varje router beräknar sedan den kortaste vägen till alla möjliga mål i nätverket typisk med Dijkstra's algoritm. Exempel på routing protokoll är Open Shortest Path First (OSPF) och Intermediate System to Intermediate System (IS-IS).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Routing">
+		<Question>
+			Vad är fördelarna med link-state routing?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Mer funktionalitet p.g.a distribution av data.[/li]
+				[li]Beror ej på mellanliggande routrar.[/li]
+				[li]Lättare att felsöka.[/li]
+				[li]Konvergerar snabbare: när nätverket förändras så beräknas nya vägar snabbt.[/li]
+				[li]Kräver mindre bandbred.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Routing">
+		<Question>
+			Vad är fördelarna med distance-vector routing?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Mindre komplex (lättare att implementera och administrera).[/li]
+				[li]Kräver mindre minne.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Routing">
+		<Question>
+			Vad är ett Interior Gateway Protocol (IGP) för något?
+		</Question>
+		<Answer>
+			Det är ett protokoll som körs inom ett nätverk/domän som hanterar interna routing inom nätverket. Exempel på protokoll är: RIP, OSPF, IS-IS.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Routing">
+		<Question>
+			Vad är ett Exterior Gateway Protocol (EGP) för något?
+		</Question>
+		<Answer>
+			Det är ett protokoll som utbyter vägar mellan olika domäner/nätverk som hanterar externa vägar. Exempel på protokoll BGP.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Routing">
+		<Question>
+			Vad är Routing Information Protocol (RIP) för något?
+		</Question>
+		<Answer>
+			Det är ett protokoll som hanterar vägar inom ett nätverk (IGP) och bygger på distans vektorer. Kostnaden som används är antalet hopp där 1 innebär att routrarna är kopplade på samma nätverk och 16 oändligt. Detta innebär att endast nätverk av diameter mindre än 16 stöds. 
+
+			Protokollet använder UDP för att skicka meddelanden där målet är en specifik multicast adress, 224.0.0.9 för IPv4 och FF02::9 för IPv6.
+
+			[b]Fördelar[/b]
+			[ul]
+				[li]Lätt att implementera.[/li]
+				[li]Lätt att konfigurera.[/li]
+				[li]Liten overhead för små nätverk.[/li]
+				[li]Finns tillgängligt i många system.[/li]
+				[li]Implementationer har testas noggrant.[/li]
+			[/ul][b]Nackdelar[/b]
+			[ul]
+				[li]Konvergerar segt, vilket innebär att förändringar propageras sakta.[/li]
+				[li]Instabilt: När en router eller länk går ner, tar det flera minuter för RIP att stabiliseras.[/li]
+				[li]Antalet hopp är inte det bästa indikator för bästa vägen.[/li]
+				[li]Begränsad nätverks diameter ([math]\le 15[/math]).[/li]
+				[li]Använder mycket bandbredd.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Routing">
+		<Question>
+			Vad är Open Shortest Path First (OSPF) för något?
+		</Question>
+		<Answer>
+			Det är ett protokoll som hanterar vägar inom ett nätverk (IGP) och bygger på link-state. Kostnaden som används är ej definerad av protokollet, men är ofta relaterad till länkens hastighet.
+
+			Nätverket kan vara uppdelad i subnätverk, där varje subnätverk har en så kallad [i]designated router[/i] (DR) och en backup (BDR). 
 		</Answer>
 	</TestQuestion>
 </Test>
