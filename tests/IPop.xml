@@ -468,7 +468,7 @@
 			Vad är ett Interior Gateway Protocol (IGP) för något?
 		</Question>
 		<Answer>
-			Det är ett protokoll som körs inom ett nätverk/domän som hanterar interna routing inom nätverket. Exempel på protokoll är: RIP, OSPF, IS-IS.
+			Det är ett protokoll som körs inom en domän som hanterar interna routing inom domämnen. Exempel på protokoll är: RIP, OSPF, IS-IS.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Routing">
@@ -476,7 +476,7 @@
 			Vad är ett Exterior Gateway Protocol (EGP) för något?
 		</Question>
 		<Answer>
-			Det är ett protokoll som utbyter vägar mellan olika domäner/nätverk som hanterar externa vägar. Exempel på protokoll BGP.
+			Det är ett protokoll som utbyter vägar mellan olika domäner som hanterar externa vägar. Exempel på protokoll BGP.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Routing">
@@ -484,7 +484,13 @@
 			Vad är Routing Information Protocol (RIP) för något?
 		</Question>
 		<Answer>
-			Det är ett protokoll som hanterar vägar inom ett nätverk (IGP) och bygger på distans vektorer. Kostnaden som används är antalet hopp där 1 innebär att routrarna är kopplade på samma nätverk och 16 oändligt. Detta innebär att endast nätverk av diameter mindre än 16 stöds. 
+			Det är ett protokoll som hanterar vägar inom en domän (IGP) och bygger på distans vektorer. Noder inom en domän som använder RIP är routers och nätverk (länkar). Målet i routing tabellen är alltid ett nätverk. Kostnaden som används är antalet hopp som krävs för att komma till målet. Om kostnaden är 1 betyder det att routrarna är kopplade på samma nätverk och 16 betyder oändliget. Detta innebär att endast domäner av diameter mindre än 16 stöds.
+
+			Inom RIP, så finns de två typer av meddelanden: förfrågningar och svar. En förfrågan är ett meddelandet som skickas av en router som nyligen har startas eller av en router är poster i tabellen har blivit för gamla (time-out). En förfrågan kan vara om specifika poster eller alla poster.
+
+			Det finns två typer av svar: solicited eller unsolicited. Ett svar som är [i]solicited[/i] skickas endast som ett svar till en förfrågan, vilket innehåller information om målet som förfrågades. Ett svar som är [i]unsolicited[/i] skickas ut periodvist varje 30 sekund, eller när en post ändras i tabellen.
+
+			Det finns tre typer av timers som används i RIP. Den första timern, den periodiska hanterar utskickning av uppdateringar (25-35s). Den andra hanterar när en post i tabellen anses vara för "gammal", vilket typiskt är satt till 180s. Den sista timern (skräpsamling) hanterar när en väg som har blivit ogitlig tas bort ifrån tabellen (som typisk är 120 s). Syftet med denna timer är att göra grannar uppmärksamma att en väg har blivit ogiltig innan den tas bort.
 
 			Protokollet använder UDP för att skicka meddelanden där målet är en specifik multicast adress, 224.0.0.9 för IPv4 och FF02::9 för IPv6.
 
@@ -510,9 +516,68 @@
 			Vad är Open Shortest Path First (OSPF) för något?
 		</Question>
 		<Answer>
-			Det är ett protokoll som hanterar vägar inom ett nätverk (IGP) och bygger på link-state. Kostnaden som används är ej definerad av protokollet, men är ofta relaterad till länkens hastighet.
+			Det är ett protokoll som hanterar vägar inom en domän (IGP) och bygger på link-state. För att hantera vägar effektivt, så delas domänen upp i områden. Ett område är en samling nätverk (där alla nätverk måste vara anslutna till varandra), hosts och routers som alla finns inom samma domän. Kostnaden som används är ej definerad av protokollet, men är ofta relaterad till länkens hastighet.
 
-			Nätverket kan vara uppdelad i subnätverk, där varje subnätverk har en så kallad [i]designated router[/i] (DR) och en backup (BDR). 
+			Vid gränsen av ett området, finns det en speciell router som kallas för "area border router" (ABR) som sammanfattar informationen om området och skickar till andra områden. Det finns ett speciellt område, kallat [b]backbone[/b] som alla andra områden [i]måste[/i] vara kopplad till. En router som ligger i backbone kallas för [i]backbone router[/i].
+
+			Inom varje området finns det också en så kallad [i]designated router[/i] (DR) och en backup (BDR). Syftet med DR är att istället för att skicka alla uppdateringar till närliggande routers inom nätverket, så skickas uppdateringar till DR, vilket i sin tur behandlar dessa och skickar till andra routers inom området.
+
+			Det finns fyra typer av länkar:
+			[ul]
+				[li]Point-to-point: Kopplar samman två routers utan några andra routers eller hosts mellan.[/li]
+				[li]Transient: Är ett nätverk med flera routers kopplade till nätverket, där data kan ankomma och lämna nätverket via vilken router som hlest.[/li]
+				[li]Stub: Är ett nätverk som endast är kopplad till en router.[/li]
+				[li]Virtual: När en länk mellan två routers går sönder, så kan en administratör skapa en virtuell länk mellan dem genom en längre väg som går sannolikt går genom flera routers.[/li]
+			[/ul]Huvudkomponenterna inom protokollet är:
+			[ol]
+				[li]Hello protokoll: Används för att upptäcka närliggande routers och välja vilken router som är DR.[/li]
+				[li]Exchange protokoll: Utbyte av link-state mellan närliggande routers.[/li]
+				[li]Reliable flooding: När en länk uppdateras eller bli för gammal så uppdateras närliggande routers, som i sin tur uppdaterar närliggande routers, osv.[/li]
+				[li]Beräkning av kortaste väg (till alla mål) med hjälp av Diskstras algoritm.[/li]
+			[/ol]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Routing">
+		<Question>
+			Vad är ett Autonomous System (AS)?
+		</Question>
+		<Answer>
+			Det är en samling av routers som har samma routing policy och administreras av samma grupp. Det kan vara ett nätverk eller en grupp av nätverk. Exempel är universitet, företag, organisationer, operatörer.
+
+			Varje AS har ett nummer (16-bitar) och alla interna policyer, protokoll, osv är gömda inom systemet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Routing">
+		<Question>
+			Ange olika typer av Autonomous Systems
+		</Question>
+		<Answer>
+			[b]Stub AS[/b]
+			Är ett system som endast är kopplad till ett annat system.
+
+			[b]Multihomed AS[/b]
+			Är ett system som har fler än en koppling till andra system, men fungerar endast som ett mål eller källa för trafik. Dvs, den tillåter inte trafik ifrån en annan AS att gå genom systemet vidare till ett annat system.
+
+			[b]Transit AS[/b]
+			Är ett multihomed AS som tillåter att trafik (ifrån andra AS) passerar systemet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Routing">
+		<Question>
+			Vad är Border Gateway Protocol (BGP) för något?
+		</Question>
+		<Answer>
+			Det är ett protokoll som hanterar externa vägar (EGP) och bygger på path-vector routing. Det finns två varianter av BGP, E-BGP: som hanterar utbyte av externa vägar mellan olika AS (border routers). I-BGP: Synkroniserar externa vägar inom ett AS. Protokollet använder sig av TCP. BGP interagerar också med interna routing protokoll (RIP, OSPF) och distribuerar interna och externa routing information mellan protokollen.
+
+			Varje väg till ett mål har olika attributer som används av routers för att göra ett bättre beslut när policyer tillämpas. Exempel på attributer är ORIGIN som anger källan av routing informationen (RIP, OSPF), AS_PATH som anger de AS som målet kan nå och NEXT-HOP som anger nästa router som paktet ska skickas till.
+
+			BGP använder sig av fyra olika meddelanden:
+			[ul]
+				[li][b]Open[/b]: Används för att skapa en relation med en granne. Om grannen accepterar relationen, så skickas ett [b]keepalive[/b] meddelande.[/li]
+				[li][b]Update[/b]: Används för att ta bort och skapa nya mål.[/li]
+				[li][b]Keepalive[/b]: Används för att indikera för grannar att de lever, vilket görs periodiskt.[/li]
+				[li][b]Notification[/b]: Används när fel har upptäcks eller när en router vill stänga ner anslutningen.[/li]
+			[/ul]
 		</Answer>
 	</TestQuestion>
 </Test>
