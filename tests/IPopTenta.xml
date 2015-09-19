@@ -43,10 +43,10 @@
 	</TestQuestion>
 	<TestQuestion Category="Grundläggande">
 		<Question>
-			Vad är en host för något?
+			Vad är en värd för något?
 		</Question>
 		<Answer>
-			En host är en maskin med [i]en[/i] eller flera nätverksgränssnitt och kan [i]inte[/i] vidarebefordra paket mellan gränssnitten.
+			En värd (host) är en maskin med [i]en[/i] eller flera nätverksgränssnitt och kan [i]inte[/i] vidarebefordra paket mellan gränssnitten.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Grundläggande">
@@ -178,7 +178,7 @@
 			Källan bestämmer vilken väg som ska tas. Nackdelen är att information om nätverkets topologi behövs och kräver utrymme i paketet.
 
 			[b]Nästa-hopp routing (next-hop routing)[/b]
-			Det innebär att en router endast håller koll på nästa nod i vägen är, för ett paket. För IP så baseras det på adressen för mottagaren. Varje router sparar då en mappning ifrån host/nätverksadress till adressen för nästa hopp.
+			Det innebär att en router endast håller koll på nästa nod i vägen är, för ett paket. För IP så baseras det på adressen för mottagaren. Varje router sparar då en mappning ifrån värd/nätverksadress till adressen för nästa hopp.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IPAdressering">
@@ -186,7 +186,7 @@
 			Vad är syftet med nätverksmasken i IP?
 		</Question>
 		<Answer>
-			Syftet är att ange vilken del av adressen som tillhör nätverket och hosten.
+			Syftet är att ange vilken del av adressen som tillhör nätverket och värden.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IPAdressering">
@@ -194,7 +194,7 @@
 			Vad är directed broadcast address (DBA) (i IPv4)?
 		</Question>
 		<Answer>
-			Det gör det möjligt för att skicka paket till alla hostar i ett nätverk. De flesta routrar blockeras dock detta på grund av säkerhet. Notera i IPv6 så finns inte DBA.
+			Det gör det möjligt för att skicka paket till alla värdar i ett nätverk. De flesta routrar blockeras dock detta på grund av säkerhet. Notera i IPv6 så finns inte DBA.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IPAdressering">
@@ -218,7 +218,7 @@
 	</TestQuestion>
 	<TestQuestion Category="IPAdressering">
 		<Question>
-			Givet ett adress [math]A[/math] och ett nätverksmask [math]M[/math], hur beräknas då host adressen (HostID)?
+			Givet ett adress [math]A[/math] och ett nätverksmask [math]M[/math], hur beräknas då värd adressen (HostID)?
 		</Question>
 		<Answer>
 			[math]NetID = A text{ &amp; } !N[/math].
@@ -226,7 +226,7 @@
 	</TestQuestion>
 	<TestQuestion Category="IPAdressering">
 		<Question>
-			Givet ett adress [math]A[/math] och ett nätverksmask [math]M[/math], hur beräknas då host directed broadcast address (DBA)?
+			Givet ett adress [math]A[/math] och ett nätverksmask [math]M[/math], hur beräknas då directed broadcast address (DBA)?
 		</Question>
 		<Answer>
 			[math]DBA = A text{ &amp; } N | !N[/math].
@@ -238,7 +238,7 @@
 			Antag att [math]n[/math] är prefix längden, hur många adresser ingår då i blocket?
 		</Question>
 		<Answer>
-			Antalet adresser i blocket blir: [math]2^(32-n)[/math]. Vissa adresser går dock inte att tilldela till hostar (DBA och NetID), så antalet tilldelbara till hostar blir då: [math]2^(32-n)-2[/math].
+			Antalet adresser i blocket blir: [math]2^(32-n)[/math]. Vissa adresser går dock inte att tilldela till värdar (DBA och NetID), så antalet tilldelbara till värdar blir då: [math]2^(32-n)-2[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="NetworkLayer">
@@ -279,10 +279,10 @@
 		</Question>
 		<Answer>
 			[b]IPv4[/b]
-			Hosts och routers (om inte DF biten är satt).
+			Värdar och routers (om inte DF biten är satt).
 
 			[b]IPv6[/b]
-			Hosts. Om paketet inte kan skickas, så droppas det och sändaren meddelas.
+			Värdar. Om paketet inte kan skickas, så droppas det och sändaren meddelas.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IP">
@@ -319,10 +319,10 @@
 	</TestQuestion>
 	<TestQuestion Category="IP">
 		<Question>
-			Hur kan vi få reda på en hosts fysiska (MAC) adress, om vi vet hosten IP adress?
+			Hur kan vi få reda på en värds fysiska (MAC) adress, om vi vet värdens IP adress?
 		</Question>
 		<Answer>
-			Genom att skicka en förfrågan till alla hosts på nätverket. Detta är syftet bakom Address Resolution Protocol (ARP). Detta fungerar så att vi skickar en broadcast på nätverket, att vi söker efter hosten med en viss IP adress. Den host som då har IP adressen, svarar förfrågan med sin egna MAC adress.
+			Genom att skicka en förfrågan till alla värdar på nätverket. Detta är syftet bakom Address Resolution Protocol (ARP). Detta fungerar så att vi skickar en broadcast på nätverket, att vi söker efter värden med en viss IP adress. Den värd som då har IP adressen, svarar förfrågan med sin egna MAC adress.
 
 			I IPv6 som används inte ARP, utan ICMPv6.
 		</Answer>
@@ -333,8 +333,8 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li]Spara hämtade adresser.[/li]
-				[li]Om vi har tagit emot ett paket ifrån en host, spara den MAC adress (som finns med i paketet).[/li]
+				[li]Spara hämtade adresser i en cache. Cachen måste dock tömmas periodiskt, för att värdar kan gå ner och upp.[/li]
+				[li]Om vi har tagit emot ett paket ifrån en värd, spara den MAC adress (som finns med i paketet). Detta kallas för [i]ARP snooping[/i].[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -343,7 +343,7 @@
 			Vad är Proxy ARP?
 		</Question>
 		<Answer>
-			Det innebär att en host svarar för en annan host (dvs att host B är C till host A), vilket gör det möjligt för sub-nätverk att vara gömda.
+			Det innebär att en värd svarar för en annan värd (dvs att värd B är C till värd A), vilket gör det möjligt för sub-nätverk att vara gömda.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IP">
@@ -417,7 +417,7 @@
 
 			Det som händer är när ett paket som ska till [math]N[/math] skickas, så uppstår en loop som brtys när TTL når 0. För eller senare kommer dock kostnaden för både [math]R1[/math] och [math]R2[/math] nå 16, så att loopen bryts.
 
-			Lösningen till problemet kallas för [i]split horizon[/i], som innebär att man inte skickar vägar tillbaka över samma gränssnitt som vägen kom ifrån och [i]poison reverse[/i], som innebär när man upptäcker att en väg är felaktig, så informeras alla routers i nätverket att vägen har en [math]\infty[/math]-kostnad.
+			Lösningen till problemet kallas för [i]split horizon[/i], som innebär att man inte skickar vägar tillbaka över samma gränssnitt som vägen kom ifrån. En annan variant av [i]split horizon[/i] kallas för [i]split horizon med poison reverse[/i] som innebär att man skickar tillbaka vägar över samma gränssnitt som vägen kom ifrån, [i]men[/i] med kostnanden [math]\infty[/math]. Detta ger en uppmanning att inte använda värdet, då sändaren vet att vägen kom ifrån målet.
 
 			[b]Mutual deception[/b]
 			Antag att vi har tre routers [math]R1, R2, R3[/math], där alla routers är kopplade till varandra. Om en länk går ner, så kan inte split horizon och poison reverse inte lösa problemet.Router [math]R1[/math] kan tro att den har en väg via [math]R2[/math], t.ex. [math]R2[/math] via [math]R3[/math] och [math]R3[/math] via [math]R1[/math].
@@ -436,6 +436,14 @@
 		</Question>
 		<Answer>
 			Link-state routing innebär att varje router har information om nätverkets topologi. Varje router beräknar sedan den kortaste vägen till alla möjliga mål i nätverket typisk med Dijkstra's algoritm. Exempel på routing protokoll är Open Shortest Path First (OSPF) och Intermediate System to Intermediate System (IS-IS).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Routing">
+		<Question>
+			Vad är path vector routing?
+		</Question>
+		<Answer>
+			Det fungerar ungefär som distance vector routing, men istället för nätverk är det autonoma system (AS) som är noderna i vägarna.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Routing">
@@ -492,7 +500,7 @@
 
 			Det finns tre typer av timers som används i RIP. Den första timern, den periodiska hanterar utskickning av uppdateringar (25-35s). Den andra hanterar när en post i tabellen anses vara för "gammal", vilket typiskt är satt till 180s. Den sista timern (skräpsamling) hanterar när en väg som har blivit ogitlig tas bort ifrån tabellen (som typisk är 120 s). Syftet med denna timer är att göra grannar uppmärksamma att en väg har blivit ogiltig innan den tas bort.
 
-			Protokollet använder UDP för att skicka meddelanden där målet är en specifik multicast adress, 224.0.0.9 för IPv4 och FF02::9 för IPv6.
+			Protokollet använder sig av UDP för att skicka meddelanden. I version 1 så används broadcast, i version 2 så används en speciell "router broadcast" adress, 224.0.0.9 för IPv4 och FF02::9 för IPv6.
 
 			[b]Fördelar[/b]
 			[ul]
@@ -516,7 +524,7 @@
 			Vad är Open Shortest Path First (OSPF) för något?
 		</Question>
 		<Answer>
-			Det är ett protokoll som hanterar vägar inom en domän (IGP) och bygger på link-state. För att hantera vägar effektivt, så delas domänen upp i områden. Ett område är en samling nätverk (där alla nätverk måste vara anslutna till varandra), hosts och routers som alla finns inom samma domän. Kostnaden som används är ej definerad av protokollet, men är ofta relaterad till länkens hastighet.
+			Det är ett protokoll som hanterar vägar inom en domän (IGP) och bygger på link-state. För att hantera vägar effektivt, så delas domänen upp i områden. Ett område är en samling nätverk (där alla nätverk måste vara anslutna till varandra), värdar och routers som alla finns inom samma domän. Kostnaden som används är ej definerad av protokollet, men är ofta relaterad till länkens hastighet.
 
 			Vid gränsen av ett området, finns det en speciell router som kallas för "area border router" (ABR) som sammanfattar informationen om området och skickar till andra områden. Det finns ett speciellt område, kallat [b]backbone[/b] som alla andra områden [i]måste[/i] vara kopplad till. En router som ligger i backbone kallas för [i]backbone router[/i].
 
@@ -524,7 +532,7 @@
 
 			Det finns fyra typer av länkar:
 			[ul]
-				[li]Point-to-point: Kopplar samman två routers utan några andra routers eller hosts mellan.[/li]
+				[li]Point-to-point: Kopplar samman två routers utan några andra routers eller värdar mellan.[/li]
 				[li]Transient: Är ett nätverk med flera routers kopplade till nätverket, där data kan ankomma och lämna nätverket via vilken router som hlest.[/li]
 				[li]Stub: Är ett nätverk som endast är kopplad till en router.[/li]
 				[li]Virtual: När en länk mellan två routers går sönder, så kan en administratör skapa en virtuell länk mellan dem genom en längre väg som går sannolikt går genom flera routers.[/li]
