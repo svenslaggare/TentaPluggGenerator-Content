@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Test Name="Tenta">
 	<TestQuestion Category="Grundläggande">
 		<Question>
@@ -141,6 +141,46 @@
 			Många protokoll är definerad i detta lager som t.ex. email, HTTP, osv.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="LinkLayer">
+		<Question>
+			Vad för ansvar har länklagret?
+		</Question>
+		<Answer>
+			Att överföra datagram mellan närliggande värdar över en länk.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="LinkLayer">
+		<Question>
+			Vad för syfte har en MAC-adress (länk adress/fysisk adress)?
+		</Question>
+		<Answer>
+			Det används för att identifiera källa och mål inom [i]ett nätverk[/i] och är 48 bitar.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="LinkLayer">
+		<Question>
+			Vad är Carrier Sense Multiple Access (CSMA) och vad försöker det undvika?
+		</Question>
+		<Answer>
+			Det försöker undvika att kollisioner uppstår när två noder skickar data samtidigt över en länk. CSMA fungerar så att innan man skickar, så lyssnar man över länken efter aktivitet. Kollisioner kan dock fortfarande uppstå på grund av tiden för en signal att färdas över mediet. Om en kollision upptäckts så avvaktar man och försöker senare.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="LinkLayer">
+		<Question>
+			Vad är en ethernet switch (bridge) för något?
+		</Question>
+		<Answer>
+			Det är en enhet som styr trafiken mellan olika noder i ett nätverk. Till varje switch så sitter olika länkar kopplade till olika portar. När ett paket kommer till switchen, så vill vi helst att paketet endast skickas till målet. Detta uppnås genom att ha en tabell som matchar MAC-adress till port. Tabellen fylls genom att kolla på paket som kommer från porten, och uppdatera tabellen med hjälp av paketets källadress. Om vi får ett paket där vi inte har en post för målet i tabellen, så skickas paketet till [i]alla[/i] noder kopplade till switchen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="LinkLayer">
+		<Question>
+			Vad innebär "gömda terminal problemet" (hidden terminal problem)?
+		</Question>
+		<Answer>
+			Vi har tre datorer: A, B och C. B och A kan höra varandra, B och C kan höra varandra men A och C kan inte höra varandra. Om det uppstår en kollision när både C och A ska skicka till B, så kan detta ej lösas för A och C vet ej att varandra existerar.
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="NetworkLayer">
 		<Question>
 			Vad innebär det att en tjänst är anslutningsorienterad?
@@ -197,6 +237,22 @@
 			Det gör det möjligt för att skicka paket till alla värdar i ett nätverk. De flesta routrar blockeras dock detta på grund av säkerhet. Notera i IPv6 så finns inte DBA.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="LinkLayer">
+		<Question>
+			Vad är limited broadcast address (i IPv4)?
+		</Question>
+		<Answer>
+			Det gör det möjligt att skicka ett paket till alla värdar i ett nätverk, men som routrar [i]inte[/i] skickar vidare. Adressen består endast av 1:or (255.255.255.255).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="LinkLayer">
+		<Question>
+			Vad är Global Unicast Address (i IPv6)?
+		</Question>
+		<Answer>
+			Det gör det möjligt att ge en unik address till varje enhet i världen. Det fungerar så att de 64 första bitarna i adressen tillhör nätverket och 64 sista bitarna tillhör enheten. T.ex. så kan MAC adressen användas (48-bitar).
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="IPAdressering">
 		<Question>
 			Hur anges nätverksmasken?
@@ -247,6 +303,26 @@
 		</Question>
 		<Answer>
 			Det innebär att mindre block av adresser allokeras på ett sätt (närliggande) så att kan slås ihop till ett större block. Syfter är att minska antalet inlägg som behövs i en forwarding table.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
+			Vad är MTU?
+		</Question>
+		<Answer>
+			Det ange länkens maximala överförings storlek. I IPv4 är det minimala värdet 576 bytes och i IPv6 1280 bytes.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
+			Ange kort hur en IP header är uppbyggd.
+		</Question>
+		<Answer>
+			[b]IPv4[/b]
+			Headern storlek kan variera mellan 20 och 60 bytes. Om inga options används så är storleken 20 bytes. Den maximala storleken på ett paket (inklusive headern) är [math]2^16-1=65535[/math] bytes.
+
+			[b]IPv6[/b]
+			I IPv6 är headerns storlek alltid 40 bytes. Det finns dock möjligheter att ha "extension headers", som bildar en länkad lista. Om inga extension används, så är den maximala storleken på paketet samma som i IPv4, 65535 bytes.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IP">
@@ -586,6 +662,177 @@
 				[li][b]Keepalive[/b]: Används för att indikera för grannar att de lever, vilket görs periodiskt.[/li]
 				[li][b]Notification[/b]: Används när fel har upptäcks eller när en router vill stänga ner anslutningen.[/li]
 			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Ange de två vanligaste protokollen i transport lagret och vad för idér de bygger på.
+		</Question>
+		<Answer>
+			[b]User Datagram Protocol (UDP)[/b]
+			[ul]
+				[li]Connectionless[/li]
+				[li]Opålitlig[/li]
+				[li]Meddelande orienterat[/li]
+				[li]Simplex/Semi-duplex[/li]
+			[/ul][b]Transport Control Protocol (TCP)[/b]
+			[ul]
+				[li]Connection-oriented[/li]
+				[li]Pålitlig[/li]
+				[li]Ström orienterat[/li]
+				[li]Full-duplex[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Vad är en portnummer (i transport lagret) för något?
+		</Question>
+		<Answer>
+			Det används för att identifiera processen som paketet skickas från/skickas till. Notera att ett portnummer är en 16-bitars heltal.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Vad är en socket för något?
+		</Question>
+		<Answer>
+			Det är en IP-adress och ett portnummer. Varje meddelande som skickas i transport lagret måste ha en källsocket och målsocket.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Ange tre olika klasser av portnummer som finns
+		</Question>
+		<Answer>
+			[b]Well-known portar (0-1023)[/b]
+			Tilldelas och kontrolleras av IANA. Används normalt för primär tjänster (HTTP).
+
+			[b]Registerade portar (1024-49151)[/b]
+			Dessa registeras hos IANA, men det är inget som förhindrar en att använda dessa portar. Används normalt av applikations tjänster.
+
+			[b]Dynamisk portar (ephemeral) (49152-65535)[/b]
+			Dessa kan används av vilka processer som helst. Dessa används normalt av klient processer.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Ange hur ett UDP-paket är uppbyggd.
+		</Question>
+		<Answer>
+			[b]Header[/b]
+			Headern är alltid 8 bytes stor och består av källsocket, målsocket, längden av UDP paketet (16-bitar) och en checksumma (16-bitar). För IPv4 så är checksumman valfri att beräkna men i IPv6 måste den beräknas.
+
+			[b]Data[/b]
+			IPv4: För att 20 bytes används för IP header och 8 bytes för UDP header blir den maximala storleken för datan: 65507.
+			IPv6: 40 bytes för IP header och 8 bytes UDP header ger: 65527.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Vad innebär segmentring?
+		</Question>
+		<Answer>
+			I TCP så levereras data som en ström av bytes. Men i verkligheten så skickas data i olika block "segment". För att länkens ska utnyttjas maximalt så borde så många data skickas samtidigt i ett segment, men man får inte heller vänta för länge innan man skickar för då uppstå latens problem.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Vad är MSS?
+		</Question>
+		<Answer>
+			Det står för Maximum Segment Size och anger den största block av data som TCP kommer skicka i ett paket. Om inte värde har meddelas (som endast kan göras när anslutingen etableras) så används ett default värde: 536 bytes för IPv4 och 1220 för IPv6.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Vad för tekniker används för att göra TCP pålitligt?
+		</Question>
+		<Answer>
+			Varje byte som skickas får ett sekvensnummer. När data sedan skickas så väntar sen som skickar på ett ACK (acknowledgement). Om inte ett ACK har mottagits inom en viss tid (RTO, Retranission Timeout), så skickas segmentet om. Om data mottagits i oordning eller duplikerats så kastas den datan. RTO beräknas dynamiskt baserat på RTT (Round Trip Time), tiden för att skicka ett paket och få ett ACK för det.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Vad är Karns algoritm för något och vad för problem löser den?
+		</Question>
+		<Answer>
+			[b]Scenario[/b]
+			Ett segment skickas igen. När ACKet sedan tas emot, så vet inte sändaren om ACK var för original segmenet eller det återskickade segmentet. Detta är ett problem för att tiden mellan skicka och ta emot ACK (RTT) används för att beräkna RTO. En lösning kallas för Karns algoritm (en annan lösning är att använda sig av tidsstämplar).
+
+			[b]Karns algoritm[/b]
+			Den fungerar så att man [i]inte[/i] tar med RTT för ett segment som har skickas flera gånger, när man t.ex. beräknar RTO.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Vad är Nagles algoritm för något?
+		</Question>
+		<Answer>
+			It works by combining a number of (small) outgoing packets into a larger packet. The algorithm buffers its output as long as there are unconfirmed data, and sends it when an acknowledgment is received or the packet is greater than the maximum segment size. This is often used in interactive sessions (e.g. SSH, Telnet) which generates many short messages.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Vad innebär delayed acknowledgement?
+		</Question>
+		<Answer>
+			It works by delaying when an acknowledgement is sent. The acknowledgement that is later sent combines several acknowledgements into one. It is used to reduce the network traffic, since each acknowledgement has overhead example in the case of many small packets..
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Vad innebär Piggybacked acknowledgement?
+		</Question>
+		<Answer>
+			Det innebär att vi bäddar in data med ACKs, för att öka effektiveten.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Hur fungerar sliding window flow control?
+		</Question>
+		<Answer>
+			When the receiver sends an acknowledgment, he also sends a window size (rwnd). This is the maximum size of data the receiver can handle and hence can be sent by the transmitter. When the receiver has handled the data and can receive more, an updated value for rwnd is sent so the transmitter know he can start send more data. The mechanism is used so that the receiver doesn’t get overwhelmed with data he cannot handle.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Vad innebär slow start och congestion avoidance?
+		</Question>
+		<Answer>
+			Congestion window (cwnd) is maintained by the sender which determines how much data that can be on the wire, traveling to the receiver. At the beginning of the connection, the congestion window is set to the maximum segment size (MSS). After each acknowledgement is received, the size of the window is increased by the MSS (exponential growth). The slow start is stopped when the size of the window reaches a threshold, ssthresh.
+
+			Instead of increasing the cwnd exponential, the window increases linearly with the formula [math]text{cwnd}=text{cwnd}+text{MSS}/text{cwnd}[/math], until the receiver advertised that the window size is reached. When congestion happens (example when the ACK timeout occurs), we restart the slow start phase with and [math]text{sshtresh}=text{cwnd}/2[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Vad innebär fast retransmit och fast recovery?
+		</Question>
+		<Answer>
+			When a segment is lost or delivered out of order, the slow start phase starts. This leads to poor utilization of the network. When three or more duplicate acknowledgement is received in a row: retransmit immediately (fast retransmit) and do congestion avoidance instead of slow start (fast recovery).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Vad är Bandwidth-Delay Product?
+		</Question>
+		<Answer>
+			Det anger kapacitetet på länken. Den beräknas som: [math]text{BDP}=text{bandwidth}*text{RTT}[/math]. För att länken ska kunna utnyttjas maximalt, så ska storlken av receiver window vara BDP.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Hur etableras en TCP anslutning?
+		</Question>
+		<Answer>
+			Den fungerar med en såkallad "three-way handshake".
+			[ul]
+				[li]Sen som ska etablera (klienten) anslutningen skickar ett TCP paket med flaggan SYN och ett sekvensnummer [math]x[/math].[/li]
+				[li]Den som anslutingen ska etableras till (servern) skickar då ett svar som har båda flaggorna SYN och ACK satta (där [math]x[/math] ACKas) och ett eget sekvensnummer [math]y[/math].[/li]
+				[li]När klienten får SYN-ACK så skickar den ett ACK paket med sekvensnummer [math]x+1[/math] som ACKar [math]y+1[/math].[/li]
+			[/ul]Efter detta är klart, så är anslutningen etablerad, och data kan då skickas i båda hållen. [math]x[/math] och [math]y[/math] bör väljas så att olika TCP anslutingar mellan ändpunkterna har olika värden. Detta uppnås genom att slumpa [math]x[/math] och [math]y[/math].
 		</Answer>
 	</TestQuestion>
 </Test>
