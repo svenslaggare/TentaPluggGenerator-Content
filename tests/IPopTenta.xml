@@ -1000,4 +1000,51 @@
 			|Ny IP header|ESP header|Original IP header|Data|ESP trailer|ESP auth|. ESP ger sekretess för |Original IP header|Data|ESP trailer| och autentisering för |Original IP header|ESP header|Data|ESP trailer|.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="IPSec">
+		<Question>
+			Vad för typ av attacker skyddar cookies emot?
+		</Question>
+		<Answer>
+			Denial-of-services (DOS). Cookies skyddar genom om anfallaren förfalskar sin källaddress, får den inget svar. Det som tar tid är att utföra Diffie-Hellmann beräkningarna, som cookies undviker. En cookie bör inte ha tillstånd och beräknas vanligen som: [math]text{cookie}=text{hash}(text{IP adress}, text{secret})[/math] där [math]text{secret}[/math] är känd av båda parterna.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IPSec">
+		<Question>
+			Vad för typ av attacker skyddar Nonces emot?
+		</Question>
+		<Answer>
+			Replay attacker. En replay attack innebär att anfallaren lyssnar på kommunikationen mellan A och B. Sedan använder sig anfallaren sig av A autentisering för att få tillgång till B. En nonce är ett sekvensnummer (t.ex. slumpad) som endast används [i]en[/i] gång.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IPSec">
+		<Question>
+			Hur görs ömsesidig autentisering (mutal authentication) i IKE?
+		</Question>
+		<Answer>
+			Det görs med Deffie-Hellmans algoritm.
+
+			1. Välj ett primtal [math]q[/math] och [math]alpha[/math] som är en primitiv rot av [math]q[/math] (dvs [math]alpha[/math] genererar den multiplikativa gruppen [math]Z_q[/math]).
+			2. Alice genererar en nyckel på följande sätt: Välj den privata nyckeln [math]X_A \lt q[/math] och den publika nyckeln [math]Y_A = alpha^(X_A) mod q[/math].
+			3. Bob privat: [math]X_B \lt q[/math], publik: [math]Y_B = alpha^(X_B) mod q[/math].
+			4. Byt publika nycklar ([math]Y[/math]).
+			5. Alice beräknar en hemlig kod: [math]K = Y_B^(X_A) mod q[/math].
+			6. Bob (vilket blir samma): [math]K=Y_A^(X_B) mod q[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IPSec">
+		<Question>
+			Ange de två faserna i IKE.
+		</Question>
+		<Answer>
+			[b]Fas 1 (main mode)[/b]
+			Gör ömsesidig autentisering och etablerar IKE sessions nycklar. Detta sätter upp "huvud" SA.
+			Ex:
+			[img]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/IKE.png[/img].
+
+			[b]Fas 2[/b]
+			Sätter upp en eller flera IPSec SA mellan noderna med hjälp av nycklarna som togs fram i fas 1.
+
+			Syftet med att ha två faser är om flera SA behövs eller om SA parameterar behövs ändras, så kan detta göras utan en ömsesidig autentisering.
+		</Answer>
+	</TestQuestion>
 </Test>
