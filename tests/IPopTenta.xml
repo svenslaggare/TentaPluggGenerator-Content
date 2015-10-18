@@ -1018,7 +1018,7 @@
 	</TestQuestion>
 	<TestQuestion Category="IPSec">
 		<Question>
-			Hur görs ömsesidig autentisering (mutal authentication) i IKE?
+			Hur görs ömsesidig autentisering (mutual authentication) i IKE?
 		</Question>
 		<Answer>
 			Det görs med Deffie-Hellmans algoritm.
