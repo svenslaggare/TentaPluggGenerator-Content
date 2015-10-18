@@ -896,4 +896,44 @@
 			Det innebär att klienten och DHCP server är på olika subnätverk. För att limited broadcast används så forwardar inte routrar meddelanden. Det finns då en speciell värd på subnätverket, DHCP relay agent som skickar vidare DHCP förfrågningar till den centrala servern.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="DNS">
+		<Question>
+			Vad innebär det att en DNS server är auktoritet (authoritative) för en domän?
+		</Question>
+		<Answer>
+			Det innebär att servern har konfigureras med en mapping (dvs förstahands) för domänen. T.ex. en cache kan ha samma information, men den har [i]inte[/i] konfigureras med informationen. En authoritative DNS har ett DNS inlägg av typen NS för domänen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DNS">
+		<Question>
+			Hur fungerar rekursiv uppslagning av en DNS post?
+		</Question>
+		<Answer>
+			Det innebär om den som man ställer frågan till inte har ett svar, så skickas förfrågan vidare till en annan server.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DNS">
+		<Question>
+			Hur fungerar en iterativ uppslagning av en DNS post?
+		</Question>
+		<Answer>
+			Först skickar man förfrågan till en server. Om den inte har ett svar på frågan, får man tillbaka möjliga servers som kan ha svaret. Då ställer man istället samma fråga till dessa servers, om dessa inte har något svar, får man tillbaka, osv.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DNS">
+		<Question>
+			Vad innebär delegering när det kommer till DNS?
+		</Question>
+		<Answer>
+			Det innebär att vi delegerar ansvar till någon annan för de delar av trädet som är på en lägre nivå i trädet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DNS">
+		<Question>
+			Vad är en zone när det kommer till DNS?
+		</Question>
+		<Answer>
+			En zon är en domän, minus allt som har delegeras till zonen. Det innebär att föräldrar zonen refererar till namn serveren av den zonen.
+		</Answer>
+	</TestQuestion>
 </Test>
