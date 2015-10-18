@@ -936,4 +936,68 @@
 			En zon är en domän, minus allt som har delegeras till zonen. Det innebär att föräldrar zonen refererar till namn serveren av den zonen.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="IPSec">
+		<Question>
+			Ange de två olika lägen som IPSec använder sig av.
+		</Question>
+		<Answer>
+			[b]Transport[/b]
+			Används för att tillhandahålla tjänster mellan värd-till-värd eller värd-till-gateway. Detta används vanligaste inom samma nätverk, men kan också vara från ändpunkt-till-ändpunkt över nätverk.
+
+			[b]Tunnel[/b]
+			Används för att tillhandahålla tjänster tjänster mellan gateway-till-gateway eller värd-till-gateway. Används ofta där båda gatewayarna ägs av samma organisation, men är kopplade över ett osäkert nätverk.
+
+			Fördelen med tunnel mode att det endast kräver att IPSec stöds av gatewayarna, och existerade applikationer/API behövs ej förändras.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IPSec">
+		<Question>
+			Hur ser ett paket ut som använder sig av IPSec ut i tranport läge?
+		</Question>
+		<Answer>
+			Det är endast datan i IP paketet som enkapsulera av IPsec, vilket innebär att orginal IP headern är oförändrad. Det läggs även till en IPSec header. Dvs: |IP header|IPSec header|TCP/UDP header + data|.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IPSec">
+		<Question>
+			Hur ser ett paket ut som använder sig av IPSec i tunnel läge?
+		</Question>
+		<Answer>
+			Hela IP paketet enkapsulera av IPSec. Detta innebär att en ny IP header läggs till för gatewayarna. Det läggs även till en IPSec header. Dvs: |IP header (gateway)|IPSec header|IP header (riktiga mål)|TCP/UDP header + data|.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IPSec">
+		<Question>
+			Vad innebär en Security Association (SA)?
+		</Question>
+		<Answer>
+			En SA anger hur paket ska behandlas (vilken krypteringsalgoritm som ska användas, IPsec läge, nycklar, om det är AH/ESP, sevkensnummer, livstider). En SA är ett envägs förhållande mellan en sändare och skickare. En SA identiferas unikt av (SPI, måladress, flagga) där:
+			[ul]
+				[li]SPI: Security Parameter Index, som skickas med paketet. Väljs av målet om trafiken inte är multicast.[/li]
+				[li]Flagga: ESP eller AH[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IPSec">
+		<Question>
+			Vad är AH för något och vad för typ av säkerhet ger den?
+		</Question>
+		<Answer>
+			AH står för Authentication Header och tillför integritet (paketet har ej ändrats) och autentisering (paketet kommer verkligen från den som skickade).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IPSec">
+		<Question>
+			Vad är ESP för något och vad för typ av säkerhet ger den?
+		</Question>
+		<Answer>
+			ESP står för Encapsulating Security Payload och tillför integritet (paketet har ej ändrats) och autentisering (paketet kommer verkligen från den som skickade) och sekretess (confidentiality, endast den som skickar och tar emot kan läsa klar text versionen av data).
+
+			[b]Transport läge[/b]
+			|Original IP header|ESP header|Data|ESP trailer|ESP auth|. ESP ger sekretess för |Data|ESP trailer| och autentisering för |ESP header|Data|ESP trailer|.
+
+			[b]Tunnel läge[/b]
+			|Ny IP header|ESP header|Original IP header|Data|ESP trailer|ESP auth|. ESP ger sekretess för |Original IP header|Data|ESP trailer| och autentisering för |Original IP header|ESP header|Data|ESP trailer|.
+		</Answer>
+	</TestQuestion>
 </Test>
