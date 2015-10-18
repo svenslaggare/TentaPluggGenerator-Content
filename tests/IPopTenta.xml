@@ -819,7 +819,7 @@
 			Vad är Bandwidth-Delay Product?
 		</Question>
 		<Answer>
-			Det anger kapacitetet på länken. Den beräknas som: [math]text{BDP}=text{bandwidth}*text{RTT}[/math]. För att länken ska kunna utnyttjas maximalt, så ska storlken av receiver window vara BDP.
+			Det anger kapacitetet för länken. Den beräknas som: [math]text{BDP}=text{bandwidth}*text{RTT}[/math]. För att länken ska kunna utnyttjas maximalt, så ska storleken av receiver window vara BDP.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TransportLayer">
@@ -827,12 +827,73 @@
 			Hur etableras en TCP anslutning?
 		</Question>
 		<Answer>
-			Den fungerar med en såkallad "three-way handshake".
+			Den etableras med en såkallad "three-way handshake".
 			[ul]
 				[li]Sen som ska etablera (klienten) anslutningen skickar ett TCP paket med flaggan SYN och ett sekvensnummer [math]x[/math].[/li]
 				[li]Den som anslutingen ska etableras till (servern) skickar då ett svar som har båda flaggorna SYN och ACK satta (där [math]x[/math] ACKas) och ett eget sekvensnummer [math]y[/math].[/li]
-				[li]När klienten får SYN-ACK så skickar den ett ACK paket med sekvensnummer [math]x+1[/math] som ACKar [math]y+1[/math].[/li]
+				[li]När klienten får SYN-ACK meddelandet så skickar den ett ACK paket med sekvensnummer [math]x+1[/math] som ACKar [math]y+1[/math].[/li]
 			[/ul]Efter detta är klart, så är anslutningen etablerad, och data kan då skickas i båda hållen. [math]x[/math] och [math]y[/math] bör väljas så att olika TCP anslutingar mellan ändpunkterna har olika värden. Detta uppnås genom att slumpa [math]x[/math] och [math]y[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DHCP">
+		<Question>
+			Ange vad för socket adresser som används av klienter och server i DHCP.
+		</Question>
+		<Answer>
+			[b]Request (klient [math]->[/math] server)[/b]
+			källa: 0.0.0.0:68 (klienten vet ej sin egen IP!).
+			mål: 255.255.255.255:67 (vi vill nå alla DHCP servrar!).
+
+			[b]Reply (server [math]->[/math] klient)[/b]
+			källa: &lt;server IP&gt;:67
+			mål: 255.255.255.255:68.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DHCP">
+		<Question>
+			Skissa på hur ett scenario ser ut, när en klient kommer online och vill få reda på sin IP m.h.a DHCP.
+		</Question>
+		<Answer>
+			Antag att det finns en DHCP server med IP adressen 223.1.2.5 och en klient som nyligen kopplat upp sig till nätverket.
+
+			[b]DHCP discover (klient [math]->[/math] server)[/b]
+			Klienten skickar ett DHCP discover meddelande över broadcast.
+			källa: 0.0.0.0:68.
+			mål: 255.255.255.255:67.
+			klient adress: 0.0.0.0.
+			transaktions ID: 654.
+
+			[b]DHCP offer (server [math]->[/math] klient)[/b]
+			En DHCP server skickar ett erbjudade till klienten.
+			källa: 223.1.2.5:67.
+			mål: 255.255.255.255:68.
+			erbjuden adress: 223.1.2.4.
+			transaktions ID: 654.
+			Livstid (hur länge klienten får använda IP innan den behövs förnyas): 3600 sekunder.
+
+			[b]DHCP request (klient [math]->[/math] server)[/b]
+			Klienten accepterar erbjudandet.
+			källa: 0.0.0.0:68.
+			mål: 255.255.255.255:67.
+			klient adress: 0.0.0.0.
+			transaktions ID: 654.
+			Livstid: 3600 sekunder.
+
+			[b]DHCP ACK (server [math]->[/math] klient)[/b]
+			Server har nu allokerat IP adressen till klienten och när klienten tar emot meddelandet kan IP adressen börja användas av klienten.
+			källa: 223.1.2.5:67.
+			mål: 255.255.255.255:68.
+			erbjuden adress: 223.1.2.4.
+			transaktions ID: 654.
+			Livstid: 3600 sekunder.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DHCP">
+		<Question>
+			Vad innebär DHCP relay?
+		</Question>
+		<Answer>
+			Det innebär att klienten och DHCP server är på olika subnätverk. För att limited broadcast används så forwardar inte routrar meddelanden. Det finns då en speciell värd på subnätverket, DHCP relay agent som skickar vidare DHCP förfrågningar till den centrala servern.
 		</Answer>
 	</TestQuestion>
 </Test>
