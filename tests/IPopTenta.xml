@@ -416,7 +416,7 @@
 		<Answer>
 			Genom att skicka en förfrågan till alla värdar på nätverket. Detta är syftet bakom Address Resolution Protocol (ARP). Detta fungerar så att vi skickar en broadcast på nätverket, att vi söker efter värden med en viss IP adress. Den värd som då har IP adressen, svarar förfrågan med sin egna MAC adress.
 
-			I IPv6 som används inte ARP, utan ICMPv6.
+			I IPv6 som används inte ARP, utan Neighbor Discovert Protocol, som är en del av ICMPv6.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IP">
