@@ -237,7 +237,7 @@
 			Det gör det möjligt för att skicka paket till alla värdar i ett nätverk. De flesta routrar blockeras dock detta på grund av säkerhet. Notera i IPv6 så finns inte DBA.
 		</Answer>
 	</TestQuestion>
-	<TestQuestion Category="LinkLayer">
+	<TestQuestion Category="IPAdressering">
 		<Question>
 			Vad är limited broadcast address (i IPv4)?
 		</Question>
@@ -245,12 +245,20 @@
 			Det gör det möjligt att skicka ett paket till alla värdar i ett nätverk, men som routrar [i]inte[/i] skickar vidare. Adressen består endast av 1:or (255.255.255.255).
 		</Answer>
 	</TestQuestion>
-	<TestQuestion Category="LinkLayer">
+	<TestQuestion Category="IPAdressering">
 		<Question>
 			Vad är Global Unicast Address (i IPv6)?
 		</Question>
 		<Answer>
 			Det gör det möjligt att ge en unik address till varje enhet i världen. Det fungerar så att de 64 första bitarna i adressen tillhör nätverket och 64 sista bitarna tillhör enheten. T.ex. så kan MAC adressen användas (48-bitar).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IPAdressering">
+		<Question>
+			Vad är en länk lokal (link local) adress?
+		</Question>
+		<Answer>
+			Det är en adress som endast används inom ett nätverk och paket med dessa som mål forwardas inte av routers. Används när en värd inte har fått en adress (istället för att använda 0.0.0.0) och vi vill göra unicast. I IPv4 är det en slumpmässig adress i blocket 196.254.0.0/16 där man kollar om adressen används inom nätverket innan man börjar använda. I IPv6 så tas adressen fram med hjälp av MAC-adressen.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IPAdressering">
@@ -455,8 +463,7 @@
 				[li]Fel som uppstår vid leverans av felmeddelande.[/li]
 				[li]Paket som ska skickas via broadcast or multicast[/li]
 				[li]Fel vid fragment utöver det första.[/li]
-			[/ul]
-			Syftet är att undvika att loopar uppstår och en explosion av paket skickas.
+			[/ul]Syftet är att undvika att loopar uppstår och att mycket stor mängd paket skickas-
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Routing">
@@ -835,7 +842,19 @@
 			[/ul]Efter detta är klart, så är anslutningen etablerad, och data kan då skickas i båda hållen. [math]x[/math] och [math]y[/math] bör väljas så att olika TCP anslutingar mellan ändpunkterna har olika värden. Detta uppnås genom att slumpa [math]x[/math] och [math]y[/math].
 		</Answer>
 	</TestQuestion>
-	<TestQuestion Category="DHCP">
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Vad innebär "silly window" syndromet (som startas av mottagaren) och hur kan det lösas?
+		</Question>
+		<Answer>
+			[b]Problem: Mottagaren kan ta emot data segt.[/b]
+			Sändaren skickar stora segment (t.ex. 1KB). Mottagaren kan endast konsumera data segt, t.ex. 1 byte i taget. Detta gör att mottagarens TCP buffer blir full. Detta gör att mottagaren annonserar window size för varje byte som läses ifrån bufferten.
+
+			[b]Lösning (Clarks)[/b]
+			Annonsera inte små ökningar av mottagarens window size. Öka minst minst med ett MSS eller hälften av storleken på mottagarens buffer.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Autoconfig">
 		<Question>
 			Ange vad för socket adresser som används av klienter och server i DHCP.
 		</Question>
@@ -849,7 +868,7 @@
 			mål: 255.255.255.255:68.
 		</Answer>
 	</TestQuestion>
-	<TestQuestion Category="DHCP">
+	<TestQuestion Category="Autoconfig">
 		<Question>
 			Skissa på hur ett scenario ser ut, när en klient kommer online och vill få reda på sin IP m.h.a DHCP.
 		</Question>
@@ -888,12 +907,22 @@
 			Livstid: 3600 sekunder.
 		</Answer>
 	</TestQuestion>
-	<TestQuestion Category="DHCP">
+	<TestQuestion Category="Autoconfig">
 		<Question>
 			Vad innebär DHCP relay?
 		</Question>
 		<Answer>
 			Det innebär att klienten och DHCP server är på olika subnätverk. För att limited broadcast används så forwardar inte routrar meddelanden. Det finns då en speciell värd på subnätverket, DHCP relay agent som skickar vidare DHCP förfrågningar till den centrala servern.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Autoconfig">
+		<Question>
+			Vad är Stateless autoconfiguration (SLAAC) i (IPv6)?
+		</Question>
+		<Answer>
+			Det innebär att servern endast håller koll på information som inte är specifik för värdarna (global prefix och subnäts prefix). För att generera en global unik unicast adress, så skapar värden först en länk lokal adress (LLA), som baseras på MAC adressen (ICMP används för att undersöka om någon annan på det lokala subnätet redan använder adressen). Sedan använder den sig av Router Advertisements (RA) i ICMP för att hämta nätverks infon, för att skapa en unik global adress.
+
+			DHCP kan fortfarande behövas, för att det krävs ofta mer information än IP adressen, som t.ex. DNS server. DHCP håller då koll på dessa, men DHCP kan bara tillståndslös i den meningen att DHCP inte behöver ha koll på värdarnas IP adresser.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DNS">
@@ -1045,6 +1074,23 @@
 			Sätter upp en eller flera IPSec SA mellan noderna med hjälp av nycklarna som togs fram i fas 1.
 
 			Syftet med att ha två faser är om flera SA behövs eller om SA parameterar behövs ändras, så kan detta göras utan en ömsesidig autentisering.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Gateway">
+		<Question>
+			Vad innebär "NAT traversal" problemet och vad för lösningar finns det?
+		</Question>
+		<Answer>
+			Det innebär att vi har en klient som vill ansluta till en server (eller annan klient), men server ligger i ett nätverk med NAT. Detta när ett paket kommer till NAT routern, så vet den inte till vilken värd i nätverket paketet ska skickas till.
+
+			[b]Lösning 1[/b]
+			Port forwarding: Konfiguera NAT att forwarda paket som kommer till en specifik port till servern.
+
+			[b]Lösning 2[/b]
+			Universal Plug and Play (UPnP) Internet Gatewat Device (IGD) protokoll: Det innebär att en värd i ett nätverk med NAT kan lära sig den publika adressen för nätverket, och lägga till/ta bort mapppningar för porten.
+
+			[b]Lösning 3[/b]
+			Relay: Det innebär att värdarna som ska etablera en anslutning etablerar anslutningen via en tredje värd, som forwardar paket mellarna värdarna.
 		</Answer>
 	</TestQuestion>
 </Test>
