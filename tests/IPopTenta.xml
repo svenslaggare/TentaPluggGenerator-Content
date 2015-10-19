@@ -1005,7 +1005,7 @@
 			Vad för typ av attacker skyddar cookies emot?
 		</Question>
 		<Answer>
-			Denial-of-services (DOS). Cookies skyddar genom om anfallaren förfalskar sin källaddress, får den inget svar. Det som tar tid är att utföra Diffie-Hellmann beräkningarna, som cookies undviker. En cookie bör inte ha tillstånd och beräknas vanligen som: [math]text{cookie}=text{hash}(text{IP adress}, text{secret})[/math] där [math]text{secret}[/math] är känd av båda parterna.
+			Denial-of-services (DOS). Cookies skyddar genom om anfallaren förfalskar sin källaddress, får den inget svar. Det som tar tid är att utföra Diffie-Hellmann beräkningarna, som cookies undviker. En cookie bör inte ha tillstånd och beräknas vanligen som: [math]text{cookie}=text{hash}(text{IP adress}, text{secret})[/math] där [math]text{secret}[/math] är något som endast den som paketet skickas till.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IPSec">
