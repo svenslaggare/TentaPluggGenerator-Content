@@ -263,6 +263,14 @@
 	</TestQuestion>
 	<TestQuestion Category="IPAdressering">
 		<Question>
+			Vad är en privat (IPv4)/unik lokal (IPv6) adress för något?
+		</Question>
+		<Answer>
+			Det är en adress som inte är unik globalt, men inom ett nätverk. Syftet är att kunna kommunicera i ett isolerat nätverk eller i ett nätverk med NAT. Paket med dessa kan forwardas, så länge det är inom nätverket.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IPAdressering">
+		<Question>
 			Hur anges nätverksmasken?
 		</Question>
 		<Answer>
