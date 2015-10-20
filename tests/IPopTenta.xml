@@ -285,7 +285,7 @@
 			Givet en adress [math]A[/math] och en nätverksmask [math]M[/math], hur beräknas då nätverksadressen (NetID)?
 		</Question>
 		<Answer>
-			[math]NetID = A text{&} N[/math].
+			[math]NetID = A &amp; N[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IPAdressering">
@@ -293,7 +293,7 @@
 			Givet en adress [math]A[/math] och en nätverksmask [math]M[/math], hur beräknas då värd adressen (HostID)?
 		</Question>
 		<Answer>
-			[math]HostID = A text{&} !N[/math].
+			[math]HostID = A &amp; !N[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IPAdressering">
@@ -301,7 +301,7 @@
 			Givet en adress [math]A[/math] och en nätverksmask [math]M[/math], hur beräknas då directed broadcast address (DBA)?
 		</Question>
 		<Answer>
-			[math]DBA = A text{&} N | !N[/math].
+			[math]DBA = A &amp; N | !N[/math].
 			DBA kan beräknas som nätverksadressen med HostID som bara 1:or.
 		</Answer>
 	</TestQuestion>
