@@ -1101,4 +1101,48 @@
 			Relay: Det innebär att värdarna som ska etablera en anslutning etablerar anslutningen via en tredje värd, som forwardar paket mellarna värdarna.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="Email">
+		<Question>
+			Vad innebär utgående och inkommande mailserver?
+		</Question>
+		<Answer>
+			[b]Utgående[/b]
+			Det innebär att när någon vill skicka ett mail, så överförs meddelandet till den utgående mailservern, som skicka mailet till mottagarna.
+
+			[b]Inkommande[/b]
+			Det innebär att man laddar ner mottagna emails från en server.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Email">
+		<Question>
+			Ange vad som anger mottagaren för ett email (med SMTP protokollet).
+		</Question>
+		<Answer>
+			Det är SMTP kommandot "RCPT TO". Den mottagare som står i mailet som användaren tar emot defineras av To-headern, vilket kan ändras så att den inte är samma som "RCPT TO".
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Email">
+		<Question>
+			Ange vad som anger sändaren för ett email (med SMTP protokollet).
+		</Question>
+		<Answer>
+			Det är SMTP kommandot "MAIL FROM". Den sändare som står i mailet som användaren tar emot defineras av From-headern, vilket kan ändras så att den inte är samma som "MAIL FROM".
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Email">
+		<Question>
+			Ange formattet för ett mailmeddelande.
+		</Question>
+		<Answer>
+			Det består av två delar (som defineras av RFC 5322): Header och Body. Headern består av t.ex. To, From, Subject. Formattet är textbaserat, vilket innebär att det som skiljer headern från body är en tom rad. Det avslutar bodyn är en rad som ändast innehåller en punkt.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Email">
+		<Question>
+			Vad är MIME för något?
+		</Question>
+		<Answer>
+			MIME står för "Multipurpose Internet Mail Extensions" vilket gör det möjligt att innehållet (body) har annan typ av data än text. Exempel på typer av data är: binär, icke ASCII text och att bodyn innehåller flera typer av data "multipart".
+		</Answer>
+	</TestQuestion>
 </Test>
