@@ -920,7 +920,7 @@
 			Vad innebär DHCP relay?
 		</Question>
 		<Answer>
-			Det innebär att klienten och DHCP server är på olika subnätverk. För att limited broadcast används så forwardar inte routrar meddelanden. Det finns då en speciell värd på subnätverket, DHCP relay agent som skickar vidare DHCP förfrågningar till den centrala servern.
+			Antag att vi har ett nätverk och en del subnätverk. Vi vill helst ha en central DHCP server (för att det blir lättare att administrera), men det går inte för att DHCP meddelanden (limited broadcas), forwardas [i]inte[/i]. Lösningen på problmet är att det finns en speciell värd i varje subnätverk, [i]DHCP relay agent[/i] som forwardar DHCP meddelanden till/från den centrala servern.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Autoconfig">
