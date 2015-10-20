@@ -1031,10 +1031,10 @@
 			ESP står för Encapsulating Security Payload och tillför integritet (paketet har ej ändrats) och autentisering (paketet kommer verkligen från den som skickade) och sekretess (confidentiality, endast den som skickar och tar emot kan läsa klar text versionen av data).
 
 			[b]Transport läge[/b]
-			|Original IP header|ESP header|Data|ESP trailer|ESP auth|. ESP ger sekretess för |Data|ESP trailer| och autentisering för |ESP header|Data|ESP trailer|.
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/ESP-Transport.png[/img]
 
 			[b]Tunnel läge[/b]
-			|Ny IP header|ESP header|Original IP header|Data|ESP trailer|ESP auth|. ESP ger sekretess för |Original IP header|Data|ESP trailer| och autentisering för |Original IP header|ESP header|Data|ESP trailer|.
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/ESP-Tunnel.png[/img]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IPSec">
