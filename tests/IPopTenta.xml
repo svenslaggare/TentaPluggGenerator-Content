@@ -70,8 +70,7 @@
 				[li]Synkronisering av klockorna mellan sändaren och mottagaren.[/li]
 				[li]Den fysiska topologin.[/li]
 				[li]Överföringsläget.[/li]
-			[/ul]
-			[b]L2: Data Link[/b]
+			[/ul][b]L2: Data Link[/b]
 			Data-länk lagret transformerar det fysiska lagret till en pålitlig länk som gör att lagren ovanför uppfattar det fysiska lagret som felfri. Lagret hanterar även:
 			[ul]
 				[li]Uppdelning av strömmen av bitar som tagits emot till dataenheter som betecknas [i]frames[/i].[/li]
@@ -79,37 +78,32 @@
 				[li]Flödeskontroll: Om överföringshastigheten skiljer sig mellan mottagaren och sändaren, så begränsas hastigheten.[/li]
 				[li]Felkontroll (detta uppnås vanligen genom att lägga till data s.k. trailer till slutet av framen).[/li]
 				[li]Åtkomstkontroll: Om två eller flera enheter är kopplade till samma länk, så bestämmer lagret vem som har kontroll över länken på en given tidpunkt.[/li]
-			[/ul]
-			[b]L3: Network[/b]
+			[/ul][b]L3: Network[/b]
 			Nätverkslagret hanterar överföring ifrån källa till mottagare för ett paket, vilket kan gå över flera nätverk (länkar). Där data-länk lagret hanterar överförning av paket mellan två system inom samma nätverk, så ser nätverks lagret till att paket kommer från källan till mottagaren.
 
 			Om två system har kopplade till samma länk, finns det oftast inget behov av nätverks lagret. Lagret hanterar även:
 			[ul]
 				[li]Logisk adressering: Den fysiska adressering hanterar adressering lokallt. Om ett paket går utanför nätverket, så behövs ett adresseringssystem för att avgöra olika system utanför nätverket. Detta fungerar så att nätverks lagret lägger till en header till paketet som kommer från ett lager högre upp, där headern innehåller den logisk adressen för sändaren och mottagaren.[/li]
 				[li]Routing, som ser till att paket kommer till den slutgiltiga mottagaren.[/li]
-			[/ul]
-			[b]L4: Transport[/b]
+			[/ul][b]L4: Transport[/b]
 			Transportlagret hanterar överföring av [i]meddelanden[/i] mellan processer. Ett meddelande består av en eller fler paket, som de lägre lagren [i]inte[/i] ser som något enhetligt. Lagret ser till att hela meddelandet kommer fram och i ordning. Lagret hanterar även:
 			[ul]
-				[li]Service-point adressering: Datorer kör ofast flera program samtidigt, detta innebär att för att rätt meddelanden ska komma till rätt process, behövs en ytterligare typ av adressering, som kallas för [i]port[/i].[/li]
+				[li]Service-point adressering: Datorer kör oftast flera program samtidigt, detta innebär att för att rätt meddelanden ska komma till rätt process, behövs en ytterligare typ av adressering, som kallas för [i]port[/i].[/li]
 				[li]Segmentering och återskapade: Ett meddelande som överförs består av olika segment, där varje segement har ett sekvensnummer. Detta nummer gör det möjligt för transport lagret att återskapa meddelandet i korrekt ordning när det kommer fram och ersätta paket som tappades på vägen.[/li]
 				[li]Anslutingskontroll: Transport lagret kan antigen vara anslutingslös eller ansluten. Ett anslutingslös transport lagret behandlar varje segment som ett oberoende paket.Ett anslutet transport lagrer skapar en ansluting med transport lagret på målsidan, innan paketet börjas överföras. Efter att all data har överförts, så stängs anslutningen.[/li]
 				[li]Flödeskontroll: Skillnanden mellan data-länk lagret är att flödeskontrollen sker från ändpunkt till ändpunkt istället för över en länk.[/li]
 				[li]Felkontroll: Skillnanden mellan data-länk lagret är att felkontrollen sker från process till process istället för över en länk. Lagret ser till att meddelanden som kommer fram är utan fel (skadade, saknar data, data är duplicerad).[/li]
-			[/ul]
-			[b]L5: Session[/b]
+			[/ul][b]L5: Session[/b]
 			Sessionlagret etablerar, underhåller ocn synkroniserar interaktionen mellan system som kommunicerar med varandra. Lagret hanterar:
 			[ul]
 				[li]Dialogkontroll: Gör det möjligt för två processer som kommunicerar att antingen ske i half-duplex eller full-duplex läge.[/li]
-			[/ul]
-			[b]L6: Presentation[/b]
+			[/ul][b]L6: Presentation[/b]
 			Presentationslagret hanterar syntaxen och semantiken av informationen som överförs mellan de två systemet. Lagret hanterar:
 			[ul]
 				[li]Översättning av olika former av tecken, nummer som används av de olika systemet.[/li]
 				[li]Kryptering.[/li]
 				[li]Komprimering.[/li]
-			[/ul]
-			[b]L7: Application[/b]
+			[/ul][b]L7: Application[/b]
 			Gör det möjligt för användaren (människa eller mjukvara) att komma åt nätverket. Exempel på olika tjänster om lagret tillhandahåller är t.ex.:
 			[ul]
 				[li]Nätverks terminal[/li]
@@ -263,10 +257,17 @@
 	</TestQuestion>
 	<TestQuestion Category="IPAdressering">
 		<Question>
-			Vad är en privat (IPv4)/unik lokal (IPv6) adress för något?
+			Vad är en privat adress för något?
 		</Question>
 		<Answer>
-			Det är en adress som inte är unik globalt, men inom ett nätverk. Syftet är att kunna kommunicera i ett isolerat nätverk eller i ett nätverk med NAT. Paket med dessa kan forwardas, så länge det är inom nätverket.
+			Det är en adress som inte är unik globalt, men är unik inom ett nätverk. Syftet är att kunna kommunicera i ett isolerat nätverk eller i ett nätverk med NAT. Paket med dessa kan forwardas, så länge det är inom nätverket.	I IPv6, så har en unik lokal (unique local) samma funktion.
+
+			En privat adress är en adress från följande block (IPv4):
+			[ul]
+				[li]10.0.0.0/8 (10.0.0.0-10.255.255.255)[/li]
+				[li]172.16.0.0/12 (172.16.0.0-192.31.255.255)[/li]
+				[li]192.168.0.0/16 (192.168.0.0-192.168.255.255)[/li]
+			[/ul]IPv6: FC00::/7.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IPAdressering">
@@ -331,14 +332,26 @@
 	</TestQuestion>
 	<TestQuestion Category="IP">
 		<Question>
-			Ange kort hur en IP header är uppbyggd.
+			Ange hur en IP header är uppbyggd.
 		</Question>
 		<Answer>
 			[b]IPv4[/b]
 			Headern storlek kan variera mellan 20 och 60 bytes. Om inga options används så är storleken 20 bytes. Den maximala storleken på ett paket (inklusive headern) är [math]2^16-1=65535[/math] bytes.
 
 			[b]IPv6[/b]
-			I IPv6 är headerns storlek alltid 40 bytes. Det finns dock möjligheter att ha "extension headers", som bildar en länkad lista. Om inga extension används, så är den maximala storleken på paketet samma som i IPv4, 65535 bytes.
+			Headern består av två delar: bas och extensions. Bas headerns storlek är alltid 40 bytes. I bas headern ingår [i]inte[/i] fragmentering, vilket finns i en extension header (som är av storlek 8 byte). Extension headers bildar en länkad lista, där bas headern pekar på första extension header, som pekar på nästa osv. Om inga extension används, så är den maximala storleken på paketet samma som i IPv4, 65535 bytes.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
+			Vad beräknas checksumman för i IP?
+		</Question>
+		<Answer>
+			[b]IPv4[/b]
+			Det är endast för headern. Checksumman beräknas om vid varje router, för att TTL fältet ändras.
+
+			[b]IPv6[/b]
+			Finns det ingen checksumma. Anledningen är att göra routing lättare och att det finns checksumma i länk lagret.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IP">
@@ -784,7 +797,7 @@
 			Vad är Nagles algoritm för något?
 		</Question>
 		<Answer>
-			It works by combining a number of (small) outgoing packets into a larger packet. The algorithm buffers its output as long as there are unconfirmed data, and sends it when an acknowledgment is received or the packet is greater than the maximum segment size. This is often used in interactive sessions (e.g. SSH, Telnet) which generates many short messages.
+			Det fungerar genom att kombinera flera (små) paket som ska skickas till ett större paket. Algoritmen bufferat utgående paket så länge det finns icke-acknowledge data och skickar datan när ett acknowledgement tas emot eller om paketet är större än MSS. Detta används oftast i interaktiva sessioner (SSH, Telnet) vilket genererar många små paket.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TransportLayer">
@@ -792,7 +805,7 @@
 			Vad innebär delayed acknowledgement?
 		</Question>
 		<Answer>
-			It works by delaying when an acknowledgement is sent. The acknowledgement that is later sent combines several acknowledgements into one. It is used to reduce the network traffic, since each acknowledgement has overhead example in the case of many small packets..
+			Det innebär att man fördröjer när ett acknowledgement skickas. Det acknowledgement som skickas senare kombinerar flera acknowledgement till ett. Syftet är att reducera nätverks trafiken, för varje acknowledgement har overhead (vilket blir dominerade när många små paket skickas).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TransportLayer">
@@ -808,7 +821,7 @@
 			Hur fungerar sliding window flow control?
 		</Question>
 		<Answer>
-			When the receiver sends an acknowledgment, he also sends a window size (rwnd). This is the maximum size of data the receiver can handle and hence can be sent by the transmitter. When the receiver has handled the data and can receive more, an updated value for rwnd is sent so the transmitter know he can start send more data. The mechanism is used so that the receiver doesn’t get overwhelmed with data he cannot handle.
+			När en mottagare skickar ett acknowledgment, så skickas också en window size (rwnd) med. Window size anger maximala datan som mottagaren kan ta emot och således så mycket som sändaren kan skicka. När mottagaren har tagit hand om datan och ta emot mer, så uppdateras värdet för rwnd och skickas till sändaren (så att den vet att den ska börja skicka data igen). Syftet är att undvika att mottagaren inte blir översvämad med data som den inte kan hantera.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TransportLayer">
@@ -816,9 +829,9 @@
 			Vad innebär slow start och congestion avoidance?
 		</Question>
 		<Answer>
-			Congestion window (cwnd) is maintained by the sender which determines how much data that can be on the wire, traveling to the receiver. At the beginning of the connection, the congestion window is set to the maximum segment size (MSS). After each acknowledgement is received, the size of the window is increased by the MSS (exponential growth). The slow start is stopped when the size of the window reaches a threshold, ssthresh.
+			Congestion window (cwnd) hanteras av sändaren och bestämmer hur mycket data som är på kabeln, som åker emot mottagaren. I början av anslutingen, så sätts cwnd till MSS. Efter varje acknowledgement som tas emot, så ökas storleken av cwnd med ett MSS (exponentiell tillväxt). Den slow start perioden är slut när storleken på cwnd når ett tröskelvärde, [i]ssthresh[/i]. Då börjar congestion avoidance.
 
-			Instead of increasing the cwnd exponential, the window increases linearly with the formula [math]text{cwnd}=text{cwnd}+text{MSS}/text{cwnd}[/math], until the receiver advertised that the window size is reached. When congestion happens (example when the ACK timeout occurs), we restart the slow start phase with and [math]text{sshtresh}=text{cwnd}/2[/math].
+			Istället för att öka cwnd exponentiellt, så ökas cwnd linjärt med formeln: [math]text{cwnd}=text{cwnd}+text{cwnd}/text{MSS}[/math] tills mottagaren annger att fönster storleken har nåts. När congestion inträffar (t.ex. när en ACK timer går ut), börjar vi om med slow start med [math]text{sshtresh}=text{cwnd}/2[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TransportLayer">
@@ -826,7 +839,7 @@
 			Vad innebär fast retransmit och fast recovery?
 		</Question>
 		<Answer>
-			When a segment is lost or delivered out of order, the slow start phase starts. This leads to poor utilization of the network. When three or more duplicate acknowledgement is received in a row: retransmit immediately (fast retransmit) and do congestion avoidance instead of slow start (fast recovery).
+			När ett segment försvinner eller leveras i oordning så startas slow start fasen. Detta leder till dålig utnyttjande av nätverket. När three eller flera duplikerade acknowledgement tas emot är rad så återsänd omedelbart (fast retransmit) och gör congestion avoidance istället för slow start (fast recovery.)
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TransportLayer">
@@ -1081,7 +1094,7 @@
 			[b]Fas 2[/b]
 			Sätter upp en eller flera IPSec SA mellan noderna med hjälp av nycklarna som togs fram i fas 1.
 
-			Syftet med att ha två faser är om flera SA behövs eller om SA parameterar behövs ändras, så kan detta göras utan en ömsesidig autentisering.
+			Syftet med att ha två faser är om flera SA behövs eller om SA parameterar behövs ändras, så kan detta göras utan en ömsesidig autentisering (vilket tar tid att göra).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Gateway">
