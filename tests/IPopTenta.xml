@@ -344,6 +344,21 @@
 	</TestQuestion>
 	<TestQuestion Category="IP">
 		<Question>
+			Ange olika extension headers i IPv6.
+		</Question>
+		<Answer>
+			[b]Fragmentering[/b]
+			Hanterar fragmentering av paket. Fungerar ungefär som IPv4 (dvs att offset anger antalet 8 bytes). Storleken av headern är 8 bytes.
+
+			[b]Hop-by-Hop Options[/b]
+			Anger options som måste undersökas av [i]alla[/i] routers på vägen till måket. Exempel är "jumbo payload" som gör det möjligt att ha paket av storlek 4GB.
+
+			[b]Destination Options[/b]
+			Anger options som endast behövs undersökas av målt. 
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
 			Vad beräknas checksumman för i IP?
 		</Question>
 		<Answer>
@@ -643,7 +658,7 @@
 			[/ul]Huvudkomponenterna inom protokollet är:
 			[ol]
 				[li]Hello protokoll: Används för att upptäcka närliggande routers och välja vilken router som är DR.[/li]
-				[li]Exchange protokoll: Utbyte av link-state mellan närliggande routers.[/li]
+				[li]Exchange protokoll: Utbyte av link-state mellan närliggande routers när en (OSPF) router kopplar upp sig eller att den kommer tillbaka efter den krashade.[/li]
 				[li]Reliable flooding: När en länk uppdateras eller bli för gammal så uppdateras närliggande routers, som i sin tur uppdaterar närliggande routers, osv.[/li]
 				[li]Beräkning av kortaste väg (till alla mål) med hjälp av Diskstras algoritm.[/li]
 			[/ol]
@@ -873,6 +888,22 @@
 
 			[b]Lösning (Clarks)[/b]
 			Annonsera inte små ökningar av mottagarens window size. Öka minst minst med ett MSS eller hälften av storleken på mottagarens buffer.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Autoconfig">
+		<Question>
+			Vad innebär Reverse ARP (RARP)?
+		</Question>
+		<Answer>
+			Det innebär att vi frågar andra efter vår egna IP (genom att broadcasta på subnätet). Den som svarar är en RARP Server och måste vara på det lokala subnätet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Autoconfig">
+		<Question>
+			Vad är BOOTP?
+		</Question>
+		<Answer>
+			Det är en föregångare till DHCP (DHCP är bakåtkompatibel med BOOTP). BOOTP har endast statiska bindingar mellan MAC adresser och IP adresser.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Autoconfig">
