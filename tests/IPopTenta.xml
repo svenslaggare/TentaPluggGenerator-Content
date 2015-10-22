@@ -2,6 +2,14 @@
 <Test Name="Tenta">
 	<TestQuestion Category="Grundläggande">
 		<Question>
+			Vad innebär end-to-end principen?
+		</Question>
+		<Answer>
+			Det innebär att i ett generellt nätverk, så bör applikations specifika funktioner ligga hos värdarna istället för hos mellanliggande noder, på ett sådant sätt att dessa funktioner kan implementeras fullständigt och korrekt hos värdarna. Ännu kortare: "Lägg bara det viktigaste i nätverket, resten hos värdarna".
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
 			Ange olika nätverkstopologier.
 		</Question>
 		<Answer>
@@ -252,7 +260,7 @@
 			Vad är en länk lokal (link local) adress?
 		</Question>
 		<Answer>
-			Det är en adress som endast används inom ett nätverk och paket med dessa som mål forwardas inte av routers. Används när en värd inte har fått en adress (istället för att använda 0.0.0.0) och vi vill göra unicast. I IPv4 är det en slumpmässig adress i blocket 196.254.0.0/16 där man kollar om adressen används inom nätverket innan man börjar använda. I IPv6 så tas adressen fram med hjälp av MAC-adressen.
+			Det är en adress som endast används inom ett nätverk och paket med dessa som mål forwardas inte av routers. Används när en värd inte har fått en adress (istället för att använda 0.0.0.0) och vi vill göra unicast. I IPv4 är det en slumpmässig adress i blocket 169.254.0.0/16 där man kollar om adressen används inom nätverket innan man börjar använda. I IPv6 så tas adressen fram med hjälp av MAC-adressen, där nätverket är FE80:0:0:0/64.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IPAdressering">
@@ -1015,6 +1023,14 @@
 		</Question>
 		<Answer>
 			En zon är en domän, minus allt som har delegeras till zonen. Det innebär att föräldrar zonen refererar till namn serveren av den zonen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DNS">
+		<Question>
+			Vad innebär DNS spoofing/cache poisoning?
+		</Question>
+		<Answer>
+			Det är en typ av attack emot en DNS server som uttnytjar buggar i programvaran för att ändra posterna för DNS inlägg. Detta gör att anfallaren kan styra om trafiken till sin egen server.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IPSec">
