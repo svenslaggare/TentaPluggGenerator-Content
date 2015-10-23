@@ -426,7 +426,7 @@
 			Vem har i uppgift att återskapa paketet (av fragment), och varför?
 		</Question>
 		<Answer>
-			Det är sändaren som har i uppgift att återskapa. Detta på grund av att olika fragment (kan) ta olika vägar till målet. Detta innebär att det är endast säkert att målet kan ha alla fragemeten, som behövs för att återskapa paketet.
+			Det är mottagaren som har i uppgift att återskapa. Detta på grund av att olika fragment (kan) ta olika vägar till målet. Detta innebär att det är endast säkert att målet kan ha alla fragemeten, som behövs för att återskapa paketet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IP">
