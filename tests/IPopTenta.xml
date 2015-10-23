@@ -374,7 +374,7 @@
 			Det är endast för headern. Checksumman beräknas om vid varje router, för att TTL fältet ändras.
 
 			[b]IPv6[/b]
-			Finns det ingen checksumma. Anledningen är att göra routing lättare och att det finns checksumma i länk lagret.
+			Finns det ingen checksumma. Anledningen är för att göra routing lättare och att checksumman skyddar ej emot fel som introduceras av routers. Det finns även en checksumma i länk lagret (och i transport lagret i TCP och UDP).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IP">
@@ -474,6 +474,14 @@
 			Det innebär att en värd svarar för en annan värd (dvs att värd B är C till värd A), vilket gör det möjligt för sub-nätverk att vara gömda.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="IP">
+		<Question>
+			Vad innebär gratuitous ARP?
+		</Question>
+		<Answer>
+			Det innebär att en värd annonserar att MAC-adressen/IP adressen har ändrats, så att andra värdar kan uppdatera sina ARB-tabeller. Det gör det även möjligt att "ta över" en annan värd genom att annonsera att den värdens IP mappar emot sin egen MAC-adress.
+		</Answer>
+	</TestQuestion> 
 	<TestQuestion Category="IP">
 		<Question>
 			Vad innebär Strict Source routing (SSRR) (i IPv4)?
@@ -781,6 +789,14 @@
 	</TestQuestion>
 	<TestQuestion Category="TransportLayer">
 		<Question>
+			Vad innebär en pseudoheader i UDP?
+		</Question>
+		<Answer>
+			Det är något som används när checksumman ska beräknas. Den består av UDP headern + delar av IP headern: källadress, måladress, protokoll och längden av UDP datan. Syftet med pseudoheadern är att undvika att ett korrupt paket levereras till ett program via UDP.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
 			Vad innebär segmentring?
 		</Question>
 		<Answer>
@@ -995,6 +1011,14 @@
 	</TestQuestion>
 	<TestQuestion Category="DNS">
 		<Question>
+			Vad är en "resolving name server"?
+		</Question>
+		<Answer>
+			Det är en typ av namnserver som direkt hittar information om root servers, top level domäner, auktoritativa namnservrar. Den cachar även förfrågningar.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DNS">
+		<Question>
 			Hur fungerar rekursiv uppslagning av en DNS post?
 		</Question>
 		<Answer>
@@ -1167,10 +1191,10 @@
 		</Question>
 		<Answer>
 			[b]Utgående[/b]
-			Det innebär att när någon vill skicka ett mail, så överförs meddelandet till den utgående mailservern, som skicka mailet till mottagarna.
+			Det innebär att när någon vill skicka ett mail, så överförs meddelandet till den utgående mailservern, som skicka mailet till mottagarna. Annat namn är Mail Transfer Agent (MTA).
 
 			[b]Inkommande[/b]
-			Det innebär att man laddar ner mottagna emails från en server.
+			Det innebär att man laddar ner mottagna emails från en server. Annat namn är Mail Access Agent (MAA).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Email">
