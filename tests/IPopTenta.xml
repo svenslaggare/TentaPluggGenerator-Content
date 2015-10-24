@@ -575,10 +575,10 @@
 	</TestQuestion>
 	<TestQuestion Category="Routing">
 		<Question>
-			Vad är path vector routing?
+			Vad är path-vector routing?
 		</Question>
 		<Answer>
-			Det fungerar ungefär som distance vector routing, men istället för nätverk är det autonoma system (AS) som är noderna i vägarna.
+			Det är en utökning av distanve-vector routing som även innehåler vägen till målet utöver kostanden. Den främsta fördelen i jämförelse med distance-vector är att path-vector är mer stabil och att loopar kan lättare upptäckas, för att vi har hela vägen. Främsta fördelen i jämförelse emot link state är att link state routing på en global nivå kräver stor mängd data, vilket skulle innebära tung trafik över nätverket. 
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Routing">
@@ -710,7 +710,9 @@
 			Vad är Border Gateway Protocol (BGP) för något?
 		</Question>
 		<Answer>
-			Det är ett protokoll som hanterar externa vägar (EGP) och bygger på path-vector routing. Det finns två varianter av BGP, E-BGP: som hanterar utbyte av externa vägar mellan olika AS (border routers). I-BGP: Synkroniserar externa vägar inom ett AS. Protokollet använder sig av TCP. BGP interagerar också med interna routing protokoll (RIP, OSPF) och distribuerar interna och externa routing information mellan protokollen.
+			Det är ett protokoll som hanterar externa vägar (EGP) och bygger på path-vector routing. Istället för nätverk som noder är det autonoma system (AS).
+
+			 Det finns två varianter av BGP, E-BGP: som hanterar utbyte av externa vägar mellan olika AS (border routers). I-BGP: Synkroniserar externa vägar inom ett AS. Protokollet använder sig av TCP. BGP interagerar också med interna routing protokoll (RIP, OSPF) och distribuerar interna och externa routing information mellan protokollen. 
 
 			Varje väg till ett mål har olika attributer som används av routers för att göra ett bättre beslut när policyer tillämpas. Exempel på attributer är ORIGIN som anger källan av routing informationen (RIP, OSPF), AS_PATH som anger de AS som målet kan nå och NEXT-HOP som anger nästa router som paktet ska skickas till.
 
