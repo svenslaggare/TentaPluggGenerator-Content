@@ -1059,6 +1059,14 @@
 			Det är en typ av attack emot en DNS server som uttnytjar buggar i programvaran för att ändra posterna för DNS inlägg. Detta gör att anfallaren kan styra om trafiken till sin egen server.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="DNS">
+		<Question>
+			Vad innebär en zone transfer?
+		</Question>
+		<Answer>
+			Det innebär att data från en primär (master) server överförs till en sekundär server (slave). En zone transfer kan startas genom att skicka en AXFR-förfrågan till en DNS server, som överför hela zonen. Detta är dock inte så effektivt, så man kan då göra en IXFR förfrågan, som är en inkrementell överförning (dvs bara det som har ändrats).
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="IPSec">
 		<Question>
 			Ange de två olika lägen som IPSec använder sig av.
