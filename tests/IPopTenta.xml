@@ -880,7 +880,7 @@
 			Vad innebär fast retransmit och fast recovery?
 		</Question>
 		<Answer>
-			När ett segment försvinner eller leveras i oordning så startas slow start fasen. Detta leder till dålig utnyttjande av nätverket. När three eller flera duplikerade acknowledgement tas emot är rad så återsänd omedelbart (fast retransmit) och gör congestion avoidance istället för slow start (fast recovery.)
+			När ett segment försvinner eller leveras i oordning så startas slow start fasen. Detta leder till dålig utnyttjande av nätverket. När tre eller flera duplikerade acknowledgement tas emot är rad så återsänd omedelbart (fast retransmit) och gör congestion avoidance istället för slow start (fast recovery.)
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TransportLayer">
