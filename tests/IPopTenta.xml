@@ -897,11 +897,26 @@
 		</Question>
 		<Answer>
 			Den etableras med en såkallad "three-way handshake".
-			[ul]
+			[ol]
 				[li]Sen som ska etablera (klienten) anslutningen skickar ett TCP paket med flaggan SYN och ett sekvensnummer [math]x[/math].[/li]
 				[li]Den som anslutingen ska etableras till (servern) skickar då ett svar som har båda flaggorna SYN och ACK satta (där [math]x[/math] ACKas) och ett eget sekvensnummer [math]y[/math].[/li]
 				[li]När klienten får SYN-ACK meddelandet så skickar den ett ACK paket med sekvensnummer [math]x+1[/math] som ACKar [math]y+1[/math].[/li]
-			[/ul]Efter detta är klart, så är anslutningen etablerad, och data kan då skickas i båda hållen. [math]x[/math] och [math]y[/math] bör väljas så att olika TCP anslutingar mellan ändpunkterna har olika värden. Detta uppnås genom att slumpa [math]x[/math] och [math]y[/math].
+			[/ol]Efter detta är klart, så är anslutningen etablerad, och data kan då skickas i båda hållen. [math]x[/math] och [math]y[/math] bör väljas så att olika TCP anslutingar mellan ändpunkterna har olika värden. Detta uppnås genom att slumpa [math]x[/math] och [math]y[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TransportLayer">
+		<Question>
+			Hur fungerar det när en TCP ansluting kopplas ner?
+		</Question>
+		<Answer>
+			[ol]
+				[li]Börjar med att klienten (det är också möjligt att servern gör detta) skickar en [i]active close[/i] förfrågan, som är ett segment med flaggan FIN satt.[/li]
+				[li]Detta gör att servern gör en [i]passive close[/i] genom att skicka ett ACK för FIN segementet[/li]
+				[li]Sedan skickar servern ett FIN segment (det är även möjligt att kombinera detta steg med det tidigare).[/li]
+				[li]När klienten tar emot FIN segementet, så befinner den sig i [i]time-wait[/i] tillståndet, och ACK:ar FIN segementet.[/li]
+				[li]När servern tar emot ACK:en, så är anslutingen nerstängd på serverns sida.[/li]
+				[li]Klienten anslutning anses vara stängd när en viss tid (time-wait timern) har gått ut. Syftet med detta är att undvika att fördröjda paket ankommer till anslutningar som etableras senare.[/li]
+			[/ol]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TransportLayer">
