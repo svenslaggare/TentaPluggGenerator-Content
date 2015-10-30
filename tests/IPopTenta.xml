@@ -73,7 +73,7 @@
 			[b]L1: Physical[/b]
 			Det fysiska lagret hanterar överförring av en ström av bitar (mellan olika noder) över ett fysiskt medium. Det fysiska lagret hanterar även: 
 			[ul]
-				[li]Hur bitaran representeras (t.ex. som signaler antigen elektriska eller optiska).[/li]
+				[li]Hur bitaran representeras (t.ex. som signaler antingen elektriska eller optiska).[/li]
 				[li]Överföringshastigheten - hur många bitar som överförs varje sekund.[/li]
 				[li]Synkronisering av klockorna mellan sändaren och mottagaren.[/li]
 				[li]Den fysiska topologin.[/li]
@@ -98,7 +98,7 @@
 			[ul]
 				[li]Service-point adressering: Datorer kör oftast flera program samtidigt, detta innebär att för att rätt meddelanden ska komma till rätt process, behövs en ytterligare typ av adressering, som kallas för [i]port[/i].[/li]
 				[li]Segmentering och återskapade: Ett meddelande som överförs består av olika segment, där varje segement har ett sekvensnummer. Detta nummer gör det möjligt för transport lagret att återskapa meddelandet i korrekt ordning när det kommer fram och ersätta paket som tappades på vägen.[/li]
-				[li]Anslutingskontroll: Transport lagret kan antigen vara anslutingslös eller ansluten. Ett anslutingslös transport lagret behandlar varje segment som ett oberoende paket.Ett anslutet transport lagrer skapar en ansluting med transport lagret på målsidan, innan paketet börjas överföras. Efter att all data har överförts, så stängs anslutningen.[/li]
+				[li]Anslutingskontroll: Transport lagret kan antingen vara anslutingslös eller anslutet. Ett anslutingslös transport lagret behandlar varje segment som ett oberoende paket. Ett anslutet transport lagrer skapar en ansluting med transport lagret på målsidan, innan paketet börjas överföras. Efter att all data har överförts, så stängs anslutningen.[/li]
 				[li]Flödeskontroll: Skillnanden mellan data-länk lagret är att flödeskontrollen sker från ändpunkt till ändpunkt istället för över en länk.[/li]
 				[li]Felkontroll: Skillnanden mellan data-länk lagret är att felkontrollen sker från process till process istället för över en länk. Lagret ser till att meddelanden som kommer fram är utan fel (skadade, saknar data, data är duplicerad).[/li]
 			[/ul][b]L5: Session[/b]
@@ -137,7 +137,7 @@
 			Det protokoll som används är IP. Enheten som används vid kommunikation kallas för [i]datagrams[/i] vilket varje överförs separat. Datagram kan skickas via olika vägar och kan komma i oordning eller duplikerade. IP håller inte koll på vägen för paketen och har ingen möjlighet för att ordna paketen i ordning när de har kommit fram.
 
 			[b]Transport[/b]
-			Huvudsakligen så används två okika protokoll i transport lagret, User Datagram Protocol (UDP) pch Transmission Control Protocol (TCP). Enheten som används vid kommunikation som används är antigen ett segment, user datagram eller ett paket, vilket beror på vilket protokoll som används
+			Huvudsakligen så används två okika protokoll i transport lagret, User Datagram Protocol (UDP) pch Transmission Control Protocol (TCP). Enheten som används vid kommunikation som används är antingen ett segment, user datagram eller ett paket, vilket beror på vilket protokoll som används
 
 			[b]Application[/b]
 			Många protokoll är definerad i detta lager som t.ex. email, HTTP, osv.
@@ -362,7 +362,7 @@
 			Anger options som måste undersökas av [i]alla[/i] routers på vägen till måket. Exempel är "jumbo payload" som gör det möjligt att ha paket av storlek 4GB.
 
 			[b]Destination Options[/b]
-			Anger options som endast behövs undersökas av målt. 
+			Anger options som endast behövs undersökas av målet. 
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="IP">
@@ -515,7 +515,7 @@
 				[li]Fel som uppstår vid leverans av felmeddelande.[/li]
 				[li]Paket som ska skickas via broadcast or multicast[/li]
 				[li]Fel vid fragment utöver det första.[/li]
-			[/ul]Syftet är att undvika att loopar uppstår och att mycket stor mängd paket skickas-
+			[/ul]Syftet är att undvika att loopar uppstår och att mycket stor mängd paket skickas.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Routing">
@@ -525,7 +525,7 @@
 		<Answer>
 			Varje router [math]r[/math] skickar en lista av distans vektorer [math]d(r, v)[/math] (kostnaden för vägen) till sina grannar (dvs andra routrar som är kopplade routen). Detta görs periodvist, för att nätverk kan gå ner och upp. När ett paket sedan ska skickas, så väljs den vägen med lägst kostnad.
 
-			Hos varje routen [math]r[/math] så finns en post för varje [math]d[/math] i nätverket, som innehåller kostanden ([math]M(r, d)[/math]) och nästa hopp ([math]n in N(r)[/math]).
+			Hos varje routen [math]r[/math] så finns en post för varje mål [math]d[/math] i nätverket, som innehåller kostanden ([math]M(r, d)[/math]) och nästa hopp ([math]n in N(r)[/math]).
 
 			För varje uppdatering som kommer ifrån en granne [math]n' in N(r)[/math], så uppdateras kostnaden enligt:
 			[math]m=M(r,n') + M(n',d)[/math] där [math]M(n',d)[/math] är kostnaden ifrån grannen till målet [math]d[/math].
@@ -676,7 +676,7 @@
 				[li]Hello protokoll: Används för att upptäcka närliggande routers och välja vilken router som är DR.[/li]
 				[li]Exchange protokoll: Utbyte av link-state mellan närliggande routers när en (OSPF) router kopplar upp sig eller att den kommer tillbaka efter den krashade.[/li]
 				[li]Reliable flooding: När en länk uppdateras eller bli för gammal så uppdateras närliggande routers, som i sin tur uppdaterar närliggande routers, osv.[/li]
-				[li]Beräkning av kortaste väg (till alla mål) med hjälp av Diskstras algoritm.[/li]
+				[li]Beräkning av kortaste väg (till alla mål) med hjälp av Dijkstras algoritm.[/li]
 			[/ol]
 		</Answer>
 	</TestQuestion>
@@ -685,9 +685,7 @@
 			Vad är ett Autonomous System (AS)?
 		</Question>
 		<Answer>
-			Det är en samling av routers som har samma routing policy och administreras av samma grupp. Det kan vara ett nätverk eller en grupp av nätverk. Exempel är universitet, företag, organisationer, operatörer.
-
-			Varje AS har ett nummer (16-bitar) och alla interna policyer, protokoll, osv är gömda inom systemet.
+			Det är en samling av routers som har samma routing policy och administreras av samma grupp. Det kan vara ett nätverk eller en grupp av nätverk. Exempel är universitet, företag, organisationer, operatörer. Varje AS har ett nummer (16-bitar) och alla interna policyer, protokoll, osv är gömda inom systemet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Routing">
@@ -782,11 +780,11 @@
 		</Question>
 		<Answer>
 			[b]Header[/b]
-			Headern är alltid 8 bytes stor och består av källsocket, målsocket, längden av UDP paketet (16-bitar) och en checksumma (16-bitar). För IPv4 så är checksumman valfri att beräkna men i IPv6 måste den beräknas.
+			Headern är alltid 8 bytes stor och består av källport, målport, längden av UDP paketet (16-bitar) och en checksumma (16-bitar). För IPv4 så är checksumman valfri att beräkna men i IPv6 måste den beräknas.
 
 			[b]Data[/b]
 			IPv4: För att 20 bytes används för IP header och 8 bytes för UDP header blir den maximala storleken för datan: 65507.
-			IPv6: 40 bytes för IP header och 8 bytes UDP header ger: 65527.
+			IPv6: 40 bytes för IP header och 8 bytes UDP header ger: 65487.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TransportLayer">
@@ -838,7 +836,7 @@
 			Vad är Nagles algoritm för något?
 		</Question>
 		<Answer>
-			Det fungerar genom att kombinera flera (små) paket som ska skickas till ett större paket. Algoritmen bufferat utgående paket så länge det finns icke-acknowledge data och skickar datan när ett acknowledgement tas emot eller om paketet är större än MSS. Detta används oftast i interaktiva sessioner (SSH, Telnet) vilket genererar många små paket.
+			Det fungerar genom att kombinera flera (små) paket som ska skickas till ett större paket. Algoritmen buffertar utgående paket så länge det finns icke-acknowledge data och skickar datan när ett acknowledgement tas emot eller om paketet är större än MSS. Detta används oftast i interaktiva sessioner (SSH, Telnet) vilket genererar många små paket.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TransportLayer">
@@ -880,7 +878,7 @@
 			Vad innebär fast retransmit och fast recovery?
 		</Question>
 		<Answer>
-			När ett segment försvinner eller leveras i oordning så startas slow start fasen. Detta leder till dålig utnyttjande av nätverket. När tre eller flera duplikerade acknowledgement tas emot är rad så återsänd omedelbart (fast retransmit) och gör congestion avoidance istället för slow start (fast recovery.)
+			När ett segment försvinner eller levereras i oordning så startas slow start fasen. Detta leder till dålig utnyttjande av nätverket. När tre eller flera duplikerade acknowledgement tas emot är rad så återsänd omedelbart (fast retransmit) och gör congestion avoidance istället för slow start (fast recovery.)
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TransportLayer">
