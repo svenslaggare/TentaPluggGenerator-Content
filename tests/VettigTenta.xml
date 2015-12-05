@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Test Name="Tenta">
+	<TestQuestion Category="ScientificMethod">
+	    <Question>
+				Hur fungerar induktion?
+	    </Question>
+	    <Answer>
+			Vi gör observationer av objekt där alla objekten har egenskapen [math]A[/math]. Vi gör också antagande att alla observationer har också egenskap [math]B[/math]. Vi drar då slutsatsen att alla objekt som har egenskap [math]A[/math] har också egenskap [math]B[/math].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+	    <Question>
+	        Vad för motivationer finns det för att induktion fungerar?
+	    </Question>
+	    <Answer>
+			En motivation är principen om "Uniformity of Nature (PUN)". Idén är att det finns många regelbundenheter i naturen. Om det går att hitta många regelbundenheter, så finns det en stor chans att de observerade mönstret är en instans av dessa regelbundenheter.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+	    <Question>
+	        Vad för motivationer finns det för att induktion inte fungerar?
+	    </Question>
+	    <Answer>
+			David Hume argumenterade för att det inte finns någon vetenskaplig grund för induktion för att det [i]inte[/i] kan bevisas korrekt m.h.a logik. Induktion kan inte bevisas m.h.a av induktion för detta ger ett cirkel resonemang (oändlig rekursion i dataspråk).
+
+			Ett annat argument är att vi tror på induktion för att det ser ut att fungerar, men kan ej användas för vetenskapliga bevis.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+	    <Question>
+			Vad var Karl Poppers huvudsakliga idé om hypoteser?
+	    </Question>
+	    <Answer>
+			Vi kan inte verifiera hypoteser, endast falsifiera dessa.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+	    <Question>
+			Hur lyder Goodmans paradox?
+	    </Question>
+	    <Answer>
+			Ett objekt säger vara [i]grue[/i] om det har obseveras och är grönt eller och att det inte har obseverats och är blått. Alla observerade smaragder har varit gröna. Kan vi då dra slutsatsen att alla smaragder är grue?
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+	    <Question>
+	        Hur fungerar HD (hypotetiska-deduktiva) metoden?
+	    </Question>
+	    <Answer>
+			Antag att vi har en hypotes [math]H[/math] och observationer [math]E_1, E_2, ..., E_n[/math].
+
+			[b]För falsifikation[/b]
+			Vi vill visa att hypotesen är falsk. Antag det finns en observation [math]E_i[/math] sådant att [math]H => \not E_i[/math]. Detta innebär att [math]E_i[/math] falsifierar [math]H[/math]. Idén är att vi vill hitta följder av hypotesen som är falska, men som egentligen gäller.
+
+			Exempel:
+			Låt vår hypotes vara att "För varje problem, så finns det en algoritm som löser problemet". En konsekevens av detta är att det finns algorithm som löser stoppproblemet. Men detta är falskt. Alltså är hypotesen falsk.
+
+			[b]För verifikation[/b]
+			Om [math]E_1 ^^ E_2 ^^ ... ^^ E_n => H[/math]. Ett annat alternativ är att observationer är alla ganska osannolika. Antag att vi nu har en annan hypotes [math]A[/math] som vi redan anser är sann. Om [math]H ^^A => ]E_1 ^^ E_2 ^^ ... ^^ E_n[/math] kan vi också säga att observationerna verifierar [math]H[/math].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+	    <Question>
+			Vad kan man göra om man inte direkt kan bevisa att [math]H => \not E[/math]?
+	    </Question>
+	    <Answer>
+			Man kan införa en [i]stödjande[/i] hypotes [math]A[/math] sådant att [math]H ^^ A => \not E[/math].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+		<Question>
+			Vad är en "ad hoc hypotes"?
+		</Question>
+		<Answer>
+			Antag att [math]H => \not E[/math] och att [math]E[/math] har observerats. Om vi vill nu rädda [math]H[/math] från att bli falsifierad genom att antag att implikation faktiskt är på formen [math]H ^ A => \not E[/math]. Då kan vi ersätta [math]A_1[/math] med [math]A[/math] och istället få [math]H ^^ A_1 => E[/math]. Om [math]A_1[/math] sig själv verkar vara mycket osannolikt, säges [math]A_1[/math] vara en [i]ad hoc hypotes[/i].
+
+			Dvs: Antag att vi har något som falsifierar vår hypotes. Då kan vi lägga till en stödjande hypotes som gör att vår hypotes [i]inte[/i] blir falsifierad.
+
+			Exempel:
+			Låt [math]H = [/math] Flogiston teorin gäller (som handlar om att när objekt brinner så är det Flogiston som lämnar den, vilket i verkligheten inte gäller!). Låt [math]E[/math] vara en observation att en metal blir tyngre efter den har blivit bränd. Vi kan då argumentera för att hypotesen faktiskt är [math]H ^^ A => \not E[/math] där [math]A[/math] är "Flogiston har positiv vikt". Vi kan då ersätta [math]A[/math] med [math]A_1[/math] som är "Flogiston i metalen har negativ vikt". Detta innebär [math]H ^^ A_1 => E[/math].
+		</Answer>
+	</TestQuestion>
+</Test>

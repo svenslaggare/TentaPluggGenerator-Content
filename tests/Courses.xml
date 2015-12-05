@@ -24,4 +24,7 @@
 	<Course Name="Internets protokoll och principer">
 		<Test File="IPopTenta" />
 	</Course>
+	<Course Name="Vetenskapsteori">
+		<Test File="VettigTenta" />
+	</Course>
 </Courses>
