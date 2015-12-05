@@ -77,7 +77,7 @@
 			Dvs: Antag att vi har något som falsifierar vår hypotes. Då kan vi lägga till en stödjande hypotes som gör att vår hypotes [i]inte[/i] blir falsifierad.
 
 			Exempel:
-			Låt [math]H = [/math] Flogiston teorin gäller (som handlar om att när objekt brinner så är det Flogiston som lämnar den, vilket i verkligheten inte gäller!). Låt [math]E[/math] vara en observation att en metal blir tyngre efter den har blivit bränd. Vi kan då argumentera för att hypotesen faktiskt är [math]H ^^ A => \not E[/math] där [math]A[/math] är "Flogiston har positiv vikt". Vi kan då ersätta [math]A[/math] med [math]A_1[/math] som är "Flogiston i metalen har negativ vikt". Detta innebär [math]H ^^ A_1 => E[/math].
+			Låt [math]H = [/math] Flogiston teorin gäller (som handlar om att när objekt brinner så är det Flogiston som lämnar den, vilket i verkligheten inte gäller!). Låt [math]E[/math] vara en observation att en metal blir tyngre efter den har blivit förbränd. Vi kan då argumentera för att hypotesen faktiskt är [math]H ^^ A => \not E[/math] där [math]A[/math] är "Flogiston har positiv vikt". Vi kan då ersätta [math]A[/math] med [math]A_1[/math] som är "Flogiston i metalen har negativ vikt". Detta innebär [math]H ^^ A_1 => E[/math].
 		</Answer>
 	</TestQuestion>
 </Test>
