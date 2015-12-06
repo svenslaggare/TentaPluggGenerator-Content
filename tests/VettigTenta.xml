@@ -80,4 +80,136 @@
 			Låt [math]H = [/math] Flogiston teorin gäller (som handlar om att när objekt brinner så är det Flogiston som lämnar den, vilket i verkligheten inte gäller!). Låt [math]E[/math] vara en observation att en metal blir tyngre efter den har blivit förbränd. Vi kan då argumentera för att hypotesen faktiskt är [math]H ^^ A => \not E[/math] där [math]A[/math] är "Flogiston har positiv vikt". Vi kan då ersätta [math]A[/math] med [math]A_1[/math] som är "Flogiston i metalen har negativ vikt". Detta innebär [math]H ^^ A_1 => E[/math].
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+		<Question>
+			Hur definieras att en observation [math]E[/math] stärker, respektive försvagar en hypotes [math]H[/math]?
+		</Question>
+		<Answer>
+			[b]Strärker[/b]
+			Om [math]P(H | E) > P(H)[/math]
+
+			[b]Försvagar[/b]
+			Om [math]P(H | E) \lt P(H)[/math]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+		<Question>
+			Ange olika sätt hur sannolikheter kan tolkas.
+		</Question>
+		<Answer>
+			[b]Axiomatisk[/b]
+			Vi bildar en mängd av lika sannolika [i]elementära händelser[/i]. Vi antar sedan att alla andra händelser kan utryckas som en kombination av dessa händelser.
+
+			[b]Frekvekns[/b]
+			Sannolikheten för att en händelse sker är [math]~~[/math] samma som frekvensen som händelsen sker i upprepande experiment.
+
+			[b]Subjektiv[/b]
+			Vi ger ett uppskattning för sannolikheten för händelserna utan att ge formell grund för denna uppskattning.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+		<Question>
+			Vad innebär att ett orsak är tillräckligt?
+		</Question>
+		<Answer>
+			[math]A[/math] säges vara en tillräckliga orsak av [math]B[/math] om [math]A => B[/math]. Det är oftast den man menar när man pratar om när något orskar något annat.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+		<Question>
+			Vad innebär att ett orsak är nödvändig?
+		</Question>
+		<Answer>
+			[math]A[/math] säges vara en nödvändig orsak av [math]B[/math] om [math]\not A => \not B[/math] ([math]B => A[/math]).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+		<Question>
+			Ange olika typer av förklarningar.
+		</Question>
+		<Answer>
+			Antag att [math]P[/math] behöver en förklarning.
+
+			[b]Kausalitet (orsakssamband)[/b]
+			Om något orskar [math]P[/math], så förklarar det också [math]P[/math]
+
+			[b]Funktionell[/b]
+			Om [math]P[/math] har en god funktion och detta förklarar [math]P[/math]
+
+			[b]Av syfte[/b]
+			Det är något väsen som ville ha [math]P[/math].
+
+			[b]Pragmatisk[/b]
+			Förklaringen anpassas efter typen av svar som den som frågar vill ha.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+		<Question>
+			Hur fungerar Deduktiv-nomologisk (DN) modellen?
+		</Question>
+		<Answer>
+			Vi har en fakta [math]P[/math] i en situation [math]S[/math]. I DN modellen förklaras det på följande sätt:
+
+			[ol]
+				[li]En allmän vetenskaplig lag [math]L[/math] sådant att [math]L => P[/math][/li]
+				[li]Ett initialvillkor som appliceras i [math]S[/math][/li]
+				[li]Slutsats: [math]P[/math][/li]
+			[/ol]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+		<Question>
+			Vad för problem finns det ned DN modellen?
+		</Question>
+		<Answer>
+			Det kan ibland vara för [i]stark[/i] i den meningen att den exkluderar något som orsak även i fall där den bör ses som en orsak.
+
+			Det kan ibland vara för [i]svag[/i] i den meningen att den klassificerar något som orsak även i fall där det inte borde ses som orsak.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+		<Question>
+			Vad innebär det att två händelser [math]A[/math] och [math]B[/math] är positivt korrelerade?
+		</Question>
+		<Answer>
+			Om [math]P(A ^^ B) > P(A)P(B)[/math]. Då kan [math]A[/math] vara en orsak av [math]B[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+		<Question>
+			Vad innebär Reichenbachs princip?
+		</Question>
+		<Answer>
+			Om [math]A[/math] och [math]B[/math] är okorrelerade ([math]P(A ^^ B) = P(A)P(B)[/math]) så är ingen orsaken av den andra.
+
+			Om det istället är positivt korrelerade är det antigen:
+			[ol]
+				[li][math]A[/math] är orsaken [math]B[/math][/li]
+				[li][math]B[/math] är orsaken [math]A[/math][/li]
+				[li]Det finns en tredje faktor [math]C[/math] som är orsaken till båda [math]A[/math] och [math]B[/math][/li]
+			[/ol]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+		<Question>
+			Vad innebär det att man förklarar något med en reduktion?
+		</Question>
+		<Answer>
+			Det innebär att man försöker reducera observationer till en grundläggande teori och förklara dessa m.h.a teorin.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+		<Question>
+			Vad är ett paradigm (enligt Kuhn)?
+		</Question>
+		<Answer>
+			Ett paradigm består av termer, metoder, normer och ett sätt att se saker på. Det definerar vårt sätt att förstå (eller delar) av världen.
+
+			Normal vetenskap är vetenskap som sker inom paradigmet. Inom revolutionerade vetenskap så förkastar vi det tidigare paradigmet och ersätter det med ett nytt.
+
+			Inom normal vetenskap så sätter vi inte paradigmet på prövning, alla problem hanteras inom paradigmet. När en [i]kris[/i] uppstår, så kan det leda till ett paradigm skifte. Oftast gör dessa skiften för irrationella anledningar. Oftast är två paradigmer ojämförbara med varandra.
+
+			Ett problem med detta är att vi oftast vill ha ett paradigm skifte leder till ett [i]bättre[/i] paradigm. Kuhn ger inga svar på hur vi kan avgöra om det är fallet.
+		</Answer>
+	</TestQuestion>
 </Test>
