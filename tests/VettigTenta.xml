@@ -1,8 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Test Name="Tenta">
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad består en paradox av?
+		</Question>
+		<Answer>
+			[b]Premiss[/b]
+			Fakta och etablerade sanningar.
+
+			[b]Argument[/b]
+			En logik härledning från premisserna.
+
+			[b]Slutsats[/b]
+			Vilket som ser ut att vara falsk.
+
+			I varje paradox är antigen premissen fel, argumentet felaktigt eller att slutsatsen är sann.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Ange en fråga som en Turingmaskin inte kan svara på, även fast det finns ett svar.
+		</Question>
+		<Answer>
+			[b]Stopproblemet[/b]
+			Är det möjligt att inom ändlig tidsrymd med något program avgöra om ett godtyckligt program stannar för godtyckliga indata?
+
+			[b]Hitta bevis i första-ordningens logik[/b]
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="ScientificMethod">
 	    <Question>
-				Hur fungerar induktion?
+			Hur fungerar induktion?
 	    </Question>
 	    <Answer>
 			Vi gör observationer av objekt där alla objekten har egenskapen [math]A[/math]. Vi gör också antagande att alla observationer har också egenskap [math]B[/math]. Vi drar då slutsatsen att alla objekt som har egenskap [math]A[/math] har också egenskap [math]B[/math].
@@ -75,9 +103,22 @@
 			Antag att [math]H => \not E[/math] och att [math]E[/math] har observerats. Om vi vill nu rädda [math]H[/math] från att bli falsifierad genom att antag att implikation faktiskt är på formen [math]H ^ A => \not E[/math]. Då kan vi ersätta [math]A_1[/math] med [math]A[/math] och istället få [math]H ^^ A_1 => E[/math]. Om [math]A_1[/math] sig själv verkar vara mycket osannolikt, säges [math]A_1[/math] vara en [i]ad hoc hypotes[/i].
 
 			Dvs: Antag att vi har något som falsifierar vår hypotes. Då kan vi lägga till en stödjande hypotes som gör att vår hypotes [i]inte[/i] blir falsifierad.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Ge exempel på "ad hoc hypotes".
+		</Question>
+		<Answer>
+			[b]Flogiston teorin[/b]
+			Låt [math]H = [/math] Flogiston teorin gäller (som handlar om att när objekt brinner så är det Flogiston som lämnar den, vilket i verkligheten inte gäller!). Låt [math]E[/math] vara en observation att en metal blir tyngre efter den har blivit förbränd.
 
-			Exempel:
-			Låt [math]H = [/math] Flogiston teorin gäller (som handlar om att när objekt brinner så är det Flogiston som lämnar den, vilket i verkligheten inte gäller!). Låt [math]E[/math] vara en observation att en metal blir tyngre efter den har blivit förbränd. Vi kan då argumentera för att hypotesen faktiskt är [math]H ^^ A => \not E[/math] där [math]A[/math] är "Flogiston har positiv vikt". Vi kan då ersätta [math]A[/math] med [math]A_1[/math] som är "Flogiston i metalen har negativ vikt". Detta innebär [math]H ^^ A_1 => E[/math].
+			Vi kan då argumentera för att hypotesen faktiskt är [math]H ^^ A => \not E[/math] där [math]A[/math] är "Flogiston har positiv vikt". Vi kan då ersätta [math]A[/math] med [math]A_1[/math] som är "Flogiston i metalen har negativ vikt". Detta innebär [math]H ^^ A_1 => E[/math].
+
+			[b]Uranus och Neptunus[/b]
+			Planeten Uranus upptäcktes 1781. I början av 1800-talet observerades det att Uranus inte rörde sig som Newtons lagar förutspådde. Kalla den observation för [math]E[/math] och Newtons lagar för [math]H[/math]. Då har vi [math]H => \not E[/math]. Så är Newtons lagar falsifierade?
+
+			Implikationen är egentligen på formen [math]H ^^ A => \not E[/math] där [math]A[/math] är att det bara finns 7 planeter. Om vi då ersätter [math]A[/math] med [math]A*[/math] där [math]A*[/math] säger att det finns oupptäckta planeter, får vi inte en falsifikation.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ScientificMethod">
@@ -192,6 +233,14 @@
 	</TestQuestion>
 	<TestQuestion Category="ScientificMethod">
 		<Question>
+			Ge exempel på Reichenbachs princip.
+		</Question>
+		<Answer>
+			En undersökningen av en skolklass visade att det finns en positiv korrelation mellan barnens skostorlekar ([math]A[/math]) och hur bra de presterar på prov ([math]B[/math]). Är [math]A[/math] orsaken till [math]B[/math], eller tvärtom? Nej, det finns en tredje faktor, deras ålder ([math]C[/math]), som är orsaken till både [math]A[/math] och [math]B[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+		<Question>
 			Vad innebär det att man förklarar något med en reduktion?
 		</Question>
 		<Answer>
@@ -210,6 +259,159 @@
 			Inom normal vetenskap så sätter vi inte paradigmet på prövning, alla problem hanteras inom paradigmet. När en [i]kris[/i] uppstår, så kan det leda till ett paradigm skifte. Oftast gör dessa skiften för irrationella anledningar. Oftast är två paradigmer ojämförbara med varandra.
 
 			Ett problem med detta är att vi oftast vill ha ett paradigm skifte leder till ett [i]bättre[/i] paradigm. Kuhn ger inga svar på hur vi kan avgöra om det är fallet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ResearchInPractice">
+		<Question>
+			Enligt Merton, vad för attityder bör en vetenskapsmän ha?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Communalism: Kunskap bör vara tillgänligt för alla.[/li]
+				[li]Universalism: Alla borde ha rätt att bidra.[/li]
+				[li]Disinterestedness: Vetenskap bör vara objektivt och inte bestämas av särskilda intressen.[/li]
+				[li]Originality: Resultatet bör vara nytt.[/li]
+				[li]Skepticism: Vetenskapsmän bör vara öppna för kritik.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ResearchInPractice">
+		<Question>
+			Ange olika typer av forskningsprojekt.
+		</Question>
+		<Answer>
+			[b]Förklarande[/b]
+			Handlar om forskning om ett nytt problem som vi vet lite om. Problemet kan komma från vilken del av området som helst. Arbetet behöver undersöka vilka teorier och koncept som är lämpliga, och utveckla nya om det behövs.
+
+			[b]Testade[/b]
+			Syftet är att hita gränserna för de tidigt föreslagna generaliseringarna. Det kallas oftast för "nollhypotesen" och vi försöker hitta bevis som förkastar den.
+
+			[b]Problemlösande[/b]
+			Vi börjar ifrån ett problem i den verkliga världen. Problemet behövs definieras och metoderna som behövs för att lösa problemet behövs upptäckas.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ResearchInPractice">
+		<Question>
+			Vad innebär ett "vetenskapligt filter"?
+		</Question>
+		<Answer>
+			[ol]
+				[li]Vi behöver sätta vår lösning i ett större vetenskaplig perspektiv. Vi måste referera till andra lösningar och liknande problem.[/li]
+				[li]Vi måste visa vetenskapligt att vår lösning är korrekt.[/li]
+				[li]Vi måste skriva om vår lösning i en rapport som följer vetenskapliga standarder.[/li]
+			[/ol]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ResearchInPractice">
+		<Question>
+			Vad för fyra delar kan ingå i ett forskingsprojekt?
+		</Question>
+		<Answer>
+			[b]Förberande analys (Preparing Analysis)[/b]
+			Syftet är att få en förståelse för projeketet/problemet. Det kan bestå av följande delar:
+			[ul]
+				[li]Beskriv problemet.[/li]
+				[li]Beskriv vad som defineras som att projeket är lyckat.[/li]
+				[li]Studera liknande problem.[/li]
+				[li]Definera målen.[/li]
+			[/ul][b]Hitta hypoteser[/b]
+			[ul]
+				[li]Ange hypotesen/lösningen tydligt.[/li]
+				[li]Hitta konsekvenser av hypotesen/lösningen.[/li]
+				[li]Hitta kriterium som anger om hypotesen/lösningen är sann/fungerar.[/li]
+			[/ul][b]Sammanställa delresultat[/b]
+			Testar hypotesen eller implementerar och testar lösningen.
+			[ul]
+				[li]Om vi har en lösning till problemet så implementerar vi den.[/li]
+				[li]Gör experiment för att testa om konsekvenser av hypotesen gäller eller att lösningen fungerar.[/li]
+				[li]Analysera resultaten.[/li]
+			[/ul][b]Validera resultatet[/b]
+			Evaluerar hypotesen/lösning och resultatet av experimentet.
+			[ul]
+				[li]Försök att mäta hur väl experimentet bekräftar/falsifierar hypotesen eller hur bra lösningen fungerar.[/li]
+				[li]Försök att avgöra om hypotesen är sann eller om lösningen fungerar.[/li]
+				[li]Dokumentera genom att skriva en rapport.[/li]
+				[li]Skicka in resultatet för kritik från kollegor eller oberoende kritiker.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ResearchInPractice">
+		<Question>
+			Ange de olika delarna av ett deduktivt system.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Alfabet (syntax)[/li]
+				[li]Deduktions regler[/li]
+				[li]Axiom (de vi antar är sant)[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Statistik">
+		<Question>
+			Vad är en nollhypotes och när kan den förkastas?
+		</Question>
+		<Answer>
+			Det innebär att det inte finns någon relation mellan två uppmätta fenomen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Statistik">
+		<Question>
+			När kan en nollhypotes förkastas?
+		</Question>
+		<Answer>
+			Låt [math]alpha[/math] vara signifikans nivån. Låt [math]p[/math]-värdet vara sannolikheten att observera effekten givet att nollhypotesen stämmer. Nollhypotesen förkastas om [math]p[/math]-värdet är mindre än [math]alpha[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Statistik">
+		<Question>
+			Vad innebär primär- och sekundärdata?
+		</Question>
+		<Answer>
+			[b]Primärdata[/b]
+			Direkta uppmätningar eller observationer av något. Kan också vara rapporter av personer som har experimenterat med något.
+
+			[b]Sekundärdata[/b]
+			Är en sammanställning av primär data som har blivit behandlats i någon form.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Statistik">
+		<Question>
+			Vad innebär kvantitativ och kvalitativ data?
+		</Question>
+		<Answer>
+			[b]Kvantitativ[/b]
+			Data som ges i form av siffor.
+
+			[b]Kvalitativ[/b]
+			Data som inte kan ges i formen av siffor. Det kan t.ex. vara åsikter, berättelser eller beskrivningar av situtationer.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Statistik">
+		<Question>
+			Ange olika metoder för att analysera data.
+		</Question>
+		<Answer>
+			[b]Content analysis[/b]
+			Vi räknar antalet förekomster av något som t.ex. ord eller typer av bilder i ett dokument och använder förekomster som en indikator.
+
+			[b]Data mining[/b]
+			Vi använder programvara för att hitta mönster i data.
+
+			[b]Meta-analysis[/b]
+			Vi gör en analys av flera olika analyser samtidigt och försöker se mönster i dem.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Statistik">
+		<Question>
+			Ange olika metoder för att hämta in primärdata.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Undersökningar (sampling).[/li]
+				[li]Interjuver.[/li]
+				[li]Experiment.[/li]
+			[/ul]
 		</Answer>
 	</TestQuestion>
 </Test>
