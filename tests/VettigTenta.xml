@@ -19,13 +19,68 @@
 	</TestQuestion>
 	<TestQuestion Category="Grundläggande">
 		<Question>
-			Ange en fråga som en Turingmaskin inte kan svara på, även fast det finns ett svar.
+			Vad för olika typer av sanningar finns det?
 		</Question>
 		<Answer>
-			[b]Stopproblemet[/b]
-			Är det möjligt att inom ändlig tidsrymd med något program avgöra om ett godtyckligt program stannar för godtyckliga indata?
+			[ul]
+				[li]Correspondence truth: Om [math]P[/math] stämmer överens med verkligheten, så är [math]P[/math] sann.[/li]
+				[li]Coherence truth: Om [math]P[/math] är logisk länkad till en andra sanna påstenden, så är [math]P[/math] sann.[/li]
+				[li]Intuitive truth: Om jag har en stark inre övertygelse om [math]P[/math], så är [math]P[/math] sann.[/li]
+				[li]Pragmatic truth: Om man tror på att [math]P[/math] är sann ger bra konsekvenser, så är [math]P[/math] sann.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Enligt Overton, vad är skillnaden mellan en vetenskaplig teori och pseudovetenskap?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Den styrs av en natur lag.[/li]
+				[li]Den måste förklaras med hänvisning till naturlig lag.[/li]
+				[li]Den måste kunna testas med den verkliga världen.[/li]
+				[li]Slutsatsen om teorin är inte slutlig, dvs i framtiden så skulle det kunna visa sig att den inte var sann.[/li]
+				[li]Den måste vara falsifierbar.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Enligt, Sven Ove Hansson, vad är karakteristik för psuedovetenskap?
+		</Question>
+		<Answer>
+			[b]Auktoritet[/b]
+			Vissa personer har så stora förmågor att avgöra vad som är sant och falsk, så att övriga endast behöver följa deras beslut.
 
-			[b]Hitta bevis i första-ordningens logik[/b]
+			[b]Experiment som inte kan upprepas[/b]
+			Psuedovetenskap bygger på experiment som utförs en gång och som inte alltid är möjligt att återupprepa.
+
+			[b]Handplockad exempel[/b]
+			Man använder sig av handplockad exempel, när en slumpmässig är möjlig.
+
+			[b]Motsträvig emot verklig testning[/b]
+			Man vill inte testa teorin emot verkligeten, även fast det är möjligt.
+
+			[b]Igonerar motsägande fakta[/b]
+			Även fast det finns bevis som säger emot teorin, så igoneras det.
+
+			[b]Undanflykt[/b]
+			Man kräver att teorin endast testas under sådana förhållanden så att den endast kan bevisas, aldrig motbevisas.
+
+			[b]Förklaringar överges utan att ersättas[/b]
+			Man överger hållbara förklarningar utan att ersätta det så att teorin lämnar mer saker oförklarade än den tidigare.
+			</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Nämn olika exempel på pseudovetenskap.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Astrologi.[/li]
+				[li]Freudiansk psykologi.[/li]
+				[li]Marxistisk teori.[/li]
+			[/ul]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ScientificMethod">
@@ -206,6 +261,22 @@
 			Det kan ibland vara för [i]stark[/i] i den meningen att den exkluderar något som orsak även i fall där den bör ses som en orsak.
 
 			Det kan ibland vara för [i]svag[/i] i den meningen att den klassificerar något som orsak även i fall där det inte borde ses som orsak.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+		<Question>
+			Ange exempel där DN modellen "är för stark".
+		</Question>
+		<Answer>
+			Vi vet att Titanic körde på ett isberg och sjönk. Det borde vara den vetenskapliga förklarningen? Men vad är exakt då den vetenskapliga lagen som ligger bakom?
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+		<Question>
+			Ange exempel där DN modellen "är för svag".
+		</Question>
+		<Answer>
+			En dag då solen skiner träffar solstrålar flaggstången med en vinkel av 37 grader. Skuggen blir då 20 meter lång. Det är den vetenskapliga förklarningen varför flaggstången är 15 meter. Eller är inte höjden förklarningen för längden av skuggan? DN modellen kan ej avgöra denna fråga.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ScientificMethod">
@@ -412,6 +483,152 @@
 				[li]Interjuver.[/li]
 				[li]Experiment.[/li]
 			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Datalogi">
+		<Question>
+			Ange en fråga som en Turingmaskin inte kan svara på, även fast det finns ett svar.
+		</Question>
+		<Answer>
+			[b]Stopproblemet[/b]
+			Är det möjligt att inom ändlig tidsrymd med något program avgöra om ett godtyckligt program stannar för godtyckliga indata?
+
+			[b]Hitta bevis i första-ordningens logik[/b]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Etik">
+		<Question> 
+			Vad är Consequentialism?
+		</Question>
+		<Answer>
+			Grundläggande idén är att vi agerar så att vi maximerar nyttan av resultatet. Vad definerar vi som nytta? Inom Utilitarianism menas att vi försöker maximerar den totala lyckan i samhället. Vad är då lyckan? En tolkning är glädje en annan är uppfyllelse av begär.
+
+			[b]Fördelar[/b]
+			[ul]
+				[li]Den har en logisk klarhet som gör den ganska trolig.[/li]
+				[li]Den kan hantera kraven på opartiskhet på ett bra sätt.[/li]
+				[li]Den möjliggör detaljerad analys av olika möjligheter.[/li]
+			[/ul][b]Svagheter[/b]
+			[ul]
+				[li]Är det verkligen möjligt att göra dessa glädjes beräkningar i praktiken?[/li]
+				[li]Den ser ut som att försvara olikheter och personers lidande om lidandet överträffas av mångas glädje.[/li]
+				[li]Den verkar kunna rättfärdiga vilka typer av handlingar, så länge vi antar att de har goda konsekevenser.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Etik">
+		<Question>
+			Ange olika typer av utilitarianism.
+		</Question>
+		<Answer>
+			[b]Act utilitarianism[/b]
+			Att varje handling måste utvärderas individuellt.
+
+			[b]Rule utilitarianism[/b]
+			Vi bör följa regler som oftast leder till goda konsekevenser.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Etik">
+		<Question>
+			Vad är Duty Ethics/Deontology?
+		</Question>
+		<Answer>
+			Vi bör utvärdera handlingarna enskilt. Vissa typer av handlingar är alltid förbjudna att ta, oberoende av dess följder. Exempel är: ljuga, bryta löften, stjäla, mörda, osv. Dessa handlingar verkar vara i sig själv dåliga, men hur kan vi veta att de är dåliga?
+
+			[b]Fördelar[/b]
+			[ul]
+				[li]Simpelt och enkelt att förstå.[/li]
+				[li]Den verkar oftast stämma överens med vår egen intuition.[/li]
+				[li]Det är oftast uppenbart hur den ska användas.[/li]
+			[/ul][b]Svagheter[/b]
+			[ul]
+				[li]Den kan försvara handlingar som kan ha dåliga konsekevenser om handlingarna i sig själva är korrekta.[/li]
+				[li]Om vi har många olika typer av moraliska lagar som är i konflikt med varandra, hur ska vi då kunna välja? Då behöver man hierarkier av regler, vilket gör teroin komplicerade.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Etik">
+		<Question>
+			Vad är Kategoriska imperativet?
+		</Question>
+		<Answer>
+			Agera alltid efter regeln att det du ska göra ska upphöjas till allmän lag.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Etik">
+		<Question>
+			Vad är Constract Ethics?
+		</Question>
+		<Answer>
+			En etisk kodex är en uppsättning regler som vi kommit överens att föja. Vi har i en viss mening, skrivit på ett kontrakt. Enligt Hobbes, etik är ett socialt kontrakt som alla medborgare måste medvetna om.
+
+			Huvudidén är att vi måste ha etik i form av lagar för att göra sammarbete mellan människor möjligt. Det är mycket bättre att ha regler än inga regler, även om reglerna i sig själva är dåliga.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Etik">
+		<Question>
+			Sammanfattna olika etiska teorier.
+		</Question>
+		<Answer>
+			[img]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Ethics.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Etik">
+		<Question>
+			Nämn olika etiska problem för vetenskapsmän.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Allt som publiceras till allmänheten bör vara sant och korrekt.[/li]
+				[li]Du ska ge erkännande när det behövs.[/li]
+				[li]Du bör endast forska om saker som har goda konsekevenser.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Etik">
+		<Question>
+			Nämn de 10 principerna för etisk vetenskap.
+		</Question>
+		<Answer>
+			[b]Ärlighet[/b]
+			Vetenskapsmän bör inte förfalska eller förvränga resultat. De måste bara objektva och opartiska i forskings arbetet.
+
+			[b]Exakthet[/b]
+			Vetenskapsmän bör undvika fel som beror på slarv eller okritisk tänkade. De bör undvika självbedrägeriet och intressekonflikter.
+
+			[b]Öppenhet[/b]
+			Vetenskapsmän bör dela data, metoder och idér med andra. De bör tillåta kritik.
+
+			[b]Frihet[/b]
+			Vetenskapsmän bör tillåta all typ av forskning, idér eller teorier. Det bör dock, kritisera forskningar, idér och teorier som de ser som fel.
+
+			[b]Erkännande[/b]
+			Vetenskapsmän bör ge erkännande för de som förtjänar det.
+
+			[b]Undervisning[/b]
+			Vetenskapsmän bör spendera en del av sin tid till undervisning. De bör sträva efter för att meddela allmänheten om vetenskap.
+
+			[b]Socialt ansvar[/b]
+			Vetenskapsmän bör undvika forskning som skadar samhället. De bör sträva efter för att producera bra verkan. Vetenskapsmän är ansvariga för deras egen forsking och att informera allmänheten om möjliga dåliga konsekvenser av det.
+
+			[b]Möjligheter för alla[/b]
+			Vetenskapsmän bör sträva efter att alla har möjligheter att arbeta inom vetenskap, oberoende av kön, etnisk och social bakgrund.
+
+			[b]Ömsesidig respekt[/b]
+			Vetenskapsmän behandla kollegor med omtanke och respekt.
+
+			[b]Respekt för männskliga och djur i experiment[/b]
+			Vetenskapsmän bör behandla männskilga undersökningsobjekt och laboratorieförsök djur med väridghet. Vetenskapsmän bör inte kränka någons rättigheter eller privatliv.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Etik">
+		<Question>
+			Vad handlade Milgrams experiment om?
+		</Question>
+		<Answer>
+			En person [math]A[/math] gav frågor till en person [math]B[/math]. Om [math]B[/math] svarar fel, så ska [math]A[/math] ge [math]B[/math] en elektrisk stöt, där spänning ökas stegvis.	Slutligen ger [math]A[/math] en dödlig stöt till [math]B[/math].
+
+			I verkligheten så var inte stötarna riktiga även om [math]A[/math] trodde det. Personer verkar kunna bli manipulerade att bli onda. Experimentet bröt emot regeln att undersökning experiment bör informeras vad experimentet handlar om.
 		</Answer>
 	</TestQuestion>
 </Test>
