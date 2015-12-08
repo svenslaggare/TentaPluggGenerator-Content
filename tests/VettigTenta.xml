@@ -61,8 +61,8 @@
 			[b]Motsträvig emot verklig testning[/b]
 			Man vill inte testa teorin emot verkligeten, även fast det är möjligt.
 
-			[b]Igonerar motsägande fakta[/b]
-			Även fast det finns bevis som säger emot teorin, så igoneras det.
+			[b]Ignorerar motsägande fakta[/b]
+			Även fast det finns bevis som säger emot teorin, så ignoreras det.
 
 			[b]Undanflykt[/b]
 			Man kräver att teorin endast testas under sådana förhållanden så att den endast kan bevisas, aldrig motbevisas.
@@ -139,7 +139,7 @@
 			Låt vår hypotes vara att "För varje problem, så finns det en algoritm som löser problemet". En konsekevens av detta är att det finns algorithm som löser stoppproblemet. Men detta är falskt. Alltså är hypotesen falsk.
 
 			[b]För verifikation[/b]
-			Om [math]E_1 ^^ E_2 ^^ ... ^^ E_n => H[/math]. Ett annat alternativ är att observationer är alla ganska osannolika. Antag att vi nu har en annan hypotes [math]A[/math] som vi redan anser är sann. Om [math]H ^^A => ]E_1 ^^ E_2 ^^ ... ^^ E_n[/math] kan vi också säga att observationerna verifierar [math]H[/math].
+			Om [math]E_1 ^^ E_2 ^^ ... ^^ E_n => H[/math]. Ett annat alternativ är att observationer är alla ganska osannolika. Antag att vi nu har en annan hypotes [math]A[/math] som vi redan anser är sann. Om [math]H ^^A => E_1 ^^ E_2 ^^ ... ^^ E_n[/math] kan vi också säga att observationerna verifierar [math]H[/math].
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="ScientificMethod">
@@ -155,12 +155,12 @@
 			Vad är en "ad hoc hypotes"?
 		</Question>
 		<Answer>
-			Antag att [math]H => \not E[/math] och att [math]E[/math] har observerats. Om vi vill nu rädda [math]H[/math] från att bli falsifierad genom att antag att implikation faktiskt är på formen [math]H ^ A => \not E[/math]. Då kan vi ersätta [math]A_1[/math] med [math]A[/math] och istället få [math]H ^^ A_1 => E[/math]. Om [math]A_1[/math] sig själv verkar vara mycket osannolikt, säges [math]A_1[/math] vara en [i]ad hoc hypotes[/i].
+			Antag att [math]H => \not E[/math] och att [math]E[/math] har observerats. Om vi vill nu rädda [math]H[/math] från att bli falsifierad genom att antag att implikation faktiskt är på formen [math]H ^^ A => \not E[/math]. Då kan vi ersätta [math]A_1[/math] med [math]A[/math] och istället få [math]H ^^ A_1 => E[/math]. Om [math]A_1[/math] sig själv verkar vara mycket osannolikt, säges [math]A_1[/math] vara en [i]ad hoc hypotes[/i].
 
 			Dvs: Antag att vi har något som falsifierar vår hypotes. Då kan vi lägga till en stödjande hypotes som gör att vår hypotes [i]inte[/i] blir falsifierad.
 		</Answer>
 	</TestQuestion>
-	<TestQuestion Category="Grundläggande">
+	<TestQuestion Category="ScientificMethod">
 		<Question>
 			Ge exempel på "ad hoc hypotes".
 		</Question>
@@ -173,7 +173,7 @@
 			[b]Uranus och Neptunus[/b]
 			Planeten Uranus upptäcktes 1781. I början av 1800-talet observerades det att Uranus inte rörde sig som Newtons lagar förutspådde. Kalla den observation för [math]E[/math] och Newtons lagar för [math]H[/math]. Då har vi [math]H => \not E[/math]. Så är Newtons lagar falsifierade?
 
-			Implikationen är egentligen på formen [math]H ^^ A => \not E[/math] där [math]A[/math] är att det bara finns 7 planeter. Om vi då ersätter [math]A[/math] med [math]A*[/math] där [math]A*[/math] säger att det finns oupptäckta planeter, får vi inte en falsifikation.
+			Implikationen är egentligen på formen [math]H ^^ A => \not E[/math] där [math]A[/math] är att det bara finns 7 planeter. Om vi då ersätter [math]A[/math] med [math]A^\star[/math] där [math]A^\star[/math] säger att det finns oupptäckta planeter, får vi inte en falsifikation.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ScientificMethod">
@@ -420,7 +420,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Statistik">
 		<Question>
-			Vad är en nollhypotes och när kan den förkastas?
+			Vad är en nollhypotes?
 		</Question>
 		<Answer>
 			Det innebär att det inte finns någon relation mellan två uppmätta fenomen.
