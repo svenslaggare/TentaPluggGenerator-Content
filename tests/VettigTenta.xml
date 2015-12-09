@@ -137,6 +137,16 @@
 	</TestQuestion>
 	<TestQuestion Category="ScientificMethod">
 		<Question>
+			Ge exempel på hypoteser och Bayes sats.
+		</Question>
+		<Answer>
+			Antag att vi har en medicin som påstås bota en sjukdom. Kalla hypotesen att medicinen fungerar för [math]H[/math]. Vi gör en observation [math]E[/math] att en sjuk patient blir frisk efter har getts medicinen. Kan vi avgöra till vilken grad som [math]E[/math] bekräftar [math]H[/math]?
+
+			Det vi vill hitta är [math]P(H|E)[/math]. Vi behöver estimera sannolikheterna i Bayes sats. Ett första försök är [math]P(E|H)=1[/math], fallet där med [math]P(E|\not H)[/math] är mer komplicerat, men säg t.ex. 0.25. [math]P(H)[/math] är även mer komplicerat, men gissar att [math]P(H)=0.5[/math]. Detta ger: [math]P(H|E)=0.8[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScientificMethod">
+		<Question>
 			Ange olika sätt hur sannolikheter kan tolkas.
 		</Question>
 		<Answer>
