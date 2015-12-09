@@ -35,7 +35,7 @@
 			Hur fungerar induktion?
 	    </Question>
 	    <Answer>
-			Vi gör observationer av objekt där alla objekten har egenskapen [math]A[/math]. Vi gör också antagande att alla observationer har också egenskap [math]B[/math]. Vi drar då slutsatsen att alla objekt som har egenskap [math]A[/math] har också egenskap [math]B[/math].
+			Vi gör observationer av objekt där alla objekten har egenskapen [math]A[/math]. Alla observationer har också egenskap [math]B[/math]. Vi drar då slutsatsen att alla objekt som har egenskap [math]A[/math] också har egenskap [math]B[/math].
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="ScientificMethod">
