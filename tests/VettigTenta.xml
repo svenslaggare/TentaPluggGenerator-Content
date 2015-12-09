@@ -30,59 +30,6 @@
 			[/ul]
 		</Answer>
 	</TestQuestion>
-	<TestQuestion Category="Grundläggande">
-		<Question>
-			Enligt Overton, vad är skillnaden mellan en vetenskaplig teori och pseudovetenskap?
-		</Question>
-		<Answer>
-			[ul]
-				[li]Den styrs av en natur lag.[/li]
-				[li]Den måste förklaras med hänvisning till naturlig lag.[/li]
-				[li]Den måste kunna testas med den verkliga världen.[/li]
-				[li]Slutsatsen om teorin är inte slutlig, dvs i framtiden så skulle det kunna visa sig att den inte var sann.[/li]
-				[li]Den måste vara falsifierbar.[/li]
-			[/ul]
-		</Answer>
-	</TestQuestion>
-	<TestQuestion Category="Grundläggande">
-		<Question>
-			Enligt, Sven Ove Hansson, vad är karakteristik för psuedovetenskap?
-		</Question>
-		<Answer>
-			[b]Auktoritet[/b]
-			Vissa personer har så stora förmågor att avgöra vad som är sant och falsk, så att övriga endast behöver följa deras beslut.
-
-			[b]Experiment som inte kan upprepas[/b]
-			Psuedovetenskap bygger på experiment som utförs en gång och som inte alltid är möjligt att återupprepa.
-
-			[b]Handplockad exempel[/b]
-			Man använder sig av handplockad exempel, när en slumpmässig är möjlig.
-
-			[b]Motsträvig emot verklig testning[/b]
-			Man vill inte testa teorin emot verkligeten, även fast det är möjligt.
-
-			[b]Ignorerar motsägande fakta[/b]
-			Även fast det finns bevis som säger emot teorin, så ignoreras det.
-
-			[b]Undanflykt[/b]
-			Man kräver att teorin endast testas under sådana förhållanden så att den endast kan bevisas, aldrig motbevisas.
-
-			[b]Förklaringar överges utan att ersättas[/b]
-			Man överger hållbara förklarningar utan att ersätta det så att teorin lämnar mer saker oförklarade än den tidigare.
-			</Answer>
-	</TestQuestion>
-	<TestQuestion Category="Grundläggande">
-		<Question>
-			Nämn olika exempel på pseudovetenskap.
-		</Question>
-		<Answer>
-			[ul]
-				[li]Astrologi.[/li]
-				[li]Freudiansk psykologi.[/li]
-				[li]Marxistisk teori.[/li]
-			[/ul]
-		</Answer>
-	</TestQuestion>
 	<TestQuestion Category="ScientificMethod">
 	    <Question>
 			Hur fungerar induktion?
@@ -557,10 +504,10 @@
 	</TestQuestion>
 	<TestQuestion Category="Etik">
 		<Question>
-			Vad är Constract Ethics?
+			Vad är Contract Ethics?
 		</Question>
 		<Answer>
-			En etisk kodex är en uppsättning regler som vi kommit överens att föja. Vi har i en viss mening, skrivit på ett kontrakt. Enligt Hobbes, etik är ett socialt kontrakt som alla medborgare måste medvetna om.
+			En etisk kodex är en uppsättning regler som vi kommit överens att föja. Vi har i en viss mening, skrivit på ett kontrakt. Enligt Hobbes, så är etik ett socialt kontrakt som alla medborgare måste vara medvetna om.
 
 			Huvudidén är att vi måste ha etik i form av lagar för att göra sammarbete mellan människor möjligt. Det är mycket bättre att ha regler än inga regler, även om reglerna i sig själva är dåliga.
 		</Answer>
@@ -629,6 +576,151 @@
 			En person [math]A[/math] gav frågor till en person [math]B[/math]. Om [math]B[/math] svarar fel, så ska [math]A[/math] ge [math]B[/math] en elektrisk stöt, där spänning ökas stegvis.	Slutligen ger [math]A[/math] en dödlig stöt till [math]B[/math].
 
 			I verkligheten så var inte stötarna riktiga även om [math]A[/math] trodde det. Personer verkar kunna bli manipulerade att bli onda. Experimentet bröt emot regeln att undersökning experiment bör informeras vad experimentet handlar om.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScienceAndSociety">
+		<Question>
+			Enligt Overton, vad är skillnaden mellan en vetenskaplig teori och pseudovetenskap?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Den styrs av en natur lag.[/li]
+				[li]Den måste förklaras med hänvisning till naturlig lag.[/li]
+				[li]Den måste kunna testas med den verkliga världen.[/li]
+				[li]Slutsatsen om teorin är inte slutlig, dvs i framtiden så skulle det kunna visa sig att den inte var sann.[/li]
+				[li]Den måste vara falsifierbar.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScienceAndSociety">
+		<Question>
+			Enligt, Sven Ove Hansson, vad är karakteristik för psuedovetenskap?
+		</Question>
+		<Answer>
+			[b]Auktoritet[/b]
+			Vissa personer har så stora förmågor att avgöra vad som är sant och falsk, så att övriga endast behöver följa deras beslut.
+
+			[b]Experiment som inte kan upprepas[/b]
+			Psuedovetenskap bygger på experiment som utförs en gång och som inte alltid är möjligt att återupprepa.
+
+			[b]Handplockad exempel[/b]
+			Man använder sig av handplockad exempel, när en slumpmässig är möjlig.
+
+			[b]Motsträvig emot verklig testning[/b]
+			Man vill inte testa teorin emot verkligeten, även fast det är möjligt.
+
+			[b]Ignorerar motsägande fakta[/b]
+			Även fast det finns bevis som säger emot teorin, så ignoreras det.
+
+			[b]Undanflykt[/b]
+			Man kräver att teorin endast testas under sådana förhållanden så att den endast kan bevisas, aldrig motbevisas.
+
+			[b]Förklaringar överges utan att ersättas[/b]
+			Man överger hållbara förklarningar utan att ersätta det så att teorin lämnar mer saker oförklarade än den tidigare.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScienceAndSociety">
+		<Question>
+			Ange andra sätt att karakterisera pseudovetenskap.
+		</Question>
+		<Answer>
+			[img]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Pseudoscience1.png[/img]
+
+			[img]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Pseudoscience2.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScienceAndSociety">
+		<Question>
+			Nämn olika exempel på pseudovetenskap.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Astrologi.[/li]
+				[li]Freudiansk psykologi.[/li]
+				[li]Marxistisk teori.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScienceAndSociety">
+		<Question>
+			Ange olika sätt att klassificera vetenskap.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Vad är uppfattning av sanning?[/li]
+				[li]Vilka metoder används?[/li]
+				[li]Vilka mål är vill du uppnå?[/li]
+			[/ul][b]Exempel: Matematik och Naturvetenskap[/b]
+			[ul]
+				[li]Sanning: En objektiv sanning.[/li]
+				[li]Metod: Deduktiva och hypotetiska.[/li]
+				[li]Mål: Kunskap av den objektiva världen och matematikens värld.[/li]
+			[/ul][b]Humaniora[/b]
+			[ul]
+				[li]Sanning: Många olika uppfattningar.[/li]
+				[li]Metod: Hermeneutic metoden (förståelse)[/li]
+				[li]Mål: Många olika uppfattningar. Handlar ofstast om att förstå alla aspekter relaterat till människor i världen.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScienceAndSociety">
+		<Question>
+			Vad handlar Methodological individualism och Methodological collectivism om?
+		</Question>
+		<Answer>
+			[b]Methodological individualism[/b]
+			Analysera vad de mest viktiga aktörerna i den historiska processen gjorde och tänkte.
+
+			[b]Methodological collectivism[/b]
+			Analysera de idér och krafter som existerade i samhället och va de ledde till.
+
+			[b]Exempel: Hitler och andravärldskriget[/b]
+			Från ett individualistisk perspektiv så skulle Hitler vara avgörande för att andravärldskriget skedde, för det var han som startade den. I från ett kollektivism perspketiv så är Hitler i sig själv inte så viktigt för att andravärldskriget startade, om han inte hade funnits så hade de varit någon annan som startade det. Det som var viktigt var vilka idér som fanns (tyskarna ville bli mäktiga igen, etc.)
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScienceAndSociety">
+		<Question>
+			Ange olika sätt att övertala någon att något är sant.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Använda vetenskapliga argument.[/li]
+				[li]Använda auktoritet.[/li]
+				[li]Använda sympati.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScienceAndSociety">
+		<Question>
+			Vad för filosofiska argument finns det emot vetenskap?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Vetenskap är begränsat. Det finns många frågor som den inte kan besvara. Dessa problem lämnas till filosofer.[/li]
+				[li]Vetenskap har missförstått allting, det finns ingen objektiv sanning.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScienceAndSociety">
+		<Question>
+			Vad för olika attityder finns det om världen inom filosofin?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Naiv realism: Verkligheten är mer eller mindre hur vi upplever den.[/li]
+				[li]Kritisk realism: Verkligheten existerar, men vi kan inte uppleva den direkt. Det finns dock, en nära koppling mellan verkligheten och vår upplevelse av den.[/li]
+				[li]Idealism: Verkligheten existerar inte. Det ända som existerar är vår uppfattning.[/li]
+				[li]Fenomenalism: Verkligheten existerar, men vi kan endast veta om den genom konstruktioner som baserat på observationer gjorda av våra sinnen.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ScienceAndSociety">
+		<Question>
+			Ange två olika typer av syften som finns inom vetenskap.
+		</Question>
+		<Answer>
+			[b]Realism[/b]: Syftet med vetenskap är att beskriva verkligheten som den är.
+			[b]Anti-Realism:[/b] Syftet med vetenskap är att beskriva den [i]observerbara[/i] delen av verkligen som den är. Vi kan inte säga något om den delen vi inte kan observera.
 		</Answer>
 	</TestQuestion>
 </Test>
