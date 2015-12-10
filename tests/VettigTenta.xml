@@ -30,6 +30,22 @@
 			[/ul]
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad var Francis Bacon syn om vetenskap?
+		</Question>
+		<Answer>
+			Att man ska försöka observera naturen och försöka se mönster och formula vetenskapliga lagar efter detta.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad var René Descartes syn om vetenskap?
+		</Question>
+		<Answer>
+			Att man ska använda sig av logisk resonemang för att förstå naturlagarn.
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="ScientificMethod">
 	    <Question>
 			Hur fungerar induktion?
@@ -102,7 +118,7 @@
 			Vad är en "ad hoc hypotes"?
 		</Question>
 		<Answer>
-			Antag att [math]H => \not E[/math] och att [math]E[/math] har observerats. Om vi vill nu rädda [math]H[/math] från att bli falsifierad genom att antag att implikation faktiskt är på formen [math]H ^^ A => \not E[/math]. Då kan vi ersätta [math]A_1[/math] med [math]A[/math] och istället få [math]H ^^ A_1 => E[/math]. Om [math]A_1[/math] sig själv verkar vara mycket osannolikt, säges [math]A_1[/math] vara en [i]ad hoc hypotes[/i].
+			Antag att [math]H => \not E[/math] och att [math]E[/math] har observerats. Om vi vill nu rädda [math]H[/math] från att bli falsifierad genom att antag att implikation faktiskt är på formen [math]H ^^ A => \not E[/math]. Då kan vi ersätta [math]A[/math] med [math]A_1[/math] och istället få [math]H ^^ A_1 => E[/math]. Om [math]A_1[/math] sig själv verkar vara mycket osannolikt, säges [math]A_1[/math] vara en [i]ad hoc hypotes[/i].
 
 			Dvs: Antag att vi har något som falsifierar vår hypotes. Då kan vi lägga till en stödjande hypotes som gör att vår hypotes [i]inte[/i] blir falsifierad.
 		</Answer>
@@ -212,9 +228,11 @@
 	</TestQuestion>
 	<TestQuestion Category="ScientificMethod">
 		<Question>
-			Vad för problem finns det ned DN modellen?
+			Vad för problem finns det med DN modellen?
 		</Question>
 		<Answer>
+			Den har blivit kritiserad för att egentligen inte förklara någonting alls, och att undvika att förklara själva kausaliteten. Man menar att modellen egentligen är en sorts förutsägelse, eftersom den bara visar på något faktum som var förväntat inom vissa specifika förhållanden.
+
 			Det kan ibland vara för [i]stark[/i] i den meningen att den exkluderar något som orsak även i fall där den bör ses som en orsak.
 
 			Det kan ibland vara för [i]svag[/i] i den meningen att den klassificerar något som orsak även i fall där det inte borde ses som orsak.
@@ -286,7 +304,7 @@
 				[li]Vilka frågor som ska ställas och inte ställas.[/li]
 				[li]Hur dessa frågor ska struktureras.[/li]
 				[li]Vilka förutsägelser som kan göras av huvudteorin inom ämnet.[/li]
-				[li]Hur vetenskapliga resultat ska tydas[/li]
+				[li]Hur vetenskapliga resultat ska tydas.[/li]
 				[li]Hur experiment ska utföras (vad för utrustning som är tillgänligt)[/li]
 			[/ul]Normal vetenskap är vetenskap som sker inom paradigmet. Inom revolutionerade vetenskap så förkastar vi det tidigare paradigmet och ersätter det med ett nytt.
 
@@ -454,7 +472,7 @@
 		</Question>
 		<Answer>
 			[b]Stopproblemet[/b]
-			Är det möjligt att inom ändlig tidsrymd med något program avgöra om ett godtyckligt program stannar för godtyckliga indata?
+			Är det möjligt att inom ändlig tids med något program avgöra om ett godtyckligt program stannar för godtycklig indata?
 
 			[b]Hitta bevis i första-ordningens logik[/b]
 		</Answer>
@@ -671,7 +689,7 @@
 				[li]Sanning: En objektiv sanning.[/li]
 				[li]Metod: Deduktiva och hypotetiska.[/li]
 				[li]Mål: Kunskap av den objektiva världen och matematikens värld.[/li]
-			[/ul][b]Humaniora[/b]
+			[/ul][b]Exempel: Humaniora[/b]
 			[ul]
 				[li]Sanning: Många olika uppfattningar.[/li]
 				[li]Metod: Hermeneutic metoden (förståelse)[/li]
