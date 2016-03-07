@@ -27,4 +27,7 @@
 	<Course Name="Vetenskapsteori">
 		<Test File="VettigTenta" />
 	</Course>
+	<Course Name="ANN">
+		<Test File="ANNTenta" />
+	</Course>
 </Courses>
