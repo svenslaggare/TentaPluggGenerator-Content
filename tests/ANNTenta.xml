@@ -44,6 +44,67 @@
 			[/ul]
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad innebär generalisering?
+		</Question>
+		<Answer>
+			Att ge rätt svar för indata som inte fanns med under träning.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Ange olika sätt man kan mäta prestandan.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Felfrekvensen för träningsdata.[/li]
+				[li]Felfrekvensen för ny data.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad innebär överinlärning?
+		</Question>
+		<Answer>
+			Det innebär att nätverket i stället lär sig träningsdatan, istället för den underliggande funktionen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad kan man göra för att undvika överinlärning?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Använda sig av mindre gömda noder (om nätverket har flera lager).[/li]
+				[li]Stoppa träningen i förtid[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad kan man göra för att reducera (pruning) en modells komplexitet?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Ta bort onödiga gömda noder.[/li]
+				[li]Ta bort svaga vikter.[/li]
+			[/ul]Detta kan uppnås genom att inkludera en bestraffning i kostfunktionen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad innebär bias-varians dilemmat?
+		</Question>
+		<Answer>
+			Bias är felet som uppstår på grund av felaktiga antagande i inlärnings algoritmen. Hög bias kan leda till att algoritmen missar relevanta relationer mellan särdrag och faktiskt utdata (underinlärning).
+
+			Variansen är felet som uppstår på grund av känslighet till små variationer i träningsdatan. Högvarians kan leda till överinlärning. 
+
+			Bias-varians dilemmat innebär att man antigen får underinlärning eller överinlärning.
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
 		<Question>
 			Vad händer om vi kopplar ihop flera linjära nätverket?
@@ -180,6 +241,25 @@
 				[li]Introducera momentum i vikt uppdateringen.[/li]
 				[li]Lägg till slumpmässigt brus till vikterna under träning.[/li]
 				[li]Ta bort [math]\phi(x)[/math] funktionen för utnoder.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MultiLayer">
+		<Question>
+			Vad är en "Support Vector Machine" för något?
+		</Question>
+		<Answer>
+			Det är något som transformerar indata till hög-dimensionell rum och väljer den separering som har maximala marginaler.
+
+			[b]Fördelar[/b]
+			[ul]
+				[li]Mycket bra på att generalisera.[/li]
+				[li]Fungerar bra även med liten träningsdata.[/li]
+				[li]Snabb klassifikation[/li]
+			[/ul][b]Nackdelar[/b]
+			[ul]
+				[li]Icke-lokala vikt beräkningar.[/li]
+				[li]Svårt att implementera effektivt.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
