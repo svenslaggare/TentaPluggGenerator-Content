@@ -2,10 +2,185 @@
 <Test Name="Tenta">
 	<TestQuestion Category="Grundläggande">
 		<Question>
-
+			Vad säger "no free lunch theorem"?
+		</Question>
+		<Answer>
+			Att ta genomsnittet över alla världar (datamängder/problem) ger att det inte finns någon optimal algoritm. Men, givet en specifik domän så finns det algoritmer som är bättre än andra.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad är en aktiveringsfunktion?
+		</Question>
+		<Answer>
+			Anger när en nod "aktiveras". Olika typer är: linjär, tröskel, sigmoid.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad är en inlärningsregel?
 		</Question>
 		<Answer>
 
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad är en topologi?
+		</Question>
+		<Answer>
+
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Ange olika typer av inlärningsregler.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Supervised: En "lärare" ger det korrekta svaret.[/li]
+				[li]Unsupervised: Endast indata är tillgängligt.[/li]
+				[li]Reinforcement: Belöning fås som indikator hur "rätt" svaret är.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SingleLayer">
+		<Question>
+			Vad händer om vi kopplar ihop flera linjära nätverket?
+		</Question>
+		<Answer>
+			Det resulterar fortfarande i ett linjärt nätverk. Det för att om: Låt [math]W_1, W_2, W_3[/math] representera tre viktmatriserna för tre linjära nätverk. De sammankopplade nätverket ges av: [math]W_3(W_2(W_x(x)))=(W_3 * W_2 * W_1) * x[/math] där [math]x[/math] är indata.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SingleLayer">
+		<Question>
+			Vad innebär Hebbs inlärningshypotes?
+		</Question>
+		<Answer>
+			Att simultana aktiveringar mellan två neuroner stärker synaptiska anslutningen mellan dem.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SingleLayer">
+		<Question>
+			Vad är en Threshold Logic Unit?
+		</Question>
+		<Answer>
+			Det innebär att neuron aktiveras (dvs ger 1 i utvärde) endast om: [math]\sum_i w_i x_i > \theta[/math], annars ges värdet 0 där [math]\theta[/math] är tröskelvärdet. Det får även att modifiera ekvationen så att den istället skrivs som: [math]w_0 * 1 + \sum_i w_i x_i > 0[/math] där [math]w_0 = -\theta[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SingleLayer">
+		<Question>
+			Vad innebär det att något är linjärt separerbart?
+		</Question>
+		<Answer>
+			Det innebär att datan kan delas in av en linje (2D) eller ett plan (högre dimensioner) där ena sidan anger första klassen och den andra sidan den andra klassen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SingleLayer">
+		<Question>
+			Hur kan ett trösklat nätverk tränas?
+		</Question>
+		<Answer>
+			Genom att ändra vikter när data klassifieras fel.
+			Om resultatet är 0, men borde vara 1 så ändras vikterna: [math]\Delta w = \eta x[/math].
+			Om resultatet är 1, men borde vara 0 så ändras vikterna: [math]\Delta w = -\eta x[/math].
+
+			Alternativt: Låt [math]e=t-y[/math] vara felet där [math]t[/math] är det verkliga värdet och [math]y[/math] är resultatet. Då uppdateras vikterna enligt: [math]\Delta w = \eta e x[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SingleLayer">
+		<Question>
+			Vad säger konvergenssatsen för perception inlärning?
+		</Question>
+		<Answer>
+			Om det finns en lösning för en ändlig tränings datamängd, så kommer nätverket alltid att konverga efter ett ändligt antal step, oberoende av steglängden [math]\eta[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SingleLayer">
+		<Question>
+			Hur fungerar delta regeln?
+		</Question>
+		<Answer>
+			Låt [math]e = t-w^Tx[/math] vara felet (dvs skillnaden mellan verkliga värdet och de värdet som skickas ut.). Sen ska då vikterna hittas som minimerar funktionen: [math]\xi = e^2/2[/math]. En enkel algoritm är då att använda sig av "gradient decent", där gradienten är riktningen där felet öker som måste (och vi tar då motsatt riktning).
+
+			Detta ger att vikterna ska ändras enligt: [math]\Delta w = \eta e x[/math],
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MultiLayer">
+		<Question>
+			Kan ett flerlagernätverk alltid extrahera ett komplext område?
+		</Question>
+		<Answer>
+			Ja, givet att det finns tillräckligt med gömda noder.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MultiLayer">
+		<Question>
+			Varför fungerar inte inlärningsreglerna för enlagersnätverk för flerlagersnätverk?
+		</Question>
+		<Answer>
+			[b]Perceptron inlärning[/b]
+			Kräver att vi vet vilken riktning vikterna ska ändras för att komma nära lösningen.
+
+			[b]Delta regeln[/b]
+			Kräver att vi kan mäta felet innan vi trösklar. Fungerar endast för de sista lagret.
+
+			Lösningen är att använda en funktion som ser ut som att vi trösklar, men som är deriverbar.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MultiLayer">
+		<Question>
+			Ange olika funktioner som används som tröskels funktioner i flerlagersnätverk.
+		</Question>
+		<Answer>
+			Sigmoid (?): [math]\phi(x)=(1-e^-x)/(1+e^-x)[/math].
+			Arctan: [math]\phi(x)=arctan(x)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MultiLayer">
+		<Question>
+			Hur fungerar backprop?
+		</Question>
+		<Answer>
+			Den består av tre delar:
+			[b]Forward pass[/b]
+			Beräkna alla: [math]h_j = \phi(\sum_i v_(j, i) x_i)[/math] och [math]y_k = \phi(\sum_i w_(k, j) h_j)[/math] där [math]h_j[/math] är en gömd nod, [math]v_(j, i)[/math] en vikt i det första lagret (gömda) och [math]y_k[/math] är en utnod, [math]w_(k, j)[/math] en vikt i det andra lagret (output).
+
+			[b]Backward pass[/b]
+			Beräkna alla (fel): [math]\delta_k = (t_k - y_k)*\phi'(y_k^text{in})[/math] och [math]\delta_j = \sum_k \delta_k * w_(k, j) * \phi'(h_j^{text}))[/math].
+
+			[b]Uppdatera vikter[/b]
+			[math]\delta w_(k, j) = \eta \delta_k h_j[/math] och [math]\delta v_(j, i) = \eta \delta_j x_i[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MultiLayer">
+		<Question>
+			Vad för problem finns det med backprop?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Konvergerar inte alltid (fastnar i lokalt minimum).[/li]
+				[li]Konvergerar segt.[/li]
+				[li]Många parameterar måste finjusteras.[/li]
+				[li]Skalar dåligt för stora problem.[/li]
+				[li]Biologiskt orealistisk.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MultiLayer">
+		<Question>
+			Vad bör man tänka på när man använder sig av backprop?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Använd en antisymetrisk [math]\phi(x)[/math] funktion.[/li]
+				[li]Lägg målvärderna [math]t[/math] inom samma domän som [math]\phi[/math].[/li]
+				[li]Ordna eller vikta träningsexemplerna så att svåra exemplar dominerar.[/li]
+				[li]Välj smarta initial vikter.[/li]
+				[li]Introducera momentum i vikt uppdateringen.[/li]
+				[li]Lägg till slumpmässigt brus till vikterna under träning.[/li]
+				[li]Ta bort [math]\phi(x)[/math] funktionen för utnoder.[/li]
+			[/ul]
 		</Answer>
 	</TestQuestion>
 </Test>
