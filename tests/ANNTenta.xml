@@ -105,6 +105,22 @@
 			Bias-varians dilemmat innebär att man antigen får underinlärning eller överinlärning.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Hur fungerar early stopping?
+		</Question>
+		<Answer>
+			Det kräver att man har en till datamängd, validering mängden (som är en del av originaldatan). Nätverket tränas då tills att felet som uppmätts i validering mängden når ett minimum. I praktiken finns det oftast flera lokala minimums, så då använder man någon form av heuristik för att bestämma när träningen ska avslutas. Exempel är: att ett givet antal följande lokala minimums har påträffas.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad innebär regularisation?
+		</Question>
+		<Answer>
+			Det är ett sätt att kontrollera komplexiteten hos en modell. Detta fungerar genom att man introducerar en bestraffing i felfunktionen.
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
 		<Question>
 			Vad händer om vi kopplar ihop flera linjära nätverket?
@@ -261,6 +277,91 @@
 				[li]Icke-lokala vikt beräkningar.[/li]
 				[li]Svårt att implementera effektivt.[/li]
 			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="CompetitiveLearning">
+		<Question>
+			Vad innebär "Vector Quantization"?
+		</Question>
+		<Answer>
+			Det innebär delar in en mängd punkter (~vektorer) i grupper, där varje grupp ungefär har lika många punkter närmast gruppen. Varje grupp representeras av ett center.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="CompetitiveLearning">
+		<Question>
+			Vad innebär competitive learning?
+		</Question>
+		<Answer>
+			Det innebär att man endast uppdateras en noden som "vinner".
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="CompetitiveLearning">
+		<Question>
+			Vad är en död nod för något, och vad kan man göra för att undvika att det uppstår?
+		</Question>
+		<Answer>
+			Det innebär att noder som ligger långt ifrån datan aldrig kommer att vinna, och därför ej förbättras. För att undvika att det uppstår kan man t.ex. göra:
+			[ul]
+				[li]Initialisera noderna m.h.a riktig data.[/li]
+				[li]Starta från en punkt.[/li]
+				[li]Man låter att alla noder alltid lär sig lite.[/li]
+				[li]Man låter att "förlorande" noder vinner lättare.[/li]
+				[li]Grannar till vinnaren uppdateras också.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="CompetitiveLearning">
+		<Question>
+			Vad är en Radial-basis function (RBF) för något?
+		</Question>
+		<Answer>
+			Det är en funktion, där funktionens värde endast beror på avståndet från ett center (t.ex. origo). Det vill säga: Låt [math]\phi(x)[/math] vara en RBF funktion och [math]vec x[/math] en vektor. Då gäller: [math]\phi(vec x) = \phi(||vec x||)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="CompetitiveLearning">
+		<Question>
+			Hur fungerar ett Radial-basis function (RBF) nätverk?
+		</Question>
+		<Answer>
+			Det består av tre lager: inlaget, gömda lagret och utlagret. Varje nod i det gömda lagret har en överföringsfunktion är av typen [i]radial-basis[/i] där varje nod har en position (dess center). Utlagret beräknar sedan utdatan som summan av de [math]n[/math] gömda noderna: [math]hat f(x)=\sum_i^n w_i \phi_i(x)[/math] där [math]hat f(x)[/math] är en approximation av funktionen [math]f(x)[/math].
+
+			Viktern kan antigen beräknas med minstakvadratmetoden eller delta-regeln. För att placera ut RBF-noderna så användas oövervakadinlärning, som t.ex. Competitive Learning eller Expectation Maximization.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="CompetitiveLearning">
+		<Question>
+			Vad är en Self Organizing Map för något?
+		</Question>
+		<Answer>
+			Det är en avbildning (map) som bevarar topologin inom datan. Dvs om två punkter i indatan är nära varandra, så kommer de även vara nära varandra i avbildningen. Den kan också användas för att reducera dimensionen på indata, från hög-dimensionell till låg (1D, 2D, 3D).
+
+			Den inlärningsprincip som används är "competitive learning" där vinnarens grannar också får ta del på vinsten. Man låter även storleken på grannskapet variera under inlärningsprocessen, där den i början är stort och sedan minskar.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="CompetitiveLearning">
+		<Question>
+			Hur lyder algoritmen för SOM?
+		</Question>
+		<Answer>
+			[ol]
+				[li]Beräkna likheten mellan indataa och vikterna som inkommer vid varje utnod.[/li]
+				[li]Hitta den nod som är mest likt, [i]vinnaren[/i].[/li]
+				[li]Välj ett antal utnoder som ligger nära vinnaren i utnätet. Detta kallas för grannskapet.[/li]
+				[li]Uppdatera vikterna för alla noder i grannskapet så att deras vikter flyttas närmare indatan.[/li]
+			[/ol]
+			[b]Beräkna likheten[/b]
+			Det som oftast används är det euklidiska avståndet mellan indata och vikt vektorn för noden.
+
+			[b]Viktuppdatering[/b]
+			Sker enligt: [math]w_i \leftarrow w_i + \eta (x-w_i)[/math] där [math]w_i[/math] är vikt vektorn för den [math]i[/math]:te utnoden.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DataProcessing">
+		<Question>
+		
+		</Question>
+		<Answer>
+
 		</Answer>
 	</TestQuestion>
 </Test>
