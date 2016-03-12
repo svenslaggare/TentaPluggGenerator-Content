@@ -78,7 +78,8 @@
 		<Answer>
 			[ul]
 				[li]Använda sig av mindre gömda noder (om nätverket har flera lager).[/li]
-				[li]Stoppa träningen i förtid[/li]
+				[li]Stoppa träningen i förtid-[/li]
+				[li]Använd mer indata.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -119,6 +120,20 @@
 		</Question>
 		<Answer>
 			Det är ett sätt att kontrollera komplexiteten hos en modell. Detta fungerar genom att man introducerar en bestraffing i felfunktionen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Ange de antaganden som olika typer av algoritmer gör.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Boltzmann maskin: inga antaganden.[/li]
+				[li]Hopfield: att indata är okorrelerade/oberoende.[/li]
+				[li]Backprop: beslutsytor enligt viktat medelvärde.[/li]
+				[li]SOM, PCA: dimensioner med hög varians är viktiga.[/li]
+				[li]ICA: bruset är normalfördelat.[/li]
+			[/ul]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
@@ -358,10 +373,43 @@
 	</TestQuestion>
 	<TestQuestion Category="DataProcessing">
 		<Question>
-		
+			Vad kan man göra för att "tvätta" data?
 		</Question>
 		<Answer>
+			[ul]
+				[li]Hitta data som saknas.[/li]
+				[li]Ta bort data med låg kvalitè.[/li]
+				[li]Normalisera data så att den har 0 i medelvärdet och 1 standardavvikelse.[/li]
+				[li]Använd låg-pass filtrering för att ta bort brus.[/li]
+				[li]Använd hög-pass filtrering för att ta bort "slow drifts" (sakta spikar?).[/li]
+				[li]Ta bort diskontinuitet.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DataProcessing">
+		<Question>
+			Vad är Principal Component Analsysis (PCA)?
+		</Question>
+		<Answer>
+			Det ör en algoritm för att reducera dimensionen på indata. Den antar att informationen ligger hos datan:s spridning (varians). Sedan försöker man passa en [math]N[/math]-dimensionell ellipsoid till datan, som transformerar data till ett nytt koordinatsystem. Detta innebär att PCA är en linjär transformation.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DataProcessing">
+		<Question>
+			Vad innebär Ensemble learning?
+		</Question>
+		<Answer>
+			Det innebär att man använder sig av flera nätverk. I alla nätverk, så kan bias minskas på kostnanden av ökad varians. Men i en samling av nätverk, så kan variansen minskas utan att det behöver påverka biasen.
 
+			Idén är att en mängd av nätverk med hög bias kan kombineras för att producera ett nytt nätverk med låg bias. 
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DataProcessing">
+		<Question>
+			Vad innebär Ensemble averaging?
+		</Question>
+		<Answer>
+			Det innebär att vi genererar [math]N[/math] stycken experter, där varje har egna initial värden. Varje expert tränas sedan på en egen partition av indatan. Dessa kombineras genom antingen genom att ta medelvärdet eller röstning (ta de resultatet som fått flest röster).
 		</Answer>
 	</TestQuestion>
 </Test>
