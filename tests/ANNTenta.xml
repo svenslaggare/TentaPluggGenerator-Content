@@ -40,7 +40,7 @@
 			[ul]
 				[li]Supervised: En "lärare" ger det korrekta svaret.[/li]
 				[li]Unsupervised: Endast indata är tillgängligt.[/li]
-				[li]Reinforcement: Belöning fås som indikator hur "rätt" svaret är.[/li]
+				[li]Reinforcement: Belöning fås som indikator på hur "rätt" svaret är.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -68,7 +68,7 @@
 			Vad innebär överinlärning?
 		</Question>
 		<Answer>
-			Det innebär att nätverket i stället lär sig träningsdatan, istället för den underliggande funktionen.
+			Det innebär att nätverket lär sig träningsdatan, i stället för den underliggande funktionen.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Grundläggande">
@@ -77,8 +77,8 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li]Använda sig av mindre gömda noder (om nätverket har flera lager).[/li]
-				[li]Stoppa träningen i förtid-[/li]
+				[li]Använda sig av färre gömda noder (om nätverket har flera lager).[/li]
+				[li]Stoppa träningen i förtid.[/li]
 				[li]Använd mer indata.[/li]
 			[/ul]
 		</Answer>
@@ -96,14 +96,14 @@
 	</TestQuestion>
 	<TestQuestion Category="Grundläggande">
 		<Question>
-			Vad innebär bias-varians dilemmat?
+			Vad innebär bias-varians-dilemmat?
 		</Question>
 		<Answer>
-			Bias är felet som uppstår på grund av felaktiga antagande i inlärnings algoritmen. Hög bias kan leda till att algoritmen missar relevanta relationer mellan särdrag och faktiskt utdata (underinlärning).
+			Bias är felet som uppstår på grund av felaktiga antagande i inlärningsalgoritmen. Hög bias kan leda till att algoritmen missar relevanta relationer mellan särdrag och faktisk utdata (underinlärning).
 
-			Variansen är felet som uppstår på grund av känslighet till små variationer i träningsdatan. Högvarians kan leda till överinlärning. 
+			Variansen är felet som uppstår på grund av känslighet för små variationer i träningsdatan. Hög varians kan leda till överinlärning. 
 
-			Bias-varians dilemmat innebär att man antigen får underinlärning eller överinlärning.
+			Bias-varians-dilemmat innebär att man antigen får underinlärning eller överinlärning.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Grundläggande">
@@ -111,7 +111,7 @@
 			Hur fungerar early stopping?
 		</Question>
 		<Answer>
-			Det kräver att man har en till datamängd, validering mängden (som är en del av originaldatan). Nätverket tränas då tills att felet som uppmätts i validering mängden når ett minimum. I praktiken finns det oftast flera lokala minimums, så då använder man någon form av heuristik för att bestämma när träningen ska avslutas. Exempel är: att ett givet antal följande lokala minimums har påträffas.
+			Det kräver att man har en till datamängd, valideringsmängden (som är en del av originaldatan). Nätverket tränas då till dess att felet som uppmäts i valideringsmängden når ett minimum. I praktiken finns det oftast flera lokala minimums, så då använder man någon form av heuristik för att bestämma när träningen ska avslutas. Ett exempel är att ett givet antal följande lokala minimums har påträffas.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Grundläggande">
@@ -128,20 +128,20 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li]Boltzmann maskin: inga antaganden.[/li]
-				[li]Hopfield: att indata är okorrelerade/oberoende.[/li]
-				[li]Backprop: beslutsytor enligt viktat medelvärde.[/li]
-				[li]SOM, PCA: dimensioner med hög varians är viktiga.[/li]
-				[li]ICA: bruset är normalfördelat.[/li]
+				[li][b]Boltzmann-maskin:[/b] Inga antaganden.[/li]
+				[li][b]Hopfield:[/b] Att indata är okorrelerade/oberoende.[/li]
+				[li][b]Backprop:[/b] Beslutsytor enligt viktat medelvärde.[/li]
+				[li][b]SOM, PCA:[/b] Dimensioner med hög varians är viktiga.[/li]
+				[li][b]ICA:[/b] Bruset är normalfördelat.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
 		<Question>
-			Vad händer om vi kopplar ihop flera linjära nätverket?
+			Vad händer om vi kopplar ihop flera linjära nätverk?
 		</Question>
 		<Answer>
-			Det resulterar fortfarande i ett linjärt nätverk. Det för att om: Låt [math]W_1, W_2, W_3[/math] representera tre viktmatriserna för tre linjära nätverk. De sammankopplade nätverket ges av: [math]W_3(W_2(W_x(x)))=(W_3 * W_2 * W_1) * x[/math] där [math]x[/math] är indata.
+			Det resulterar fortfarande i ett linjärt nätverk. Det för att om: Låt [math]W_1, W_2, W_3[/math] representera tre viktmatriser för tre linjära nätverk. Det sammankopplade nätverket ges av: [math]W_3(W_2(W_x(x)))=(W_3 * W_2 * W_1) * x[/math] där [math]x[/math] är indata.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
@@ -157,7 +157,7 @@
 			Vad är en Threshold Logic Unit?
 		</Question>
 		<Answer>
-			Det innebär att neuron aktiveras (dvs ger 1 i utvärde) endast om: [math]\sum_i w_i x_i > \theta[/math], annars ges värdet 0 där [math]\theta[/math] är tröskelvärdet. Det får även att modifiera ekvationen så att den istället skrivs som: [math]w_0 * 1 + \sum_i w_i x_i > 0[/math] där [math]w_0 = -\theta[/math].
+			Det innebär att en neuron aktiveras (dvs ger 1 i utvärde) endast om: [math]\sum_i w_i x_i > \theta[/math], annars ges värdet 0 där [math]\theta[/math] är tröskelvärdet. Det går även att modifiera ekvationen så att den i stället skrivs som: [math]w_0 * 1 + \sum_i w_i x_i > 0[/math] där [math]w_0 = -\theta[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
@@ -173,7 +173,7 @@
 			Hur kan ett trösklat nätverk tränas?
 		</Question>
 		<Answer>
-			Genom att ändra vikter när data klassifieras fel.
+			Genom att ändra vikter när data klassificeras fel.
 			Om resultatet är 0, men borde vara 1 så ändras vikterna: [math]\Delta w = \eta x[/math].
 			Om resultatet är 1, men borde vara 0 så ändras vikterna: [math]\Delta w = -\eta x[/math].
 
@@ -182,25 +182,25 @@
 	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
 		<Question>
-			Vad säger konvergenssatsen för perception inlärning?
+			Vad säger konvergenssatsen för perceptionsinlärning?
 		</Question>
 		<Answer>
-			Om det finns en lösning för en ändlig tränings datamängd, så kommer nätverket alltid att konverga efter ett ändligt antal step, oberoende av steglängden [math]\eta[/math].
+			Om det finns en lösning för en ändlig träningsdatamängd, så kommer nätverket alltid att konvergera efter ett ändligt antal steg, oberoende av steglängden [math]\eta[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
 		<Question>
-			Hur fungerar delta regeln?
+			Hur fungerar deltaregeln?
 		</Question>
 		<Answer>
-			Låt [math]e = t-w^Tx[/math] vara felet (dvs skillnaden mellan verkliga värdet och de värdet som skickas ut.). Sen ska då vikterna hittas som minimerar funktionen: [math]\xi = e^2/2[/math]. En enkel algoritm är då att använda sig av "gradient decent", där gradienten är riktningen där felet öker som måste (och vi tar då motsatt riktning).
+			Låt [math]e = t-w^Tx[/math] vara felet (d.v.s. skillnaden mellan det verkliga värdet och det värde som skickas ut). Sen ska då vikterna hittas som minimerar funktionen: [math]\xi = e^2/2[/math]. En enkel algoritm är då att använda sig av "gradient decent", där gradienten är riktningen där felet ökar som mest (och vi tar då motsatt riktning).
 
 			Detta ger att vikterna ska ändras enligt: [math]\Delta w = \eta e x[/math],
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="MultiLayer">
 		<Question>
-			Kan ett flerlagernätverk alltid extrahera ett komplext område?
+			Kan ett flerlagersnätverk alltid extrahera ett komplext område?
 		</Question>
 		<Answer>
 			Ja, givet att det finns tillräckligt med gömda noder.
@@ -211,18 +211,18 @@
 			Varför fungerar inte inlärningsreglerna för enlagersnätverk för flerlagersnätverk?
 		</Question>
 		<Answer>
-			[b]Perceptron inlärning[/b]
+			[b]Perceptionsinlärning[/b]
 			Kräver att vi vet vilken riktning vikterna ska ändras för att komma nära lösningen.
 
-			[b]Delta regeln[/b]
-			Kräver att vi kan mäta felet innan vi trösklar. Fungerar endast för de sista lagret.
+			[b]Deltaregeln[/b]
+			Kräver att vi kan mäta felet innan vi trösklar. Fungerar endast för det sista lagret.
 
 			Lösningen är att använda en funktion som ser ut som att vi trösklar, men som är deriverbar.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="MultiLayer">
 		<Question>
-			Ange olika funktioner som används som tröskels funktioner i flerlagersnätverk.
+			Ange olika funktioner som används som tröskelfunktioner i flerlagersnätverk.
 		</Question>
 		<Answer>
 			Sigmoid (?): [math]\phi(x)=(1-e^-x)/(1+e^-x)[/math].
@@ -235,10 +235,10 @@
 		</Question>
 		<Answer>
 			Den består av tre delar:
-			[b]Forward pass[/b]
+			[b]Framåtpassen[/b]
 			Beräkna alla: [math]h_j = \phi(\sum_i v_(j, i) x_i)[/math] och [math]y_k = \phi(\sum_i w_(k, j) h_j)[/math] där [math]h_j[/math] är en gömd nod, [math]v_(j, i)[/math] en vikt i det första lagret (gömda) och [math]y_k[/math] är en utnod, [math]w_(k, j)[/math] en vikt i det andra lagret (output).
 
-			[b]Backward pass[/b]
+			[b]Bakåtpassen[/b]
 			Beräkna alla (fel): [math]\delta_k = (t_k - y_k)*\phi'(y_k^text{in})[/math] och [math]\delta_j = \sum_k \delta_k * w_(k, j) * \phi'(h_j^{text}))[/math].
 
 			[b]Uppdatera vikter[/b]
@@ -252,7 +252,7 @@
 		<Answer>
 			[ul]
 				[li]Konvergerar inte alltid (fastnar i lokalt minimum).[/li]
-				[li]Konvergerar segt.[/li]
+				[li]Konvergerar långsamt.[/li]
 				[li]Många parameterar måste finjusteras.[/li]
 				[li]Skalar dåligt för stora problem.[/li]
 				[li]Biologiskt orealistisk.[/li]
@@ -265,31 +265,31 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li]Använd en antisymetrisk [math]\phi(x)[/math] funktion.[/li]
+				[li]Använd en asymmetrisk [math]\phi(x)[/math]-funktion.[/li]
 				[li]Lägg målvärderna [math]t[/math] inom samma domän som [math]\phi[/math].[/li]
-				[li]Ordna eller vikta träningsexemplerna så att svåra exemplar dominerar.[/li]
-				[li]Välj smarta initial vikter.[/li]
-				[li]Introducera momentum i vikt uppdateringen.[/li]
+				[li]Ordna eller vikta träningsexemplen så att svåra exemplar dominerar.[/li]
+				[li]Välj smarta initialvikter.[/li]
+				[li]Introducera momentum i viktuppdateringen.[/li]
 				[li]Lägg till slumpmässigt brus till vikterna under träning.[/li]
-				[li]Ta bort [math]\phi(x)[/math] funktionen för utnoder.[/li]
+				[li]Ta bort [math]\phi(x)[/math]-funktionen för utnoder.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="MultiLayer">
 		<Question>
-			Vad är en "Support Vector Machine" för något?
+			Vad är en "Support Vector Machine"?
 		</Question>
 		<Answer>
-			Det är något som transformerar indata till hög-dimensionell rum och väljer den separering som har maximala marginaler.
+			Det är något som transformerar indata till högdimensionella rum och väljer den separering som har maximala marginaler.
 
 			[b]Fördelar[/b]
 			[ul]
 				[li]Mycket bra på att generalisera.[/li]
-				[li]Fungerar bra även med liten träningsdata.[/li]
-				[li]Snabb klassifikation[/li]
+				[li]Fungerar bra även med lite träningsdata.[/li]
+				[li]Snabb klassificering.[/li]
 			[/ul][b]Nackdelar[/b]
 			[ul]
-				[li]Icke-lokala vikt beräkningar.[/li]
+				[li]Icke-lokala viktberäkningar.[/li]
 				[li]Svårt att implementera effektivt.[/li]
 			[/ul]
 		</Answer>
@@ -299,7 +299,7 @@
 			Vad innebär "Vector Quantization"?
 		</Question>
 		<Answer>
-			Det innebär delar in en mängd punkter (~vektorer) i grupper, där varje grupp ungefär har lika många punkter närmast gruppen. Varje grupp representeras av ett center.
+			Det delar in en mängd punkter (~vektorer) i grupper, där varje grupp ungefär har lika många punkter närmast gruppen. Varje grupp representeras av ett center.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
@@ -307,7 +307,7 @@
 			Vad innebär competitive learning?
 		</Question>
 		<Answer>
-			Det innebär att man endast uppdateras en noden som "vinner".
+			Det innebär att man endast uppdaterar noden som "vinner".
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
@@ -317,40 +317,40 @@
 		<Answer>
 			Det innebär att noder som ligger långt ifrån datan aldrig kommer att vinna, och därför ej förbättras. För att undvika att det uppstår kan man t.ex. göra:
 			[ul]
-				[li]Initialisera noderna m.h.a riktig data.[/li]
+				[li]Initialisera noderna m.h.a. riktig data.[/li]
 				[li]Starta från en punkt.[/li]
-				[li]Man låter att alla noder alltid lär sig lite.[/li]
-				[li]Man låter att "förlorande" noder vinner lättare.[/li]
+				[li]Man tillåter att alla noder alltid lär sig lite.[/li]
+				[li]Man låter "förlorande" noder vinna lättare.[/li]
 				[li]Grannar till vinnaren uppdateras också.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
 		<Question>
-			Vad är en Radial-basis function (RBF) för något?
+			Vad är en "Radial-basis function" (RBF) för något?
 		</Question>
 		<Answer>
-			Det är en funktion, där funktionens värde endast beror på avståndet från ett center (t.ex. origo). Det vill säga: Låt [math]\phi(x)[/math] vara en RBF funktion och [math]vec x[/math] en vektor. Då gäller: [math]\phi(vec x) = \phi(||vec x||)[/math].
+			Det är en funktion, där funktionens värde endast beror på avståndet från ett center (t.ex. origo). Det vill säga: Låt [math]\phi(x)[/math] vara en RBF-funktion och [math]vec x[/math] en vektor. Då gäller: [math]\phi(vec x) = \phi(||vec x||)[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
 		<Question>
-			Hur fungerar ett Radial-basis function (RBF) nätverk?
+			Hur fungerar ett RBF-nätverk (Radial-basis function)?
 		</Question>
 		<Answer>
-			Det består av tre lager: inlaget, gömda lagret och utlagret. Varje nod i det gömda lagret har en överföringsfunktion är av typen [i]radial-basis[/i] där varje nod har en position (dess center). Utlagret beräknar sedan utdatan som summan av de [math]n[/math] gömda noderna: [math]hat f(x)=\sum_i^n w_i \phi_i(x)[/math] där [math]hat f(x)[/math] är en approximation av funktionen [math]f(x)[/math].
+			Det består av tre lager: inlagret, det gömda lagret och utlagret. Varje nod i det gömda lagret har en överföringsfunktion av typen [i]radial-basis[/i] där varje nod har en position (dess center). Utlagret beräknar sedan utdatan som summan av de [math]n[/math] gömda noderna: [math]hat f(x)=\sum_i^n w_i \phi_i(x)[/math] där [math]hat f(x)[/math] är en approximation av funktionen [math]f(x)[/math].
 
-			Viktern kan antigen beräknas med minstakvadratmetoden eller delta-regeln. För att placera ut RBF-noderna så användas oövervakadinlärning, som t.ex. Competitive Learning eller Expectation Maximization.
+			Vikten kan antigen beräknas med minstakvadratmetoden eller deltaregeln. För att placera ut RBF-noderna så används oövervakad inlärning, som t.ex. competitive learning eller expectation maximization.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
 		<Question>
-			Vad är en Self Organizing Map för något?
+			Vad är en "Self Organizing Map"?
 		</Question>
 		<Answer>
-			Det är en avbildning (map) som bevarar topologin inom datan. Dvs om två punkter i indatan är nära varandra, så kommer de även vara nära varandra i avbildningen. Den kan också användas för att reducera dimensionen på indata, från hög-dimensionell till låg (1D, 2D, 3D).
+			Det är en avbildning (map) som bevarar topologin inom datan. D.v.s. om två punkter i indatan är nära varandra, kommer de även vara nära varandra i avbildningen. Den kan också användas för att reducera dimensionen på indata, från högdimensionell till låg (1D, 2D, 3D).
 
-			Den inlärningsprincip som används är "competitive learning" där vinnarens grannar också får ta del på vinsten. Man låter även storleken på grannskapet variera under inlärningsprocessen, där den i början är stort och sedan minskar.
+			Den inlärningsprincip som används är "competitive learning" där vinnarens grannar också får ta del på vinsten. Man låter även storleken på grannskapet variera under inlärningsprocessen, där den i början är stor och sedan minskar.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
@@ -359,16 +359,16 @@
 		</Question>
 		<Answer>
 			[ol]
-				[li]Beräkna likheten mellan indataa och vikterna som inkommer vid varje utnod.[/li]
+				[li]Beräkna likheten mellan indata och vikterna som inkommer vid varje utnod.[/li]
 				[li]Hitta den nod som är mest likt, [i]vinnaren[/i].[/li]
 				[li]Välj ett antal utnoder som ligger nära vinnaren i utnätet. Detta kallas för grannskapet.[/li]
 				[li]Uppdatera vikterna för alla noder i grannskapet så att deras vikter flyttas närmare indatan.[/li]
 			[/ol]
 			[b]Beräkna likheten[/b]
-			Det som oftast används är det euklidiska avståndet mellan indata och vikt vektorn för noden.
+			Det som oftast används är det euklidiska avståndet mellan indata och vikt-vektorn för noden.
 
 			[b]Viktuppdatering[/b]
-			Sker enligt: [math]w_i \leftarrow w_i + \eta (x-w_i)[/math] där [math]w_i[/math] är vikt vektorn för den [math]i[/math]:te utnoden.
+			Sker enligt: [math]w_i \leftarrow w_i + \eta (x-w_i)[/math] där [math]w_i[/math] är vikt-vektorn för den [math]i[/math]:te utnoden.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DataProcessing">
@@ -378,10 +378,10 @@
 		<Answer>
 			[ul]
 				[li]Hitta data som saknas.[/li]
-				[li]Ta bort data med låg kvalitè.[/li]
+				[li]Ta bort data med låg kvalitet.[/li]
 				[li]Normalisera data så att den har 0 i medelvärdet och 1 standardavvikelse.[/li]
-				[li]Använd låg-pass filtrering för att ta bort brus.[/li]
-				[li]Använd hög-pass filtrering för att ta bort "slow drifts" (sakta spikar?).[/li]
+				[li]Använd lågpass-filtrering för att ta bort brus.[/li]
+				[li]Använd högpass-filtrering för att ta bort "slow drifts" (sakta spikar?).[/li]
 				[li]Ta bort diskontinuitet.[/li]
 			[/ul]
 		</Answer>
@@ -391,25 +391,25 @@
 			Vad är Principal Component Analsysis (PCA)?
 		</Question>
 		<Answer>
-			Det ör en algoritm för att reducera dimensionen på indata. Den antar att informationen ligger hos datan:s spridning (varians). Sedan försöker man passa en [math]N[/math]-dimensionell ellipsoid till datan, som transformerar data till ett nytt koordinatsystem. Detta innebär att PCA är en linjär transformation.
+			Det är en algoritm för att reducera dimensionen på indata. Den antar att informationen ligger i datans spridning (varians). Sedan försöker man passa en [math]N[/math]-dimensionell ellipsoid till datan, som transformerar data till ett nytt koordinatsystem. Detta innebär att PCA är en linjär transformation.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DataProcessing">
 		<Question>
-			Vad innebär Ensemble learning?
+			Vad innebär "Ensemble learning"?
 		</Question>
 		<Answer>
-			Det innebär att man använder sig av flera nätverk. I alla nätverk, så kan bias minskas på kostnanden av ökad varians. Men i en samling av nätverk, så kan variansen minskas utan att det behöver påverka biasen.
+			Det innebär att man använder sig av flera nätverk. I alla nätverk, så kan bias minskas till kostnad av ökad varians. Men i en samling av nätverk, så kan variansen minskas utan att det behöver påverka biasen.
 
 			Idén är att en mängd av nätverk med hög bias kan kombineras för att producera ett nytt nätverk med låg bias. 
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DataProcessing">
 		<Question>
-			Vad innebär Ensemble averaging?
+			Vad innebär "Ensemble averaging"?
 		</Question>
 		<Answer>
-			Det innebär att vi genererar [math]N[/math] stycken experter, där varje har egna initial värden. Varje expert tränas sedan på en egen partition av indatan. Dessa kombineras genom antingen genom att ta medelvärdet eller röstning (ta de resultatet som fått flest röster).
+			Det innebär att vi genererar [math]N[/math] stycken experter, där varje expter har egna initialvärden. Varje expert tränas sedan på en egen partition av indatan. Dessa kombineras genom att antingen ta medelvärdet eller genom röstning (ta då resultatet som fått flest röster).
 		</Answer>
 	</TestQuestion>
 </Test>
