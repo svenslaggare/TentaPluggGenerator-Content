@@ -388,7 +388,7 @@
 	</TestQuestion>
 	<TestQuestion Category="DataProcessing">
 		<Question>
-			Vad är Principal Component Analsysis (PCA)?
+			Vad är "Principal Component Analsysis" (PCA)?
 		</Question>
 		<Answer>
 			Det är en algoritm för att reducera dimensionen på indata. Den antar att informationen ligger i datans spridning (varians). Sedan försöker man passa en [math]N[/math]-dimensionell ellipsoid till datan, som transformerar data till ett nytt koordinatsystem. Detta innebär att PCA är en linjär transformation.
@@ -409,30 +409,30 @@
 			Vad innebär "Ensemble averaging"?
 		</Question>
 		<Answer>
-			Det innebär att vi genererar [math]N[/math] stycken experter, där varje expter har egna initialvärden. Varje expert tränas sedan på en egen partition av indatan. Dessa kombineras genom att antingen ta medelvärdet eller genom röstning (ta då resultatet som fått flest röster).
+			Det innebär att vi genererar [math]N[/math] stycken experter, där varje expert har egna initialvärden. Varje expert tränas sedan på en egen partition av indatan. Dessa kombineras genom att antingen ta medelvärdet eller genom röstning (ta då resultatet som fått flest röster).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="BoltzmannMachines">
 		<Question>
-			Vad är ett Recurrent Neural Network (RNN) för något?
+			Vad är ett "Recurrent Neural Network" (RNN) för något?
 		</Question>
 		<Answer>
-			Det innebär att varje i nod i nätverket är kopplade till varandra, vilket bildar en riktiad cyklisk graf.
+			Det innebär att varje i nod i nätverket är kopplade till varandra, vilket bildar en riktad cyklisk graf.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="BoltzmannMachines">
 		<Question>
-			Vad är en Boltzmann maskin för något?
+			Vad är en Boltzmann-maskin för något?
 		</Question>
 		<Answer>
-			Det är en typ av stokastisk RNN. Noderna delas in i gömda och synliga noder, där de synliga noderna är de som får information ifrån miljön. Om en nod [math]i[/math] aktiveras eller inte beror på dess sannolikhet, som följer Boltzmannfördelningen: [math]P_i(on) = 1 / (1+e^(-(\Delta E_i) / T))[/math] där [math]\Delta E_i[/math] är skillnanden i energin (mellan att var på och av) för nod och [math]T[/math] temperaturen för systemet.
+			Det är en typ av stokastisk RNN. Noderna delas in i gömda och synliga noder, där de synliga noderna är de som får information från miljön. Om en nod [math]i[/math] aktiveras eller inte beror på dess sannolikhet, som följer Boltzmannfördelningen: [math]P_i(on) = 1 / (1+e^(-(\Delta E_i) / T))[/math] där [math]\Delta E_i[/math] är skillnanden i energi (mellan att vara på och av) för nod [math]i[/math] och [math]T[/math] temperaturen för systemet.
 
-			Nätverket tränas genom att vikterna justeras så att intern genererad aktivitet motsvarar extern aktivitet. Nätverket kräver även att inga noder är kopplade till sig själva och att vikterna är symmetriska: [math]w_{i, j} = w_{j, i}[/math].
+			Nätverket tränas genom att vikterna justeras så att interngenererad aktivitet motsvarar extern aktivitet. Nätverket kräver även att inga noder är kopplade till sig själva och att vikterna är symmetriska: [math]w_{i, j} = w_{j, i}[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="BoltzmannMachines">
 		<Question>
-			Vad för typer av villkor (constraints) finns det i Boltzmann maskiner?
+			Vad för typer av villkor (constraints) finns det i Boltzmann-maskiner?
 		</Question>
 		<Answer>
 			[b]Hårda (conditions)[/b]
@@ -444,29 +444,29 @@
 	</TestQuestion>
 	<TestQuestion Category="BoltzmannMachines">
 		<Question>
-			Vad för problem finns det med Boltzmann maskinen?
+			Vad för problem finns det med Boltzmann-maskinen?
 		</Question>
 		<Answer>
-			Att antalet beräkningar som krävs exponentiellt med storleken av problemet.
+			Att antalet beräkningar som krävs ökar exponentiellt med storleken av problemet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="BoltzmannMachines">
 		<Question>
-			Vad kan man göra för att undvika problemen med Boltzmann maskinen?
+			Vad kan man göra för att undvika problemen med Boltzmann-maskinen?
 		</Question>
 		<Answer>
 			[ul]
-				[li]Reducera topologin: Inga anslutningar mellan gömda noder (begränsade Boltzmann maskinen).[/li]
+				[li]Reducera topologin: Inga anslutningar mellan gömda noder (begränsade Boltzmann-maskinen).[/li]
 				[li]Ersätta stokastiska variabler med deras medelvärde (Hopfieldnätverket)[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="BoltzmannMachines">
 		<Question>
-			Hur beräknas vikt matrisen för ett Hopfieldnätverk?
+			Hur beräknas viktmatrisen för ett Hopfieldnätverk?
 		</Question>
 		<Answer>
-			Ett element i vikt matrisen kan skrivas som: [math]w_{i,j} = 1/N \sum_{\mu=1}^P x_i^{\mu} x_j^{\mu}[/math] där [math]x^\mu[/math] är ett mönster som ska lagras.  Man bör även se till att diagonalen i denna matris är noll.
+			Ett element i viktmatrisen kan skrivas som: [math]w_{i,j} = 1/N \sum_{\mu=1}^P x_i^{\mu} x_j^{\mu}[/math] där [math]x^\mu[/math] är ett mönster som ska lagras.  Man bör även se till att diagonalen i denna matris är noll.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="BoltzmannMachines">
@@ -479,18 +479,18 @@
 	</TestQuestion>
 	<TestQuestion Category="BoltzmannMachines">
 		<Question>
-			Ange de två olika ordningar för uppdateringar.
+			Ange de två olika ordningarna för uppdateringar.
 		</Question>
 		<Answer>
 			[ul]
-				[li]Synkront: Alla noder beräknar deras aktivering, och sedan uppdaterar deras tillstånd simultant.[/li]
-				[li]Asynkront: En nod i taget uppdateras dess aktivering och tillstånd. Ordningen kan antigen vara fixt eller slumpmässig.[/li]
+				[li]Synkront: Alla noder beräknar sin aktivering, och sedan uppdaterar sina tillstånd simultant.[/li]
+				[li]Asynkront: En nod i taget uppdaterar dess aktivering och tillstånd. Ordningen kan antigen vara fix eller slumpmässig.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="BoltzmannMachines">
 		<Question>
-			Hur defineras energin i ett Hopfieldnätverk?
+			Hur definieras energin i ett Hopfieldnätverk?
 		</Question>
 		<Answer>
 			[math]E = -1/2 \sum_{i,j} w_{i, j} x_i x_j[/math]. Det är även möjligt att ta bort faktorn [math]1/2[/math] för det är endast en skalfaktor.
@@ -501,12 +501,12 @@
 			Vad är en attraktor (attractor) i ett Hopfieldnätverk?
 		</Question>
 		<Answer>
-			Det är något som indata kommer att konvergera emot, om uppdaterings regeln används. Varje attraktor i nätverket är ett lokalt minimum (sätt till energin). De mönster man försöker lagra vill man att ska vara attraktorer.
+			Det är något som indata kommer att konvergera mot, om uppdateringsregeln används. Varje attraktor i nätverket är ett lokalt minimum (sett till energin). De mönster man försöker lagra vill man ska vara attraktorer.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="BoltzmannMachines">
 		<Question>
-			Vad är den lagringskapaciteten för ett Hoptfieldnätvekr?
+			Vad är den maximala lagringskapaciteten för ett Hoptfieldnätvekr?
 		</Question>
 		<Answer>
 			Det är [math]13.8[/math]%.
