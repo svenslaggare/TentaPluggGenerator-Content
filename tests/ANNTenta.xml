@@ -13,7 +13,7 @@
 			Vad är en aktiveringsfunktion?
 		</Question>
 		<Answer>
-			Anger när en nod "aktiveras". Olika typer är: linjär, tröskel, sigmoid.
+			Den anger när en nod "aktiveras". Olika typer är linjär, tröskel och sigmoid.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Grundläggande">
@@ -54,7 +54,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Grundläggande">
 		<Question>
-			Ange olika sätt man kan mäta prestandan.
+			Ange olika sätt att mäta prestandan.
 		</Question>
 		<Answer>
 			[ul]
@@ -91,7 +91,7 @@
 			[ul]
 				[li]Ta bort onödiga gömda noder.[/li]
 				[li]Ta bort svaga vikter.[/li]
-			[/ul]Detta kan uppnås genom att inkludera en bestraffning i kostfunktionen.
+			[/ul]Detta kan uppnås genom att inkludera en bestraffning i kostnadsfunktionen.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Grundläggande">
@@ -111,7 +111,7 @@
 			Hur fungerar early stopping?
 		</Question>
 		<Answer>
-			Det kräver att man har en till datamängd, valideringsmängden (som är en del av originaldatan). Nätverket tränas då till dess att felet som uppmäts i valideringsmängden når ett minimum. I praktiken finns det oftast flera lokala minimums, så då använder man någon form av heuristik för att bestämma när träningen ska avslutas. Ett exempel är att ett givet antal följande lokala minimums har påträffas.
+			Det kräver att man har en extra datamängd, valideringsmängden (som är en del av originaldatan). Nätverket tränas då till dess att felet som uppmäts i valideringsmängden når ett minimum. I praktiken finns det oftast flera lokala minimum, så då använder man någon form av heuristik för att bestämma när träningen ska avslutas. Ett exempel är att ett givet antal lokala minimums har påträffats i följd.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Grundläggande">
@@ -154,10 +154,10 @@
 	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
 		<Question>
-			Vad är en Threshold Logic Unit?
+			Vad är en "Threshold Logic Unit"?
 		</Question>
 		<Answer>
-			Det innebär att en neuron aktiveras (dvs ger 1 i utvärde) endast om: [math]\sum_i w_i x_i > \theta[/math], annars ges värdet 0 där [math]\theta[/math] är tröskelvärdet. Det går även att modifiera ekvationen så att den i stället skrivs som: [math]w_0 * 1 + \sum_i w_i x_i > 0[/math] där [math]w_0 = -\theta[/math].
+			Det innebär att en neuron aktiveras (d.v.s. ger 1 i utvärde) endast om: [math]\sum_i w_i x_i > \theta[/math], annars ges värdet 0 där [math]\theta[/math] är tröskelvärdet. Det går även att modifiera ekvationen så att den i stället skrivs som: [math]w_0 * 1 + \sum_i w_i x_i > 0[/math] där [math]w_0 = -\theta[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
@@ -174,8 +174,8 @@
 		</Question>
 		<Answer>
 			Genom att ändra vikter när data klassificeras fel.
-			Om resultatet är 0, men borde vara 1 så ändras vikterna: [math]\Delta w = \eta x[/math].
-			Om resultatet är 1, men borde vara 0 så ändras vikterna: [math]\Delta w = -\eta x[/math].
+			Om resultatet är 0, men borde vara 1, ändras vikterna: [math]\Delta w = \eta x[/math].
+			Om resultatet är 1, men borde vara 0, ändras vikterna: [math]\Delta w = -\eta x[/math].
 
 			Alternativt: Låt [math]e=t-y[/math] vara felet där [math]t[/math] är det verkliga värdet och [math]y[/math] är resultatet. Då uppdateras vikterna enligt: [math]\Delta w = \eta e x[/math].
 		</Answer>
@@ -208,7 +208,7 @@
 	</TestQuestion>
 	<TestQuestion Category="MultiLayer">
 		<Question>
-			Varför fungerar inte inlärningsreglerna för enlagersnätverk för flerlagersnätverk?
+			Varför fungerar inte inlärningsreglerna för enlagersnätverk också för flerlagersnätverk?
 		</Question>
 		<Answer>
 			[b]Perceptionsinlärning[/b]
@@ -236,7 +236,7 @@
 		<Answer>
 			Den består av tre delar:
 			[b]Framåtpassen[/b]
-			Beräkna alla: [math]h_j = \phi(\sum_i v_(j, i) x_i)[/math] och [math]y_k = \phi(\sum_i w_(k, j) h_j)[/math] där [math]h_j[/math] är en gömd nod, [math]v_(j, i)[/math] en vikt i det första lagret (gömda) och [math]y_k[/math] är en utnod, [math]w_(k, j)[/math] en vikt i det andra lagret (output).
+			Beräkna alla: [math]h_j = \phi(\sum_i v_(j, i) x_i)[/math] och [math]y_k = \phi(\sum_i w_(k, j) h_j)[/math] där [math]h_j[/math] är en gömd nod, [math]v_(j, i)[/math] en vikt i det första lagret (gömda), [math]y_k[/math] är en utnod och [math]w_(k, j)[/math] en vikt i det andra lagret (output).
 
 			[b]Bakåtpassen[/b]
 			Beräkna alla (fel): [math]\delta_k = (t_k - y_k)*\phi'(y_k^text{in})[/math] och [math]\delta_j = \sum_k \delta_k * w_(k, j) * \phi'(h_j^{text}))[/math].
@@ -266,8 +266,8 @@
 		<Answer>
 			[ul]
 				[li]Använd en asymmetrisk [math]\phi(x)[/math]-funktion.[/li]
-				[li]Lägg målvärderna [math]t[/math] inom samma domän som [math]\phi[/math].[/li]
-				[li]Ordna eller vikta träningsexemplen så att svåra exemplar dominerar.[/li]
+				[li]Lägg målvärdena [math]t[/math] inom samma domän som [math]\phi[/math].[/li]
+				[li]Ordna eller vikta träningsexemplen så att svåra exempel dominerar.[/li]
 				[li]Välj smarta initialvikter.[/li]
 				[li]Introducera momentum i viktuppdateringen.[/li]
 				[li]Lägg till slumpmässigt brus till vikterna under träning.[/li]
@@ -299,7 +299,7 @@
 			Vad innebär "Vector Quantization"?
 		</Question>
 		<Answer>
-			Det delar in en mängd punkter (~vektorer) i grupper, där varje grupp ungefär har lika många punkter närmast gruppen. Varje grupp representeras av ett center.
+			Det delar in en mängd punkter (~vektorer) i grupper, där varje grupp har ungefär lika många punkter närmast gruppen. Varje grupp representeras av ett center.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
@@ -312,10 +312,10 @@
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
 		<Question>
-			Vad är en död nod för något, och vad kan man göra för att undvika att det uppstår?
+			Vad är döda noder för något, och vad kan man göra för att undvika att dessa uppstår?
 		</Question>
 		<Answer>
-			Det innebär att noder som ligger långt ifrån datan aldrig kommer att vinna, och därför ej förbättras. För att undvika att det uppstår kan man t.ex. göra:
+			Det innebär att noder som ligger långt från datan aldrig kommer att vinna, och därför ej förbättras. För att undvika att det uppstår kan man t.ex. göra:
 			[ul]
 				[li]Initialisera noderna m.h.a. riktig data.[/li]
 				[li]Starta från en punkt.[/li]
