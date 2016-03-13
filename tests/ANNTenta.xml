@@ -190,6 +190,14 @@
 	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
 		<Question>
+			Vad för problem finns det med perceptionsinlärning?
+		</Question>
+		<Answer>
+			Att inlärningens stoppas onödigt tidigt. Detta på grund av att inlärningen stoppas när alla träningsmönster har klassificeras korrekt, men detta betyder inte att alla beslutsytor har placerats optimalt givet den informationen som finns tillgängligt via träningsdatan. Detta ger att mönster som ej sågs under inlärning kan klassificeras felaktigt.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SingleLayer">
+		<Question>
 			Hur fungerar deltaregeln?
 		</Question>
 		<Answer>
@@ -493,7 +501,7 @@
 			Hur definieras energin i ett Hopfieldnätverk?
 		</Question>
 		<Answer>
-			[math]E = -1/2 \sum_{i,j} w_{i, j} x_i x_j[/math]. Det är även möjligt att ta bort faktorn [math]1/2[/math] för det är endast en skalfaktor.
+			[math]E = -1/2 \sum_i \sum_j w_{i, j} x_i x_j[/math]. I matrisform blir det: [math]E=-1/2 * (W * x^T)^T * x^T[/math] där [math]x[/math] är en radvektor. Det är lättare att låta [math]x[/math] vara en kolumnvektor istället, för då blir formeln: [math]E=-1/2 * (W * x)^T * x[/math]. Det är även möjligt att ta bort faktorn [math]1/2[/math] för det är endast en skalfaktor.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="BoltzmannMachines">
