@@ -9,7 +9,7 @@
 				[li]Inlinje till en nod: dendrite.[/li]
 				[li]Utvärdet för en nod: utfrekvensen för en neuron.[/li]
 				[li]Vikterna mellan två noder: synaps effektiviteten.[/li]
-				[li]Överföringsfunktionen för en nod: soma spatial och temporal summerings egenskaoer.[/li]
+				[li]Överföringsfunktionen för en nod: soma spatial och temporal summerings egenskaper.[/li]
 				[li]Utlinje för en nod: axon.[/li]
 				[li]Vikterna kan vara positiva eller negativa: Excitatory and inhibitory synaptisk 
      potentiell.[/li]
@@ -32,22 +32,6 @@
 		</Question>
 		<Answer>
 			Den anger när en nod "aktiveras". Olika typer är linjär, tröskel och sigmoid.
-		</Answer>
-	</TestQuestion>
-	<TestQuestion Category="Grundläggande">
-		<Question>
-			Vad är en inlärningsregel?
-		</Question>
-		<Answer>
-
-		</Answer>
-	</TestQuestion>
-	<TestQuestion Category="Grundläggande">
-		<Question>
-			Vad är en topologi?
-		</Question>
-		<Answer>
-
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Grundläggande">
@@ -577,7 +561,7 @@
 	</TestQuestion>
 	<TestQuestion Category="DeepLearning">
 		<Question>
-			Vad för fördelar finns det med en djup struktur=
+			Vad för fördelar finns det med en djup struktur?
 		</Question>
 		<Answer>
 			[ul]
