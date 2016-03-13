@@ -2,6 +2,24 @@
 <Test Name="Tenta">
 	<TestQuestion Category="Grundläggande">
 		<Question>
+			Ange vad olika delar av ett artificiellt neuron nätverk tar inspiartion ifrån biologin.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Inlinje till en nod: dendrite.[/li]
+				[li]Utvärdet för en nod: utfrekvensen för en neuron.[/li]
+				[li]Vikterna mellan två noder: synaps effektiviteten.[/li]
+				[li]Överföringsfunktionen för en nod: soma spatial och temporal summerings egenskaoer.[/li]
+				[li]Utlinje för en nod: axon.[/li]
+				[li]Vikterna kan vara positiva eller negativa: Excitatory and inhibitory synaptisk 
+     potentiell.[/li]
+				[li]Summerings komponenten hos en nod: soma.[/li]
+				[li]Trösklad överföringsfunktion: allt-eller-inget av action potentials.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
 			Vad säger "no free lunch theorem"?
 		</Question>
 		<Answer>
@@ -136,6 +154,14 @@
 			[/ul]
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad innebär "cross validation"?
+		</Question>
+		<Answer>
+			Det innebär att man delar in data i olika delar. Nätverket tränas på en viss del av datan (training) och evalueras under träning på en annan del (testing). Det finns också en tredje del, validation som används för att evaluera prestanden (t.ex. mellan olika typer av algoritmer).
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
 		<Question>
 			Vad händer om vi kopplar ihop flera linjära nätverk?
@@ -149,7 +175,15 @@
 			Vad innebär Hebbs inlärningshypotes?
 		</Question>
 		<Answer>
-			Att simultana aktiveringar mellan två neuroner stärker synaptiska anslutningen mellan dem.
+			Att simultana aktiveringar mellan två neuroner stärker synaptiska anslutningen mellan dem. Matematisk beskrivs det ofta som: [math]\Delta w = x_j * y_i[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="SingleLayer">
+		<Question>
+			Vad för problem finns det med Hebbs inlärningsregel?
+		</Question>
+		<Answer>
+			Att den tillåter att vikter växer utan gränser. Detta problem kan lösas genom att subtraherar vikterna med [math]y*w[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
@@ -300,6 +334,16 @@
 				[li]Icke-lokala viktberäkningar.[/li]
 				[li]Svårt att implementera effektivt.[/li]
 			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MultiLayer">
+		<Question>
+			Vad är "vanishing gradient" för problem?
+		</Question>
+		<Answer>
+			Det är ett problem som uppstår i nätverk som använder sig av gradienten för att uppdatera vikterna (t.ex. backprop). Problemet är att gradienten (felet som vikterna ska uppdateras med i varje lager) sjunker exponentiellt för varje lager (sett från utlagret). Detta gör det oftast opraktisk att ha många lager som använder sig av Backprop.
+
+			Ett relaterat problem är [i]exploding gradient[/i], där gradienten istället får för stora värden.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
@@ -518,6 +562,105 @@
 		</Question>
 		<Answer>
 			Det är [math]13.8[/math]%.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DeepLearning">
+		<Question>
+			Vad innebär "djup" inom maskininlärning?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Antalet nivåer av sammansättningar av icke-linjära operationer i funktionen som approximeras.[/li]
+				[li]Längden av den längsta stigen ifrån indata till utdata i grafen.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DeepLearning">
+		<Question>
+			Vad för fördelar finns det med en djup struktur=
+		</Question>
+		<Answer>
+			[ul]
+				[li]Modellen blir mer kraftfull och kompakt (förbättrar generallisering och minskar antalet frihetsgrader).[/li]
+				[li]Inspireras av hjärnans hierarkiska organisation.[/li]
+				[li]Kognitiv inspiration - flera nivåer av abstraktion.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DeepLearning">
+		<Question>
+			Hur fungerar inlärning i deep learning nätverk?
+		</Question>
+		<Answer>
+			Det finns två faser: Oövervakad förträning där första lagret först tränas, sedan det andra lagret (som använder utdata från första lagret som indata), sedan de tredje lagret, osv. Varje lager lär sig även en egen representation av indata. T.ex: kanter -> objekt delar -> objekt.
+
+			Sedan tränas hela nätverket övervakat med t.ex. gradient decent baserad optimering där uppmärkt data används.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DeepLearning">
+		<Question>
+			Vad för fördelar finns det med deep learning jämförelse backprop?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Snabbare övervakad träning med mindre chans att fastna i dåliga lokala minimum (bra start värden).[/li]
+				[li]Effektiv använding av omärkt data.[/li]
+				[li]Problemet med vanishing gradient minskas.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DeepLearning">
+		<Question>
+			Ange olika algoritmer som används i oövervakade steget i deep learning.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Restriected Boltzmann Machine  (RBM)[/li]
+				[li]Convolutional nerual networks (CNN)[/li]
+				[li]Auto-encoders (AE): [/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TemporalNetworks">
+		<Question>
+			Vad är en "reservoir" i "reservoir computing"?
+		</Question>
+		<Answer>
+			Det är en samling av noder, där alla noder är kopplade till varandra (recurrent). Strukturen är ofta slumpmässig och enheterna är ofta icke-linjära (sigmoid). Den övergripande dynamiken för systemet drivs av indata och påverkas också av tidigare tillstånd, och utökar representationen till en högre dimension.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TemporalNetworks">
+		<Question>
+			Vad är "readout" i "reservoir computing"?
+		</Question>
+		<Answer>
+			Det är ofta ett enkelt perceptronlager, som t.ex. tränas med: linjär-regression eller Backprop.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ReinforcementLearning">
+		<Question>
+			Hur fungerar Reinforcement Learning?
+		</Question>
+		<Answer>
+			Det består av en agent och en miljö. Agenten är i ett tillstånd (state) och genom att utföra åtgärder (action), så kommer agenten till ett nytt tillstånd. För varje action som tas, så får agenten en belöning (reward) från miljön. Det som agenten försöker maximera är den totala belöningen.
+
+			Den belöningen som kan förväntas kunna få ett tillstånd givet att en policy [math]pi[/math] följs (dvs vad för action som ska tas i varje tillstånd) beskrivs av värdefunktionen (value-function, [math]V^pi[/math]). 
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ReinforcementLearning">
+		<Question>
+			Varför behövs ett neuron nätverk för reinforcement learning i praktiken?
+		</Question>
+		<Answer>
+			Om antalet tillstånd och åtgärder är många, så kommer värdefunktionen [math]V(s)[/math] bli för stor att lagra (för det är i princip en mapping från tillstånd till en skalär), och det krävs även ett neuron nätverk för att kunna hantera tillstånd som inte påträffades under inlärning (genom att interpolera mellan närliggande tillstånd).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ReinforcementLearning">
+		<Question>
+			Hur sker inlärning i reforcement öearning?
+		</Question>
+		<Answer>
+			Det sker ofta med Temporal-Difference (TD) inlärning. Det fungerar så att man kollar på skillnanden mellan två tillstånd.
 		</Answer>
 	</TestQuestion>
 </Test>
