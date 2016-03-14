@@ -92,7 +92,7 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li]Lägga till brus tinn träningsdatan. Syftet är att sprida ut datapunkterna för att för förhindra en precis anpassning till original datan.[/li]
+				[li]Lägga till brus till träningsdatan. Syftet är att sprida ut datapunkterna för att för förhindra en precis anpassning till original datan.[/li]
 				[li]Early stopping.[/li]
 				[li]Pruning.[/li]
 				[li]Bootstrapping.[/li]
