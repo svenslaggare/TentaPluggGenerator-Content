@@ -569,7 +569,7 @@
 	</TestQuestion>
 	<TestQuestion Category="BoltzmannMachines">
 		<Question>
-			Vad är den maximala lagringskapaciteten för ett Hoptfieldnätvekr?
+			Vad är den maximala lagringskapaciteten för ett Hoptfieldnätverk?
 		</Question>
 		<Answer>
 			Det är [math]13.8[/math]%.
