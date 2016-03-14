@@ -166,7 +166,7 @@
 			Hur fungerar "n-fold cross validation"?
 		</Question>
 		<Answer>
-			Data delas in i delar för träning och validering där var [math]n[/math]:te värde används som validering. Indelningen av mätvärdena görs slumpmässigt i [math]n[/math] ungefär lika stora delar. Detta ger att [math]n-1[/math] delar används för träning och en del för validering. Detta upprepas sedan [math]n[/math] gånger och medelvärdet av de [math]n[/math] prediktionsfelen används som en uppskatning av felet.
+			Data delas in i delar för träning och validering där var [math]n[/math]:te värde används som validering. Indelningen av mätvärdena görs slumpmässigt i [math]n[/math] ungefär lika stora delar. Detta ger att [math]n-1[/math] delar används för träning och en del för validering. Detta upprepas sedan [math]n[/math] gånger och medelvärdet av de [math]n[/math] prediktionsfelen används som en uppskattning av felet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
@@ -622,12 +622,26 @@
 	</TestQuestion>
 	<TestQuestion Category="DeepLearning">
 		<Question>
+			Vad för problem finns det med en djup struktur?
+		</Question>
+		<Answer>
+			De är svårare att träna, pga. problemet med vanishing gradents som uppstår i backprop och att det kräver att man gör en icke-konvex optimering.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DeepLearning">
+		<Question>
 			Hur fungerar inlärning i deep learning nätverk?
 		</Question>
 		<Answer>
-			Det finns två faser: Oövervakad förträning där första lagret först tränas, sedan det andra lagret (som använder utdata från första lagret som indata), sedan de tredje lagret, osv. Varje lager lär sig även en egen representation av indata. T.ex: kanter -> objekt delar -> objekt.
+			Den består av två faser:
 
-			Sedan tränas hela nätverket övervakat med t.ex. gradient decent baserad optimering där uppmärkt data används.
+			[b]Greedy pre-training[/b]
+			Här används oövervakad inlärning, där varje lager tränas i taget. Först så tränas det första lagret, med faktiska indata som indata. Sedan tränas det andra lagret, med utdata ifrån det första lagret som input, osv. De vikter som tas fram används i nästa steg.
+
+			[b]Fine tuning[/b]
+			Sedan tränas hela nätverket med backprop (med märkt data).
+
+			I första steget så behövs inte märkt data, så oftast är datamängden för första steget mycket störe än i det andra steget. Varje gömt lager kommer att skapa en egen representation av datan, t.ex.: kanter -> objekt delar -> objekt för bilder.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DeepLearning">
@@ -648,10 +662,22 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li]Restriected Boltzmann Machine  (RBM)[/li]
-				[li]Convolutional nerual networks (CNN)[/li]
-				[li]Auto-encoders (AE): [/li]
+				[li]Restriected Boltzmann Machine (RBM).[/li]
+				[li]Convolutional nerual networks (CNN).[/li]
+				[li]Auto-encoders (AE).[/li]
 			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="DeepLearning">
+		<Question>
+			Vad för olika hypoteser finns det av rollen av pre-training i deep learning?
+		</Question>
+		<Answer>
+			[b]Regularisation[/b]
+			Den fungerar som regularisation (dvs en implicit bestraffnings term), som minskar variansen.
+
+			[b]Optimering[/b]
+			Den hittar bättre initialvärden för gradient-baserad optimering (t.ex. backprop).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TemporalNetworks">
