@@ -391,7 +391,7 @@
 			Vad är en "Radial-basis function" (RBF) för något?
 		</Question>
 		<Answer>
-			Det är en funktion, där funktionens värde endast beror på avståndet från ett center (t.ex. origo). Det vill säga: Låt [math]\phi(x)[/math] vara en RBF-funktion och [math]vec x[/math] en vektor. Då gäller: [math]\phi(vec x) = \phi(||vec x||)[/math].
+			Det är en funktion, där funktionens värde endast beror på avståndet från ett center (t.ex. origo). Det vill säga: Låt [math]\phi(vec x)[/math] vara en RBF-funktion och [math]vec x[/math] en vektor. Då gäller: [math]\phi(vec x) = \phi(||vec x||)[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
