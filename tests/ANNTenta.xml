@@ -86,6 +86,20 @@
 			[/ul]
 		</Answer>
 	</TestQuestion>
+		<TestQuestion Category="Grundläggande">
+		<Question>
+			Vad kan man göra för att förbättra generaliseringen?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Lägga till brus tinn träningsdatan. Syftet är att sprida ut datapunkterna för att för förhindra en precis anpassning till original datan.[/li]
+				[li]Early stopping.[/li]
+				[li]Pruning.[/li]
+				[li]Bootstrapping.[/li]
+				[li]n-fold cross validation.[/li]
+			[ul]
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="Grundläggande">
 		<Question>
 			Vad kan man göra för att reducera (pruning) en modells komplexitet?
@@ -145,6 +159,14 @@
 		</Question>
 		<Answer>
 			Det innebär att man delar in data i olika delar. Nätverket tränas på en viss del av datan (training) och evalueras under träning på en annan del (testing). Det finns också en tredje del, validation som används för att evaluera prestanden (t.ex. mellan olika typer av algoritmer).
+		</Answer>
+	</TestQuestion>
+		<TestQuestion Category="Grundläggande">
+		<Question>
+			Hur fungerar "n-fold cross validation"?
+		</Question>
+		<Answer>
+			Data delas in i delar för träning och validering där var [math]n[/math]:te värde används som validering. Indelningen av mätvärdena görs slumpmässigt i [math]n[/math] ungefär lika stora delar. Detta ger att [math]n-1[/math] delar används för träning och en del för validering. Detta upprepas sedan [math]n[/math] gånger och medelvärdet av de [math]n[/math] prediktionsfelen används som en uppskatning av felet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
@@ -298,7 +320,7 @@
 				[li]Lägg målvärdena [math]t[/math] inom samma domän som [math]\phi[/math]. Syftet är att öka inlärningshastigheten genom att undvika små derivator i "svansen" på överföringsfunktionen.[/li]
 				[li]Ordna eller vikta träningsexemplen så att svåra exempel dominerar. Syftet är att nätverket ska tränas mer på de svåra exemplerna, så att beslutsytorna anpassas efter dessa.[/li]
 				[li]Välj smarta initialvikter.[/li]
-				[li]Introducera momentum i viktuppdateringen. Syftet är att undvika att enskilda mönster innehåll mycket brus, som då skulle ge stora variationer i vikterna.[/li]
+				[li]Introducera momentum i viktuppdateringen. Syftet är att undvika att om enskilda mönster innehåller mycket brus skulle ge stora variationer i vikterna.[/li]
 				[li]Lägg till slumpmässigt brus till vikterna under träning. Syftet är att undvika att fastna i lokala minimum.[/li]
 				[li]Ta bort [math]\phi(x)[/math]-funktionen för utnoder.[/li]
 			[/ul]
