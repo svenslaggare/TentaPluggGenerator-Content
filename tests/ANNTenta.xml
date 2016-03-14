@@ -490,7 +490,7 @@
 		<Answer>
 			Det är en typ av stokastisk RNN. Noderna delas in i gömda och synliga noder, där de synliga noderna är de som får information från miljön. Om en nod [math]i[/math] aktiveras eller inte beror på dess sannolikhet, som följer Boltzmannfördelningen: [math]P_i(on) = 1 / (1+e^(-(\Delta E_i) / T))[/math] där [math]\Delta E_i[/math] är skillnanden i energi (mellan att vara på och av) för nod [math]i[/math] och [math]T[/math] temperaturen för systemet.
 
-			Nätverket tränas genom att vikterna justeras så att interngenererad aktivitet motsvarar extern aktivitet. Nätverket kräver även att inga noder är kopplade till sig själva och att vikterna är symmetriska: [math]w_{i, j} = w_{j, i}[/math].
+			Nätverket tränas genom att vikterna justeras så att interngenererad aktivitet motsvarar extern aktivitet. Nätverket kräver även att inga noder är kopplade till sig själva och att vikterna är symmetriska: [math]w_{i, j} = w_{j, i}[/math] (annars garanteras ej nätverket att konvergera).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="BoltzmannMachines">
@@ -630,6 +630,55 @@
 				[li]Convolutional nerual networks (CNN)[/li]
 				[li]Auto-encoders (AE): [/li]
 			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TemporalNetworks">
+		<Question>
+			Vad för typ av nätverk kan användas för att behandla tidsbaserad data?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Tapered delay line[/li]
+				[li]Low pass filter bank[/li]
+				[li]Recurrent backprop[/li]
+				[li]Reservoir computing[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TemporalNetworks">
+		<Question>
+			Vad för nackdelar finns det för de olika temporal networks?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Tapered delay line: du måste anta ett specifikt tidsfönster för data:n.[/li]
+				[li]Recurrent backprop: det ger endast länkar mellan datapunkter i följd.[/li]
+				[li]Reservoir computing: kräver att flera parameterar behövs definieras i nätverket.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TemporalNetworks">
+		<Question>
+			Hur fungerar tapered delay line (för temporal networks)?
+		</Question>
+		<Answer>
+			Indata skickas via fördröjningslinjen (delay line) ett tidssteg i taget. När alla fördröjningslinjer har fått data (dvs att första datapunkten har propageras till den sista fördröjningslinjen), så skickas fördröjningslinjen som input till ett Backprop nätverk. På detta sätt konverteras tid till ett mönster.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TemporalNetworks">
+		<Question>
+			Hur fungerar Recurrent backprop (för temporal networks)?
+		</Question>
+		<Answer>
+			Fungerar så att utdata skickas som indata i nätverket.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="TemporalNetworks">
+		<Question>
+			Hur fungerar low pass filter bank (för temporal networks)?
+		</Question>
+		<Answer>
+	
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TemporalNetworks">
