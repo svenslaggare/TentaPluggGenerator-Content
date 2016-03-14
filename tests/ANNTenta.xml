@@ -7,13 +7,14 @@
 		<Answer>
 			[ul]
 				[li]Inlinje till en nod: dendrite.[/li]
+				[li]Utlinje för en nod: axon.[/li]
 				[li]Utvärdet för en nod: utfrekvensen för en neuron.[/li]
 				[li]Vikterna mellan två noder: synaps effektiviteten.[/li]
+				[li]Summerings komponenten hos en nod: soma.[/li]
 				[li]Överföringsfunktionen för en nod: soma spatial och temporal summerings egenskaper.[/li]
-				[li]Utlinje för en nod: axon.[/li]
 				[li]Vikterna kan vara positiva eller negativa: Excitatory and inhibitory synaptisk 
      potentiell.[/li]
-				[li]Summerings komponenten hos en nod: soma.[/li]
+     			[li]Action potential av en neuron: Puls som skickas via en axon av en neuron.[/li]
 				[li]Trösklad överföringsfunktion: allt-eller-inget av action potentials.[/li]
 			[/ul]
 		</Answer>
@@ -203,7 +204,7 @@
 			Vad säger konvergenssatsen för perceptionsinlärning?
 		</Question>
 		<Answer>
-			Om det finns en lösning för en ändlig träningsdatamängd, så kommer nätverket alltid att konvergera efter ett ändligt antal steg, oberoende av steglängden [math]\eta[/math].
+			Om det finns en lösning (dvs är linjärt separerbart) för en ändlig träningsdatamängd, så kommer nätverket alltid att konvergera efter ett ändligt antal steg, oberoende av steglängden [math]\eta[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
@@ -262,10 +263,12 @@
 		<Answer>
 			Den består av tre delar:
 			[b]Framåtpassen[/b]
+			Beräknar aktiveringen av alla noder, i alla lager.
 			Beräkna alla: [math]h_j = \phi(\sum_i v_(j, i) x_i)[/math] och [math]y_k = \phi(\sum_i w_(k, j) h_j)[/math] där [math]h_j[/math] är en gömd nod, [math]v_(j, i)[/math] en vikt i det första lagret (gömda), [math]y_k[/math] är en utnod och [math]w_(k, j)[/math] en vikt i det andra lagret (output).
 
 			[b]Bakåtpassen[/b]
-			Beräkna alla (fel): [math]\delta_k = (t_k - y_k)*\phi'(y_k^text{in})[/math] och [math]\delta_j = \sum_k \delta_k * w_(k, j) * \phi'(h_j^{text}))[/math].
+			Distribuerar de generaliserade felet mellan alla noder.
+			Beräkna alla: [math]\delta_k = (t_k - y_k)*\phi'(y_k^text{in})[/math] och [math]\delta_j = \sum_k \delta_k * w_(k, j) * \phi'(h_j^{text}))[/math].
 
 			[b]Uppdatera vikter[/b]
 			[math]\delta w_(k, j) = \eta \delta_k h_j[/math] och [math]\delta v_(j, i) = \eta \delta_j x_i[/math].
@@ -292,11 +295,11 @@
 		<Answer>
 			[ul]
 				[li]Använd en asymmetrisk [math]\phi(x)[/math]-funktion.[/li]
-				[li]Lägg målvärdena [math]t[/math] inom samma domän som [math]\phi[/math].[/li]
-				[li]Ordna eller vikta träningsexemplen så att svåra exempel dominerar.[/li]
+				[li]Lägg målvärdena [math]t[/math] inom samma domän som [math]\phi[/math]. Syftet är att öka inlärningshastigheten genom att undvika små derivator i "svansen" på överföringsfunktionen.[/li]
+				[li]Ordna eller vikta träningsexemplen så att svåra exempel dominerar. Syftet är att nätverket ska tränas mer på de svåra exemplerna, så att beslutsytorna anpassas efter dessa.[/li]
 				[li]Välj smarta initialvikter.[/li]
-				[li]Introducera momentum i viktuppdateringen.[/li]
-				[li]Lägg till slumpmässigt brus till vikterna under träning.[/li]
+				[li]Introducera momentum i viktuppdateringen. Syftet är att undvika att enskilda mönster innehåll mycket brus, som då skulle ge stora variationer i vikterna.[/li]
+				[li]Lägg till slumpmässigt brus till vikterna under träning. Syftet är att undvika att fastna i lokala minimum.[/li]
 				[li]Ta bort [math]\phi(x)[/math]-funktionen för utnoder.[/li]
 			[/ul]
 		</Answer>
@@ -376,7 +379,31 @@
 		<Answer>
 			Det består av tre lager: inlagret, det gömda lagret och utlagret. Varje nod i det gömda lagret har en överföringsfunktion av typen [i]radial-basis[/i] där varje nod har en position (dess center). Utlagret beräknar sedan utdatan som summan av de [math]n[/math] gömda noderna: [math]hat f(x)=\sum_i^n w_i \phi_i(x)[/math] där [math]hat f(x)[/math] är en approximation av funktionen [math]f(x)[/math].
 
-			Vikten kan antigen beräknas med minstakvadratmetoden eller deltaregeln. För att placera ut RBF-noderna så används oövervakad inlärning, som t.ex. competitive learning eller expectation maximization.
+			Vikten kan antigen beräknas med minstakvadratmetoden eller deltaregeln. För att placera ut RBF-noderna så används självorganiserade inlärningsregler: t.ex. competitive learning eller expectation maximization.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="CompetitiveLearning">
+		<Question>
+			Vad används oftast ett RBF-nätverk till?
+		</Question>
+		<Answer>
+			För att ändra på representationen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="CompetitiveLearning">
+		<Question>
+			Hur fungerar Competitive Learning för Vector Quantization?
+		</Question>
+		<Answer>
+			I varje iteration så väljs en slumpmässig träningsvektor ifrån data:n. Den närmaste RBF-enheten (vinnaren) beräknas sedan (t.ex. med euklidiska avståndet), och denna enhet uppdateras sedan på ett sätt så att den kommer närmare träningsvektorn.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="CompetitiveLearning">
+		<Question>
+			Hur fungerar Expectation Maximization?
+		</Question>
+		<Answer>
+			I varje iteration består av att först vikta alla datapunkter av värdet för varje basfunktion, och sedan flytta varje enhet emot deras respektive centrum, och justerar storleken på enheterna (genom att ändra variansen).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
