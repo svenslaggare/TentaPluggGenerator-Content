@@ -177,7 +177,7 @@
 			Vad händer om vi kopplar ihop flera linjära nätverk?
 		</Question>
 		<Answer>
-			Det resulterar fortfarande i ett linjärt nätverk. Det för att om: Låt [math]W_1, W_2, W_3[/math] representera tre viktmatriser för tre linjära nätverk. Det sammankopplade nätverket ges av: [math]W_3(W_2(W_x(x)))=(W_3 * W_2 * W_1) * x[/math] där [math]x[/math] är indata.
+			Det resulterar fortfarande i ett linjärt nätverk. Det för att om: Låt [math]W_1, W_2, W_3[/math] representera tre viktmatriser för tre linjära nätverk. Det sammankopplade nätverket ges av: [math]W_3(W_2(W_1(x)))=(W_3 * W_2 * W_1) * x[/math] där [math]x[/math] är indata.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
@@ -221,7 +221,7 @@
 			Om resultatet är 0, men borde vara 1, ändras vikterna: [math]\Delta w = \eta x[/math].
 			Om resultatet är 1, men borde vara 0, ändras vikterna: [math]\Delta w = -\eta x[/math].
 
-			Alternativt: Låt [math]e=t-y[/math] vara felet där [math]t[/math] är det verkliga värdet och [math]y[/math] är resultatet. Då uppdateras vikterna enligt: [math]\Delta w = \eta e x[/math].
+			Alternativt: Låt [math]e=t-y[/math] vara felet där [math]t[/math] är det verkliga värdet och [math]y[/math] är resultatet (som är trösklat). Då uppdateras vikterna enligt: [math]\Delta w = \eta e x[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
@@ -323,7 +323,7 @@
 				[li]Lägg målvärdena [math]t[/math] inom samma domän som [math]\phi[/math]. Syftet är att öka inlärningshastigheten genom att undvika små derivator i "svansen" på överföringsfunktionen.[/li]
 				[li]Ordna eller vikta träningsexemplen så att svåra exempel dominerar. Syftet är att nätverket ska tränas mer på de svåra exemplerna, så att beslutsytorna anpassas efter dessa.[/li]
 				[li]Välj smarta initialvikter.[/li]
-				[li]Introducera momentum i viktuppdateringen. Syftet är att undvika att om enskilda mönster innehåller mycket brus skulle ge stora variationer i vikterna.[/li]
+				[li]Introducera momentum i viktuppdateringen. Syftet är att undvika att om enskilda mönster innehåller mycket brus, skulle det ge stora variationer i vikterna.[/li]
 				[li]Lägg till slumpmässigt brus till vikterna under träning. Syftet är att undvika att fastna i lokala minimum.[/li]
 				[li]Ta bort [math]\phi(x)[/math]-funktionen för utnoder.[/li]
 			[/ul]
@@ -424,7 +424,7 @@
 			Vad används oftast ett RBF-nätverk till?
 		</Question>
 		<Answer>
-			För att ändra på representationen.
+			För att ändra på representationen av indata.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
@@ -440,7 +440,7 @@
 			Hur fungerar Expectation Maximization?
 		</Question>
 		<Answer>
-			I varje iteration består av att först vikta alla datapunkter av värdet för varje basfunktion, och sedan flytta varje enhet emot deras respektive centrum, och justerar storleken på enheterna (genom att ändra variansen).
+			I varje iteration består av att först vikta alla datapunkter av värdet för punkten för varje basfunktion, och sedan flytta varje enhet emot deras respektive centrum, och justerar storleken på enheterna (genom att ändra variansen).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
@@ -491,7 +491,7 @@
 			Vad är "Principal Component Analsysis" (PCA)?
 		</Question>
 		<Answer>
-			Det är en algoritm för att reducera dimensionen på indata. Den antar att informationen ligger i datans spridning (varians). En [i]principal komponent[/i] är riktningen för de största variationen i data:n. Sedan försöker man passa en [math]N[/math]-dimensionell ellipsoid till datan, som transformerar data till ett nytt koordinatsystem. Detta innebär att PCA är en linjär transformation.
+			Det är en algoritm för att reducera dimensionen på indata. Den antar att informationen ligger i datans spridning (varians). En [i]principalkomponent[/i] är riktningen för de största variationen i data:n. Sedan försöker man passa en [math]N[/math]-dimensionell ellipsoid till datan, som transformerar data till ett nytt koordinatsystem. Detta innebär att PCA är en linjär transformation.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DataProcessing">
@@ -499,9 +499,7 @@
 			Vad innebär "Ensemble learning"?
 		</Question>
 		<Answer>
-			Det innebär att man använder sig av flera nätverk. I alla nätverk, så kan bias minskas till kostnad av ökad varians. Men i en samling av nätverk, så kan variansen minskas utan att det behöver påverka biasen.
-
-			Idén är att en mängd av nätverk med hög bias kan kombineras för att producera ett nytt nätverk med låg bias. 
+			Det innebär att man använder sig av flera nätverk. I alla nätverk, så kan bias minskas till kostnad av ökad varians. Men i en samling av nätverk, så kan variansen minskas utan att det behöver påverka biasen.	Idén är att en mängd av nätverk med hög bias kan kombineras för att producera ett nytt nätverk med låg bias. 
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DataProcessing">
@@ -609,7 +607,7 @@
 			Vad är den typiska lagringskapaciteten för ett Hoptfieldnätverk, och vad kan göras för att förbättra den?
 		</Question>
 		<Answer>
-			Det är [math]13.8[/math]%. För att förbättra denna siffra, så kan man använda sig av mönster som få aktiva noder (sparse activity).
+			Det är [math]13.8[/math]%. För att förbättra denna siffra, så kan man använda sig av mönster som har få aktiva noder (sparse activity).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DeepLearning">
