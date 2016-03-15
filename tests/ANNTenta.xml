@@ -121,6 +121,9 @@
 			Variansen är felet som uppstår på grund av känslighet för små variationer i träningsdatan. Hög varians kan leda till överinlärning. 
 
 			Bias-varians-dilemmat innebär att man antigen får underinlärning eller överinlärning.
+
+			Det beskrivs av följande bild:
+			[img]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/BiasVariance.png[/img].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Grundläggande">
@@ -211,7 +214,7 @@
 	</TestQuestion>
 	<TestQuestion Category="SingleLayer">
 		<Question>
-			Hur kan ett trösklat nätverk tränas?
+			Hur kan ett trösklat nätverk tränas (även kallad perceptionsinlärning regeln)?
 		</Question>
 		<Answer>
 			Genom att ändra vikter när data klassificeras fel.
@@ -323,6 +326,18 @@
 				[li]Introducera momentum i viktuppdateringen. Syftet är att undvika att om enskilda mönster innehåller mycket brus skulle ge stora variationer i vikterna.[/li]
 				[li]Lägg till slumpmässigt brus till vikterna under träning. Syftet är att undvika att fastna i lokala minimum.[/li]
 				[li]Ta bort [math]\phi(x)[/math]-funktionen för utnoder.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MultiLayer">
+		<Question>
+			Vad kan hända om antalet gömda noder ökas i ett flerlagersnätverk?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Att mer antal träningsdata behövs, för att de blir fler vikter.[/li]
+				[li]Det blir möjligt att approximera mer komplexa funktioner, för att flera gömda enheter ger flera beslutsytor.[/li]
+				[li]Det finns risken för att det leder till sämre generalisering (överinlärning), när man har för många. Har man dock för få noder, så förbättras generalisering.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -476,7 +491,7 @@
 			Vad är "Principal Component Analsysis" (PCA)?
 		</Question>
 		<Answer>
-			Det är en algoritm för att reducera dimensionen på indata. Den antar att informationen ligger i datans spridning (varians). Sedan försöker man passa en [math]N[/math]-dimensionell ellipsoid till datan, som transformerar data till ett nytt koordinatsystem. Detta innebär att PCA är en linjär transformation.
+			Det är en algoritm för att reducera dimensionen på indata. Den antar att informationen ligger i datans spridning (varians). En [i]principal komponent[/i] är riktningen för de största variationen i data:n. Sedan försöker man passa en [math]N[/math]-dimensionell ellipsoid till datan, som transformerar data till ett nytt koordinatsystem. Detta innebär att PCA är en linjär transformation.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DataProcessing">
@@ -591,10 +606,10 @@
 	</TestQuestion>
 	<TestQuestion Category="BoltzmannMachines">
 		<Question>
-			Vad är den maximala lagringskapaciteten för ett Hoptfieldnätverk?
+			Vad är den typiska lagringskapaciteten för ett Hoptfieldnätverk, och vad kan göras för att förbättra den?
 		</Question>
 		<Answer>
-			Det är [math]13.8[/math]%.
+			Det är [math]13.8[/math]%. För att förbättra denna siffra, så kan man använda sig av mönster som få aktiva noder (sparse activity).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DeepLearning">
