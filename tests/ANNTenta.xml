@@ -416,7 +416,8 @@
 		<Answer>
 			Det består av tre lager: inlagret, det gömda lagret och utlagret. Varje nod i det gömda lagret har en överföringsfunktion av typen [i]radial-basis[/i] där varje nod har en position (dess center). Utlagret beräknar sedan utdatan som summan av de [math]n[/math] gömda noderna: [math]hat f(x)=\sum_i^n w_i \phi_i(x)[/math] där [math]hat f(x)[/math] är en approximation av funktionen [math]f(x)[/math].
 
-			Vikten kan antigen beräknas med minstakvadratmetoden eller deltaregeln. För att placera ut RBF-noderna så används självorganiserade inlärningsregler: t.ex. competitive learning eller expectation maximization.
+			Inlärningen består av två steg:
+			Först placeras RBF-noderna, med hjälp av självorganiserade inlärningsregler: t.ex. competitive learning eller expectation maximization. Sedan beräknas vikterna med minstakvadratmetoden eller deltaregeln.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
