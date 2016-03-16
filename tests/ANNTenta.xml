@@ -144,6 +144,15 @@
 	</TestQuestion>
 	<TestQuestion Category="Grundläggande">
 		<Question>
+			Hur kan man implementera regularisation?
+		</Question>
+		<Answer>
+			[n]Weight decay[/b]
+			Det innebär att man bestraffar stora vikter, genom att tvinga att tvinga stora vikter till 0.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grundläggande">
+		<Question>
 			Ange de antaganden som olika typer av algoritmer gör.
 		</Question>
 		<Answer>
@@ -260,6 +269,14 @@
 	</TestQuestion>
 	<TestQuestion Category="MultiLayer">
 		<Question>
+			Vad säger universal approximations satsen?
+		</Question>
+		<Answer>
+			Att ett framåtkopplat nätverk med ett lager av ett ändligt antal gömda noder kan approximera en godtycklig kontinuerlig funktion på en kompakt delmängd av [math]R^n[/math] där aktiveringsfunktionen är begränsad, monotont ökande och kontinuerlig. Notera att satsen säger inget om vad för algoritm som krävs för att få parametrarna till nätverket.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MultiLayer">
+		<Question>
 			Varför fungerar inte inlärningsreglerna för enlagersnätverk också för flerlagersnätverk?
 		</Question>
 		<Answer>
@@ -311,6 +328,14 @@
 				[li]Skalar dåligt för stora problem.[/li]
 				[li]Biologiskt orealistisk.[/li]
 			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MultiLayer">
+		<Question>
+			Varför kan backprop misslyckas att hitta en bra lösningen, även om det finns?
+		</Question>
+		<Answer>
+			Backprop använder sig av gradinent decent. Denna algoritm kan fastna i lokala minimum, som den inte kan undkomma ifrån och lokala minimum behöver inte representera en bra lösning.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="MultiLayer">
@@ -418,6 +443,14 @@
 
 			Inlärningen består av två steg:
 			Först placeras RBF-noderna, med hjälp av självorganiserade inlärningsregler: t.ex. competitive learning eller expectation maximization. Sedan beräknas vikterna med minstakvadratmetoden eller deltaregeln.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="CompetitiveLearning">
+		<Question>
+			Vad för fördelar finns det att använda RBF som aktiveringsfunktion istället för sigmoid?
+		</Question>
+		<Answer>
+			RBF är lokala medans sigmoid har oändligt långa svansar. Med lokala menas här att en RBF funktion har en begränsad räckvidd. Detta ger att under inlärning, så påverkas inte en RBF-nod av alla träningsdata, vilket ger att inlärning av ett mönster behöver inte innebär att det påverkar inlärningen av ett annat mönster.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
@@ -605,10 +638,18 @@
 	</TestQuestion>
 	<TestQuestion Category="BoltzmannMachines">
 		<Question>
+			Vad är ett "spurious state" i ett Hopfieldnätverk?
+		</Question>
+		<Answer>
+			Det är stabila tillstånd som inte motsvarar något mönster som lärdes uppstår. Dessa uppstår som en sidoeffekt av inlärningen och beror på korrelationen mellan mönster.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="BoltzmannMachines">
+		<Question>
 			Vad är den typiska lagringskapaciteten för ett Hoptfieldnätverk, och vad kan göras för att förbättra den?
 		</Question>
 		<Answer>
-			Det är [math]13.8[/math]%. För att förbättra denna siffra, så kan man använda sig av mönster som har få aktiva noder (sparse activity).
+			Den är [math]0.138N[/math] där [math]N[/math] är antalet noder, under antaganet att antalet 1:or och 0:or är ungefär lika många. För att förbättra denna siffra, så kan man använda sig av mönster som har få aktiva noder (sparse activity), och då får man istället [math]N*log(N)[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DeepLearning">
