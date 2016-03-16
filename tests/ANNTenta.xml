@@ -838,7 +838,7 @@
 	</TestQuestion>
 	<TestQuestion Category="ReinforcementLearning">
 		<Question>
-			Hur sker inlärning i reforcement öearning?
+			Hur sker inlärning i reforcement learning?
 		</Question>
 		<Answer>
 			Det sker ofta med Temporal-Difference (TD) inlärning. Det fungerar så att man kollar på skillnanden mellan två tillstånd.
