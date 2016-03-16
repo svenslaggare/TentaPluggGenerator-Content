@@ -474,7 +474,7 @@
 			Hur fungerar Expectation Maximization?
 		</Question>
 		<Answer>
-			Varje iteration består av att först vikta alla datapunkter av värdet för punkten för varje basfunktion, och sedan flytta varje enhet emot deras respektive centrum, och justerar storleken på enheterna (genom att ändra variansen).
+			Varje iteration består av att först vikta alla datapunkter av värdet för punkten för varje basfunktion, och sedan flytta varje enhet emot deras respektive centrum, och justera storleken på enheterna (genom att ändra variansen).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
