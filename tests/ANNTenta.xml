@@ -805,7 +805,7 @@
 			Hur fungerar "reservoir computing"?
 		</Question>
 		<Answer>
-			Det bestpr av tre steg:
+			Det sker i tre steg:
 
 			[b]Steg 1 - Skapa ett slumpmässig RNN[/b]
 			Skapa ett slumpmässigt RNN nätverk "reservoir". Koppla sedan innoder till reservoaren genom slumpmässiga anslutningar och skapa utnoder (utan kopplingar).
