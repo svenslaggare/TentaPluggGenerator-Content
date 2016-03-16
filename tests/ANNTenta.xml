@@ -696,7 +696,7 @@
 			[b]Fine tuning[/b]
 			Sedan tränas hela nätverket med backprop (med märkt data).
 
-			I första steget så behövs inte märkt data, så oftast är datamängden för första steget mycket störe än i det andra steget. Varje gömt lager kommer att skapa en egen representation av datan, t.ex.: kanter -> objekt delar -> objekt för bilder.
+			I första steget så behövs inte märkt data, så oftast är datamängden för första steget mycket störe än i det andra steget. Varje gömt lager kommer att skapa en egen representation av datan, där djupare lager har en högre grad av abstrakation. Exempel är: kanter -> objekt delar -> objekt för bilder.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DeepLearning">
