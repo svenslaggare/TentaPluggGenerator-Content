@@ -466,7 +466,7 @@
 			Hur fungerar Competitive Learning för Vector Quantization?
 		</Question>
 		<Answer>
-			I varje iteration så väljs en slumpmässig träningsvektor ifrån data:n. Den närmaste RBF-enheten (vinnaren) beräknas sedan (t.ex. med euklidiska avståndet), och denna enhet uppdateras sedan på ett sätt så att den kommer närmare träningsvektorn.
+			Varje iteration så väljs en slumpmässig träningsvektor ifrån data:n. Den närmaste RBF-enheten (vinnaren) beräknas sedan (t.ex. med euklidiska avståndet), och denna enhet uppdateras sedan på ett sätt så att den kommer närmare träningsvektorn.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
@@ -474,7 +474,7 @@
 			Hur fungerar Expectation Maximization?
 		</Question>
 		<Answer>
-			I varje iteration består av att först vikta alla datapunkter av värdet för punkten för varje basfunktion, och sedan flytta varje enhet emot deras respektive centrum, och justerar storleken på enheterna (genom att ändra variansen).
+			Varje iteration består av att först vikta alla datapunkter av värdet för punkten för varje basfunktion, och sedan flytta varje enhet emot deras respektive centrum, och justerar storleken på enheterna (genom att ändra variansen).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
@@ -641,7 +641,7 @@
 			Vad är ett "spurious state" i ett Hopfieldnätverk?
 		</Question>
 		<Answer>
-			Det är stabila tillstånd som inte motsvarar något mönster som lärdes uppstår. Dessa uppstår som en sidoeffekt av inlärningen och beror på korrelationen mellan mönster.
+			Det är stabila tillstånd som inte motsvarar något mönster som lärdes in. Dessa uppstår som en sidoeffekt av inlärningen och beror på korrelationen mellan mönster.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="BoltzmannMachines">
@@ -680,7 +680,7 @@
 			Vad för problem finns det med en djup struktur?
 		</Question>
 		<Answer>
-			De är svårare att träna, pga. problemet med vanishing gradents som uppstår i backprop och att det kräver att man gör en icke-konvex optimering.
+			De är svårare att träna, pga. problemet med vanishing gradients som uppstår (t.ex. i backprop) och att det kräver att man gör en icke-konvex optimering.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="DeepLearning">
@@ -691,10 +691,10 @@
 			Den består av två faser:
 
 			[b]Greedy pre-training[/b]
-			Här används oövervakad inlärning, där varje lager tränas i taget. Först så tränas det första lagret, med faktiska indata som indata. Sedan tränas det andra lagret, med utdata ifrån det första lagret som input, osv. De vikter som tas fram används i nästa steg.
+			Här används oövervakad inlärning, där varje lager tränas i taget. Först så tränas det första lagret, med faktiska indata som indata. Sedan tränas det andra lagret, med utdata ifrån det första lagret som input, osv. De vikter som tas fram i varje lager används sedan som initial vikter i nästa steg.
 
 			[b]Fine tuning[/b]
-			Sedan tränas hela nätverket med backprop (med märkt data).
+			Nu tränas hela nätverket med backprop (med märkt data).
 
 			I första steget så behövs inte märkt data, så oftast är datamängden för första steget mycket störe än i det andra steget. Varje gömt lager kommer att skapa en egen representation av datan, där djupare lager har en högre grad av abstrakation. Exempel är: kanter -> objekt delar -> objekt för bilder.
 		</Answer>
@@ -773,7 +773,7 @@
 			Hur fungerar Recurrent backprop (för temporal networks)?
 		</Question>
 		<Answer>
-			Fungerar så att utdata skickas som indata i nätverket.
+			Fungerar så att när man har genererar utdata, så skickas det sedan som indata i nätverket. Antar att man gör det till det konvergerar eller något.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="TemporalNetworks">
@@ -798,6 +798,24 @@
 		</Question>
 		<Answer>
 			Det är ofta ett enkelt perceptronlager, som t.ex. tränas med: linjär-regression eller Backprop.
+		</Answer>
+	</TestQuestion>
+		<TestQuestion Category="TemporalNetworks">
+		<Question>
+			Hur fungerar "reservoir computing"?
+		</Question>
+		<Answer>
+			Det bestpr av tre steg:
+
+			[b]Steg 1 - Skapa ett slumpmässig RNN[/b]
+			Skapa ett slumpmässigt RNN nätverk "reservoir". Koppla sedan innoder till reservoaren genom slumpmässiga anslutningar och skapa utnoder (utan kopplingar).
+
+			[b]Steg 2 - [/b]
+			Få reservoaren att "cirkulera" genom att skicka in indata till innoderna och utdata till utenheterna [math]n[/math] gånger. Detta resulterar i en sekvens av tillstånd för reservoaren.
+
+			[b]Steg 3 - Beräkna utvikter[/b]
+			Sedan beräknas utvikterna genom t.ex. linjär regression eller backprop m.h.a. märkta utdata för de reservoarens tillstånd, och dessa vikter används sedan för att skapa kopplingar mellan reservoaren och utnoderna.
+
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ReinforcementLearning">
