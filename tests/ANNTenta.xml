@@ -147,7 +147,7 @@
 			Hur kan man implementera regularisation?
 		</Question>
 		<Answer>
-			[n]Weight decay[/b]
+			[b]Weight decay[/b]
 			Det innebär att man bestraffar stora vikter, genom att tvinga att tvinga stora vikter till 0.
 		</Answer>
 	</TestQuestion>
