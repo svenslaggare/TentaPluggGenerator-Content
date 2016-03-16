@@ -810,7 +810,7 @@
 			[b]Steg 1 - Skapa ett slumpmässig RNN[/b]
 			Skapa ett slumpmässigt RNN nätverk "reservoir". Koppla sedan innoder till reservoaren genom slumpmässiga anslutningar och skapa utnoder (utan kopplingar).
 
-			[b]Steg 2 - [/b]
+			[b]Steg 2 - cirkulera reservoaren[/b]
 			Få reservoaren att "cirkulera" genom att skicka in indata till innoderna och utdata till utenheterna [math]n[/math] gånger. Detta resulterar i en sekvens av tillstånd för reservoaren.
 
 			[b]Steg 3 - Beräkna utvikter[/b]
