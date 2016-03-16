@@ -814,7 +814,7 @@
 			Få reservoaren att "cirkulera" genom att skicka in indata till innoderna och utdata till utenheterna [math]n[/math] gånger. Detta resulterar i en sekvens av tillstånd för reservoaren.
 
 			[b]Steg 3 - Beräkna utvikter[/b]
-			Sedan beräknas utvikterna genom t.ex. linjär regression eller backprop m.h.a. märkta utdata för de reservoarens tillstånd, och dessa vikter används sedan för att skapa kopplingar mellan reservoaren och utnoderna.
+			Sedan beräknas utvikterna genom t.ex. linjär regression eller backprop m.h.a. märkta utdata för reservoarens tillstånd, och dessa vikter används sedan för att skapa kopplingar mellan reservoaren och utnoderna.
 
 		</Answer>
 	</TestQuestion>
