@@ -450,7 +450,7 @@
 			Vad för fördelar finns det att använda RBF som aktiveringsfunktion istället för sigmoid?
 		</Question>
 		<Answer>
-			RBF är lokal medans sigmoid har oändligt långa svansar. Med lokal menas här att en RBF funktion har en begränsad räckvidd. Detta ger att under inlärning, så påverkas inte en RBF-nod av alla träningsdata, vilket ger att inlärning av ett mönster behöver inte innebär att det påverkar inlärningen av ett annat mönster.
+			RBF är lokal medans sigmoid har en oändlig lång svans. Med lokal menas här att en RBF funktion har en begränsad räckvidd. Detta ger att under inlärning, så påverkas inte en RBF-nod av alla träningsdata, vilket ger att inlärning av ett mönster behöver inte innebär att det påverkar inlärningen av ett annat mönster.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="CompetitiveLearning">
