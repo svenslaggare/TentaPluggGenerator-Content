@@ -30,4 +30,7 @@
 	<Course Name="ANN">
 		<Test File="ANNTenta" />
 	</Course>
+	<Course Name="Pattern Recognition">
+		<Test File="PatternTenta" />
+	</Course>
 </Courses>

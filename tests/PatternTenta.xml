@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Test Name="Tenta">
+	<TestQuestion Category="BayesianPatternClassification">
+		<Question>
+				Vad är definitionen av Bayesian Pattern Classification?
+		</Question>
+		<Answer>
+			[ul]
+				[li]En signalkälla som slumpmässigt väljer en intern källkategori [math]S in {1,...,N_s}[/math][/li]
+				[li]Den genererade signalen kan sedan transformeras och brus kan tillkomma.[/li]
+				[li]Källkategorin är okänd för den externa världen, det ändå som klassificeraren ser är en feature vektor [math]x[/math] som består av [math]K[/math] olika features.[/li]
+				[li]Beroende på de observerade features, så väljer klassificeraren en utgärd ifrån en lista av [math]N_d[/math] olika alternativ.[/li]
+				[li]Utvalet baseras på [math]N_d[/math] olika discriminant funktioner, där den funktionen som högst värde väljs.[/li]
+				[li]Utdata är ett index [math]d in {1,...,N_d}[/math].[/li]
+			[/ul]
+			[b]Prior källkategori distribution[/b]
+			Källkategorin betraktas som en diskret slumpvariabel [math]S[/math] vilket tar värdet [math]S=j[/math] med sannolikhet [math]P_S(j)[/math], denna fördelning kallas för [i]a priori probability distribution[/i].
+
+			[b]Feature vektor distribution[/b]
+			Den observerade feature vektorn [math]x[/math] betraktas som ett utfall ifrån slumpvariabeln [math]X[/math], som [i]måste[/i] bero på källkategorin. Denna betecknas som: [math]f_(X|S)(x | j)[/math].
+
+			[b]Beslutsfunktion[/b]
+			Mappar ifrån observerad feature vektor [math]x[/math] till ett beslut, [math]d(x) in {1,..., N_d}[/math].
+
+			[b]A Posteriori Source category Distribution[/b]
+			Ges av Bayes regel: [math]P_(S|X)(j | x) = (f_(X|S)(x | j) P_S(j)) / f_X(x)[/math] där [math]f_X(x) = sum_(j=1)^(N_s) f_(X|S)(x | j) P_S(j)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="BayesianPatternClassification">
+	    <Question>
+			Vad innebär Bayes Minimum-Risk Decision Rule?
+	    </Question>
+	    <Answer>
+			Först måste vi definiera ett generellt optimerings kriterium. Definiera en [i]loss matris[/i] av storlek [math]N_d \times N_s[/math]:
+			[math]L = [[L(d = 1 | S = 1), ..., L(d = 1 | S = N_s)], [..., ..., ...], [L(d = N_d | S = 1), ..., L(d = N_d | S = N_s)]][/math].
+			Där [math]L_(i, j) = L(d = i | S = j)[/math] ger oss förlusten som vi får om vi väljer [math]d = i[/math] när den faktiska kategorin är [math]S = j[/math].
+
+			Vi introducerar nu: Conditional Expected Loss: [math]R(i | x) = sum_(j = 1)^(N_s) L(d = i |S = j) P_(S|X)(j | x)[/math]. Regeln blir då: [math]d(x) = argmin_i R(i | x)[/math].
+			<!-- Något om varför är fallet, Q grejen i boken. -->
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="BayesianPatternClassification">
+	    <Question>
+			Vad innebär Minimum Error Rate?
+	    </Question>
+	    <Answer>
+			Det är ett special fall av Bayes Minimum-Risk Decision Rule. Om syftet är att vi gissa den gömda källkategori med minska sannolikhet för fel, då kan vi definiera loss matrisen som: [math]L(d = i | S = j) = { (0, i = j), (1, otherwise) :}[/math]. Detta innebär att rätta svar kostar oss ingenting, och alla fel svar kostar lika mycket. Detta ger: [math]R(i | x) = sum_(j = 1)^(N_s) L(d = i | S = j) P_(S|X)(j | x) = sum_(j != i) P_(S|X)(j|x) = 1 - P_(S|X)(i | x)[/math].
+
+			För att minimera risken, så bör klassificeraren välja den källa som hade högst värde för posteriori conditional probability, [math]P_(S|X)(i | x)[/math]. [math]d(x) = argmax_i P_(S|X)(i | x) \hArr argmax_i (f_(X|S)(x|i)P_S(i)) / f_X(x)[/math].
+
+			För att [math]f_X(x)[/math] fär alla källor, så kan ekvationen förenklas till: [math] d(x) = argmax_i f_(X|S)(x | i) P_S(i)[/math], som kallas för [i]Maximum a Posteriori probability (MAP) Decision Rule[/i]. 
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="BayesianPatternClassification">
+	    <Question>
+	    	Vad innebär Maximum Likelihood (ML) Decision Rule?
+	    </Question>
+	    <Answer>
+	    	Om alla källkategorier är lika sannolika, då kan man förenkla MAP regeln till ML: [math]d(x) = argmax_i f_(X|S) (x | i)[/math].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="BayesianPatternClassification">
+	    <Question>
+	    	Vad innebär en discriminant funktion?
+	    </Question>
+	    <Answer>
+	    	Alla tidigare beslutsregler kan uttryckas i en generell form (General Decision Rule): [math]d(x) = argmax_(i = 1, ..., N_d) g_i(x)[/math] där [math]g(x)[/math] funktionerna kallas för discriminant funktioner. Då kan man få tidigare regler som:
+	    	[ul]
+	    		[li]Min. Risk Rule: [math]g_i(x) = -R(i | x)[/math][/li]
+	    		[li]MAP Rule: [math]g_i(x) = f_(X|S)(x | i) P_S(i)[/math][/li]
+	    		[li]ML Rule: [math]g_i(x) = f_X(X|S)(x | i)[/math][/li]
+	    	[/ul]
+
+	    	Vi kan få en ny mängd av discriminant funktioner, med identiska beslut om vi applicerar en transformation: [math]g'_i(x) = h(g_i(x))[/math] där [math]h[/math] är en monotomisk ökande funktion (t.ex. [math]log[/math]).
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="BayesianPatternClassification">
+	    <Question>
+	    	Vad innebär en decision region?
+	    </Question>
+	    <Answer>
+	    	För varje observerad feature vektor [math]x[/math] så definierar [math]d(x)[/math] en unik utdata för klassificeraren. Vi kan se denna funktion som delar upp mängden av alla feature vectors till disjunkta decision regioner: [math]Omega_i = { x: d(x) = i }[/math].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="BayesianPatternClassification">
+	    <Question>
+	    	Hur kan vi beräkna sannolikhet för fel?
+	    </Question>
+	    <Answer>
+	    	Om vi bara har två källor: [math]P[text{error}] = P[X in Omega_2 \cap S = 1] + P[X in Omega_1 \cap S = 2][/math]. Detta är lika med: [math]P_S(1) int_(Omega_2) f_(X|S)(x | 1) dx + P_S(2) int_(Omega_1) f_(X|S)(x | 2) dx[/math].
+
+	    	I det mer generella fallet då [math]N_d = N_s > 2[/math] så blir det mer komplicerat, för det finns fler sätt att vara fel på än rätt. Då är det lättare att istället beräkna [math]P[text{correct}]=sum_(i=1)^(N_s) P[X in Omega_i \cap S = i] = sum_(i=1)^(N_s) P_S(i) int_(Omega_i) f(X|S)(x | i) dx[/math]. Då blir [math]P[text{error}] = 1 - P[text{correct}][/math].
+	    </Answer>
+	</TestQuestion>
+	<!-- Kansle 3.5, 3.6, 3.7, 3.8 -->
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Vad innebär det att en HMM har infinite duration?
+	    </Question>
+	    <Answer>
+
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Vad innebär det att en HMM har finite duration?
+	    </Question>
+	    <Answer>
+
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Vad innebär det att en HMM är left-right?
+	    </Question>
+	    <Answer>
+
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Vad innebär det att en HMM är stationary?
+	    </Question>
+	    <Answer>
+
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Vad innebär det att en HMM är ergodic?
+	    </Question>
+	    <Answer>
+
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Vad innebär det att en HMM är irreducible?
+	    </Question>
+	    <Answer>
+
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Vad är en period för en HMM?
+	    </Question>
+	    <Answer>
+
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Vad innebär det att en HMM aperiodic?
+	    </Question>
+	    <Answer>
+
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Vad beräknar forward algoritmen?
+	    </Question>
+	    <Answer>
+	    	Den beräknar huvudsakligen tre olika saker:
+	    	[b]Sannolikheten för ett tillstånd givet observationerna[/b]
+	    	[math]P[S_t = j | X_1 = x_1, ..., X_t = x_t, lambda] = hat alpha_(j, t)[/math]
+
+	    	[b]Sannolikheten för nästa observation givet tidigare observationer[/b]
+	    	[math]P[x_t | x_1, ..., x_(t-1), lambda] = c_t, 1 le t le T[/math]
+
+	    	[b]Sannolikheten för avslut (för finite HMM)[/b]
+	    	[math]P[S_(T + 1) = N + 1 | x_1, ..., x_T, lambda] = c_(T+1)[/math]
+
+	    	[b]Sannolikheten för en sekvens av observationer[/b]
+	    	[math]P[x_1, ..., x_t | lambda] = c_1 cdots c_t[/math]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Vad beräknar backward algoritmen?
+	    </Question>
+	    <Answer>
+	    	Sannolikheten för senare observationer givet den nuvarande tillståndet: [math]P[X_(t+1) = x_(t + 1), ..., X_T = x_t | S_t = i, lambda] = beta_(i, t)[/math].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Hur kan man beräkna sannolikheten för ett viss tillstånd vid en tidpunkt, givet [i]alla[/i] observationer.
+	    </Question>
+	    <Answer>
+	    	Det kan man göra med att kombinera forward och backward algoritmen. Anledningen att man inte endast kan använda forward algoritmen är att det är möjligt att via senare observationer att sannolikheten för ett visst tillstånd faktiskt vara mycket mindre än vad vi trodde när vi bara tog hänsyn till nuvarande observationer.
+
+	    	[math]P[S_t = j | x_1, ..., x_T, lambda] = gamma_(j, t) = (alpha_(k, t) beta_(j, t)) / (c_1 cdots c_T).[/math]
+	    </Answer>
+	</TestQuestion>
+</Test>
