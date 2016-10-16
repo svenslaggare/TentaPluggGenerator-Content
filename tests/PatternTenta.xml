@@ -295,22 +295,22 @@
 	    	[math]chi_(j, t) = max_(i-1, ..., i_(t-1)) P[S_1 = i_1, ..., S_(t-1) = i_(t-1), S_t = j, x_1, ..., x_t | lambda][/math]. [math]chi_(j, t)[/math] indikerar sannolikheten för den bästa partiella kandidat sekvensen  som slutar i tillstånd [math]S_t = j[/math] vid tidpunkt [math]t[/math].
 
 	    	[b]Viterbi Backpointer Matrix[/b]
-	    	[math]xi_(j, t) = argmax_i chi_(i, t-1) a_(i, j)[/math]. [math]xi_(j, t)[/math] indikerar för varje möjligt tillstånd [math]S_t = j[/math] det tidigare tillståndet [math]S_(t-1)[/math] av den bästa partiella kandidat sekvensen som slutar i tillstånd [math]S_t = j[/math] vid tidpunkt [math]t[/math].
+	    	[math]ς_(j, t) = argmax_i chi_(i, t-1) a_(i, j)[/math]. [math]ς_(j, t)[/math] indikerar för varje möjligt tillstånd [math]S_t = j[/math] det tidigare tillståndet [math]S_(t-1)[/math] av den bästa partiella kandidat sekvensen som slutar i tillstånd [math]S_t = j[/math] vid tidpunkt [math]t[/math].
 
 	    	[b]Initialisering ([math]t = 1[/math])[/b]
 	    	[math]chi_(j, 1) = P[S_1 = j, x_1] = q_j b_j(x_1)[/math]
 
 	    	[b]Framåtsteg ([math]t = 2, ..., T)[/math][/b]
 	    	[math]chi_(j, t) = b_j(x_t) max_i chi_(i, t-1) a_(i ,j)[/math]
-	    	[math]xi_(j, t) = argmax_i chi_(i, t - 1) a_(i, j)[/math]
+	    	[math]ς_(j, t) = argmax_i chi_(i, t - 1) a_(i, j)[/math]
 
 	    	[b]Terminering (för ändliga)[/b]
 	    	[math]chi_(j, T) = b_j(x_T) a_(j, N+1) max_i chi_(i, T-1) a_(i, j)[/math]
-	    	[math]xi_(j, T) = argmax_i chi_(i, T - 1) a_(i, j)[/math]
+	    	[math]ς_(j, T) = argmax_i chi_(i, T - 1) a_(i, j)[/math]
 
 	    	[b]Backtracking ([math]t = T[/math])[/b]
 	    	[math]hat i_T = argmax_i chi_(i, T)[/math]
-	    	[math]hat i_t = xi_(hat i_(t+1), t+1)[/math] för [math]t = T-1, T-2, ..., 1[/math]
+	    	[math]hat i_t = ς_(hat i_(t+1), t+1)[/math] för [math]t = T-1, T-2, ..., 1[/math]
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="HMM">
