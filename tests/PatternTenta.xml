@@ -44,7 +44,7 @@
 			Vad innebär Minimum Error Rate?
 	    </Question>
 	    <Answer>
-			Det är ett special fall av Bayes Minimum-Risk Decision Rule. Om syftet är att vi gissa den gömda källkategori med minska sannolikhet för fel, då kan vi definiera loss matrisen som: [math]L(d = i | S = j) = { (0, i = j), (1, otherwise) :}[/math]. Detta innebär att rätta svar kostar oss ingenting, och alla fel svar kostar lika mycket. Detta ger: [math]R(i | x) = sum_(j = 1)^(N_s) L(d = i | S = j) P_(S|X)(j | x) = sum_(j != i) P_(S|X)(j|x) = 1 - P_(S|X)(i | x)[/math].
+			Det är ett special fall av Bayes Minimum-Risk Decision Rule. Om syftet är att vi gissa den gömda källkategori med minska sannolikhet för fel, då kan vi definiera loss matrisen som: [math]L(d = i | S = j) = { (0, i = j), (1, text{annars}) :}[/math]. Detta innebär att rätta svar kostar oss ingenting, och alla fel svar kostar lika mycket. Detta ger: [math]R(i | x) = sum_(j = 1)^(N_s) L(d = i | S = j) P_(S|X)(j | x) = sum_(j != i) P_(S|X)(j|x) = 1 - P_(S|X)(i | x)[/math].
 
 			För att minimera risken, så bör klassificeraren välja den källa som hade högst värde för posteriori conditional probability, [math]P_(S|X)(i | x)[/math]. [math]d(x) = argmax_i P_(S|X)(i | x) \hArr argmax_i (f_(X|S)(x|i)P_S(i)) / f_X(x)[/math].
 
@@ -98,7 +98,7 @@
 	    	Vad innebär det att en HMM har infinite duration?
 	    </Question>
 	    <Answer>
-
+	    	Det innebär att den "interna" sekvensen av tillstånd [i]aldrig[/i] tar slut.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="HMM">
@@ -106,7 +106,7 @@
 	    	Vad innebär det att en HMM har finite duration?
 	    </Question>
 	    <Answer>
-
+	    	Det innebär att den "interna" sekvensen av tillstånd är ändlig, dvs. den tar slut. Detta modelleras genom att vi introducerar ett speciellt "exit" tillstånd (betecknat [math]S_(N+1)[/math]), vilket när detta nås så avslutas sekvensen av tillstånd.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="HMM">
@@ -114,7 +114,9 @@
 	    	Vad innebär det att en HMM är left-right?
 	    </Question>
 	    <Answer>
+	    	Det innebär att vi endast tillåtna övergången ifrån ett tillstånd är ifrån sig själv, eller ett tillstånd till "vänster" om sig själv. Detta ger att övergångsmatrisen blir "upper triangular".
 
+	    	Om HMM är oändlig, så måste den tillslut konvergera emot det tillståndet som är mest "till höger", och är då kvar där i all evighet. Detta tillstånd kallas för "final" eller "absorbing".
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="HMM">
@@ -122,7 +124,15 @@
 	    	Vad innebär det att en HMM är stationary?
 	    </Question>
 	    <Answer>
-
+	    	Det innebär att sannolikheten för ett visst tillstånd vid en given tidpunkt ej ändras, dvs. är konstant över tid, alltså: [math]P[S_1 = j] = P[S_2 = j] = ... = P[S_T = j][/math] för alla [math]j[/math].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Hur kan vi avgöra om en HMM är stationary?
+	    </Question>
+	    <Answer>
+	    	Om och endast om: [math]p = A^T p[/math] gäller (alt: [math]p^T = p^T A[/math]). Detta ger att vi kan beräkna [math]p[/math] genom att hitta egenvektorn för [math]A^T[/math] med egenvärdet 1.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="HMM">
@@ -130,7 +140,19 @@
 	    	Vad innebär det att en HMM är ergodic?
 	    </Question>
 	    <Answer>
+	    	Om sannolikheten för att komma ifrån tillstånd [math]j[/math] till vilket tillstånd som helst [math]k[/math] med [math]n[/math] steg konvergerar emot samma värde som är större än 0, för varje tillstånd [math]j[/math]. Dvs: [math]lim_(n \rightarrow \infty) P[S_(t+n) = k | S_t = j] = u_k > 0[/math] oberoende av [math]j[/math].
 
+	    	Detta innebär att [math]A^n[/math] måste konvergera emot en matris där alla rader är samma och större än 0, [math]lim_(n \rightarrow \infty) [A^n]_(j, k) = u_k > 0[/math], oberoende av [math]j[/math]. Vektorn [math]u[/math] är definerad som [math][[u_1], [vdots], [u_N]][/math].
+
+	    	<!-- Kanske någon med intuitiv förklaring... -->
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Antag att en HMM är ergodic, hur kan man då beräkna den stationära sannolikhetsvektorn?
+	    </Question>
+	    <Answer>
+	    	Det finns endast en sådan vektor, och där den är lika med vektorn [math]u[/math].
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="HMM">
@@ -138,7 +160,7 @@
 	    	Vad innebär det att en HMM är irreducible?
 	    </Question>
 	    <Answer>
-
+	    	Om det är möjligt att gå mellan två godtyckliga tillstånd med sannolikhet större än noll med ett ändligt antal steg.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="HMM">
@@ -146,7 +168,7 @@
 	    	Vad är en period för en HMM?
 	    </Question>
 	    <Answer>
-
+	    	Ett tillstånd har en period om det är möjligt att komma tillbaka till samma tillstånd med sannolikhet större än noll med en stig som är en multipel av [math]d[/math], där [math]d[/math] är den största heltalet med denna egenskap.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="HMM">
@@ -154,7 +176,15 @@
 	    	Vad innebär det att en HMM aperiodic?
 	    </Question>
 	    <Answer>
-
+	    	Om alla dess tillstånd har perioden [math]d = 1[/math].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Vad gäller om en HMM är irreducible och aperiodic?
+	    </Question>
+	    <Answer>
+	    	Att den också är ergodic.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="HMM">
@@ -178,10 +208,60 @@
 	</TestQuestion>
 	<TestQuestion Category="HMM">
 	    <Question>
+	    	Hur fungerar forward algoritmen?
+	    </Question>
+	    <Answer>
+	    	Först, låt oss introducera några variabler.
+	    	[b]Forward Variable[/b]: [math]alpha_(j, t) = P[X_1 = x_1,  ...,, X_t = x_t, S_t = j |lambda][/math].
+	    	[b]Scaled Forward Variable[/b]: [math]hat alpha_(j, t) = P[S_t = j | X_1 = x_1, ..., X_t = x_t, lambda][/math].
+	    	[b]Forward Scale Factors[/b]: [math]c_t = P[x_t | x_1, ..., x_(t-1), lambda][/math] för [math]1 le t le T[/math] och [math]c_(T+1) = P[S_(T + 1) = N+1 | x_1, ..., x_T, lambda][/math] för ändliga HMM.
+	    	[b]Temporary Forward Variable[/b]: [math]alpha_(j, t)^(text{temp}) = P[X_t = x_t, S_t = j | x_1, ..., x_(t-1), lambda][/math].
+
+	    	[b]Initialisering ([math]t = 1[/math])[/b]
+	    	[math]alpha_(j, 1)^(text{temp}) = P[X_1 = x_1, S_1 = j | lambda] = q_j b_j(x_1)[/math] för [math]j = 1,...,N[/math]
+	    	[math]c_1 = sum_(k=1)^N alpha_(k, 1)^(text{temp})[/math]
+	    	[math]hat alpha_(j, 1) = alpha_(j, 1)^(text{temp}) / c_1[/math] för [math]j = 1,...,N[/math]
+
+			[b]Steg ([math]t = 2, ..., T[/math])[/b]
+			[math]alpha_(j, t)^(text{temp}) = b_j(x_t) (sum_(i=1)^N hat alpha_(i, t-1) a_(i, j))[/math] för [math]j = 1,...,N[/math]
+	    	[math]c_t = sum_(k=1)^N alpha_(k, t)^(text{temp})[/math]
+	    	[math]hat alpha_(j, t) = alpha_(j, t)^(text{temp}) / c_t[/math] för [math]j = 1,...,N[/math]
+
+	    	[b]Terminering (för ändliga)[/b]
+	    	[math]c_(T+1) = sum_(k=1)^N hat alpha_(k, T) a_(k, N+1)[/math]
+
+	    	Detta ger att:
+	    	Oändlig: [math]ln P[x_1, ..., x_T | lambda] = sum_(t=1)^T ln c_t[/math].
+	    	Ändlig: [math]ln P[x_1, ..., x_T, S_(T+1) = N+1 | lambda] = sum_(t=1)^(T+1) ln c_t[/math].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
 	    	Vad beräknar backward algoritmen?
 	    </Question>
 	    <Answer>
-	    	Sannolikheten för senare observationer givet den nuvarande tillståndet: [math]P[X_(t+1) = x_(t + 1), ..., X_T = x_t | S_t = i, lambda] = beta_(i, t)[/math].
+	    	Sannolikheten för senare observationer givet den nuvarande tillståndet: [math]P[X_(t+1) = x_(t + 1), ..., X_T = x_t | S_t = i, lambda] = beta_(i, t)[/math]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Hur fungerar backward algoritmen?
+	    </Question>
+	    <Answer>
+	    	Först, låt oss introducera några variabler:
+	    	[b]Backward Variable[/b]
+	    	Oändlig: [math]beta_(j, t) = P[X_(t+1) = x_(t+1), ..., X_T = x_t | S_t = i, lambda][/math].
+	    	Ändlig: [math]beta_(j, t) = P[X_(t+1) = x_(t+1), ..., X_T = x_t, S_(T+1) = N+1 | S_t = i, lambda][/math].
+	    	[b]Scaled Backward Variable[/b]
+	    	Oändlig: [math]hat beta_(j, t) = beta_(j, t) / (c_t cdots c_T)[/math]
+	    	Ändlig: [math]hat beta_(j, t) = beta_(j, t) / (c_t cdots c_T c_(T+1))[/math]
+
+	    	[b]Initialisering ([math]t = T[/math])[/b]
+	    	Oändlig: [math]beta_(i, T) = 1, hat beta_(i, T) = 1 / c_T[/math].
+	    	Ändlig: [math]beta_(i, T) = a_(i, N+1), hat beta_(i, T) = beta_(i, T) / (c_T c_(T+1))[/math]
+
+	    	[b]Steg ([math]t = T - 1, ..., 1[/math])[/b].
+	    	[math]hat beta_(i, t) = 1 / c_t sum_(j=1)^N a_(i, j) b_j (x_(t+1)) hat beta_(j, t + 1)[/math]
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="HMM">
@@ -192,6 +272,92 @@
 	    	Det kan man göra med att kombinera forward och backward algoritmen. Anledningen att man inte endast kan använda forward algoritmen är att det är möjligt att via senare observationer att sannolikheten för ett visst tillstånd faktiskt vara mycket mindre än vad vi trodde när vi bara tog hänsyn till nuvarande observationer.
 
 	    	[math]P[S_t = j | x_1, ..., x_T, lambda] = gamma_(j, t) = (alpha_(k, t) beta_(j, t)) / (c_1 cdots c_T).[/math]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Vad beräknar Viterbi algortimen?
+	    </Question>
+	    <Answer>
+	    	Den mest sannolika sekvensen av tillstånd, givet observationerna (enligt MAP regeln), alltså:
+	    	[b]Oändlig[/b]
+	    	[math]hat ul i = hat (i_1, ..., i_T) argmax_(i_1, ..., i_T) P[S_1 = i_1, ..., S_T = i_T | x_1, ..., x_T, lambda][/math]
+
+	    	[b]Ändlig[/b]
+	    	[math]hat ul i = hat (i_1, ..., i_T) argmax_(i_1, ..., i_T) P[S_1 = i_1, ..., S_T = i_T, S_(T+1) = text{exit} | x_1, ..., x_T, lambda][/math]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Hur fungerar Viterbi algoritmen?
+	    </Question>
+	    <Answer>
+	    	Först, låt oss introducera några variabler:
+	    	[b]Viterbi Probability Vector[/b]
+	    	[math]chi_(j, t) = max_(i-1, ..., i_(t-1)) P[S_1 = i_1, ..., S_(t-1) = i_(t-1), S_t = j, x_1, ..., x_t | lambda][/math]. [math]chi_(j, t)[/math] indikerar sannolikheten för den bästa partiella kandidat sekvensen  som slutar i tillstånd [math]S_t = j[/math] vid tidpunkt [math]t[/math].
+
+	    	[b]Viterbi Backpointer Matrix[/b]
+	    	[math]xi_(j, t) = argmax_i chi_(i, t-1) a_(i, j)[/math]. [math]xi_(j, t)[/math] indikerar för varje möjligt tillstånd [math]S_t = j[/math] det tidigare tillståndet [math]S_(t-1)[/math] av den bästa partiella kandidat sekvensen som slutar i tillstånd [math]S_t = j[/math] vid tidpunkt [math]t[/math].
+
+	    	[b]Initialisering ([math]t = 1[/math])[/b]
+	    	[math]chi_(j, 1) = P[S_1 = j, x_1] = q_j b_j(x_1)[/math]
+
+	    	[b]Framåtsteg ([math]t = 2, ..., T)[/math][/b]
+	    	[math]chi_(j, t) = b_j(x_t) max_i chi_(i, t-1) a_(i ,j)[/math]
+	    	[math]xi_(j, t) = argmax_i chi_(i, t - 1) a_(i, j)[/math]
+
+	    	[b]Terminering (för ändliga)[/b]
+	    	[math]chi_(j, T) = b_j(x_T) a_(j, N+1) max_i chi_(i, T-1) a_(i, j)[/math]
+	    	[math]xi_(j, T) = argmax_i chi_(i, T - 1) a_(i, j)[/math]
+
+	    	[b]Backtracking ([math]t = T[/math])[/b]
+	    	[math]hat i_T = argmax_i chi_(i, T)[/math]
+	    	[math]hat i_t = xi_(hat i_(t+1), t+1)[/math] för [math]t = T-1, T-2, ..., 1[/math]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Vad gör Baum-Welch algoritmen?
+	    </Question>
+	    <Answer>
+	    	Givet en mängd av träningsdata, [math]ul x[/math], algoritmen beräknar den modellen [math]lambda_(ML) = {{ q, A }, B}[/math] med högst sannolikhet att generera träningsdatan: [math]lambda_(ML) = argmax_(lambda) P[ul x | lambda][/math].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="HMM">
+	    <Question>
+	    	Hur fungerar Baum-Welch algoritmen?
+	    </Question>
+	    <Answer>
+	    	[b]Notation[/b]
+	    	Låt [math]ul x = ((x_1^1, ..., X_(T_1)^1), (x_1^2, x_(T_2)^2), ..., (x_1^R, ..., x_(T_R)^R))[/math]
+	    	Där varje element i [math]ul x[/math] är en sekvens av observationer.
+
+	    	[b]Initialisering[/b]
+	    	Hitta på något sätt [math]lambda^0 = {{ q, A }, B}[/math].
+
+	    	[b]Iterera för [math]n = 1, 2, ...[/math][/b]
+	    	Hitta en förbättrad modell så att [math]log P[ul x | lambda^n] > log P[ul x | lambda^(n-1)][/math].
+
+	    	[i]Uppdatera [math]q[/math][/i]
+	    	[math]q_j^(text{new}) = 1 / R sum_(r=1)^R P[S_1^r = j | x_1^r, ..., x_(T_r)^r, lambda][/math]
+	    	För att beräkna behöver vi:
+	    	[math]gamma_(j, 1)^r = hat alpha_(j, 1)^r hat beta alpha_(j, 1)^r c_1^r[/math]
+			[math]bar gamma_j = sum_(r=1)^R gamma_(j, 1)^r[/math] för alla [math]j[/math]
+			[math]q_j^(text{new}) = bar gamma_j / (sum_(k=1)^N bar gamma_k)[/math]
+
+			[i]Uppdatera [math]A[/math][/i]
+			[math]xi_(i, j, t)^r = hat alpha_(i, t)^r a_(i, j) b_j(x_(t+1)^r) hat beta_(j, t+1)^r[/math]
+			[math]bar xi_(i, j) = sum_(r=1)^R sum_(t=1)^(T_r-1) xi_(i, j, t)^r[/math]
+			[math]a_(i, j)^(text{new}) = bar xi_(i, j) / (sum_k bar xi_(i, k))[/math]
+
+			[i]Uppdatera [math]B[/math][/i]
+			För fallet där observationerna är diskreta:
+			[math]bar b_(j, m) = sum_(r=1)^R sum_(t=1)^(T_r) gamma_(j, t)^r delta_(z_t^r, m)[/math]
+			[math]delta_(z_t^r, m) = { (1, text{när } z_t^r = m), (0, text{annars}) :}[/math]
+			[math]b_(j, m)^(text{new}) = bar beta_(j, m) / (sum_(k=1)^M bar beta_(j, k))[/math]
+
+	    	[b]Terminering[/b]
+	    	När modellen har konvergerat, [math]log P[ul x | lambda^n] - log P[ul x | lambda^(n-1)] lt Delta_{text{min}}[/math].
 	    </Answer>
 	</TestQuestion>
 </Test>
