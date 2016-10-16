@@ -360,4 +360,85 @@
 	    	När modellen har konvergerat, [math]log P[ul x | lambda^n] - log P[ul x | lambda^(n-1)] lt Delta_{text{min}}[/math].
 	    </Answer>
 	</TestQuestion>
+	<TestQuestion Category="EM">
+	    <Question>
+	    	Vad används Expectation Maximization till?
+	    </Question>
+	    <Answer>
+	    	Den används för att estimera parametrarna för en probabilistisk modell, som beror på en gömd variabel [math]S[/math] som vi inte kan observera, men vi kan observera [math]X[/math] som beror på [math]S[/math].
+	    </Answer>	
+	</TestQuestion>
+	<TestQuestion Category="EM">
+	    <Question>
+	    	Hur fungerar Expectation Maximization algoritmen?
+	    </Question>
+	    <Answer>
+	    	Först, låt oss introducera: [math]Q(lambda', lambda) = E_(ul S)[log P[ul S, ul x | lambda'] | ul x, lambda][/math].
+
+	    	[b]Initialisering[/b]
+	    	Hitta på något sätt initialvärden för parametrarna, [math]lambda^0[/math].
+
+	    	[b]Iterera för [math]n = 1, 2, ...[/math][/b]
+	    	Hitta en nya parameterar [math]lambda^n[/math] som är bättre än tidigare, [math]P[x_1, ..., X_T |lambda^n] > P[x_1, ..., X_T |lambda^(n-1)][/math]. Dessa ska väljas enligt: [math]lambda^n = argmax_(lambda') Q(lambda', lambda^(n-1))[/math].
+
+	    	[b]Terminering[/b]
+	    	Avsluta efter ett fixt antal iterationer eller när: [math]Q(lambda^n, lambda^(n-1)) - Q(lambda^(n-1), lambda^(n-1)) lt Delta_min[/math].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="EM">
+	    <Question>
+	    	Vad är en Gaussian Mixture Model (GMM) för något?
+	    </Question>
+	    <Answer>
+	    	Det är en viktad summa av [math]M[/math] olika normalfördelade variabler. En GMM kan approximera en godtycklig fördelning med godtycklig precision genom att öka antalet komponenter.
+
+	    	Om [math]X[/math] är en skalär, så är PDF: [math]f_X(x) = sum_(m=1)^M w_m 1 / (sigma_m sqrt(2 pi)) e^(-(x-mu_m)^2 / (2 sigma_m^2))[/math].
+	    	Om [math]X[/math] är en vektor så är PDF: [math]f_X(x) = sum_(m=1)^M w_m 1 / ((2 pi)^(K/2) sqrt(det C_m)) e^(-1/2 (x-mu_m)^T C_m^(-1) (x-mu_m))[/math].
+
+	    	För att ovan ska bli en fördelning, så gäller det att: [math]sum_(m=1)^M w_m = 1[/math].
+	    </Answer>
+	</TestQuestion>
+<!-- 	<TestQuestion Category="EM">
+	    <Question>
+	    	Vad är väntevärdet och variansen för en GMM
+	    </Question>
+	    <Answer>
+
+	    </Answer>
+	</TestQuestion> -->
+	<TestQuestion Category="EM">
+	    <Question>
+	    	Hur kan vi estimera parametrarna i en GMM?
+	    </Question>
+	    <Answer>
+	    	Med hjälp av Expectation Maximization. Låt oss introducera variabeln [math]U_t[/math] som varje observation [math]X_t[/math] beror på, som vi ej kan observera. Distributionen av variabeln [math]X_t[/math] är då resultatet av att:
+	    	[ul]
+	    		[li]Först välja slumpvariabeln [math]U_t[/math] från [math]U_t = m in { 1, ..., M }[/math] med sannolikhet [math]P[U_t = m] = w_m[/math], oberoende av [math]t[/math].[/li]
+	    		[li]Sedan, givet att [math]U_t = m[/math], ett värde [math]X_t[/math] väljs från den  [math]m[/math]:te normalfördeningen.[/li]
+	    	[/ul]
+
+	    	[b]Notation[/b]
+	    	Låt oss definera [math]f_(X_t|U_t)(x | m) = g(x, mu_m, C_m) = text{PDF för flervariabels normalfördelning}[/math].
+	    	Då ges [math]gamma_(m, t) = P[U_t = m | x_t, theta] = (w_m g(x_t, u_m, C_m)) / (sum_(k=1)^M w_k g(x_t, mu_k, C_k))[/math].
+
+	    	[b]Uppdatera vikterna[/b]
+	    	[math]w_m^(text{new}) = (sum_(t=1)^T gamma_(m, t)) / (sum_(k=1)^M sum_(t=1)^ T gamma_(k, t))[/math] för [math]m = 1, ..., M[/math].
+
+	    	[b]Uppdatera parametrarna[/b]
+	    	[math]mu_m^(text{new})=(sum_(t=1)^T gamma_(m, t) x_t) / (sum_(t=1)^T gamma_(m, t))[/math]
+	    	[math]C_m^(text{new}) = (sum_(t=1)^T gamma_(m, t) (x_t - mu_m^(text{new})) (x_t - mu_m^(text{new}))^T) / (sum_(t=1)^T gamma_(m, t))[/math]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="EM">
+	    <Question>
+	    	Vad är en Lagrangemultiplikator?
+	    </Question>
+	    <Answer>
+	    	Det är en metod för att optimera en funktion [math]f(x, y)[/math] med begräsningar av formen [math]g(x, y) = c[/math].
+
+	    	Den fungerar så att vi introducerar en ny varaibel [math]lambda[/math], lagrangemultiplikatorn. Som definieras av [math]L(x, y, lambda) = f(x, y) - lambda * (g(x, y) - c)[/math].
+
+	    	För att lösa optimeringsproblemet så hittar vi där gradienten av [math]L[/math] är noll, dvs: [math]nabla_(x, y, lambda) L(x, y, lambda) = 0[/math].
+	    </Answer>
+	</TestQuestion>
 </Test>
