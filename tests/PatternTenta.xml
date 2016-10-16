@@ -486,10 +486,73 @@
 	</TestQuestion>
 	<TestQuestion Category="BayesianLearning">
 	    <Question>
-
+	    	Vad innebär det att en parameter distribution är konjugat?
 	    </Question>
 	    <Answer>
+	    	Det innebär att vi väljer en prior distribution så att en posterior parameter distribution efter träning har samma matematiska form, endast med modifierade hyper-parameters.
+	    	Exempel är:
+	    	[ul]
+	    		[li]Beta[/li]
+	    		[li]Dirichlet[/li]
+	    		[li]Gamma[/li]
+	    	[/ul]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="BayesianLearning">
+	    <Question>
+	    	Vad innebär att en prior är Subjective Informative?
+	    </Question>
+	    <Answer>
+	    	Att [math]f_W(w)[/math] kan tolkas som ett mått på den subjektiva tron att [math]W[/math] har ett värde nära [math]w[/math].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="BayesianLearning">
+	    <Question>
+	    	Vad innebär en improper prior?
+	    </Question>
+	    <Answer>
+	    	Det innebär att [math]f_X(x) \rightarrow text{konstant}[/math] på intervalet [math][-\infty, +infty][/math], men kan ej normaliseras. En improper prior kan approximeras av en proper density function, t.ex. normalfördelning med 0 i väntevärdet och standardavvikelse som går emot oändligheten.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="BayesianLearning">
+	    <Question>
+	    	Vad innebär det att en prior är Subjective Non-Informative?
+	    </Question>
+	    <Answer>
+	    	<!-- Man bör välja en prior density funktion som har så lite som möjligt påverkan på posterior density för parametrarna. -->
+	    	Hitta svar på detta!
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="BayesianLearning">
+	    <Question>
+	    	När är valet av prior density funktion viktigt, och när är det mindre viktigt?
+	    </Question>
+	    <Answer>
+	    	När det finns ett fåtal observationer är det viktigt, och när det finns många så är valet mindre viktigt. Vad "fåtal" och "många" innebär vet jag inte.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="BayesianLearning">
+	    <Question>
+	    	Vad är Fisher Information?
+	    </Question>
+	    <Answer>
+	    	Om en slumpvariabel [math]X[/math] har en density funktion [math]f_(X|W)(x | w)[/math], specificerat av någon parameter vektor [math]w[/math]. Då är Fisher Information, [math]I(w)[/math] en matris med elementen: [math]I_(i, j)(w)=E_X[(del ln f_(X|W)(X |w)) / (del w_i) (del ln f_(X|W)(X |w)) / (del w_j) | w][/math]. Den går också att beräkna som: [math]I_(i, j)(w) = -E_X[(del^2 ln f_(X|W)(X | w)) / (del w_i del w_j) | w][/math].
 
+	    	Om [math]w[/math] endast är en skalär, reduceras det till: [math]I(w) = E_X[((del ln f_(X|W)(X | w)) / (del w))^2 | w][/math].
+
+	    	Det gäller även att för en unbiased estimator [math]hat w[/math]: [math]V[hat w] ge 1 / (I(hat w))[/math].
+
+	    	Om F.I. är stort, så kommer experiment i medel att ge mer precis information om parametern, och när F.I: är mindre så kommer vi en mindre precis uppskattning.
+
+	    	För varje mängd av utfall av [math]X[/math] som påverkas av ett sanna värdet är [math]W = w[/math] så gäller det att [math]W in (hat w pm (Delta w) / 2)[/math] med en fixt sannolikhet för varje [math]w[/math], där [math]Delta w ~~ sqrt(V[hat w])[/math].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="BayesianLearning">
+	    <Question>
+	    	Vad är Jeffreys prior för något?
+	    </Question>
+	    <Answer>
+	    	Det är en typ av objektiv non-informative prior. Om en slumpvariabel [math]X[/math] har en density funktion som specificeras som ett utfall av en slump parameter vektor [math]W=w[/math], då gäller det att [math]f_W(w) prop sqrt(det(I(w)))[/math]. Det gäller även om [math]U=g(W)[/math] för någon funktion [math]g[/math].
 	    </Answer>
 	</TestQuestion>
 </Test>
