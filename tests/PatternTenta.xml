@@ -376,7 +376,7 @@
 	    	Hitta på något sätt initialvärden för parametrarna, [math]lambda^0[/math].
 
 	    	[b]Iterera för [math]n = 1, 2, ...[/math][/b]
-	    	Hitta en nya parameterar [math]lambda^n[/math] som är bättre än tidigare, [math]P[x_1, ..., X_T |lambda^n] > P[x_1, ..., X_T |lambda^(n-1)][/math]. Dessa ska väljas enligt: [math]lambda^n = argmax_(lambda') Q(lambda', lambda^(n-1))[/math].
+	    	Hitta en nya parameterar [math]lambda^n[/math] som är bättre än tidigare, [math]P[x_1, ..., x_T |lambda^n] > P[x_1, ..., x_T |lambda^(n-1)][/math]. Dessa ska väljas enligt: [math]lambda^n = argmax_(lambda') Q(lambda', lambda^(n-1))[/math].
 
 	    	[b]Terminering[/b]
 	    	Avsluta efter ett fixt antal iterationer eller när: [math]Q(lambda^n, lambda^(n-1)) - Q(lambda^(n-1), lambda^(n-1)) lt Delta_min[/math].
