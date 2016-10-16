@@ -48,7 +48,7 @@
 
 			För att minimera risken, så bör klassificeraren välja den källa som hade högst värde för posteriori conditional probability, [math]P_(S|X)(i | x)[/math]. [math]d(x) = argmax_i P_(S|X)(i | x) \hArr argmax_i (f_(X|S)(x|i)P_S(i)) / f_X(x)[/math].
 
-			För att [math]f_X(x)[/math] fär alla källor, så kan ekvationen förenklas till: [math] d(x) = argmax_i f_(X|S)(x | i) P_S(i)[/math], som kallas för [i]Maximum a Posteriori probability (MAP) Decision Rule[/i]. 
+			För att [math]f_X(x)[/math] är lika för alla källor, så kan ekvationen förenklas till: [math] d(x) = argmax_i f_(X|S)(x | i) P_S(i)[/math], som kallas för [i]Maximum a Posteriori probability (MAP) Decision Rule[/i]. 
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="BayesianPatternClassification">
@@ -69,9 +69,7 @@
 	    		[li]Min. Risk Rule: [math]g_i(x) = -R(i | x)[/math][/li]
 	    		[li]MAP Rule: [math]g_i(x) = f_(X|S)(x | i) P_S(i)[/math][/li]
 	    		[li]ML Rule: [math]g_i(x) = f_X(X|S)(x | i)[/math][/li]
-	    	[/ul]
-
-	    	Vi kan få en ny mängd av discriminant funktioner, med identiska beslut om vi applicerar en transformation: [math]g'_i(x) = h(g_i(x))[/math] där [math]h[/math] är en monotomisk ökande funktion (t.ex. [math]log[/math]).
+	    	[/ul]Vi kan få en ny mängd av discriminant funktioner, med identiska beslut om vi applicerar en transformation: [math]g'_i(x) = h(g_i(x))[/math] där [math]h[/math] är en monotomisk ökande funktion (t.ex. [math]log[/math]).
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="BayesianPatternClassification">
@@ -132,7 +130,7 @@
 	    	Hur kan vi avgöra om en HMM är stationary?
 	    </Question>
 	    <Answer>
-	    	Om och endast om: [math]p = A^T p[/math] gäller (alt: [math]p^T = p^T A[/math]). Detta ger att vi kan beräkna [math]p[/math] genom att hitta egenvektorn för [math]A^T[/math] med egenvärdet 1.
+	    	Om och endast om: [math]p = A^T p[/math] gäller (alt: [math]p^T = p^T A[/math]). Detta ger att vi kan beräkna [math]p[/math] genom att hitta egenvektorn till [math]A^T[/math] med egenvärdet 1.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="HMM">
@@ -281,10 +279,10 @@
 	    <Answer>
 	    	Den mest sannolika sekvensen av tillstånd, givet observationerna (enligt MAP regeln), alltså:
 	    	[b]Oändlig[/b]
-	    	[math]hat ul i = hat (i_1, ..., i_T) argmax_(i_1, ..., i_T) P[S_1 = i_1, ..., S_T = i_T | x_1, ..., x_T, lambda][/math]
+	    	[math]hat ul i = hat (i_1, ..., i_T) = argmax_(i_1, ..., i_T) P[S_1 = i_1, ..., S_T = i_T | x_1, ..., x_T, lambda][/math]
 
 	    	[b]Ändlig[/b]
-	    	[math]hat ul i = hat (i_1, ..., i_T) argmax_(i_1, ..., i_T) P[S_1 = i_1, ..., S_T = i_T, S_(T+1) = text{exit} | x_1, ..., x_T, lambda][/math]
+	    	[math]hat ul i = hat (i_1, ..., i_T) = argmax_(i_1, ..., i_T) P[S_1 = i_1, ..., S_T = i_T, S_(T+1) = text{exit} | x_1, ..., x_T, lambda][/math]
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="HMM">
@@ -329,8 +327,7 @@
 	    </Question>
 	    <Answer>
 	    	[b]Notation[/b]
-	    	Låt [math]ul x = ((x_1^1, ..., X_(T_1)^1), (x_1^2, x_(T_2)^2), ..., (x_1^R, ..., x_(T_R)^R))[/math]
-	    	Där varje element i [math]ul x[/math] är en sekvens av observationer.
+	    	Låt [math]ul x = ((x_1^1, ..., X_(T_1)^1), (x_1^2, x_(T_2)^2), ..., (x_1^R, ..., x_(T_R)^R))[/math] där varje element i [math]ul x[/math] är en sekvens av observationer.
 
 	    	[b]Initialisering[/b]
 	    	Hitta på något sätt [math]lambda^0 = {{ q, A }, B}[/math].
