@@ -8,9 +8,9 @@
 			[ul]
 				[li]En signalkälla som slumpmässigt väljer en intern källkategori [math]S in {1,...,N_s}[/math][/li]
 				[li]Den genererade signalen kan sedan transformeras och brus kan tillkomma.[/li]
-				[li]Källkategorin är okänd för den externa världen, det ändå som klassificeraren ser är en feature vektor [math]x[/math] som består av [math]K[/math] olika features.[/li]
+				[li]Källkategorin är okänd för den externa världen, det enda som klassificeraren observerar är en feature vektor [math]x[/math] som består av [math]K[/math] olika features.[/li]
 				[li]Beroende på de observerade features, så väljer klassificeraren en utgärd ifrån en lista av [math]N_d[/math] olika alternativ.[/li]
-				[li]Utvalet baseras på [math]N_d[/math] olika discriminant funktioner, där den funktionen som högst värde väljs.[/li]
+				[li]Utvalet baseras på [math]N_d[/math] olika discriminant funktioner, där den funktionen som ger högst värde väljs.[/li]
 				[li]Utdata är ett index [math]d in {1,...,N_d}[/math].[/li]
 			[/ul]
 			[b]Prior källkategori distribution[/b]
@@ -31,7 +31,7 @@
 			Vad innebär Bayes Minimum-Risk Decision Rule?
 	    </Question>
 	    <Answer>
-			Först måste vi definiera ett generellt optimerings kriterium. Definiera en [i]loss matris[/i] av storlek [math]N_d \times N_s[/math]:
+			Först måste vi definiera ett optimerings kriterium. Definiera en [i]loss matris[/i] av storlek [math]N_d \times N_s[/math]:
 			[math]L = [[L(d = 1 | S = 1), ..., L(d = 1 | S = N_s)], [..., ..., ...], [L(d = N_d | S = 1), ..., L(d = N_d | S = N_s)]][/math].
 			Där [math]L_(i, j) = L(d = i | S = j)[/math] ger oss förlusten som vi får om vi väljer [math]d = i[/math] när den faktiska kategorin är [math]S = j[/math].
 
@@ -44,7 +44,7 @@
 			Vad innebär Minimum Error Rate?
 	    </Question>
 	    <Answer>
-			Det är ett special fall av Bayes Minimum-Risk Decision Rule. Om syftet är att gissa den gömda källkategori med minska sannolikhet för fel, då kan vi definiera loss matrisen som: [math]L(d = i | S = j) = { (0, i = j), (1, text{annars}) :}[/math]. Detta innebär att rätta svar kostar oss ingenting, och alla fel svar kostar lika mycket. Detta ger: [math]R(i | x) = sum_(j = 1)^(N_s) L(d = i | S = j) P_(S|X)(j | x) = sum_(j != i) P_(S|X)(j|x) = 1 - P_(S|X)(i | x)[/math].
+			Det är ett special fall av Bayes Minimum-Risk Decision Rule. Om syftet är att gissa den gömda källkategori med minsta sannolikhet för fel, då kan vi definiera loss matrisen som: [math]L(d = i | S = j) = { (0, i = j), (1, text{annars}) :}[/math]. Detta innebär att rätta svar kostar oss ingenting, och alla svar som är fel kostar lika mycket. Detta ger: [math]R(i | x) = sum_(j = 1)^(N_s) L(d = i | S = j) P_(S|X)(j | x) = sum_(j != i) P_(S|X)(j|x) = 1 - P_(S|X)(i | x)[/math].
 
 			För att minimera risken, så bör klassificeraren välja den källa som hade högst värde för posteriori conditional probability, [math]P_(S|X)(i | x)[/math]. [math]d(x) = argmax_i P_(S|X)(i | x) \hArr argmax_i (f_(X|S)(x|i)P_S(i)) / f_X(x)[/math].
 
@@ -64,20 +64,20 @@
 	    	Vad innebär en discriminant funktion?
 	    </Question>
 	    <Answer>
-	    	Alla tidigare beslutsregler kan uttryckas i en generell form (General Decision Rule): [math]d(x) = argmax_(i = 1, ..., N_d) g_i(x)[/math] där [math]g(x)[/math] funktionerna kallas för discriminant funktioner. Då kan man få tidigare regler som:
+	    	Alla tidigare beslutsregler kan uttryckas i en generell form (General Decision Rule): [math]d(x) = argmax_(i = 1, ..., N_d) g_i(x)[/math] där [math]g(x)[/math] funktionerna kallas för discriminant funktioner. Då kan man tidigare regler skrivas som:
 	    	[ul]
 	    		[li]Min. Risk Rule: [math]g_i(x) = -R(i | x)[/math][/li]
 	    		[li]MAP Rule: [math]g_i(x) = f_(X|S)(x | i) P_S(i)[/math][/li]
 	    		[li]ML Rule: [math]g_i(x) = f_X(X|S)(x | i)[/math][/li]
-	    	[/ul]Vi kan få en ny mängd av discriminant funktioner, med identiska beslut om vi applicerar transformationen [math]g^'_i(x) = h(g_i(x))[/math] där [math]h[/math] är en monotomisk ökande funktion (t.ex. [math]log[/math]).
+	    	[/ul]Vi kan få en ny mängd av discriminant funktioner, med identiska beslut om vi applicerar transformationen [math]g_i^(')(x) = h(g_i(x))[/math] där [math]h[/math] är en monotomisk ökande funktion (t.ex. [math]log[/math]).
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="BayesianPatternClassification">
 	    <Question>
-	    	Vad innebär en decision region?
+	    	Vad innebär en beslutsregion?
 	    </Question>
 	    <Answer>
-	    	För varje observerad feature vektor [math]x[/math] så definierar [math]d(x)[/math] en unik utdata för klassificeraren. Vi kan se denna funktion som delar upp mängden av alla feature vectors till disjunkta decision regioner: [math]Omega_i = { x: d(x) = i }[/math].
+	    	För varje observerad feature vektor [math]x[/math] så definierar [math]d(x)[/math] unik utdata för klassificeraren. Vi kan se denna funktion som delar upp mängden av alla feature vektorer till disjunkta beslutsregioner: [math]Omega_i = { x: d(x) = i }[/math].
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="BayesianPatternClassification">
@@ -112,7 +112,7 @@
 	    	Vad innebär det att en HMM är left-right?
 	    </Question>
 	    <Answer>
-	    	Det innebär att endast tillåtna övergångarna för ett tillstånd är ifrån sig själv, eller ifrån ett tillstånd till "vänster" om sig själv. Detta ger att övergångsmatrisen blir "upper triangular".
+	    	Det innebär att endast tillåtna övergångarna för ett tillstånd är ifrån sig själv, eller ifrån ett tillstånd som är till "vänster" om tillståndet. Detta ger att övergångsmatrisen blir övertriangulär.
 
 	    	Om HMM är oändlig, så måste den tillslut konvergera emot det tillståndet som är mest "till höger", och är då kvar där i all evighet. Detta tillstånd kallas för "final" eller "absorbing".
 	    </Answer>
@@ -317,7 +317,7 @@
 	    	Vad gör Baum-Welch algoritmen?
 	    </Question>
 	    <Answer>
-	    	Givet en mängd av träningsdata, [math]ul x[/math], så algoritmen beräknar den modell [math]lambda_(ML) = {{ q, A }, B}[/math] med högst sannolikhet att generera träningsdatan: [math]lambda_(ML) = argmax_(lambda) P[ul x | lambda][/math].
+	    	Givet en mängd av träningsdata, [math]ul x[/math], så beräknar algoritmen den modell [math]lambda_(ML) = {{ q, A }, B}[/math] med högst sannolikhet att generera träningsdatan: [math]lambda_(ML) = argmax_(lambda) P[ul x | lambda][/math].
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="HMM">
@@ -412,7 +412,6 @@
 	    		[li]Först välja slumpvariabeln [math]U_t[/math] från [math]U_t = m in { 1, ..., M }[/math] med sannolikhet [math]P[U_t = m] = w_m[/math], oberoende av [math]t[/math].[/li]
 	    		[li]Sedan, givet att [math]U_t = m[/math], ett värde [math]X_t[/math] väljs från den  [math]m[/math]:te normalfördeningen.[/li]
 	    	[/ul]
-
 	    	[b]Notation[/b]
 	    	Låt oss definera [math]f_(X_t|U_t)(x | m) = g(x, mu_m, C_m) = text{PDF för flervariabels normalfördelning}[/math].
 	    	Då ges [math]gamma_(m, t) = P[U_t = m | x_t, theta] = (w_m g(x_t, u_m, C_m)) / (sum_(k=1)^M w_k g(x_t, mu_k, C_k))[/math].
@@ -471,8 +470,7 @@
 	    		[li]Den tränade modellen innehåller en indikator på sin egen pålitlighet.[/li]
 	    		[li]Modellen kan enkelt tränas online, dvs. anpassa sig efter ny data.[/li]
 	    		[li]Det är möjligt att låta träningsalgoritmen själv bestämma modellens komplexitet.[/li]
-	    	[/ul]
-	    	[b]Nackdelar[/b]
+	    	[/ul][b]Nackdelar[/b]
 	    	[ul]
 	    		[li]Beräkningarna blir oftast mer komplicerade.[/li]
 	    		[li]Det är ofta inte möjligt att hitta en exakt analytiskt lösning[/li]
