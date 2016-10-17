@@ -182,7 +182,7 @@
 	    	Vad gäller om en HMM är irreducible och aperiodic?
 	    </Question>
 	    <Answer>
-	    	Att den också är ergodic.
+	    	Då är den också ergodic.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="HMM">
