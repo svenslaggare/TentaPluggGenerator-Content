@@ -404,6 +404,14 @@
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
 	    <Question>
+	    	Ange fall när GPS inte fungerar.
+	    </Question>
+	    <Answer>
+	    	När man inte få får in några satelliter, som t.ex. inomhus.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
 	    	Ifrån hur många satelliter behövs det för att mäta postionen?
 	    </Question>
 	    <Answer>
@@ -417,6 +425,191 @@
 	    </Question>
 	    <Answer>
 	    	Man kan korrigera med hjälp av lokala stationer, detta kan ge precision i cm klassen.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Localization">
+	    <Question>
+	    	Vad innebär dead reckoning?
+	    </Question>
+	    <Answer>
+	    	Det innebär att vi estimera den relativa positionen med hjälp av encoders och den kinematiska modellen för roboten. Det är också möjligt att använda IMU, kameran eller att försöka matcha laser skanning från olika positioner.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Localization">
+	    <Question>
+	    	Ange hur man kan mäta hastigheten för en robot som har diffenertial drive som kinematisk modell.
+	    </Question>
+	    <Answer>
+	    	Låt [math]Delta E_R[/math] och [math]Delta E_L[/math] vara skillnaden i mätningar hos encoder över en tid [math]Delta T[/math]. Om [math]K[/math] är skalningsfaktor som omvandlar skillnad i encoder värde till skillnad i vinkel, [math]Delta phi = K Delta E[/math], då ges hastigheterna av: [math]v = (r / 2 (K Delta E_R + K Delta E_L)) / (Delta T), omega = (r / B (K Delta E_R - K Delta E_L)) / (Delta T)[/math].
+
+	    	Då kan man beräkna [math]D = text{Ändring i sträcka} = v Delta T = r / 2 (K Delta E_R + K Delta E_L)[/math] och [math]Delta theta = text{Ändring i orientering} = omega Delta T = r / B (K Delta E_R - K Delta E_L)[/math].
+
+	    	Detta ger att postionen och orientering kan estimeras som:
+	    	[math]x(k+1)=x(k) + D*cos(theta)[/math]
+	    	[math]y(k+1)=y(k) + D*sin(theta)[/math]
+	    	[math]theta(k+1)=theta(k+1)+Delta theta[/math].
+ 	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Localization">
+	    <Question>
+	    	Vad är odometri?
+	    </Question>
+	    <Answer>
+	    	Det innebär att vi integrerar encoder mätningarna över tid m.h.a den kinematiska modellen för att estimera en robot position och orientering. Desto bättre kinematisk modell man använder, desto bättre odometri får man.
+
+	    	Odometri är oftast mycket noggrant över ett kort avstånd, men kommer ofta börja driva ifrån den korrekta positionen över tid, och felet är obundet. Fel i vinkeln ger stora fel i positionen.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Localization">
+	    <Question>
+	    	Hur kan man beskriva osäkerhet i odometri?
+	    </Question>
+	    <Answer>
+	    	Som brus som appliceras på mätningarna:
+	    	[math]x(k+1)=x(k)+(v*dt+Phi_D) * cos(theta)[/math]
+	    	[math]y(k+1)=y(k)+(v*dt+Phi_D) * sin(theta)[/math]
+	    	[math]theta(k+1)=theta(k)+(omega*dt+Phi_(theta, omega)) + Phi_(theta, v)[/math]
+	    	där [math]Phi_D, Phi_(theta, omega), Phi_(theta, v)[/math] oftast antas vara normalfördelade med noll i väntevärde: [math]N(0, sigma^2)[/math].
+ 
+	    	[math]sigma^2[/math] modelleras som något som beror på vinkelhastigheten:
+	    	[math]Phi_D = N(0, (v * dt * k_D)^2)[/math]
+	    	[math]Phi_(theta, v) = N(0, (v * dt * k_v)^2)[/math]
+	    	[math]Phi_(theta, omega) = N(0, (omega * dt * k_(omega))^2)[/math]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Localization">
+	    <Question>
+	    	Ange olika källor för fel i odometri.
+	    </Question>
+	    <Answer>
+	    	[b]Systematiska fel[/b]
+	    	[ul]
+	    		[li]Fel storlek av hjulet i modellen.[/li]
+	    		[li]Hjulen ligger ej i linje.[/li]
+	    		[li]Begränsad encoder upplösning och sampling rate.[/li]
+	    	[/ul][b]Icke-systematiska fel[/b]
+	    	[ul]
+	    		[li]Om marken ej är platt leder det till hjul rör sig kortare/längre.[/li]
+	    		[li]Andra objekt på marken ger stora fel.[/li]
+	    		[li]Hjulen glider[/li]
+	    		[li]Externa krafter, som t.ex. att hjulet ej rör marken vid endast en punkt.[/li]
+	    	[/ul]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Localization">
+	    <Question>
+	    	Vad innebär kidnappingsproblemet inom lokalisering?
+	    </Question>
+	    <Answer>
+	    	Det innebär att roboten "kidnappas" och placeras på något annat ställe. Roboten måste då först upptäcka att den har blivit kidnappad, och sedan utföra global lokalisering.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Localization">
+	    <Question>
+	    	Hur kan vi formellt definiera lokaliserings problemet?
+	    </Question>
+	    <Answer>
+	    	Låt [math]x[/math] vara robotens tillstånd (position och orientering), [math]z[/math] vara en observation och [math]u[/math] var kontroll input. Då gäller det att [math]p(x_(k+1) | x_k, x_(k-1)) = p(x_(k+1)|x_k), p(z_k | x_k), p(x_(k+1) | x_k, u_(k + 1))[/math].
+
+	    	Detta innebär om vill bestämma robotens tillstånd vid tidpunkten [math]k+1[/math] så innehåller tillståndet vid tidpunkten [math]k[/math] all information om tidigare tillstånd. Det gäller även att mätningarna vid tidpunkt [math]k[/math] endast beror på tillståndet vid den tidpunkten och att tillståndet vid tidpunkt [math]k+1[/math] beror endast på tillståndet vid tidpunkten [math]k[/math] och kontroll inputen.
+
+	    	Då blir estimeringen baserad på en kontroll input [math]u_k[/math]:
+	    	[math]p(x_(k+1) | Z_k, U_k) = int p(x_(k+1) | u_k, x_k) p (x_k | X_k, Y_k) dx_k[/math] där [math]p(x_(k+1) | z_k, u_k)[/math] är den rörelsemodell som oftast ges av odometri.
+
+	    	Uppdateras med nya mätningar [math]z_(k+1)[/math] enligt:
+	    	[math]p(x_(k+1) | Z_(k+1), U_k) = eta p(z_(k+1) | x_(k+1)) p(x_(k+1) | Z_k, U_k)[/math] där [math]p(z_(k+1) | x_(k+1))[/math] är modellen för mätningarna och [math]eta[/math] en normaliserings konstant.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Localization">
+	    <Question>
+			Ange olika sätt för att representera den probabilistiska informationen för lokaliserings problemet.
+	    </Question>
+	    <Answer>
+	    	[b]Normalfördelning[/b]
+	    	Med hjälp av en normalfördelning. Ett problem är att man ej kan representera en fördelning som är "multi modal", dvs. har flera "kullar".
+
+	    	[b]Gaussian Mixture Model[/b]
+	    	Problemet med "multi-modal" kan lösas genom att man kombinerar flera olika normalfördelningar.
+
+	    	[b]Diskretisering[/b]
+	    	Delar upp fördelningen i små delar.
+
+	    	[b]Sampling[/b]
+	    	Se nästan fråga.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Localization">
+	    <Question>
+	    	Hur fungerar ett partikelfilter för lokalisering?
+	    </Question>
+	    <Answer>
+	    	Ett partikelfilter representerar fördelningen m.h.a. av en mängd partiklar [math]p_k={ x_k, pi_k }[/math], som är samplade ifrån fördelningen. Varje partikel representerar en hypotes om tillståndet. Partikelns vikt, [math]pi_k[/math], initialiseras som [math]1/N[/math] där [math]N[/math] är antalet partiklar.
+
+	    	Ekvationen för filtret ges av: [math]p(x_(k+1) | Z_(k+1), U_(k+1)) = eta int p(x_(k+1) | x_k, u_(k+1)) p(x_k | Z_k, U_k) dx_k[/math]. Filtret approximera detta genom att för varje nytt tillstånd uppskatta det genom rörelsemodellen [math]p(x_(k+1) | x_k, u_(k+1))[/math] (se frågan om odometri).
+
+	    	När man uppskattar tillståndet så kommer partiklarna att sprida sig, dvs. att osäkerheten ökar. För att minska osäkerheten så kan man sig av IMU eller kalibrera odometri, för att begränsa felet så måste man använda sig av mätningar.
+
+	    	Filtret approximerar uppdaterings ekvationen: [math]p(x_(k+1) | Z_(k+1), U_(k+1)) = eta p(z_(k+1) | x_(k+1)) p(x_(k+1) | Z_k, U_(k+1))[/math] genom att för varje partikel multiplicera vikten med likelihood för mätningarna: [math]p(z_(k+1) | x_(k+1))[/math].
+
+	    	När partiklarna sprider sig (vilket det alltid kommer göra pga. brus i rörelsemodellen), så kommer allt färre partiklar vara i regioner där [math]p(x_k | Z_k, U_k)[/math] är stor, dvs. att approximationen har blir dålig. För att hantera det, så kan man resampla.
+
+	    	Detta innebär att man skapar en ny mängd av partiklar, där sannolikheten att kopiera en partikel ifrån den gamla mängden till den nya är proportionerlig  till dess vikt (man kan även ha flera kopior av partiklar). Vikten för partikeln återställs även till [math]1/N[/math].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Localization">
+	    <Question>
+	    	Vad för egenskaper partikelfilter för lokalisering?
+	    </Question>
+	    <Answer>
+	    	[ul]
+	    		[li]Kan representera en godtycklig fördelning givet tillräckligt antal partiklar.[/li]
+	    		[li]Kan hantera "multi-modal" utan problem.[/li]
+	    		[li]Kan hantera icke-linjära system.[/li]
+	    		[li]Kan vara beräkningsintensiv för vissa applikationer.[/li]
+	    		[li]Precisionen beror på antalet partiklar.[/li]
+	    		[li]Problem med högre dimensioner - antalet partiklar växer exponetiellt med antalet exponentiellt.[/li]
+	    	[/ul]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Localization">
+	    <Question>
+	    	Hur fungerar Kalmanfiltret?
+	    </Question>
+	    <Answer>
+	    	Låt [math]x_k = f(x_(k-1), u_(k-1), w_(k-1))[/math] vara systemets dynamik (rörelsemodellen), [math]z_k=h(x_k, v_k)[/math] vara mätmodellen. Vi antar även att att bruset är normalfördelat: [math]p(w) = N(0, Q), p(v) = N(0, R)[/math].
+
+	    	Vi kan sedan inte veta värdet för bruset, så vi antar att det är 0 för våra uppskattningar: [math]bar x_k = f(hat x_(k-1), u_(k-1), 0), bar z_k = h(hat x_k, 0)[/math].
+
+	    	Vi kan sedan linjärisera systemet:
+	    	[math]x_k ~~ bar x_k + A(x_(k-1) - hat x_(k-1)) + W w_(k-1)[/math]
+	    	[math]z_k ~~ bar z_k + H(x_k - hat x_k + V v_(k-1)[/math]
+	    	där [math]A, W, H, V[/math] är Jacobianer.
+
+	    	För att estimera postionen gör vi följande:
+	    	[math]hat x_k = f(bar x_(k-1), u_(k-1), 0), P_k^(-) = A_k P_(k-1) A_k^T W_k Q_(k-1) W_k^T[/math]
+
+	    	För att uppdatera mätningarna för vi följande:
+	    	[ol]
+	    		[li]Beräkna Kalman gain: [math]K_k = P_k^(-) H_k^T (H_k P_k^(-) H_k^T + V_k R_k V_k^T)^(-1)[/math].[/li]
+	    		[li]Uppdatera uppskatningen med mätningen [math]z_k[/math]: [math]hat x_k = hat x_k^(-) + K_k (z_k - h(hat x_k^(-1), 0))[/math][/li]
+	    		[li]Uppdatera fel kovariansen: [math]P_k = (I - K-k H_k) P_k^(-)[/math].[/li]
+	    	[/ol]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Localization">
+	    <Question>
+	    	Vad för egenskaper av EKF lokalisering?
+	    </Question>
+	    <Answer>
+	    	[ul]
+	    		[li]Mycket effektiv att beräkna.[/li]
+	    		[li]Har använts i många olika områden för en lång tid.[/li]
+	    		[li]Skalar väl till flera dimensioner.[/li]
+	    		[li]Finns inga teoretiska garantier att systemet konvergerar om systemet är icke-linjärt, men fungerar bra i praktiken.[/li]
+	    		[li]Kan ej hantera "multi-modal" fördelningar.[/li]
+	    		[li]Linjärisering blir problematiskt i när systemet är osäkert med hänsyn till icke-linjäriteten.[/li]
+	    		[li]Behöver en bra initialvärden för att konvergera.[/li]
+	    	[/ul]
 	    </Answer>
 	</TestQuestion>
 </Test>
