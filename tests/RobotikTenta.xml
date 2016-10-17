@@ -196,7 +196,7 @@
 	    	Vad mäter en encoder?
 	    </Question>
 	    <Answer>
-	    	Den mäter rotationen för ett hjul, men kan också användas för att mätas postionen för en led för en arm. Det finns i huvudsakligen två olika typer: inkrementell och absolut.
+	    	Den mäter rotationen för ett hjul, men kan också användas för att mätas positionen för en led för en arm. Det finns i huvudsakligen två olika typer: inkrementell och absolut.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
@@ -383,7 +383,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
 	    <Question>
-	    	Hur bestäms postionen av en GPS mottagare?
+	    	Hur bestäms positionen av en GPS mottagare?
 	    </Question>
 	    <Answer>
 	    	Med hjälp av time-of-flight och triangulation.
@@ -412,10 +412,10 @@
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
 	    <Question>
-	    	Ifrån hur många satelliter behövs det för att mäta postionen?
+	    	Ifrån hur många satelliter behövs det för att mäta positionen?
 	    </Question>
 	    <Answer>
-	    	Det krävs minst 3 satelliter för att mäta postionen, och en till för att mäta höjden. Desto mer satelliter man får signaler ifrån ger bättre precision.
+	    	Det krävs minst 3 satelliter för att mäta positionen, och en till för att mäta höjden. Desto mer satelliter man får signaler ifrån ger bättre precision.
 	    </Answer>
 	</TestQuestion>
 	<!-- Något om GPS Time synchronization? -->
@@ -444,7 +444,7 @@
 
 	    	Då kan man beräkna [math]D = text{Ändring i sträcka} = v Delta T = r / 2 (K Delta E_R + K Delta E_L)[/math] och [math]Delta theta = text{Ändring i orientering} = omega Delta T = r / B (K Delta E_R - K Delta E_L)[/math].
 
-	    	Detta ger att postionen och orientering kan estimeras som:
+	    	Detta ger att positionen och orientering kan estimeras som:
 	    	[math]x(k+1)=x(k) + D*cos(theta)[/math]
 	    	[math]y(k+1)=y(k) + D*sin(theta)[/math]
 	    	[math]theta(k+1)=theta(k+1)+Delta theta[/math].
@@ -585,7 +585,7 @@
 	    	[math]z_k ~~ bar z_k + H(x_k - hat x_k + V v_(k-1)[/math]
 	    	där [math]A, W, H, V[/math] är Jacobianer.
 
-	    	För att estimera postionen gör vi följande:
+	    	För att estimera positionen gör vi följande:
 	    	[math]hat x_k = f(bar x_(k-1), u_(k-1), 0), P_k^(-) = A_k P_(k-1) A_k^T W_k Q_(k-1) W_k^T[/math]
 
 	    	För att uppdatera mätningarna för vi följande:
@@ -610,6 +610,115 @@
 	    		[li]Linjärisering blir problematiskt i när systemet är osäkert med hänsyn till icke-linjäriteten.[/li]
 	    		[li]Behöver en bra initialvärden för att konvergera.[/li]
 	    	[/ul]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mapping">
+	    <Question>
+	    	Vad innebär SLAM?
+	    </Question>
+	    <Answer>
+			För att skapa en karta, behöver vi veta positionen. Men ofta vet vi inte positionen, utan behöver en karta för att bestämma den. Denna innebär att vi bör göra båda samtidigt - bestämma positionen och kartan. Detta är idén bakom SLAM - Simultaneous Localization and Mapping.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mapping">
+	    <Question>
+	    	Ange olika sätt att representera kartan.
+	    </Question>
+	    <Answer>
+			Det finns i huvudsakligen två olika riktningar: topologisk och metrisk. För metriska, är de två vanligaste representationer är features och occupancy grids.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mapping">
+	    <Question>
+	    	Hur fungerar ett occupancy grid?
+	    </Question>
+	    <Answer>
+				I ett occupancy grid delar man upp världen i celler, där kartan definierar för varje cell om den är upptagen eller inte. Det är också möjligt att man representerar det med en sannolikhet istället, där 0 betyder definitivt fri och 1 upptagen.
+
+				[b]Fördelar[/b]
+				[ul]
+					[li]Kräver ingen modell (model free).[/li]
+					[li]Bra sätt för att hantera osäkerdata.[/li]
+					[li]Modellerar explicit det fria utrymmet.[/li]
+					[li]Visuellt komplett.[/li]
+				[/ul][b]Nackdelar[/b]
+				[ul]
+					[li]Begränsad upplösning.[/li]
+					[li]Kräver ofta mer beräkningar.[/li]
+				[/ul]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mapping">
+	    <Question>
+	    	Hur fungerar en feature (landmark) karta?
+	    </Question>
+	    <Answer>
+			Kartan representeras av en mängd av features: [math]M = { m_k | j = 1, ..., M }[/math], där exempel på features är punkter, linjer, plan, hörn, kanter, etc.
+
+			[b]Fördelar[/b]
+				[ul]
+					[li]Kompakt.[/li]
+					[li]Hög precision.[/li]
+				[/ul][b]Nackdelar[/b]
+			[ul]
+				[li]Gles representation, modellerar ej det fria utrymmet[/li]
+				[li]Behöver veta vilka features som behövs användas som prior.[/li]
+			[/ul]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mapping">
+	    <Question>
+	    	Hur fungerar en topologisk karta?
+	    </Question>
+	    <Answer>
+			Kartan representeras av en graf, där varje hörn representerar en plats och kanterna mellan hörnen betecknar dörrar, trappor, etc.
+
+			[b]Fördelar[/b]
+				[ul]
+					[li]Skalar bra med storleken av miljön.[/li]
+					[li]Kan skapas utan krav att veta den exakta geometrin.[/li]
+					[li]Lätt att göra path planning.[/li]
+			[/ul][b]Nackdelar[/b]
+			[ul]
+				[li]Informationen för postionen är väldigt grov.[/li]
+				[li]Kräver att roboten kan upptäcka vilken plats den är i, vilket i praktiken är mycket svårt.[/li]
+			[/ul]
+    	</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mapping">
+	    <Question>
+	    	Hur fungerar EKF SLAM?
+	    </Question>
+	    <Answer>
+			Det är samma idé som för EKF för lokalisering, men att vi nu också låter landmarks vara en del av tillståndsvektorn. Detta ger att tillståndsvektorn växer med tiden. Det är ofta problem med konsistens pga. osäkerhet och icke-linjäritet.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mapping">
+	    <Question>
+	    	Kan man använda ett partikelfilter för SLAM?
+	    </Question>
+	    <Answer>
+			Det är ofta inte en bra lösning, för att partikelfilter skalar dåligt med antalet dimensioner (antalet features i det här fallet).
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mapping">
+	    <Question>
+	    	Vad är Rao-blackwellized particle filter (RBPF)?
+	    </Question>
+	    <Answer>
+			Den kombinerar styrkan hos Kalmanfiltret (skalbarheten) med partikelfiltret (hanterar "multi-modal" fördelningar). Det fungerar så att man marginaliserar ut den linjära delen representerar den med en normalfördelning och låter partikelfiltret hantera de icke-linjära delarna.
+
+			Man låter då varje partikel både representera pose och innehålla en karta. Då blir givet en pose, så blir landmarks okorrelerade.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mapping">
+	    <Question>
+	    	Vad är en pose graf?
+	    </Question>
+	    <Answer>
+			Det är en algoritm för SLAM. Man kan formulera mappningsproblemet som ett graf optimeringsproblem istället. Då låter man ett hörn i grafen representera posen för där en sensoravläsning gjordes och begräsningar ifrån odometrin och mätningar bli kanter.
+
+			Sedan använder man sig av icke-linjära optimeringar för att hitta den optimala grafen, det vill säga den optimala positionen för roboten och landmarks.
 	    </Answer>
 	</TestQuestion>
 </Test>
