@@ -44,7 +44,7 @@
 			Vad innebär Minimum Error Rate?
 	    </Question>
 	    <Answer>
-			Det är ett special fall av Bayes Minimum-Risk Decision Rule. Om syftet är att vi gissa den gömda källkategori med minska sannolikhet för fel, då kan vi definiera loss matrisen som: [math]L(d = i | S = j) = { (0, i = j), (1, text{annars}) :}[/math]. Detta innebär att rätta svar kostar oss ingenting, och alla fel svar kostar lika mycket. Detta ger: [math]R(i | x) = sum_(j = 1)^(N_s) L(d = i | S = j) P_(S|X)(j | x) = sum_(j != i) P_(S|X)(j|x) = 1 - P_(S|X)(i | x)[/math].
+			Det är ett special fall av Bayes Minimum-Risk Decision Rule. Om syftet är att gissa den gömda källkategori med minska sannolikhet för fel, då kan vi definiera loss matrisen som: [math]L(d = i | S = j) = { (0, i = j), (1, text{annars}) :}[/math]. Detta innebär att rätta svar kostar oss ingenting, och alla fel svar kostar lika mycket. Detta ger: [math]R(i | x) = sum_(j = 1)^(N_s) L(d = i | S = j) P_(S|X)(j | x) = sum_(j != i) P_(S|X)(j|x) = 1 - P_(S|X)(i | x)[/math].
 
 			För att minimera risken, så bör klassificeraren välja den källa som hade högst värde för posteriori conditional probability, [math]P_(S|X)(i | x)[/math]. [math]d(x) = argmax_i P_(S|X)(i | x) \hArr argmax_i (f_(X|S)(x|i)P_S(i)) / f_X(x)[/math].
 
@@ -69,7 +69,7 @@
 	    		[li]Min. Risk Rule: [math]g_i(x) = -R(i | x)[/math][/li]
 	    		[li]MAP Rule: [math]g_i(x) = f_(X|S)(x | i) P_S(i)[/math][/li]
 	    		[li]ML Rule: [math]g_i(x) = f_X(X|S)(x | i)[/math][/li]
-	    	[/ul]Vi kan få en ny mängd av discriminant funktioner, med identiska beslut om vi applicerar en transformation: [math]g'_i(x) = h(g_i(x))[/math] där [math]h[/math] är en monotomisk ökande funktion (t.ex. [math]log[/math]).
+	    	[/ul]Vi kan få en ny mängd av discriminant funktioner, med identiska beslut om vi applicerar transformationen [math]g^'_i(x) = h(g_i(x))[/math] där [math]h[/math] är en monotomisk ökande funktion (t.ex. [math]log[/math]).
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="BayesianPatternClassification">
@@ -112,7 +112,7 @@
 	    	Vad innebär det att en HMM är left-right?
 	    </Question>
 	    <Answer>
-	    	Det innebär att vi endast tillåtna övergången ifrån ett tillstånd är ifrån sig själv, eller ett tillstånd till "vänster" om sig själv. Detta ger att övergångsmatrisen blir "upper triangular".
+	    	Det innebär att endast tillåtna övergångarna för ett tillstånd är ifrån sig själv, eller ifrån ett tillstånd till "vänster" om sig själv. Detta ger att övergångsmatrisen blir "upper triangular".
 
 	    	Om HMM är oändlig, så måste den tillslut konvergera emot det tillståndet som är mest "till höger", och är då kvar där i all evighet. Detta tillstånd kallas för "final" eller "absorbing".
 	    </Answer>
@@ -190,7 +190,6 @@
 	    	Vad beräknar forward algoritmen?
 	    </Question>
 	    <Answer>
-	    	Den beräknar huvudsakligen tre olika saker:
 	    	[b]Sannolikheten för ett tillstånd givet observationerna[/b]
 	    	[math]P[S_t = j | X_1 = x_1, ..., X_t = x_t, lambda] = hat alpha_(j, t)[/math]
 
@@ -318,7 +317,7 @@
 	    	Vad gör Baum-Welch algoritmen?
 	    </Question>
 	    <Answer>
-	    	Givet en mängd av träningsdata, [math]ul x[/math], algoritmen beräknar den modellen [math]lambda_(ML) = {{ q, A }, B}[/math] med högst sannolikhet att generera träningsdatan: [math]lambda_(ML) = argmax_(lambda) P[ul x | lambda][/math].
+	    	Givet en mängd av träningsdata, [math]ul x[/math], så algoritmen beräknar den modell [math]lambda_(ML) = {{ q, A }, B}[/math] med högst sannolikhet att generera träningsdatan: [math]lambda_(ML) = argmax_(lambda) P[ul x | lambda][/math].
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="HMM">
