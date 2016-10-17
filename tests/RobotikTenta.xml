@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Test Name="Tenta">
+	<TestQuestion Category="Mobility">
+	    <Question>
+	    	Vad innebär statisk respektive dynamisk stabilitet?
+	    </Question>
+	    <Answer>
+
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mobility">
+	    <Question>
+	    	Vad är det huvudsakliga problemen för locomotion?
+	    </Question>
+	    <Answer>
+	    	[b]Stabilitet[/b]
+	    	[ul]
+	    		[li]Antalet och geometri för kontaktpunkterna.[/li]
+	    		[li]Tyndpunkten.[/li]
+	    		[li]Statisk/dynamisk stabilitet.[/li]
+	    		[li]Inklination (lutning?) för terrängen.[/li]
+	    	[/ul][b]Träffytans egenskaper[/b]
+	    	[ul]
+	    		[li]Kontaktpunktens bana, storlek och form.[/li]
+	    		[li]Träffvinkel (angle of contact).[/li]
+	    		[li]Friktion.[/li]
+	    	[/ul][b]Typ av miljö[/b][ul]
+	    		[li]Struktur.[/li]
+	    		[li]Medium - vatten, luft, mjukmark, hårdmark.[/li]
+	    	[/ul]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mobility">
+	    <Question>
+	    	Vad är för- och nackdelarna med rörelse baserad på ben?
+	    </Question>
+	    <Answer>
+	    	[b]Fördelar[/b][ul]
+	    		[li]Möjligt att hantera svår terräng bra.[/li]
+	    		[li]Endast kontaktpunkterna behöver vara bra, marken mellan dem spelar ingen roll.[/li]
+	    	[/ul][b]Nackdelar[/b][ul]
+	    		[li]Mekaniskt komplext.[/li]
+	    		[li]Tar mycket kraft.[/li]
+	    	[/ul]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mobility">
+	    <Question>
+	    	Vad innebär gait?
+	    </Question>
+	    <Answer>
+	    	Sekvensen av lyft och släpp händelser för individuella ben. Fler ben ger fler möjliga gaits.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mobility">
+	    <Question>
+	    	Hur man bör man flytta benen för att det statistiskt ska bli stability?
+	    </Question>
+	    <Answer>
+	    	Man ska flytta benen i grupper av tre ben.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mobility">
+	    <Question>
+	    	Vad innebär bipeds och quadrupeds?
+	    </Question>
+	    <Answer>
+	    	Bipeds: Två ben.
+	    	Quadrupeds: Fyra ben. Blir statistiskt sätt stabilt när roboten står stilla.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mobility">
+	    <Question>
+	    	När behövs den upphängning för robotar med hjul?
+	    </Question>
+	    <Answer>
+	    	Typiskt när man har fler än 3 hjul. Annars tappar man kontakt med marken om den inte är perfekt platt.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mobility">
+	    <Question>
+	    	Vad är ett "swedish wheel" för något?
+	    </Question>
+	    <Answer>
+
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mobility">
+	    <Question>
+	    	Vad innebär det att en robot är "omnidirectional"?
+	    </Question>
+	    <Answer>
+	    	Att roboten kan röra sig i vilken riktning som helst (i planet) oberoende av robotens orientering.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mobility">
+	    <Question>
+	    	Vad innebär "slip/skid" styrning?
+	    </Question>
+	    <Answer>
+	    	Det innebär att man svänger genom att ha olika hastigheter på de olika hjulen. Är mycket energy ineffektiv när friktionen är hög.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mobility">
+	    <Question>
+	    	Vad är för- och nackdelar med olika typer av flygande robotar?
+	    </Question>
+	    <Answer>
+	    	[b]Fasta vingar (fixed wing)[/b]
+	    	[ul]
+	    		[li]Kan glidflyga.[/li]
+	    		[li]Kan röra sig snabbt.[/li]
+	    		[li]Kan ej stå stilla.[/li]
+	    		[li]Behöver stor yta för start/landning.[/li]
+	    	[/ul][b]Flera rotorer[/b]
+	    	[ul]
+	    		[li]Kan stå stilla.[/li]
+	    		[li]Kan lätt ändra höjd.[/li]
+	    		[li]Kan flyga nära marken.[/li]
+	    		[li]Behöver liten yta för start/landning.[/li]
+	    		[li]Begränsad räckvidd.[/li]
+	    	[/ul]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mobility">
+	    <Question>
+	    	Vad krävs det för att kontrollera rörelsen för en robot?
+	    </Question>
+	    <Answer>
+	    	[ul]
+	    		[li]Kinematisk/dynamisk modell av roboten.[/li]
+	    		[li]Modell för kontakten med marken (mycket komplicerat).[/li]
+	    		[li]Definitionen av rörelsen som ska utföras.[/li]
+	    		[li]Design av en kontroll metod.[/li]
+	    		[li]Verifikationen och finjustering.[/li]
+	    	[/ul]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mobility">
+	    <Question>
+	    	Hur lyder den kinematiska modellen för differential drive?
+	    </Question>
+	    <Answer>
+	    	Vi har två hjul, robotens position och orientering i rummet "pose" beskrivs av tre parameterar: [math]x, y, theta[/math]. Vi antar att hjulens radie är den samma ([math]r[/math]) och avståndet mellan de två hjulen är [math]B=2l[/math]. Vi kontrollerar roboten genom att ändra vinkelhastigheten för de respektive hjulen: [math]phi_R, phi_L[/math].
+
+	    	Då blir:
+	    	[math]v = r / 2 (phi_R + phi_L), omega = r / (2l) (phi_R - phi_L)[/math].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mobility">
+	    <Question>
+	    	Vad är holonomy?
+	    </Question>
+	    <Answer>
+	    	En robot är [i]holonomisk[/i] om vi kan kontrollera [i]alla[/i] frihetsgrader. En robot som vi ej kan kontrollera alla sägers var [i]icke-holonomisk[/i].
+	    </Answer>
+	</TestQuestion>
+		<TestQuestion Category="Mobility">
+	    <Question>
+	    	Vad är skillnanden mellan en path och en trajectory?
+	    </Question>
+	    <Answer>
+	    	En trajectory är en path med tiden specificerad.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Vad är en sensor?
+	    </Question>
+	    <Answer>
+	    	Det ger en uppskattning av miljön och robotens tillstånd.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Ange olika klassificeringar som kan göras av sensorer.
+	    </Question>
+	    <Answer>
+	    	Sensosrer kan delas in i beroende på vad som mäts:
+	    	[b]Proprioceptive (PC) sensors[/b]
+	    	Mäter värden som är interna för roboten, som t.ex. motorhastighet, riktning, batteristatus.
+
+	    	[b]Exteroceptive (EC) sensors[/b]
+	    	Ger information från robotens miljö, som t.ex. avstånd till objekt, ljudsättning.
+
+	    	Men det går även att dela in baserat på hur mätningen går till:
+	    	[b]Passive (P) sensors[/b]
+	    	Energin kommer ifrån miljön, som t.ex. kamera, mikrofon.
+
+	    	[b]Active (A) sensors[/b]
+	    	Man skickar ut energi och mäter reaktionen. Detta ger ofta bättre prestanda, men påverkas till viss mån av miljön. Exempel är laser sensorer och sonar.
+	    </Answer>
+	</TestQuestion>
+		<TestQuestion Category="Sensing">
+	    <Question>
+	    	Vad mäter en encoder?
+	    </Question>
+	    <Answer>
+	    	Den mäter rotationen för ett hjul, men kan också användas för att mätas postionen för en led för en arm. Det finns i huvudsakligen två olika typer: inkrementell och absolut.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Ange olika metoder som encoders använder sig av.
+	    </Question>
+	    <Answer>
+	    	[b]Optiskt[/b]
+	    	Den använder sig av en ljuskälla och en detektor. Ljuskällan skickas genom ett hjul, med hål i. Rotationen mäts då genom att att om ljuset går igenom hållet eller inte genererar en puls. En optisk encoder kan oftast ha flera tusen "ticks" per varv.
+
+	    	[b]Magnetiskt[/b]
+	    	Använder sig av magnetiskt material på disken istället för hål. Sensorser (som ofta använder sig av hall-effekten) upptäcker när en magnetiskt material passerar. Har ofta mindre upplösning än en optiskt encoder (typiskt mindre än 12), men är billigare.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Hur fungerar en inkrementell encoder?
+	    </Question>
+	    <Answer>
+	    	Genom att använda sig två detektorer, som ligger 90 grader ur fas. Detta genererar två olika pulser. Genom att kolla på tillståndssekvesen, så kan även riktningen för ändringen bestämmas.
+
+	    	[img]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/IncrementalEncoder.png[/img]  
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Hur fungerar en absolut encoder?
+	    </Question>
+	    <Answer>
+	    	Genom att använda sig av flera olika "varv" av hål. Man skapar då en specifik kod för varje position som läses av.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Vad mäter en potentiometer?
+	    </Question>
+	    <Answer>
+	    	Mäter variabel resistans vilket kan användas för linjär eller vinkelhastighet. Används oftast som kontrol för användare.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Vad är den främsta fördelen med kompasser jämförelse med andra sensorer för att mäta orientering?
+	    </Question>
+	    <Answer>
+	    	Att den mäter orientering i ett absolut koordinat system istället för relativt.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Vad för problem finns det med en kompass?
+	    </Question>
+	    <Answer>
+	    	Är mycket känslig emot andra magnetiska materia vilket gör den svårt att använda i miljöer konstruerade av människor.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Vad är (rate) gyroskop för något?
+	    </Question>
+	    <Answer>
+	    	Det är en sensor som mäterrotationshastigheten. För att få orienteringen så kan man integrera värdet. Sensorn beror ofta på temperaturen vilket ger brus som får värdet att avika efter tid.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Vad är en accelerometer?
+	    </Question>
+	    <Answer>
+	   		Den mäter linjär acceleration. Problemet är att den inte mäta vinkel för accelerationen, vilket gör att den inte kan urskilja accelerationen ifrån tyngdkraften. För att få positionen så kan man integrera värdet två gånger. Den är också mycket känslig för brus och kräver att man vet orienteringen så att man kan ta bort tyngdkraften.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Vad mäter en inclinometer?
+	    </Question>
+	    <Answer>
+	    	Lutningen vilket kan göras med olika metoder: accelerometer, gasbubbla i vätska.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Vad innebär cross sensitivity?
+	    </Question>
+	    <Answer>
+	    	Att mätningen av acceleration eller rotationen runt en axel påverkas ofta av andra saker som t.ex. påverkan från andra axlar och att gyroskop regerar av acceleration.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Vad är en IMU?
+	    </Question>
+	    <Answer>
+	    	IMU står för Inertial measurement unit och kombinerar accelerator och gyroskop i tre axlar, men kommer också med magnetometers.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Vad är tactila sensorer för något?
+	    </Question>
+	    <Answer>
+	    	Den mäter fysisk interkation med miljön. Exempel är bumper switches och non-contact proximity sensors.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Ange olika typer av bumper switches.
+	    </Question>
+	    <Answer>
+	    	[ul]
+	    		[li]Kontakt - om en knapp trycks in.[/li]
+	    		[li]Ljus - om en ljustråle bryts.[/li]
+	    	[/ul]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Vad mäter kapacitiva sensorer?
+	    </Question>
+	    <Answer>
+	    	Förändringen i kapacitet. Det används i pekskämar och proximity sensorer. Problemet är att inte allt upptäcks, för det kräver att materialet ledande.
+	    </Answer>
+	</TestQuestion>
+	<!-- Något om inductive sensors? -->
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Hur fungerar Time-of-flight (TOF) för att mäta avstånd?
+	    </Question>
+	    <Answer>
+	    	Man mäter tiden det tar för något att propagera (och komma tillbaka). Detta görs genom att man vet från början hastigheten för det man mäter i mediumet, och då ges avståndet av [math]d=(vt)/2[/math] där [math]v[/math] är hastigheten i mediumet.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Hur fungerar fasdifferans för att mäta avstånd?
+	    </Question>
+	    <Answer>
+	    	Man mäter fasdifferansen ([math]theta[/math]) mellan en reflekterad signalen och den som skickades. Då ges avståndet av: [math]d=(lambda theta) / (4 pi)[/math] där [math]lambda[/math] är våglängden.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Hur fungerar triangulation för att mäta avstånd?
+	    </Question>
+	    <Answer>
+	    	Se bilden nedan, och avståndet ges av: [math]d=(f L) / x[/math].
+	    	[img]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Triangulation.png[/img].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Vad för problem finns det med ultraljud för att mäta avstånd?
+	    </Question>
+	    <Answer>
+	    	Hastigheten för ljud i luften är mycket liten (343 m/s vid 20 grader), vilket ger en låg sampling rate. Den är också [i]mycket[/i] känslig för temperaturer. Vissa material reflekterar inte heller ljud.
+	    </Answer>
+	</TestQuestion>
+	<!-- Något om sonar?  -->
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Vad för problem finns det med använda IR för att mäta avstånd?
+	    </Question>
+	    <Answer>
+	    	Att det finns problem att det inte finns 1-1 mappning mellan utdata ifrån sensor och avstånd, se bild nedan.
+
+	    	[img]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/IR.png[/img]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Hur fungerar en radar?
+	    </Question>
+	    <Answer>
+	    	Först, radar står för: Radio Detection And Ragning. Det fungerar så att man skickar ut och tar emot en radiovåg. Om ett material har hög ledningsförmåga ger det en stark reflektion. Många material absorberar inte/reflekterar inte/sprider inte ut signalen, vilket ger den långt avstånd. 	Den ger båda avstånd och riktning för flera mål.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Hur fungerar en doppler radar?
+	    </Question>
+	    <Answer>
+	    	När en skicka som man skickar ut reflekteras av ett mål som rör sig, så kommer signalen som man får tillbaka en förändrad frekvens (doppler effekten). Detta kan användas för att uppskatta  hastigheten hos objektet.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Hur bestäms postionen av en GPS mottagare?
+	    </Question>
+	    <Answer>
+	    	Med hjälp av time-of-flight och triangulation.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Vad är de huvudsakliga utmaningarna för GPS?
+	    </Question>
+	    <Answer>
+	    	[ul]
+	    		[li]Tidssynkronisering mellan olika satelliter.[/li]
+	    		[li]Realtids uppdatering av exakt position för satelliter.[/li]
+	    		[li]Noggrann mättning av time-of-flight.[/li]
+	    		[li]Störningar ifrån andra signaler.[/li]
+	    	[/ul]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Ifrån hur många satelliter behövs det för att mäta postionen?
+	    </Question>
+	    <Answer>
+	    	Det krävs minst 3 satelliter för att mäta postionen, och en till för att mäta höjden. Desto mer satelliter man får signaler ifrån ger bättre precision.
+	    </Answer>
+	</TestQuestion>
+	<!-- Något om GPS Time synchronization? -->
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Vad kan man göra för att förbättra precisionen av GPS?
+	    </Question>
+	    <Answer>
+	    	Man kan korrigera med hjälp av lokala stationer, detta kan ge precision i cm klassen.
+	    </Answer>
+	</TestQuestion>
+</Test>

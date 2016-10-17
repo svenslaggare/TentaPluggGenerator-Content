@@ -33,4 +33,7 @@
 	<Course Name="Pattern Recognition">
 		<Test File="PatternTenta" />
 	</Course>
+	<Course Name="Robotik">
+		<Test File="RobotikTenta" />
+	</Course>
 </Courses>
