@@ -453,7 +453,7 @@
 	    		[li]Samla in träningsdata [math]D=ul x = (x_1, ..., x_T)[/math] som består av feature vektorer [math]x_t[/math]. Varje feature vektor anses som ett utfall av slumpvariabeln [math]X_t[/math].[/li]
 	    		[li]Formulera en modell för conditional feature-vector density, [math]f_(X|W)(x | w)[/math] där [math]w[/math] är parametrarna som anses vara ett utfall från slumpvariabeln [math]W[/math]. Vi antar också att alla feature vektorer i sekvensen är oberoende, detta ger att: [math]f_(ul X | W) (ul x | w) = prod_(t=1)^T f_(X | W)(x_t | w)[/math].[/li]
 	    		[li]Välj en form för prior density function för parameter vektorn: [math]f_W(w; a^((0)))[/math] där [math]a^((0))[/math] är hyper-parametrarna.[/li]
-	    		[li]Beräkna Likelihood funktionen: [math]f_(ul X, W)(x, w) = f_(ul X | W)(ul x | w) f_W (w; a^((0)))[/math][/li]
+	    		[li]Beräkna Likelihood funktionen: [math]f_(ul X, W)(ul x, w) = f_(ul X | W)(ul x | w) f_W (w; a^((0)))[/math][/li]
 	    		[li]Identifiera posterior density function för [math]W[/math]: [math]f_(W|ul X)(w | ul x; a^((T))) = c(ul x) f_(ul X | W)(ul x | w) f_W(w ; a^((0)))[/math] där [math]c(ul x) = P[ul X = ul x][/math] (normaliserings konstant).[/li]
 	    		[li]Beräkna predictive density function: [math]f_(X | ul X)(x | ul x; a^((T))) = int_(text{alla } w) f_(X|W)(x | w) f_(W  | ul X)(w | ul x; a^((T))) dw[/math]. Denna funktion används sedan som discriminant funktion.[/li]
 	    	[/ol]
