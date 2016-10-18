@@ -721,4 +721,158 @@
 			Sedan använder man sig av icke-linjära optimeringar för att hitta den optimala grafen, det vill säga den optimala positionen för roboten och landmarks.
 	    </Answer>
 	</TestQuestion>
+	<TestQuestion Category="Navigation">
+	    <Question>
+	    	Vad för steg ingår i global motion planning?
+	    </Question>
+	    <Answer>
+	    	[ol]
+	    		[li]Generera en representation av kartan som kan används vid planering.[/li]
+	    		[li]Definiera en avståndsfunktion.[/li]
+	    		[li]Utför en sökning ifrån start konfigurationen till slut kongirtationen[/li]
+	    	[/ol]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Navigation">
+	    <Question>
+	    	Vad är configuration space?
+	    </Question>
+	    <Answer>
+	    	Det är mängden av alla konfigurationer. Varje pose representeras av en punkt i denna rymd och dimensionen av rymden ges av antalet frihetsgrader.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Navigation">
+	    <Question>
+	    	Vad är en Voronoi diagram?
+	    </Question>
+	    <Answer>
+	    	Det är ett sätt att dela upp (partitionera) en rymd. Det fungerar så att vi definierar olika punkter (t.ex. städer), kallat för generatorer. Sedan delar vi upp rymden så att varje punkt i rymden tillhör en generator som den är närmast till.
+
+	    	Detta kan användas för att göra path planning, genom att hitta den kortaste vägen längs kanterna. Fördelen är att algoritmen blir enkel och kan användas för att kontrollera roboten. Nackdelen är att den väg som hittas är den längsta möjliga.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Navigation">
+	    <Question>
+	    	Vad är en visibility graph?
+	    </Question>
+	    <Answer>
+	    	Den fungerar så att man kopplar ihop hörn av rymden genom att endast skapa kanter mellan hörnen om de kan "se varandra", dvs. det existerar ingen kollision mellan dem. Sedan kan man använd en grafsöknings algoritm för att hitta vägen. Detta genererar den kortaste vägen, men försöker vara så nära som möjligt till hindren. Detta ger algoritmen små marginaler för fel i rörelsen.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Navigation">
+	    <Question>
+	    	Hur fungerar cell decomposition?
+	    </Question>
+	    <Answer>
+	    	Det fungerar så att man delar in det fria utrymmet (free space, F) till regioner som är sammankopplade, som kallas för celler. Man skapar sedan en graf där en kant existerar mellan cellerna om det finns "öppet" utrymme mellan dem.
+
+	    	Varje rätlinjig väg inom en cell är garanterad att inte kollidera med ett hinder om dekompositionen är exakt. Fungerar bra för glesa miljöer.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Navigation">
+	    <Question>
+	    	Hur kan man approximera en cell decomposition?
+	    </Question>
+	    <Answer>
+	    	Genom t.ex. använda sig av ett occupancy grid.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Navigation">
+	    <Question>
+	    	Hur kan man skapa en adaptiv cell decomposition?
+	    </Question>
+	    <Answer>
+	    	Med hjälp av ett quad-tree i 2D eller oct-tree i 3D.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Navigation">
+	    <Question>
+	    	Hur fungerar wavefront propagation?
+	    </Question>
+	    <Answer>
+	    	Sätt 0 för målet, och lägg till 1 till varje granne och expandera likt en våg tills att du når starten.
+
+	    	[img]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/WavefrontPropagation.png[/img]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Navigation">
+	    <Question>
+	    	Vad är D* för algoritm?
+	    </Question>
+	    <Answer>
+	    	Det är en algoritm som gör det möjligt att göra lokala förändringar för en väg som A* har skapat.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Navigation">
+	    <Question>
+	    	Vad för problem finns det med algoritmer som använder sig av celler för path planning?
+	    </Question>
+	    <Answer>
+	    	[ul]
+	    		[li]För nära hinder.[/li]
+	    		[li]Den genererade vägen är justerad med hänsyn till rutnätet och är ofta inte jämn.[/li]
+	    		[li]Vägen är inte den kortaste.[/li]
+	    	[/ul]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Navigation">
+	    <Question>
+	    	Vad kan man göra för att göra en väg mer jämn?
+	    </Question>
+	    <Answer>
+	    	Man kan jämna ut rutnätet med t.ex. en normalfördelad kernel detta ger att kostanden för att gå nära hinder blir högre. Det går även att jämna ut själva vägen genom att försöka koppla ihop två kanter i vägen om de går att gå direkt mellan dem utan kollision.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Navigation">
+	    <Question>
+	    	Vad för nackdelar finns det med sample baserad path planning algoritmer?
+	    </Question>
+	    <Answer>
+	    	Det finns inga garantier att algoritmen kommer hitta en lösning (om den existerar). Det bästa man kan få är att när antalet iterationer i algoritmen går emot oändligheten så går sannolikheten att algoritmen hittar emot 1.
+	    </Answer>
+	</TestQuestion>
+<!-- 	<TestQuestion Category="Navigation">
+	    <Question>
+	    	Hur fungerar Rapidly Exploring Random Trees (RRT)?
+	    </Question>
+	    <Answer>
+
+	    </Answer>
+	</TestQuestion> -->
+	<TestQuestion Category="Navigation">
+	    <Question>
+	    	Hur fungear potential fields?
+	    </Question>
+	    <Answer>
+	    	Idén är att låta roboten vara en partikel i ett fält med potential, [math]U(x)[/math]. Man låter då målet vara något som attraherar roboten och där hinder stöter bort roboten. Då låter man kraften som roboten attraherars av i varje plats i fältet som [math]F(x)=-grad(U(x))[/math].
+
+	    	Nackdelarna med denna metod är att rörelsen ofta inte blir jämn, rörelsen oscillerar, den fastnar i lokala minimum och kräver att man finjusterar parametrarna för att de ska fungera bra.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Navigation">
+	    <Question>
+	    	Hur fungerar ett Vector field histogram (VFH)?
+	    </Question>
+	    <Answer>
+	    	Man beräknar kraften för att undvika hinder på ett liknande sätt som potential fields. Man genererar sedan ett histogram där x-värdet anger med den vinkeln som hindret upptäcktes med och y-värdet sannolikheten att det faktiskt fanns ett hinder i den riktningen.
+
+	    	Sedan identifierar man alla möjliga öppningar som roboten kan komma genom, och sedan väljer man den öppningen som kostnadsfunktionen [math]G=alpha * text{target_direction} + b * text{wheel_orientation} + c * text{previous_direction}[/math] har lägst värdet.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Navigation">
+	    <Question>
+	    	Hur fungerar dynamic window approach (DWA)?
+	    </Question>
+	    <Answer>
+	    	Man väljer hastigheter [math](v, omega)[/math] som kan nå inom ett givet tidsrymd och dynamiska begräsningar.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Navigation">
+	    <Question>
+	    	Hur fungerar Bubble (Elasti) band?
+	    </Question>
+	    <Answer>
+	    	Man stänger i roboten i en "bubbla" och försöker koppla ihop start och mål med bubblor. Bubblornas storlek expanderas sedan i riktningen emot hindren.
+	    </Answer>
+	</TestQuestion> 
 </Test>
