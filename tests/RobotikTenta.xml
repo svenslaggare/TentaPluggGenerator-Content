@@ -875,4 +875,195 @@
 	    	Man stänger i roboten i en "bubbla" och försöker koppla ihop start och mål med bubblor. Bubblornas storlek expanderas sedan i riktningen emot hindren.
 	    </Answer>
 	</TestQuestion> 
+	<TestQuestion Category="Vision">
+	    <Question>
+	    	Vad innebär intrinsic kameraparameterar?
+	    </Question>
+	    <Answer>
+	    	[ul]
+	    		[li]Principal point (mitten av bilden): [math](u_0, v_0)[/math].[/li]
+	    		[li]Brännvidd: [math](f_x, f_y)[/math][/li]
+	    		[li]Hur x och y-axlarna är förvrängade mellan varandra (skew): [math]gamma[/math][/li]
+	    		[li]Linsförvrängning[/li]
+	    	[/ul]Detta sammanfattas av: [math]A = [[(f_x), gamma, (u_0)], [0, (f_y), (v_0)], [0, 0, 1]][/math].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Vision">
+	    <Question>
+	    	Vad innebär extrinsic kameraparameterar?
+	    </Question>
+	    <Answer>
+
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Vision">
+	    <Question>
+	    	Vad anger kameramatrisen?
+	    </Question>
+	    <Answer>
+	    	Den kombinerar de extrinsic och intrinsic parametrarna, av en [math]3 \times 4[/math] matris i homogenakoordinater. [math]C = A[R T][/math] där [math]R[/math] är rotationen för kameran och [math]T[/math] förflyttningen.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Vision">
+	    <Question>
+	    	 Vad innebär kamerakalibrering?
+	    </Question>
+	    <Answer>
+	    	Det innebär att vi använder bilder med kända mönstrer för att estimera kameraparametrarna.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Vision">
+	    <Question>
+	    	Vad innebär lens distortion?
+	    </Question>
+	    <Answer>
+
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Vision">
+	    <Question>
+	    	Vad för två komponenter består lens distortion av?
+	    </Question>
+	    <Answer>
+	    	Radial och tangential. Radial är ofta 1-2 magnituder större än tangential.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Vision">
+	    <Question>
+	    	Hur kan man beräkna avståndet ifrån stero vision?
+	    </Question>
+	    <Answer>
+	    	Avståndet ges av baseline, brännvidd och disparity (skillnanden i bild position): [math]Z=b * f / (x_1 - x_2)[/math]. En bisparity map visar skillnanden mellan varje pixel.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Vision">
+	    <Question>
+	    	Hur kan man beräkna avståndet med hjälp av ljus?
+	    </Question>
+	    <Answer>
+	    	Genom att projicera ett känt mönster.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Vision">
+	    <Question>
+	    	Hur kan man beräkna avståndet med hjälp av fokus?
+	    </Question>
+	    <Answer>
+	    	Genom att kameran endast fokuserar på en del av bilden och kontrollera fokusen så ser man hur mycket objektet i fråga är i fokus, vilket ger avståndet.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Vision">
+	    <Question>
+	    	Vad för problem finns det med kameror med stor synvinkel (field of view)?
+	    </Question>
+	    <Answer>
+	    	Det leder till att bilden blir förvrängd.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Vision">
+	    <Question>
+	    	Vad för olika synvinklar finns det till att klassificera objekt?
+	    </Question>
+	    <Answer>
+	    	[b]Features (keypoints)[/b]
+	    	[ul]
+	    		[li]Extrahera features från en träningsbild och skapa en modell.[/li]
+	    		[li]För en ny bild, extrahera features och försök att matcha dessa till modellen.[/li]
+	    	[/ul][b]Template[/b]
+	    	[ul]
+	    		[li]Hitta en bild av det objekt som du vill identifiera senare (template).[/li]
+	    		[li]I en ny bild, hitta matchningar mellan template och bilden genom Korrelation.[/li]
+	    	[/ul][b]Deep learning[/b]
+	    	[ul]
+	    		[li]Annotera träningsdata.[/li]
+	    		[li]Träna ett NN med många lager.[/li]
+	    		[li]Skicka in en bild i nätverket för att klassificera.[/li]
+	    	[/ul]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Vision">
+	    <Question>
+	    	Vad är en keypoint?
+	    </Question>
+	    <Answer>
+	    	Det är en typ av feature och består av två delar: interest point detector (vart den är) och descriptor (hur den ser ut).
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Manipulation">
+	    <Question>
+	    	Ange de olika delarna i en manipulator (t.ex. arm).
+	    </Question>
+	    <Answer>
+	    	[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Manipulator.png[/img]
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Manipulation">
+	    <Question>
+	    	Vad innebär forward kinematics?
+	    </Question>
+	    <Answer>
+	    	Det innebär att vi mappar ifrån konfigurationsrymden till den kartesiskarymden, [math]r = F(phi)[/math].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Manipulation">
+	    <Question>
+	    	Vad innebär inverse kinematics?
+	    </Question>
+	    <Answer>
+	    	Det innebär att vi mappar ifrån den kartesiskarymden till konfigurationsrymden, [math]phi = F^-1(r)[/math].
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Manipulation">
+	    <Question>
+	    	Vad är "workspace" för något?
+	    </Question>
+	    <Answer>
+	    	Det är den delrymden av den kartesiskarymden som roboten faktiskt kan nå.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Manipulation">
+	    <Question>
+	    	Vad är DH parameterar för något?
+	    </Question>
+	    <Answer>
+	    	Det är ett sätt att härleda forward / inverse kinematics genom transformationer mellan homogena koordinatsystem.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Manipulation">
+	    <Question>
+	    	Vad för problem finns det med inverse kinematics?
+	    </Question>
+	    <Answer>
+	    	Det är ofta fallet att [math]n > m[/math], dvs. dimensionen för konfigurationsrymden är högre än den kartesiskarymden. Detta leder till att [math]phi = F^-1(r)[/math] har flera lösningar.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Manipulation">
+	    <Question>
+	    	Hur fungerar en numeriskmetod för att hitta forward / inverse kinematics?
+	    </Question>
+	    <Answer>
+	    	Vi börjar ifrån forward kinematics [math]x(t)=F(theta(t))[/math]. Sedan deriverar vi: [math]dot x(t) = (dF(phi(t))) / dt = J(theta) dot phi(t)[/math]. Sen övergår vi till differenskvot:
+	    	[math]Delta x ~~ J(phi) Delta phi[/math]
+	    	[math]Delta phi ~~ J^(***)(phi) Delta x[/math]
+	    	där [math]J^(***)[/math] är pseudoinversen: [math]J^(***)=(J^T J)^-1 J^T[/math].
+
+	    	De fall där [math]rank(J(phi)) lt m[/math] kallas för singularitet och innebär att det inte är möjligt att röra sig i den riktningen. Nollrymden för denna Jacobian är de ändring av konfigurationen som ej resulterar i en förändring av pose.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Manipulation">
+	    <Question>
+	    	Vad händer om vi gör en rakrörelse i konfigurationsrymden?
+	    </Question>
+	    <Answer>
+	    	Det leder ofta inte till att armen kommer röra sig i rakt, pga. kinematiken ofta inte är linjär.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Manipulation">
+	    <Question>
+	    	Vad för krävs mer än kinematics för att flytta på en arm?
+	    </Question>
+	    <Answer>
+	    	Armen kan kollidera med miljön eller överstiga begräsningar på lederna. Detta innebär att vi måste planera rörelsen för en arm.
+	    </Answer>
+	</TestQuestion>
 </Test>
