@@ -98,7 +98,7 @@
 	    	Vad innebär "slip/skid" styrning?
 	    </Question>
 	    <Answer>
-	    	Det innebär att man svänger genom att ha olika hastigheter på de olika hjulen. Är mycket energy ineffektiv när friktionen är hög.
+	    	Det innebär att man svänger genom att ha olika hastigheter på de olika hjulen. Är mycket energi ineffektiv när friktionen är hög.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Mobility">
@@ -144,7 +144,9 @@
 	    	Vi har två hjul, robotens position och orientering i rummet "pose" beskrivs av tre parameterar: [math]x, y, theta[/math]. Vi antar att hjulens radie är den samma ([math]r[/math]) och avståndet mellan de två hjulen är [math]B=2l[/math]. Vi kontrollerar roboten genom att ändra vinkelhastigheten för de respektive hjulen: [math]phi_R, phi_L[/math].
 
 	    	Då blir:
-	    	[math]v = r / 2 (phi_R + phi_L), omega = r / (2l) (phi_R - phi_L)[/math].
+	    	[math]v = r / 2 (phi_R + phi_L), omega = r / (2l) (phi_R - phi_L)[/math]
+	    	[math]phi_R = (v + l * omega) / r[/math]
+	    	[math]phi_L = (v - l * omega) / r[/math]
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Mobility">
@@ -168,7 +170,7 @@
 	    	Vad är en sensor?
 	    </Question>
 	    <Answer>
-	    	Det ger en uppskattning av miljön och robotens tillstånd.
+	    	Något som ger en uppskattning av miljön och robotens tillstånd.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
@@ -188,7 +190,7 @@
 	    	Energin kommer ifrån miljön, som t.ex. kamera, mikrofon.
 
 	    	[b]Active (A) sensors[/b]
-	    	Man skickar ut energi och mäter reaktionen. Detta ger ofta bättre prestanda, men påverkas till viss mån av miljön. Exempel är laser sensorer och sonar.
+	    	Man skickar ut energi och mäter reaktionen. Detta ger ofta bättre prestanda, men påverkas till viss mån av miljön. Exempel är lasersensorer och sonar.
 	    </Answer>
 	</TestQuestion>
 		<TestQuestion Category="Sensing">
@@ -196,7 +198,7 @@
 	    	Vad mäter en encoder?
 	    </Question>
 	    <Answer>
-	    	Den mäter rotationen för ett hjul, men kan också användas för att mätas positionen för en led för en arm. Det finns i huvudsakligen två olika typer: inkrementell och absolut.
+	    	Den mäter rotationen för ett hjul, men kan också användas för att mätas positionen för en led i en arm. Det finns huvudsakligen två olika typer: inkrementell och absolut.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
@@ -205,7 +207,7 @@
 	    </Question>
 	    <Answer>
 	    	[b]Optiskt[/b]
-	    	Den använder sig av en ljuskälla och en detektor. Ljuskällan skickas genom ett hjul, med hål i. Rotationen mäts då genom att att om ljuset går igenom hållet eller inte genererar en puls. En optisk encoder kan oftast ha flera tusen "ticks" per varv.
+	    	Den använder sig av en ljuskälla och en detektor. Ljuskällan skickas genom ett hjul, med hål i. Rotationen mäts då genom att om ljuset går igenom hållet eller inte genererar en puls. En optisk encoder kan oftast ha flera tusen "ticks" per varv.
 
 	    	[b]Magnetiskt[/b]
 	    	Använder sig av magnetiskt material på disken istället för hål. Sensorser (som ofta använder sig av hall-effekten) upptäcker när en magnetiskt material passerar. Har ofta mindre upplösning än en optiskt encoder (typiskt mindre än 12), men är billigare.
@@ -258,7 +260,7 @@
 	    	Vad är (rate) gyroskop för något?
 	    </Question>
 	    <Answer>
-	    	Det är en sensor som mäterrotationshastigheten. För att få orienteringen så kan man integrera värdet. Sensorn beror ofta på temperaturen vilket ger brus som får värdet att avika efter tid.
+	    	Det är en sensor som mäter rotationshastigheten. För att få orienteringen så kan man integrera värdet. Sensorn beror ofta på temperaturen vilket ger brus som får värdet att avika efter tid.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
@@ -266,7 +268,7 @@
 	    	Vad är en accelerometer?
 	    </Question>
 	    <Answer>
-	   		Den mäter linjär acceleration. Problemet är att den inte mäta vinkel för accelerationen, vilket gör att den inte kan urskilja accelerationen ifrån tyngdkraften. För att få positionen så kan man integrera värdet två gånger. Den är också mycket känslig för brus och kräver att man vet orienteringen så att man kan ta bort tyngdkraften.
+	   		Den mäter linjär acceleration. Problemet är att den inte kan mäta vinkeln för accelerationen, vilket gör att den inte kan urskilja accelerationen ifrån tyngdkraften. För att få positionen så kan man integrera värdet två gånger. Den är också mycket känslig för brus och kräver att man vet orienteringen så att man kan ta bort tyngdkraften.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
@@ -290,7 +292,7 @@
 	    	Vad är en IMU?
 	    </Question>
 	    <Answer>
-	    	IMU står för Inertial measurement unit och kombinerar accelerator och gyroskop i tre axlar, men kommer också med magnetometers.
+	    	IMU står för [i]inertial measurement unit[/i] och kombinerar accelerator och gyroskop i tre axlar, men kommer också med magnetometers.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
@@ -317,7 +319,7 @@
 	    	Vad mäter kapacitiva sensorer?
 	    </Question>
 	    <Answer>
-	    	Förändringen i kapacitet. Det används i pekskämar och proximity sensorer. Problemet är att inte allt upptäcks, för det kräver att materialet ledande.
+	    	Förändringen i kapacitet. Det används i pekskämar och proximity sensorer. Problemet är att inte alla typer av material kan upptäckas, för det kräver att materialet är ledande.
 	    </Answer>
 	</TestQuestion>
 	<!-- Något om inductive sensors? -->
@@ -351,7 +353,7 @@
 	    	Vad för problem finns det med ultraljud för att mäta avstånd?
 	    </Question>
 	    <Answer>
-	    	Hastigheten för ljud i luften är mycket liten (343 m/s vid 20 grader), vilket ger en låg sampling rate. Den är också [i]mycket[/i] känslig för temperaturer. Vissa material reflekterar inte heller ljud.
+	    	Hastigheten för ljud i luften är mycket liten (343 m/s vid 20 grader), vilket ger en låg sampling rate. Ultraljud är också [i]mycket[/i] känslig för temperaturer, vissa material reflekterar inte heller ljudvågor.
 	    </Answer>
 	</TestQuestion>
 	<!-- Något om sonar?  -->
@@ -370,7 +372,7 @@
 	    	Hur fungerar en radar?
 	    </Question>
 	    <Answer>
-	    	Först, radar står för: Radio Detection And Ragning. Det fungerar så att man skickar ut och tar emot en radiovåg. Om ett material har hög ledningsförmåga ger det en stark reflektion. Många material absorberar inte/reflekterar inte/sprider inte ut signalen, vilket ger den långt avstånd. 	Den ger båda avstånd och riktning för flera mål.
+	    	Först, radar står för: Radio Detection And Ragning. Det fungerar så att man skickar ut och tar emot en radiovåg. Om ett material har hög ledningsförmåga ger det en stark reflektion. Många material absorberar inte/reflekterar inte/sprider inte ut signalen, vilket ger den långt avstånd. Radar ger båda avstånd och riktning för flera mål.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
@@ -378,7 +380,7 @@
 	    	Hur fungerar en doppler radar?
 	    </Question>
 	    <Answer>
-	    	När en skicka som man skickar ut reflekteras av ett mål som rör sig, så kommer signalen som man får tillbaka en förändrad frekvens (doppler effekten). Detta kan användas för att uppskatta  hastigheten hos objektet.
+	    	När man skickar ut en signal, och den reflekteras av ett mål som rör sig, så kommer signalen som man får tillbaka en förändrad frekvens (doppler effekten). Detta kan användas för att uppskatta hastigheten hos objektet.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
@@ -407,7 +409,7 @@
 	    	Ange fall när GPS inte fungerar.
 	    </Question>
 	    <Answer>
-	    	När man inte få får in några satelliter, som t.ex. inomhus.
+	    	När man inte få täckning till satelliter, som t.ex. inomhus.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
@@ -415,7 +417,7 @@
 	    	Ifrån hur många satelliter behövs det för att mäta positionen?
 	    </Question>
 	    <Answer>
-	    	Det krävs minst 3 satelliter för att mäta positionen, och en till för att mäta höjden. Desto mer satelliter man får signaler ifrån ger bättre precision.
+	    	Det krävs minst 3 satelliter för att mäta positionen, och en till för att mäta höjden. Desto mer satelliter man får signaler ifrån desto bättre precision får man.
 	    </Answer>
 	</TestQuestion>
 	<!-- Något om GPS Time synchronization? -->
@@ -432,7 +434,7 @@
 	    	Vad innebär dead reckoning?
 	    </Question>
 	    <Answer>
-	    	Det innebär att vi estimera den relativa positionen med hjälp av encoders och den kinematiska modellen för roboten. Det är också möjligt att använda IMU, kameran eller att försöka matcha laser skanning från olika positioner.
+	    	Det innebär att vi uppskattar den relativa positionen med hjälp av encoders och den kinematiska modellen för roboten. Det är också möjligt att använda sig av en IMU, kamera eller att försöka matcha laserskanning från olika positioner.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Localization">
@@ -455,9 +457,9 @@
 	    	Vad är odometri?
 	    </Question>
 	    <Answer>
-	    	Det innebär att vi integrerar encoder mätningarna över tid m.h.a den kinematiska modellen för att estimera en robot position och orientering. Desto bättre kinematisk modell man använder, desto bättre odometri får man.
+	    	Det innebär att vi integrerar encoder mätningarna över tid m.h.a den kinematiska modellen för att uppskatta en robots position och orientering. Desto bättre kinematisk modell man använder sig av, desto bättre odometri får man.
 
-	    	Odometri är oftast mycket noggrant över ett kort avstånd, men kommer ofta börja driva ifrån den korrekta positionen över tid, och felet är obundet. Fel i vinkeln ger stora fel i positionen.
+	    	Odometri är oftast mycket noggrant över ett kort avstånd, men kommer ofta börja drifta ifrån den korrekta positionen över tid, och felet är obundet. Fel i vinkeln ger stora fel i positionen.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Localization">
@@ -545,9 +547,9 @@
 	    <Answer>
 	    	Ett partikelfilter representerar fördelningen m.h.a. av en mängd partiklar [math]p_k={ x_k, pi_k }[/math], som är samplade ifrån fördelningen. Varje partikel representerar en hypotes om tillståndet. Partikelns vikt, [math]pi_k[/math], initialiseras som [math]1/N[/math] där [math]N[/math] är antalet partiklar.
 
-	    	Ekvationen för filtret ges av: [math]p(x_(k+1) | Z_(k+1), U_(k+1)) = eta int p(x_(k+1) | x_k, u_(k+1)) p(x_k | Z_k, U_k) dx_k[/math]. Filtret approximera detta genom att för varje nytt tillstånd uppskatta det genom rörelsemodellen [math]p(x_(k+1) | x_k, u_(k+1))[/math] (se frågan om odometri).
+	    	Ekvationen för filtret ges av: [math]p(x_(k+1) | Z_(k+1), U_(k+1)) = eta int p(x_(k+1) | x_k, u_(k+1)) p(x_k | Z_k, U_k) dx_k[/math]. Filtret approximera detta genom att för varje nytt tillstånd uppskatta den m.h.a rörelsemodellen [math]p(x_(k+1) | x_k, u_(k+1))[/math] (se frågan om odometri).
 
-	    	När man uppskattar tillståndet så kommer partiklarna att sprida sig, dvs. att osäkerheten ökar. För att minska osäkerheten så kan man sig av IMU eller kalibrera odometri, för att begränsa felet så måste man använda sig av mätningar.
+	    	När man uppskattar tillståndet så kommer partiklarna att sprida sig, dvs. osäkerheten kommer att öka. För att minska osäkerheten så kan man använda sig av en IMU eller att kalibrera odometrin, för att begränsa felet så måste man använda sig av mätningar av miljön.
 
 	    	Filtret approximerar uppdaterings ekvationen: [math]p(x_(k+1) | Z_(k+1), U_(k+1)) = eta p(z_(k+1) | x_(k+1)) p(x_(k+1) | Z_k, U_(k+1))[/math] genom att för varje partikel multiplicera vikten med likelihood för mätningarna: [math]p(z_(k+1) | x_(k+1))[/math].
 
@@ -567,7 +569,7 @@
 	    		[li]Kan hantera icke-linjära system.[/li]
 	    		[li]Kan vara beräkningsintensiv för vissa applikationer.[/li]
 	    		[li]Precisionen beror på antalet partiklar.[/li]
-	    		[li]Problem med högre dimensioner - antalet partiklar växer exponetiellt med antalet exponentiellt.[/li]
+	    		[li]Problem med högre dimensioner - antalet partiklar växer exponetiellt med antalet dimensioner.[/li]
 	    	[/ul]
 	    </Answer>
 	</TestQuestion>
@@ -607,7 +609,7 @@
 	    		[li]Skalar väl till flera dimensioner.[/li]
 	    		[li]Finns inga teoretiska garantier att systemet konvergerar om systemet är icke-linjärt, men fungerar bra i praktiken.[/li]
 	    		[li]Kan ej hantera "multi-modal" fördelningar.[/li]
-	    		[li]Linjärisering blir problematiskt i när systemet är osäkert med hänsyn till icke-linjäriteten.[/li]
+	    		[li]Linjärisering blir problematiskt när systemet är osäkert med hänsyn till icke-linjäriteten.[/li]
 	    		[li]Behöver en bra initialvärden för att konvergera.[/li]
 	    	[/ul]
 	    </Answer>
@@ -625,7 +627,7 @@
 	    	Ange olika sätt att representera kartan.
 	    </Question>
 	    <Answer>
-			Det finns i huvudsakligen två olika riktningar: topologisk och metrisk. För metriska, är de två vanligaste representationer är features och occupancy grids.
+			Det finns i huvudsakligen två olika riktningar: topologisk och metrisk. För metriska, är de två vanligaste representationer features och occupancy grids.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Mapping">
@@ -729,7 +731,7 @@
 	    	[ol]
 	    		[li]Generera en representation av kartan som kan används vid planering.[/li]
 	    		[li]Definiera en avståndsfunktion.[/li]
-	    		[li]Utför en sökning ifrån start konfigurationen till slut kongirtationen[/li]
+	    		[li]Utför en sökning ifrån start konfigurationen till slut konfigurationen.[/li]
 	    	[/ol]
 	    </Answer>
 	</TestQuestion>
@@ -828,7 +830,7 @@
 	    	Vad för nackdelar finns det med sample baserad path planning algoritmer?
 	    </Question>
 	    <Answer>
-	    	Det finns inga garantier att algoritmen kommer hitta en lösning (om den existerar). Det bästa man kan få är att när antalet iterationer i algoritmen går emot oändligheten så går sannolikheten att algoritmen hittar emot 1.
+	    	Det finns inga garantier att algoritmen kommer hitta en lösning (om den existerar). Det bästa man kan få är att när antalet iterationer i algoritmen går emot oändligheten så går sannolikheten att algoritmen hittar en lösning emot 1.
 	    </Answer>
 	</TestQuestion>
 <!-- 	<TestQuestion Category="Navigation">
@@ -844,7 +846,7 @@
 	    	Hur fungear potential fields?
 	    </Question>
 	    <Answer>
-	    	Idén är att låta roboten vara en partikel i ett fält med potential, [math]U(x)[/math]. Man låter då målet vara något som attraherar roboten och där hinder stöter bort roboten. Då låter man kraften som roboten attraherars av i varje plats i fältet som [math]F(x)=-grad(U(x))[/math].
+	    	Idén är att låta roboten vara en partikel i ett fält med potential, [math]U(x)[/math]. Man låter då målet vara något som attraherar roboten och där hinder stöter bort roboten. Då låter man kraften som roboten attraherars av i varje plats i fältet vara [math]F(x)=-grad(U(x))[/math].
 
 	    	Nackdelarna med denna metod är att rörelsen ofta inte blir jämn, rörelsen oscillerar, den fastnar i lokala minimum och kräver att man finjusterar parametrarna för att de ska fungera bra.
 	    </Answer>
@@ -893,7 +895,7 @@
 	    	Vad innebär extrinsic kameraparameterar?
 	    </Question>
 	    <Answer>
-
+	    	Hur kameran är roterade och förflyttad i verkliga världen.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Vision">
@@ -933,7 +935,7 @@
 	    	Hur kan man beräkna avståndet ifrån stero vision?
 	    </Question>
 	    <Answer>
-	    	Avståndet ges av baseline, brännvidd och disparity (skillnanden i bild position): [math]Z=b * f / (x_1 - x_2)[/math]. En bisparity map visar skillnanden mellan varje pixel.
+	    	Avståndet ges av baseline, brännvidd och disparity (skillnanden i bildposition): [math]Z=b * f / (x_1 - x_2)[/math]. En disparity map visar skillnanden mellan varje pixel.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Vision">
@@ -949,7 +951,7 @@
 	    	Hur kan man beräkna avståndet med hjälp av fokus?
 	    </Question>
 	    <Answer>
-	    	Genom att kameran endast fokuserar på en del av bilden och kontrollera fokusen så ser man hur mycket objektet i fråga är i fokus, vilket ger avståndet.
+	    	Genom att kameran endast fokuserar på en del av bilden och genom att kontrollera fokusen så ser man hur mycket objektet i fråga är i fokus, vilket ger avståndet.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Vision">
@@ -972,7 +974,7 @@
 	    	[/ul][b]Template[/b]
 	    	[ul]
 	    		[li]Hitta en bild av det objekt som du vill identifiera senare (template).[/li]
-	    		[li]I en ny bild, hitta matchningar mellan template och bilden genom Korrelation.[/li]
+	    		[li]I en ny bild, hitta matchningar mellan template och bilden genom korrelation.[/li]
 	    	[/ul][b]Deep learning[/b]
 	    	[ul]
 	    		[li]Annotera träningsdata.[/li]
