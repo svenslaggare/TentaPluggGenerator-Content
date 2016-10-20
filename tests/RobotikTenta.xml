@@ -337,6 +337,8 @@
 	    </Question>
 	    <Answer>
 	    	Man mäter fasdifferansen ([math]theta[/math]) mellan en reflekterad signalen och den som skickades. Då ges avståndet av: [math]d=(lambda theta) / (4 pi)[/math] där [math]lambda[/math] är våglängden.
+
+	    	Ett problem är att vi [i]inte[/i] kan mäta avstånd som större än [math]lambda / 2[/math] (en faktor 2 för att signalen måste komma tillbaka). Detta ger om våglängden är [math]10[/math], så kan vi ej avgöra om det faktiska avståndet är 2 eller 32 meter.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
@@ -380,7 +382,9 @@
 	    	Hur fungerar en doppler radar?
 	    </Question>
 	    <Answer>
-	    	När man skickar ut en signal, och den reflekteras av ett mål som rör sig, så kommer signalen som man får tillbaka en förändrad frekvens (doppler effekten). Detta kan användas för att uppskatta hastigheten hos objektet.
+	    	När man skickar ut en signal, och den reflekteras av ett mål som rör sig, så kommer signalen som man får tillbaka en förändrad frekvens (dopplereffekten). Detta kan användas för att uppskatta hastigheten hos objektet.
+
+	    	Ett problem är att vi upptäcker radial rörelse med respekt till sensorn, dvs rörelse som genererar dopplereffekt i den signal som tas emot.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
@@ -952,6 +956,15 @@
 	    </Question>
 	    <Answer>
 	    	Genom att kameran endast fokuserar på en del av bilden och genom att kontrollera fokusen så ser man hur mycket objektet i fråga är i fokus, vilket ger avståndet.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Vision">
+	    <Question>
+	    	Hur kan man beräkna field of view?
+	    </Question>
+	    <Answer>
+	    	Vertikal: [math]2 tan^-1((height) / (2f))[/math]
+	    	Horisontell: [math]2 tan^-1((width) / (2f))[/math]
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Vision">
