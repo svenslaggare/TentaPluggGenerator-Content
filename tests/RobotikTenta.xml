@@ -5,7 +5,7 @@
 	    	Vad innebär statisk respektive dynamisk stabilitet?
 	    </Question>
 	    <Answer>
-
+	    	Att en robot är statisk stabil innebär att den är stabil när den står stilla, medans dynamisk stabilitet betyder att den måste röra på sig för att bli stabil
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Mobility">
@@ -54,7 +54,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Mobility">
 	    <Question>
-	    	Hur man bör man flytta benen för att det statistiskt ska bli stability?
+	    	Hur man bör man flytta benen för att det statistiskt sätt ska bli stabilit?
 	    </Question>
 	    <Answer>
 	    	Man ska flytta benen i grupper av tre ben.
