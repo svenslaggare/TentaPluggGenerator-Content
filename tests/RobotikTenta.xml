@@ -5,7 +5,7 @@
 	    	Vad innebär statisk respektive dynamisk stabilitet?
 	    </Question>
 	    <Answer>
-	    	Att en robot är statisk stabil innebär att den är stabil när den står stilla, medans dynamisk stabilitet betyder att den måste röra på sig för att bli stabil
+	    	Att en robot är statisk stabil innebär att den är stabil när den står stilla, medans dynamisk stabilitet betyder att den måste röra på sig för att bli stabil.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Mobility">
@@ -16,9 +16,9 @@
 	    	[b]Stabilitet[/b]
 	    	[ul]
 	    		[li]Antalet och geometri för kontaktpunkterna.[/li]
-	    		[li]Tyndpunkten.[/li]
+	    		[li]Tyngdpunkten.[/li]
 	    		[li]Statisk/dynamisk stabilitet.[/li]
-	    		[li]Inklination (lutning?) för terrängen.[/li]
+	    		[li]Inklination (lutning) för terrängen.[/li]
 	    	[/ul][b]Träffytans egenskaper[/b]
 	    	[ul]
 	    		[li]Kontaktpunktens bana, storlek och form.[/li]
@@ -36,8 +36,8 @@
 	    </Question>
 	    <Answer>
 	    	[b]Fördelar[/b][ul]
-	    		[li]Möjligt att hantera svår terräng bra.[/li]
-	    		[li]Endast kontaktpunkterna behöver vara bra, marken mellan dem spelar ingen roll.[/li]
+	    		[li]Kan hantera svår terräng bra.[/li]
+	    		[li]Det är endast kontaktpunkterna som behöver vara bra, marken mellan dem spelar ingen roll.[/li]
 	    	[/ul][b]Nackdelar[/b][ul]
 	    		[li]Mekaniskt komplext.[/li]
 	    		[li]Tar mycket kraft.[/li]
@@ -98,7 +98,7 @@
 	    	Vad innebär "slip/skid" styrning?
 	    </Question>
 	    <Answer>
-	    	Det innebär att man svänger genom att ha olika hastigheter på de olika hjulen. Är mycket energi ineffektiv när friktionen är hög.
+	    	Det innebär att man svänger genom att ha olika hastigheter på hjulen. Är mycket energi ineffektiv när friktionen är hög.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Mobility">
@@ -154,7 +154,7 @@
 	    	Vad är holonomy?
 	    </Question>
 	    <Answer>
-	    	En robot är [i]holonomisk[/i] om vi kan kontrollera [i]alla[/i] frihetsgrader. En robot som vi ej kan kontrollera alla sägers var [i]icke-holonomisk[/i].
+	    	En robot är [i]holonomisk[/i] om vi kan kontrollera [i]alla[/i] frihetsgrader. En robot som vi ej kan kontrollera alla frihetsgrader säges vara [i]icke-holonomisk[/i].
 	    </Answer>
 	</TestQuestion>
 		<TestQuestion Category="Mobility">
@@ -178,12 +178,12 @@
 	    	Ange olika klassificeringar som kan göras av sensorer.
 	    </Question>
 	    <Answer>
-	    	Sensosrer kan delas in i beroende på vad som mäts:
+	    	Sensorer kan delas in beroende på vad som mäts:
 	    	[b]Proprioceptive (PC) sensors[/b]
 	    	Mäter värden som är interna för roboten, som t.ex. motorhastighet, riktning, batteristatus.
 
 	    	[b]Exteroceptive (EC) sensors[/b]
-	    	Ger information från robotens miljö, som t.ex. avstånd till objekt, ljudsättning.
+	    	Ger information från robotens miljö, som t.ex. avstånd till objekt, ljussättning.
 
 	    	Men det går även att dela in baserat på hur mätningen går till:
 	    	[b]Passive (P) sensors[/b]
@@ -252,7 +252,7 @@
 	    	Vad för problem finns det med en kompass?
 	    </Question>
 	    <Answer>
-	    	Är mycket känslig emot andra magnetiska materia vilket gör den svårt att använda i miljöer konstruerade av människor.
+	    	Är mycket känslig emot andra magnetiska material vilket gör den svårt att använda i miljöer konstruerade av människor.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
@@ -284,7 +284,7 @@
 	    	Vad innebär cross sensitivity?
 	    </Question>
 	    <Answer>
-	    	Att mätningen av acceleration eller rotationen runt en axel påverkas ofta av andra saker som t.ex. påverkan från andra axlar och att gyroskop regerar av acceleration.
+	    	Att mätningen av acceleration eller rotationen runt en axel ofta påverkas av andra saker som t.ex. påverkan från andra axlar och att gyroskopet reagerar till acceleration.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
@@ -292,7 +292,7 @@
 	    	Vad är en IMU?
 	    </Question>
 	    <Answer>
-	    	IMU står för [i]inertial measurement unit[/i] och kombinerar accelerator och gyroskop i tre axlar, men kommer också med magnetometers.
+	    	IMU står för [i]inertial measurement unit[/i] och kombinerar accelerator och gyroskop i tre axlar, men kommer också ibland med magnetometers.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
@@ -338,7 +338,7 @@
 	    <Answer>
 	    	Man mäter fasdifferansen ([math]theta[/math]) mellan en reflekterad signalen och den som skickades. Då ges avståndet av: [math]d=(lambda theta) / (4 pi)[/math] där [math]lambda[/math] är våglängden.
 
-	    	Ett problem är att vi [i]inte[/i] kan mäta avstånd som större än [math]lambda / 2[/math] (en faktor 2 för att signalen måste komma tillbaka). Detta ger om våglängden är [math]10[/math], så kan vi ej avgöra om det faktiska avståndet är 2 eller 32 meter.
+	    	Ett problem är att vi [i]inte[/i] kan mäta avstånd som större än [math]lambda / 2[/math] (en faktor 2 för att signalen måste komma tillbaka). Detta ger om våglängden är 10, så kan vi ej avgöra om det faktiska avståndet är 2 eller 32 meter.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
@@ -374,7 +374,7 @@
 	    	Hur fungerar en radar?
 	    </Question>
 	    <Answer>
-	    	Först, radar står för: Radio Detection And Ragning. Det fungerar så att man skickar ut och tar emot en radiovåg. Om ett material har hög ledningsförmåga ger det en stark reflektion. Många material absorberar inte/reflekterar inte/sprider inte ut signalen, vilket ger den långt avstånd. Radar ger båda avstånd och riktning för flera mål.
+	    	Radar står för: Radio Detection And Ranging. Den fungerar så att man skickar ut och tar emot en radiovåg. Om ett material har hög ledningsförmåga ger det en stark reflektion. Många material absorberar inte/reflekterar inte/sprider inte ut signalen, vilket ger den långt avstånd. Radar ger båda avstånd och riktning för flera mål.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
@@ -382,7 +382,7 @@
 	    	Hur fungerar en doppler radar?
 	    </Question>
 	    <Answer>
-	    	När man skickar ut en signal, och den reflekteras av ett mål som rör sig, så kommer signalen som man får tillbaka en förändrad frekvens (dopplereffekten). Detta kan användas för att uppskatta hastigheten hos objektet.
+	    	När man skickar ut en signal, och den reflekteras av ett mål som rör sig, så kommer signalen som man får tillbaka ha en förändrad frekvens (dopplereffekten). Detta kan användas för att uppskatta hastigheten hos objektet.
 
 	    	Ett problem är att vi upptäcker radial rörelse med respekt till sensorn, dvs rörelse som genererar dopplereffekt i den signal som tas emot.
 	    </Answer>
@@ -450,7 +450,7 @@
 
 	    	Då kan man beräkna [math]D = text{Ändring i sträcka} = v Delta T = r / 2 (K Delta E_R + K Delta E_L)[/math] och [math]Delta theta = text{Ändring i orientering} = omega Delta T = r / B (K Delta E_R - K Delta E_L)[/math].
 
-	    	Detta ger att positionen och orientering kan estimeras som:
+	    	Detta ger att positionen och orientering kan uppskattas som:
 	    	[math]x(k+1)=x(k) + D*cos(theta)[/math]
 	    	[math]y(k+1)=y(k) + D*sin(theta)[/math]
 	    	[math]theta(k+1)=theta(k+1)+Delta theta[/math].
@@ -631,7 +631,7 @@
 	    	Ange olika sätt att representera kartan.
 	    </Question>
 	    <Answer>
-			Det finns i huvudsakligen två olika riktningar: topologisk och metrisk. För metriska, är de två vanligaste representationer features och occupancy grids.
+			Det finns i huvudsakligen två olika riktningar: topologisk och metrisk. För metriska, är de två vanligaste representationerna features och occupancy grids.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Mapping">
@@ -639,7 +639,7 @@
 	    	Hur fungerar ett occupancy grid?
 	    </Question>
 	    <Answer>
-				I ett occupancy grid delar man upp världen i celler, där kartan definierar för varje cell om den är upptagen eller inte. Det är också möjligt att man representerar det med en sannolikhet istället, där 0 betyder definitivt fri och 1 upptagen.
+				I ett occupancy grid så delar man upp världen i celler, där kartan definierar för varje cell om den är upptagen eller inte. Det är också möjligt att man representerar det med en sannolikhet istället, där 0 betyder definitivt fri och 1 upptagen.
 
 				[b]Fördelar[/b]
 				[ul]
@@ -749,7 +749,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Navigation">
 	    <Question>
-	    	Vad är en Voronoi diagram?
+	    	Vad är Voronoi diagram för något?
 	    </Question>
 	    <Answer>
 	    	Det är ett sätt att dela upp (partitionera) en rymd. Det fungerar så att vi definierar olika punkter (t.ex. städer), kallat för generatorer. Sedan delar vi upp rymden så att varje punkt i rymden tillhör en generator som den är närmast till.
@@ -759,7 +759,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Navigation">
 	    <Question>
-	    	Vad är en visibility graph?
+	    	Vad är visibility graph för något?
 	    </Question>
 	    <Answer>
 	    	Den fungerar så att man kopplar ihop hörn av rymden genom att endast skapa kanter mellan hörnen om de kan "se varandra", dvs. det existerar ingen kollision mellan dem. Sedan kan man använd en grafsöknings algoritm för att hitta vägen. Detta genererar den kortaste vägen, men försöker vara så nära som möjligt till hindren. Detta ger algoritmen små marginaler för fel i rörelsen.
@@ -850,7 +850,7 @@
 	    	Hur fungear potential fields?
 	    </Question>
 	    <Answer>
-	    	Idén är att låta roboten vara en partikel i ett fält med potential, [math]U(x)[/math]. Man låter då målet vara något som attraherar roboten och där hinder stöter bort roboten. Då låter man kraften som roboten attraherars av i varje plats i fältet vara [math]F(x)=-grad(U(x))[/math].
+	    	Idén är att låta roboten vara en partikel i ett fält med potential, [math]U(x)[/math]. Man låter då målet vara något som attraherar roboten och där hinder stöter bort roboten. Då låter man kraften som roboten attraherars av i varje plats i fältet vara [math]F(x)=-grad U(x)[/math].
 
 	    	Nackdelarna med denna metod är att rörelsen ofta inte blir jämn, rörelsen oscillerar, den fastnar i lokala minimum och kräver att man finjusterar parametrarna för att de ska fungera bra.
 	    </Answer>
@@ -899,7 +899,7 @@
 	    	Vad innebär extrinsic kameraparameterar?
 	    </Question>
 	    <Answer>
-	    	Hur kameran är roterade och förflyttad i verkliga världen.
+	    	Hur kameran är roterad och förflyttad i verkliga världen.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Vision">
@@ -936,7 +936,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Vision">
 	    <Question>
-	    	Hur kan man beräkna avståndet ifrån stero vision?
+	    	Hur kan man beräkna avståndet ifrån stereo vision?
 	    </Question>
 	    <Answer>
 	    	Avståndet ges av baseline, brännvidd och disparity (skillnanden i bildposition): [math]Z=b * f / (x_1 - x_2)[/math]. En disparity map visar skillnanden mellan varje pixel.
