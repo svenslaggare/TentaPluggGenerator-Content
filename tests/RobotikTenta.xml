@@ -198,7 +198,7 @@
 	    	Vad mäter en encoder?
 	    </Question>
 	    <Answer>
-	    	Den mäter rotationen för ett hjul, men kan också användas för att mätas positionen för en led i en arm. Det finns huvudsakligen två olika typer: inkrementell och absolut.
+	    	Den mäter rotationen för ett hjul, men kan också användas för att mätas positionen för en led i en arm. Det finns huvudsakligen två olika typer: inkrementell och absolut. Ofta kallas dessa encoders för rotary eller shaft encoders.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
@@ -218,7 +218,7 @@
 	    	Hur fungerar en inkrementell encoder?
 	    </Question>
 	    <Answer>
-	    	Genom att använda sig två detektorer, som ligger 90 grader ur fas. Detta genererar två olika pulser. Genom att kolla på tillståndssekvesen, så kan även riktningen för ändringen bestämmas.
+	    	Genom att använda sig två detektorer, som ligger 90 grader ur fas. Detta genererar två olika pulser. Genom att kolla på tillståndssekvesen, så kan även riktningen för ändringen bestämmas. En encoder som fungerar på detta sätt kallas för en quadrature encoder.
 
 	    	[img]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/IncrementalEncoder.png[/img]  
 	    </Answer>
@@ -431,6 +431,46 @@
 	    </Question>
 	    <Answer>
 	    	Man kan korrigera med hjälp av lokala stationer, detta kan ge precision i cm klassen.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Vad är RFID för något?
+	    </Question>
+	    <Answer>
+	    	Det står för Radio Frequency Identification och idén är att själva enheten (kallat för tag) inte har något egen kraftkälla. När läsaren skriver/läser data ifrån tagen så skickas energi. Det finns i tre olika klasser:
+	    	[ul]
+	    		[li]Low Frequency (LF): 120-156 kHz, 10cm avstånd, låg överföringshastighet.[/li]
+	    		[li]High Frequency (HF): 13.56 MHz, 0.1-1m avstånd, låg-medel överföringshastighet. Exempel är NFC.[/li]
+	    		[li]Ultrahigh Frequency (UHF): 433 MHz, 1-100m avstånd, medel överföringshastighet[/li]
+	    	[/ul]Det kan användas för lokalisering genom att taggen innehåller information om positionen som den får när den kommer nära roboten (fingerprinting).
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Hur kan man använda WiFi för att bygga en karta?
+	    </Question>
+	    <Answer>
+	    	Man kan mäta styrkan på den signal man får tillbaka (RSS), detta blir då en feature i en karta. Ofta krävs det mer än en accesspunkt för att det ska fungera.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Hur kan man använda Bluetooth för lokalisering?
+	    </Question>
+	    <Answer>
+	    	Genom att kombinera fingerprinting med RSS.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Sensing">
+	    <Question>
+	    	Vad mäter Ultra Wide Band (UWB?)
+	    </Question>
+	    <Answer>
+	    	Den mäter avstånd, och finns i två olika typer.
+	    	One-way Time Of Arrival (TOA): A skickar ett meddelande med en tidsstämpel som B tar emot. För att uppskatta avståndet så jämför man tiderna. Detta kräver dock att klockorna är mycket bra synkroniserade.
+
+	    	Two-way TOA: A skickar ett meddelande till B vilket behandlar det och skickar tillbaka. A subtraherar bearbetningstiden för B, vilket ger att tiden när A tar emot B signals är 2 gånger tiden för signalen.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Localization">
