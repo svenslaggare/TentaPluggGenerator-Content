@@ -144,7 +144,7 @@
 	    	Vi har två hjul, robotens position och orientering i rummet "pose" beskrivs av tre parameterar: [math]x, y, theta[/math]. Vi antar att hjulens radie är den samma ([math]r[/math]) och avståndet mellan de två hjulen är [math]B=2l[/math]. Vi kontrollerar roboten genom att ändra vinkelhastigheten för de respektive hjulen: [math]phi_R, phi_L[/math].
 
 	    	Då blir:
-	    	[math]v = r / 2 (phi_R + phi_L), omega = r / (2l) (phi_R - phi_L)[/math]
+	    	[math]v = r / 2 (phi_R + phi_L), omega = r / B (phi_R - phi_L)[/math]
 	    	[math]phi_R = (v + l * omega) / r[/math]
 	    	[math]phi_L = (v - l * omega) / r[/math]
 	    </Answer>
@@ -483,7 +483,17 @@
 	</TestQuestion>
 	<TestQuestion Category="Localization">
 	    <Question>
-	    	Ange hur man kan mäta hastigheten för en robot som har diffenertial drive som kinematisk modell.
+	    	Vad är odometri?
+	    </Question>
+	    <Answer>
+	    	Det innebär att vi integrerar encoder mätningarna över tid m.h.a den kinematiska modellen för att uppskatta en robots position och orientering. Desto bättre kinematisk modell man använder sig av, desto bättre odometri får man.
+
+	    	Odometri är oftast mycket noggrant över ett kort avstånd, men kommer ofta börja drifta ifrån den korrekta positionen över tid, och felet är obundet. Fel i vinkeln ger stora fel i positionen.
+	    </Answer>
+	</TestQuestion>
+	<TestQuestion Category="Localization">
+	    <Question>
+	    	Ange hur man kan bestämma positionen och orienteringen för en robot som har diffenertial drive som kinematisk modell.
 	    </Question>
 	    <Answer>
 	    	Låt [math]Delta E_R[/math] och [math]Delta E_L[/math] vara skillnaden i mätningar hos encoder över en tid [math]Delta T[/math]. Om [math]K[/math] är skalningsfaktor som omvandlar skillnad i encoder värde till skillnad i vinkel, [math]Delta phi = K Delta E[/math], då ges hastigheterna av: [math]v = (r / 2 (K Delta E_R + K Delta E_L)) / (Delta T), omega = (r / B (K Delta E_R - K Delta E_L)) / (Delta T)[/math].
@@ -495,16 +505,6 @@
 	    	[math]y(k+1)=y(k) + D*sin(theta)[/math]
 	    	[math]theta(k+1)=theta(k+1)+Delta theta[/math].
  	    </Answer>
-	</TestQuestion>
-	<TestQuestion Category="Localization">
-	    <Question>
-	    	Vad är odometri?
-	    </Question>
-	    <Answer>
-	    	Det innebär att vi integrerar encoder mätningarna över tid m.h.a den kinematiska modellen för att uppskatta en robots position och orientering. Desto bättre kinematisk modell man använder sig av, desto bättre odometri får man.
-
-	    	Odometri är oftast mycket noggrant över ett kort avstånd, men kommer ofta börja drifta ifrån den korrekta positionen över tid, och felet är obundet. Fel i vinkeln ger stora fel i positionen.
-	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Localization">
 	    <Question>
