@@ -237,7 +237,7 @@
 	    	Vad beräknar backward algoritmen?
 	    </Question>
 	    <Answer>
-	    	Sannolikheten för senare observationer givet den nuvarande tillståndet: [math]P[X_(t+1) = x_(t + 1), ..., X_T = x_t | S_t = i, lambda] = beta_(i, t)[/math]
+	    	Sannolikheten för senare observationer givet den nuvarande tillståndet: [math]P[X_(t+1) = x_(t + 1), ..., X_T = x_T | S_t = i, lambda] = beta_(i, t)[/math]
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="HMM">
@@ -247,8 +247,8 @@
 	    <Answer>
 	    	Först, låt oss introducera några variabler:
 	    	[b]Backward Variable[/b]
-	    	Oändlig: [math]beta_(j, t) = P[X_(t+1) = x_(t+1), ..., X_T = x_t | S_t = i, lambda][/math].
-	    	Ändlig: [math]beta_(j, t) = P[X_(t+1) = x_(t+1), ..., X_T = x_t, S_(T+1) = N+1 | S_t = i, lambda][/math].
+	    	Oändlig: [math]beta_(j, t) = P[X_(t+1) = x_(t+1), ..., X_T = x_T | S_t = i, lambda][/math].
+	    	Ändlig: [math]beta_(j, t) = P[X_(t+1) = x_(t+1), ..., X_T = x_T, S_(T+1) = N+1 | S_t = i, lambda][/math].
 	    	[b]Scaled Backward Variable[/b]
 	    	Oändlig: [math]hat beta_(j, t) = beta_(j, t) / (c_t cdots c_T)[/math]
 	    	Ändlig: [math]hat beta_(j, t) = beta_(j, t) / (c_t cdots c_T c_(T+1))[/math]
@@ -268,7 +268,7 @@
 	    <Answer>
 	    	Det kan man göra med att kombinera forward och backward algoritmen. Anledningen att man inte endast kan använda forward algoritmen är att det är möjligt att via senare observationer att sannolikheten för ett visst tillstånd faktiskt vara mycket mindre än vad vi trodde när vi bara tog hänsyn till nuvarande observationer.
 
-	    	[math]P[S_t = j | x_1, ..., x_T, lambda] = gamma_(j, t) = (alpha_(k, t) beta_(j, t)) / (c_1 cdots c_T).[/math]
+	    	[math]P[S_t = j | x_1, ..., x_T, lambda] = gamma_(j, t) = (alpha_(j, t) beta_(j, t)) / (c_1 cdots c_T) = hat alpha_(j, t) hat beta_(j, t) c_t.[/math]
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="HMM">
