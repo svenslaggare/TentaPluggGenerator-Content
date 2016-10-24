@@ -244,7 +244,7 @@
 	    	Vad är den främsta fördelen med kompasser jämförelse med andra sensorer för att mäta orientering?
 	    </Question>
 	    <Answer>
-	    	Att den mäter orientering i ett absolut koordinat system istället för relativt.
+	    	Att den mäter orientering i ett absolut koordinat system istället för ett relativt system.
 	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
@@ -418,7 +418,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Sensing">
 	    <Question>
-	    	Ifrån hur många satelliter behövs det för att mäta positionen?
+	    	Hur många satelliter behövs det för att mäta positionen i GPS?
 	    </Question>
 	    <Answer>
 	    	Det krävs minst 3 satelliter för att mäta positionen, och en till för att mäta höjden. Desto mer satelliter man får signaler ifrån desto bättre precision får man.
@@ -604,7 +604,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Localization">
 	    <Question>
-	    	Vad för egenskaper partikelfilter för lokalisering?
+	    	Vad för egenskaper har partikelfilter för lokalisering?
 	    </Question>
 	    <Answer>
 	    	[ul]
@@ -644,7 +644,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Localization">
 	    <Question>
-	    	Vad för egenskaper av EKF lokalisering?
+	    	Vad för egenskaper har EKF lokalisering?
 	    </Question>
 	    <Answer>
 	    	[ul]
@@ -915,7 +915,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Navigation">
 	    <Question>
-	    	Hur fungerar Bubble (Elasti) band?
+	    	Hur fungerar Bubble (Elastic) band?
 	    </Question>
 	    <Answer>
 	    	Man stänger i roboten i en "bubbla" och försöker koppla ihop start och mål med bubblor. Bubblornas storlek expanderas sedan i riktningen emot hindren.
@@ -927,7 +927,7 @@
 	    </Question>
 	    <Answer>
 	    	[ul]
-	    		[li]Principal point (mitten av bilden): [math](u_0, v_0)[/math].[/li]
+	    		[li]Principal point (mitten av optiska axeln i bilden): [math](u_0, v_0)[/math].[/li]
 	    		[li]Brännvidd: [math](f_x, f_y)[/math][/li]
 	    		[li]Hur x och y-axlarna är förvrängade mellan varandra (skew): [math]gamma[/math][/li]
 	    		[li]Linsförvrängning[/li]
