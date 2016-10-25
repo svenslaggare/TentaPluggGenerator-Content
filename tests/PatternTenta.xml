@@ -337,7 +337,7 @@
 	    	[i]Uppdatera [math]q[/math][/i]
 	    	[math]q_j^(text{new}) = 1 / R sum_(r=1)^R P[S_1^r = j | x_1^r, ..., x_(T_r)^r, lambda][/math]
 	    	För att beräkna behöver vi:
-	    	[math]gamma_(j, 1)^r = hat alpha_(j, 1)^r hat beta alpha_(j, 1)^r c_1^r[/math]
+	    	[math]gamma_(j, 1)^r = hat alpha_(j, 1)^r hat beta_(j, 1)^r c_1^r[/math]
 			[math]bar gamma_j = sum_(r=1)^R gamma_(j, 1)^r[/math] för alla [math]j[/math]
 			[math]q_j^(text{new}) = bar gamma_j / (sum_(k=1)^N bar gamma_k)[/math]
 
