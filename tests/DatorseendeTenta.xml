@@ -221,4 +221,152 @@
 		</Answer>
 	</TestQuestion>
 	<!-- Något om Distance transform for matching shapes? -->
+
+	<TestQuestion Category="LinjäraFilter">
+		<Question>
+			Vad för egenskaper har en linjär operation?
+		</Question>
+		<Answer>
+			[b]Definition[/b]
+			[ul]
+				[li]Additivet: [math]L(f(x, y) + g(x, y)) = L(f(x, y)) + L(g(x, y))[/math][/li]
+				[li]Homogenitet: [math]L(alpha f(x, y)) = alpha L(f(x, y))[/math][/li]
+			[/ul]där [math]f(x, y), g(x, y)[/math] är bilder, [math]alpha in RR[/math] och [math]L[/math] en operator.
+
+			[math]L[/math] säges vara shift-invariant om och endast om en shift (translation) av indata resulterar i samma shift i utdatan. Alternativt: [math]L[/math] är kommutativ med en shift operator [math]S[/math].
+			<!-- [b]Egenskaper speciellt för filter[/b]
+			[ul]
+				[li]Shift-invariance: om systemet ges två impulser med en tidsfördröjning, så är responsen den samma utom för tidsdifferensen.[/li]
+				[li]Signaler kan representeras som summor av impluser av olika styrkor (bildintensitet), förskjutna i tiden (bildrymden)[/li]
+				[li]Impulse-response function: Om vi vet hur systemet reagerar till en implus, så vet vi hur den reagerar till en kombination av impluser.[/li]
+			[/ul] -->
+			<!-- [b]Shift-invariant[] -->
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="LinjäraFilter">
+		<Question>
+			Hur representeras och appliceras ett linjärt filter?
+		</Question>
+		<Answer>
+			Den representeras av en filter kernel, och appliceras m.h.a faltning (convolution) på bilden.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="LinjäraFilter">
+		<Question>
+			Hur är faltning definierad?
+		</Question>
+		<Answer>
+			[b]Kontinuerlig[/b]
+			[math]f(x) ** g(x) = int_(alpha in R^n) f(alpha) g(x - alpha) d alpha[/math]. Faltning är också kommutativ: [math]f(x) ** g(x) = g(x) ** f(x) = int_(alpha in R^n) g(alpha) f(x - alpha) d alpha[/math].
+
+			[b]Diskret[/b]
+			Faltningen av en bild [math]f(x, y)[/math] med en kernel [math]h(x, y)[/math] definieras som:
+			[math]g(x, y) = h(x, y) ** f(x, y) = sum_(m=-M)^M sum_(n=-N)^N h(m, n) f(x - m, y - n)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="LinjäraFilter">
+		<Question>
+			Vad för relation finns det med en shift-invariant operator och faltning?
+		</Question>
+		<Answer>
+			Varje shift-invariant operator kan skrivas som en faltning [math]L(f) = g ** f[/math].
+
+			[b]Kontinuerlig[/b]
+			[math]L(f(x)) = int_(alpha in R^n) g(alpha) f(x - alpha) d alpha[/math]
+
+			[b]Diskret[/b]
+			[math]L(f(x)) = sum_(alpha in R^n) g(alpha) f(x - alpha)[/math]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="LinjäraFilter">
+		<Question>
+			Vad är en Fourier transformation för något?
+		</Question>
+		<Answer>
+			Det är en formel för att beräkna frekvens, amplitud och fasen för varje sinusvåg som behövs för att representera en given signal. Fourier transformationen konverterar en signal (bild) mellan spatial och frekvensdomänen.
+	<!-- 		I Fourier rymden, så representerar varje punkt en specfik frekvens som förvarades i den spatiala domänen. -->
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="LinjäraFilter">
+		<Question>
+			Vad anger den spatiala frekvensen?
+		</Question>
+		<Answer>
+			Den anger med vilken hastighet som pixel intensiteten förändras.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="LinjäraFilter">
+		<Question>
+			Vad för relation finns det mellan basbyte och Fourier transformationen?
+		</Question>
+		<Answer>
+			Fourier transformationen kan ses som ett basbyte, där baserna i den spatiala domänen är shiftade Dirarc funktioner och i Fourier domänen komplexa exponentialfunktioner.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="LinjäraFilter">
+		<Question>
+			Ange ekvationerna för Fourier transformationen.
+		</Question>
+		<Answer>
+			[b]Kontinuerlig[/b]
+			[math]cc "F"(f(x)) = int_(x in R^n) f(x) e^(- i omega^T x) dx = hat(f) (omega)[/math]
+			[math]cc "F"^-1(hat(f) (x)) = 1 / (2 pi)^n int_(omega in R^n) hat(f) (x) e^(i omega^T x) d omega[/math]
+			[math]e^(i omega^T x) = cos(omega^T x) + i * sin(omega^T x)[/math]
+
+			Terminologi:
+			[ul]
+				[li]Frequency spectrum: [math]hat(f)(omega) = Re(omega) + i Im(omega) = |hat(f)(omega)| e^(i phi(omega))[/math][/li]
+				[li]Fourier spectrum: [math]|hat(f)(omega)|=sqrt(Re^2(omega) + Im^2(omega))[/math][/li]
+				[li]Power spectrum: [math]|hat(f)(omega)|^2[/math][/li]
+				[li]Phase angle: [math]phi(omega)=arg hat(f) (omega) = tan^-1 ((Im(omega)) / (Re(omega)))[/math][/li]
+				[li]Angular frequency: [math]omega = (omega_1, omega_2)^T[/math], [math]omega_1[/math] i x riktning, [math]omega_2[/math] i y riktning[/li]
+				[li]Frequency: [math]f = omega / (2 pi)[/math][/li]
+				[li]Wavelength: [math]lambda = (2 pi) / ||omega||[/math][/li]
+			[/ul]Alternativ representation: Fourie koefficienterna [math]hat(f) (omega_1, omega_2)[/math] är komplexa tal, med det är inte uppenbart vad reella och imaginära delarna representerar. Ett annat sätt är att representera det med fas och magnitude.
+			[ul]
+				[li]Magnitude: [math]|hat(f)(omega_1, omega_2)| = sqrt(Re^2(omega_1, omega_2) + Im^2(omega_1, omega_2))[/math][/li]
+				[li]Phase: [math]phi(omega_1, omega_2) = tan^-1 ((Im(omega_1, omega_2)) / (Re(omega_1, omega_2)))[/math][/li]
+			[/ul]Det gäller även att sinusoids och cosinusoids är egenfunktioner av faltningar.
+
+			[b]Diskret[/b]
+			[math]hat(f)(u, v) = 1 / sqrt(MN) sum_(m=0)^(M-1) sum_(n=0)^(N-1) f(m, n) e^(-2 pi i ((m u) / M + (n v) / N))[/math]
+			[math]f(m, n) = 1 / sqrt(MN) sum_(u=0)^(M-1) sum_(v=0)^(N-1) hat(f)(u, v) e^(+2 pi i ((m u) / M + (n v) / N))[/math]
+
+			Terminologi:
+			[ul]
+				[li]Fourier spectrum: [math]|F(u, v)|=sqrt(Re^2(u, v) + Im^2(u, v))[/math][/li]
+				[li]Phase angle: [math]phi(u, v) = tan^-1 ((Im(u, v)) / (Re(u, v)))[/math][/li]
+				[li]Power spectrum [math]P(u, v) = |F(u, v)|^ 2 = Re^2(u, v) + Im^2(u, v)[/math][/li]
+				[li]Magnitude: är största värdet.[/li]
+				[li]Phase: anger origo, där sinusoiden börjar.[/li]
+			[/ul][b]Relation[/b]
+			I 1D så är relationen mellan diskret och kontinuerlig [math]omega = (2 pi u) / M[/math]. Detta innebär att [math]u in [0, M - 1][/math] och [math]omega in [0, 2 pi)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="LinjäraFilter">
+		<Question>
+			Vad säger faltningssatsen?
+		</Question>
+		<Answer>
+			Att faltning i den spatiala domänen är samma sak som multiplikation i Fourier domänen (omvänt gäller också).
+			[math]cc "F" (h ** f) = cc "F"(h) * cc "F"(f), cc "F"(f * g) = cc "F"(f) ** cc "F"(g)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="LinjäraFilter">
+		<Question>
+			Vad innebär det att ett filter är separerbar?
+		</Question>
+		<Answer>
+			Det innebär att en kernel i 2D [math]h(x, y)[/math] kan delas som en serie av 1D faltningar. 
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="LinjäraFilter">
+		<Question>
+			Vad för för- och nackdelar finns det för en spatial representation och en frekvens representation?
+		</Question>
+		<Answer>
+			Notera: båda representationerna innehåller lika mycket information.
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/SpatialVsFourie.png[/img]
+		</Answer>
+	</TestQuestion>
 </Test>
