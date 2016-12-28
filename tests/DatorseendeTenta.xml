@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Test Name="Tenta">
+	<TestQuestion Category="ProjektionerOchTransformationer">
+		<Question>
+			Vad är en "perspective projection" för något?
+		</Question>
+		<Answer>
+			Det är en mappning ifrån 3D värld till ett 2D plan.
+
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/PerspectiveProjection.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ProjektionerOchTransformationer">
+		<Question>
+			Vad är en "pinhole camera" för något?
+		</Question>
+		<Answer>
+			Det är den enklaste typen av avbildningsenhet vilket fångar in geometrin av en perspective projection. Det fungerar så att ljuset kommer in i kameran genom en öppning som är oändligt liten. Skärningen mellan ljusstrålen och bildplanet bildar bilden av objektet.
+
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/PinholeCamera.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ProjektionerOchTransformationer">
+		<Question>
+			Vad är syftet med linser?
+		</Question>
+		<Answer>
+			Syftet är att fånga in ljus från en större öppning (aperture). Problemet är att endast ljusstrålar från punkter på fokalplanet skär samma punkt i bildplanet. Resultatet blir att det blir suddigt framför eller bakom bilden. Fokaldjupet anger intervallet av avstånd med acceptabel suddighet.
+
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Lenses.png[/img]		
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ProjektionerOchTransformationer">
+		<Question>
+			Ange olika kamera modeller.
+		</Question>
+		<Answer>
+			[b]Perspective projection (general kamera modell)[/b]
+			Alla ljusstrålar konvergerar emot en gemensampunkt - fokalpunkten.
+
+			[b]Orthographic projection (approximation för objekt långt borta)[/b]
+			Alla ljusstrålar är vinkelrätta emot bildplanet.
+
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/CameraModels.png[/img]	
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ProjektionerOchTransformationer">
+		<Question>
+			Ange ekvationerna för olika typer av projektioner.
+		</Question>
+		<Answer>
+			[b]Perspective projection[/b]
+			[math]x/f = X / Z, y / f = Y / Z[/math]
+
+			[b]Orthographic projection[/b]
+			[math]x = X, y = Y[/math]
+
+			[b]Scaled orthography - [math]Z_0[/math]: representativa djupet[/b]
+			[math]x / f = X / Z_0, y / f = Y / Z_0[/math]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ProjektionerOchTransformationer">
+		<Question>
+			Vad är en perspektiv transformation för något?
+		</Question>
+		<Answer>
+			Den består av tre komponenter:
+			[ul]
+				[li]Rotation: från världen till kamerans koordinatsystem[/li]
+				[li]Translation: från världen till kamerans koordinatsystem[/li]
+				[li]Perspective projection: från kameran till bildkoordinater[/li]
+			[/ul]Dessa egenskaper bevaras:
+			[ul]
+				[li]Linjer projiceras till linjer[/li]
+				[li]Kolinjära egenskaper förbli kolinjära[/li]
+				[li]Tangenta egenskaper förbli Tangenta[/li]
+				[li]Skärningar bevaras[/li]
+			[/ul]Varje mängd av parallella linjer möts vid en viss punkt - vanishing point. Mängder av parallella linjer på samma plan leder till kolinjära vanishing points, denna linje kallas för horisonten för planet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ProjektionerOchTransformationer">
+		<Question>
+			Vad är homogena koordinater?
+		</Question>
+		<Answer>
+			Modellerar punkter [math](X, Y, Z)[/math] i [math]RR^3[/math] av [math](kX, kY, kZ, k)[/math] där [math]k != 0[/math] är godtycklig. Vi anser även att [math](k_1 X, k_1 Y, k_1 Z, k_1)[/math] är ekvivalent med [math](k_2 X, k_2 Y, k_2 Z, k_2)[/math].
+
+			Homogena koordinater innebär att vi ser alla punkter på samma stråle [math](cx, cy, c)[/math] som ekvivalenta, om vi endast vet avbildningen och inte djupet. Det blir också möjligt att modellera punkter vid oändligheten som [math](X, Y, Z, 0)[/math], vilket anger skärningen för parallella linjer.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ProjektionerOchTransformationer">
+		<Question>
+			Hur kan projektionsekvationerna skrivas m.h.a. homogena koordinater?
+		</Question>
+		<Answer>
+			[math]((cx), (cy), (c)) = ((f, 0, 0, 0), (0, f, 0, 0), (0, 0, 1, 0)) ((kX), (kY), (kZ), (k)) = ((fkX), (fkY), (kZ))[/math]
+
+			Bildkoordinater kan fås genom att normalisera så att den tredje komponenten blir 1 (dela med [math]c=kZ[/math]):
+			[math]x = (xc) / c = (fkX) / (kZ) = f X / Z, y = (yc) / c = (fkY) / (kZ) = f Y / Z[/math]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ProjektionerOchTransformationer">
+		<Question>
+			Ange hur transformationer ser ut i homogena koordinater.
+		</Question>
+		<Answer>
+			[b]Translation[/b]
+			[math]((X), (Y), (Z), (1)) \rightarrow ((1, 0, 0, Delta X), (0, 1, 0, Delta Y), (0, 0, 1, Delta Z), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+
+			[b]Skalning[/b]
+			[math]((X), (Y), (Z), (1)) \rightarrow ((S_X, 0, 0, 0), (0, S_Y, 0, 0), (0, 0, S_Z, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+
+			[b]Rotation runt Z-axeln[/b]
+			[math]((X), (Y), (Z), (1)) \rightarrow ((cos \theta, -sin \theta, 0, 0), (sin \theta, cos \theta, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+
+			[b]Spegling i XY planet[/b]
+			[math]((X), (Y), (Z), (1)) \rightarrow ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, -1, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ProjektionerOchTransformationer">
+		<Question>
+			Vad innebär extrinsic kameraparameterar?
+		</Question>
+		<Answer>
+			Hur kameran är roterad och förflyttad i verkliga världen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ProjektionerOchTransformationer">
+		<Question>
+			Vad innebär intrinsic kameraparameterar?
+		</Question>
+		<Answer>
+			[ul]
+	    		[li]Principal point (mitten av optiska axeln i bilden): [math](u_0, v_0)[/math].[/li]
+	    		[li]Brännvidd: [math](f_x, f_y)[/math][/li]
+	    		[li]Hur x och y-axlarna är förvrängade mellan varandra (skew): [math]gamma[/math][/li]
+	    		[li]Linsförvrängning[/li]
+	    	[/ul]Detta sammanfattas av: [math]P = (((f_x), gamma, u_0, 0), (0, (f_y), v_0, 0), (0, 0, 1, 0))[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ProjektionerOchTransformationer">
+		<Question>
+			Vad är en affine kamera?
+		</Question>
+		<Answer>
+			Det är en linjär approxmation av en perspektiv projektion.
+			[math]((x), (y), (1)) = ((m_11, m_12, m_13, m_14), (m_21, m_22, m_23, m_24), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math].
+
+			De grundläggande egenskaperna är att transformationen är linjär och parallella linjer i 3D avbildas till parallella linjer i 2D. Vinklar bevaras dock ej.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ProjektionerOchTransformationer">
+		<Question>
+			Vad innebär image warping?
+		</Question>
+		<Answer>
+			Det innebär att man skapar en ny bild [math]g(u, v)[/math] av en bild [math]f(x, y)[/math] genom att transformera [math]u = u(x, y), v = v(x, y)[/math]. Detta görs genom att man samplar ifrån [math]f(x, y)[/math] antingen genom:
+			[ul]
+				[li]Nearest neighbour look-up (ger brusigt resultat)[/li]
+				[li]Bilinear interpolation (ger suddigt resultat)[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grafteori">
+		<Question>
+			Ange olika typer av "neighbourhoods".
+		</Question>
+		<Answer>
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Neighbourhood.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grafteori">
+		<Question>
+			Vad är en stig (path)?
+		</Question>
+		<Answer>
+			En stig ifrån [math]p[/math] till [math]q[/math] är en mängd av punkter [math]p_0, ..., p_n[/math] så att varje punkt [math]p_i[/math] är en granne till [math]p_(i - 1)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grafteori">
+		<Question>
+			Vad är en sammanhängande komponent (connected component)?
+		</Question>
+		<Answer>
+			För varje [math]p[/math] så mängden av alla punkter [math]q[/math] där det finns en stig mellan [math]p[/math] och [math]q[/math] dess sammanhängande komponent.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grafteori">
+		<Question>
+			Vad innebär en outer boundary?
+		</Question>
+		<Answer>
+			Bakgrundspunkter som har en granne som är inom objektet.
+
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/OuterBoundary.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grafteori">
+		<Question>
+			Ange olika typer av mäta avstånd.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Euclidean distance: [math]d(p, q) = sqrt((p.x - q.x)^2 + (p.y - q.y)^2)[/math][/li]
+				[li]City block distance: [math]d(p, q) = |p.x - q.x| + |p.y - q.y|[/math][/li]
+				[li]Chessboard distance: [math]d(p, q) = max(|p.x - q.x|, |p.y - q.y|)[/math][/li]
+			[/ul]Alla dessa metoder uppfyller:
+			[ul]
+				[li][math]d(p, q) >= 0[/math][/li]
+				[li][math]d(p, q) = d(q, p)[/math][/li]
+				[li][math]d(p, r) le d(p, q) + d(q, r)[/math][/li]
+			[/ul][img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Distances.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grafteori">
+		<Question>
+			Vad är en distanstransform?
+		</Question>
+		<Answer>
+			Det är en typ av avbildning som visar avståndet till närmaste gräns för varje punkt.
+		</Answer>
+	</TestQuestion>
+	<!-- Något om Distance transform for matching shapes? -->
+</Test>

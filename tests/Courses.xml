@@ -36,4 +36,7 @@
 	<Course Name="Robotik">
 		<Test File="RobotikTenta" />
 	</Course>
+	<Course Name="Datorseende">
+		<Test File="DatorseendeTenta" />
+	</Course>
 </Courses>
