@@ -480,4 +480,177 @@
 			[/ul]
 		</Answer>
 	</TestQuestion>
+	<!-- degradation vs restoration -->
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Vad för krav brukar vi ställa på en transformation [math]s = T(r)[/math]?
+		</Question>
+		<Answer>
+			[ul]
+				[li][math]T(r_text(min))=r_text(min)[/math], [math]T(r_text(max))=r_text(max)[/math] (eller omvänt). Detta innebär att vi fyller upp hela intervallet av värden.[/li]
+				[li][math]T[/math] är monotonisk, vilket innebär att den också är inverterbar (vi tappar ingen information).[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Vad innebär en Look-Up Table (LUT)?
+		</Question>
+		<Answer>
+			Det innebär att vi har sparat en tabell, som mappar ifrån input till utvärdet, istället för att beräkna funktionen direkt.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Vad innebär en log transformation?
+		</Question>
+		<Answer>
+			Det innebär att vi applicerar funktionen [math]s = c log (1 + r)[/math]. Den är användbar för att komprimera stor "dynamic range" och för att göra detaljer synliga.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Vad innebär power-law transformation?
+		</Question>
+		<Answer>
+			Det innebär att vi applicerar funktionen [math]s = c r^gamma[/math] eller [math]s = c (r + epsilon)^gamma[/math]. Många enheter som används för kameror, printning och skärmar lyder under en sådan lag.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Vad innebär histogram stretching?
+		</Question>
+		<Answer>
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/HistogramStretching.png [/img]
+
+			Det innebär att vi ökar konstrasten genom att låta intervallet [math][c, d][/math] täcka hela bilden. Detta innebär att vi tappar information i området [math][a, b][/math] och [math][d, b][/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Vad innebär histogram equalization?
+		</Question>
+		<Answer>
+			Idén är att vi omdistribuera gråskala värdena så jämnt som möjligt. Detta skulle motsvara en distribution av ljussättning där alla värden är lika sannolika.
+
+			Detta går till så att vi först beräknar ett histogram över pixelvärden för bilden. Sen sparar vi den kumulativa summan av alla histogram värden och normaliserar varje värde genom att dela med antalet pixlar. Detta använder vi sen för att transformera bilden.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Ange olika typer av linjära filter som används för att förbättra bilder.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Lowpass: eliminera komponenter med hög frekvens (kanter och skarpa detaljer). Detta leder till att bilden blir suddig.[/li]
+				[li]Highpass: eliminera komponenter med låg frekvens (saker som varierar sakta, t.ex. skuggning). Detta leder till att kanter och andra detaljer (även brus) blir mer skarpa.[/li]
+				[li]Bandpass: eliminera komponenter som ligger utanför ett frekvensområdet. Detta leder en kombination av low- och highpass.[/li]
+			[/ul][img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/LinearFiltersImageEnhancement.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Ange olika typer av brus.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Signal oberoende additivt brus (sampling brus): [math]g = f + nu[/math].[/li]
+				[li]Signal beroende multiplikativt brus (ljussättnings variation): [math]g = f + nu f = (1 + nu) f[/math].[/li]
+				[li]Uppmättningsbrus (salt och peppar)[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Hur fungerar mean filtering?
+		</Question>
+		<Answer>
+			Detta innebär att vi ett nytt pixelvärde som ett medelvärde för ett område runt pixeln. Detta görs lättast med en kernel, t.ex.: [math]1 / 9 [[1, 1, 1], [1, 1, 1], [1, 1, 1]][/math]. Själva kerneln kan variera, men den bör uppfylla:
+			[ul]
+				[li]Koefficienterna summerar till 1.[/li]
+				[li]Symmetriskt upp/ner och vänster/höger.[/li]
+				[li]Center pixeln har störst inverkan.[/li]
+				[li]Filtret bör vara separerbar.[/li]
+			[/ul]Ett filter som uppfyller detta är: [math]C=(((Delta t) / 2), (1 - Delta t), ((Delta t) / 2)) (((Delta t) / 2, 1 - Delta t, (Delta t) / 2))[/math]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Vad är ett ideellt low pass filter?
+		</Question>
+		<Answer>
+			Det är en filter som är ideellt i frekvensdomänen, men inte ideellt i den spatiala domänen. Detta ger ringar/suddiga bilder.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Vad är ett Gaussian low-pass filter?
+		</Question>
+		<Answer>
+			Det är ett filter som använder en normalfördelning, med kvadrerade avståndet ifrån origo. En lägre varians ger en högre "cutoff" frekvens och en mildare filtering.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Vad är en Binomial kernel?
+		</Question>
+		<Answer>
+			Det är en typ av filter som använder sig av binomialkoefficienter. När vi ökar storleken, så närmar vi oss en Gaussian kernel.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Vad innebär Anisotropic smoothing?
+		</Question>
+		<Answer>
+			Det innebär att vi smoothar olika i olika riktningar, för att bevara kanter. Idén är att vi smoothar pixlar baserad på en likhet mellan pixlar, där den t.ex. kan vara i färg eller position.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Vad innebär median filtering?
+		</Question>
+		<Answer>
+			Det innebär att vi filtrerar baserat på medianen i ett område. Fördelarna är att den bevarar skuggor, skarpa kanter, eliminerar lokala extremvärden (t.ex. salt och peppar brus), men ger att bilden ser ut som en målning.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Hur kan vi beräkna derivatan av en bild?
+		</Question>
+		<Answer>
+			[b]Första ordningen[/b]
+			[math]f_x = f(x + 1, y) - f(x, y)[/math]. Detta representeras av [math][[0, -1, 1]][/math]. Men i pratiken så används central differans: [math]f_x = 1 / 2 (f(x + 1, y) - f(x - 1, y)) => 1/2 [[-1, 0, 1]][/math].
+
+			[b]Andra ordningen[/b]
+			[math]f_(x x) = f(x + 1, y) + f(x - 1, y) - 2f(x, y) => [[1, -2, 1]][/math].
+
+			[b]Gradienten[/b]
+			[math]nabla f = (f_x, f_y)[/math]
+
+			[b]Magnituden av Gradienten[/b]
+			[math]|nabla f| = sqrt(f_x^2 + f_y^2)[/math]
+
+			[b]Laplacian[/b]
+			[math]nabla^2 f = f_(x x) + f_(yy)[/math]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Hur kan vi göra en bild skarpare?
+		</Question>
+		<Answer>
+			[b]Unsharp masking[/b]
+			Idén är att vi vill subtraherar bort suddigheten ifrån bilden. Låt [math]bar(f)(x, y)[/math] vara en suddad version av bilden. Då fungerar det: [math]g(x, y) = f(x, y) + alpha(f(x, y) - bar(f)(x, y))[/math].
+
+			[b]Highpass filtering[/b]
+			[math]G(u, v) = F(u, v) + alpha(H_text(hp)(u, v) F(u, v))[/math]
+			där [math]H_text(hp)(u, v)[/math] kan vara: 
+			Ideellt: [math]H_text(hp)(u, v) = { (1, text(om ) (u^2+v^2) > D_0^2), (0, text(annars)) :}[/math].
+			Gaussian: [math]H_text(hp)(u, v) = 1 - e^((-sigma^2 (u^2+v^2))/2)[/math].
+
+			[b]Derivering[/b]
+			M.h.a Laplacian: [math]g(x, y) = f(x, y) - nabla^2 f(x, y)[/math]
+		</Answer>
+	</TestQuestion>
 </Test>
