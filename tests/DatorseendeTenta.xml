@@ -653,4 +653,116 @@
 			M.h.a Laplacian: [math]g(x, y) = f(x, y) - nabla^2 f(x, y)[/math]
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="ShapeRepresentation">
+		<Question>
+			Vad används Hough transformen till?
+		</Question>
+		<Answer>
+			Den används för att hitta alla möjliga linjer för en mängd av kanter. En linjes styrka beror på hur många punkter som ligger på den linjen.
+
+			Vi introducerar då accumulator rymden, som innehåller antalet röster för varje linje. Rymden består av linjer på formen: [math]L(k)=-kx+y[/math]. Men på grund av att vertikala linjer repesenteras av linjer med [math]k \rightarrow pm \infty[/math] använder vi istället en annan representation: [math]x cos(theta) + y sin(theta) = r[/math] där [math]r[/math] är det vinkelrätta avståndet ifrån origo och [math]theta[/math] vinkeln mellan vektorn [math]bar r[/math] och origo.
+
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/HoughTransform.png[/img]
+
+			Hough transformen kan även utökas för att hitta cirklar (3D) och ellipser (5D). Men detta blir mycket ineffektivt att beräkna.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ShapeRepresentation">
+		<Question>
+			Vad är RANSAC?
+		</Question>
+		<Answer>
+			RANSAC står för Random Sampling Consensus, och likt Hough transformen kan den hitta linjer, cirklar, ellipser, etc. 
+
+			[ol]
+				[li]Välj slumpmässigt ut ett minimalt antal punkter, 2 för linjer, 3 för cirklar och 5 för ellipser.[/li]
+				[li]Beräkna en model (t.ex. [math]y=kx+L[/math]) ifrån punkterna.[/li]
+				[li]Beräkna antalet punkter som är nära till modellen.[/li]
+				[li]Uppreppa steg 1-3 [math]S[/math] gånger.[/li]
+				[li]Välj den lösning med flest antalet matchande punkter.[/li]
+			[/ol]För att avgöra hur många iterationer [math]S[/math] som behövs kan man resonera följande: Hur många iterationer behövs för att med en sannolikhet [math]P[/math], om [math]p[/math] % av punkterna tillhör formen? Då får man formeln: [math]S = log(1 - P) / log(1 - p^K)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ShapeRepresentation">
+		<Question>
+			Vad innebär homografi (homography)?
+		</Question>
+		<Answer>
+			Två bilder ifrån samma plana yta relaterad genom en homografi. Detta kan användas för att transformera en punkt i en kamera till en annan kamera, och punkterna ligger på ett gemensamt plan.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ShapeRepresentation">
+		<Question>
+			Vad för olika typer invarianser vill vi ha för representation av former?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Förflyttning[/li]
+				[li]Skala[/li]
+				[li]Rotation (dock inte alltid, t.ex. 6 och 9)[/li]
+				[li]Spegling[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ShapeRepresentation">
+		<Question>
+			Ange olika enklare representationer av former.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Sammanhängande komponenter, med egenskaperna: storlek, bounding box, center of gravity.[/li]
+				[li]Compactness: [math]text(area)/text(circumference)^2[/math][/li]
+				[li]Eccentricity: [math]text(length of maximum chord A)/text(length of maximum chord B⊥A)[/math][/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ShapeRepresentation">
+		<Question>
+			Vad är moments?
+		</Question>
+		<Answer>
+			[math]m_(pq)=int int_(Omega) x^p y^q f(x, y) dx dy[/math] där [math]f(x, y) = { (1, text(inom regionen)), (0, text(annars)) :}[/math]. Vi har också centered moments [math]mu_(pq) int int_(Omega) (f - bar(x))^p (y - bar(y))^q f(x, y) dx dy[/math] med center of gravity: [math]bar(x) = m_10 / m_00, bar(y) = m_01 / m_00[/math].
+
+			Notera att [math]m_00[/math] anger arean för regionen.
+			<!-- Något om ellips approxmation? -->
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ShapeRepresentation">
+		<Question>
+			Vad är PCA?
+		</Question>
+		<Answer>
+			PCA står för [i]principal components analysis[/i], och används för att reducera dimensionen på datan. Idén bakom PCA är att vi antar att den största delen av information finns i de riktningar som varierar mest.
+
+			Låt [math]K[/math] vara dimensionen för den nya datan och [math]N[/math] dimensionen för original datan.
+
+			[b]Hitta en bas[/b]
+			Antag att [math]x_1, x_2, ..., x_M[/math] är [math]N xx 1[/math] vektorer.
+			[i]Steg 1[/i]
+			[math]bar(x) = 1 / M sum_(i=1)^M x_i[/math]
+
+			[i]Steg 2[/i]
+			[math]Phi_i = x_i - bar(x)[/math]
+
+			[i]Steg 3[/i]
+			Bilda: [math]A = [[Phi_1, Phi_2, ..., Phi_M]][/math].
+			Beräkna [math]C = 1 / M sum_(i=1)^M Phi_i Phi_i^T A A^T[/math] (kovariansmatris, [math]N xx N[/math])
+
+			[i]Steg 4[/i]
+			Beräkna egenvärdena av [math]C[/math]: [math]lambda_1 > lambda_2 > ... > lambda_N[/math].
+
+			[i]Steg 5[/i]
+			Beräkna egenvektorerna av [math]C[/math]: [math]u_1, u_2, ..., u_n[/math]. Dessa vektorer bildar en bas för [math]x - bar(x)[/math].
+			[math]x - bar(x) = b_1 u_1 + b_2 u_2 + ... + b_N u_N = sum_(k=1)^N b_k u_k, b_k = u_k^T (x - bar(x))[/math]
+
+			[i]Steg 6[/i]
+			Behåll endast de termer med de [math]K[/math] högsta egenvärdena.
+			[math]x - bar(x) = sum_(k=1)^K b_k u_k[/math]
+
+			[b]Approximera datan[/b]
+			Detta görs genom att projicera vektorerna till den lägre dimensionen: [math]bar(x) = b_1 u_1 b_2 u_2 + ... + b_K u_K[/math].
+
+			Detta fungerar även för bilder, om vi gör om varje bild till en lång vektor istället.
+		</Answer>
+	</TestQuestion>
 </Test>
