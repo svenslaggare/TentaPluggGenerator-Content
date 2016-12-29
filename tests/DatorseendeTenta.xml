@@ -765,4 +765,120 @@
 			Detta fungerar även för bilder, om vi gör om varje bild till en lång vektor istället.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="ImageSegmentation">
+		<Question>
+			Vad innebär bildsegmentering (image segmentation)?
+		</Question>
+		<Answer>
+			Det innebär att vi delar in bilden i semantiskt meningsfulla regioner.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ImageSegmentation">
+		<Question>
+			Varför bör man ta hänsyn till Spatial coherence?
+		</Question>
+		<Answer>
+			Metoder som baseras på histogram tar ej hänsyn till beroendet mellan närliggande pixlar. Detta kan leda till segment delas upp i olika delar. Om man tar hänsyn till spatial sammanhållning mellan pixlarna, så kan detta undvikas
+		</Answer>
+	</TestQuestion>
+	<!-- Något om Gestalt Theory? -->
+	<TestQuestion Category="ImageSegmentation">
+		<Question>
+			Hur fungerar thresholding?
+		</Question>
+		<Answer>
+			Det fungerar så att vi sätter en gräns, och alla värden som är över gränsen tillhör ena segment, alla värden under gräsen, det andra segementet. För att automatiskt hitta en gräns så kan vi använda oss av olika metoder:
+
+			[b]P-tile[/b]
+			Använd tidigare information om storleken av objektet, antag att objeketet har en [math]P %[/math] storlek av hela bilden. Välj då gränsen så att [math]P %[/math] av histogramet täcks.
+
+			[b]Mode[/b]
+			Hitta lokala maximum och minimum i bilden. Sätt gränsen att vara pixelvärdet av dessa maximum/minumum.
+
+			[b]Iterativ[/b]
+			Starta med ett approxmativt gräns och förbättra det iterativt genom att ta hänsyn till någon typ av betygsättning, t.ex.: [math]T = (r_1 + r_2) / 2[/math] där [math]r_i[/math] är medelvärdet av den tidigare segmenterade regionen [math]i[/math].
+
+			[b]Adaptive[/b]
+			Dela upp bilden i delbilder, och bestäm en gräns för varje delbild.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ImageSegmentation">
+		<Question>
+			Hur fungerar K-means?
+		</Question>
+		<Answer>
+			Den grupperar pixlar baserat på likhet (t.ex. färg).
+			[ol]
+				[li]Välj [math]K[/math] antal initialvärden för klusteren.[/li]
+				[li]Tilldela för varje pixel de kluster som den är närmast.[/li]
+				[li]Uppdatera centret för klustret m.h.a tilldelade pixlarna.[/li]
+				[li]Fortsätt tills dess att kluster centren konvergerar.[/li]
+			[/ol]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ImageSegmentation">
+		<Question>
+			Hur fungerar mean-shift segmentering?
+		</Question>
+		<Answer>
+			Vi försöker gruppera pixlarna baserat både på färg och position. Vi låter varje pixel representeras av en 5D vektor: [math]bar(x) = [[x, y, R, G, B]][/math]. För att hantera att varje pixel är brusig, så placerar vi en "skål" runt varje pixel: [math]K(x-x_i)[/math].
+
+			Vi vill hitta maximum av: [math]f(x) = 1 / n sum_(i=1)^n K(x-x_i)[/math] där [math]K(x) = C K(||x||^2)[/math]. Då beräknar vi gradienten som: [math]nabla f(x) = C / n sum_(i=1)^n (x-x_i) k'(||x-x_i||^2)[/math]. Vi sätter den till 0 och får då [math]x^text(new) = (sum_(i=1)^n x_i k' (||x-x_i||^2)) / (sum_(i=1)^n k'(||x-x_i||^2))[/math].
+
+			Om vi startar på en specfik pixel, och utför ovan, så konvergerar mot någon av bildens mode. Klustra bilden baserat på vilket mode som punkten konvergerar emot.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ImageSegmentation">
+		<Question>
+			Hur kan man förbättra en segmentering?
+		</Question>
+		<Answer>
+			Genom att slå ihop regioner som är lika och är grannar. Det går även att dela på regioner, och variationen är för stor inom regionen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ImageSegmentation">
+		<Question>
+			Hur fungerar watershedding?
+		</Question>
+		<Answer>
+			[ol]
+				[li]Skapa en topologiskt karta över bilden (t.ex. med magnituden av gradienten eller distanstransform)[/li]
+				[li]Gradvis fyll i "bassänger" med vatten, börja med den djupaste först.[/li]
+				[li]När två "bassänger" möts, skapa en kant mellan dessa två segment.[/li]
+				[li]Avsluta när varje pixel antigen är fylld eller är en kant.[/li]
+			[/ol]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ImageSegmentation">
+		<Question>
+			Hur kan grafteori användas för bildsegmentering?
+		</Question>
+		<Answer>
+			Vi låter varje pixel representera ett hörn i grafen. Pixlar som är grannar är sammankopplade med kanter, och dessa kanter har vikter. Vikterna beror vad för något som algoritmen kollar efter som t.ex. skillnad i intensitet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ImageSegmentation">
+		<Question>
+			Vad innebär en affinity matris?
+		</Question>
+		<Answer>
+			Vi bildar en matris, där varje element [math](p, q)[/math] anger hur lika två punkter [math]p[/math] och [math]q[/math] är. Man kan t.ex. kolla på skillnad i intensitet, avstånd eller färg.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ImageSegmentation">
+		<Question>
+			Hur fungerar Normalized cuts?
+		</Question>
+		<Answer>
+			Vi vill minimera följande funktion: [math]Ncut(A, B) = (cut(A, B)) / (assoc(A, V)) + (cut(A, B)) / (assoc(B, V))[/math].
+
+			Låt [math]A[/math] och [math]B[/math] vara två disjunkta mängder.
+
+			Då anger [math]cut(A, B)[/math] summan av vikterna för kanterna i snittet mellan [math]A[/math] och [math]B[/math], och [math]assoc(A, V)[/math] summan av vikterna inom mängden [math]A[/math], och på samma sätt för [math]assoc(B, V)[/math].
+
+			Segmentering kan hittas genom att lösa ett generaliserat egenvärdesproblem.
+
+			Det som algoritmen optimerar efter är likheten inom varje mängd ([math]A, B[/math]) ska bli så stor som möjligt, medans den minimerar likheten mellan kanter i snittet.
+		</Answer>
+	</TestQuestion>
 </Test>
