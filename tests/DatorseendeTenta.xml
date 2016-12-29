@@ -881,4 +881,90 @@
 			Det som algoritmen optimerar efter är likheten inom varje mängd ([math]A, B[/math]) ska bli så stor som möjligt, medans den minimerar likheten mellan kanter i snittet.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="ImageSegmentation">
+		<Question>
+			Vad är en "active contour model"?
+		</Question>
+		<Answer>
+			Vi vill representera en form av en kurva: [math]X(s) = (x(s), y(s)), s in [0, 1][/math]. Vi oftast i praktiken också en stängd kurva, [math]X(0) = X(1)[/math]. För att hitta kurvan, försöker vi minimera energi (kostnads) funktion: [math]E = E_text(internal) + E_text(image)[/math].
+
+			Den interna energin försöker göra kurvan så kort som möjligt, [math]E_text(internal) = int alpha(s) ||X_s(s)||^2 + beta(s) ||X_(ss)(s)||^2 ds[/math], där [math]alpha(s), beta(s)[/math] kontrollerar formen vid olika pinkter.
+
+			Bildens energi försöker maximera gradienten längs kurvan, [math]E_text(image) = E_text(image) = - int ||nabla I(X(s))||^2 ds[/math].
+
+			Vi diskretiserar sedan genom att dela in konturen i delar. Vi itererar sedan genom att röra sig längs normalerna för att gradvis minska energin.
+
+			[b]Fördelar[/b]
+			[ul]
+				[li]Lätt att lägga till egen energi formulering beroende på problemet.[/li]
+				[li]Kan get mycket bra resultat på vissa problem.[/li]
+				[li]Kan utökas till för specifika former.[/li]
+			[/ul][b]Nackdelar[/b]
+			[ul]
+				[li]Kan lätt fastna på felaktiga kanter.[/li]
+				[li]Svårt att undvika att den skär sig själv.[/li]
+				[li]Kan ej byta topologi.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ImageSegmentation">
+		<Question>
+			Hur fungerar "level set" segmentering?
+		</Question>
+		<Answer>
+			Vi skriver kurvan som en funktion av tiden [math]t[/math]: [math]X(s, t) = (x(s, t), y(s, t))[/math]. Vi låter sen kurvan röra sig längs normalen [math]N[/math] med en hastighet [math]k[/math], där [math](del X) / (del t) = k N [/math].
+
+			Vi låter sen kurvan [math]X(s, t)[/math] bädas in i level set funktionen [math]phi(X(s, t), t) = 0[/math]. Vi får sedan att [math]k = nabla N = (phi_(x x) phi_y^2 - 2 phi_(x y) phi_x phi_y + phi_(y y) phi_x^2) / (phi_x^2 + phi_y^2)^(3/2)[/math].
+
+			[b]Fördelar[/b]
+			[ul]
+				[li]Lätt att lägga till egen funktion beroende på problemet.[/li]
+				[li]Kan hantera komplexa former.[/li]
+				[li]Kan lätt utökas till flera dimensioner.[/li]
+				[li]TIllåter förändringar i toplologi.[/li]
+			[/ul][b]Nackdelar[/b]
+			[ul]
+				[li]Konvergerar oftast sakta.[/li]
+				[li]Kan vara svår att implementera.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ImageSegmentation">
+		<Question>
+			Hur fungerar "graph cut" segmentering?
+		</Question>
+		<Answer>
+			Vi skapar först en graf med ett hörn per pixel, och kanter mellan alla grannar. Vi antar sedan att vi har en mängd av modeller, t.ex.: [math]L = {text(foreground), text(background)}[/math]. Varje pixel tillhör då en modell, vi betecknar detta med [math]I_x[/math]. En modell representeras sedan av en probabilistisk modell, som tränas på en stor databas.
+
+			Vi försöker sedan minimera energi: [math]E = sum_x psi_x(I_x) + sum_x sum_(y in text(neighbors)(x)) psi_(x, y)(I_x, I_y)[/math]. [math]psi_x(I_x)[/math] har låg kostnad om pixeln är likt modellen [math]I_x[/math], annars hög. [math]psi_(x, y)(I_x, I_y)[/math] är låg om pixlarna har olika färger och hög kostnad om de har samma färg. Vi har även om [math]I_x = I_y[/math], så är [math]psi_(x, y)(I_x, I_y)=0[/math].
+
+			Grafsnitt kan användas för minimera energi för fallet där [math]|L|=2[/math]. Detta gör vi genom att lägger till "source" (foreground) och "drain" (background) med kostnader givna av [math]psi_x(I_x)[/math]. Vi hittar sedan den kostnad som delar upp grafen i två delar.
+ 		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ImageSegmentation">
+		<Question>
+			Vad innebär morphology?
+		</Question>
+		<Answer>
+			Det innebär att vi "rensar" upp en segmentering. En morphological operator definieras av en kernel och en mängd operator. Om två mängder av element matchar villkoret definierat av mängd operatorn, så sätts värdet i centret av kernel (kallat för stukturelementet) till ett fördefinierat värdet (0 eller 1 för binära bilder). Exempel på operatorer är:
+
+			[b]Diltation[/b]
+			Den grundläggande effekten blir att gränser för regioner blir större, medans håll i regioner blir mindre. Låt [math]A, B in R^2[/math]. Då blir operatorn: [math]A o+ B = { c in R^2 : c = a + b }[/math]. Typisk är [math]A[/math] en binär bilds, medans [math]B[/math] är masken (stukturelementet). Detta kan sammanfattas som: Om minst en pixel i strukturelementet sammanfaller med en pixel i förgrunden i bilden, så sätts input pixeln till värdet för förgrunden.
+
+			[b]Erosion[/b]
+			Den grundläggande effekten blir att gränser för regioner blir mindre. medans håll i regioner blir större. Operatorn är: [math]A &#8854; B = { c in R^2 : c + b in A, AAb in B }[/math]. Om för varje pixel i strukturelementet, om pixeln i bilden är i förgrunden, så förblir pixel som den är. Om någon av pixlarna är i bakgrunden, då sätts pixel till värdet för bakgrunden.
+
+			[b]Opening[/b]
+			Defineras som en erosion följd av en dilation med samma strukturelement: [math]A @ B = (A &#8854; B) o+ B[/math].
+
+			[b]Closing[/b]
+			Defineras som en dilation följd av en erosion med samma strukturelement: [math]A &#8226; B = (A o+ B) &#8854; B[/math].
+
+			[b]Hit-and-miss transform[/b]
+			[math]A ox (J, K) = (A &#8854; J) cup (A^C &#8854; K)[/math]. Kan användas för att hörn i bilder.
+
+			[b]Thinning[/b]
+			[math]text(thin)(A, B) = A - text(hit-and-miss)(A, B)[/math].
+		</Answer>
+	</TestQuestion>
 </Test>
