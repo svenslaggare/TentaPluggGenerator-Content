@@ -278,7 +278,7 @@
 			[math]L(f(x)) = sum_(alpha in R^n) g(alpha) f(x - alpha)[/math]
 		</Answer>
 	</TestQuestion>
-	<TestQuestion Category="LinjäraFilter">
+	<TestQuestion Category="FourierTransform">
 		<Question>
 			Vad är en Fourier transformation för något?
 		</Question>
@@ -287,7 +287,16 @@
 	<!-- 		I Fourier rymden, så representerar varje punkt en specfik frekvens som förvarades i den spatiala domänen. -->
 		</Answer>
 	</TestQuestion>
-	<TestQuestion Category="LinjäraFilter">
+	<TestQuestion Category="FourierTransform">
+		<Question>
+			Vad för för- och nackdelar finns det för en spatial representation och en frekvens representation?
+		</Question>
+		<Answer>
+			Notera: båda representationerna innehåller lika mycket information.
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/SpatialVsFourie.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FourierTransform">
 		<Question>
 			Vad anger den spatiala frekvensen?
 		</Question>
@@ -295,7 +304,7 @@
 			Den anger med vilken hastighet som pixel intensiteten förändras.
 		</Answer>
 	</TestQuestion>
-	<TestQuestion Category="LinjäraFilter">
+	<TestQuestion Category="FourierTransform">
 		<Question>
 			Vad för relation finns det mellan basbyte och Fourier transformationen?
 		</Question>
@@ -303,7 +312,7 @@
 			Fourier transformationen kan ses som ett basbyte, där baserna i den spatiala domänen är shiftade Dirarc funktioner och i Fourier domänen komplexa exponentialfunktioner.
 		</Answer>
 	</TestQuestion>
-	<TestQuestion Category="LinjäraFilter">
+	<TestQuestion Category="FourierTransform">
 		<Question>
 			Ange ekvationerna för Fourier transformationen.
 		</Question>
@@ -343,7 +352,7 @@
 			I 1D så är relationen mellan diskret och kontinuerlig [math]omega = (2 pi u) / M[/math]. Detta innebär att [math]u in [0, M - 1][/math] och [math]omega in [0, 2 pi)[/math].
 		</Answer>
 	</TestQuestion>
-	<TestQuestion Category="LinjäraFilter">
+	<TestQuestion Category="FourierTransform">
 		<Question>
 			Vad säger faltningssatsen?
 		</Question>
@@ -352,21 +361,123 @@
 			[math]cc "F" (h ** f) = cc "F"(h) * cc "F"(f), cc "F"(f * g) = cc "F"(f) ** cc "F"(g)[/math].
 		</Answer>
 	</TestQuestion>
-	<TestQuestion Category="LinjäraFilter">
+	<TestQuestion Category="FourierTransform">
 		<Question>
 			Vad innebär det att ett filter är separerbar?
 		</Question>
 		<Answer>
 			Det innebär att en kernel i 2D [math]h(x, y)[/math] kan delas som en serie av 1D faltningar. 
+			Dvs: Om [math]hat(f)(u, v) = 1 / sqrt(M N) sum_(m=0)^(M-1) sum_(n=0)^(N-1) f(m, n) e^(-2 pi i ((m u) / M + (n v)/N))[/math] så kan den skrivas som: [math]hat(f)(u, v) = 1 / sqrt(M) sum_(m=0)^(M-1) (1 / sqrt(N) sum_(n=0)^(N-1) f(m, n) e^(-2 pi i (n v) / N)) e^(-2 pi i (m u) / M)[/math].
 		</Answer>
 	</TestQuestion>
-	<TestQuestion Category="LinjäraFilter">
+	<TestQuestion Category="FourierTransform">
 		<Question>
-			Vad för för- och nackdelar finns det för en spatial representation och en frekvens representation?
+			Ange olika egenskaper för Fourier transformationen.
 		</Question>
 		<Answer>
-			Notera: båda representationerna innehåller lika mycket information.
-			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/SpatialVsFourie.png[/img]
+			[b]Linjäritet[/b]
+			[math]cc "F" [a f_1(m, n) + b f_2(m, n)] = a hat(f)_1(u, v) + b hat(f)_2(u, v)[/math]
+			[math]a f_1(m, n) + b f_2(m, n) = cc "F"^-1 [a hat(f)_1(u, v) + b hat(f)_2(u, v)][/math]
+
+			[b]Modulation[/b]
+			[math]cc "F" [f(m, n) * e^(2 pi i ((m u_0) / M + (n v_0) / N))] = hat(f)(u - u_0, v - v_0)[/math]. Detta innebär att origo för Fourie transformen kan flytas till mitten av bilden genom att multiplicera med [math](-1)^(m + n)[/math].
+
+			[b]Translation[/b]
+			Om bilden flyttas, så genomgår Fourier spektrumet en fasförskjutning, men magnituden av spektrumet är den samma.
+			[math]cc "F"[f(m - m_0, n - n_0)] = hat(f)(u, v) e^(-2 pi i ((m_0 u) / M + (n_0 v) / N))[/math]
+			[math]|hat(f)(u, v) e^(-2 pi i ((m_0 u) / M + (n_0 v) / N))| = |hat(f)(u, v)|[/math]
+
+			[b]Rotation[/b]
+			Om bilden roteras med en vinkel [math]alpha[/math], så roteras Fourier transformationen med samma vinkel.
+
+			[b]Skalning[/b]
+			Komprimering i den spatiala domänen är samma sak som expansion i Fourie domänen (och tvärtom).
+
+			[b]Periodisk[/b]
+			Den diskreta fourier transformen och dess invers är periodisk, med en period [math]N[/math] för en [math]N xx N[/math] bild. Alltså: [math]hat(f)(u, v) = hat(f)(u + N, v) = hat(f)(u, v + H) = hat(f)(u + N, v + N)[/math]. Detta innebär att [math]hat(f)[/math] återupprepar sig oändligt. Det krävs dock endast en period för att återskapa original funktionen [math]f[/math].
+
+			[b]Konjugat symmetri[/b]
+			Fourier transformen uppfyller [math]hat(f)(u, v) = hat(f)^(**)(-u, -v)[/math] och [math]|hat(f)(u, v)|=|hat(f)(-u, -v)|[/math]. Om vi använder att [math]hat(f)[/math] är periodiskt och är symmetriskt runt origo, får vi att vi inte behöver [math]2N^2[/math] (hälften för reella delen och hälften för imaginära) värden för att representera en [math]N xx N[/math] bild i Fourier domänen, utan [math]N^2[/math] om vi använder symmetrin.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FourierTransform">
+		<Question>
+			Ange våglängden och perioden för en 2D sinusoid.
+		</Question>
+		<Answer>
+			[img width="50%" height="50%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Wavelength.png[/img]
+		</Answer>
+	</TestQuestion>
+	<!-- Någon on transfer funktioner? -->
+	<TestQuestion Category="FourierTransform">
+		<Question>
+			Ange vad sampling innebär för Fourier transformer.
+		</Question>
+		<Answer>
+			Signalerna (bilderna) är ej kontinuerliga, men diskreta. En kontinuerlig funktion [math]f(x, y)[/math] kan då samplas ett diskret rutnät av sampling punkter.
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Sampling.png[/img]
+			Där [math]Delta x, Delta y[/math] kallas för sampling intervallen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FourierTransform">
+		<Question>
+			Hur kan sampling beskrivas mer formellt?
+		</Question>
+		<Answer>
+			Vi beskriver den ideala impulsen m.h.a Dirarc distributionen:
+			[math]int_(-\infty)^(infty) int_(-infty)^(infty) delta(x, y) dx dy = 1[/math] och [math]delta(x, y) = 0[/math] för alla [math]x, y != 0[/math].
+
+			"Sifting" egenskapen av Dirac funktionen ger då ett värde för funktionen [math]f(x, y)[/math] vid punkten [math](a, b)[/math]: [math]int_(-\infty)^(infty) int_(-infty)^(infty) f(x, y) delta(x - a, y - b) dx dy = f(a, b)[/math].
+
+			Den ideala samplingen [math]s(x, y)[/math] i ett rutnät kan då beskrivas som en samling av Dirac funktioner [math]delta[/math]: [math]s(x, y) = sum_(j=1)^M sum_(k=1)^N delta(x - j Delta x, y - k Delta y)[/math]. Då är den samplade bilden [math]f_s(x, y)[/math] en produkt av den kontinuerliga bilden [math]f(x, y)[/math] och sampling funktionen [math]s(x, y)[/math].
+
+			[math]f_s(x, y) = f(x, y) s(x, y)[/math]
+			[math] = f(x, y) sum_(j=1)^M sum_(k=1)^N delta(x - j Delta x, y - k Delta y)[/math]
+			[math] = sum_(j=1)^M sum_(k=1)^N  f(j Delta x, k Delta y) delta(x - j Delta x, y - k Delta y)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FourierTransform">
+		<Question>
+			Vad för fel kan uppstå vid sampling?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Intensity quantization: inte tillräckligt med upplösning för intensiteten.[/li]
+				[li]Spatial aliasing: inte tillräckligt med spatial upplösning.[/li]
+				[li]Temporal aliasing: inte tillräckligt med temporal upplösning.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FourierTransform">
+		<Question>
+			Vad är aliasing?
+		</Question>
+		<Answer>
+			Det är artefakter som produceras av under-sampling eller en dålig omkonstruktion. Detta innebär att bilden ser pixelig ut. Detta löses med anti-aliasing.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FourierTransform">
+		<Question>
+			Ange olika sätt att göra anti-aliasing
+		</Question>
+		<Answer>
+			[ul]
+				[li]Öka hastigheten vi samplar med (dock inte möjligt i praktiken)[/li]
+				[li]Minska högsta frekvensen förre sampling, vilket görs med blurring.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FourierTransform">
+		<Question>
+			Vad säger sampling satsen?
+		</Question>
+		<Answer>
+			[ul]
+				[li]En signal säges vara band begränsad om dess högsta frekvens är begränsad. Denna frekvens kallas för bandbredden (bandwidth).[/li]
+				[li]Sinus/cosinus komponenten av den högsta frekvensen anger den högsta frekvens innehållet för signalen.[/li]
+				[li]Om signalen samplas med en hastighet som är samma, eller mer än två gånger så stor som den högsta frekvensen, så kan original signalen återskapas komplett från samples.[/li]
+				[li]Den lägsta sampling hastigheten för en band begränsad funktion kallas för dess Nyquist hastighet.[/li]
+			[/ul]
 		</Answer>
 	</TestQuestion>
 </Test>
