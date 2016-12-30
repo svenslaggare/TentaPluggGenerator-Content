@@ -89,10 +89,13 @@
                         $("#questions").append(jQuery("<p class=\"answer\"></p>").html(bbCodeParser.parseString(answer.trim())));
                     });
 
-                    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                    MathJax.Hub.Queue(["Typeset", MathJax.Hub], function() {
+                        // console.log(new Date() + ": done");
+                        $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+                    });
                 }});
         }
-		
+
         $("#loadButton").click(loadFile);
 		$("#loadForm").submit(function() {
 			loadFile();

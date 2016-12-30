@@ -967,4 +967,147 @@
 			[math]text(thin)(A, B) = A - text(hit-and-miss)(A, B)[/math].
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Vad är ett receptive field?
+		</Question>
+		<Answer>
+			En region i det visuella fältet där visuella sensorer/neuroner/operatorer reagerar emot visuell stimulans.
+			<!-- Covariant receptive fields? -->
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Vad innebär en "scale-space" representation?
+		</Question>
+		<Answer>
+			Det är ett sätt att representera strukturer i bilder vid olika typer av skalor.
+			Givet en någon bild [math]f[/math], definiera en familj av interna representationer: [math]L(*, s) = bb "T"_s f[/math] med en parameter [math]s[/math], för en familj av operatorer [math]bb "T"_s[/math] som uppfyller:
+
+			[b]Linjäritet[/b]
+			[math]bb "T"_s(a_1 f_1 + a_2 f_2) = a_1 "T"_s f_1 + b_1 "T"_s f_2[/math]
+
+			[b]Shift-invariance[/b]
+			[math]bb "T"_s(S_(Delta x) f) = S_(Delta x)(bb "T"_s f)[/math] där [math]S_(Delta x)[/math] är shift operatorn, [math](S_(Delta X) f)(x) = f(x - Delta x)[/math].
+
+			[b]Semi grupp struktur över [math]s[/math][/b]
+			[math]bb "T"_(s_1) bb "T"_(s_2) = bb "T"_(s_1+s_2)[/math] 
+
+			[b]Skal kovarians under transformation [math]x' = S x[/math][/b]
+			[math]L'(x'; s') = L(x; s)[/math], samma sak som: [math]bb "T"_(bb "S"(s)) bb "S" f = bb "S" bb "T"_s f[/math].
+
+			[b]"Non-enhancement of local extrema"[/b]
+			Om vid någon skala [math]s_0[/math] så är en punkt [math]x_0 in R^N[/math] ett lokalt maximum/minimum för avbildningen [math]x |-> L(x; s_0)[/math] så gäller:
+			[ul]
+				[li][math](del_s L)(x; s) le 0[/math] vid något spatialt maximum.[/li]
+				[li][math](del_s L)(x; 0) >= 0[/math] vid något spatialt minimum.[/li]
+			[/ul]Om allt detta gäller för en "scale-space" representation, då gäller: [math]del_s L = 1/2 nabla_x^T(Sigma_0 nabla_x L) - delta_0^T nabla_x L[/math] för någon [math]2 xx 2[/math] kovarians matris [math]Sigma_0[/math] och någon 2D vektor [math]delta_0[/math] med [math]nabla_x = (del_(x_1), del_(x_2))^T[/math].
+ 		</Answer>
+	</TestQuestion>
+	<!-- <TestQuestion Category="FeatureDetection">
+		<Question>
+			Vad är en gaussian receptive field?
+		</Question>
+		<Answer>
+			Det är något som kräver att kernels är symmetriska under rotation
+		</Answer>
+	</TestQuestion> -->
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Hur definerar vi kanter i teorin, och vad för problem finns det med i pratiken?
+		</Question>
+		<Answer>
+			I teorin så definerar vi kanter som "discontinuity" i bilden. Men i pratiken så existerar det inte, på grund av brus.
+
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Edges.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Vad för problem finns det när vi deriverar en bild, och hur kan vi lösa det?
+		</Question>
+		<Answer>
+			Det är att derivatan är mycket känslig mot brus. En liten förändring av indata kan leda till en godtycklig stor förändring av utdata. Exempel är funktionen [math]f(x) = arctan(x)[/math] med derivatan [math]f'(x) = 1 / (1 + x^2)[/math], där det uppstår nära origo.
+
+			Vi kan lösa det genom att smootha bilden innan vi deriverar. Hur mycket vi ska smootha beror på. Om vi ökar hur mycket vi smoothar så tar vi bort bruset bättre, men det leder till störa förvrängningar av den sanna strukturen. Om vi minskar hur mycket vi smoothar så får vi stället mer exakta features, men större antal falska positiva.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Vad för grundläggande metoder finns det för att hitta kanter?
+		</Question>
+		<Answer>
+			[b]Linjära[/b]
+			[ul]
+				[li]Derivering.[/li]
+				[li]Highpass filtering.[/li]
+				[li]Matcha med modell mönster.[/li]
+			[/ul][b]Icke-linjära[/b]
+			[ul]
+				[li]Passa parameteriserad modell av kanter till data.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Vad för attributer och problem finns det med kanter?
+		</Question>
+		<Answer>
+			[b]Attributer[/b]
+			[ul]
+				[li]Position[/li]
+				[li]Orientering[/li]
+				[li]Stryrka[/li]
+				[li]Bredd[/li]
+			[/ul][b]Problem[/b]
+			[ul]
+				[li]Brus[/li]
+				[li]Störning ifrån närliggande strukturer[/li]
+				[li]Fysisk tolkning[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Hur fungerar en kantupptäckare baserad på Laplacian?
+		</Question>
+		<Answer>
+			För 2D signaler så är Laplacian [math]nabla^2 L = L_(x x) + L_(y y)[/math] symmetrisk under rotation som sammanfaller med andra-ordningens derivator längs 1D raka linjer. Detta ger att vi kan försöka hitta kanter genom att kolla där Laplacian korsar origo: [math]nabla^2(g(*; t) ** f) = 0[/math].
+
+			Det finns dock stora problem:
+			[ul]
+				[li]Korsningar av origo ger gäller också för "falska kanter".[/li]
+				[li]Dålig lokalisering av kurvade kanter.[/li]
+				[li]Detta ger en kantupptäckare som inte är särskilt bra.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Hur fungerar Cannys kantupptäckare?
+		</Question>
+		<Answer>
+			[ol]
+				[li]Smootha bilden.[/li]
+				[li]Estimera kantens styrka och normal.[/li]
+				[li]Sätt en gräns för kantens styrka, och behåll endast de kanter som är lokala extremvärden av kanternas styrka i kantens normalriktning.[/li]
+			[/ol]Problemen med att sätta en gräns för kantens styrka är att detta kan ledda till fragmenterade kanter. Vi får för många lokala maximum pga. brus om gränsen är för låg, eller att kanter delar sig vid svaga punkter om gränsen är för låg. Vi kan försöka lösa detta genom att introducera två gränser [math]T_text(low)[/math] och [math]T_text(high)[/math]. I första fasen så tillåter vi endast kanter om styrken är större än [math]T_text(low)[/math], och i andra fasen så bevarar vi endast kanter om styrkan är större än [math]T_text(high)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Hur fungerar en kantupptäckare baserad på differentialgeometri?
+		</Question>
+		<Answer>
+			[ol]
+				[li]Smootha bilden.[/li]
+				[li]Beräkna [math]L_(v v)^(text(~)), L_(v v v)^(text(~))[/math] för varje punkt.[/li]
+				[li]Sök efter [math]L_(v v)^(text(~)) = 0[/math] där [math]L_(v v v)^(text(~)) lt 0[/math] gäller.[/li]
+				[li]Kan sedan kombineras med en gräns baserad på magnituden av gradienten.[/li]
+			[/ol][math]L_(v v)^(text(~)) = L_x^2 L_(x x) + 2L_x L_y L_(x y) + L_y^2 L_(y y)[/math]
+			[math]L_(v v v)^(text(~)) = L_x^3 L_(x x x) 3 L_x^2 L_y l_(x x y) + 3 L_x L_y^2 L_(x y y) + L_y^3 L_(y y y )[/math]
+
+			Fördelarna är att vi hanterar sammankoppling av kanter automatiskt och undviker problem med estimering av orientering av kanten.
+		</Answer>
+	</TestQuestion>
 </Test>
