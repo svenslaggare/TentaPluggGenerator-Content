@@ -1267,7 +1267,14 @@
 				[li]Definera ett [math]4 xx 4[/math] rutnät runt interest point. Ackumulera histogramet av riktningar för gradient riktningar till 8 bins. [/li]
 				[li][/li]
 			[/ol] -->
-			Verkar mycket komplicerat, kollare senare.
+			Idén är att upptäcka features som skillnader i gaussian, och använda flera skalor för att bli invariant emot skalor.
+
+			[ul]
+				[li]Deskriptorn består av histogram av lokala gradient riktningar.[/li]
+				[li]Dominerande riktning som referens. Detta ger invarians under rotation.[/li]
+				[li]Fönsterstorlek från scale-space detektor. Detta ger skalinvarians[/li]
+				[li]Normalisera feature-vektorn så att längden blir 1. Detta ger invarians emot förändring av ljus.[/li]
+			[/ul]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="FeatureDetection">
@@ -1306,6 +1313,131 @@
 				[li]SIFT är en bättre deskriptor än SURF, men SURF kan beräknas snabbare.[/li]
 				[li]Både [math]det(H(L))[/math] och [math]nabla^2 L[/math] är mycket bättre interest point detectors än Harris-Laplace.[/li]
 			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ObjectRecognition">
+		<Question>
+			Vad är skillnaden mellan igenkänning (recognition) och klassificering (classification)
+		</Question>
+		<Answer>
+			[ul]
+				[li]Igenkänning: Är det här mitt objekt?[/li]
+				[li]Klassificering: Vad för objekt är det här?[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ObjectRecognition">
+		<Question>
+			Ange skillnader mellan olika metoder för objektigenkänning.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Supervised vs unsupervised
+					[ul]
+						[li]Supervised: annoterat data finns.[/li]
+						[li]Unsupervised (clustering): inga annoterade data finns.[/li]
+					[/ul]
+				[/li]
+				[li]Single-class vs multi-class
+					[ul]
+						[li]Single-class: Är det här en kopp?[/li]
+						[li]Multi-class: Är det här en kipp, bil, person, etc. ?[/li]
+					[/ul]
+				[/li]
+				[li]
+					Generative vs discriminative
+					[ul]
+						[li]Generative: modellerar hur saker ser ut.[/li]
+						[li]Discriminative: modellerar skillnader mellan saker.[/li]
+					[/ul]
+				[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ObjectRecognition">
+		<Question>
+			Vad bör en metod för objektigenkänning vara invariant emot?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Förändring i ljussättning (skuggning, färg).[/li]
+				[li]Position/orientering (vyriktning).[/li]
+				[li]Deformation (förändringar i form).[/li]
+				[li]Skymning av objektet.[/li]
+				[li]Storlek i bilden (dvs vyavstånd).[/li]
+				[li]Kameran (projektioner och förvrägningar).[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ObjectRecognition">
+		<Question>
+			Ange olika metoder för objektigenkänning.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Template based (dense)
+					[ul]
+						[li]Spara en bild av objektet.[/li]
+						[li]Relativ position mycket viktigt.[/li]
+						[li]Normalisera för invarians emot ljussättning och skala.[/li]
+					[/ul]
+				[/li]
+				[li]Feature based (sparse)
+					[ul]
+						[li]Spara en mängd av features (hörn, konturer)[/li]
+						[li]Relativ position är flexibel.[/li]
+						[li]Behåller endast information som kan vara invariant.[/li]
+					[/ul]
+				[/li]
+				[li]Statistics based (usally dense)
+					[ul]
+						[li]Spara histogram av bilddata (kanter, färger)[/li]
+						[li]Position ignoreras.[/li]
+						[li]Olika typer av data matchas invariant.[/li]
+					[/ul]
+				[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ObjectRecognition">
+		<Question>
+			Vad innebär Bag of Words?
+		</Question>
+		<Answer>
+			Det är ett sätt för att hantera många (miljoner) bilder. Idén är att representera bilden som ett histogram av features (oftast SIFT). Det fungerar på följande sätt:
+			[ol]
+				[li]Extrahera features (t.ex. SIFT).[/li]
+				[li]Klustra dessa features (t.ex. K-means).[/li]
+				[li]Beräkna histogram av features.[/li]
+				[li]Klassificera histogram till olika klasser av objekt.[/li]
+			[/ol]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ObjectRecognition">
+		<Question>
+			Hur fungerar en nearest neighbor klassificerare?
+		</Question>
+		<Answer>
+			Givet en test bild, hitta den närmaste grannen bland alla träningsexempel. Problemet är antalet träningsexempelar kan vara många och söka efter närmaste grannen kan vara kostsamt.
+
+			[b]Fördelar[/b]
+			[ul]
+				[li]Fungerar bra för klasser som kan separeras väl.[/li]
+				[li]Kan representera kluster med komplex form.[/li]
+			[/ul][b]Nackdelar[/b]
+			[ul]
+				[li]Kan kräva komplexa beräkningar i högre dimensioner.[/li]
+				[li]Beror mycket på hur vi bestämmer "närmaste granne".[/li]
+				[li]Mycket känslig till utstickare (outlier).[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ObjectRecognition">
+		<Question>
+			Hur fungerar Bayesian klassificering?
+		</Question>
+		<Answer>
+			Vi vill välja den klass [math]k[/math] som maximerar [math]p(k | z) = (p(z | k) p(k)) / (p(z))[/math]. Oftast gör vi ett maximum likelihood antagande, att [math]p(k)[/math] är samma för alla klaser. För att hitta [math]p(z | k)[/math] så kan olika algoritmer användas, t.ex. SVM eller Logistic regression. Detta var det som mönsterigenkännings kursen handla om, så kolla där.
 		</Answer>
 	</TestQuestion>
 </Test>
