@@ -1110,4 +1110,202 @@
 			Fördelarna är att vi hanterar sammankoppling av kanter automatiskt och undviker problem med estimering av orientering av kanten.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Vad för grundläggande krav finns det på en "interest point"?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Matematiskt väldefinierad.[/li]
+				[li]Har en väldefinierad position i bilden-[/li]
+				[li]Vara rik i information i del av bilden så att "interest point" kan matchas lätt.[/li]
+				[li]Vara stabil under naturlig transformation: vyriktning, vyavstånd, variatiopn ljussättning.[/li]
+				[li]Vara tillräckligt annorlunda så att vi kan separera olika punkter.[/li]
+				[li]Ha en skalattribut för hantera variationer i skala.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Vad för olika metoder finns det för att hitta "interest points"?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Harris corner detection[/li]
+				[li]Laplacian blob detection with automatic scale selection. Approximeras av SIFT.[/li]
+				[li]Determinant av Hessian blob detection with automatic scale selection. Approximeras av SUFT.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Vad innehåller moment matrisen av andra ordningen?
+		</Question>
+		<Answer>
+			Ackumulerad statistisk om lokala riktningar inom ett område runt varje punkt. [math]mu(x; t, s) = int_(R^2) (nabla L(*; t)) (nabla L(*; t))^T g(x - q; s) dx[/math] där [math]t[/math] är en lokal skala för att beräkna derivator, [math]s[/math] en skala för att beräkna statistisk av gradient riktningar och [math]g(*; s)[/math] en fönsterfunktion vilket statistiken ackumuleras över. 
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Hur definerars Harris operatorn?
+		</Question>
+		<Answer>
+			Givet moment matrisen av andra ordningen [math]mu[/math] med egenvärdena [math]lambda_1, lambda_2 >= 0[/math] så beräknar vi Harris måttet [math]H = det mu - k trace(mu)^2 = lambda_1 lambda_2 - k(lambda_1 + lambda_2)^2[/math] där [math]k in [0, 1/4][/math]. Ett högre värde för [math]k[/math] ger en mer restriktiv detektor.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Vad för egenskaper av moment matrisen av andra ordningen?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Smooth region i bilden utan starka kantstrukturer: [math]lambda_1, lambda_2[/math] små.[/li]
+				[li]Längs en rak kant: [math]lambda_1 > > lambda_2[/math][/li]
+				[li]Vid ett hörn med två eller flera dominanta riktningar: [math]lambda_1, lambda_2[/math] stora.[/li]
+				[li]För att [math]H[/math] ska reagera så måste båda egenvärdena vara stora.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Hur fungerar Harris corner detector?
+		</Question>
+		<Answer>
+			[ol]
+				[li]Beräkna [math]L_x, L_y[/math] vid någon skala [math]t[/math][/li]
+				[li]Beräkna [math]L_x^2, L_x L_y, L_y^2[/math] för varje pixel.[/li]
+				[li]Beräkna [math]mu = ((E(L_x^2), E(L_x L_y)), (E(L_x L_y), E(L_y^2)))[/math] för någon fönsterfunktion [math]E[/math] vid någon skala [math]s[/math][/li]
+				[li]Beräkna [math]H = E(L_x^2) E(L_y^2) - (E(L_x L_y)^2 - k (E(L_x^2 + E(L_y^2))))^2[/math] för varje pixel.[/li]
+				[li]Hitta lokala extemvärden av [math]H[/math] som uppfyller [math]H >= H_0 > 0[/math].[/li]
+			[/ol]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Hur fungerar Laplacian blob detector?
+		</Question>
+		<Answer>
+			Givet en "scale-space" representation av [math]L[/math] av en bild [math]f[/math] som vi har fått av gaussian smoothing: [math]L(*; t) = g(*; t) ** f[/math].
+
+			Då beräknar vi Laplacian: [math]nabla^2 L = L_(x x) + L_(y y)[/math]. Spatiala extremvärden av [math]nabla^2 L[/math] anses då vara en blob med:
+			[ul]
+				[li][math]nabla^2 L lt 0[/math]: ljus blob[/li]
+				[li][math]nabla^2 L > 0[/math]: mörk blob.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Vad är Hessian matrisen?
+		</Question>
+		<Answer>
+			Det är en kvadratisk matris som innehåller en funktions alla partiella andraderivator. Dvs: Låt [math]f(x_1, x_2, ..., x_n)[/math] vara en funktion med existerande andraderivator. Då är hessians matrisen [math]H(f)=[[(del^2 f) / (del x_1 x_1), (del^2 f) / (del x_1 x_2), ..., (del^2 f) / (del x_1 x_n)], [(del^2 f) / (del x_2 x_1), (del^2 f) / (del x_2 x_2), ..., (del^2 f) / (del x_2 x_n)], [vdots, vdots, ddots, vdots], [(del^2 f) / (del x_n x_1), (del^2 f) / (del x_n x_2), ..., (del^2 f) / (del x_n x_n)]][/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Hur fungerar Determinant av Hessian blob detection?
+		</Question>
+		<Answer>
+			Givet en "scale-space" representation av [math]L[/math] av en bild [math]f[/math] som vi har fått av gaussian smoothing: [math]L(*; t) = g(*; t) ** f[/math].
+
+			Då beräknar vi determinaten av Hessian matrisen: [math]det(H(L))=L_(x x) L_(y y) - L_(x y)^2[/math]. Lokala extremvärden av [math]det(H(L))[/math] anses då vara en blob med (tror dock detta är fel, bör nog vara [math]H(L)[/math]):
+			[ul]
+				[li][math]nabla^2 L lt 0[/math]: ljus blob[/li]
+				[li][math]nabla^2 L > 0[/math]: mörk blob.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Vad är skillnanden av "interest points" beräknad av Laplacian och determinaten av Hessian matrisen?
+		</Question>
+		<Answer>
+			I en referensram som är justerad till egenvärdena av Hessian matrisen, [math]H(L) = [[lambda_1, 0], [0, lambda_2]][/math] så ges operatorerna av:
+			[math]nabla^2 L = lambda_1 + lambda_2[/math]
+			[math]det(H(L)) = lambda_1 lambda_2[/math]
+
+			Då gäller:
+			[ul]
+				[li]För att Laplacian ska ge en stark respons så krävs det endast att det är en stark respons i någon av koordinat riktningarna ([math]lambda_1[/math] eller [math]lambda_2[/math]). Detta ger risk för felaktig respons nära kanter, och kan undvikas med sätta en gräns.[/li]
+				[li]För determinaten av Hessian matrisen ska ge en stark respons så krävs det att en stark respoins i båda koordinat riktningarna.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Hur fungerar algoritmen för att extemvärden i "scale-space"?
+		</Question>
+		<Answer>
+			[ol]
+				[li]Givet ett intervall av skalor [math][t_text(min), t_text(max)][/math], fördela mängden av skalor likformligt i termer av effektiv skala: [math]tau = log t[/math][/li]
+				[li]Applicera gaussian smoothing till bilden vid varje skalnivå.[/li]
+				[li]För varje pixel i bilden, beräkna derivator och kombinera dessa så att vi får någon invarians.[/li]
+				[li]Hitta lokala extremvärden i både skala och rummet genom att jämföra med närmaste grannar i en [math]3 xx 3 xx 3[/math] region, med en gräns på magnituden av responsen.[/li]
+				[li]Sortera "interest points" i sjunkande ordning baserat på skalnormaliserade magnitud värden.[/li]
+			[/ol]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Vad är en pyramid?
+		</Question>
+		<Answer>
+			När man ökar skalan, så blir strukterer av små storlek dämpade. Man borde då kunna minska storleken av bilden (subsampla) för att göra algoritmen mer effektiv. Detta är idén bakom pyramider, att man kombinerar smoothing med subsampling för att öka effektiveten.
+
+			Det finns också hybridpyramider, där man varierar när man subsamplar för att avväga effektivitet och precision.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Hur fungerar SIFT deskriptorn?
+		</Question>
+		<Answer>
+			<!-- [ol]
+				[li]Beräkna gradienten [math]nabla L[/math] runt [math](x_0, y_0)[/math] vid en skala [math]hat(t)[/math] runt en interest point.[/li]
+				[li]Skapa ett histogram av orienteringar, genom att beräkna riktningen för den lokala gradienten över 36 bins. De bins med största värden är en approximation av orienteringen.[/li]
+				[li]Definera ett [math]4 xx 4[/math] rutnät runt interest point. Ackumulera histogramet av riktningar för gradient riktningar till 8 bins. [/li]
+				[li][/li]
+			[/ol] -->
+			Verkar mycket komplicerat, kollare senare.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Hur fungerar SUFT deskriptorn?
+		</Question>
+		<Answer>
+			Verkar mycket komplicerat, kollare senare.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Hur kan man matcha deskriptorer mellan två bilder?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Givet två bilder [math]f_A[/math] och [math]f_B[/math], beräkna interest points för båda bilder: [math]A = { A_i }, B = { B_i }[/math].[/li]
+				[li]Jämför deskriptorerna genom att beräkna euklidiska avståndet mellan de deskriptorerna för båda bilderna.[/li]
+				[li]Acceptera en matchning mellan ett par av interest points [math](A_i, B_j)[/math] om:
+					[ul]
+						[li][math]A_i[/math] är den bästa matchningen för [math]B_j[/math] i relation till alla andra punkter i [math]A[/math][/li]
+						[li][math]B_j[/math] är den bästa matchningen för [math]A_i[/math] i relation till alla andra punkter i [math]B[/math][/li]
+					[/ul]
+				[/li]
+				[li]För att förhindra tvetydliga matchningar, lägg till ett krav att kvoten mellan avståndet mellan de två närmaste deskriptorerna vara mindre än 0.9.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Vad för slutsatser kan vi dra om olika interest point detectors?
+		</Question>
+		<Answer>
+			[ul]
+				[li][math]det(H(L))[/math] är en bättre interest point detector än [math]nabla^2 L[/math].[/li]
+				[li]SIFT är en bättre deskriptor än SURF, men SURF kan beräknas snabbare.[/li]
+				[li]Både [math]det(H(L))[/math] och [math]nabla^2 L[/math] är mycket bättre interest point detectors än Harris-Laplace.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
 </Test>
