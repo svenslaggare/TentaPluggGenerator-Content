@@ -1440,4 +1440,173 @@
 			Vi vill välja den klass [math]k[/math] som maximerar [math]p(k | z) = (p(z | k) p(k)) / (p(z))[/math]. Oftast gör vi ett maximum likelihood antagande, att [math]p(k)[/math] är samma för alla klaser. För att hitta [math]p(z | k)[/math] så kan olika algoritmer användas, t.ex. SVM eller Logistic regression. Detta var det som mönsterigenkännings kursen handla om, så kolla där.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Vad innebär stero?
+		</Question>
+		<Answer>
+			Det innebär att man beräknar djupet av ett objekt genom att jämföra skillnader i objekts position mellan två eller flera kameror.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Vad är "cyclopean eye"?
+		</Question>
+		<Answer>
+			Det är en modell för att beskriva hur synen fungerar. Den säger att vår syn egentligen är ett öga, som ligger halvvägs mellan båda ögonen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Vad är "fixation point"?
+		</Question>
+		<Answer>
+			Det är punkten där två kameror konvergerar emot. Riktningen som kameran pekar emot kallas för principal direction.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Vad är "vergence"?
+		</Question>
+		<Answer>
+			Det är vinkeln mellan principal direction mellan två kameror, och betecknas [math]2 mu[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Vad är "gaze"?
+		</Question>
+		<Answer>
+			Det är vinkeln mellan huvudriktningen och riktningen ifrån cyclopean eye till fixation point, betecknas [math]gamma[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Ange relationen mellan vergence, gaze och cyclopean eye.
+		</Question>
+		<Answer>
+			Vi har [math]mu = (ro_L - ro_R) / 2, gamma = (ro_L + ro_R) / 2[/math]. Beskrivs av bilden nedan:
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/SteroGeometry.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Vad är parrallax?
+		</Question>
+		<Answer>
+			Skenbara rörelsen av 3D objekt som är placerade på olika avstånd. Bör nog kolla på wikipedia efter bättre förklaring.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Hur lyder geometrin för parallella kameor?
+		</Question>
+		<Answer>
+			Låt den vänstra kameran vara på position [math](0, 0, 0)[/math] och den högra på [math](T_x, 0, 0)[/math]. Utöver det, så är båda kamerorna identiska. Antag att en punkt [math](X, Y, Z)[/math] har koordinaterna [math]x_l = f X / Z, x_r = f Y / Z[/math] i den vänstra kameran. Då är dess koordinater i den högra kameran: [math]x_r = f (X - T_x) / Z, y_r = f Y / Z[/math].
+
+			Då kan vi beräkna disparity som: [math]d = x_l - x_r = f X / Z - (f X / Z - f T_x / Z)) = f T_x / Z[/math]. Detta innebär: [math]Z = (f T_x) / d[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Vad är disparity?
+		</Question>
+		<Answer>
+			Låt [math](x_L, y_L)[/math] och [math](x_R, y_R)[/math] vara samma punkter i olika kameror. Då kallas skillnanden för [i]disparity[/i]. Vi har horisontell disparity: [math]x_R - x_L[/math] och vertikal: [math]y_R - y_L[/math]. Disparity betecknas som [math]d[/math]. Om vi låter [math]b[/math] bara baselinen (transformationen mellam kameorna?), då gäller: [math]Z = (bf) / d[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Vad för värde bör vi ha på baselinen?
+		</Question>
+		<Answer>
+			Om vi deriverar [math]Z = (bf) / d[/math] med anseende på [math]d[/math] får vi: [math](del Z) / (del d) = -(Z^2)/(bf)[/math]. Detta innebär att felet i djup är beror kvadratiskt på djupet. Detta ger även om vi ökar baselinen, så får vi ett mindre fel. Dock blir problemet att matcha punkter mycket svårare, på grund av större perspektiv förvrägningar.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Vad är en "epipolar plane"?
+		</Question>
+		<Answer>
+			Det är ett plan genom en punkt [math]X[/math] och de optiska centrarna.
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/EpipolarPlane.png[/img].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Vad är en "epipole"?
+		</Question>
+		<Answer>
+			Det är projektionen av de optiska centret, och betecknas [math]p(p')[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Vad är en "epipolar line"?
+		</Question>
+		<Answer>
+			Det är en linje som projiceras till ett epipolar plane som går genom ett optiskt center.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Vad är en "epipolar transform"?
+		</Question>
+		<Answer>
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/EpipolarTransform.png[/img]
+
+			Det är en avbildning från punkter i bildplanet till epipolar linjer i den andra bildplanet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Vad är en "essential matrix"?
+		</Question>
+		<Answer>
+			Antag att två kameror är relaterade med [math]R[/math] en rotation och [math]t[/math] en transformation. Då kallas matrisen [math]E = R T_t, T_t = ((0, t_3, -t_2), (-t_3, 0, t_1), (t_2, -t_1, 0))[/math] för "essential matrix". Motsvarande puntker [math]q, q'[/math] är då relaterade av [math](q')^T E q = 0[/math]. Der går även att se det som att essential matrisen villkor för epipolar linjer.
+
+			Linjen [math]I_q = Eq[/math] är epipolar linjen som motsvarar [math]q[/math] under en epipolar transformation, och [math](q')^T I_q = 0[/math] för dden andra bilden.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Hur kan man beräkna "essential matrix"?
+		</Question>
+		<Answer>
+			Först, använd features (t.ex. SIFT) för att matchning mellan två bilder. Vi kan sedan ställa upp ett ekvationssystem med 5 okända, vilket innebär att vi behöver 5 matchningar.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Vad för problem finns det med att beräkna matchningar mellan bilder?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Variation i ljussättning.[/li]
+				[li]Förvrägningar pga perspektiv.[/li]
+				[li]Upprepade mönster.[/li]
+				[li][/li]
+				[li][/li]
+				[li][/li]
+				[li][/li]
+				[li][/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Hur kan man använda sig av korrelation för att beräkna matchningar?
+		</Question>
+		<Answer>
+			Vi har ett fönster, som vi förflyttar över båda bilderna. Vi beräknar sedan en korrelation, för att se hur bra fönsterna matchar. Man kan antigen använda sig av [math]text(SSD) = sum_([i, j] in R) (f(i, j) - g(i, j))^2[/math] eller [math]text(SAD) = sum_([i, j] in R) ||f(i, j) - g(i, j)||[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Vad är "Disparity Space Image"?
+		</Question>
+		<Answer>
+	
+		</Answer>
+	</TestQuestion>
 </Test>
