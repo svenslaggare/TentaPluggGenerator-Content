@@ -1585,11 +1585,6 @@
 				[li]Variation i ljussättning.[/li]
 				[li]Förvrägningar pga perspektiv.[/li]
 				[li]Upprepade mönster.[/li]
-				[li][/li]
-				[li][/li]
-				[li][/li]
-				[li][/li]
-				[li][/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -1606,7 +1601,82 @@
 			Vad är "Disparity Space Image"?
 		</Question>
 		<Answer>
-	
+			Hitta svar senare!
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MotionAndOpticalFlow">
+		<Question>
+			Vad för olika typer av rörelser finns det i bilder?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Rörelse av kamera (ego-motion).[/li]
+				[li]Rörelse av saker i bilden (independent motion).[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MotionAndOpticalFlow">
+		<Question>
+			Hur förändras en punkt pga av rörelsen av kameran (även betecknat motion field)?
+		</Question>
+		<Answer>
+			Antag att kameran rör sig med vinkelhastighet [math]omega[/math] och hastighet [math]T[/math]. En punkt [math]P=(X, Y, Z)[/math] rör sig då (jämförelse med kameran) enligt: [math]dot(P) = -T - omega xx P[/math].
+
+			Rörelsen i bilden sker enligt: [math]((dot x), (dot y)) = f / Z ((-T_x + x/f T_z), (-T_y + y / f T_z)) + ((omega_x (xy)/f - omega_y (f + (x^2)/f) + omega_z y), (omega_x (f + (y^2)/f) - omega_y (xy) / f + omega_z x))[/math]. Den första komponenten relaterar till förflyttning medan den andra relaterar till rotationen. Slutsatsen av denna formel är att skalan är tvetydlig och rotationen är oberoende av djupet, vilket ger att det inte går att estimera djup genom att endast rotera- vi måste röra på oss också. 
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MotionAndOpticalFlow">
+		<Question>
+			Vad är focus of expansion?
+		</Question>
+		<Answer>
+			Det är punkten som ett fält expanderar ifrån. Vi har: [math]((x_text(FOE)), (y_text(FOE)), (f)) = f / T_z ((T_x), (T_y), (T_z))[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MotionAndOpticalFlow">
+		<Question>
+			Vad är optical flow?
+		</Question>
+		<Answer>
+			Det är den skenbara rörelsen av "brightness patterns" (vad är en bra svenskt ord?). Oftast så är optical flow samma sak som motion field, men inte alltid. Se bild nedan.
+
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/OpticalFlowAndMotionField.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MotionAndOpticalFlow">
+		<Question>
+			Vad är "optical flow constraint equation"?
+		</Question>
+		<Answer>
+			Det är en ekvation som ger begräsningar på komponenterna för optical flow. Antag att [math]vec(u) = ((u, v))[/math] är optical flow vektorn, och [math]I_x, I_y, I_t[/math] derivatan av [math]I(x(t), y(t), t)[/math] med hänseende på [math]x, y, t[/math].
+
+			Om vi antar att intensiteten för varje synlig punkt i scenen är konstant över tiden: [math](d l) / (d t) = 0[/math], så får vi [math]I_x u + I_y v + I_t = 0[/math] (optical flow constraint equation).
+
+			Den går också att skriva som: [math]((I_x, I_y)) * ((u, v)) = - I_t rArr ((u, v)) = -I_t / (I_x^2 + I_y ^2) ((I_x, I_y))[/math]. 
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MotionAndOpticalFlow">
+		<Question>
+			Vad är "aperture problem"?
+		</Question>
+		<Answer>
+			Att vi inte kan bestämma optical flow längs en kant.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MotionAndOpticalFlow">
+		<Question>
+			Hur kan vi bestämma optical flow?
+		</Question>
+		<Answer>
+			Vi ställer ett överbestämt ekvationssystem och löser med minstakvadratmetoden.
+			[math][[I_(x_1), I_(y_1)], [I_(x_2), I_(y_2)], [vdots, vdots]] [[u], [v]] = -[[I_(t_1)], [I_(t_2)], [vdots]] hArr A vec(u) = b[/math].
+
+			Lösningen blir då [math]vec(u) = (A^T A)^-1 A^T b[/math]. Vi får att [math]A^T A = [[sum I_x^2, sum I_x I_y], [sum I_x I_y, sum I_y^2]][/math], vilket är samma sak som second moment matrisen, vilket används för att hitta hörn.
+
+			Kravet för att denna matris ska vara inverterbar är att det inte finns några egenvärden som är noll. När det är en kant så får vi det, pga [math][[-I_y, I_x]][/math] är ett egenvektor med egetvärdet 0.
+
+			Det finns ytterligare beetende pga det är second moment matrisen som vi använder oss av:
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/OpticalFlowSecondMoment.png[/img]
 		</Answer>
 	</TestQuestion>
 </Test>
