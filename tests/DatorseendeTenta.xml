@@ -1512,7 +1512,7 @@
 			Vad är disparity?
 		</Question>
 		<Answer>
-			Låt [math](x_L, y_L)[/math] och [math](x_R, y_R)[/math] vara samma punkter i olika kameror. Då kallas skillnanden för [i]disparity[/i]. Vi har horisontell disparity: [math]x_R - x_L[/math] och vertikal: [math]y_R - y_L[/math]. Disparity betecknas som [math]d[/math]. Om vi låter [math]b[/math] bara baselinen (transformationen mellan kamerorna?), då gäller: [math]Z = (bf) / d[/math]. Detta innebär att vi kan beräkna djupet som skillnaden i position mellan kamerorna.
+			Låt [math](x_L, y_L)[/math] och [math](x_R, y_R)[/math] vara samma punkt i olika kameror. Då kallas skillnanden för [i]disparity[/i]. Vi har horisontell disparity: [math]x_R - x_L[/math] och vertikal: [math]y_R - y_L[/math]. Disparity betecknas som [math]d[/math]. Om vi låter [math]b[/math] bara baselinen (förflyttningen mellan kamerorna), då gäller: [math]Z = (bf) / d[/math]. Detta innebär att vi kan beräkna djupet som skillnaden i position mellan kamerorna.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="StereoGeometry">
