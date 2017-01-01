@@ -1520,7 +1520,7 @@
 			Vad för värde bör vi ha på baselinen?
 		</Question>
 		<Answer>
-			Om vi deriverar [math]Z = (bf) / d[/math] med anseende på [math]d[/math] får vi: [math](del Z) / (del d) = -(Z^2)/(bf)[/math]. Detta innebär att felet i djup är beror kvadratiskt på djupet. Detta ger även om vi ökar baselinen, så får vi ett mindre fel. Dock blir problemet att matcha punkter mycket svårare, på grund av större perspektiv förvrängningar.
+			Om vi deriverar [math]Z = (bf) / d[/math] med anseende på [math]d[/math] får vi: [math](del Z) / (del d) = -(Z^2)/(bf)[/math]. Detta innebär att felet i djup beror kvadratiskt på djupet. Detta ger även om vi ökar baselinen, så får vi ett mindre fel. Dock blir problemet att matcha punkter mycket svårare, på grund av större perspektiv förvrängningar.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="StereoGeometry">
