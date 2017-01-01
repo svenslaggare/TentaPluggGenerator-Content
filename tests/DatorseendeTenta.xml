@@ -15,7 +15,7 @@
 			Vad är en "pinhole camera" för något?
 		</Question>
 		<Answer>
-			Det är den enklaste typen av avbildningsenhet vilket fångar in geometrin av en perspective projection. Det fungerar så att ljuset kommer in i kameran genom en öppning som är oändligt liten. Skärningen mellan ljusstrålen och bildplanet bildar bilden av objektet.
+			Det är den enklaste typen av avbildningsenhet vilket fångar in geometrin av en perspektiv projektion. Det fungerar så att ljuset kommer in i kameran genom en öppning som är oändligt liten. Skärningen mellan ljusstrålen och bildplanet bildar avbildningen av objektet.
 
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/PinholeCamera.png[/img]
 		</Answer>
@@ -25,9 +25,9 @@
 			Vad är syftet med linser?
 		</Question>
 		<Answer>
-			Syftet är att fånga in ljus från en större öppning (aperture). Problemet är att endast ljusstrålar från punkter på fokalplanet skär samma punkt i bildplanet. Resultatet blir att det blir suddigt framför eller bakom bilden. Fokaldjupet anger intervallet av avstånd med acceptabel suddighet.
+			Syftet är att fånga in ljus ifrån en större öppning (aperture). Problemet med linser är dock att endast ljusstrålar ifrån punkter på fokalplanet skär samma punkt i bildplanet. Resultatet blir att det blir suddigt framför eller bakom bilden. Fokaldjupet anger intervallet av avstånd med acceptabel suddighet.
 
-			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Lenses.png[/img]		
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Lenses.png[/img]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ProjektionerOchTransformationer">
@@ -41,7 +41,7 @@
 			[b]Orthographic projection (approximation för objekt långt borta)[/b]
 			Alla ljusstrålar är vinkelrätta emot bildplanet.
 
-			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/CameraModels.png[/img]	
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/CameraModels.png[/img]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ProjektionerOchTransformationer">
@@ -55,8 +55,8 @@
 			[b]Orthographic projection[/b]
 			[math]x = X, y = Y[/math]
 
-			[b]Scaled orthography - [math]Z_0[/math]: representativa djupet[/b]
-			[math]x / f = X / Z_0, y / f = Y / Z_0[/math]
+			[b]Scaled orthography[/b]
+			[math]x / f = X / Z_0, y / f = Y / Z_0[/math] där [math]Z_0[/math] är det representativa djupet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ProjektionerOchTransformationer">
@@ -64,18 +64,18 @@
 			Vad är en perspektiv transformation för något?
 		</Question>
 		<Answer>
-			Den består av tre komponenter:
+			Det är en transformation som består av tre komponenter:
 			[ul]
-				[li]Rotation: från världen till kamerans koordinatsystem[/li]
-				[li]Translation: från världen till kamerans koordinatsystem[/li]
-				[li]Perspective projection: från kameran till bildkoordinater[/li]
+				[li]Rotation: från världen till kamerans koordinatsystem.[/li]
+				[li]Translation: från världen till kamerans koordinatsystem.[/li]
+				[li]Perspective projection: från kameran till bildkoordinater.[/li]
 			[/ul]Dessa egenskaper bevaras:
 			[ul]
 				[li]Linjer projiceras till linjer[/li]
-				[li]Kolinjära egenskaper förbli kolinjära[/li]
-				[li]Tangenta egenskaper förbli Tangenta[/li]
+				[li]Kolinjära egenskaper förbli kolinjära.[/li]
+				[li]Tangenta egenskaper förblir tangenta.[/li]
 				[li]Skärningar bevaras[/li]
-			[/ul]Varje mängd av parallella linjer möts vid en viss punkt - vanishing point. Mängder av parallella linjer på samma plan leder till kolinjära vanishing points, denna linje kallas för horisonten för planet.
+			[/ul]Varje mängd av parallella linjer möts vid en viss punkt - vanishinging point. En mängd av parallella linjer på samma plan leder till kolinjära vanishing points, denna linje kallas för horisonten för planet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ProjektionerOchTransformationer">
@@ -132,9 +132,9 @@
 		<Answer>
 			[ul]
 	    		[li]Principal point (mitten av optiska axeln i bilden): [math](u_0, v_0)[/math].[/li]
-	    		[li]Brännvidd: [math](f_x, f_y)[/math][/li]
-	    		[li]Hur x och y-axlarna är förvrängade mellan varandra (skew): [math]gamma[/math][/li]
-	    		[li]Linsförvrängning[/li]
+	    		[li]Brännvidd: [math](f_x, f_y)[/math].[/li]
+	    		[li]Hur x och y-axlarna är förvrängade mellan varandra (skew): [math]gamma[/math].[/li]
+	    		[li]Linsförvrängning.[/li]
 	    	[/ul]Detta sammanfattas av: [math]P = (((f_x), gamma, u_0, 0), (0, (f_y), v_0, 0), (0, 0, 1, 0))[/math].
 		</Answer>
 	</TestQuestion>
@@ -156,8 +156,8 @@
 		<Answer>
 			Det innebär att man skapar en ny bild [math]g(u, v)[/math] av en bild [math]f(x, y)[/math] genom att transformera [math]u = u(x, y), v = v(x, y)[/math]. Detta görs genom att man samplar ifrån [math]f(x, y)[/math] antingen genom:
 			[ul]
-				[li]Nearest neighbour look-up (ger brusigt resultat)[/li]
-				[li]Bilinear interpolation (ger suddigt resultat)[/li]
+				[li]Nearest neighbour look-up (ger brusigt resultat).[/li]
+				[li]Bilinear interpolation (ger suddigt resultat).[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -182,7 +182,7 @@
 			Vad är en sammanhängande komponent (connected component)?
 		</Question>
 		<Answer>
-			För varje [math]p[/math] så mängden av alla punkter [math]q[/math] där det finns en stig mellan [math]p[/math] och [math]q[/math] dess sammanhängande komponent.
+			För varje [math]p[/math] så är mängden av alla punkter [math]q[/math] där det finns en stig mellan [math]p[/math] och [math]q[/math] dess sammanhängande komponent.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Grafteori">
@@ -197,18 +197,18 @@
 	</TestQuestion>
 	<TestQuestion Category="Grafteori">
 		<Question>
-			Ange olika typer av mäta avstånd.
+			Ange olika metoder/funktioner av mäta avstånd.
 		</Question>
 		<Answer>
 			[ul]
-				[li]Euclidean distance: [math]d(p, q) = sqrt((p.x - q.x)^2 + (p.y - q.y)^2)[/math][/li]
-				[li]City block distance: [math]d(p, q) = |p.x - q.x| + |p.y - q.y|[/math][/li]
-				[li]Chessboard distance: [math]d(p, q) = max(|p.x - q.x|, |p.y - q.y|)[/math][/li]
+				[li]Euclidean distance: [math]d(p, q) = sqrt((p.x - q.x)^2 + (p.y - q.y)^2)[/math].[/li]
+				[li]City block distance: [math]d(p, q) = |p.x - q.x| + |p.y - q.y|[/math].[/li]
+				[li]Chessboard distance: [math]d(p, q) = max(|p.x - q.x|, |p.y - q.y|)[/math].[/li]
 			[/ul]Alla dessa metoder uppfyller:
 			[ul]
-				[li][math]d(p, q) >= 0[/math][/li]
-				[li][math]d(p, q) = d(q, p)[/math][/li]
-				[li][math]d(p, r) le d(p, q) + d(q, r)[/math][/li]
+				[li][math]d(p, q) >= 0[/math].[/li]
+				[li][math]d(p, q) = d(q, p)[/math].[/li]
+				[li][math]d(p, r) le d(p, q) + d(q, r)[/math].[/li]
 			[/ul][img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Distances.png[/img]
 		</Answer>
 	</TestQuestion>
@@ -229,11 +229,11 @@
 		<Answer>
 			[b]Definition[/b]
 			[ul]
-				[li]Additivet: [math]L(f(x, y) + g(x, y)) = L(f(x, y)) + L(g(x, y))[/math][/li]
-				[li]Homogenitet: [math]L(alpha f(x, y)) = alpha L(f(x, y))[/math][/li]
+				[li]Additivet: [math]L(f(x, y) + g(x, y)) = L(f(x, y)) + L(g(x, y))[/math].[/li]
+				[li]Homogenitet: [math]L(alpha f(x, y)) = alpha L(f(x, y))[/math].[/li]
 			[/ul]där [math]f(x, y), g(x, y)[/math] är bilder, [math]alpha in RR[/math] och [math]L[/math] en operator.
 
-			[math]L[/math] säges vara shift-invariant om och endast om en shift (translation) av indata resulterar i samma shift i utdatan. Alternativt: [math]L[/math] är kommutativ med en shift operator [math]S[/math].
+			[math]L[/math] säges vara shift-invariant om och endast om en shift (translation) av indata resulterar i samma shift i utdatan. Alternativt: [math]L[/math] är kommutativ med en shift operatorn [math]S[/math].
 			<!-- [b]Egenskaper speciellt för filter[/b]
 			[ul]
 				[li]Shift-invariance: om systemet ges två impulser med en tidsfördröjning, så är responsen den samma utom för tidsdifferensen.[/li]
@@ -257,7 +257,8 @@
 		</Question>
 		<Answer>
 			[b]Kontinuerlig[/b]
-			[math]f(x) ** g(x) = int_(alpha in R^n) f(alpha) g(x - alpha) d alpha[/math]. Faltning är också kommutativ: [math]f(x) ** g(x) = g(x) ** f(x) = int_(alpha in R^n) g(alpha) f(x - alpha) d alpha[/math].
+			[math]f(x) ** g(x) = int_(alpha in R^n) f(alpha) g(x - alpha) d alpha[/math].
+			Faltning är också kommutativ: [math]f(x) ** g(x) = g(x) ** f(x) = int_(alpha in R^n) g(alpha) f(x - alpha) d alpha[/math].
 
 			[b]Diskret[/b]
 			Faltningen av en bild [math]f(x, y)[/math] med en kernel [math]h(x, y)[/math] definieras som:
@@ -324,17 +325,17 @@
 
 			Terminologi:
 			[ul]
-				[li]Frequency spectrum: [math]hat(f)(omega) = Re(omega) + i Im(omega) = |hat(f)(omega)| e^(i phi(omega))[/math][/li]
-				[li]Fourier spectrum: [math]|hat(f)(omega)|=sqrt(Re^2(omega) + Im^2(omega))[/math][/li]
-				[li]Power spectrum: [math]|hat(f)(omega)|^2[/math][/li]
-				[li]Phase angle: [math]phi(omega)=arg hat(f) (omega) = tan^-1 ((Im(omega)) / (Re(omega)))[/math][/li]
-				[li]Angular frequency: [math]omega = (omega_1, omega_2)^T[/math], [math]omega_1[/math] i x riktning, [math]omega_2[/math] i y riktning[/li]
-				[li]Frequency: [math]f = omega / (2 pi)[/math][/li]
-				[li]Wavelength: [math]lambda = (2 pi) / ||omega||[/math][/li]
-			[/ul]Alternativ representation: Fourie koefficienterna [math]hat(f) (omega_1, omega_2)[/math] är komplexa tal, med det är inte uppenbart vad reella och imaginära delarna representerar. Ett annat sätt är att representera det med fas och magnitude.
+				[li]Frequency spectrum: [math]hat(f)(omega) = Re(omega) + i Im(omega) = |hat(f)(omega)| e^(i phi(omega))[/math].[/li]
+				[li]Fourier spectrum: [math]|hat(f)(omega)|=sqrt(Re^2(omega) + Im^2(omega))[/math].[/li]
+				[li]Power spectrum: [math]|hat(f)(omega)|^2[/math].[/li]
+				[li]Phase angle: [math]phi(omega)=arg hat(f) (omega) = tan^-1 ((Im(omega)) / (Re(omega)))[/math].[/li]
+				[li]Angular frequency: [math]omega = (omega_1, omega_2)^T[/math], [math]omega_1[/math] i x riktning, [math]omega_2[/math] i y riktning.[/li]
+				[li]Frequency: [math]f = omega / (2 pi)[/math].[/li]
+				[li]Wavelength: [math]lambda = (2 pi) / ||omega||[/math].[/li]
+			[/ul]Alternativ representation: Fourie koefficienterna [math]hat(f) (omega_1, omega_2)[/math] är komplexa tal, med det är inte uppenbart vad reella och imaginära delarna representerar. Ett annat sätt är att representera det är med fas och magnitud.
 			[ul]
-				[li]Magnitude: [math]|hat(f)(omega_1, omega_2)| = sqrt(Re^2(omega_1, omega_2) + Im^2(omega_1, omega_2))[/math][/li]
-				[li]Phase: [math]phi(omega_1, omega_2) = tan^-1 ((Im(omega_1, omega_2)) / (Re(omega_1, omega_2)))[/math][/li]
+				[li]Magnitud: [math]|hat(f)(omega_1, omega_2)| = sqrt(Re^2(omega_1, omega_2) + Im^2(omega_1, omega_2))[/math].[/li]
+				[li]Fas: [math]phi(omega_1, omega_2) = tan^-1 ((Im(omega_1, omega_2)) / (Re(omega_1, omega_2)))[/math].[/li]
 			[/ul]Det gäller även att sinusoids och cosinusoids är egenfunktioner av faltningar.
 
 			[b]Diskret[/b]
@@ -343,13 +344,13 @@
 
 			Terminologi:
 			[ul]
-				[li]Fourier spectrum: [math]|F(u, v)|=sqrt(Re^2(u, v) + Im^2(u, v))[/math][/li]
-				[li]Phase angle: [math]phi(u, v) = tan^-1 ((Im(u, v)) / (Re(u, v)))[/math][/li]
-				[li]Power spectrum [math]P(u, v) = |F(u, v)|^ 2 = Re^2(u, v) + Im^2(u, v)[/math][/li]
+				[li]Fourier spectrum: [math]|F(u, v)|=sqrt(Re^2(u, v) + Im^2(u, v))[/math].[/li]
+				[li]Phase angle: [math]phi(u, v) = tan^-1 ((Im(u, v)) / (Re(u, v)))[/math].[/li]
+				[li]Power spectrum [math]P(u, v) = |F(u, v)|^ 2 = Re^2(u, v) + Im^2(u, v)[/math].[/li]
 				[li]Magnitude: är största värdet.[/li]
 				[li]Phase: anger origo, där sinusoiden börjar.[/li]
 			[/ul][b]Relation[/b]
-			I 1D så är relationen mellan diskret och kontinuerlig [math]omega = (2 pi u) / M[/math]. Detta innebär att [math]u in [0, M - 1][/math] och [math]omega in [0, 2 pi)[/math].
+			I 1D så ges relationen mellan diskret och kontinuerlig av [math]omega = (2 pi u) / M[/math]. Detta innebär att [math]u in [0, M - 1][/math] och [math]omega in [0, 2 pi)[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="FourierTransform">
@@ -357,7 +358,7 @@
 			Vad säger faltningssatsen?
 		</Question>
 		<Answer>
-			Att faltning i den spatiala domänen är samma sak som multiplikation i Fourier domänen (omvänt gäller också).
+			Att faltning i den spatiala domänen är samma sak som multiplikation i Fourier domänen (omvänt gäller också):
 			[math]cc "F" (h ** f) = cc "F"(h) * cc "F"(f), cc "F"(f * g) = cc "F"(f) ** cc "F"(g)[/math].
 		</Answer>
 	</TestQuestion>
@@ -366,7 +367,7 @@
 			Vad innebär det att ett filter är separerbar?
 		</Question>
 		<Answer>
-			Det innebär att en kernel i 2D [math]h(x, y)[/math] kan delas som en serie av 1D faltningar. 
+			Det innebär att en kernel i 2D [math]h(x, y)[/math] kan delas som en serie av 1D faltningar.
 			Dvs: Om [math]hat(f)(u, v) = 1 / sqrt(M N) sum_(m=0)^(M-1) sum_(n=0)^(N-1) f(m, n) e^(-2 pi i ((m u) / M + (n v)/N))[/math] så kan den skrivas som: [math]hat(f)(u, v) = 1 / sqrt(M) sum_(m=0)^(M-1) (1 / sqrt(N) sum_(n=0)^(N-1) f(m, n) e^(-2 pi i (n v) / N)) e^(-2 pi i (m u) / M)[/math].
 		</Answer>
 	</TestQuestion>
@@ -414,7 +415,7 @@
 			Ange vad sampling innebär för Fourier transformer.
 		</Question>
 		<Answer>
-			Signalerna (bilderna) är ej kontinuerliga, men diskreta. En kontinuerlig funktion [math]f(x, y)[/math] kan då samplas ett diskret rutnät av sampling punkter.
+			Signalerna (bilderna) är ej kontinuerliga, men diskreta. En kontinuerlig funktion [math]f(x, y)[/math] kan då samplas av ett diskret rutnät av sampling punkter.
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Sampling.png[/img]
 			Där [math]Delta x, Delta y[/math] kallas för sampling intervallen.
 		</Answer>
@@ -483,7 +484,7 @@
 	<!-- degradation vs restoration -->
 	<TestQuestion Category="Bildförbättring">
 		<Question>
-			Vad för krav brukar vi ställa på en transformation [math]s = T(r)[/math]?
+			Vad för krav brukar vi ställa på en transformation [math]s = T(r)[/math] (av pixelvärden)?
 		</Question>
 		<Answer>
 			[ul]
@@ -513,7 +514,7 @@
 			Vad innebär power-law transformation?
 		</Question>
 		<Answer>
-			Det innebär att vi applicerar funktionen [math]s = c r^gamma[/math] eller [math]s = c (r + epsilon)^gamma[/math]. Många enheter som används för kameror, printning och skärmar lyder under en sådan lag.
+			Det innebär att vi applicerar funktionen [math]s = c r^gamma[/math] eller [math]s = c (r + epsilon)^gamma[/math]. Många enheter som används för kameror, utskrift och skärmar lyder under en sådan lag.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Bildförbättring">
@@ -565,7 +566,7 @@
 			Hur fungerar mean filtering?
 		</Question>
 		<Answer>
-			Detta innebär att vi ett nytt pixelvärde som ett medelvärde för ett område runt pixeln. Detta görs lättast med en kernel, t.ex.: [math]1 / 9 [[1, 1, 1], [1, 1, 1], [1, 1, 1]][/math]. Själva kerneln kan variera, men den bör uppfylla:
+			Detta innebär att vi beräknar ett nytt pixelvärde som ett medelvärde för ett område runt pixeln. Detta görs lättast med en kernel, t.ex.: [math]1 / 9 [[1, 1, 1], [1, 1, 1], [1, 1, 1]][/math]. Själva kerneln kan variera, men den bör uppfylla:
 			[ul]
 				[li]Koefficienterna summerar till 1.[/li]
 				[li]Symmetriskt upp/ner och vänster/höger.[/li]
@@ -603,7 +604,7 @@
 			Vad innebär Anisotropic smoothing?
 		</Question>
 		<Answer>
-			Det innebär att vi smoothar olika i olika riktningar, för att bevara kanter. Idén är att vi smoothar pixlar baserad på en likhet mellan pixlar, där den t.ex. kan vara i färg eller position.
+			Det innebär att vi smoothar olika i olika riktningar, för att bevara kanter. Idén är att vi smoothar pixlar baserad på en likhet mellan pixlar, där det t.ex. kan vara i färg eller position.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Bildförbättring">
@@ -620,7 +621,7 @@
 		</Question>
 		<Answer>
 			[b]Första ordningen[/b]
-			[math]f_x = f(x + 1, y) - f(x, y)[/math]. Detta representeras av [math][[0, -1, 1]][/math]. Men i pratiken så används central differans: [math]f_x = 1 / 2 (f(x + 1, y) - f(x - 1, y)) => 1/2 [[-1, 0, 1]][/math].
+			[math]f_x = f(x + 1, y) - f(x, y)[/math]. Detta representeras av [math][[0, -1, 1]][/math]. Men i praktiken så används centraldifferens: [math]f_x = 1 / 2 (f(x + 1, y) - f(x - 1, y)) => 1/2 [[-1, 0, 1]][/math].
 
 			[b]Andra ordningen[/b]
 			[math]f_(x x) = f(x + 1, y) + f(x - 1, y) - 2f(x, y) => [[1, -2, 1]][/math].
@@ -641,11 +642,11 @@
 		</Question>
 		<Answer>
 			[b]Unsharp masking[/b]
-			Idén är att vi vill subtraherar bort suddigheten ifrån bilden. Låt [math]bar(f)(x, y)[/math] vara en suddad version av bilden. Då fungerar det: [math]g(x, y) = f(x, y) + alpha(f(x, y) - bar(f)(x, y))[/math].
+			Idén är att vi vill subtraherar bort suddigheten ifrån bilden. Låt [math]bar(f)(x, y)[/math] vara en suddig version av bilden. Då fungerar det så att: [math]g(x, y) = f(x, y) + alpha(f(x, y) - bar(f)(x, y))[/math].
 
 			[b]Highpass filtering[/b]
 			[math]G(u, v) = F(u, v) + alpha(H_text(hp)(u, v) F(u, v))[/math]
-			där [math]H_text(hp)(u, v)[/math] kan vara: 
+			där [math]H_text(hp)(u, v)[/math] kan vara:
 			Ideellt: [math]H_text(hp)(u, v) = { (1, text(om ) (u^2+v^2) > D_0^2), (0, text(annars)) :}[/math].
 			Gaussian: [math]H_text(hp)(u, v) = 1 - e^((-sigma^2 (u^2+v^2))/2)[/math].
 
@@ -672,7 +673,7 @@
 			Vad är RANSAC?
 		</Question>
 		<Answer>
-			RANSAC står för Random Sampling Consensus, och likt Hough transformen kan den hitta linjer, cirklar, ellipser, etc. 
+			RANSAC står för Random Sampling Consensus, och likt Hough transformen kan den hitta linjer, cirklar, ellipser, etc.
 
 			[ol]
 				[li]Välj slumpmässigt ut ett minimalt antal punkter, 2 för linjer, 3 för cirklar och 5 för ellipser.[/li]
@@ -688,19 +689,19 @@
 			Vad innebär homografi (homography)?
 		</Question>
 		<Answer>
-			Två bilder ifrån samma plana yta relaterad genom en homografi. Detta kan användas för att transformera en punkt i en kamera till en annan kamera, och punkterna ligger på ett gemensamt plan.
+			Två bilder ifrån samma plana yta är relaterad genom en [i]homografi[/li]. Detta kan användas för att transformera en punkt i en kamera till en annan kamera, om punkterna ligger på ett gemensamt plan.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ShapeRepresentation">
 		<Question>
-			Vad för olika typer invarianser vill vi ha för representation av former?
+			Vad för olika typer invarianter vill vi ha för en representation av former?
 		</Question>
 		<Answer>
 			[ul]
-				[li]Förflyttning[/li]
-				[li]Skala[/li]
-				[li]Rotation (dock inte alltid, t.ex. 6 och 9)[/li]
-				[li]Spegling[/li]
+				[li]Förflyttning.[/li]
+				[li]Skala.[/li]
+				[li]Rotation (dock inte alltid, t.ex. 6 och 9).[/li]
+				[li]Spegling.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -711,8 +712,8 @@
 		<Answer>
 			[ul]
 				[li]Sammanhängande komponenter, med egenskaperna: storlek, bounding box, center of gravity.[/li]
-				[li]Compactness: [math]text(area)/text(circumference)^2[/math][/li]
-				[li]Eccentricity: [math]text(length of maximum chord A)/text(length of maximum chord B⊥A)[/math][/li]
+				[li]Compactness: [math]text(area)/text(circumference)^2[/math.][/li]
+				[li]Eccentricity: [math]text(length of maximum chord A)/text(length of maximum chord B⊥A)[/math].[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -721,7 +722,8 @@
 			Vad är moments?
 		</Question>
 		<Answer>
-			[math]m_(pq)=int int_(Omega) x^p y^q f(x, y) dx dy[/math] där [math]f(x, y) = { (1, text(inom regionen)), (0, text(annars)) :}[/math]. Vi har också centered moments [math]mu_(pq) int int_(Omega) (f - bar(x))^p (y - bar(y))^q f(x, y) dx dy[/math] med center of gravity: [math]bar(x) = m_10 / m_00, bar(y) = m_01 / m_00[/math].
+			[math]m_(pq)=int int_(Omega) x^p y^q f(x, y) dx dy[/math] där [math]f(x, y) = { (1, text(inom regionen)), (0, text(annars)) :}[/math].
+			Vi har också centered moments [math]mu_(pq) int int_(Omega) (f - bar(x))^p (y - bar(y))^q f(x, y) dx dy[/math] med center of gravity: [math]bar(x) = m_10 / m_00, bar(y) = m_01 / m_00[/math].
 
 			Notera att [math]m_00[/math] anger arean för regionen.
 			<!-- Något om ellips approxmation? -->
@@ -760,7 +762,7 @@
 			[math]x - bar(x) = sum_(k=1)^K b_k u_k[/math]
 
 			[b]Approximera datan[/b]
-			Detta görs genom att projicera vektorerna till den lägre dimensionen: [math]bar(x) = b_1 u_1 b_2 u_2 + ... + b_K u_K[/math].
+			Detta görs genom att projicera vektorerna till den lägre dimensionen: [math]bar(x) = b_1 u_1 + b_2 u_2 + ... + b_K u_K[/math].
 
 			Detta fungerar även för bilder, om vi gör om varje bild till en lång vektor istället.
 		</Answer>
@@ -787,16 +789,16 @@
 			Hur fungerar thresholding?
 		</Question>
 		<Answer>
-			Det fungerar så att vi sätter en gräns, och alla värden som är över gränsen tillhör ena segment, alla värden under gräsen, det andra segementet. För att automatiskt hitta en gräns så kan vi använda oss av olika metoder:
+			Det fungerar så att vi sätter en gräns, och alla värden som är över gränsen tillhör ena segment, alla värden under gräsen, det andra segmentet. För att automatiskt hitta en gräns så kan vi använda oss av olika metoder:
 
 			[b]P-tile[/b]
-			Använd tidigare information om storleken av objektet, antag att objeketet har en [math]P %[/math] storlek av hela bilden. Välj då gränsen så att [math]P %[/math] av histogramet täcks.
+			Använd tidigare information om storleken av objektet, antag att objektet har en [math]P %[/math] storlek av hela bilden. Välj då gränsen så att [math]P %[/math] av histogrammet täcks.
 
 			[b]Mode[/b]
-			Hitta lokala maximum och minimum i bilden. Sätt gränsen att vara pixelvärdet av dessa maximum/minumum.
+			Hitta lokala maximum och minimum i bilden. Sätt gränsen att vara pixelvärdet av dessa maximum/minimum.
 
 			[b]Iterativ[/b]
-			Starta med ett approxmativt gräns och förbättra det iterativt genom att ta hänsyn till någon typ av betygsättning, t.ex.: [math]T = (r_1 + r_2) / 2[/math] där [math]r_i[/math] är medelvärdet av den tidigare segmenterade regionen [math]i[/math].
+			Starta med en approximativ gräns och förbättra det iterativt genom att ta hänsyn till någon typ av betygsättning, t.ex.: [math]T = (r_1 + r_2) / 2[/math] där [math]r_i[/math] är medelvärdet av den tidigare segmenterade regionen [math]i[/math].
 
 			[b]Adaptive[/b]
 			Dela upp bilden i delbilder, och bestäm en gräns för varje delbild.
@@ -809,7 +811,7 @@
 		<Answer>
 			Den grupperar pixlar baserat på likhet (t.ex. färg).
 			[ol]
-				[li]Välj [math]K[/math] antal initialvärden för klusteren.[/li]
+				[li]Välj [math]K[/math] antal initialvärden för klustren.[/li]
 				[li]Tilldela för varje pixel de kluster som den är närmast.[/li]
 				[li]Uppdatera centret för klustret m.h.a tilldelade pixlarna.[/li]
 				[li]Fortsätt tills dess att kluster centren konvergerar.[/li]
@@ -825,7 +827,7 @@
 
 			Vi vill hitta maximum av: [math]f(x) = 1 / n sum_(i=1)^n K(x-x_i)[/math] där [math]K(x) = C K(||x||^2)[/math]. Då beräknar vi gradienten som: [math]nabla f(x) = C / n sum_(i=1)^n (x-x_i) k'(||x-x_i||^2)[/math]. Vi sätter den till 0 och får då [math]x^text(new) = (sum_(i=1)^n x_i k' (||x-x_i||^2)) / (sum_(i=1)^n k'(||x-x_i||^2))[/math].
 
-			Om vi startar på en specfik pixel, och utför ovan, så konvergerar mot någon av bildens mode. Klustra bilden baserat på vilket mode som punkten konvergerar emot.
+			Om vi startar på en specifik pixel, och utför ovan, så konvergerar mot någon av bildens mode. Klustra bilden baserat på vilket mode som punkten konvergerar emot.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ImageSegmentation">
@@ -833,7 +835,7 @@
 			Hur kan man förbättra en segmentering?
 		</Question>
 		<Answer>
-			Genom att slå ihop regioner som är lika och är grannar. Det går även att dela på regioner, och variationen är för stor inom regionen.
+			Genom att slå ihop regioner som är lika och är grannar. Det går även att dela på regioner, om variationen är för stor inom regionen.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ImageSegmentation">
@@ -876,7 +878,7 @@
 
 			Då anger [math]cut(A, B)[/math] summan av vikterna för kanterna i snittet mellan [math]A[/math] och [math]B[/math], och [math]assoc(A, V)[/math] summan av vikterna inom mängden [math]A[/math], och på samma sätt för [math]assoc(B, V)[/math].
 
-			Segmentering kan hittas genom att lösa ett generaliserat egenvärdesproblem.
+			Segmentering kan då hittas genom att lösa ett generaliserat egenvärdesproblem.
 
 			Det som algoritmen optimerar efter är likheten inom varje mängd ([math]A, B[/math]) ska bli så stor som möjligt, medans den minimerar likheten mellan kanter i snittet.
 		</Answer>
@@ -886,7 +888,7 @@
 			Vad är en "active contour model"?
 		</Question>
 		<Answer>
-			Vi vill representera en form av en kurva: [math]X(s) = (x(s), y(s)), s in [0, 1][/math]. Vi oftast i praktiken också en stängd kurva, [math]X(0) = X(1)[/math]. För att hitta kurvan, försöker vi minimera energi (kostnads) funktion: [math]E = E_text(internal) + E_text(image)[/math].
+			Vi vill representera en form av en kurva: [math]X(s) = (x(s), y(s)), s in [0, 1][/math]. Vi vill oftast i praktiken också en stängd kurva, [math]X(0) = X(1)[/math]. För att hitta kurvan, försöker vi minimera energi (kostnads) funktion: [math]E = E_text(internal) + E_text(image)[/math].
 
 			Den interna energin försöker göra kurvan så kort som möjligt, [math]E_text(internal) = int alpha(s) ||X_s(s)||^2 + beta(s) ||X_(ss)(s)||^2 ds[/math], där [math]alpha(s), beta(s)[/math] kontrollerar formen vid olika pinkter.
 
@@ -949,7 +951,7 @@
 			Det innebär att vi "rensar" upp en segmentering. En morphological operator definieras av en kernel och en mängd operator. Om två mängder av element matchar villkoret definierat av mängd operatorn, så sätts värdet i centret av kernel (kallat för stukturelementet) till ett fördefinierat värdet (0 eller 1 för binära bilder). Exempel på operatorer är:
 
 			[b]Diltation[/b]
-			Den grundläggande effekten blir att gränser för regioner blir större, medans håll i regioner blir mindre. Låt [math]A, B in R^2[/math]. Då blir operatorn: [math]A o+ B = { c in R^2 : c = a + b }[/math]. Typisk är [math]A[/math] en binär bilds, medans [math]B[/math] är masken (stukturelementet). Detta kan sammanfattas som: Om minst en pixel i strukturelementet sammanfaller med en pixel i förgrunden i bilden, så sätts input pixeln till värdet för förgrunden.
+			Den grundläggande effekten blir att gränser för regioner blir större, medans håll i regioner blir mindre. Låt [math]A, B in R^2[/math]. Då blir operatorn: [math]A o+ B = { c in R^2 : c = a + b }[/math]. Typisk är [math]A[/math] en binär bild, medans [math]B[/math] är masken (stukturelementet). Detta kan sammanfattas som: Om minst en pixel i strukturelementet sammanfaller med en pixel i förgrunden i bilden, så sätts input pixeln till värdet för förgrunden.
 
 			[b]Erosion[/b]
 			Den grundläggande effekten blir att gränser för regioner blir mindre. medans håll i regioner blir större. Operatorn är: [math]A &#8854; B = { c in R^2 : c + b in A, AAb in B }[/math]. Om för varje pixel i strukturelementet, om pixeln i bilden är i förgrunden, så förblir pixel som den är. Om någon av pixlarna är i bakgrunden, då sätts pixel till värdet för bakgrunden.
@@ -991,7 +993,7 @@
 			[math]bb "T"_s(S_(Delta x) f) = S_(Delta x)(bb "T"_s f)[/math] där [math]S_(Delta x)[/math] är shift operatorn, [math](S_(Delta X) f)(x) = f(x - Delta x)[/math].
 
 			[b]Semi grupp struktur över [math]s[/math][/b]
-			[math]bb "T"_(s_1) bb "T"_(s_2) = bb "T"_(s_1+s_2)[/math] 
+			[math]bb "T"_(s_1) bb "T"_(s_2) = bb "T"_(s_1+s_2)[/math]
 
 			[b]Skal kovarians under transformation [math]x' = S x[/math][/b]
 			[math]L'(x'; s') = L(x; s)[/math], samma sak som: [math]bb "T"_(bb "S"(s)) bb "S" f = bb "S" bb "T"_s f[/math].
@@ -1017,7 +1019,7 @@
 			Hur definerar vi kanter i teorin, och vad för problem finns det med i pratiken?
 		</Question>
 		<Answer>
-			I teorin så definerar vi kanter som "discontinuity" i bilden. Men i pratiken så existerar det inte, på grund av brus.
+			I teorin så definierar vi kanter som "discontinuity" i bilden. Men i pratiken så existerar det inte, på grund av brus.
 
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Edges.png[/img]
 		</Answer>
@@ -1027,9 +1029,9 @@
 			Vad för problem finns det när vi deriverar en bild, och hur kan vi lösa det?
 		</Question>
 		<Answer>
-			Det är att derivatan är mycket känslig mot brus. En liten förändring av indata kan leda till en godtycklig stor förändring av utdata. Exempel är funktionen [math]f(x) = arctan(x)[/math] med derivatan [math]f'(x) = 1 / (1 + x^2)[/math], där det uppstår nära origo.
+			Derivatan är mycket känslig mot brus. En liten förändring av indata kan leda till en godtycklig stor förändring av utdata. Exempel är funktionen [math]f(x) = arctan(x)[/math] med derivatan [math]f'(x) = 1 / (1 + x^2)[/math].
 
-			Vi kan lösa det genom att smootha bilden innan vi deriverar. Hur mycket vi ska smootha beror på. Om vi ökar hur mycket vi smoothar så tar vi bort bruset bättre, men det leder till störa förvrängningar av den sanna strukturen. Om vi minskar hur mycket vi smoothar så får vi stället mer exakta features, men större antal falska positiva.
+			Vi kan lösa det genom att smootha bilden innan vi deriverar. Hur mycket vi ska smootha beror på olika faktorer. Om vi ökar hur mycket vi smoothar så tar vi bort bruset bättre, men det leder till större förvrängningar av den sanna strukturen. Om vi minskar hur mycket vi smoothar så får vi stället mer exakta strukturer, men större antal falska positiva.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="FeatureDetection">
@@ -1055,15 +1057,15 @@
 		<Answer>
 			[b]Attributer[/b]
 			[ul]
-				[li]Position[/li]
-				[li]Orientering[/li]
-				[li]Stryrka[/li]
-				[li]Bredd[/li]
-			[/ul][b]Problem[/b]
+				[li]Position.[/li]
+				[li]Orientering.[/li]
+				[li]Stryka.[/li]
+				[li]Bredd.[/li]
+			[/ul][b]Problem.[/b]
 			[ul]
-				[li]Brus[/li]
-				[li]Störning ifrån närliggande strukturer[/li]
-				[li]Fysisk tolkning[/li]
+				[li]Brus.[/li]
+				[li]Störning ifrån närliggande strukturer.[/li]
+				[li]Fysisk tolkning.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -1117,9 +1119,9 @@
 		<Answer>
 			[ul]
 				[li]Matematiskt väldefinierad.[/li]
-				[li]Har en väldefinierad position i bilden-[/li]
+				[li]Har en väldefinierad position i bilden.[/li]
 				[li]Vara rik i information i del av bilden så att "interest point" kan matchas lätt.[/li]
-				[li]Vara stabil under naturlig transformation: vyriktning, vyavstånd, variatiopn ljussättning.[/li]
+				[li]Vara stabil under naturlig transformation: vyriktning, vyavstånd, variation i ljussättning.[/li]
 				[li]Vara tillräckligt annorlunda så att vi kan separera olika punkter.[/li]
 				[li]Ha en skalattribut för hantera variationer i skala.[/li]
 			[/ul]
@@ -1142,7 +1144,7 @@
 			Vad innehåller moment matrisen av andra ordningen?
 		</Question>
 		<Answer>
-			Ackumulerad statistisk om lokala riktningar inom ett område runt varje punkt. [math]mu(x; t, s) = int_(R^2) (nabla L(*; t)) (nabla L(*; t))^T g(x - q; s) dx[/math] där [math]t[/math] är en lokal skala för att beräkna derivator, [math]s[/math] en skala för att beräkna statistisk av gradient riktningar och [math]g(*; s)[/math] en fönsterfunktion vilket statistiken ackumuleras över. 
+			Ackumulerad statistisk om lokala riktningar inom ett område runt varje punkt. [math]mu(x; t, s) = int_(R^2) (nabla L(*; t)) (nabla L(*; t))^T g(x - q; s) dx[/math] där [math]t[/math] är en lokal skala för att beräkna derivator, [math]s[/math] en skala för att beräkna statistisk av gradient riktningar och [math]g(*; s)[/math] en fönsterfunktion vilket statistiken ackumuleras över.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="FeatureDetection">
@@ -1150,7 +1152,7 @@
 			Hur definerars Harris operatorn?
 		</Question>
 		<Answer>
-			Givet moment matrisen av andra ordningen [math]mu[/math] med egenvärdena [math]lambda_1, lambda_2 >= 0[/math] så beräknar vi Harris måttet [math]H = det mu - k trace(mu)^2 = lambda_1 lambda_2 - k(lambda_1 + lambda_2)^2[/math] där [math]k in [0, 1/4][/math]. Ett högre värde för [math]k[/math] ger en mer restriktiv detektor.
+			Givet moment matrisen av andra ordningen [math]mu[/math] med egenvärdena [math]lambda_1, lambda_2 >= 0[/math] så beräknar vi Harris måttet [math]H = det mu - k * trace(mu)^2 = lambda_1 lambda_2 - k(lambda_1 + lambda_2)^2[/math] där [math]k in [0, 1/4][/math]. Ett högre värde för [math]k[/math] ger en mer restriktiv detektor.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="FeatureDetection">
@@ -1160,7 +1162,7 @@
 		<Answer>
 			[ul]
 				[li]Smooth region i bilden utan starka kantstrukturer: [math]lambda_1, lambda_2[/math] små.[/li]
-				[li]Längs en rak kant: [math]lambda_1 > > lambda_2[/math][/li]
+				[li]Längs en rak kant: [math]lambda_1 > lambda_2[/math].[/li]
 				[li]Vid ett hörn med två eller flera dominanta riktningar: [math]lambda_1, lambda_2[/math] stora.[/li]
 				[li]För att [math]H[/math] ska reagera så måste båda egenvärdena vara stora.[/li]
 			[/ul]
@@ -1189,7 +1191,7 @@
 
 			Då beräknar vi Laplacian: [math]nabla^2 L = L_(x x) + L_(y y)[/math]. Spatiala extremvärden av [math]nabla^2 L[/math] anses då vara en blob med:
 			[ul]
-				[li][math]nabla^2 L lt 0[/math]: ljus blob[/li]
+				[li][math]nabla^2 L lt 0[/math]: ljus blob.[/li]
 				[li][math]nabla^2 L > 0[/math]: mörk blob.[/li]
 			[/ul]
 		</Answer>
@@ -1209,9 +1211,9 @@
 		<Answer>
 			Givet en "scale-space" representation av [math]L[/math] av en bild [math]f[/math] som vi har fått av gaussian smoothing: [math]L(*; t) = g(*; t) ** f[/math].
 
-			Då beräknar vi determinaten av Hessian matrisen: [math]det(H(L))=L_(x x) L_(y y) - L_(x y)^2[/math]. Lokala extremvärden av [math]det(H(L))[/math] anses då vara en blob med (tror dock detta är fel, bör nog vara [math]H(L)[/math]):
+			Då beräknar vi determinaten av Hessian matrisen: [math]det(H(L))=L_(x x) L_(y y) - L_(x y)^2[/math]. Lokala extremvärden av [math]det(H(L))[/math] anses då vara en blob med (tror dock detta är fel, bör nog vara [math]det(H(L))[/math]):
 			[ul]
-				[li][math]nabla^2 L lt 0[/math]: ljus blob[/li]
+				[li][math]nabla^2 L lt 0[/math]: ljus blob.[/li]
 				[li][math]nabla^2 L > 0[/math]: mörk blob.[/li]
 			[/ul]
 		</Answer>
@@ -1221,24 +1223,22 @@
 			Vad är skillnanden av "interest points" beräknad av Laplacian och determinaten av Hessian matrisen?
 		</Question>
 		<Answer>
-			I en referensram som är justerad till egenvärdena av Hessian matrisen, [math]H(L) = [[lambda_1, 0], [0, lambda_2]][/math] så ges operatorerna av:
-			[math]nabla^2 L = lambda_1 + lambda_2[/math]
-			[math]det(H(L)) = lambda_1 lambda_2[/math]
+			I en referensram som är justerad till egenvärdena av Hessian matrisen, [math]H(L) = [[lambda_1, 0], [0, lambda_2]][/math] så ges operatorerna av: [math]nabla^2 L = lambda_1 + lambda_2[/math], [math]det(H(L)) = lambda_1 lambda_2[/math]
 
 			Då gäller:
 			[ul]
 				[li]För att Laplacian ska ge en stark respons så krävs det endast att det är en stark respons i någon av koordinat riktningarna ([math]lambda_1[/math] eller [math]lambda_2[/math]). Detta ger risk för felaktig respons nära kanter, och kan undvikas med sätta en gräns.[/li]
-				[li]För determinaten av Hessian matrisen ska ge en stark respons så krävs det att en stark respoins i båda koordinat riktningarna.[/li]
+				[li]För determinanten av Hessian matrisen ska ge en stark respons så krävs det att en stark respoins i båda koordinat riktningarna.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="FeatureDetection">
 		<Question>
-			Hur fungerar algoritmen för att extemvärden i "scale-space"?
+			Hur fungerar algoritmen för att extremvärden i "scale-space"?
 		</Question>
 		<Answer>
 			[ol]
-				[li]Givet ett intervall av skalor [math][t_text(min), t_text(max)][/math], fördela mängden av skalor likformligt i termer av effektiv skala: [math]tau = log t[/math][/li]
+				[li]Givet ett intervall av skalor [math][t_text(min), t_text(max)][/math], fördela mängden av skalor likformigt i termer av effektiv skala: [math]tau = log t[/math][/li]
 				[li]Applicera gaussian smoothing till bilden vid varje skalnivå.[/li]
 				[li]För varje pixel i bilden, beräkna derivator och kombinera dessa så att vi får någon invarians.[/li]
 				[li]Hitta lokala extremvärden i både skala och rummet genom att jämföra med närmaste grannar i en [math]3 xx 3 xx 3[/math] region, med en gräns på magnituden av responsen.[/li]
@@ -1251,7 +1251,7 @@
 			Vad är en pyramid?
 		</Question>
 		<Answer>
-			När man ökar skalan, så blir strukterer av små storlek dämpade. Man borde då kunna minska storleken av bilden (subsampla) för att göra algoritmen mer effektiv. Detta är idén bakom pyramider, att man kombinerar smoothing med subsampling för att öka effektiveten.
+			När man ökar skalan, så blir strukturer av små storlek dämpade. Man borde då kunna minska storleken av bilden (subsampla) för att göra algoritmen mer effektiv. Detta är idén bakom pyramider, att man kombinerar smoothing med subsampling för att öka effektiveten.
 
 			Det finns också hybridpyramider, där man varierar när man subsamplar för att avväga effektivitet och precision.
 		</Answer>
@@ -1341,7 +1341,7 @@
 				[li]Single-class vs multi-class
 					[ul]
 						[li]Single-class: Är det här en kopp?[/li]
-						[li]Multi-class: Är det här en kipp, bil, person, etc. ?[/li]
+						[li]Multi-class: Är det här en kopp, bil, person, etc. ?[/li]
 					[/ul]
 				[/li]
 				[li]
@@ -1365,7 +1365,7 @@
 				[li]Deformation (förändringar i form).[/li]
 				[li]Skymning av objektet.[/li]
 				[li]Storlek i bilden (dvs vyavstånd).[/li]
-				[li]Kameran (projektioner och förvrägningar).[/li]
+				[li]Kameran (projektioner och förvrängningar).[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -1384,14 +1384,14 @@
 				[/li]
 				[li]Feature based (sparse)
 					[ul]
-						[li]Spara en mängd av features (hörn, konturer)[/li]
+						[li]Spara en mängd av features (hörn, konturer).[/li]
 						[li]Relativ position är flexibel.[/li]
 						[li]Behåller endast information som kan vara invariant.[/li]
 					[/ul]
 				[/li]
 				[li]Statistics based (usally dense)
 					[ul]
-						[li]Spara histogram av bilddata (kanter, färger)[/li]
+						[li]Spara histogram av bilddata (kanter, färger).[/li]
 						[li]Position ignoreras.[/li]
 						[li]Olika typer av data matchas invariant.[/li]
 					[/ul]
@@ -1418,7 +1418,7 @@
 			Hur fungerar en nearest neighbor klassificerare?
 		</Question>
 		<Answer>
-			Givet en test bild, hitta den närmaste grannen bland alla träningsexempel. Problemet är antalet träningsexempelar kan vara många och söka efter närmaste grannen kan vara kostsamt.
+			Givet en test bild, hitta den närmaste grannen bland alla träningsexempel. Problemet är antalet träningsexemplar kan vara många och söka efter närmaste grannen kan vara kostsamt.
 
 			[b]Fördelar[/b]
 			[ul]
@@ -1485,7 +1485,7 @@
 			Ange relationen mellan vergence, gaze och cyclopean eye.
 		</Question>
 		<Answer>
-			Vi har [math]mu = (ro_L - ro_R) / 2, gamma = (ro_L + ro_R) / 2[/math]. Beskrivs av bilden nedan:
+			Vi har [math]mu = (rho_L - rho_R) / 2, gamma = (rho_L + rho_R) / 2[/math]. Beskrivs av bilden nedan:
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/SteroGeometry.png[/img]
 		</Answer>
 	</TestQuestion>
@@ -1512,7 +1512,7 @@
 			Vad är disparity?
 		</Question>
 		<Answer>
-			Låt [math](x_L, y_L)[/math] och [math](x_R, y_R)[/math] vara samma punkter i olika kameror. Då kallas skillnanden för [i]disparity[/i]. Vi har horisontell disparity: [math]x_R - x_L[/math] och vertikal: [math]y_R - y_L[/math]. Disparity betecknas som [math]d[/math]. Om vi låter [math]b[/math] bara baselinen (transformationen mellam kameorna?), då gäller: [math]Z = (bf) / d[/math].
+			Låt [math](x_L, y_L)[/math] och [math](x_R, y_R)[/math] vara samma punkter i olika kameror. Då kallas skillnanden för [i]disparity[/i]. Vi har horisontell disparity: [math]x_R - x_L[/math] och vertikal: [math]y_R - y_L[/math]. Disparity betecknas som [math]d[/math]. Om vi låter [math]b[/math] bara baselinen (transformationen mellan kamerorna?), då gäller: [math]Z = (bf) / d[/math]. Detta innebär att vi kan beräkna djupet som skillnaden i position mellan kamerorna.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="StereoGeometry">
@@ -1528,7 +1528,7 @@
 			Vad är en "epipolar plane"?
 		</Question>
 		<Answer>
-			Det är ett plan genom en punkt [math]X[/math] och de optiska centrarna.
+			Det är ett plan genom en punkt [math]X[/math] och kamerornas optiska centrum.
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/EpipolarPlane.png[/img].
 		</Answer>
 	</TestQuestion>
@@ -1583,7 +1583,7 @@
 		<Answer>
 			[ul]
 				[li]Variation i ljussättning.[/li]
-				[li]Förvrägningar pga perspektiv.[/li]
+				[li]Förvrängningar pga. perspektiv.[/li]
 				[li]Upprepade mönster.[/li]
 			[/ul]
 		</Answer>
@@ -1617,17 +1617,17 @@
 	</TestQuestion>
 	<TestQuestion Category="MotionAndOpticalFlow">
 		<Question>
-			Hur förändras en punkt pga av rörelsen av kameran (även betecknat motion field)?
+			Hur förändras en punkt pga. av rörelsen av kameran (även betecknat motion field)?
 		</Question>
 		<Answer>
-			Antag att kameran rör sig med vinkelhastighet [math]omega[/math] och hastighet [math]T[/math]. En punkt [math]P=(X, Y, Z)[/math] rör sig då (jämförelse med kameran) enligt: [math]dot(P) = -T - omega xx P[/math].
+			Antag att kameran rör sig med vinkelhastighet [math]omega[/math] och linjärhastighet [math]T[/math]. En punkt [math]P=(X, Y, Z)[/math] rör sig då (jämförelse med kameran) enligt: [math]dot(P) = -T - omega xx P[/math].
 
-			Rörelsen i bilden sker enligt: [math]((dot x), (dot y)) = f / Z ((-T_x + x/f T_z), (-T_y + y / f T_z)) + ((omega_x (xy)/f - omega_y (f + (x^2)/f) + omega_z y), (omega_x (f + (y^2)/f) - omega_y (xy) / f + omega_z x))[/math]. Den första komponenten relaterar till förflyttning medan den andra relaterar till rotationen. Slutsatsen av denna formel är att skalan är tvetydlig och rotationen är oberoende av djupet, vilket ger att det inte går att estimera djup genom att endast rotera- vi måste röra på oss också. 
+			Rörelsen i bilden sker enligt: [math]((dot x), (dot y)) = f / Z ((-T_x + x/f T_z), (-T_y + y / f T_z)) + ((omega_x (xy)/f - omega_y (f + (x^2)/f) + omega_z y), (omega_x (f + (y^2)/f) - omega_y (xy) / f + omega_z x))[/math]. Den första komponenten relaterar till förflyttning medan den andra relaterar till rotationen. Slutsatsen av denna formel är att skalan är tvetydlig och rotationen är oberoende av djupet, vilket ger att det inte går att estimera djupet genom att endast rotera - vi måste förflytta kameran också
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="MotionAndOpticalFlow">
 		<Question>
-			Vad är focus of expansion?
+			Vad är "focus of expansion"?
 		</Question>
 		<Answer>
 			Det är punkten som ett fält expanderar ifrån. Vi har: [math]((x_text(FOE)), (y_text(FOE)), (f)) = f / T_z ((T_x), (T_y), (T_z))[/math].
@@ -1638,7 +1638,7 @@
 			Vad är optical flow?
 		</Question>
 		<Answer>
-			Det är den skenbara rörelsen av "brightness patterns" (vad är en bra svenskt ord?). Oftast så är optical flow samma sak som motion field, men inte alltid. Se bild nedan.
+			Det är den skenbara rörelsen av "brightness patterns" (vad är ett bra svenskt ord?). Oftast så är optical flow samma sak som motion field, men inte alltid. Se bild nedan.
 
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/OpticalFlowAndMotionField.png[/img]
 		</Answer>
@@ -1652,7 +1652,7 @@
 
 			Om vi antar att intensiteten för varje synlig punkt i scenen är konstant över tiden: [math](d l) / (d t) = 0[/math], så får vi [math]I_x u + I_y v + I_t = 0[/math] (optical flow constraint equation).
 
-			Den går också att skriva som: [math]((I_x, I_y)) * ((u, v)) = - I_t rArr ((u, v)) = -I_t / (I_x^2 + I_y ^2) ((I_x, I_y))[/math]. 
+			Den går också att skriva som: [math]((I_x, I_y)) * ((u, v)) = - I_t rArr ((u, v)) = -I_t / (I_x^2 + I_y ^2) ((I_x, I_y))[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="MotionAndOpticalFlow">
@@ -1673,9 +1673,9 @@
 
 			Lösningen blir då [math]vec(u) = (A^T A)^-1 A^T b[/math]. Vi får att [math]A^T A = [[sum I_x^2, sum I_x I_y], [sum I_x I_y, sum I_y^2]][/math], vilket är samma sak som second moment matrisen, vilket används för att hitta hörn.
 
-			Kravet för att denna matris ska vara inverterbar är att det inte finns några egenvärden som är noll. När det är en kant så får vi det, pga [math][[-I_y, I_x]][/math] är ett egenvektor med egetvärdet 0.
+			Kravet för att denna matris ska vara inverterbar är att det inte finns några egenvärden som är noll. När det är en kant så får vi det, pga. [math][[-I_y, I_x]][/math] är ett egenvektor med egetvärdet 0.
 
-			Det finns ytterligare beetende pga det är second moment matrisen som vi använder oss av:
+			Det finns ytterligare beteende pga. det är second moment matrisen som vi använder oss av:
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/OpticalFlowSecondMoment.png[/img]
 		</Answer>
 	</TestQuestion>
