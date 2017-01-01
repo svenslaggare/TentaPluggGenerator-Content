@@ -1,5 +1,75 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Test Name="Tenta">
+	<TestQuestion Category="Basic">
+		<Question>
+			Vad är irradiance ([math]E[/math])?
+		</Question>
+		<Answer>
+			Anger hur mycket ljuser som bestrålar en yta, mäts i watt per kvadrat meter.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Basic">
+		<Question>
+			Vad är radiance ([math]L[/math])?
+		</Question>
+		<Answer>
+			Anger hur mycket ljus som strålas ut ifrån en yta, mäts i effekt per area per vinkel. Informellt kallas detta för ljusstyrka.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Basic">
+		<Question>
+			Hur kan man beräkna intensiteten?
+		</Question>
+		<Answer>
+			[math]text(Intensity) = E xx text(area) xx text(exposure time)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Basic">
+		<Question>
+			Hur omvandlar en kamera verkligheten till en bild?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Punkter i värden projiceras till kameras sensorkrets.[/li]
+				[li]Kameras samplar irradiance för att beräkna energivärden.[/li]
+				[li]
+					Positionen i kamera koordinater (mm) omvandlar till bildkoordinater (pixlar) baserat på kamerans intrinsic parametrar:
+					[ul]
+						[li]Storlek av varje senor element.[/li]
+						[li]Bildförhållande.[/li]
+						[li]Antal sensor element.[/li]
+						[li]Bildens centrum i kretsen relativt linsen.[/li]
+					[/ul]
+				[/li]
+				[li]Samplar sedan en kontinuerlig signal med oändligt antal punkter, och kvantifierar registrerade värdena till ett ändligt antal nivåer.[/li]
+				[li]Sampling avstånden [math]Delta x, Delta y, Delta t[/math] anger hur snabbt förändringar kan fångas in.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Basic">
+		<Question>
+			Vad innebär kvantifiering (quantization)?
+		</Question>
+		<Answer>
+			Tilldelar ett heltal till pixlar (samplar amplituden hos en funktion).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Basic">
+		<Question>
+			Vad är kvantifieringsfelet?
+		</Question>
+		<Answer>
+			Skillnaden mellan det reella värdet och de kvantifierade värdet.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Basic">
+		<Question>
+			Vad innebär "saturation"?
+		</Question>
+		<Answer>
+			När det fysiska värdet förflyttas sig inom intervallet för värden. Detta gör att värdet representeras istället av slutet av intervallet.
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="ProjektionerOchTransformationer">
 		<Question>
 			Vad är en "perspective projection" för något?
