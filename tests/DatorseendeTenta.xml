@@ -133,7 +133,7 @@
 			[ul]
 	    		[li]Principal point (mitten av optiska axeln i bilden): [math](u_0, v_0)[/math].[/li]
 	    		[li]Brännvidd: [math](f_x, f_y)[/math].[/li]
-	    		[li]Hur x och y-axlarna är förvrängade mellan varandra (skew): [math]gamma[/math].[/li]
+	    		[li]Hur x och y-axlarna är förvrängda mellan varandra (skew): [math]gamma[/math].[/li]
 	    		[li]Linsförvrängning.[/li]
 	    	[/ul]Detta sammanfattas av: [math]P = (((f_x), gamma, u_0, 0), (0, (f_y), v_0, 0), (0, 0, 1, 0))[/math].
 		</Answer>
@@ -143,7 +143,7 @@
 			Vad är en affine kamera?
 		</Question>
 		<Answer>
-			Det är en linjär approxmation av en perspektiv projektion.
+			Det är en linjär approximation av en perspektiv projektion.
 			[math]((x), (y), (1)) = ((m_11, m_12, m_13, m_14), (m_21, m_22, m_23, m_24), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math].
 
 			De grundläggande egenskaperna är att transformationen är linjär och parallella linjer i 3D avbildas till parallella linjer i 2D. Vinklar bevaras dock ej.
@@ -187,7 +187,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Grafteori">
 		<Question>
-			Vad innebär en outer boundary?
+			Vad innebär en "outer boundary"?
 		</Question>
 		<Answer>
 			Bakgrundspunkter som har en granne som är inom objektet.
@@ -395,7 +395,7 @@
 			Komprimering i den spatiala domänen är samma sak som expansion i Fourie domänen (och tvärtom).
 
 			[b]Periodisk[/b]
-			Den diskreta fourier transformen och dess invers är periodisk, med en period [math]N[/math] för en [math]N xx N[/math] bild. Alltså: [math]hat(f)(u, v) = hat(f)(u + N, v) = hat(f)(u, v + H) = hat(f)(u + N, v + N)[/math]. Detta innebär att [math]hat(f)[/math] återupprepar sig oändligt. Det krävs dock endast en period för att återskapa original funktionen [math]f[/math].
+			Den diskreta Fourier transformen och dess invers är periodisk, med en period [math]N[/math] för en [math]N xx N[/math] bild. Alltså: [math]hat(f)(u, v) = hat(f)(u + N, v) = hat(f)(u, v + H) = hat(f)(u + N, v + N)[/math]. Detta innebär att [math]hat(f)[/math] återupprepar sig oändligt. Det krävs dock endast en period för att återskapa original funktionen [math]f[/math].
 
 			[b]Konjugat symmetri[/b]
 			Fourier transformen uppfyller [math]hat(f)(u, v) = hat(f)^(**)(-u, -v)[/math] och [math]|hat(f)(u, v)|=|hat(f)(-u, -v)|[/math]. Om vi använder att [math]hat(f)[/math] är periodiskt och är symmetriskt runt origo, får vi att vi inte behöver [math]2N^2[/math] (hälften för reella delen och hälften för imaginära) värden för att representera en [math]N xx N[/math] bild i Fourier domänen, utan [math]N^2[/math] om vi använder symmetrin.
@@ -543,8 +543,8 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li]Lowpass: eliminera komponenter med hög frekvens (kanter och skarpa detaljer). Detta leder till att bilden blir suddig.[/li]
-				[li]Highpass: eliminera komponenter med låg frekvens (saker som varierar sakta, t.ex. skuggning). Detta leder till att kanter och andra detaljer (även brus) blir mer skarpa.[/li]
+				[li]Low-pass: eliminera komponenter med hög frekvens (kanter och skarpa detaljer). Detta leder till att bilden blir suddig.[/li]
+				[li]High-pass: eliminera komponenter med låg frekvens (saker som varierar sakta, t.ex. skuggning). Detta leder till att kanter och andra detaljer (även brus) blir mer skarpa.[/li]
 				[li]Bandpass: eliminera komponenter som ligger utanför ett frekvensområdet. Detta leder en kombination av low- och highpass.[/li]
 			[/ul][img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/LinearFiltersImageEnhancement.png[/img]
 		</Answer>
@@ -588,7 +588,7 @@
 			Vad är ett Gaussian low-pass filter?
 		</Question>
 		<Answer>
-			Det är ett filter som använder en normalfördelning, med kvadrerade avståndet ifrån origo. En lägre varians ger en högre "cutoff" frekvens och en mildare filtering.
+			Det är ett filter som använder en normalfördelning, med kvadrerade avståndet ifrån origo. En lägre varians ger en högre "cutoff" frekvens och en mildare filtrering.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Bildförbättring">
@@ -661,7 +661,7 @@
 		<Answer>
 			Den används för att hitta alla möjliga linjer för en mängd av kanter. En linjes styrka beror på hur många punkter som ligger på den linjen.
 
-			Vi introducerar då accumulator rymden, som innehåller antalet röster för varje linje. Rymden består av linjer på formen: [math]L(k)=-kx+y[/math]. Men på grund av att vertikala linjer repesenteras av linjer med [math]k \rightarrow pm \infty[/math] använder vi istället en annan representation: [math]x cos(theta) + y sin(theta) = r[/math] där [math]r[/math] är det vinkelrätta avståndet ifrån origo och [math]theta[/math] vinkeln mellan vektorn [math]bar r[/math] och origo.
+			Vi introducerar då ackumulator rymden, som innehåller antalet röster för varje linje. Rymden består av linjer på formen: [math]L(k)=-kx+y[/math]. Men på grund av att vertikala linjer representeras av linjer med [math]k \rightarrow pm \infty[/math] använder vi istället en annan representation: [math]x cos(theta) + y sin(theta) = r[/math] där [math]r[/math] är det vinkelrätta avståndet ifrån origo och [math]theta[/math] vinkeln mellan vektorn [math]bar r[/math] och origo.
 
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/HoughTransform.png[/img]
 
@@ -677,9 +677,9 @@
 
 			[ol]
 				[li]Välj slumpmässigt ut ett minimalt antal punkter, 2 för linjer, 3 för cirklar och 5 för ellipser.[/li]
-				[li]Beräkna en model (t.ex. [math]y=kx+L[/math]) ifrån punkterna.[/li]
+				[li]Beräkna en modell (t.ex. [math]y=kx+L[/math]) ifrån punkterna.[/li]
 				[li]Beräkna antalet punkter som är nära till modellen.[/li]
-				[li]Uppreppa steg 1-3 [math]S[/math] gånger.[/li]
+				[li]Upprepa steg 1-3 [math]S[/math] gånger.[/li]
 				[li]Välj den lösning med flest antalet matchande punkter.[/li]
 			[/ol]För att avgöra hur många iterationer [math]S[/math] som behövs kan man resonera följande: Hur många iterationer behövs för att med en sannolikhet [math]P[/math], om [math]p[/math] % av punkterna tillhör formen? Då får man formeln: [math]S = log(1 - P) / log(1 - p^K)[/math].
 		</Answer>
@@ -711,7 +711,7 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li]Sammanhängande komponenter, med egenskaperna: storlek, bounding box, center of gravity.[/li]
+				[li]Sammanhängande komponenter, med egenskaperna: storlek, bounding box, center-of-gravity.[/li]
 				[li]Compactness: [math]text(area)/text(circumference)^2[/math.][/li]
 				[li]Eccentricity: [math]text(length of maximum chord A)/text(length of maximum chord B⊥A)[/math].[/li]
 			[/ul]
@@ -890,7 +890,7 @@
 		<Answer>
 			Vi vill representera en form av en kurva: [math]X(s) = (x(s), y(s)), s in [0, 1][/math]. Vi vill oftast i praktiken också en stängd kurva, [math]X(0) = X(1)[/math]. För att hitta kurvan, försöker vi minimera energi (kostnads) funktion: [math]E = E_text(internal) + E_text(image)[/math].
 
-			Den interna energin försöker göra kurvan så kort som möjligt, [math]E_text(internal) = int alpha(s) ||X_s(s)||^2 + beta(s) ||X_(ss)(s)||^2 ds[/math], där [math]alpha(s), beta(s)[/math] kontrollerar formen vid olika pinkter.
+			Den interna energin försöker göra kurvan så kort som möjligt, [math]E_text(internal) = int alpha(s) ||X_s(s)||^2 + beta(s) ||X_(ss)(s)||^2 ds[/math], där [math]alpha(s), beta(s)[/math] kontrollerar formen vid olika punkter.
 
 			Bildens energi försöker maximera gradienten längs kurvan, [math]E_text(image) = E_text(image) = - int ||nabla I(X(s))||^2 ds[/math].
 
@@ -923,7 +923,7 @@
 				[li]Lätt att lägga till egen funktion beroende på problemet.[/li]
 				[li]Kan hantera komplexa former.[/li]
 				[li]Kan lätt utökas till flera dimensioner.[/li]
-				[li]TIllåter förändringar i toplologi.[/li]
+				[li]Tillåter förändringar i topologi.[/li]
 			[/ul][b]Nackdelar[/b]
 			[ul]
 				[li]Konvergerar oftast sakta.[/li]
@@ -1016,10 +1016,10 @@
 	</TestQuestion> -->
 	<TestQuestion Category="FeatureDetection">
 		<Question>
-			Hur definerar vi kanter i teorin, och vad för problem finns det med i pratiken?
+			Hur definerar vi kanter i teorin, och vad för problem finns det med i praktiken?
 		</Question>
 		<Answer>
-			I teorin så definierar vi kanter som "discontinuity" i bilden. Men i pratiken så existerar det inte, på grund av brus.
+			I teorin så definierar vi kanter som "discontinuity" i bilden. Men i praktiken så existerar det inte, på grund av brus.
 
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Edges.png[/img]
 		</Answer>
@@ -1042,11 +1042,11 @@
 			[b]Linjära[/b]
 			[ul]
 				[li]Derivering.[/li]
-				[li]Highpass filtering.[/li]
+				[li]High-pass filtrering.[/li]
 				[li]Matcha med modell mönster.[/li]
 			[/ul][b]Icke-linjära[/b]
 			[ul]
-				[li]Passa parameteriserad modell av kanter till data.[/li]
+				[li]Passa en parametriserad modell av kanter till data.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -1282,7 +1282,7 @@
 			Hur fungerar SUFT deskriptorn?
 		</Question>
 		<Answer>
-			Verkar mycket komplicerat, kollare senare.
+			Verkar mycket komplicerat, kolla senare.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="FeatureDetection">
@@ -1437,7 +1437,7 @@
 			Hur fungerar Bayesian klassificering?
 		</Question>
 		<Answer>
-			Vi vill välja den klass [math]k[/math] som maximerar [math]p(k | z) = (p(z | k) p(k)) / (p(z))[/math]. Oftast gör vi ett maximum likelihood antagande, att [math]p(k)[/math] är samma för alla klaser. För att hitta [math]p(z | k)[/math] så kan olika algoritmer användas, t.ex. SVM eller Logistic regression. Detta var det som mönsterigenkännings kursen handla om, så kolla där.
+			Vi vill välja den klass [math]k[/math] som maximerar [math]p(k | z) = (p(z | k) p(k)) / (p(z))[/math]. Oftast gör vi ett maximum likelihood antagande, att [math]p(k)[/math] är samma för alla klasser. För att hitta [math]p(z | k)[/math] så kan olika algoritmer användas, t.ex. SVM eller Logistic regression. Detta var det som mönsterigenkännings kursen handla om, så kolla där.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="StereoGeometry">
@@ -1499,7 +1499,7 @@
 	</TestQuestion>
 	<TestQuestion Category="StereoGeometry">
 		<Question>
-			Hur lyder geometrin för parallella kameor?
+			Hur lyder geometrin för parallella kameror?
 		</Question>
 		<Answer>
 			Låt den vänstra kameran vara på position [math](0, 0, 0)[/math] och den högra på [math](T_x, 0, 0)[/math]. Utöver det, så är båda kamerorna identiska. Antag att en punkt [math](X, Y, Z)[/math] har koordinaterna [math]x_l = f X / Z, x_r = f Y / Z[/math] i den vänstra kameran. Då är dess koordinater i den högra kameran: [math]x_r = f (X - T_x) / Z, y_r = f Y / Z[/math].
@@ -1520,7 +1520,7 @@
 			Vad för värde bör vi ha på baselinen?
 		</Question>
 		<Answer>
-			Om vi deriverar [math]Z = (bf) / d[/math] med anseende på [math]d[/math] får vi: [math](del Z) / (del d) = -(Z^2)/(bf)[/math]. Detta innebär att felet i djup är beror kvadratiskt på djupet. Detta ger även om vi ökar baselinen, så får vi ett mindre fel. Dock blir problemet att matcha punkter mycket svårare, på grund av större perspektiv förvrägningar.
+			Om vi deriverar [math]Z = (bf) / d[/math] med anseende på [math]d[/math] får vi: [math](del Z) / (del d) = -(Z^2)/(bf)[/math]. Detta innebär att felet i djup är beror kvadratiskt på djupet. Detta ger även om vi ökar baselinen, så får vi ett mindre fel. Dock blir problemet att matcha punkter mycket svårare, på grund av större perspektiv förvrängningar.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="StereoGeometry">
@@ -1673,7 +1673,7 @@
 
 			Lösningen blir då [math]vec(u) = (A^T A)^-1 A^T b[/math]. Vi får att [math]A^T A = [[sum I_x^2, sum I_x I_y], [sum I_x I_y, sum I_y^2]][/math], vilket är samma sak som second moment matrisen, vilket används för att hitta hörn.
 
-			Kravet för att denna matris ska vara inverterbar är att det inte finns några egenvärden som är noll. När det är en kant så får vi det, pga. [math][[-I_y, I_x]][/math] är ett egenvektor med egetvärdet 0.
+			Kravet för att denna matris ska vara inverterbar är att det inte finns några egenvärden som är noll. När det är en kant så får vi det, pga. [math][[-I_y, I_x]][/math] är ett egenvektor med egenvärdet 0.
 
 			Det finns ytterligare beteende pga. det är second moment matrisen som vi använder oss av:
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/OpticalFlowSecondMoment.png[/img]
