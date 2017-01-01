@@ -1491,7 +1491,7 @@
 	</TestQuestion>
 	<TestQuestion Category="StereoGeometry">
 		<Question>
-			Vad är parrallax?
+			Vad är parallax?
 		</Question>
 		<Answer>
 			Skenbara rörelsen av 3D objekt som är placerade på olika avstånd. Bör nog kolla på wikipedia efter bättre förklaring.
