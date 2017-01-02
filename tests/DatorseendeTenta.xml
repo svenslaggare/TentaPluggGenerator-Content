@@ -5,7 +5,7 @@
 			Vad är irradiance ([math]E[/math])?
 		</Question>
 		<Answer>
-			Anger hur mycket ljuset som bestrålar en yta, mäts i watt per kvadrat meter.
+			Anger hur mycket ljus som bestrålar en yta, mäts i watt per kvadrat meter.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Basic">
