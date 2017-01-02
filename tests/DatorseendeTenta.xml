@@ -56,6 +56,18 @@
 	</TestQuestion>
 	<TestQuestion Category="Basic">
 		<Question>
+			Vad för faktorer påverkar kvaliteten i samplingen?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Diskretisering: antalet pixlar.[/li]
+				[li]Kvantifieringen: antalet gråskalenivåer.[/li]
+				[li]Bildbrus: exponeringstiden.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Basic">
+		<Question>
 			Vad är kvantifieringsfelet?
 		</Question>
 		<Answer>
@@ -160,6 +172,14 @@
 	</TestQuestion>
 	<TestQuestion Category="ProjektionerOchTransformationer">
 		<Question>
+			Hur kan vi beräkna vanishinging point för två linjer?
+		</Question>
+		<Answer>
+			Antag att de två linjernas riktningar ges av [math]l_1, l_2[/math]. Då ges vanishinging point av skärningen av linjerna, [math]l_1 xx l_2[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ProjektionerOchTransformationer">
+		<Question>
 			Hur kan projektionsekvationerna skrivas m.h.a. homogena koordinater?
 		</Question>
 		<Answer>
@@ -179,6 +199,12 @@
 
 			[b]Skalning[/b]
 			[math]((X), (Y), (Z), (1)) \rightarrow ((S_X, 0, 0, 0), (0, S_Y, 0, 0), (0, 0, S_Z, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+
+			[b]Rotation runt X-axeln[/b]
+			[math]((X), (Y), (Z), (1)) \rightarrow ((1, 0, 0, 0), (0, cos \theta, -sin \theta, 0), (0, sin \theta, cos \theta, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+
+			[b]Rotation runt Y-axeln[/b]
+			[math]((X), (Y), (Z), (1)) \rightarrow ((cos \theta, 0, sin \theta, 0), (0, 0, 0, 0), (-sin \theta, 0, cos \theta, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
 
 			[b]Rotation runt Z-axeln[/b]
 			[math]((X), (Y), (Z), (1)) \rightarrow ((cos \theta, -sin \theta, 0, 0), (sin \theta, cos \theta, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
@@ -216,7 +242,7 @@
 			Det är en linjär approximation av en perspektiv projektion.
 			[math]((x), (y), (1)) = ((m_11, m_12, m_13, m_14), (m_21, m_22, m_23, m_24), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math].
 
-			De grundläggande egenskaperna är att transformationen är linjär och parallella linjer i 3D avbildas till parallella linjer i 2D. Vinklar bevaras dock ej.
+			Den grundläggande egenskaperna är att transformationen är linjär och parallella linjer i 3D avbildas till parallella linjer i 2D. Vinklar bevaras dock ej. Denna modell är lämplig att använda för objekt som är lång ifrån.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ProjektionerOchTransformationer">
@@ -604,7 +630,7 @@
 		<Answer>
 			Idén är att vi omdistribuera gråskala värdena så jämnt som möjligt. Detta skulle motsvara en distribution av ljussättning där alla värden är lika sannolika.
 
-			Detta går till så att vi först beräknar ett histogram över pixelvärden för bilden. Sen sparar vi den kumulativa summan av alla histogram värden och normaliserar varje värde genom att dela med antalet pixlar. Detta använder vi sen för att transformera bilden.
+			Detta går till så att vi först beräknar ett histogram över pixelvärden för bilden. Sen sparar vi den kumulativa summan av alla histogram värden och normaliserar varje värde genom att dela med antalet pixlar. Detta använder vi sen för att transformera bilden. Notera: detta ger värden inom intervallet [math][0, 1][/math], så behöver skala med t.ex. 255 och avrunda nedåt för att få ett pixelvärde.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Bildförbättring">
@@ -1466,6 +1492,18 @@
 						[li]Olika typer av data matchas invariant.[/li]
 					[/ul]
 				[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ObjectRecognition">
+		<Question>
+			Vad för komponenter består en feature baserad metod för objektigenkänning av?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Feature detector för att hitta features.[/li]
+				[li]Deskriptor för att beskriva dem.[/li]
+				[li]Metod (metrik) för att jämföra dem.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
