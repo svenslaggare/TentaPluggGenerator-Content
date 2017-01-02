@@ -41,7 +41,7 @@
 						[li]Bildens centrum i kretsen relativt linsen.[/li]
 					[/ul]
 				[/li]
-				[li]Samplar sedan den kontinuerliga signalen med ändligt antal punkter, och kvantifierar registrerade värdena till ett ändligt antal nivåer.[/li]
+				[li]Samplar sedan den kontinuerliga signalen med ändligt antal punkter, och kvantifierar registrerade värden till ett ändligt antal nivåer.[/li]
 				[li]Sampling avstånden [math]Delta x, Delta y, Delta t[/math] anger hur snabbt förändringar kan fångas in.[/li]
 			[/ul]
 		</Answer>
@@ -51,7 +51,7 @@
 			Vad innebär kvantifiering (quantization)?
 		</Question>
 		<Answer>
-			Tilldelar ett heltal till pixlar (samplar amplituden hos en funktion).
+			Tilldelar ett heltal (gråskala värdet) till pixlar (samplar amplituden hos en funktion).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Basic">
@@ -79,7 +79,7 @@
 			Vad innebär "saturation"?
 		</Question>
 		<Answer>
-			När det fysiska värdet förflyttas sig utanför intervallet av värden. Detta gör att värdet representeras istället av slutet av intervallet.
+			När det fysiska värdet är utanför intervallet av möjliga av värden. Detta gör att värdet representeras istället av slutet av intervallet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ProjektionerOchTransformationer">
@@ -97,7 +97,7 @@
 			Vad är en "pinhole camera" för något?
 		</Question>
 		<Answer>
-			Det är den enklaste typen av avbildningsenhet vilket fångar in geometrin av en perspektiv projektion. Det fungerar så att ljuset kommer in i kameran genom en öppning som är oändligt liten. Skärningen mellan ljusstrålen och bildplanet bildar avbildningen av objektet.
+			Det är den enklaste typen av avbildningsenhet som fångar in geometrin av en perspektiv projektion. Det fungerar så att ljuset kommer in i kameran genom en öppning som är oändligt liten. Skärningen mellan ljusstrålen och bildplanet bildar avbildningen av objektet.
 
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/PinholeCamera.png[/img]
 		</Answer>
@@ -150,7 +150,7 @@
 			[ul]
 				[li]Rotation: från världen till kamerans koordinatsystem.[/li]
 				[li]Translation: från världen till kamerans koordinatsystem.[/li]
-				[li]Perspective projection: från kameran till bildkoordinater.[/li]
+				[li]Perspective projection: från kamerans koordinatsystem till bildkoordinater.[/li]
 			[/ul]Dessa egenskaper bevaras:
 			[ul]
 				[li]Linjer projiceras till linjer[/li]
@@ -242,7 +242,7 @@
 			Det är en linjär approximation av en perspektiv projektion.
 			[math]((x), (y), (1)) = ((m_11, m_12, m_13, m_14), (m_21, m_22, m_23, m_24), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math].
 
-			Den grundläggande egenskaperna är att transformationen är linjär och parallella linjer i 3D avbildas till parallella linjer i 2D. Vinklar bevaras dock ej. Denna modell är lämplig att använda för objekt som är lång ifrån.
+			Den grundläggande egenskaperna är att transformationen är linjär och parallella linjer i 3D avbildas till parallella linjer i 2D. Vinklar bevaras dock ej. Denna modell är lämplig att använda för objekt som är långt ifrån.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ProjektionerOchTransformationer">
@@ -278,7 +278,7 @@
 			Vad är en sammanhängande komponent (connected component)?
 		</Question>
 		<Answer>
-			För varje [math]p[/math] så är mängden av alla punkter [math]q[/math] där det finns en stig mellan [math]p[/math] och [math]q[/math] dess sammanhängande komponent.
+			För varje punkt [math]p[/math] så är mängden av alla punkter [math]q[/math] där det finns en stig mellan [math]p[/math] och [math]q[/math] dess sammanhängande komponent.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Grafteori">
@@ -380,8 +380,7 @@
 			Vad är en Fourier transformation för något?
 		</Question>
 		<Answer>
-			Det är en formel för att beräkna frekvens, amplitud och fasen för varje sinusvåg som behövs för att representera en given signal. Fourier transformationen konverterar en signal (bild) mellan spatial och frekvensdomänen.
-	<!-- 		I Fourier rymden, så representerar varje punkt en specfik frekvens som förvarades i den spatiala domänen. -->
+			Det är en formel för att beräkna frekvens, amplitud och fasen för varje sinusvåg som behövs för att representera en given signal. Fourier transformationen konverterar en signal (bild) mellan spatial- och frekvensdomänen.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="FourierTransform">
@@ -725,7 +724,7 @@
 			[b]Gradienten[/b]
 			[math]nabla f = (f_x, f_y)[/math]
 
-			[b]Magnituden av Gradienten[/b]
+			[b]Magnituden av gradienten[/b]
 			[math]|nabla f| = sqrt(f_x^2 + f_y^2)[/math]
 
 			[b]Laplacian[/b]
@@ -740,7 +739,7 @@
 			[b]Unsharp masking[/b]
 			Idén är att vi vill subtraherar bort suddigheten ifrån bilden. Låt [math]bar(f)(x, y)[/math] vara en suddig version av bilden. Då fungerar det så att: [math]g(x, y) = f(x, y) + alpha(f(x, y) - bar(f)(x, y))[/math].
 
-			[b]Highpass filtering[/b]
+			[b]High-pass filtering[/b]
 			[math]G(u, v) = F(u, v) + alpha(H_text(hp)(u, v) F(u, v))[/math]
 			där [math]H_text(hp)(u, v)[/math] kan vara:
 			Ideellt: [math]H_text(hp)(u, v) = { (1, text(om ) (u^2+v^2) > D_0^2), (0, text(annars)) :}[/math].
@@ -819,7 +818,7 @@
 		</Question>
 		<Answer>
 			[math]m_(pq)=int int_(Omega) x^p y^q f(x, y) dx dy[/math] där [math]f(x, y) = { (1, text(inom regionen)), (0, text(annars)) :}[/math].
-			Vi har också centered moments [math]mu_(pq) int int_(Omega) (f - bar(x))^p (y - bar(y))^q f(x, y) dx dy[/math] med center of gravity: [math]bar(x) = m_10 / m_00, bar(y) = m_01 / m_00[/math].
+			Vi har också centered moments [math]mu_(pq) int int_(Omega) (f - bar(x))^p (y - bar(y))^q f(x, y) dx dy[/math] med center-of-gravity: [math]bar(x) = m_10 / m_00, bar(y) = m_01 / m_00[/math].
 
 			Notera att [math]m_00[/math] anger arean för regionen.
 			<!-- Något om ellips approxmation? -->
@@ -921,7 +920,7 @@
 		<Answer>
 			Vi försöker gruppera pixlarna baserat både på färg och position. Vi låter varje pixel representeras av en 5D vektor: [math]bar(x) = [[x, y, R, G, B]][/math]. För att hantera att varje pixel är brusig, så placerar vi en "skål" runt varje pixel: [math]K(x-x_i)[/math].
 
-			Vi vill hitta maximum av: [math]f(x) = 1 / n sum_(i=1)^n K(x-x_i)[/math] där [math]K(x) = C K(||x||^2)[/math]. Då beräknar vi gradienten som: [math]nabla f(x) = C / n sum_(i=1)^n (x-x_i) k'(||x-x_i||^2)[/math]. Vi sätter den till 0 och får då [math]x^text(new) = (sum_(i=1)^n x_i k' (||x-x_i||^2)) / (sum_(i=1)^n k'(||x-x_i||^2))[/math].
+			Vi vill hitta maximum av: [math]f(x) = 1 / n sum_(i=1)^n K(x-x_i)[/math] där [math]K(x) = C k(||x||^2)[/math], [math]k[/math] en kernel. Då beräknar vi gradienten som: [math]nabla f(x) = C / n sum_(i=1)^n (x-x_i) k'(||x-x_i||^2)[/math]. Vi sätter den till 0 och får då [math]x^text(new) = (sum_(i=1)^n x_i k' (||x-x_i||^2)) / (sum_(i=1)^n k'(||x-x_i||^2))[/math].
 
 			Om vi startar på en specifik pixel, och utför ovan, så konvergerar mot någon av bildens mode. Klustra bilden baserat på vilket mode som punkten konvergerar emot.
 		</Answer>
@@ -1044,7 +1043,7 @@
 			Vad innebär morphology?
 		</Question>
 		<Answer>
-			Det innebär att vi "rensar" upp en segmentering. En morphological operator definieras av en kernel och en mängd operator. Om två mängder av element matchar villkoret definierat av mängd operatorn, så sätts värdet i centret av kernel (kallat för stukturelementet) till ett fördefinierat värdet (0 eller 1 för binära bilder). Exempel på operatorer är:
+			Det innebär att vi "rensar" upp en segmentering. En morphological operator definieras av en kernel (kallat för stukturelementet) och en mängd operator. Om två mängder av element matchar villkoret definierat av mängd operatorn, så sätts värdet i centret av stukturelementet till ett fördefinierat värde (0 eller 1 för binära bilder). Exempel på operatorer är:
 
 			[b]Diltation[/b]
 			Den grundläggande effekten blir att gränser för regioner blir större, medans håll i regioner blir mindre. Låt [math]A, B in R^2[/math]. Då blir operatorn: [math]A o+ B = { c in R^2 : c = a + b }[/math]. Typisk är [math]A[/math] en binär bild, medans [math]B[/math] är masken (stukturelementet). Detta kan sammanfattas som: Om minst en pixel i strukturelementet sammanfaller med en pixel i förgrunden i bilden, så sätts input pixeln till värdet för förgrunden.
@@ -1297,7 +1296,8 @@
 			Vad är Hessian matrisen?
 		</Question>
 		<Answer>
-			Det är en kvadratisk matris som innehåller en funktions alla partiella andraderivator. Dvs: Låt [math]f(x_1, x_2, ..., x_n)[/math] vara en funktion med existerande andraderivator. Då är hessians matrisen [math]H(f)=[[(del^2 f) / (del x_1 x_1), (del^2 f) / (del x_1 x_2), ..., (del^2 f) / (del x_1 x_n)], [(del^2 f) / (del x_2 x_1), (del^2 f) / (del x_2 x_2), ..., (del^2 f) / (del x_2 x_n)], [vdots, vdots, ddots, vdots], [(del^2 f) / (del x_n x_1), (del^2 f) / (del x_n x_2), ..., (del^2 f) / (del x_n x_n)]][/math].
+			Det är en kvadratisk matris som innehåller en funktions alla partiella andraderivator.
+			Dvs: Låt [math]f(x_1, x_2, ..., x_n)[/math] vara en funktion med existerande andraderivator. Då är Hessian matrisen [math]H(f)=[[(del^2 f) / (del x_1 x_1), (del^2 f) / (del x_1 x_2), ..., (del^2 f) / (del x_1 x_n)], [(del^2 f) / (del x_2 x_1), (del^2 f) / (del x_2 x_2), ..., (del^2 f) / (del x_2 x_n)], [vdots, vdots, ddots, vdots], [(del^2 f) / (del x_n x_1), (del^2 f) / (del x_n x_2), ..., (del^2 f) / (del x_n x_n)]][/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="FeatureDetection">
@@ -1610,7 +1610,7 @@
 			Hur lyder geometrin för parallella kameror?
 		</Question>
 		<Answer>
-			Låt den vänstra kameran vara på position [math](0, 0, 0)[/math] och den högra på [math](T_x, 0, 0)[/math]. Utöver det, så är båda kamerorna identiska. Antag att en punkt [math](X, Y, Z)[/math] har koordinaterna [math]x_l = f X / Z, x_r = f Y / Z[/math] i den vänstra kameran. Då är dess koordinater i den högra kameran: [math]x_r = f (X - T_x) / Z, y_r = f Y / Z[/math].
+			Låt den vänstra kameran vara på position [math](0, 0, 0)[/math] och den högra på [math](T_x, 0, 0)[/math]. Utöver det, så är båda kamerorna identiska. Antag att en punkt [math](X, Y, Z)[/math] har koordinaterna [math]x_l = f X / Z, y_l = f Y / Z[/math] i den vänstra kameran. Då är dess koordinater i den högra kameran: [math]x_r = f (X - T_x) / Z, y_r = f Y / Z[/math].
 
 			Då kan vi beräkna disparity som: [math]d = x_l - x_r = f X / Z - (f X / Z - f T_x / Z)) = f T_x / Z[/math]. Detta innebär: [math]Z = (f T_x) / d[/math].
 		</Answer>
