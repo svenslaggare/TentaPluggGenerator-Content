@@ -31,9 +31,9 @@
 		<Answer>
 			[ul]
 				[li]Punkter i värden projiceras till kameras sensorkrets.[/li]
-				[li]Kameras samplar irradiance för att beräkna energivärden.[/li]
+				[li]Kameran samplar irradiance för att beräkna energivärden.[/li]
 				[li]
-					Positionen i kamera koordinater (mm) omvandlar till bildkoordinater (pixlar) baserat på kamerans intrinsic parametrar:
+					Positionen i kamerakoordinater (mm) omvandlar till bildkoordinater (pixlar) baserat på kamerans intrinsic parametrar:
 					[ul]
 						[li]Storlek av varje senor element.[/li]
 						[li]Bildförhållande.[/li]
@@ -41,7 +41,7 @@
 						[li]Bildens centrum i kretsen relativt linsen.[/li]
 					[/ul]
 				[/li]
-				[li]Samplar sedan en kontinuerlig signal med oändligt antal punkter, och kvantifierar registrerade värdena till ett ändligt antal nivåer.[/li]
+				[li]Samplar sedan den kontinuerliga signalen med ändligt antal punkter, och kvantifierar registrerade värdena till ett ändligt antal nivåer.[/li]
 				[li]Sampling avstånden [math]Delta x, Delta y, Delta t[/math] anger hur snabbt förändringar kan fångas in.[/li]
 			[/ul]
 		</Answer>
