@@ -1643,7 +1643,7 @@
 			Hur kan man beräkna "essential matrix"?
 		</Question>
 		<Answer>
-			Först, använd features (t.ex. SIFT) för att matchning mellan två bilder. Vi kan sedan ställa upp ett ekvationssystem med 5 okända, vilket innebär att vi behöver 5 matchningar.
+			Först, använd features (t.ex. SIFT) för att matchning mellan två bilder. Vi kan sedan ställa upp ett ekvationssystem med 6 okända (tre för rotation och tre för förflyttning). Vi kan dock ej bestämma magnituden för förflyttningen, vilket ger att vi endast får 5 okända. Detta innebär att vi behöver 5 matchningar.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="StereoGeometry">
@@ -1720,7 +1720,7 @@
 		<Answer>
 			Det är en ekvation som ger begräsningar på komponenterna för optical flow. Antag att [math]vec(u) = ((u, v))[/math] är optical flow vektorn, och [math]I_x, I_y, I_t[/math] derivatan av [math]I(x(t), y(t), t)[/math] med hänseende på [math]x, y, t[/math].
 
-			Om vi antar att intensiteten för varje synlig punkt i scenen är konstant över tiden: [math](d l) / (d t) = 0[/math], så får vi [math]I_x u + I_y v + I_t = 0[/math] (optical flow constraint equation).
+			Om vi antar att intensiteten för varje synlig punkt i scenen är konstant över tiden: [math](d I) / (d t) = 0[/math], så får vi [math]I_x u + I_y v + I_t = 0[/math] (optical flow constraint equation).
 
 			Den går också att skriva som: [math]((I_x, I_y)) * ((u, v)) = - I_t rArr ((u, v)) = -I_t / (I_x^2 + I_y ^2) ((I_x, I_y))[/math].
 		</Answer>
