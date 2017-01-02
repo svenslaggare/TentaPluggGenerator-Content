@@ -5,7 +5,7 @@
 			Vad är irradiance ([math]E[/math])?
 		</Question>
 		<Answer>
-			Anger hur mycket ljuser som bestrålar en yta, mäts i watt per kvadrat meter.
+			Anger hur mycket ljuset som bestrålar en yta, mäts i watt per kvadrat meter.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Basic">
@@ -67,7 +67,7 @@
 			Vad innebär "saturation"?
 		</Question>
 		<Answer>
-			När det fysiska värdet förflyttas sig inom intervallet för värden. Detta gör att värdet representeras istället av slutet av intervallet.
+			När det fysiska värdet förflyttas sig utanför intervallet av värden. Detta gör att värdet representeras istället av slutet av intervallet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ProjektionerOchTransformationer">
