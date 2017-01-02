@@ -759,7 +759,7 @@
 			Vad innebär homografi (homography)?
 		</Question>
 		<Answer>
-			Två bilder ifrån samma plana yta är relaterad genom en [i]homografi[/li]. Detta kan användas för att transformera en punkt i en kamera till en annan kamera, om punkterna ligger på ett gemensamt plan.
+			Två bilder ifrån samma plana yta är relaterad genom en [i]homografi[/i]. Detta kan användas för att transformera en punkt i en kamera till en annan kamera, om punkterna ligger på ett gemensamt plan.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ShapeRepresentation">
@@ -782,7 +782,7 @@
 		<Answer>
 			[ul]
 				[li]Sammanhängande komponenter, med egenskaperna: storlek, bounding box, center-of-gravity.[/li]
-				[li]Compactness: [math]text(area)/text(circumference)^2[/math.][/li]
+				[li]Compactness: [math]text(area)/text(circumference)^2[/math].[/li]
 				[li]Eccentricity: [math]text(length of maximum chord A)/text(length of maximum chord B⊥A)[/math].[/li]
 			[/ul]
 		</Answer>
