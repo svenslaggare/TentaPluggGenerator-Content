@@ -1272,7 +1272,7 @@
 				[li]Beräkna [math]L_x, L_y[/math] vid någon skala [math]t[/math][/li]
 				[li]Beräkna [math]L_x^2, L_x L_y, L_y^2[/math] för varje pixel.[/li]
 				[li]Beräkna [math]mu = ((E(L_x^2), E(L_x L_y)), (E(L_x L_y), E(L_y^2)))[/math] för någon fönsterfunktion [math]E[/math] vid någon skala [math]s[/math][/li]
-				[li]Beräkna [math]H = E(L_x^2) E(L_y^2) - (E(L_x L_y)^2 - k (E(L_x^2 + E(L_y^2))))^2[/math] för varje pixel.[/li]
+				[li]Beräkna [math]H = E(L_x^2) E(L_y^2) - E(L_x L_y)^2 - k (E(L_x^2) + E(L_y^2))^2[/math] för varje pixel.[/li]
 				[li]Hitta lokala extemvärden av [math]H[/math] som uppfyller [math]H >= H_0 > 0[/math].[/li]
 			[/ol]
 		</Answer>
