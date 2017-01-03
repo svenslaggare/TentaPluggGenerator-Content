@@ -240,7 +240,7 @@
 		</Question>
 		<Answer>
 			Det är en linjär approximation av en perspektiv projektion.
-			[math]((x), (y), (1)) = ((m_11, m_12, m_13, m_14), (m_21, m_22, m_23, m_24), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math].
+			[math]((x), (y), (1)) = ((m_11, m_12, m_13, m_14), (m_21, m_22, m_23, m_24), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]. Jämförelse med en perspektiv projektion är att sista raden är [math][[0, 0, 0, 1]][/math].
 
 			Den grundläggande egenskaperna är att transformationen är linjär och parallella linjer i 3D avbildas till parallella linjer i 2D. Vinklar bevaras dock ej. Denna modell är lämplig att använda för objekt som är långt ifrån.
 		</Answer>
@@ -590,6 +590,15 @@
 	</TestQuestion>
 	<TestQuestion Category="Bildförbättring">
 		<Question>
+			Antag att du applicerar en transformation [math]s = T(r)[/math] av en bild. För vilka delar av bilden ökar kontrasten, och för vilka delar minskar den?
+		</Question>
+		<Answer>
+			Ökar: [math]T'(r) > 1[/math].
+			Minksar: [math]T'(r) lt 1[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
 			Vad innebär en Look-Up Table (LUT)?
 		</Question>
 		<Answer>
@@ -627,9 +636,19 @@
 			Vad innebär histogram equalization?
 		</Question>
 		<Answer>
-			Idén är att vi omdistribuera gråskala värdena så jämnt som möjligt. Detta skulle motsvara en distribution av ljussättning där alla värden är lika sannolika.
+			Idén är att vi omdistribuera gråskala värdena så jämnt som möjligt. Detta skulle motsvara en distribution av ljussättning där alla värden är lika sannolika. Detta skulle göra bilden mer balanserad, och skulle kunna hjälpa till att detaljer som vara gömda.
 
 			Detta går till så att vi först beräknar ett histogram över pixelvärden för bilden. Sen sparar vi den kumulativa summan av alla histogram värden och normaliserar varje värde genom att dela med antalet pixlar. Detta använder vi sen för att transformera bilden. Notera: detta ger värden inom intervallet [math][0, 1][/math], så behöver skala med t.ex. 255 och avrunda nedåt för att få ett pixelvärde.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Hur fungerar histogram equalization i det kontinuerliga fallet?
+		</Question>
+		<Answer>
+			Vi söker efter en transformation [math]s = T(r)[/math] så att distributionen [math]p_S(s)[/math] av pixelvärden blir likformig, givet distributionen av bilden [math]p_R(r)[/math].
+
+			Vi vet att [math]p_S(s) = [p_R(r) (dr)/(ds)]_(r=T^-1(s))[/math] gäller. Då kan vi definiera [math]s=T(r)=int_0^r p_R(w) dw[/math], vilket ger att [math](ds)/(dr) = p_R(r)[/math]. Då följer det att [math]p_S(s) = [p_R(r) (dr)/(ds)]_(r=T^-1(s))=[p_R(r) 1/(p_R(r))]_(r=T^-1(s))=1[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Bildförbättring">
@@ -747,6 +766,25 @@
 
 			[b]Derivering[/b]
 			M.h.a Laplacian: [math]g(x, y) = f(x, y) - nabla^2 f(x, y)[/math]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Ange olika icke-linjära filter.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Morphological operatorer.[/li]
+				[li]Median/min/max filters.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Varför föredrar vi linjära filter framför icke-linjära?
+		</Question>
+		<Answer>
+			För att de kan uttryckas med faltning, kan analyseras i Fourie domänen och kan även kombineras i vilken ordning som helst.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ShapeRepresentation">
@@ -1052,10 +1090,10 @@
 			Den grundläggande effekten blir att gränser för regioner blir mindre. medans håll i regioner blir större. Operatorn är: [math]A &#8854; B = { c in R^2 : c + b in A, AAb in B }[/math]. Om för varje pixel i strukturelementet, om pixeln i bilden är i förgrunden, så förblir pixel som den är. Om någon av pixlarna är i bakgrunden, då sätts pixel till värdet för bakgrunden.
 
 			[b]Opening[/b]
-			Defineras som en erosion följd av en dilation med samma strukturelement: [math]A @ B = (A &#8854; B) o+ B[/math].
+			Definieras som en erosion följd av en dilation med samma strukturelement: [math]A @ B = (A &#8854; B) o+ B[/math]. Resultatet blir att små regioner i förgrunden kan försvinna.
 
 			[b]Closing[/b]
-			Defineras som en dilation följd av en erosion med samma strukturelement: [math]A &#8226; B = (A o+ B) &#8854; B[/math].
+			Definieras som en dilation följd av en erosion med samma strukturelement: [math]A &#8226; B = (A o+ B) &#8854; B[/math]. Resultatet blir att små hål i förgrunden kan stängas.
 
 			[b]Hit-and-miss transform[/b]
 			[math]A ox (J, K) = (A &#8854; J) cup (A^C &#8854; K)[/math]. Kan användas för att hörn i bilder.
@@ -1347,9 +1385,17 @@
 			Vad är en pyramid?
 		</Question>
 		<Answer>
-			När man ökar skalan, så blir strukturer av små storlek dämpade. Man borde då kunna minska storleken av bilden (subsampla) för att göra algoritmen mer effektiv. Detta är idén bakom pyramider, att man kombinerar smoothing med subsampling för att öka effektiveten.
+			När man ökar skalan, så blir strukturer av små storlek dämpade. Man borde då kunna minska storleken av bilden (subsampla) för att göra algoritmen mer effektiv. Detta är idén bakom pyramider, att man kombinerar smoothing med subsampling för att öka effektiveten. Detta är också ett exempel på en flerskalig representation av en bild.
 
 			Det finns också hybridpyramider, där man varierar när man subsamplar för att avväga effektivitet och precision.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="FeatureDetection">
+		<Question>
+			Varför är en flerskalig representation av en bild bra?
+		</Question>
+		<Answer>
+			Det gör det möjligt att hitta features i bilden vid olika skalor.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="FeatureDetection">
@@ -1577,7 +1623,8 @@
 			Vad är "vergence"?
 		</Question>
 		<Answer>
-			Det är vinkeln mellan principal direction mellan två kameror, och betecknas [math]2 mu[/math].
+			<!-- Det är vinkeln mellan principal direction mellan två kameror, och betecknas [math]2 mu[/math]. -->
+			Det är vinkeln mellan optiska axlarna för två kameror i ett stero och säger hur lång ifrån fixation point är placerad. Betecknas [math]2 mu[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="StereoGeometry">
@@ -1585,7 +1632,8 @@
 			Vad är "gaze"?
 		</Question>
 		<Answer>
-			Det är vinkeln mellan huvudriktningen och riktningen ifrån cyclopean eye till fixation point, betecknas [math]gamma[/math].
+<!-- 			Det är vinkeln mellan huvudriktningen och riktningen ifrån cyclopean eye till fixation point, betecknas [math]gamma[/math]. -->
+			Det är medelriktningen för två axlar respektivt riktningen av baslinjen. Betecknas [math]gamma[/math]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="StereoGeometry">
@@ -1785,6 +1833,14 @@
 
 			Det finns ytterligare beteende pga. det är second moment matrisen som vi använder oss av:
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/OpticalFlowSecondMoment.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="MotionAndOpticalFlow">
+		<Question>
+			Vad för typ av features är vill man för matchning i motion (och stero)?
+		</Question>
+		<Answer>
+			Hörn features är fördelaktiga, för att hur ett hörn ser ut förändras när du rör dig i någon riktning, i jämförelse med linje features, som ser samma ut om man rör sig längs linjen.
 		</Answer>
 	</TestQuestion>
 </Test>
