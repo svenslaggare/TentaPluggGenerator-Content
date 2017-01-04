@@ -204,7 +204,7 @@
 			[math]((X), (Y), (Z), (1)) \rightarrow ((1, 0, 0, 0), (0, cos \theta, -sin \theta, 0), (0, sin \theta, cos \theta, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
 
 			[b]Rotation runt Y-axeln[/b]
-			[math]((X), (Y), (Z), (1)) \rightarrow ((cos \theta, 0, sin \theta, 0), (0, 0, 0, 0), (-sin \theta, 0, cos \theta, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+			[math]((X), (Y), (Z), (1)) \rightarrow ((cos \theta, 0, sin \theta, 0), (0, 1, 0, 0), (-sin \theta, 0, cos \theta, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
 
 			[b]Rotation runt Z-axeln[/b]
 			[math]((X), (Y), (Z), (1)) \rightarrow ((cos \theta, -sin \theta, 0, 0), (sin \theta, cos \theta, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
@@ -233,6 +233,15 @@
 	    		[li]Linsförvrängning.[/li]
 	    	[/ul]Detta sammanfattas av: [math]P = (((f_x), gamma, u_0, 0), (0, (f_y), v_0, 0), (0, 0, 1, 0))[/math].
 		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ProjektionerOchTransformationer">
+	    <Question>
+	    	Hur kan man beräkna field of view?
+	    </Question>
+	    <Answer>
+	    	Vertikal: [math]2 tan^-1((height) / (2f))[/math]
+	    	Horisontell: [math]2 tan^-1((width) / (2f))[/math]
+	    </Answer>
 	</TestQuestion>
 	<TestQuestion Category="ProjektionerOchTransformationer">
 		<Question>
@@ -585,7 +594,16 @@
 			[ul]
 				[li][math]T(r_text(min))=r_text(min)[/math], [math]T(r_text(max))=r_text(max)[/math] (eller omvänt). Detta innebär att vi fyller upp hela intervallet av värden.[/li]
 				[li][math]T[/math] är monotonisk, vilket innebär att den också är inverterbar (vi tappar ingen information).[/li]
-			[/ul]
+			[/ul]Exempel på undantag är:
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/GraylevelTransformations.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Vad innebär "contrast reversal"?
+		</Question>
+		<Answer>
+			Det innebär att mörka delar av bilden blir ljusa, och tvärtom.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Bildförbättring">
@@ -691,7 +709,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Bildförbättring">
 		<Question>
-			Vad är ett ideellt low pass filter?
+			Vad är ett ideellt low-pass filter?
 		</Question>
 		<Answer>
 			Det är en filter som är ideellt i frekvensdomänen, men inte ideellt i den spatiala domänen. Detta ger ringar/suddiga bilder.
@@ -710,7 +728,8 @@
 			Vad är en Binomial kernel?
 		</Question>
 		<Answer>
-			Det är en typ av filter som använder sig av binomialkoefficienter. När vi ökar storleken, så närmar vi oss en Gaussian kernel.
+			Det är en typ av filter som använder sig av binomialkoefficienter. När vi ökar storleken, så närmar vi oss en Gaussian kernel. Se bild nedan hur sådana filter kan konstrueras.			
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/BinomialKernels.png[/img]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Bildförbättring">
@@ -787,6 +806,14 @@
 			För att de kan uttryckas med faltning, kan analyseras i Fourie domänen och kan även kombineras i vilken ordning som helst.
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Vad är Laplacian of Gaussian (LoG)?
+		</Question>
+		<Answer>
+			Det innebär att vi först smoothar bilden med en gaussian, och sedan beräknar Laplacian av den. En approximation av det med en 2D kernel är: [math][[0, 0, 1, 0, 0], [0, 1, 2, 1, 0], [1, 2, -16, 2, 1], [0, 1, 2, 1, 0], [0, 0, 1, 0, 0]][/math].
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="ShapeRepresentation">
 		<Question>
 			Vad används Hough transformen till?
@@ -855,8 +882,11 @@
 			Vad är moments?
 		</Question>
 		<Answer>
-			[math]m_(pq)=int int_(Omega) x^p y^q f(x, y) dx dy[/math] där [math]f(x, y) = { (1, text(inom regionen)), (0, text(annars)) :}[/math].
-			Vi har också centered moments [math]mu_(pq) int int_(Omega) (f - bar(x))^p (y - bar(y))^q f(x, y) dx dy[/math] med center-of-gravity: [math]bar(x) = m_10 / m_00, bar(y) = m_01 / m_00[/math].
+			För kontinuerliga signaler: [math]m_(pq)=int int_(Omega) x^p y^q f(x, y) dx dy[/math].
+			För diskreta signaler (bilder): [math]m_(pq) = sum_x sum_y x^p y^q f(x, y)[/math].
+			Där [math]f(x, y) = { (1, text(inom regionen)), (0, text(annars)) :}[/math].
+			Vi har också centered moments:
+			[math]mu_(pq) int int_(Omega) (f - bar(x))^p (y - bar(y))^q f(x, y) dx dy[/math] med center-of-gravity: [math]bar(x) = m_10 / m_00, bar(y) = m_01 / m_00[/math].
 
 			Notera att [math]m_00[/math] anger arean för regionen.
 			<!-- Något om ellips approxmation? -->
@@ -892,7 +922,7 @@
 
 			[i]Steg 6[/i]
 			Behåll endast de termer med de [math]K[/math] högsta egenvärdena.
-			[math]x - bar(x) = sum_(k=1)^K b_k u_k[/math]
+			[math]x - bar(x) = sum_(k=1)^K b_k u_k[/math].
 
 			[b]Approximera datan[/b]
 			Detta görs genom att projicera vektorerna till den lägre dimensionen: [math]bar(x) = b_1 u_1 + b_2 u_2 + ... + b_K u_K[/math].
@@ -1706,6 +1736,14 @@
 	</TestQuestion>
 	<TestQuestion Category="StereoGeometry">
 		<Question>
+			Vad används "epipolar" linjer till?
+		</Question>
+		<Answer>
+			Givet en punkt i en kamera, så kan den motsvarande punkten i den andra kameran hitta genom 1D linje (epipolar). Detta innebär att matchningen mellan kameror kan göras i 1D istället för 2D.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
 			Vad är en "epipolar transform"?
 		</Question>
 		<Answer>
@@ -1769,6 +1807,14 @@
 				[li]Rörelse av kamera (ego-motion).[/li]
 				[li]Rörelse av saker i bilden (independent motion).[/li]
 			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Vad är motion field?
+		</Question>
+		<Answer>
+			Projektionen av rörelse i 3D på bildplanet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="MotionAndOpticalFlow">
