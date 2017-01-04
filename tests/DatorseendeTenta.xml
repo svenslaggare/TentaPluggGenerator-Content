@@ -51,7 +51,7 @@
 			Vad innebär kvantifiering (quantization)?
 		</Question>
 		<Answer>
-			Tilldelar ett heltal (gråskala värdet) till pixlar (samplar amplituden hos en funktion).
+			Tilldelar ett heltal (gråskala värden) till pixlar (samplar amplituden hos en funktion).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Basic">
@@ -249,7 +249,8 @@
 		</Question>
 		<Answer>
 			Det är en linjär approximation av en perspektiv projektion.
-			[math]((x), (y), (1)) = ((m_11, m_12, m_13, m_14), (m_21, m_22, m_23, m_24), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]. Jämförelse med en perspektiv projektion är att sista raden är [math][[0, 0, 0, 1]][/math].
+			[math]((x), (y), (1)) = ((m_11, m_12, m_13, m_14), (m_21, m_22, m_23, m_24), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math].
+			Jämförelse med en perspektiv projektion är att sista raden är [math][[0, 0, 0, 1]][/math].
 
 			Den grundläggande egenskaperna är att transformationen är linjär och parallella linjer i 3D avbildas till parallella linjer i 2D. Vinklar bevaras dock ej. Denna modell är lämplig att använda för objekt som är långt ifrån.
 		</Answer>
@@ -302,7 +303,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Grafteori">
 		<Question>
-			Ange olika metoder/funktioner av mäta avstånd.
+			Ange olika metoder/funktioner för att mäta avstånd.
 		</Question>
 		<Answer>
 			[ul]
@@ -558,7 +559,7 @@
 			Vad är aliasing?
 		</Question>
 		<Answer>
-			Det är artefakter som produceras av under-sampling eller en dålig omkonstruktion. Detta innebär att bilden ser pixelig ut. Detta löses med anti-aliasing.
+			Det är artefakter som produceras av under-sampling eller av en dålig omkonstruktion. Detta innebär att bilden ser pixelig ut. Detta löses med anti-aliasing.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="FourierTransform">
@@ -654,7 +655,7 @@
 			Vad innebär histogram equalization?
 		</Question>
 		<Answer>
-			Idén är att vi omdistribuera gråskala värdena så jämnt som möjligt. Detta skulle motsvara en distribution av ljussättning där alla värden är lika sannolika. Detta skulle göra bilden mer balanserad, och skulle kunna hjälpa till att detaljer som vara gömda.
+			Idén är att vi omdistribuera gråskala värdena så jämnt som möjligt. Detta skulle motsvara en distribution av ljussättning där alla värden är lika sannolika. Detta skulle göra bilden mer balanserad, och skulle kunna hjälpa till att se detaljer som är gömda.
 
 			Detta går till så att vi först beräknar ett histogram över pixelvärden för bilden. Sen sparar vi den kumulativa summan av alla histogram värden och normaliserar varje värde genom att dela med antalet pixlar. Detta använder vi sen för att transformera bilden. Notera: detta ger värden inom intervallet [math][0, 1][/math], så behöver skala med t.ex. 255 och avrunda nedåt för att få ett pixelvärde.
 		</Answer>
@@ -728,7 +729,7 @@
 			Vad är en Binomial kernel?
 		</Question>
 		<Answer>
-			Det är en typ av filter som använder sig av binomialkoefficienter. När vi ökar storleken, så närmar vi oss en Gaussian kernel. Se bild nedan hur sådana filter kan konstrueras.			
+			Det är en typ av filter som använder sig av binomialkoefficienter. När vi ökar storleken, så närmar vi oss en Gaussian kernel. Se bild nedan hur sådana filter kan konstrueras.
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/BinomialKernels.png[/img]
 		</Answer>
 	</TestQuestion>
@@ -745,7 +746,7 @@
 			Vad innebär median filtering?
 		</Question>
 		<Answer>
-			Det innebär att vi filtrerar baserat på medianen i ett område. Fördelarna är att den bevarar skuggor, skarpa kanter, eliminerar lokala extremvärden (t.ex. salt och peppar brus), men ger att bilden ser ut som en målning.
+			Det innebär att vi filtrerar baserat på medianen i ett område. Det fungerar så givet ett område i bilden, sätt alla pixel värden till medianen av området. Fördelarna är att den bevarar skuggor, skarpa kanter, eliminerar lokala extremvärden (t.ex. salt och peppar brus), men ger att bilden ser ut som en målning.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Bildförbättring">
@@ -943,7 +944,7 @@
 			Varför bör man ta hänsyn till Spatial coherence?
 		</Question>
 		<Answer>
-			Metoder som baseras på histogram tar ej hänsyn till beroendet mellan närliggande pixlar. Detta kan leda till segment delas upp i olika delar. Om man tar hänsyn till spatial sammanhållning mellan pixlarna, så kan detta undvikas
+			Metoder som baseras på histogram tar ej hänsyn till beroendet mellan närliggande pixlar. Detta kan leda till segment delas upp i olika delar. Om man tar hänsyn till spatial sammanhållning mellan pixlarna, så kan detta undvikas.
 		</Answer>
 	</TestQuestion>
 	<!-- Något om Gestalt Theory? -->
@@ -986,7 +987,7 @@
 			Hur fungerar mean-shift segmentering?
 		</Question>
 		<Answer>
-			Vi försöker gruppera pixlarna baserat både på färg och position. Vi låter varje pixel representeras av en 5D vektor: [math]bar(x) = [[x, y, R, G, B]][/math]. För att hantera att varje pixel är brusig, så placerar vi en "skål" runt varje pixel: [math]K(x-x_i)[/math].
+			Vi försöker gruppera pixlarna baserat på både färg och position. Vi låter varje pixel representeras av en 5D vektor: [math]bar(x) = [[x, y, R, G, B]][/math]. För att hantera att varje pixel är brusig, så placerar vi en "skål" runt varje pixel: [math]K(x-x_i)[/math].
 
 			Vi vill hitta maximum av: [math]f(x) = 1 / n sum_(i=1)^n K(x-x_i)[/math] där [math]K(x) = C k(||x||^2)[/math], [math]k[/math] en kernel. Då beräknar vi gradienten som: [math]nabla f(x) = C / n sum_(i=1)^n (x-x_i) k'(||x-x_i||^2)[/math]. Vi sätter den till 0 och får då [math]x^text(new) = (sum_(i=1)^n x_i k' (||x-x_i||^2)) / (sum_(i=1)^n k'(||x-x_i||^2))[/math].
 
@@ -1117,7 +1118,7 @@
 			Den grundläggande effekten blir att gränser för regioner blir större, medans håll i regioner blir mindre. Låt [math]A, B in R^2[/math]. Då blir operatorn: [math]A o+ B = { c in R^2 : c = a + b }[/math]. Typisk är [math]A[/math] en binär bild, medans [math]B[/math] är masken (stukturelementet). Detta kan sammanfattas som: Om minst en pixel i strukturelementet sammanfaller med en pixel i förgrunden i bilden, så sätts input pixeln till värdet för förgrunden.
 
 			[b]Erosion[/b]
-			Den grundläggande effekten blir att gränser för regioner blir mindre. medans håll i regioner blir större. Operatorn är: [math]A &#8854; B = { c in R^2 : c + b in A, AAb in B }[/math]. Om för varje pixel i strukturelementet, om pixeln i bilden är i förgrunden, så förblir pixel som den är. Om någon av pixlarna är i bakgrunden, då sätts pixel till värdet för bakgrunden.
+			Den grundläggande effekten blir att gränser för regioner blir mindre, medans håll i regioner blir större. Operatorn är: [math]A &#8854; B = { c in R^2 : c + b in A, AAb in B }[/math]. Om för varje pixel i strukturelementet, om pixeln i bilden är i förgrunden, så förblir pixel som den är. Om någon av pixlarna är i bakgrunden, då sätts pixel till värdet för bakgrunden.
 
 			[b]Opening[/b]
 			Definieras som en erosion följd av en dilation med samma strukturelement: [math]A @ B = (A &#8854; B) o+ B[/math]. Resultatet blir att små regioner i förgrunden kan försvinna.
@@ -1739,7 +1740,7 @@
 			Vad används "epipolar" linjer till?
 		</Question>
 		<Answer>
-			Givet en punkt i en kamera, så kan den motsvarande punkten i den andra kameran hitta genom 1D linje (epipolar). Detta innebär att matchningen mellan kameror kan göras i 1D istället för 2D.
+			Givet en punkt i en kamera, så kan den motsvarande punkten i den andra kameran hittas genom en 1D linje (epipolar linjen). Detta innebär att matchningen mellan kameror kan göras i 1D istället för 2D.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="StereoGeometry">
@@ -1759,7 +1760,7 @@
 		<Answer>
 			Antag att två kameror är relaterade med [math]R[/math] en rotation och [math]t[/math] en transformation. Då kallas matrisen [math]E = R T_t, T_t = ((0, t_3, -t_2), (-t_3, 0, t_1), (t_2, -t_1, 0))[/math] för "essential matrix". Motsvarande puntker [math]q, q'[/math] är då relaterade av [math](q')^T E q = 0[/math]. Der går även att se det som att essential matrisen villkor för epipolar linjer.
 
-			Linjen [math]I_q = Eq[/math] är epipolar linjen som motsvarar [math]q[/math] under en epipolar transformation, och [math](q')^T I_q = 0[/math] för dden andra bilden.
+			Linjen [math]I_q = Eq[/math] är epipolar linjen som motsvarar [math]q[/math] under en epipolar transformation, och [math](q')^T I_q = 0[/math] för den andra bilden.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="StereoGeometry">
@@ -1809,12 +1810,12 @@
 			[/ul]
 		</Answer>
 	</TestQuestion>
-	<TestQuestion Category="Bildförbättring">
+	<TestQuestion Category="MotionAndOpticalFlow">
 		<Question>
 			Vad är motion field?
 		</Question>
 		<Answer>
-			Projektionen av rörelse i 3D på bildplanet.
+			Projektionen av rörelser i 3D på bildplanet.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="MotionAndOpticalFlow">
