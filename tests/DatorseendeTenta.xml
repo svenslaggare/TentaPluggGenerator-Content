@@ -815,6 +815,14 @@
 			Det innebär att vi först smoothar bilden med en gaussian, och sedan beräknar Laplacian av den. En approximation av det med en 2D kernel är: [math][[0, 0, 1, 0, 0], [0, 1, 2, 1, 0], [1, 2, -16, 2, 1], [0, 1, 2, 1, 0], [0, 0, 1, 0, 0]][/math].
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="Bildförbättring">
+		<Question>
+			Vad är Difference of Gaussian (DoG)
+		</Question>
+		<Answer>
+			Det innebär att vi beräknar skillnanden av två gaussian smoothade bilder med olika standardavvikelser. Alltså: [math]text(DoG) = G_(sigma_1) - G_(sigma_2)[/math]. För att sen använda operatorn på en bild så använder vi: [math]g(x, y) = text(DoG) ** f(x, y)[/math].
+		</Answer>
+	</TestQuestion>
 	<TestQuestion Category="ShapeRepresentation">
 		<Question>
 			Vad används Hough transformen till?
@@ -1761,6 +1769,14 @@
 			Antag att två kameror är relaterade med [math]R[/math] en rotation och [math]t[/math] en transformation. Då kallas matrisen [math]E = R T_t, T_t = ((0, t_3, -t_2), (-t_3, 0, t_1), (t_2, -t_1, 0))[/math] för "essential matrix". Motsvarande puntker [math]q, q'[/math] är då relaterade av [math](q')^T E q = 0[/math]. Der går även att se det som att essential matrisen villkor för epipolar linjer.
 
 			Linjen [math]I_q = Eq[/math] är epipolar linjen som motsvarar [math]q[/math] under en epipolar transformation, och [math](q')^T I_q = 0[/math] för den andra bilden.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="StereoGeometry">
+		<Question>
+			Vad är "fundamental matrix"?
+		</Question>
+		<Answer>
+			[math]F = (K')^(-T) E K^-1[/math] där [math]K, K'[/math] är [math]3 xx 3[/math] intrinsic matriser för kamerorna. Skillnanden mellan essential matrix och fundamental matrix är att essential matrix relaterar till bildkoordinater, medans fundamental matrix pixelkoordinater.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="StereoGeometry">
