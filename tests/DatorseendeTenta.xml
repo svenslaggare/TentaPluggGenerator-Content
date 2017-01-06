@@ -1766,7 +1766,7 @@
 			Vad är "essential matrix"?
 		</Question>
 		<Answer>
-			Antag att två kameror är relaterade med [math]R[/math] en rotation och [math]t[/math] en transformation. Då kallas matrisen [math]E = R T_t, T_t = ((0, t_3, -t_2), (-t_3, 0, t_1), (t_2, -t_1, 0))[/math] för "essential matrix". Motsvarande puntker [math]q, q'[/math] är då relaterade av [math](q')^T E q = 0[/math]. Der går även att se det som att essential matrisen villkor för epipolar linjer.
+			Antag att två kameror är relaterade med [math]R[/math] en rotation och [math]t[/math] en transformation. Då kallas matrisen [math]E = R T_t, T_t = ((0, -t_z, t_y), (t_z, 0, -t_x), (-t_y, t_x, 0))[/math] för "essential matrix". Motsvarande puntker [math]q, q'[/math] är då relaterade av [math](q')^T E q = 0[/math]. Der går även att se det som att essential matrisen villkor för epipolar linjer.
 
 			Linjen [math]I_q = Eq[/math] är epipolar linjen som motsvarar [math]q[/math] under en epipolar transformation, och [math](q')^T I_q = 0[/math] för den andra bilden.
 		</Answer>
