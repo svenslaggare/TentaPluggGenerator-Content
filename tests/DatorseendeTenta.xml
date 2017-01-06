@@ -713,7 +713,7 @@
 			Vad är ett ideellt low-pass filter?
 		</Question>
 		<Answer>
-			Det är en filter som är ideellt i frekvensdomänen, men inte ideellt i den spatiala domänen. Detta ger ringar/suddiga bilder.
+			Det är ett filter som tar bort alla frekvenser ovanför ett specifik "cut-off" frekvens. Det är ideellt i frekvensdomänen, men inte ideellt i den spatiala domänen. Detta ger att bilderna blir suddiga och bildas ringar.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Bildförbättring">
