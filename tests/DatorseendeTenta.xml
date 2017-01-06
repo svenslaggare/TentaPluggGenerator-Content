@@ -863,6 +863,19 @@
 	</TestQuestion>
 	<TestQuestion Category="ShapeRepresentation">
 		<Question>
+			Hur kan vi hitta homografin?
+		</Question>
+		<Answer>
+			[ol]
+				[li]Hitta features i båda bilderna (t.ex. SIFT).[/li]
+				[li]Matcha features mellan bilderna.[/li]
+				[li]Använd RANSAC för att hitta homografin och outliers.[/li]
+			[/ol]
+			För att det ska fungera, så behöver vi minst matcha 4 punkter.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="ShapeRepresentation">
+		<Question>
 			Vad för olika typer invarianter vill vi ha för en representation av former?
 		</Question>
 		<Answer>
@@ -891,6 +904,7 @@
 			Vad är moments?
 		</Question>
 		<Answer>
+			Det är ett sätt att representera former.
 			För kontinuerliga signaler: [math]m_(pq)=int int_(Omega) x^p y^q f(x, y) dx dy[/math].
 			För diskreta signaler (bilder): [math]m_(pq) = sum_x sum_y x^p y^q f(x, y)[/math].
 			Där [math]f(x, y) = { (1, text(inom regionen)), (0, text(annars)) :}[/math].
