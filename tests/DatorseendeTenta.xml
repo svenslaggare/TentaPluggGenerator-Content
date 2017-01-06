@@ -1851,7 +1851,7 @@
 		<Answer>
 			Antag att kameran rör sig med vinkelhastighet [math]omega[/math] och linjärhastighet [math]T[/math]. En punkt [math]P=(X, Y, Z)[/math] rör sig då (jämförelse med kameran) enligt: [math]dot(P) = -T - omega xx P[/math].
 
-			Mer explicit blir det: [math]((dot(X)), (dot(Y)), (dot(Z))) = -((T_X), (T_Y), (T_Z)) - ((0, -omega_z, omega_y), (omega_z, 0, -omega_x), (-omega_y, omega_x, 0))[/math]. Låt detta vara ekvation 1.
+			Mer explicit blir det: [math]((dot(X)), (dot(Y)), (dot(Z))) = -((T_X), (T_Y), (T_Z)) - ((0, -omega_z, omega_y), (omega_z, 0, -omega_x), (-omega_y, omega_x, 0)) ((X), (Y), (Z))[/math]. Låt detta vara ekvation 1.
 
 			Projektionen av bilden är: [math]x = (fX) / Z, y = (fY) / Z rArr dot(x) = f ((Z dot(X) - X dot(Z)) / (Z^2)), dot(y) = f ((Z dot(Y) - Y dot(Z)) / (Z^2))[/math]. I vektorform: [math]((dot(x)), (dot(y))) = f/Z ((dot(X)), (dot(Y))) - f/Z ((X), (Y)) (dot(Z)) / Z[/math]. Låt detta vara ekvation 2.
 
