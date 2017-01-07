@@ -1791,7 +1791,7 @@
 			Vad är "fundamental matrix"?
 		</Question>
 		<Answer>
-			[math]F = (K')^(-T) E K^-1[/math] där [math](K')^(-T) = ((K')^T)^-1, K, K'[/math] är [math]3 xx 3[/math] intrinsic matriser för kamerorna. Skillnanden mellan essential matrix och fundamental matrix är att essential matrix relaterar till bildkoordinater, medans fundamental matrix pixelkoordinater.
+			[math]F = (K')^(-T) E K^-1[/math] där [math](K')^(-T) = ((K')^T)^-1[/math], [math]K, K'[/math] är [math]3 xx 3[/math] intrinsic matriser för kamerorna. Skillnanden mellan essential matrix och fundamental matrix är att essential matrix relaterar till bildkoordinater, medans fundamental matrix pixelkoordinater.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="StereoGeometry">
