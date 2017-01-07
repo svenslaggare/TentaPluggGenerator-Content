@@ -647,7 +647,7 @@
 		<Answer>
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/HistogramStretching.png [/img]
 
-			Det innebär att vi ökar konstrasten genom att låta intervallet [math][c, d][/math] täcka hela bilden. Detta innebär att vi tappar information i området [math][a, b][/math] och [math][d, b][/math].
+			Det innebär att vi ökar konstrasten genom att låta intervallet (av histogrammet) [math][c, d][/math] täcka hela bilden. Detta innebär att vi tappar information i området [math][a, b][/math] och [math][d, b][/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Bildförbättring">
@@ -678,7 +678,7 @@
 			[ul]
 				[li]Low-pass: eliminera komponenter med hög frekvens (kanter och skarpa detaljer). Detta leder till att bilden blir suddig.[/li]
 				[li]High-pass: eliminera komponenter med låg frekvens (saker som varierar sakta, t.ex. skuggning). Detta leder till att kanter och andra detaljer (även brus) blir mer skarpa.[/li]
-				[li]Bandpass: eliminera komponenter som ligger utanför ett frekvensområdet. Detta leder en kombination av low- och highpass.[/li]
+				[li]Bandpass: eliminera komponenter som ligger utanför ett frekvensområdet. Detta leder en kombination av low- och high-pass.[/li]
 			[/ul][img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/LinearFiltersImageEnhancement.png[/img]
 		</Answer>
 	</TestQuestion>
@@ -870,8 +870,7 @@
 				[li]Hitta features i båda bilderna (t.ex. SIFT).[/li]
 				[li]Matcha features mellan bilderna.[/li]
 				[li]Använd RANSAC för att hitta homografin och outliers.[/li]
-			[/ol]
-			För att det ska fungera, så behöver vi minst matcha 4 punkter.
+			[/ol]För att det ska fungera, så behöver vi minst matcha 4 punkter.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ShapeRepresentation">
@@ -1013,7 +1012,7 @@
 
 			Vi vill hitta maximum av: [math]f(x) = 1 / n sum_(i=1)^n K(x-x_i)[/math] där [math]K(x) = C k(||x||^2)[/math], [math]k[/math] en kernel. Då beräknar vi gradienten som: [math]nabla f(x) = C / n sum_(i=1)^n (x-x_i) k'(||x-x_i||^2)[/math]. Vi sätter den till 0 och får då [math]x^text(new) = (sum_(i=1)^n x_i k' (||x-x_i||^2)) / (sum_(i=1)^n k'(||x-x_i||^2))[/math].
 
-			Om vi startar på en specifik pixel, och utför ovan, så konvergerar mot någon av bildens mode. Klustra bilden baserat på vilket mode som punkten konvergerar emot.
+			Om vi startar på en specifik pixel, och utför ovan, så konvergerar vi emot någon av bildens mode (kluster). Klustra bilden baserat på vilket mode som punkten konvergerar emot.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="ImageSegmentation">
@@ -1103,6 +1102,8 @@
 			Vi skriver kurvan som en funktion av tiden [math]t[/math]: [math]X(s, t) = (x(s, t), y(s, t))[/math]. Vi låter sen kurvan röra sig längs normalen [math]N[/math] med en hastighet [math]k[/math], där [math](del X) / (del t) = k N [/math].
 
 			Vi låter sen kurvan [math]X(s, t)[/math] bädas in i level set funktionen [math]phi(X(s, t), t) = 0[/math]. Vi får sedan att [math]k = nabla N = (phi_(x x) phi_y^2 - 2 phi_(x y) phi_x phi_y + phi_(y y) phi_x^2) / (phi_x^2 + phi_y^2)^(3/2)[/math].
+
+			Förgrundsregioner representeras då av höjd (level set) funktionen är större än 0.
 
 			[b]Fördelar[/b]
 			[ul]
@@ -1289,7 +1290,7 @@
 		<Answer>
 			[ol]
 				[li]Smootha bilden.[/li]
-				[li]Beräkna [math]L_(v v)^(text(~)), L_(v v v)^(text(~))[/math] för varje punkt.[/li]
+				[li]Beräkna [math]L_(v v)^(text(~)), L_(v v v)^(text(~))[/math] för varje punkt (längs gradientens riktning [math]v[/math]).[/li]
 				[li]Sök efter [math]L_(v v)^(text(~)) = 0[/math] där [math]L_(v v v)^(text(~)) lt 0[/math] gäller.[/li]
 				[li]Kan sedan kombineras med en gräns baserad på magnituden av gradienten.[/li]
 			[/ol][math]L_(v v)^(text(~)) = L_x^2 L_(x x) + 2L_x L_y L_(x y) + L_y^2 L_(y y)[/math]
@@ -1649,7 +1650,7 @@
 	</TestQuestion>
 	<TestQuestion Category="StereoGeometry">
 		<Question>
-			Vad innebär stero?
+			Vad innebär stereo?
 		</Question>
 		<Answer>
 			Det innebär att man beräknar djupet av ett objekt genom att jämföra skillnader i objekts position mellan två eller flera kameror.
@@ -1677,7 +1678,7 @@
 		</Question>
 		<Answer>
 			<!-- Det är vinkeln mellan principal direction mellan två kameror, och betecknas [math]2 mu[/math]. -->
-			Det är vinkeln mellan optiska axlarna för två kameror i ett stero och säger hur lång ifrån fixation point är placerad. Betecknas [math]2 mu[/math].
+			Det är vinkeln mellan optiska axlarna för två kameror i ett stereo system och säger hur lång ifrån fixation point är placerad. Betecknas [math]2 mu[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="StereoGeometry">
@@ -1790,7 +1791,7 @@
 			Vad är "fundamental matrix"?
 		</Question>
 		<Answer>
-			[math]F = (K')^(-T) E K^-1[/math] där [math]K, K'[/math] är [math]3 xx 3[/math] intrinsic matriser för kamerorna. Skillnanden mellan essential matrix och fundamental matrix är att essential matrix relaterar till bildkoordinater, medans fundamental matrix pixelkoordinater.
+			[math]F = (K')^(-T) E K^-1[/math] där [math](K')^(-T) = ((K')^T)^-1, K, K'[/math] är [math]3 xx 3[/math] intrinsic matriser för kamerorna. Skillnanden mellan essential matrix och fundamental matrix är att essential matrix relaterar till bildkoordinater, medans fundamental matrix pixelkoordinater.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="StereoGeometry">
@@ -1826,7 +1827,8 @@
 			Vad är "Disparity Space Image"?
 		</Question>
 		<Answer>
-			Hitta svar senare!
+			<!-- Det är en matris. Varje element ([math](i, j)[/math]) beskriver poängen för en matchning för en patch centrerat längs till vänster -->
+			Det är en matris, och varje rad repesenterar den parvisa matchning poängen mellan patchar längs samma rad i den vänstra och högra bilden.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="MotionAndOpticalFlow">
@@ -1928,7 +1930,7 @@
 	</TestQuestion>
 	<TestQuestion Category="MotionAndOpticalFlow">
 		<Question>
-			Vad för typ av features är vill man för matchning i motion (och stero)?
+			Vad för typ av features är vill man för matchning i motion (och stereo)?
 		</Question>
 		<Answer>
 			Hörn features är fördelaktiga, för att hur ett hörn ser ut förändras när du rör dig i någon riktning, i jämförelse med linje features, som ser samma ut om man rör sig längs linjen.
