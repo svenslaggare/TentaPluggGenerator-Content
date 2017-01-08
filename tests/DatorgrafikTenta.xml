@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Test Name="Tenta">
+	<TestQuestion Category="Mathematics">
+		<Question>
+			Vad är definitionen av ett vektor rum av dimension [math]d[/math]?
+		</Question>
+		<Answer>
+			Det är mängden av alla (ordnade) [math]d[/math]-tuplar, som uppfyller två egenskaper:
+			[math]bar(x)+bar(y) in RR^d, lambda bar(x) in RR^d, x, y in RR^d, lambda in RR[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mathematics">
+		<Question>
+			Ange hur standard transformationer ser ut i homogena koordinater.
+		</Question>
+		<Answer>
+			[b]Translation[/b]
+			[math]((X), (Y), (Z), (1)) \rightarrow ((1, 0, 0, Delta X), (0, 1, 0, Delta Y), (0, 0, 1, Delta Z), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+
+			[b]Skalning[/b]
+			[math]((X), (Y), (Z), (1)) \rightarrow ((S_X, 0, 0, 0), (0, S_Y, 0, 0), (0, 0, S_Z, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+
+			[b]Rotation runt X-axeln[/b]
+			[math]((X), (Y), (Z), (1)) \rightarrow ((1, 0, 0, 0), (0, cos \theta, -sin \theta, 0), (0, sin \theta, cos \theta, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+
+			[b]Rotation runt Y-axeln[/b]
+			[math]((X), (Y), (Z), (1)) \rightarrow ((cos \theta, 0, sin \theta, 0), (0, 1, 0, 0), (-sin \theta, 0, cos \theta, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+
+			[b]Rotation runt Z-axeln[/b]
+			[math]((X), (Y), (Z), (1)) \rightarrow ((cos \theta, -sin \theta, 0, 0), (sin \theta, cos \theta, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+
+			[b]Spegling i XY planet[/b]
+			[math]((X), (Y), (Z), (1)) \rightarrow ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, -1, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grids">
+		<Question>
+			Ange definitionen av "vertex, line, face, voxel" för grids.
+		</Question>
+		<Answer>
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Grids.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grids">
+		<Question>
+			Ange olika typer av grids.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Structured grids: hur celler hänger ihop är implicit given.[/li]
+				[li]Unstructured grids: hur celler hänger ihop är explicit given.[/li]
+				[li]Hybrid grids: kombination av olkika typer av grids.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grids">
+		<Question>
+			Vad är "structured grid"?
+		</Question>
+		<Answer>
+			Det finns tre olika typer av structured grids:
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/StructuredGrids.png[/img].
+
+			Om vi låter antalet hörn i varje dimension vara [math]D_x, D_y, D_z[/math], så ges antalet celler av: [math](D_x - 1) * (D_y - 1) * (D_z - 1)[/math].
+
+			[b]Uniform grid[/b]
+			Alla celler är rektanglar/rätblock av samma storlek, alla linjer för rutnätet är parallella till axelarna. Vi låter också storlekarna för cellerna vara: [math]d_x, d_y, d_z[/math].
+
+			För att definiera ett uniform grid behöver vi:
+			[ul]
+				[li]Bounding box: [math](x_text(min), y_text(min), z_text(min)), (x_text(max), y_text(max), z_text(max))[/math][/li]
+				[li]Antalet celler i varje dimension: [math]D_x, D_y, D_z[/math].[/li]
+			[/ul][b]Rectilinear grids[/b]
+			I det här fallet så kan celler vara av olika stora, men alla linjer i rutnätet är fortfarande parallella till axelarna.
+
+			[b]Curvilinear grids[/b]
+			I det här fallet så är celler quadrilaterals, och linjer i rutnätet behöver ej vara parallella.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grids">
+		<Question>
+			Vad är ett cartesian grid?
+		</Question>
+		<Answer>
+			Det är ett specialfall av uniform grid när [math]d_x = d_y = d_z[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grids">
+		<Question>
+			Vad är "unstructured grid"?
+		</Question>
+		<Answer>
+	
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Interpolation">
+		<Question>
+			Hur fungerar "Nearest-Neighbor interpolation"?
+		</Question>
+		<Answer>
+			Tilldela värdet för en punkt till värdet för den närmaste punkten.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Interpolation">
+		<Question>
+			Hur fungear linjär interpolation (i 1D)?
+		</Question>
+		<Answer>
+			I det generella fallet ges det av: [math]f(x) = (x_1 - x) / (x_1 - x_0) f(x_0) + (x - x_0) / (x_1 - x_0) f(x_1), x in [x_0, x_1][/math].
+
+			Men det är vanligt med följande speciallfall: [math]f(x) = (1 - x) f(0) + x f(1), x in [0, 1][/math]. Det går också att uttrycka det som: [math]text(bas) xx text(koefficienter) = [[1-x, x]] [[f(0)], [f(1)]] = [[1, x]] [[1, 0], [-1, 1]] [[f(0)], [f(1)]][/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Interpolation">
+		<Question>
+		Hur fungear linjär interpolation (i 2D), även kallat för bilinjär interpolation?
+		</Question>
+		<Answer>
+			Det fungerar så att vi först interpolerar två gånger i x riktningen, och sedan en gång i y riktningen. Det går också att göra omvänt, två gånger i y och en gång i x.
+
+			Formelen ges av: [math]f(x, y) = (1-y) ((1-x) f_(00) + x f_(10)) + y ((1-x) f_(01) + x f_(11))[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Interpolation">
+		<Question>
+			Hur fungear linjär interpolation (i 3D), även kallat för trilinjär interpolation?
+		</Question>
+		<Answer>
+			Det fungerar så att vi först interpolerar fyra gånger i x riktningen, och sedan två gånger i y riktningen och slutgingen en gång i z riktningen.
+
+			Formelen ges av: [math]f(x, y, z) = sum_(k=0)^p sum_(j=0)^m sum_(i=0)^n b_i(x) b_j(y) b_k(z) f_(ijk)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Interpolation">
+		<Question>
+			Hur lyder derivatan för en bilinjär interpolation?
+		</Question>
+		<Answer>
+			[math](del f(x, y)) / (del x) = (f_(10) - f_(00)) (1 - y) + (f_(11) + f_(01)) y[/math]
+			[math](del f(x, y)) / (del y) = (f_(10) - f_(00)) (1 - x) + (f_(11) + f_(01)) x[/math]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Interpolation">
+		<Question>
+			Vad är barycentric koordinater för något?
+		</Question>
+		<Answer>
+			Det är ett sätt att uttrycka koordinaterna för en punkt [math]bar(p)[/math] som ligger i en triangel [math]bar(p)_1, bar(p)_2, bar(p)_3[/math].
+
+			[img width="50%" height="50%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/BarycentricCoordinates.png[/img]
+			
+			Då ges punkten [math]bar(p)[/math] av [math]bar(p)=alpha bar(p)_1 + beta bar(p)_2 + gamma bar(p)_3[/math]. Då säger [math]alpha, beta, gamma[/math] vara punktens barycentric koordinater, som uppfyller [math]alpha + beta + gamma = 1[/math].
+
+			För att hitta koordinaterna, som kan man beräkna arean för de olika trianglarna: [math]alpha = (area(Delta(bar(p)_2, bar(p)_3, bar(p)))) / (area(Delta(bar(p)_1, bar(p)_2, bar(p)_3))), beta = (area(Delta(bar(p)_1, bar(p)_3, bar(p)))) / (area(Delta(bar(p)_1, bar(p)_2, bar(p)_3))), gamma = (area(Delta(bar(p)_1, bar(p)_2, bar(p)))) / (area(Delta(bar(p)_1, bar(p)_2, bar(p)_3)))[/math].
+
+			Det går även att lösa ekvationssystemet: [math][[x_0, x_1, x_2], [y_0, y_1, y_2], [1, 1, 1]] [[alpha], [beta], [gamma]] = [[x], [y], [1]][/math].
+
+			Explict lösningar ges av:
+			[math]alpha = 1 / (2A) det([[x, x_2, x_3], [y, y_2, y_3], [1, 1, 1]])[/math]
+			[math]beta = 1 / (2A) det([[x_1, x, x_3], [y_1, y, y_3], [1, 1, 1]])[/math]
+			[math]gamma = 1 / (2A) det([[x_1, x_2, x], [y_1, y_2, y], [1, 1, 1]])[/math]
+			[math]A = 1 / 2 det([[x_1, x_2, x_3], [y_1, y_2, y_3], [1, 1, 1]])[/math].
+		</Answer>
+	</TestQuestion>
+		<TestQuestion Category="Interpolation">
+		<Question>
+			Hur fungerar linjär interpolation i en triangel?
+		</Question>
+		<Answer>
+			Givet triangelns tre hörn [math]f_0, f_1, f_2[/math], så kan interpolation skrivas som [math]f(x, y) = a + bx + cy[/math], där Koefficienterna fås genom att lösa följande ekvationssystem: [math][[1, x_0, y_0], [1, x_1, y_1], [1, x_2, y_2]] [[a], [b], [c]] = [[f_0], [f_1], [f_2]][/math].
+
+			Det går även att använda sig av barycentric koordinater: [math]f(x, y) = alpha(x, y) f_0 + beta(x, y) f_1 + gamma(x, y) f_2[/math].
+		</Answer>
+	</TestQuestion>
+</Test>

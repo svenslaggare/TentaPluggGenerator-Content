@@ -39,4 +39,7 @@
 	<Course Name="Datorseende">
 		<Test File="DatorseendeTenta" />
 	</Course>
+	<Course Name="Datorgrafik">
+		<Test File="DatorgrafikTenta" />
+	</Course>
 </Courses>
