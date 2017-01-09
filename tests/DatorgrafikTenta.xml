@@ -193,4 +193,15 @@
 			Det går även att använda sig av barycentric koordinater: [math]f(x, y) = alpha(x, y) f_0 + beta(x, y) f_1 + gamma(x, y) f_2[/math].
 		</Answer>
 	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Hur fungerar De Casteljau algoritm?
+		</Question>
+		<Answer>
+			Först, De Casteljau algoritm beräknar en Bezier kurva för ett givet antal kontrollpunkter.
+			Antag att [math]bb "b"_0, bb "b"_1, ... bb "b"_n in RR^3[/math] är kontrollpunkterna, och kurvan som vi vill ha är [math]bb "x"(t), t in [0, 1][/math].
+
+			Låt [math]b_i^r(t)[/math] vara en koefficient, och dessa beräknas som: [math]bb "b"_i^(r)(t) = (1-t) bb "b"_i^((r-1)) + t bb "b"_(i+1)^((r-1))[/math]. Då gess slutligen [math]bb "b"x() = [/math].
+		</Answer>
+	</TestQuestion>
 </Test>
