@@ -64,17 +64,17 @@
 			Om vi låter antalet hörn i varje dimension vara [math]D_x, D_y, D_z[/math], så ges antalet celler av: [math](D_x - 1) * (D_y - 1) * (D_z - 1)[/math].
 
 			[b]Uniform grid[/b]
-			Alla celler är rektanglar/rätblock av samma storlek, alla linjer för rutnätet är parallella till axelarna. Vi låter också storlekarna för cellerna vara: [math]d_x, d_y, d_z[/math].
+			Alla celler är rektanglar/rätblock av samma storlek, alla linjer för rutnätet är parallella till axelarna. Vi låter också storlekarna för cellerna vara: [math]d_x, d_y, d_z[/math]. För att hitta cell givet en koordinat är mycket effektivt och lätt.
 
 			För att definiera ett uniform grid behöver vi:
 			[ul]
 				[li]Bounding box: [math](x_text(min), y_text(min), z_text(min)), (x_text(max), y_text(max), z_text(max))[/math][/li]
 				[li]Antalet celler i varje dimension: [math]D_x, D_y, D_z[/math].[/li]
 			[/ul][b]Rectilinear grids[/b]
-			I det här fallet så kan celler vara av olika stora, men alla linjer i rutnätet är fortfarande parallella till axelarna.
+			I det här fallet så kan celler vara av olika stora, men alla linjer i rutnätet är fortfarande parallella till axelarna. För att hitta cell givet en koordinat är relativt lätt.
 
 			[b]Curvilinear grids[/b]
-			I det här fallet så är celler quadrilaterals, och linjer i rutnätet behöver ej vara parallella.
+			I det här fallet så är celler quadrilaterals, och linjer i rutnätet behöver ej vara parallella. För att hitta cell givet en koordinat behöver vi i det lokala fallet kolla via senaste cellen eller dess grannar. I det globala fallet behöver vi använda oss av quadtree/octree.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Grids">
@@ -90,7 +90,28 @@
 			Vad är "unstructured grid"?
 		</Question>
 		<Answer>
-	
+			Här är positionen för hörn och hur dessa är sammakopplade explicit given. Linjär interpolering sker m.h.a barycentric koordinater i en triangel. För att hitta cell givet en koordinat behöver vi i det lokala fallet kolla via senaste triangel eller dess grannar. I det globala fallet behöver vi använda oss av quadtree/octree.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Grids">
+		<Question>
+			Ange olika sätt för att lagra "unstructured grids".
+		</Question>
+		<Answer>
+			[b]Face set[/b]
+			Spara "faces" för varje triangel, vilket består av tre positioner (hörnen). Detta spara inte hur hörnen är sammankopplade. Detta är en mycket simpel struktur, men som dock är opraktiskt i praktiken.
+
+			[b]Shared vertex[/b]
+			Vi har två tabeller, ett för hörn/positioner "vertex table" och en annan för trianglar "triangle table", vilket indikerar vilka hörn som triangeln består av. Detta spara inte hur hörnen är sammankopplade. Detta är ganska enkel och effektiv, och möjliggör effektiva operationer på statiska modeller. Exempel är OFF, OBJ, PLY.
+
+			[b]Face-based connectivity[/b]
+			Hörnen sparar: position och referens till face. Face sparar referenser till tre hörn, och referenser till tre granar.
+
+			[b]Edge-based connectivity[/b]
+			Hörnen sparar: position och referens till en kant. Kanter sparar två referenser till hörn, två till face och fyra till kanter. Face sparar en referens till edge.
+
+			[b]Half-edge based connectivity[/b]
+			Hörn sparar: position och referens till en halv-kant. Halv-kanter sparar en referens till hörn, en till face, och 1, 2, eller 3 referenser till halv-kanter. Face sparar en referens till en halv-kant.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Interpolation">
