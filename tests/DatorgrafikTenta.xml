@@ -201,7 +201,71 @@
 			Först, De Casteljau algoritm beräknar en Bezier kurva för ett givet antal kontrollpunkter.
 			Antag att [math]bb "b"_0, bb "b"_1, ... bb "b"_n in RR^3[/math] är kontrollpunkterna, och kurvan som vi vill ha är [math]bb "x"(t), t in [0, 1][/math].
 
-			Låt [math]b_i^r(t)[/math] vara en koefficient, och dessa beräknas som: [math]bb "b"_i^(r)(t) = (1-t) bb "b"_i^((r-1)) + t bb "b"_(i+1)^((r-1))[/math]. Då gess slutligen [math]bb "b"x() = [/math].
+			Låt [math]b_i^r(t)[/math] vara en koefficient, och dessa beräknas som: [math]bb "b"_i^(r)(t) = (1-t) bb "b"_i^((r-1)) + t bb "b"_(i+1)^((r-1))[/math], med [math]bb "b"_i^(0)=bb "b"_i[/math]. Då gess slutligen [math]bb "x"(t) = bb "b"_0^((n))[/math].
+
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/DeCasteljauAlgorithm.png[/img]
+
+			Polygonet som består av punkterna [math]bb "b"_0, bb "b"_1, ... bb "b"_n[/math] kallas för Bezier polygonet.
+
+			[b]Egenskaper[/b]
+			[ul]
+				[li]Bezier kurvan är ett polynom av grad [math]n[/math][/li]
+				[li]Endast slutpunkterna som interpoleras [math]x(0)=bb "b"_0, x(1)=bb "b"_n[/math], övriga punkter approximeras.[/li]
+				[li]Konvext hölje: Bezier kurvan är ligger innanför konvexa höljet av Bezier polygonet.[/li]
+				[li]Tid: [math]O(n^2)[/math], minne: [math]O(n)[/math].[/li]
+				[li]Variation diminishing: ingen linje skär Bezier kurvan mer än Bezier polygonet för linjen.[/li]
+				[li]Förflyttning av en kontrollpunkt förändrar hela kurvan.[/li]
+				[li]Invariant under affine transformation.[/li]
+				[li]Invariant under barycentric kombinationer.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Hur kan man beräkna derivatan av Bezier kurvor?
+		</Question>
+		<Answer>
+			Första derivatan:
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/BezierCurveFirstDerivative.png[/img]
+
+			Andra derivatan:
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/BezierCurveSecondDerivative.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Vad är en Bernstein bas?
+		</Question>
+		<Answer>
+			Det är ett sätt att algebraiskt definiera Bezier kurvor. Låt [math]B = { B_0^((n)), B_1^((n)), B_0^((n)) ..., B_n^((n)) }[/math] vara en Bernstein bas av grad [math]n[/math]. Då ges kurvan av: [math]bb "x"(t) = sum_(i=0)^n B_i^((n))(t) bb "p"_i[/math] där [math]bb "p"_i[/math] är kontrollpunkter.
+
+			En Bernstein bas an bestämmas av: [math]B_i^((n))(t) = text(binomialkoefficient)(n, i) t^i (1-t)^(n-1)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Vad är en Bezier Spline?
+		</Question>
+		<Answer>
+			Det innebär att vi sätter ihop flera olika Bezier kurvor för att bilda en kurva. Givet två kurvor [math]bb "x"_1(s) s in [t_0, t_1][/math] och [math]bb "x"_2(s) s in [t_1, t_2][/math]. [math]bb "x"_1(s)[/math] och [math]bb "x"_2(s)[/math] säges vara [math]C^r[/math] kontinuerlig i [math]t_1[/math] om de sammanfaller i 0:te till [math]r[/math]:te derivatan av [math]t_1[/math].
+
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/SplineContinuity.png[/img]	
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Vad för krav ställer vi på en [math]C_0[/math] kontinuerlig Bezier spline?
+		</Question>
+		<Answer>
+			För varje spline segment så interpolerar första och sista kontrollpunkten. Detta innebär att punkter i närliggande segment måste sammanfalla.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Vad för krav ställer vi på en [math]C_1[/math] kontinuerlig Bezier spline?
+		</Question>
+		<Answer>
+			Samma sak som för [math]C_0[/math] och: tangenta vektorer proportionerlig emot skillnaden [math]bb "p"_1 - bb "p"_0, bb "p"_n - bb "p"_(n-1)[/math]. Detta innebär att dessa vektorer måste vara identiska.
 		</Answer>
 	</TestQuestion>
 </Test>
