@@ -938,7 +938,7 @@
 	</TestQuestion>
 	<TestQuestion Category="VolumeRendering">
 		<Question>
-			Vad är ray castning?
+			Hur fungerar ray castning?
 		</Question>
 		<Answer>
 			[i]Steg 1: ray casting[/i]
