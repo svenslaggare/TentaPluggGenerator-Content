@@ -526,14 +526,6 @@
 			RGB är teknisk orienterat färgsystem, som är inte baserat på hur människor uppfattar färger, vilket HSV/HLS är.
 		</Answer>
 	</TestQuestion>
-	<TestQuestion Category="Color">
-		<Question>
-			Vad innebär alpha blending?
-		</Question>
-		<Answer>
-			Det är ett sätt att blanda två olika färger: [math]c = alpha c_text(front) + (1 - alpha) c_text(back)[/math].
-		</Answer>
-	</TestQuestion>
 	<TestQuestion Category="PerspectiveGeometry">
 		<Question>
 			Vad är en "pinhole camera" för något?
@@ -546,7 +538,7 @@
 	</TestQuestion>
 	<TestQuestion Category="PerspectiveGeometry">
 		<Question>
-			Ange relationer och ekvationer för "pinhole kamera".
+			Ange relationer och ekvationer för "pinhole" kamera.
 		</Question>
 		<Answer>
 			Vi har först:
@@ -584,6 +576,301 @@
 			[math]P = [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -1], [0, 0, 1, 0]][/math].
 
 			Notera att med denna matris så får vi fokuspunkten vid origo, vyriktningen som Z-axeln. Vill vi ändra positionen och vyriktningen så kan vi multiplicera [math]P_S[/math] med en transformation.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Vad innebär rasterization?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Projicera alla triangler till skärmen.[/li]
+				[li]Omvandla till pixlar (rasterize).[/li]
+				[li]Avgör vilka pixlar som är synliga.[/li]
+				[li]Applicera shading (beräkna färg).[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Vad är "Painters" algoritm för något?
+		</Question>
+		<Answer>
+			Det är en algoritm för att avgöra vilka pixlar som ska synas. Den funerar så att vi först sorterar alla triangler bakåt-till-framåt (i den ordning som de ska synas på skrämen). Sedan så ritar vi trianglarna där vi tillåter att pixlar skrivs över.
+
+			Nackdelarna med denna algoritm är att den är seg ([math]O(n log n)[/math] för [math]n[/math] antal trianglar), och den fungerar inte alltid (se bild). För att undvika detta problem så behöver vi på något sätt beskära trianglarna.
+
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/PainterAlgorithm.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Vad är "z-Buffer" algoritm för något?
+		</Question>
+		<Answer>
+			Det är en algoritm för att avgöra vilka pixlar som ska synas. Den fungerar så att för varje pixel så sparar vi ett djup, som börjar med värdet [math]\infty[/math]. Vi ritar sedan ut alla trianglar, och beräknar djupet. Om djupet för pixeln är större än nuvarande, så skriver vi ej över pixeln.
+
+			[img width="25%" height="25%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/ZBuffer.png[/img]
+
+			[b]Fördelar[/b]
+			[ul]
+				[li]Mycket simpel.[/li]
+				[li]Mångsidig - kräver endast att objektet kan ritas ut.[/li]
+				[li]Mycket snabb.[/li]
+			[/ul][b]Nackdelar[/b]
+			[ul]
+				[li]Kräver extra minne.[/li]
+				[li]Endast lika hög upplösning som en pixel - Painters algoritm kan krävas för vissa vektorgrafik beräkningar.[/li]
+				[li]Stödjer ej transparens - löses med antigen sortering eller A-buffer (ej stöd i hårdvaran).[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Ange olika strategier för att hantera "clipping".
+		</Question>
+		<Answer>
+			[b]Förkasta pixlar[/b]
+			Om en pixel inte är på skrärmen, renderera ej. Problemen med detta är att det är mycket segt.
+
+			[b]Screen space clipping[/b]
+			Modifiera rasterize till att hoppa till synliga pixlar. Detta är effektivt, men finns problem mär pixeln korsar kameras plan.
+
+			[b]View Frustum Clipping[/b]
+
+			[b]View Frustum Culling[/b]
+			Förkasta trianglar som ej är innan för "view frustum" (dvs det som kameran ser).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Ange olika modeller för hantera hur ljus reflekteras.
+		</Question>
+		<Answer>
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Reflectance.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Hur fungerar en enkel modell för shading?
+		</Question>
+		<Answer>
+			Vi har en ljuskälla som vi ser som en punkt. Definiera:
+			[ul]
+				[li]Ljusvektorn - [math]l = text(pos)_text(light) - text(pos)_text(object)[/math][/li]
+				[li]Vyvektorn - [math]v = text(pos)_text(camera) - text(pos)_text(object)[/math][/li]
+				[li]Normalen för ytan - [math]n[/math][/li]
+			[/ul]Om vi vill utöka till flera ljuskällor, så summerar vi bidraget från alla källor.
+			[img width="50%" height="50%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/LightModel.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Hur fungerar "diffuse" ytor (även kallat för Lambertian ytor)?
+		</Question>
+		<Answer>
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/DiffuseLightning.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Vad innebär "diffuse" reflektion?
+		</Question>
+		<Answer>
+			Det innebär att ytan är grov, vilket gör att inkommande ljus spridds likformigt.
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/DiffuseReflection.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Hur kan man bestämma normalen för en triangel?
+		</Question>
+		<Answer>
+			Den ges av [math](bb "p"_2 - bb "p"_1) xx (bb "p"_3 - bb "p"_1)[/math].
+			[img width="50%" height="50%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/TriangleNormal.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Hur kan man bestämma normalen för ett hörn?
+		</Question>
+		<Answer>
+			Som ett medelvärde av närliggande trianglar.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Vad är "ambient" reflektion?
+		</Question>
+		<Answer>
+			Detta innebär att vi adderar en konstant till färgen: [math]c = c_text(surface) @ c_text(ambient light)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Vad innebär en perfekt reflektion?
+		</Question>
+		<Answer>
+			Detta innebär att ljuset reflekteras perfekt på ytan: [math]r = 2 (: n, l :) n - l[/math].
+			[img width="50%" height="50%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/PerfectReflection.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Hur fungerar Phong ljusmodell?
+		</Question>
+		<Answer>
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/PhongModel.png[/img]		
+
+			Den är dock fysisk inkorrekt (energin bevaras ej) och gör att objekten ser plastiga ut.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Hur fungerar Blinn-Phong modell?
+		</Question>
+		<Answer>
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/BlinnPhongModel.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Vad innebär alpha blending?
+		</Question>
+		<Answer>
+			Det är ett sätt för att hantera transparens, och för att blanda två olika färger: [math]c = alpha c_text(front) + (1 - alpha) c_text(back)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Vad innebär "refraction"?
+		</Question>
+		<Answer>
+			Att ljusstrålar byter riktningar när den byter medium.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Vad är Snells lag (för refraction)?
+		</Question>
+		<Answer>
+			[math]sin(theta_1) / sin(theta_2) = n_2 / n_1[/math].
+			[img width="25%" height="25%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/SnellsLaw.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Vad är skillnanden mellan reflektion och refraction?
+		</Question>
+		<Answer>
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/ReflectionVsRefraction.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Ange olika typer av flat shading.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Gouraud Shading: beräkna färg för varje hörn, interpolera färg för pixlar.[/li]
+				[li]Phong Shading: interpolera normal för varje pixel.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Hur fungerar raytracing?
+		</Question>
+		<Answer>
+			Vi börjar i kameran (viewing point), och sedan följer vi ljusstrålarna i bakåtriktning, och hanterar hur du reflekteras, etc. vid objekt.
+
+			Vi har då:
+			[ul]
+				[li]Primary rays: strålar genom en pixel.[/li]
+				[li]Shadow rays: strålar som blockeras (hard shadows).[/li]
+				[li]Reflection: reflektera strålar längs normalen vid skärningspunkten.[/li]
+			[/ul][img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/RecursiveRaytracing.png[/img]
+
+			För att hantera flera strålar, så använder vi oss av rekursion. Detta leder till att raytracing blir mycket ineffektivt att beräkna: [math]O(n * m * 2^r)[/math] där [math]n = text(antalet trianglar), m = text(antalet pixlar), r = text(max djup av rekursion)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Hur kan vi avgöra om en stråle skär ett plan?
+		</Question>
+		<Answer>
+			En punkt på ett plan uppfyller: [math](bb "p" - bb "p"_0) * bb "n" = 0[/math] och en punkt på en ståle uppfyller [math]bb "p" = bb "p"_r + lambda bb "t"_r, lambda >= 0[/math]. Vi brukar då begränsa [math]lambda lt lambda_text(max)[/math].
+
+			För att avgöra beräknar vi då: [math]lambda = ((bb "p"_0 - bb "p"_r) * n) / (bb "t"_r * n)[/math]. Strålen skär planet om [math](bb "t"_r * n) != 0[/math] och [math]lambda in [0, lambda_text(max)][/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Hur kan vi avgöra om en stråle skär en triangel?
+		</Question>
+		<Answer>
+			Beräkna [math]bb "t"_1 = bb "p"_1 - bb "p"_0, bb "t"_2 = bb "p"_2 - bb "p"_0[/math]. Detta ger att normalen för triangeln blir: [math]bb "n" = bb "t"_1 xx bb "t"_2[/math]. Vi kollar sedan om strålen skär planet som spänns upp av denna normal. När vi vet att den skär planet, så måste vi kolla om skärningen sker inom triangeln. Detta gör vi genom att beräkna skärningspunkten, och kolla att den ligger inom triangeln (t.ex. med barycentric koordinater).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Hur kan vi avgöra om en ståle skär en sfär?
+		</Question>
+		<Answer>
+			Vi har sfärens ekvation: [math](: bb "x" - bb "c", bb "x" - bb "c" :) = r^2[/math] och strålens ekvation: [math]bb "x" = bb "p"_r + lambda bb "t"_r[/math]. Sätter vi in strålens ekvation i sfärens får vi: [math](: bb "p"_r + lambda bb "t"_r - bb "c", bb "p"_r + lambda bb "t"_r - bb "c" :) - r^2 = 0[/math]. Detta resulterar i följande ekvation: [math]lambda^2 bb "t"_r^2 + 2 lambda (bb "t"_r * (bb "p"_r - bb "c")) + (bb "p"_r - bb "c")^2 - r^2 = 0[/math]. Löser vi denna får vi skärningen. Giltiga värden är [math]lambda >= 0[/math], om vi får två värden, välj den minsta.
+
+			Ett specialfall är när center är vid origo och radien är 1: [math]lambda^2 bb "t"_r^2 + 2 lambda (bb "t"_r * bb "p"_r) + bb "p"_r^2 - 1 = 0[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Vad är spatiala datastrukturer?
+		</Question>
+		<Answer>
+			Det är ett sätt att dela upp objekten till ett träd, för att göra vissa operationer snabbare.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Ange olika typer av "bounding volumes".
+		</Question>
+		<Answer>
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/BoundingVolumes.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Ange olika spatiala datastrukturer.
+		</Question>
+		<Answer>
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/SpatialDataStructures.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Hur fungerar "Range Query" algoritmen?
+		</Question>
+		<Answer>
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/RangeQueryAlgorithm.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Rendering">
+		<Question>
+			Hur kan vi göra för att utöka spatiala datastrukturer till annat än punkter?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Dela objekt - kostsamt, ovanligt.[/li]
+				[li]Överlappande noder - vanligt.[/li]
+				[li]Spara samma nod flera gånger - vanligt.[/li]
+			[/ul][b]Dela objekt[/b]
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/SplittingObjects.png[/img]
+			
+			[b]Överlappande noder[/b]
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/OverlappingRegions.png[/img]
+
+			[b]Spara samma nod flera gånger[/b]
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/StoreMultipleTimes.png[/img]
 		</Answer>
 	</TestQuestion>
 </Test>
