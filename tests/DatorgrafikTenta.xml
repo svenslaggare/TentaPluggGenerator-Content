@@ -44,7 +44,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Grids">
 		<Question>
-			Ange definitionen av "vertex, line, face, voxel" för grids.
+			Ange definitionen av hörn, linje, face, voxel för grids.
 		</Question>
 		<Answer>
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Grids.png[/img]
@@ -58,7 +58,7 @@
 			[ul]
 				[li]Structured grids: hur celler hänger ihop är implicit given.[/li]
 				[li]Unstructured grids: hur celler hänger ihop är explicit given.[/li]
-				[li]Hybrid grids: kombination av olkika typer av grids.[/li]
+				[li]Hybrid grids: kombination av olika typer av grids.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -73,7 +73,7 @@
 			Om vi låter antalet hörn i varje dimension vara [math]D_x, D_y, D_z[/math], så ges antalet celler av: [math](D_x - 1) * (D_y - 1) * (D_z - 1)[/math].
 
 			[b]Uniform grid[/b]
-			Alla celler är rektanglar/rätblock av samma storlek, alla linjer för rutnätet är parallella till axelarna. Vi låter också storlekarna för cellerna vara: [math]d_x, d_y, d_z[/math]. För att hitta cell givet en koordinat är mycket effektivt och lätt.
+			Alla celler är rektanglar/rätblock av samma storlek, alla linjer för rutnätet är parallella till axelarna. Vi låter också storlekarna för cellerna vara: [math]d_x, d_y, d_z[/math]. För att hitta en cell givet en koordinat är mycket effektivt och lätt.
 
 			För att definiera ett uniform grid behöver vi:
 			[ul]
@@ -83,7 +83,7 @@
 			I det här fallet så kan celler vara av olika stora, men alla linjer i rutnätet är fortfarande parallella till axelarna. För att hitta cell givet en koordinat är relativt lätt.
 
 			[b]Curvilinear grids[/b]
-			I det här fallet så är celler quadrilaterals, och linjer i rutnätet behöver ej vara parallella. För att hitta cell givet en koordinat behöver vi i det lokala fallet kolla via senaste cellen eller dess grannar. I det globala fallet behöver vi använda oss av quadtree/octree.
+			I det här fallet så är celler quadrilaterals, och linjer i rutnätet behöver ej vara parallella. För att hitta en cell givet en koordinat behöver vi i det lokala fallet kolla via senaste cellen eller dess grannar. I det globala fallet behöver vi använda oss av quadtree/octree.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Grids">
@@ -99,7 +99,7 @@
 			Vad är "unstructured grid"?
 		</Question>
 		<Answer>
-			Här är positionen för hörn och hur dessa är sammakopplade explicit given. Linjär interpolering sker m.h.a barycentric koordinater i en triangel. För att hitta cell givet en koordinat behöver vi i det lokala fallet kolla via senaste triangel eller dess grannar. I det globala fallet behöver vi använda oss av quadtree/octree.
+			Här är positionen för hörn och hur dessa är sammankopplade explicit given. Linjär interpolering sker m.h.a barycentriska koordinater i en triangel. För att hitta cell givet en koordinat behöver vi i det lokala fallet kolla via senaste triangel eller dess grannar. I det globala fallet behöver vi använda oss av quadtree/octree.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Grids">
@@ -108,13 +108,13 @@
 		</Question>
 		<Answer>
 			[b]Face set[/b]
-			Spara "faces" för varje triangel, vilket består av tre positioner (hörnen). Detta spara inte hur hörnen är sammankopplade. Detta är en mycket simpel struktur, men som dock är opraktiskt i praktiken.
+			Spara "faces" för varje triangel, vilket består av tre positioner (hörnen). Detta spara inte hur hörnen är sammankopplade. Detta är en mycket simpel struktur, men dock är opraktiskt i praktiken.
 
 			[b]Shared vertex[/b]
-			Vi har två tabeller, ett för hörn/positioner "vertex table" och en annan för trianglar "triangle table", vilket indikerar vilka hörn som triangeln består av. Detta spara inte hur hörnen är sammankopplade. Detta är ganska enkel och effektiv, och möjliggör effektiva operationer på statiska modeller. Exempel är OFF, OBJ, PLY.
+			Vi har två tabeller, en för hörn/positioner "vertex table" och en annan för trianglar "triangle table", vilket indikerar vilka hörn som triangeln består av. Detta spara inte hur hörnen är sammankopplade. Detta är ganska enkel och effektiv, och möjliggör effektiva operationer på statiska modeller. Exempel är OFF, OBJ, PLY.
 
 			[b]Face-based connectivity[/b]
-			Hörnen sparar: position och referens till face. Face sparar referenser till tre hörn, och referenser till tre granar.
+			Hörnen sparar: position och referens till face. Face sparar referenser till tre hörn, och referenser till tre grannar.
 
 			[b]Edge-based connectivity[/b]
 			Hörnen sparar: position och referens till en kant. Kanter sparar två referenser till hörn, två till face och fyra till kanter. Face sparar en referens till edge.
@@ -133,12 +133,12 @@
 	</TestQuestion>
 	<TestQuestion Category="Interpolation">
 		<Question>
-			Hur fungear linjär interpolation (i 1D)?
+			Hur fungerar linjär interpolation (i 1D)?
 		</Question>
 		<Answer>
 			I det generella fallet ges det av: [math]f(x) = (x_1 - x) / (x_1 - x_0) f(x_0) + (x - x_0) / (x_1 - x_0) f(x_1), x in [x_0, x_1][/math].
 
-			Men det är vanligt med följande speciallfall: [math]f(x) = (1 - x) f(0) + x f(1), x in [0, 1][/math]. Det går också att uttrycka det som: [math]text(bas) xx text(koefficienter) = [[1-x, x]] [[f(0)], [f(1)]] = [[1, x]] [[1, 0], [-1, 1]] [[f(0)], [f(1)]][/math].
+			Men det är vanligt med följande specialfall: [math]f(x) = (1 - x) f(0) + x f(1), x in [0, 1][/math]. Det går också att uttrycka det som: [math]text(bas) xx text(koefficienter) = [[1-x, x]] [[f(0)], [f(1)]] = [[1, x]] [[1, 0], [-1, 1]] [[f(0)], [f(1)]][/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Interpolation">
@@ -153,10 +153,10 @@
 	</TestQuestion>
 	<TestQuestion Category="Interpolation">
 		<Question>
-			Hur fungear linjär interpolation (i 3D), även kallat för trilinjär interpolation?
+			Hur fungerar linjär interpolation (i 3D), även kallat för trilinjär interpolation?
 		</Question>
 		<Answer>
-			Det fungerar så att vi först interpolerar fyra gånger i x riktningen, och sedan två gånger i y riktningen och slutgingen en gång i z riktningen.
+			Det fungerar så att vi först interpolerar fyra gånger i x riktningen, och sedan två gånger i y riktningen och slutligen en gång i z riktningen.
 
 			Formelen ges av: [math]f(x, y, z) = sum_(k=0)^p sum_(j=0)^m sum_(i=0)^n b_i(x) b_j(y) b_k(z) f_(ijk)[/math].
 		</Answer>
@@ -172,20 +172,20 @@
 	</TestQuestion>
 	<TestQuestion Category="Interpolation">
 		<Question>
-			Vad är barycentric koordinater för något?
+			Vad är barycentriska koordinater för något?
 		</Question>
 		<Answer>
 			Det är ett sätt att uttrycka koordinaterna för en punkt [math]bar(p)[/math] som ligger i en triangel [math]bar(p)_1, bar(p)_2, bar(p)_3[/math].
 
 			[img width="50%" height="50%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/BarycentricCoordinates.png[/img]
-			
-			Då ges punkten [math]bar(p)[/math] av [math]bar(p)=alpha bar(p)_1 + beta bar(p)_2 + gamma bar(p)_3[/math]. Då säger [math]alpha, beta, gamma[/math] vara punktens barycentric koordinater, som uppfyller [math]alpha + beta + gamma = 1[/math].
 
-			För att hitta koordinaterna, som kan man beräkna arean för de olika trianglarna: [math]alpha = (area(Delta(bar(p)_2, bar(p)_3, bar(p)))) / (area(Delta(bar(p)_1, bar(p)_2, bar(p)_3))), beta = (area(Delta(bar(p)_1, bar(p)_3, bar(p)))) / (area(Delta(bar(p)_1, bar(p)_2, bar(p)_3))), gamma = (area(Delta(bar(p)_1, bar(p)_2, bar(p)))) / (area(Delta(bar(p)_1, bar(p)_2, bar(p)_3)))[/math].
+			Då ges punkten [math]bar(p)[/math] av [math]bar(p)=alpha bar(p)_1 + beta bar(p)_2 + gamma bar(p)_3[/math]. Då är [math]alpha, beta, gamma[/math] punktens barycentriska koordinater, som uppfyller [math]alpha + beta + gamma = 1[/math].
+
+			För att hitta koordinaterna, så kan man beräkna arean för de olika trianglarna:[math]alpha = (area(Delta(bar(p)_2, bar(p)_3, bar(p)))) / (area(Delta(bar(p)_1, bar(p)_2, bar(p)_3))), beta = (area(Delta(bar(p)_1, bar(p)_3, bar(p)))) / (area(Delta(bar(p)_1, bar(p)_2, bar(p)_3))), gamma = (area(Delta(bar(p)_1, bar(p)_2, bar(p)))) / (area(Delta(bar(p)_1, bar(p)_2, bar(p)_3)))[/math].
 
 			Det går även att lösa ekvationssystemet: [math][[x_0, x_1, x_2], [y_0, y_1, y_2], [1, 1, 1]] [[alpha], [beta], [gamma]] = [[x], [y], [1]][/math].
 
-			Explict lösningar ges av:
+			Explicit lösningar ges av:
 			[math]alpha = 1 / (2A) det([[x, x_2, x_3], [y, y_2, y_3], [1, 1, 1]])[/math]
 			[math]beta = 1 / (2A) det([[x_1, x, x_3], [y_1, y, y_3], [1, 1, 1]])[/math]
 			[math]gamma = 1 / (2A) det([[x_1, x_2, x], [y_1, y_2, y], [1, 1, 1]])[/math]
@@ -197,9 +197,9 @@
 			Hur fungerar linjär interpolation i en triangel?
 		</Question>
 		<Answer>
-			Givet triangelns tre hörn [math]f_0, f_1, f_2[/math], så kan interpolation skrivas som [math]f(x, y) = a + bx + cy[/math], där Koefficienterna fås genom att lösa följande ekvationssystem: [math][[1, x_0, y_0], [1, x_1, y_1], [1, x_2, y_2]] [[a], [b], [c]] = [[f_0], [f_1], [f_2]][/math].
+			Givet triangelns tre hörn [math]f_0, f_1, f_2[/math], så kan interpolationen skrivas som [math]f(x, y) = a + bx + cy[/math], där koefficienterna fås genom att lösa följande ekvationssystem: [math][[1, x_0, y_0], [1, x_1, y_1], [1, x_2, y_2]] [[a], [b], [c]] = [[f_0], [f_1], [f_2]][/math].
 
-			Det går även att använda sig av barycentric koordinater: [math]f(x, y) = alpha(x, y) f_0 + beta(x, y) f_1 + gamma(x, y) f_2[/math].
+			Det går även att använda sig av barycentriska koordinater: [math]f(x, y) = alpha(x, y) f_0 + beta(x, y) f_1 + gamma(x, y) f_2[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="GeometricModeling">
@@ -208,7 +208,7 @@
 		</Question>
 		<Answer>
 			Först, De Casteljau algoritm beräknar en Bezier kurva för ett givet antal kontrollpunkter.
-			Antag att [math]bb "b"_0, bb "b"_1, ... bb "b"_n in RR^3[/math] är kontrollpunkterna, och kurvan som vi vill ha är [math]bb "x"(t), t in [0, 1][/math].
+			Antag att [math]bb "b"_0, bb "b"_1, ... bb "b"_n in RR^d[/math] är kontrollpunkterna, och kurvan som vi vill ha är [math]bb "x"(t), t in [0, 1][/math].
 
 			Låt [math]b_i^r(t)[/math] vara en koefficient, och dessa beräknas som: [math]bb "b"_i^(r)(t) = (1-t) bb "b"_i^((r-1)) + t bb "b"_(i+1)^((r-1))[/math], med [math]bb "b"_i^(0)=bb "b"_i[/math]. Då gess slutligen [math]bb "x"(t) = bb "b"_0^((n))[/math].
 
@@ -219,13 +219,13 @@
 			[b]Egenskaper[/b]
 			[ul]
 				[li]Bezier kurvan är ett polynom av grad [math]n[/math][/li]
-				[li]Endast slutpunkterna som interpoleras [math]x(0)=bb "b"_0, x(1)=bb "b"_n[/math], övriga punkter approximeras.[/li]
-				[li]Konvext hölje: Bezier kurvan är ligger innanför konvexa höljet av Bezier polygonet.[/li]
+				[li]Endast slutpunkterna som interpoleras: [math]x(0)=bb "b"_0, x(1)=bb "b"_n[/math], övriga punkter approximeras.[/li]
+				[li]Konvext hölje: Bezier kurvan ligger innanför det konvexa höljet av Bezier polygonet.[/li]
 				[li]Tid: [math]O(n^2)[/math], minne: [math]O(n)[/math].[/li]
 				[li]Variation diminishing: ingen linje skär Bezier kurvan mer än Bezier polygonet för linjen.[/li]
 				[li]Förflyttning av en kontrollpunkt förändrar hela kurvan.[/li]
 				[li]Invariant under affine transformation.[/li]
-				[li]Invariant under barycentric kombinationer.[/li]
+				[li]Invariant under barycentriska kombinationer.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -258,7 +258,7 @@
 		<Answer>
 			Det innebär att vi sätter ihop flera olika Bezier kurvor för att bilda en kurva. Givet två kurvor [math]bb "x"_1(s) s in [t_0, t_1][/math] och [math]bb "x"_2(s) s in [t_1, t_2][/math]. [math]bb "x"_1(s)[/math] och [math]bb "x"_2(s)[/math] säges vara [math]C^r[/math] kontinuerlig i [math]t_1[/math] om de sammanfaller i 0:te till [math]r[/math]:te derivatan av [math]t_1[/math].
 
-			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/SplineContinuity.png[/img]	
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/SplineContinuity.png[/img]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="GeometricModeling">
@@ -282,7 +282,7 @@
 			Vad är en B-spline?
 		</Question>
 		<Answer>
-	
+
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="GeometricModeling">
@@ -308,7 +308,7 @@
 			Vad är "Beizer Patches"?
 		</Question>
 		<Answer>
-	
+
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="GeometricModeling">
@@ -316,9 +316,9 @@
 			Vad är "Total Degree Surfaces"?
 		</Question>
 		<Answer>
-			Vi använder oss av triangler istället. Detta kan konstrueras med barycentric koordinater.
+			Vi använder oss av trianglar istället. Detta kan konstrueras med barycentriska koordinater.
 
-			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/TotalDegreeSurface.png[/img]		
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/TotalDegreeSurface.png[/img]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="GeometricModeling">
@@ -327,8 +327,8 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li]En kontinuerlig tensor product spline är endast definierad för ett rutnät av quads. Detta innebär att topologin av objektet är begränsat.[/li]
-				[li]Det är svårt att få yta med variabler kontinuerlig, på grund av de många begräsningarna som detta kräver.[/li]
+				[li]En kontinuerlig tensor product spline är endast definierad för ett rutnät av quads. Detta innebär att topologin av objektet är begränsad.[/li]
+				[li]Det är svårt att få en yta med flera variabler kontinuerlig, på grund av de många begräsningarna som detta ställer.[/li]
 			[/ul]
 		</Answer>
 	</TestQuestion>
@@ -356,7 +356,7 @@
 				[li]Upprepa.[/li]
 			[/ol]Konvergerar emot en kvadratisk B-Spline kurva.
 
-			[img width="50%" height="50%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/ChaikinsCornerCuttingSpline.png[/img]		
+			[img width="50%" height="50%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/ChaikinsCornerCuttingSpline.png[/img]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="GeometricModeling">
@@ -394,7 +394,7 @@
 			Hur lyder den generella formeln för B-spline subdivision?
 		</Question>
 		<Answer>
-			[ul]		
+			[ul]
 				[li]Dela linjer som vanligt: sätt in punkter i mitten av linjen.[/li]
 				[li]Viktat medelvärde: [math]1/(2^(d-1)) (text(binomialkoefficient)(d-1, 0), text(binomialkoefficient)(d-1,1), ..., text(binomialkoefficient)(d-1, d-1))[/math] för en B-spline av grad [math]d[/math].[/li]
 			[/ul]
@@ -408,7 +408,7 @@
 			[ul]
 				[li]Börja med en vanlig quad mesh.[/li]
 				[li]
-					Vid varje subdivision steg: 
+					Vid varje subdivision steg:
 					[ul]
 						[li]Dela varje quad i fyra delar (quadtree subdivision)[/li]
 						[li]Placera linjärt interpolerade hörn.[/li]
@@ -416,7 +416,7 @@
 					[/ul]
 				[/li]
 			[/ul]Exempel på averaging masks är:
-			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/AveragingMasks.png[/img]		
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/AveragingMasks.png[/img]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Color">
@@ -424,7 +424,7 @@
 			Ange olika photoreceptors.
 		</Question>
 		<Answer>
-			Dessa är binära, de kan antigen vara på eller av. Informationen fördelas av vilka celler som är aktiva och för hur länge.
+			Dessa är binära, de kan antigen vara på eller av. Informationen förmedlas av vilka celler som är aktiva och för hur länge dessa är aktiva.
 			[ul]
 				[li]Cones: för syn i ljuset.[/li]
 				[li]Rods: för syn i mörkret.[/li]
@@ -446,7 +446,7 @@
 		<Answer>
 			Inom intervallet 380-780 nm.
 
-			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Wavelengths.png[/img]			
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Wavelengths.png[/img]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Color">
@@ -489,7 +489,7 @@
 				[li]Magenta: komplement av grön.[/li]
 				[li]Gul: komplement av blå.[/li]
 				[li]K: svart. Används för att gömma imperfektioner som uppstod vid blandningen.[/li]
-			[/ul][img width="50%" height="50%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/CMYK.png[/img]	
+			[/ul][img width="50%" height="50%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/CMYK.png[/img]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Color">
@@ -520,7 +520,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Color">
 		<Question>
-			Vad är huvudsakliga skillnanden mellan RGB och HSV/HLS?
+			Vad är huvudsakliga skillnaden mellan RGB och HSV/HLS?
 		</Question>
 		<Answer>
 			RGB är teknisk orienterat färgsystem, som är inte baserat på hur människor uppfattar färger, vilket HSV/HLS är.
@@ -528,7 +528,7 @@
 	</TestQuestion>
 	<TestQuestion Category="PerspectiveGeometry">
 		<Question>
-			Vad är en "pinhole camera" för något?
+			Vad är en "pinhole" kamera för något?
 		</Question>
 		<Answer>
 			Det är den enklaste typen av avbildningsenhet som fångar in geometrin av en perspektiv projektion. Det fungerar så att ljuset kommer in i kameran genom en öppning som är oändligt liten. Skärningen mellan ljusstrålen och bildplanet bildar avbildningen av objektet.
@@ -556,7 +556,7 @@
 			Vad är en "view volume"?
 		</Question>
 		<Answer>
-			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/ViewVolume.png[/img]	
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/ViewVolume.png[/img]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="PerspectiveGeometry">
@@ -575,7 +575,7 @@
 			[math]P[/math] projektionsmatris med [math]f = 1[/math].
 			[math]P = [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -1], [0, 0, 1, 0]][/math].
 
-			Notera att med denna matris så får vi fokuspunkten vid origo, vyriktningen som Z-axeln. Vill vi ändra positionen och vyriktningen så kan vi multiplicera [math]P_S[/math] med en transformation.
+			Notera att med denna matris så får vi fokuspunkten vid origo, vy riktningen som Z-axeln. Vill vi ändra positionen och vy riktningen så kan vi multiplicera [math]P_S[/math] med en transformation.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Rendering">
@@ -584,7 +584,7 @@
 		</Question>
 		<Answer>
 			[ul]
-				[li]Projicera alla triangler till skärmen.[/li]
+				[li]Projicera alla trianglar till skärmen.[/li]
 				[li]Omvandla till pixlar (rasterize).[/li]
 				[li]Avgör vilka pixlar som är synliga.[/li]
 				[li]Applicera shading (beräkna färg).[/li]
@@ -596,7 +596,7 @@
 			Vad är "Painters" algoritm för något?
 		</Question>
 		<Answer>
-			Det är en algoritm för att avgöra vilka pixlar som ska synas. Den funerar så att vi först sorterar alla triangler bakåt-till-framåt (i den ordning som de ska synas på skrämen). Sedan så ritar vi trianglarna där vi tillåter att pixlar skrivs över.
+			Det är en algoritm för att avgöra vilka pixlar som ska synas. Den fungerar så att vi först sorterar alla trianglar bakåt-till-framåt (i den ordning som de ska synas på skrämen). Sedan så ritar vi trianglarna där vi tillåter att pixlar skrivs över.
 
 			Nackdelarna med denna algoritm är att den är seg ([math]O(n log n)[/math] för [math]n[/math] antal trianglar), och den fungerar inte alltid (se bild). För att undvika detta problem så behöver vi på något sätt beskära trianglarna.
 
@@ -631,7 +631,7 @@
 		</Question>
 		<Answer>
 			[b]Förkasta pixlar[/b]
-			Om en pixel inte är på skrärmen, renderera ej. Problemen med detta är att det är mycket segt.
+			Om en pixel inte är på skärmen, rendera ej. Problemen med detta är att det är mycket segt.
 
 			[b]Screen space clipping[/b]
 			Modifiera rasterize till att hoppa till synliga pixlar. Detta är effektivt, men finns problem mär pixeln korsar kameras plan.
@@ -657,9 +657,9 @@
 		<Answer>
 			Vi har en ljuskälla som vi ser som en punkt. Definiera:
 			[ul]
-				[li]Ljusvektorn - [math]l = text(pos)_text(light) - text(pos)_text(object)[/math][/li]
-				[li]Vyvektorn - [math]v = text(pos)_text(camera) - text(pos)_text(object)[/math][/li]
-				[li]Normalen för ytan - [math]n[/math][/li]
+				[li]Ljusvektorn - [math]l = text(pos)_text(light) - text(pos)_text(object)[/math].[/li]
+				[li]Vy vektorn - [math]v = text(pos)_text(camera) - text(pos)_text(object)[/math].[/li]
+				[li]Normalen för ytan - [math]n[/math].[/li]
 			[/ul]Om vi vill utöka till flera ljuskällor, så summerar vi bidraget från alla källor.
 			[img width="50%" height="50%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/LightModel.png[/img]
 		</Answer>
@@ -720,7 +720,7 @@
 			Hur fungerar Phong ljusmodell?
 		</Question>
 		<Answer>
-			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/PhongModel.png[/img]		
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/PhongModel.png[/img]
 
 			Den är dock fysisk inkorrekt (energin bevaras ej) och gör att objekten ser plastiga ut.
 		</Answer>
@@ -760,7 +760,7 @@
 	</TestQuestion>
 	<TestQuestion Category="Rendering">
 		<Question>
-			Vad är skillnanden mellan reflektion och refraction?
+			Vad är skillnaden mellan reflektion och refraction?
 		</Question>
 		<Answer>
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/ReflectionVsRefraction.png[/img]
@@ -782,7 +782,7 @@
 			Hur fungerar raytracing?
 		</Question>
 		<Answer>
-			Vi börjar i kameran (viewing point), och sedan följer vi ljusstrålarna i bakåtriktning, och hanterar hur du reflekteras, etc. vid objekt.
+			Vi börjar i kameran (viewing point), och sedan följer vi ljusstrålarna i bakåtriktning, och hanterar hur den reflekteras, etc. vid objekten.
 
 			Vi har då:
 			[ul]
@@ -799,7 +799,7 @@
 			Hur kan vi avgöra om en stråle skär ett plan?
 		</Question>
 		<Answer>
-			En punkt på ett plan uppfyller: [math](bb "p" - bb "p"_0) * bb "n" = 0[/math] och en punkt på en ståle uppfyller [math]bb "p" = bb "p"_r + lambda bb "t"_r, lambda >= 0[/math]. Vi brukar då begränsa [math]lambda lt lambda_text(max)[/math].
+			En punkt på ett plan uppfyller: [math](bb "p" - bb "p"_0) * bb "n" = 0[/math] och en punkt på en ståle uppfyller [math]bb "p" = bb "p"_r + lambda bb "t"_r, lambda >= 0[/math]. Vi brukar då begränsa [math]lambda le lambda_text(max)[/math].
 
 			För att avgöra beräknar vi då: [math]lambda = ((bb "p"_0 - bb "p"_r) * n) / (bb "t"_r * n)[/math]. Strålen skär planet om [math](bb "t"_r * n) != 0[/math] och [math]lambda in [0, lambda_text(max)][/math].
 		</Answer>
@@ -809,12 +809,12 @@
 			Hur kan vi avgöra om en stråle skär en triangel?
 		</Question>
 		<Answer>
-			Beräkna [math]bb "t"_1 = bb "p"_1 - bb "p"_0, bb "t"_2 = bb "p"_2 - bb "p"_0[/math]. Detta ger att normalen för triangeln blir: [math]bb "n" = bb "t"_1 xx bb "t"_2[/math]. Vi kollar sedan om strålen skär planet som spänns upp av denna normal. När vi vet att den skär planet, så måste vi kolla om skärningen sker inom triangeln. Detta gör vi genom att beräkna skärningspunkten, och kolla att den ligger inom triangeln (t.ex. med barycentric koordinater).
+			Beräkna [math]bb "t"_1 = bb "p"_1 - bb "p"_0, bb "t"_2 = bb "p"_2 - bb "p"_0[/math]. Detta ger att normalen för triangeln blir: [math]bb "n" = bb "t"_1 xx bb "t"_2[/math]. Vi kollar sedan om strålen skär planet som spänns upp av denna normal. När vi vet att den skär planet, så måste vi kolla om skärningen sker inom triangeln. Detta gör vi genom att beräkna skärningspunkten, och kolla att den ligger inom triangeln (t.ex. med barycentriska koordinater).
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Rendering">
 		<Question>
-			Hur kan vi avgöra om en ståle skär en sfär?
+			Hur kan vi avgöra om en stråle skär en sfär?
 		</Question>
 		<Answer>
 			Vi har sfärens ekvation: [math](: bb "x" - bb "c", bb "x" - bb "c" :) = r^2[/math] och strålens ekvation: [math]bb "x" = bb "p"_r + lambda bb "t"_r[/math]. Sätter vi in strålens ekvation i sfärens får vi: [math](: bb "p"_r + lambda bb "t"_r - bb "c", bb "p"_r + lambda bb "t"_r - bb "c" :) - r^2 = 0[/math]. Detta resulterar i följande ekvation: [math]lambda^2 bb "t"_r^2 + 2 lambda (bb "t"_r * (bb "p"_r - bb "c")) + (bb "p"_r - bb "c")^2 - r^2 = 0[/math]. Löser vi denna får vi skärningen. Giltiga värden är [math]lambda >= 0[/math], om vi får två värden, välj den minsta.
@@ -865,12 +865,95 @@
 				[li]Spara samma nod flera gånger - vanligt.[/li]
 			[/ul][b]Dela objekt[/b]
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/SplittingObjects.png[/img]
-			
+
 			[b]Överlappande noder[/b]
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/OverlappingRegions.png[/img]
 
 			[b]Spara samma nod flera gånger[/b]
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/StoreMultipleTimes.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="VolumeRendering">
+		<Question>
+			Ange olika metoder för att visualisera volymer.
+		</Question>
+		<Answer>
+			[ul]
+				[li]Slicing: visualisera 2D snitt av volymen.[/li]
+				[li]Direct volume rendering: Vi anser att data:n är ett medium som sänder ut ljus med specifika egenskaper. Vi visualiserar genom att simulera detta enligt fysikens lagar.[/li]
+				[li]Indirect volume rendering: Omvandla/reducera volymen till någon annan representation (t.ex. ytor) och rendera dessa på vanligt sätt.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="VolumeRendering">
+		<Question>
+			Vad är en transfer funktion?
+		</Question>
+		<Answer>
+			Det är en funktion som mappar värden för data:n till färger: [math]T: RR \rightarrow C[/math].
+			Man kan applicera den på två sätt:
+			[ul]
+				[li]Pre-classification: applicera [math]T[/math] till samplad data, och interpolera sedan färger.[/li]
+				[li]Post-classification: interpolera data först, och sen applicera [math]T[/math].[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="VolumeRendering">
+		<Question>
+			Ange någon transfer funktion.
+		</Question>
+		<Answer>
+			Den enklaste typen av transfer funktion är "window", vilket mappar ett intervall av värden till linjär gråskala. Värden som är utanför intervallet mappas till svart eller vit. Den brukar definieras av ett center och en bredd.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="VolumeRendering">
+		<Question>
+			Ange olika färgskalor som används för transfer funktioner.
+		</Question>
+		<Answer>
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/ColorMaps.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="VolumeRendering">
+		<Question>
+			Hur fungerar en optisk modell för volym rendering.
+		</Question>
+		<Answer>
+			Varje punkt i volymen anses utstråla och absorbera ljus, enligt färgen och transparensen som transfer funktionen anger. Dessa bidrag integreras sedan längs vystrålen för att få den slutgiltiga bilden.
+
+			[math]I(s) = I(s_0) e^(-tau(s_0, s)) + int_(s_0)^(s) q(hat(s)) e^(-tau(hat(s), s)) d hat(s)[/math]. Denna integral har ingen analytisk lösning allmänt, och får beräknas m.h.a. numerisk integrering.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="VolumeRendering">
+		<Question>
+			Hur fungerar en numerisk approximation av integralen för den optiska modellen?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Diskretisera: dela upp strålen i segment som har konstant transparens och utstrålning.[/li]
+				[li]Samplings intervallen är ofta lika bredda, men behöver inte vara det (detta fall kallas för importance sampling).[/li]
+				[li]Vid varje sampling position, ett sample återskapas från ett voxel grid med interpolation.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="VolumeRendering">
+		<Question>
+			Vad är ray castning?
+		</Question>
+		<Answer>
+			[i]Steg 1: ray casting[/i]
+			För varje pixel i den slutgiltiga bilden, skicka en stråle genom volymen i vys riktning.
+
+			[i]Steg 2: sampling[/i]
+			För den delen av strålen som ligger inom volymen, så samplar vi punkter med lika långt avstånd mellan varandra. Allmänt så är inte volymen justerad med vy strålen, och sampling punkterna är oftast placerade mellan voxels. Detta gör att vi ofta interpolera värdena från närliggande voxlar (oftast används trilinjär interpolation).
+
+			[i]Steg 3: shading[/i]
+			För varje sampling punkt, så beräknas en gradient av ljussättning. Detta representerar orienteringen av lokala ytor inom volymenen. Dessa ljussätts sedan enligt ytans orienteringen och placeringen av ljuskällan.
+
+			[i]Steg 4: compositing[/i]
+			Efter alla sampling punkter har ljussätts, så kombineras dessa (compositing) längs vy strålen, vilket resulterar i den slutgiltiga färgen för pixeln. Den kan antigen vara back-to-front, vilket innebär att vi börjar beräkna längst ifrån vyn och slutar närmast vyn. Alternativ, kan vi köra front-to-back.
+
+			Fördelen med back-to-front är att gömda delar av volymen ej påverkar den slutgiltiga pixeln, men är mer beräkningskrävande än front-to-back.
 		</Answer>
 	</TestQuestion>
 </Test>
