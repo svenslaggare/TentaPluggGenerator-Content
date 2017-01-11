@@ -11,6 +11,15 @@
 	</TestQuestion>
 	<TestQuestion Category="Mathematics">
 		<Question>
+			Hur definieras punkter och vektorer i homogena koordinater?
+		</Question>
+		<Answer>
+			Punkter: [math][[x, y, z, w]], w != 0[/math].
+			Vektorer: [math][[x, y, z, 0]][/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Mathematics">
+		<Question>
 			Ange hur standard transformationer ser ut i homogena koordinater.
 		</Question>
 		<Answer>
@@ -266,6 +275,315 @@
 		</Question>
 		<Answer>
 			Samma sak som för [math]C_0[/math] och: tangenta vektorer proportionerlig emot skillnaden [math]bb "p"_1 - bb "p"_0, bb "p"_n - bb "p"_(n-1)[/math]. Detta innebär att dessa vektorer måste vara identiska.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Vad är en B-spline?
+		</Question>
+		<Answer>
+	
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Hur fungerar Bezier ytor?
+		</Question>
+		<Answer>
+			Det fungerar på samma sätt som Bezier kurvor, fast vi använder oss av bilinjär interpolation istället. Detta kallas även för "Tensor Product Bezier Surfaces".
+
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/BezierSurface.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Vad är "Tensor Product Surfaces"?
+		</Question>
+		<Answer>
+			Det kan ses som en kurva av kurvor, där varje "patch" består av rektanglar (quads). Om vi låter [math]bb "b"_i, bb "b"_j[/math] vara två kurvor, så ges ytan av: [math]bb "f"(u, v) = sum_(i=1)^n sum_(j=1)^n bb "b"_i(u) bb "b"_j(v) bb "p"_(i, j)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Vad är "Beizer Patches"?
+		</Question>
+		<Answer>
+	
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Vad är "Total Degree Surfaces"?
+		</Question>
+		<Answer>
+			Vi använder oss av triangler istället. Detta kan konstrueras med barycentric koordinater.
+
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/TotalDegreeSurface.png[/img]		
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Vad för problem finns det med spline patches?
+		</Question>
+		<Answer>
+			[ul]
+				[li]En kontinuerlig tensor product spline är endast definierad för ett rutnät av quads. Detta innebär att topologin av objektet är begränsat.[/li]
+				[li]Det är svårt att få yta med variabler kontinuerlig, på grund av de många begräsningarna som detta kräver.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Vad innebär "subdivision surfaces"?
+		</Question>
+		<Answer>
+			Det innebär att given en yta, så delar vi varje patch till t.ex. fyra nya patches, som vi sedan interpolerar för att få en slät yta. Det består av tre steg:
+			[ol]
+				[li]Dela nuvarande mesh (subdivide).[/li]
+				[li]Skapa linjärt interpolerade punkter (splitting).[/li]
+				[li]Flytta på punkter m.h.a. viktat medelvärde (average).[/li]
+			[/ol]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Hur fungerar Chaikins Corner Cutting Splines?
+		</Question>
+		<Answer>
+			[ol]
+				[li]Dela varje linjesegment på mitten.[/li]
+				[li]Beräkna ny punkt som medelvärdet mellan punkten och dess nästa granne (klockvis).[/li]
+				[li]Upprepa.[/li]
+			[/ol]Konvergerar emot en kvadratisk B-Spline kurva.
+
+			[img width="50%" height="50%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/ChaikinsCornerCuttingSpline.png[/img]		
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Hur fungerar Chaikins Corner Cutting?
+		</Question>
+		<Answer>
+			Vi beräknar de nya punkterna som: [math]Q_(2i) = 3/4 P_i + 1/4 P_(i+1), Q_(2i+1) = 1/4 P_i + 3/4 P_(i+1)[/math]. Detta leder till en kurva när antalet punkter går oändligheten som är [math]C_1[/math] kontinuerlig överallt.
+
+			Exempel: Antag att vi har fyra punkter, [math]P_0, P_1, P_2, P_3[/math], då gess de nya punkterna av:
+			[math]Q_0 = 3/4 P_0 + 1/4 P_1, Q_1 = 1/4 P_0 + 3/4 P_1[/math]
+			[math]Q_2 = 3/4 P_1 + 1/4 P_2, Q_3 = 1/4 P_1 + 3/4 P_2[/math]
+			[math]Q_4 = 3/4 P_2 + 1/4 + P_3, Q_5 = 1/4 P_2 + 3/4 P_3[/math].
+
+			[img width="50%" height="50%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/ChaikinsCornerCutting.png[/img]
+
+			Det går även att uttrycka det som:
+			[math]P_(2i)^(k+1)=3/4 P_i^k + 1/4 P_(i+1)^k,  P_(2i+1)
+			^(k+1)=1/4 P_i^K + 3/4 P_(i+1)^k[/math], där [math]k[/math] anger generationen.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Hur fungerar "cubic subdivision"?
+		</Question>
+		<Answer>
+			[math]P_(2i)^(k+1)=1/8 (P_(i-1)^k + 6 P_i^k + P_(i+1)^k)[/math]
+			[math]P_(2i+1)^(k+1)=1/8 (4P_(i)^k + 4 P_(i+1)^k)[/math]
+
+			När antalet punkter går emot oändligheten så går kurvan emot en [math]C_2[/math] kontinuerlig kurva.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Hur lyder den generella formeln för B-spline subdivision?
+		</Question>
+		<Answer>
+			[ul]		
+				[li]Dela linjer som vanligt: sätt in punkter i mitten av linjen.[/li]
+				[li]Viktat medelvärde: [math]1/(2^(d-1)) (text(binomialkoefficient)(d-1, 0), text(binomialkoefficient)(d-1,1), ..., text(binomialkoefficient)(d-1, d-1))[/math] för en B-spline av grad [math]d[/math].[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Hur fungerar "Tensor Product B-Spline Subdivision Surfaces"?
+		</Question>
+		<Answer>
+			[ul]
+				[li]Börja med en vanlig quad mesh.[/li]
+				[li]
+					Vid varje subdivision steg: 
+					[ul]
+						[li]Dela varje quad i fyra delar (quadtree subdivision)[/li]
+						[li]Placera linjärt interpolerade hörn.[/li]
+						[li]Applicera en 2D averaging mask.[/li]
+					[/ul]
+				[/li]
+			[/ul]Exempel på averaging masks är:
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/AveragingMasks.png[/img]		
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Color">
+		<Question>
+			Ange olika photoreceptors.
+		</Question>
+		<Answer>
+			Dessa är binära, de kan antigen vara på eller av. Informationen fördelas av vilka celler som är aktiva och för hur länge.
+			[ul]
+				[li]Cones: för syn i ljuset.[/li]
+				[li]Rods: för syn i mörkret.[/li]
+			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Color">
+		<Question>
+			Ange olika "cones" för koda färg.
+		</Question>
+		<Answer>
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/ColorCones.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Color">
+		<Question>
+			Inom vilket intervall är det synliga ljuset?
+		</Question>
+		<Answer>
+			Inom intervallet 380-780 nm.
+
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/Wavelengths.png[/img]			
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Color">
+		<Question>
+			Vad innebär färg?
+		</Question>
+		<Answer>
+			[ul]
+				[li]En spektralfördelning av ljuset.[/li]
+				[li]En perceptuell respons till en spektralfördelning av ljuset.[/li]
+				[li]Ett sätt att koda spektralfördelning av ljuset.[/li]
+			[/ul]Notera att färg beskrivs ej som en specifik våglängd eller RGB.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Color">
+		<Question>
+			Vad innebär additiv färg blandning?
+		</Question>
+		<Answer>
+			Det innebär att ljus med olika spektralfördelningar kommer samman, och dessa läggs ihop. Detta resulterar i en ny fördelning av ljuset (färg). Exempel är RGB.
+			[img width="50%" height="50%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/RGB.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Color">
+		<Question>
+			Vad innebär subtraktiv färg blandning?
+		</Question>
+		<Answer>
+			En ljusstråle med ett vit spektrum av ljus träffar en yta, som reflekterar ljuset. Ytan absorberar en viss våglängd av ljuset, vilket resulterar i en annan fördelning av ljuset (färg). Exempel är CMY(K).
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Color">
+		<Question>
+			Hur fungerar CMY(K)?
+		</Question>
+		<Answer>
+			Består av:
+			[ul]
+				[li]Turkos (cyan): komplement av röd (innebär att den absorberar rött).[/li]
+				[li]Magenta: komplement av grön.[/li]
+				[li]Gul: komplement av blå.[/li]
+				[li]K: svart. Används för att gömma imperfektioner som uppstod vid blandningen.[/li]
+			[/ul][img width="50%" height="50%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/CMYK.png[/img]	
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Color">
+		<Question>
+			Hur fungerar HLS?
+		</Question>
+		<Answer>
+			Består av:
+			[ul]
+				[li]Hue: färgen (röd, grön, blå, etc.), beskrivs av en vinkel.[/li]
+				[li]Lightness: anger hur mycket ljus.[/li]
+				[li]Saturation: beskriver hur mycket av färgen som är grå.[/li]
+			[/ul][img width="50%" height="50%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/HLS.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Color">
+		<Question>
+			Hur fungerar HSV?
+		</Question>
+		<Answer>
+			Består av:
+			[ul]
+				[li]Hue: färgen (röd, grön, blå, etc.), beskrivs av en vinkel.[/li]
+				[li]Saturation: beskriver hur mycket av färgen som är grå.[/li]
+				[li]Value: anger hur mycket ljus.[/li]
+			[/ul][img width="25%" height="25%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/HSV.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Color">
+		<Question>
+			Vad är huvudsakliga skillnanden mellan RGB och HSV/HLS?
+		</Question>
+		<Answer>
+			RGB är teknisk orienterat färgsystem, som är inte baserat på hur människor uppfattar färger, vilket HSV/HLS är.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Color">
+		<Question>
+			Vad innebär alpha blending?
+		</Question>
+		<Answer>
+			Det är ett sätt att blanda två olika färger: [math]c = alpha c_text(front) + (1 - alpha) c_text(back)[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="PerspectiveGeometry">
+		<Question>
+			Vad är en "pinhole camera" för något?
+		</Question>
+		<Answer>
+			Det är den enklaste typen av avbildningsenhet som fångar in geometrin av en perspektiv projektion. Det fungerar så att ljuset kommer in i kameran genom en öppning som är oändligt liten. Skärningen mellan ljusstrålen och bildplanet bildar avbildningen av objektet.
+
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/PinholeCamera.png[/img]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="PerspectiveGeometry">
+		<Question>
+			Ange relationer och ekvationer för "pinhole kamera".
+		</Question>
+		<Answer>
+			Vi har först:
+			[math]x / f = X / Z, y / f = Y / Z[/math].
+
+			Antag att [math]alpha[/math] är vyvinkeln och [math]h[/math] storleken av skärmen
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/PerspectiveGeometry1.png[/img]
+			Då gäller: [math]tan (alpha / 2) = h / (2f)[/math].
+
+			Vi har om [math]h[/math] och [math]f[/math] skalas av en gemensam faktor, så förändrar sig ej [math]alpha[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="PerspectiveGeometry">
+		<Question>
+			Vad är en "view volume"?
+		</Question>
+		<Answer>
+			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/ViewVolume.png[/img]	
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="PerspectiveGeometry">
+		<Question>
+			Hur lyder matrisen för att omvandla pixel i världen till skärmen?
+		</Question>
+		<Answer>
+			Den ges av [math]P_S = S N P[/math].
+
+			[math]S[/math]: skala till pixlar, origo uppe i högra hörnet.
+			[math]S = [[w/2, 0, 0, w/2], [0, -h/2, 0, h/2], [0, 0, 1, 0], [0, 0, 0, 1]][/math]
+
+			[math]N[/math]: normalisera till koordinater på skärmen.
+			[math]N = [[1 / ((w/h) tan(alpha/2)), 0, 0, 0], [0, 1 / (tan(alpha/2)), 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]][/math].
+
+			[math]P[/math] projektionsmatris med [math]f = 1[/math].
+			[math]P = [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -1], [0, 0, 1, 0]][/math].
+
+			Notera att med denna matris så får vi fokuspunkten vid origo, vyriktningen som Z-axeln. Vill vi ändra positionen och vyriktningen så kan vi multiplicera [math]P_S[/math] med en transformation.
 		</Answer>
 	</TestQuestion>
 </Test>
