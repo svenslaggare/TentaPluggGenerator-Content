@@ -172,6 +172,22 @@
 	</TestQuestion>
 	<TestQuestion Category="Interpolation">
 		<Question>
+			Vad för problem finns det med att använda en explicit formel för derivering av interpolation?
+		</Question>
+		<Answer>
+			Problemet är att denna derivata är diskontinuerlig vid ändpunkterna. Man kan lösa detta genom antigen att använda en högre ordning på interpolation (kubisk) eller använda sig av numerisk derivata.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Interpolation">
+		<Question>
+			Hur lyder numerisk derivata för interpolation?
+		</Question>
+		<Answer>
+			[math](df(x_i)) / (dx) ~~ (f(x_(i+1)) - f(x_(i-1))) / (2h)[/math]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="Interpolation">
+		<Question>
 			Vad är barycentriska koordinater för något?
 		</Question>
 		<Answer>
@@ -200,6 +216,14 @@
 			Givet triangelns tre hörn [math]f_0, f_1, f_2[/math], så kan interpolationen skrivas som [math]f(x, y) = a + bx + cy[/math], där koefficienterna fås genom att lösa följande ekvationssystem: [math][[1, x_0, y_0], [1, x_1, y_1], [1, x_2, y_2]] [[a], [b], [c]] = [[f_0], [f_1], [f_2]][/math].
 
 			Det går även att använda sig av barycentriska koordinater: [math]f(x, y) = alpha(x, y) f_0 + beta(x, y) f_1 + gamma(x, y) f_2[/math].
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Vad är B-spline?
+		</Question>
+		<Answer>
+			Givet [math]n+1[/math] kontrollpunkter [math]bb "P"_0, bb "P"_1, ..., bb "P"_n[/math] och "knut" vektor [math]U = { u_0, u_1, ..., u_m }[/math] så är en B-spline kurva av grad [math]p[/math] definierad som [math]C(u) = sum_(i=0)^n N_(i, p)(u) bb "P"_i[/math] där [math]N_(i, p)(u)[/math] är basfunktioner av grad [math]p[/math]. Vi har även att [math]m = n + p + 1[/math].
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="GeometricModeling">
@@ -263,6 +287,14 @@
 	</TestQuestion>
 	<TestQuestion Category="GeometricModeling">
 		<Question>
+			Vad är skillnaden mellan [math]C^r[/math] och [math]G^r[/math] kontinuerlighet?
+		</Question>
+		<Answer>
+			[math]C^r[/math] betyder att parametriseringen är kontinuerlig medans [math]G^r[/math] att endast att kurvan i sig själv är kontinuerlig. [math]G^r[/math] är ett svagare krav än [math]C^r[/math], men är lättare att uppnå.
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
 			Vad för krav ställer vi på en [math]C_0[/math] kontinuerlig Bezier spline?
 		</Question>
 		<Answer>
@@ -275,14 +307,6 @@
 		</Question>
 		<Answer>
 			Samma sak som för [math]C_0[/math] och: tangenta vektorer proportionerlig emot skillnaden [math]bb "p"_1 - bb "p"_0, bb "p"_n - bb "p"_(n-1)[/math]. Detta innebär att dessa vektorer måste vara identiska.
-		</Answer>
-	</TestQuestion>
-	<TestQuestion Category="GeometricModeling">
-		<Question>
-			Vad är en B-spline?
-		</Question>
-		<Answer>
-
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="GeometricModeling">
@@ -308,7 +332,7 @@
 			Vad är "Beizer Patches"?
 		</Question>
 		<Answer>
-
+			Kurvan för gränser är en Bezier kurva av gränspunkterna?
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="GeometricModeling">
@@ -398,6 +422,14 @@
 				[li]Dela linjer som vanligt: sätt in punkter i mitten av linjen.[/li]
 				[li]Viktat medelvärde: [math]1/(2^(d-1)) (text(binomialkoefficient)(d-1, 0), text(binomialkoefficient)(d-1,1), ..., text(binomialkoefficient)(d-1, d-1))[/math] för en B-spline av grad [math]d[/math].[/li]
 			[/ul]
+		</Answer>
+	</TestQuestion>
+	<TestQuestion Category="GeometricModeling">
+		<Question>
+			Vad är "limit mask"?
+		</Question>
+		<Answer>
+			Det är sätt att beräkna positionen för subdivision punkterna direkt istället (med gränsvärde) för att approximera detta med många iterationer.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="GeometricModeling">
