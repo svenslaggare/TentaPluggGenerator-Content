@@ -593,7 +593,7 @@
 	</TestQuestion>
 	<TestQuestion Category="PerspectiveGeometry">
 		<Question>
-			Hur lyder matrisen för att omvandla pixel i världen till skärmen?
+			Hur lyder matrisen för att omvandla punkt i världen till skärmen?
 		</Question>
 		<Answer>
 			Den ges av [math]P_S = S N P[/math].
@@ -814,7 +814,7 @@
 			Hur fungerar raytracing?
 		</Question>
 		<Answer>
-			Vi börjar i kameran (viewing point), och sedan följer vi ljusstrålarna i bakåtriktning, och hanterar hur den reflekteras, etc. vid objekten.
+			Vi börjar i kameran (viewing point), och sedan följer vi ljusstrålarna i bakåtriktning, och hanterar hur de reflekteras vid objekten.
 
 			Vi har då:
 			[ul]
@@ -974,10 +974,10 @@
 		</Question>
 		<Answer>
 			[i]Steg 1: ray casting[/i]
-			För varje pixel i den slutgiltiga bilden, skicka en stråle genom volymen i vys riktning.
+			För varje pixel i den slutgiltiga bilden, skicka en stråle genom volymen i vyns riktning.
 
 			[i]Steg 2: sampling[/i]
-			För den delen av strålen som ligger inom volymen, så samplar vi punkter med lika långt avstånd mellan varandra. Allmänt så är inte volymen justerad med vy strålen, och sampling punkterna är oftast placerade mellan voxels. Detta gör att vi ofta interpolera värdena från närliggande voxlar (oftast används trilinjär interpolation).
+			För den del av strålen som ligger inom volymen, samplar vi punkter med lika långt avstånd mellan varandra. Allmänt så är inte volymen justerad till vy strålen, och sampling punkterna är oftast placerade mellan voxels. Detta gör att vi ofta interpolera värdena från närliggande voxlar (oftast används trilinjär interpolation).
 
 			[i]Steg 3: shading[/i]
 			För varje sampling punkt, så beräknas en gradient av ljussättning. Detta representerar orienteringen av lokala ytor inom volymenen. Dessa ljussätts sedan enligt ytans orienteringen och placeringen av ljuskällan.
