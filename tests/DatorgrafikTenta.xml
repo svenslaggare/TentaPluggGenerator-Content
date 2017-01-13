@@ -20,26 +20,26 @@
 	</TestQuestion>
 	<TestQuestion Category="Mathematics">
 		<Question>
-			Ange hur standard transformationer ser ut i homogena koordinater.
+			Ange standard transformationer i homogena koordinater.
 		</Question>
 		<Answer>
 			[b]Translation[/b]
-			[math]((X), (Y), (Z), (1)) \rightarrow ((1, 0, 0, Delta X), (0, 1, 0, Delta Y), (0, 0, 1, Delta Z), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+			[math]((X'), (Y'), (Z'), (1)) \rightarrow ((1, 0, 0, Delta X), (0, 1, 0, Delta Y), (0, 0, 1, Delta Z), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
 
 			[b]Skalning[/b]
-			[math]((X), (Y), (Z), (1)) \rightarrow ((S_X, 0, 0, 0), (0, S_Y, 0, 0), (0, 0, S_Z, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+			[math]((X'), (Y'), (Z'), (1)) \rightarrow ((S_X, 0, 0, 0), (0, S_Y, 0, 0), (0, 0, S_Z, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
 
 			[b]Rotation runt X-axeln[/b]
-			[math]((X), (Y), (Z), (1)) \rightarrow ((1, 0, 0, 0), (0, cos \theta, -sin \theta, 0), (0, sin \theta, cos \theta, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+			[math]((X'), (Y'), (Z'), (1)) \rightarrow ((1, 0, 0, 0), (0, cos \theta, -sin \theta, 0), (0, sin \theta, cos \theta, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
 
 			[b]Rotation runt Y-axeln[/b]
-			[math]((X), (Y), (Z), (1)) \rightarrow ((cos \theta, 0, sin \theta, 0), (0, 1, 0, 0), (-sin \theta, 0, cos \theta, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+			[math]((X'), (Y'), (Z'), (1)) \rightarrow ((cos \theta, 0, sin \theta, 0), (0, 1, 0, 0), (-sin \theta, 0, cos \theta, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
 
 			[b]Rotation runt Z-axeln[/b]
-			[math]((X), (Y), (Z), (1)) \rightarrow ((cos \theta, -sin \theta, 0, 0), (sin \theta, cos \theta, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+			[math]((X'), (Y'), (Z'), (1)) \rightarrow ((cos \theta, -sin \theta, 0, 0), (sin \theta, cos \theta, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
 
 			[b]Spegling i XY planet[/b]
-			[math]((X), (Y), (Z), (1)) \rightarrow ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, -1, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
+			[math]((X'), (Y'), (Z'), (1)) \rightarrow ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, -1, 0), (0, 0, 0, 1)) ((X), (Y), (Z), (1))[/math]
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Grids">
@@ -242,7 +242,7 @@
 
 			[b]Egenskaper[/b]
 			[ul]
-				[li]Bezier kurvan är ett polynom av grad [math]n[/math][/li]
+				[li]Bezier kurvan är ett polynom av grad [math]n[/math].[/li]
 				[li]Endast slutpunkterna som interpoleras: [math]x(0)=bb "b"_0, x(1)=bb "b"_n[/math], övriga punkter approximeras.[/li]
 				[li]Konvext hölje: Bezier kurvan ligger innanför det konvexa höljet av Bezier polygonet.[/li]
 				[li]Tid: [math]O(n^2)[/math], minne: [math]O(n)[/math].[/li]
@@ -280,7 +280,7 @@
 			Vad är en Bezier Spline?
 		</Question>
 		<Answer>
-			Det innebär att vi sätter ihop flera olika Bezier kurvor för att bilda en kurva. Givet två kurvor [math]bb "x"_1(s) s in [t_0, t_1][/math] och [math]bb "x"_2(s) s in [t_1, t_2][/math]. [math]bb "x"_1(s)[/math] och [math]bb "x"_2(s)[/math] säges vara [math]C^r[/math] kontinuerlig i [math]t_1[/math] om de sammanfaller i 0:te till [math]r[/math]:te derivatan av [math]t_1[/math].
+			Det innebär att vi sätter ihop flera olika Bezier kurvor för att bilda en kurva. Givet två kurvor [math]bb "x"_1(s), s in [t_0, t_1][/math] och [math]bb "x"_2(s), s in [t_1, t_2][/math]. [math]bb "x"_1(s)[/math] och [math]bb "x"_2(s)[/math] säges vara [math]C^r[/math] kontinuerlig i [math]t_1[/math] om de sammanfaller i [math]0[/math]:te till [math]r[/math]:te derivatan av [math]t_1[/math].
 
 			[img width="75%" height="75%"]https://dl.dropboxusercontent.com/u/4940720/TentaPluggGenerator/images/SplineContinuity.png[/img]
 		</Answer>
@@ -298,7 +298,7 @@
 			Vad för krav ställer vi på en [math]C_0[/math] kontinuerlig Bezier spline?
 		</Question>
 		<Answer>
-			För varje spline segment så interpolerar första och sista kontrollpunkten. Detta innebär att punkter i närliggande segment måste sammanfalla.
+			För varje spline segment så interpolerars första och sista kontrollpunkterna. Detta innebär att punkter i närliggande segment måste sammanfalla.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="GeometricModeling">
@@ -306,7 +306,7 @@
 			Vad för krav ställer vi på en [math]C_1[/math] kontinuerlig Bezier spline?
 		</Question>
 		<Answer>
-			Samma sak som för [math]C_0[/math] och: tangenta vektorer proportionerlig emot skillnaden [math]bb "p"_1 - bb "p"_0, bb "p"_n - bb "p"_(n-1)[/math]. Detta innebär att dessa vektorer måste vara identiska.
+			Samma sak som för [math]C_0[/math] och: tangenta vektorer proportionerlig emot skillnaden [math]bb "p"_1 - bb "p"_0, bb "p"_n - bb "p"_(n-1)[/math]. Detta innebär att dessa vektorer måste vara identiska, alltså att derivatan i närliggande segment måstr sammanfalla.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="GeometricModeling">
@@ -666,7 +666,7 @@
 			Om en pixel inte är på skärmen, rendera ej. Problemen med detta är att det är mycket segt.
 
 			[b]Screen space clipping[/b]
-			Modifiera rasterize till att hoppa till synliga pixlar. Detta är effektivt, men finns problem mär pixeln korsar kameras plan.
+			Modifiera rasterize till att hoppa till synliga pixlar. Detta är effektivt, men finns problem när pixeln korsar kamerans plan.
 
 			[b]View Frustum Clipping[/b]
 
@@ -727,7 +727,7 @@
 			Hur kan man bestämma normalen för ett hörn?
 		</Question>
 		<Answer>
-			Som ett medelvärde av närliggande trianglar.
+			Som ett medelvärde av närliggande trianglars normal.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="Rendering">
@@ -977,13 +977,13 @@
 			För varje pixel i den slutgiltiga bilden, skicka en stråle genom volymen i vyns riktning.
 
 			[i]Steg 2: sampling[/i]
-			För den del av strålen som ligger inom volymen, samplar vi punkter med lika långt avstånd mellan varandra. Allmänt så är inte volymen justerad till vy strålen, och sampling punkterna är oftast placerade mellan voxels. Detta gör att vi ofta interpolera värdena från närliggande voxlar (oftast används trilinjär interpolation).
+			För den del av strålen som ligger inom volymen, så samplar vi punkter med lika långt avstånd mellan varandra. Allmänt så är inte volymen justerad till vy strålen, och sampling punkterna är oftast placerade mellan voxels. Detta gör att vi ofta interpolera värdena från närliggande voxlar (oftast används trilinjär interpolation).
 
 			[i]Steg 3: shading[/i]
 			För varje sampling punkt, så beräknas en gradient av ljussättning. Detta representerar orienteringen av lokala ytor inom volymenen. Dessa ljussätts sedan enligt ytans orienteringen och placeringen av ljuskällan.
 
 			[i]Steg 4: compositing[/i]
-			Efter alla sampling punkter har ljussätts, så kombineras dessa (compositing) längs vy strålen, vilket resulterar i den slutgiltiga färgen för pixeln. Den kan antigen vara back-to-front, vilket innebär att vi börjar beräkna längst ifrån vyn och slutar närmast vyn. Alternativ, kan vi köra front-to-back.
+			Efter alla sampling punkter har ljussätts, så kombineras dessa (compositing) längs vy strålen, vilket resulterar i den slutgiltiga färgen för pixeln. Den kan antigen vara back-to-front, vilket innebär att vi börjar beräkna längst ifrån vyn och slutar närmast vyn. Alternativt, så kan vi köra front-to-back.
 
 			Fördelen med back-to-front är att gömda delar av volymen ej påverkar den slutgiltiga pixeln, men är mer beräkningskrävande än front-to-back.
 		</Answer>
