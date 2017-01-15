@@ -306,7 +306,7 @@
 			Vad för krav ställer vi på en [math]C_1[/math] kontinuerlig Bezier spline?
 		</Question>
 		<Answer>
-			Samma sak som för [math]C_0[/math] och: tangenta vektorer proportionerlig emot skillnaden [math]bb "p"_1 - bb "p"_0, bb "p"_n - bb "p"_(n-1)[/math]. Detta innebär att dessa vektorer måste vara identiska, alltså att derivatan i närliggande segment måstr sammanfalla.
+			Samma sak som för [math]C_0[/math] och: tangenta vektorer proportionerlig emot skillnaden [math]bb "p"_1 - bb "p"_0, bb "p"_n - bb "p"_(n-1)[/math]. Detta innebär att dessa vektorer måste vara identiska, alltså att derivatan i närliggande segment måste sammanfalla.
 		</Answer>
 	</TestQuestion>
 	<TestQuestion Category="GeometricModeling">
@@ -669,6 +669,7 @@
 			Modifiera rasterize till att hoppa till synliga pixlar. Detta är effektivt, men finns problem när pixeln korsar kamerans plan.
 
 			[b]View Frustum Clipping[/b]
+			Detta används för att undvika problemet när pixeln korsar kamerans plan. Detta görs genom att man defininerar två plan, "near clipping plane" och "far clipping plane". Detta bildar ungefär en pyramid, och vi får även fyra sidoplan. Vad man nu gör att man också kollar clipping med dessa plan. Typisk så väljer man att "near clipping plane" är nära kameran (t.ex. 1 pixel eller något) för att hantera problemet.
 
 			[b]View Frustum Culling[/b]
 			Förkasta trianglar som ej är innan för "view frustum" (dvs det som kameran ser).
